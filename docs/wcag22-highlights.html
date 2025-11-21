@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WCAG 2.2 Highlights | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <p><a href="home.html">Accessibility Home</a> / WCAG 2.2 Highlights</p>
+    <h1>WCAG 2.2 Highlights</h1>
+    <p class="page-meta">Updated: 2025-11-20 · Next review: 2026-02-20</p>
+  </header>
+  <main id="maincontent">
+    <section aria-labelledby="intro-title">
+      <h2 id="intro-title">What is WCAG 2.2?</h2>
+      <p>WCAG 2.2 is the latest version of the Web Content Accessibility Guidelines. Arizona is aligning to level AA across websites, apps, documents, and LMS content as part of our Title II program.</p>
+      <p>This page summarizes the areas that change design and engineering decisions most for campus teams.</p>
+    </section>
+
+    <section aria-labelledby="new-sc">
+      <h2 id="new-sc">New or updated success criteria that matter most</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">What it means</th>
+              <th scope="col">Typical UA impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2.4.11</td>
+              <td>Focus Not Obscured (Minimum)</td>
+              <td>Keyboard focus indicators cannot be hidden behind sticky headers, chat widgets, or banners.</td>
+              <td>Quickstart sites with fixed headers; apps with custom focus outlines; third-party widgets.</td>
+            </tr>
+            <tr>
+              <td>2.4.12</td>
+              <td>Focus Not Obscured (Enhanced)</td>
+              <td>At AAA, focus indicators must be fully visible; we treat this as a strong design goal.</td>
+              <td>Design systems and shared components; modal dialogs; slide-over panels.</td>
+            </tr>
+            <tr>
+              <td>2.4.13</td>
+              <td>Focus Appearance</td>
+              <td>Focus outlines must be clearly visible, with sufficient contrast and minimum size.</td>
+              <td>Buttons, links, and custom components in Arizona Digital and Quickstart.</td>
+            </tr>
+            <tr>
+              <td>2.5.7</td>
+              <td>Dragging Movements</td>
+              <td>Interfaces that require dragging (sliders, drag-and-drop) must offer a simple alternative.</td>
+              <td>Course tools, lab simulations, and custom research dashboards.</td>
+            </tr>
+            <tr>
+              <td>2.5.8</td>
+              <td>Target Size (Minimum)</td>
+              <td>Tap/click targets should be at least 24 by 24 CSS pixels.</td>
+              <td>Navigation menus, icon buttons, mobile app controls, data grid actions.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="roles">
+      <h2 id="roles">What this means for different roles</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Designers</h3>
+          <p>Use design tokens that bake in contrast, minimum target sizes, and focus styles. Avoid layouts where sticky UI overlaps focus rings.</p>
+        </article>
+        <article class="card">
+          <h3>Developers</h3>
+          <p>Use native HTML controls where possible, respect the UA focus outline, and test with keyboard-only users for every feature.</p>
+        </article>
+        <article class="card">
+          <h3>Content creators</h3>
+          <p>Keep headings, links, and buttons descriptive. Avoid instructions that rely on color or position alone.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="next-steps">
+      <h2 id="next-steps">Next steps</h2>
+      <ul>
+        <li>Use the <a href="web-app.html">Web &amp; App hub</a> for deep technical patterns.</li>
+        <li>Review the <a href="policies-governance.html">Policies &amp; Governance hub</a> for roles and timelines.</li>
+        <li>Bring specific questions to <a href="support.html">Accessibility office hours</a>.</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 The University of Arizona.</p>
+  </footer>
+</body>
+</html>

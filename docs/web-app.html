@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web &amp; App Accessibility Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <p><a href="home.html">Accessibility Home</a> / Web &amp; App Accessibility</p>
+    <h1>Web &amp; App Accessibility</h1>
+    <p>Deliver WCAG 2.2 AA experiences for Arizona Sites, applications, and digital services.</p>
+    <p class="metric-chip">Title II compliance milestone: April 24, 2026</p>
+    <p class="page-meta">Owner: Arizona Digital · Last reviewed: 2025-11-20 · Next review: 2026-02-20</p>
+  </header>
+  <main id="maincontent">
+    <section aria-labelledby="web-exec">
+      <h2 id="web-exec">Executive summary</h2>
+      <p>All UA digital properties, including mobile apps, must meet WCAG 2.2 AA. Align your roadmap with the Title II deadlines, implement Quickstart components as designed, and document any fundamental alteration claims with alternative access plans.</p>
+      <ul>
+        <li>Reference the <a href="../shared/title-ii-brief.md">Title II brief</a> for scope, dates, and expectations.</li>
+        <li>Use Quickstart’s accessible components and shared snippets (`skip-link-snippet`, `focus-management`, `web-keyboard`).</li>
+        <li>Integrate automated and manual testing (axe, Accessibility Insights, JAWS/NVDA/VoiceOver/TalkBack).</li>
+        <li>Engage Procurement early when selecting third-party widgets or SaaS platforms.</li>
+      </ul>
+      <p><strong>If you only do one thing:</strong> run a keyboard-only walkthrough of your next feature before it ships.</p>
+    </section>
+
+    <section aria-labelledby="patterns">
+      <h2 id="patterns">Quickstart &amp; component patterns</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Navigation &amp; bypass</h3>
+          <p>Implement skip links, consistent nav order, and visible focus states.</p>
+          <a class="cta" href="skip-link-snippet.html">Skip link snippet</a>
+        </article>
+        <article class="card">
+          <h3>Keyboard interaction</h3>
+          <p>Follow roving tabindex and composite component guidance.</p>
+          <a class="cta" href="web-keyboard.html">Keyboard guidance</a>
+        </article>
+        <article class="card">
+          <h3>Focus management</h3>
+          <p>Send focus to dialogs, alerts, and error summaries predictably.</p>
+          <a class="cta" href="focus-management.html">Focus playbook</a>
+        </article>
+        <article class="card">
+          <h3>Color &amp; motion</h3>
+          <p>Use contrast-safe palettes, respect prefers-reduced-motion, avoid flashing.</p>
+          <a class="cta" href="color-contrast.html">Color guidance</a>
+        </article>
+        <article class="card">
+          <h3>Form experiences</h3>
+          <p>Explicit labels, inline errors, ARIA relationships, and accessible help.</p>
+          <a class="cta" href="do-dont.html">Do/Don’t library</a>
+        </article>
+        <article class="card">
+          <h3>Content structure</h3>
+          <p>Headings, landmarks, tables, and lists that follow `heading-basics`.</p>
+          <a class="cta" href="../shared/heading-basics.md">Heading basics</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="wcag">
+      <h2 id="wcag">WCAG 2.2 AA checklist</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Principle</th>
+              <th scope="col">Criteria highlights</th>
+              <th scope="col">UA implementation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Perceivable</td>
+              <td>Text alternatives, captions, contrast, reflow, dragging movements (2.5.7/2.5.8).</td>
+              <td>Use shared media guidance, color tokens, and responsive layouts with rem units.</td>
+            </tr>
+            <tr>
+              <td>Operable</td>
+              <td>Keyboard, pointer gestures, focus visible, target size, bypass blocks.</td>
+              <td>Adopt skip link snippet, roving tabindex, `min-height` hit areas ≥ 44px.</td>
+            </tr>
+            <tr>
+              <td>Understandable</td>
+              <td>Consistent navigation, error identification, input assistance.</td>
+              <td>Link to `shared/do-dont.md` patterns, add summary boxes, keep nav order static.</td>
+            </tr>
+            <tr>
+              <td>Robust</td>
+              <td>Names/roles/states, status messages, accessible APIs.</td>
+              <td>Use native HTML whenever possible; test with multiple screen readers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Download the full checklist or import into your team’s issue tracker.</p>
+      <a class="cta" href="../shared/testing-tools.md">Download checklist</a>
+    </section>
+
+    <section aria-labelledby="testing">
+      <h2 id="testing">Testing toolkit</h2>
+      <ul>
+        <li><strong>Automated:</strong> axe DevTools, Accessibility Insights CLI, Storybook a11y add-on.</li>
+        <li><strong>Manual keyboard:</strong> Tab/Shift+Tab/Enter/Space/Escape flows per `web-keyboard` guidance.</li>
+        <li><strong>Screen readers:</strong> JAWS, NVDA, VoiceOver, TalkBack; include Fusion/ZoomText for magnification.</li>
+        <li><strong>Contrast &amp; visuals:</strong> TPGi CCA, UA design tokens, prefers-reduced-motion QA.</li>
+        <li><strong>Reference material:</strong> <a href="https://webaim.org/resources/">WebAIM checklists</a> and <a href="https://dequeuniversity.com/sv/axe/devtools">Deque axe DevTools guides</a>.</li>
+      </ul>
+      <p>See <a href="../shared/testing-tools.md">Testing Toolkit</a> for scripts, logging templates, and CI recipes.</p>
+    </section>
+
+    <section aria-labelledby="mobile">
+      <h2 id="mobile">Mobile apps</h2>
+      <p>Title II now explicitly covers mobile apps. Follow the <a href="../shared/mobile-roadmap.md">mobile roadmap</a> to inventory apps, schedule audits, and remediate issues.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>VoiceOver expectations</h3>
+          <p>Support rotor navigation, Dynamic Type, high-contrast mode.</p>
+          <a class="cta" href="https://developer.apple.com/accessibility/">Apple guidance</a>
+        </article>
+        <article class="card">
+          <h3>TalkBack expectations</h3>
+          <p>Ensure on-screen instructions announce properly, provide custom actions, respect large text.</p>
+          <a class="cta" href="https://support.google.com/accessibility/android/answer/6007100">Google guidance</a>
+        </article>
+        <article class="card">
+          <h3>Companion web flows</h3>
+          <p>When apps open web views, inherit Quickstart components and retest with JAWS/NVDA.</p>
+          <a class="cta" href="persona-mobile.html">Mobile persona hub</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="exceptions">
+      <h2 id="exceptions">Exception &amp; equivalency process</h2>
+      <ol>
+        <li>Document why meeting a criterion would be a fundamental alteration or undue burden.</li>
+        <li>Outline the alternative access plan (who to contact, what formats, response times).</li>
+        <li>Route request through Accessibility PMO, Legal, and Executive Sponsor for approval.</li>
+        <li>Review annually and retire once resolved.</li>
+      </ol>
+      <p>Use the consultation form to start an exception review and store decisions in the governance log.</p>
+    </section>
+
+    <section aria-labelledby="web-training">
+      <h2 id="web-training">Training &amp; community</h2>
+      <ul>
+        <li>Arizona Digital developer guild (bi-weekly).</li>
+        <li>WCAG 2.2 code labs (monthly).</li>
+        <li>Mobile accessibility deep dives (quarterly).</li>
+      </ul>
+      <p>Need help? Request a consultation.</p>
+      <a class="cta" href="support.html">Request consultation</a>
+    </section>
+    <p><a href="#maincontent">Back to top</a></p>
+  </main>
+  <footer>
+    <p>&copy; 2025 The University of Arizona.</p>
+  </footer>
+</body>
+</html>

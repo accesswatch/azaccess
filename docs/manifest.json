@@ -1,0 +1,27 @@
+{
+    "description": "Static prototype files for accessibility.arizona.edu",
+    "generated": [
+        "home.html",
+        "personas.html",
+        "persona-students.html",
+        "persona-faculty.html",
+        "persona-staff.html",
+        "persona-developers.html",
+        "persona-mobile.html",
+        "persona-content.html",
+        "persona-comms.html",
+        "persona-leadership.html",
+        "persona-public.html",
+        "wizard.html",
+        "documents-media.html",
+        "web-app.html",
+        "teaching-learning.html",
+        "procurement.html",
+        "tools-checklists.html",
+        "policies-governance.html",
+        "support.html",
+        "blog.html",
+        "styles.css"
+    ],
+    "lastUpdated": "2025-11-20"
+}
