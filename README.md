@@ -4,7 +4,7 @@ This repository contains the prototype for the University of Arizona Digital Acc
 
 ## 🌐 Live Site
 
-Visit the live prototype: [https://YOUR-USERNAME.github.io/azaccess/work/web/home.html](https://YOUR-USERNAME.github.io/azaccess/work/web/home.html)
+Visit the live prototype: [https://accesswatch.github.io/azaccess/work/web/home.html](https://accesswatch.github.io/azaccess/work/web/home.html)
 
 ## 📋 About
 
@@ -70,7 +70,7 @@ If you prefer to do it manually or don't have GitHub CLI:
 
 3. **Push to GitHub**:
    ```powershell
-   git remote add origin https://github.com/YOUR-USERNAME/azaccess.git
+   git remote add origin https://github.com/accesswatch/azaccess.git
    git push -u origin main
    ```
 

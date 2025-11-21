@@ -35,6 +35,15 @@
     <p class="page-meta">Owner: Arizona Digital · Last reviewed: 2025-11-20 · Next review: 2026-02-20</p>
   </header>
   <main id="maincontent">
+    <section aria-labelledby="web-help">
+      <h2 id="web-help">What this page helps you do</h2>
+      <ul>
+        <li>Plan and build Arizona sites and applications that meet WCAG 2.2 AA and Title II expectations.</li>
+        <li>Choose the right Quickstart components, patterns, and testing tools for your stack.</li>
+        <li>Know when to escalate issues, request exceptions, or coordinate with Procurement and Accessibility PMO.</li>
+      </ul>
+    </section>
+
     <section aria-labelledby="web-exec">
       <h2 id="web-exec">Executive summary</h2>
       <p>All UA digital properties, including mobile apps, must meet WCAG 2.2 AA. Align your roadmap with the Title II deadlines, implement Quickstart components as designed, and document any fundamental alteration claims with alternative access plans.</p>
@@ -45,6 +54,25 @@
         <li>Engage Procurement early when selecting third-party widgets or SaaS platforms.</li>
       </ul>
       <p><strong>If you only do one thing:</strong> run a keyboard-only walkthrough of your next feature before it ships.</p>
+    </section>
+
+    <section aria-labelledby="web-quick-wins">
+      <h2 id="web-quick-wins">Quick wins (5–10 minutes)</h2>
+      <ul>
+        <li><strong>Navigation &amp; focus:</strong> Add a visible skip link, ensure Tab/Shift+Tab follow a logical order, and verify focus is always visible.</li>
+        <li><strong>Forms:</strong> Check that every input has a programmatic label, error messages are announced, and inline help is not color-only.</li>
+        <li><strong>Links &amp; buttons:</strong> Replace vague text like “click here” with descriptive labels, and make sure interactive elements have a clear role and name.</li>
+        <li><strong>Color &amp; motion:</strong> Use UA design tokens or Quickstart palettes for contrast, and respect prefers-reduced-motion for animations.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="web-maturity">
+      <h2 id="web-maturity">Minimum, better, best for web &amp; apps</h2>
+      <ul>
+        <li><strong>Minimum:</strong> Public-facing sites and applications avoid blocking barriers (keyboard traps, missing alt text on key images, inaccessible menus, uncaptioned required media).</li>
+        <li><strong>Better:</strong> Teams adopt Quickstart components and patterns, run automated and basic manual tests before releases, and address findings within planned sprints.</li>
+        <li><strong>Best:</strong> Accessibility requirements are part of definition of done, CI enforces checks, design and code reviews include disabled user feedback, and exception processes are documented and rare.</li>
+      </ul>
     </section>
 
     <section aria-labelledby="patterns">
