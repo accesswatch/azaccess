@@ -1,101 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Testing Toolkit | Accessibility at Arizona</title>
+  <title>Accessibility Testing Toolkit | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
-        <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
-    </div>
-    <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; App Accessibility</a> / Testing Toolkit</p>
-    <h1>Accessibility Testing Toolkit</h1>
-    <p class="page-meta">Demo summary of the shared testing-tools guidance.</p>
-  </header>
-  <main id="maincontent">
-    <section aria-labelledby="strategy-title">
-      <h2 id="strategy-title">Testing layering strategy</h2>
-      <ol>
-        <li>Review designs against WCAG 2.2 AA before development.</li>
-        <li>Run automated scans in CI/CD for every build.</li>
-        <li>Perform keyboard-only testing for key flows.</li>
-        <li>Validate critical scenarios with screen readers on key platforms.</li>
-        <li>Expand to additional assistive technologies for high-impact services.</li>
-      </ol>
-    </section>
-
-    <section aria-labelledby="tools-title">
-      <h2 id="tools-title">Tool catalog</h2>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Tool</th>
-              <th scope="col">Purpose</th>
-              <th scope="col">Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Accessibility Insights</td>
-              <td>FastPass automated + guided manual checks.</td>
-              <td>Align results with WCAG mapping.</td>
-            </tr>
-            <tr>
-              <td>axe DevTools / Pa11y CI</td>
-              <td>Automated rules engine in CI/CD.</td>
-              <td>Fail builds on critical issues.</td>
-            </tr>
-            <tr>
-              <td>WAVE</td>
-              <td>Visual overlay for quick content audits.</td>
-              <td>Spot color contrast and heading patterns.</td>
-            </tr>
-            <tr>
-              <td>Screen readers</td>
-              <td>Manual validation of semantics.</td>
-              <td>NVDA, VoiceOver, TalkBack for critical flows.</td>
-            </tr>
-            <tr>
-              <td>Colour Contrast Analyser</td>
-              <td>Verify text and UI contrast ratios.</td>
-              <td>Required for custom palettes.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-    <section aria-labelledby="also-web">
-      <h2 id="also-web">Also in Web &amp; Apps</h2>
-      <ul>
-        <li><a href="web-app.html#wcag">WCAG 2.2 AA checklist</a></li>
-        <li><a href="skip-link-snippet.html">Skip link snippet</a></li>
-        <li><a href="web-keyboard.html">Keyboard navigation essentials</a></li>
-      </ul>
-    </section>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <main id="maincontent" class="doc-content">
+    <article id="content">Loading…</article>
   </main>
   <footer>
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const mdFile = 'testing-tools.html';
+      try {
+        const res = await fetch(mdFile);
+        const text = await res.text();
+        const fm = text.match(/^---\n([\s\S]*?)\n---/);
+        let title = '';
+        let body = text;
+        if (fm) {
+          const yaml = fm[1];
+          const m = yaml.match(/^title:\s*(.*)$/m);
+          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
+          body = text.slice(fm[0].length);
+        }
+        const html = marked.parse(body);
+        if (title) document.title = title + ' | Accessibility';
+        const header = title ? ('<h1>'+title+'</h1>') : '';
+        document.getElementById('content').innerHTML = header + html;
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error loading document: ' + e;
+      }
+    })();
+  </script>
 </body>
 </html>

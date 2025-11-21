@@ -1,76 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Site Changelog | Accessibility at Arizona</title>
+  <title>Accessibility Site Changelog Template | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
-        <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html" aria-current="page">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
-    </div>
-    <p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policies &amp; Governance</a> / Site Changelog</p>
-    <h1>Accessibility Site Changelog</h1>
-    <p class="page-meta">Demo view of major changes tracked for audit and transparency.</p>
-  </header>
-  <main id="maincontent">
-    <section aria-labelledby="changelog-table-title">
-      <h2 id="changelog-table-title">Recent changes</h2>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Change</th>
-              <th scope="col">Pages / components</th>
-              <th scope="col">Owner</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2025-11-20</td>
-              <td>Added persona hub outlines and shared content blocks.</td>
-              <td>Personas, shared library.</td>
-              <td>Accessibility Team</td>
-            </tr>
-            <tr>
-              <td>2025-12-05</td>
-              <td>Published Document &amp; Media guidance.</td>
-              <td>Documents hub, shared doc guides.</td>
-              <td>Digital Accessibility</td>
-            </tr>
-            <tr>
-              <td>2025-12-15</td>
-              <td>Launched home prototype with Title II alert.</td>
-              <td>Home prototype.</td>
-              <td>Arizona Digital</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <main id="maincontent" class="doc-content">
+    <article id="content">Loading…</article>
   </main>
   <footer>
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const mdFile = 'changelog.html';
+      try {
+        const res = await fetch(mdFile);
+        const text = await res.text();
+        const fm = text.match(/^---\n([\s\S]*?)\n---/);
+        let title = '';
+        let body = text;
+        if (fm) {
+          const yaml = fm[1];
+          const m = yaml.match(/^title:\s*(.*)$/m);
+          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
+          body = text.slice(fm[0].length);
+        }
+        const html = marked.parse(body);
+        if (title) document.title = title + ' | Accessibility';
+        const header = title ? ('<h1>'+title+'</h1>') : '';
+        document.getElementById('content').innerHTML = header + html;
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error loading document: ' + e;
+      }
+    })();
+  </script>
 </body>
 </html>

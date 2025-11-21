@@ -1,113 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Assistive Technology Coverage | Accessibility at Arizona</title>
+  <title>Assistive Technology Coverage | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
-        <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
-    </div>
-    <p><a href="home.html">Accessibility Home</a> / Assistive Technology Coverage</p>
-    <h1>Assistive Technology Coverage</h1>
-    <p class="page-meta">Updated: 2025-11-20 · Next review: 2026-02-20</p>
-  </header>
-  <main id="maincontent">
-    <section aria-labelledby="overview-title">
-      <h2 id="overview-title">Overview</h2>
-      <p>Arizona tests new experiences with a small but representative set of assistive technologies so we catch common barriers before they reach students, employees, or visitors.</p>
-      <p>This page outlines the minimum coverage we expect for major releases.</p>
-    </section>
-
-    <section aria-labelledby="screenreaders-title">
-      <h2 id="screenreaders-title">Screen readers</h2>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Platform</th>
-              <th scope="col">Primary tools</th>
-              <th scope="col">Typical scenarios</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Windows</td>
-              <td>JAWS, NVDA, Fusion</td>
-              <td>Quickstart sites, enterprise apps, Brightspace, research dashboards.</td>
-            </tr>
-            <tr>
-              <td>macOS</td>
-              <td>VoiceOver</td>
-              <td>Arizona sites in Safari/Chrome, creative tools, LMS content.</td>
-            </tr>
-            <tr>
-              <td>iOS/iPadOS</td>
-              <td>VoiceOver</td>
-              <td>Mobile apps, campus maps, authentication flows, event registration.</td>
-            </tr>
-            <tr>
-              <td>Android</td>
-              <td>TalkBack</td>
-              <td>Mobile apps, web views, student tools, vendor portals.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section aria-labelledby="lowvision-title">
-      <h2 id="lowvision-title">Low vision and magnification</h2>
-      <ul>
-        <li>Fusion/ZoomText on Windows for magnification with speech.</li>
-        <li>Built-in zoom and high-contrast modes on Windows, macOS, iOS, and Android.</li>
-        <li>Ensure content reflows without horizontal scrolling at 200–400% zoom.</li>
-      </ul>
-      <p>See the <a href="wcag22-highlights.html">WCAG 2.2 highlights</a> for focus visibility and target size requirements.</p>
-    </section>
-
-    <section aria-labelledby="input-title">
-      <h2 id="input-title">Alternative input and mobility</h2>
-      <ul>
-        <li>Voice input (e.g., Dragon, built-in dictation) for command and text entry.</li>
-        <li>Switch access and keyboard-only navigation.</li>
-        <li>Pointer alternatives such as head tracking.</li>
-      </ul>
-      <p>Interactive controls must have clear labels so voice users can say “Click &lt;label&gt;”. See the <a href="web-app.html">Web &amp; App hub</a> for patterns.</p>
-    </section>
-
-    <section aria-labelledby="coverage-title">
-      <h2 id="coverage-title">How to plan coverage for your project</h2>
-      <ol>
-        <li>Identify critical user journeys (e.g., apply, register, pay, submit, report).</li>
-        <li>Choose at least one screen reader/platform pair and one magnification setup that matches your audience.</li>
-        <li>Schedule manual testing before launch and after major UI changes.</li>
-        <li>Log findings in your team’s issue tracker and surface high-risk issues to the Accessibility team.</li>
-      </ol>
-    </section>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <main id="maincontent" class="doc-content">
+    <article id="content">Loading…</article>
   </main>
   <footer>
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const mdFile = 'assistive-tech.html';
+      try {
+        const res = await fetch(mdFile);
+        const text = await res.text();
+        const fm = text.match(/^---\n([\s\S]*?)\n---/);
+        let title = '';
+        let body = text;
+        if (fm) {
+          const yaml = fm[1];
+          const m = yaml.match(/^title:\s*(.*)$/m);
+          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
+          body = text.slice(fm[0].length);
+        }
+        const html = marked.parse(body);
+        if (title) document.title = title + ' | Accessibility';
+        const header = title ? ('<h1>'+title+'</h1>') : '';
+        document.getElementById('content').innerHTML = header + html;
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error loading document: ' + e;
+      }
+    })();
+  </script>
 </body>
 </html>

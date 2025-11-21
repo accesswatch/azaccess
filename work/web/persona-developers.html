@@ -29,7 +29,7 @@
       <p>Ship inclusive code by focusing on four pillars:</p>
       <ol>
         <li><strong>Design-to-code parity</strong>: implement Quickstart patterns with semantic HTML and ARIA only when necessary.</li>
-        <li><strong>Predictable focus</strong>: ensure keyboard order, skip links, and roving tabindex follow <a href="../shared/focus-management.md">focus guidance</a>.</li>
+        <li><strong>Predictable focus</strong>: ensure keyboard order, skip links, and roving tabindex follow <a href="focus-management.html">focus guidance</a>.</li>
         <li><strong>Robust testing</strong>: combine CI automation with manual keyboard + JAWS/NVDA/VoiceOver/TalkBack passes before releasing.</li>
         <li><strong>Documented exceptions</strong>: log fundamental alteration requests with remediation plans.</li>
       </ol>
@@ -79,7 +79,7 @@
 
     <section aria-labelledby="dev-principles">
       <h2 id="dev-principles">Impactful principles &amp; checks</h2>
-      <p>Accessibility should feel predictable—not a burden—when you follow the same playbook every sprint. Anchor your work to <a href="../shared/wcag22-highlights.md">WCAG 2.2 AA highlights</a> and verify code with Accessibility Insights, WebAIM’s WAVE, DubBot (campus license), and Microsoft Accessibility Checker for any docs you attach to releases.</p>
+      <p>Accessibility should feel predictable—not a burden—when you follow the same playbook every sprint. Anchor your work to <a href="wcag22-highlights.html">WCAG 2.2 AA highlights</a> and verify code with Accessibility Insights, WebAIM’s WAVE, DubBot (campus license), and Microsoft Accessibility Checker for any docs you attach to releases.</p>
       <details class="accordion" open>
         <summary>Focus, input, and navigation</summary>
         <div>
@@ -103,7 +103,7 @@
       <details class="accordion">
         <summary>Media, documents, and alternative text</summary>
         <div>
-          <p>When you ship docs or media alongside features, run Microsoft Accessibility Checker, follow <a href="https://webaim.org/techniques/alttext/">WebAIM alt text guidance</a>, and ensure PDFs are tagged per <a href="../shared/pdf-remediation.md">Adobe remediation steps</a>.</p>
+          <p>When you ship docs or media alongside features, run Microsoft Accessibility Checker, follow <a href="https://webaim.org/techniques/alttext/">WebAIM alt text guidance</a>, and ensure PDFs are tagged per <a href="pdf-remediation.html">Adobe remediation steps</a>.</p>
           <ul>
             <li>Confirm reading order and form field labels in Acrobat before attaching PDFs to releases.</li>
             <li>Ask writers to provide source files plus tagged exports so DubBot can crawl links without false positives.</li>
@@ -165,7 +165,7 @@
             <li>Mirror visual labels in `aria-label` / `aria-labelledby` attributes for voice control.</li>
             <li>Keep the DOM order aligned with visual order so reading order stays predictable.</li>
           </ul>
-          <p>Reference: <a href="../shared/web-keyboard.md">Keyboard guidance</a>, <a href="../shared/skip-link-snippet.md">Skip link snippet</a>.</p>
+          <p>Reference: <a href="web-keyboard.html">Keyboard guidance</a>, <a href="skip-link-snippet.html">Skip link snippet</a>.</p>
         </div>
       </details>
       <details class="accordion">
@@ -177,7 +177,7 @@
             <li>Mark required fields with text and `aria-required="true"`; never rely on color alone.</li>
             <li>Send focus to the first invalid control on submit; provide summary errors for longer forms.</li>
           </ul>
-          <p>Reference: <a href="../shared/do-dont.md">Do/Don’t patterns</a>, <a href="web-app.html#wcag">WCAG checklist</a>, <a href="https://webaim.org/techniques/forms/">WebAIM form techniques</a>.</p>
+          <p>Reference: <a href="do-dont.html">Do/Don’t patterns</a>, <a href="web-app.html#wcag">WCAG checklist</a>, <a href="https://webaim.org/techniques/forms/">WebAIM form techniques</a>.</p>
         </div>
       </details>
       <details class="accordion">
@@ -189,7 +189,7 @@
             <li>Provide text alternatives for charts (data tables or summary lists).</li>
             <li>Lazy-load media without removing it from the accessibility tree.</li>
           </ul>
-          <p>Reference: <a href="../shared/media-captioning.md">Media playbook</a>, <a href="documents-media.html">Document &amp; media hub</a>.</p>
+          <p>Reference: <a href="media-captioning.html">Media playbook</a>, <a href="documents-media.html">Document &amp; media hub</a>.</p>
         </div>
       </details>
       <details class="accordion">
@@ -201,7 +201,7 @@
             <li>Trap focus inside modals and restore it after close; avoid off-screen focus jumps.</li>
             <li>Include skeleton loaders or progress indicators that expose name/role states.</li>
           </ul>
-          <p>Reference: <a href="../shared/focus-management.md">Focus playbook</a>, <a href="../shared/testing-tools.md">Testing toolkit</a>.</p>
+          <p>Reference: <a href="focus-management.html">Focus playbook</a>, <a href="testing-tools.html">Testing toolkit</a>.</p>
         </div>
       </details>
     </section>
@@ -212,8 +212,8 @@
         <summary>Engineering checklist</summary>
         <div>
           <ul>
-            <li>Include <a href="../shared/skip-link-snippet.md">skip links</a>, <a href="../shared/web-keyboard.md">keyboard support</a>, and <a href="../shared/focus-management.md">focus management</a> for all interactive regions.</li>
-            <li>Meet contrast via <a href="../shared/color-contrast.md">color guidance</a>.</li>
+            <li>Include <a href="skip-link-snippet.html">skip links</a>, <a href="web-keyboard.html">keyboard support</a>, and <a href="focus-management.html">focus management</a> for all interactive regions.</li>
+            <li>Meet contrast via <a href="color-contrast.html">color guidance</a>.</li>
             <li>Structure content with semantic headings and landmarks.</li>
           </ul>
         </div>
@@ -226,7 +226,7 @@
             <li>Manual: keyboard-only navigation, focus traps, modals.</li>
             <li>Screen reader: JAWS or NVDA (Windows) and VoiceOver (macOS/iOS); include TalkBack for Android webviews.</li>
           </ol>
-          <p>Deep dive: <a href="../shared/testing-tools.md">Testing Toolkit</a>, <a href="../shared/web-keyboard.md">Keyboard patterns</a>, <a href="../shared/assistive-tech.md">Assistive technology coverage</a>.</p>
+          <p>Deep dive: <a href="testing-tools.html">Testing Toolkit</a>, <a href="web-keyboard.html">Keyboard patterns</a>, <a href="assistive-tech.html">Assistive technology coverage</a>.</p>
         </div>
       </details>
       <details class="accordion">
@@ -279,7 +279,7 @@
           <ul>
             <li>Upload FastPass/Assessment artifacts to the release folder so auditors can trace WCAG coverage.</li>
             <li>Link Accessibility Insights findings with WAVE/DubBot results for prioritized remediation.</li>
-            <li>Share the one-page <a href="../shared/wcag22-highlights.md">WCAG highlight sheet</a> with stakeholders so they understand the “why.”</li>
+            <li>Share the one-page <a href="wcag22-highlights.html">WCAG highlight sheet</a> with stakeholders so they understand the “why.”</li>
           </ul>
         </div>
       </details>
@@ -291,7 +291,7 @@
         <article class="card">
           <h3>Accessibility Testing Toolkit</h3>
           <p>Recommended automated/manual tools and scripts.</p>
-          <a class="cta" href="../shared/testing-tools.md">View toolkit</a>
+          <a class="cta" href="testing-tools.html">View toolkit</a>
         </article>
         <article class="card">
           <h3>Accessibility office hours</h3>
@@ -324,7 +324,7 @@
         <li><strong>Regression guardrails:</strong> Pair Playwright or Cypress tests with `aria-role` and focus assertions.</li>
         <li><strong>Evidence:</strong> Store results in the release checklist so leadership sees coverage rates.</li>
       </ul>
-      <p>Need a starting point? Import the CI templates in <a href="../shared/testing-tools.md">Testing Toolkit</a> or attend the developer guild session.</p>
+      <p>Need a starting point? Import the CI templates in <a href="testing-tools.html">Testing Toolkit</a> or attend the developer guild session.</p>
     </section>
 
     <section aria-labelledby="dev-at">
@@ -336,7 +336,7 @@
         <li><strong>VoiceOver</strong> + Safari (macOS/iOS) and <strong>TalkBack</strong> + Chrome (Android) for responsive/mobile patterns.</li>
         <li><strong>Fusion</strong> and <strong>ZoomText</strong> for magnification, focus indicator visibility, and reflow.</li>
       </ul>
-      <p>Document results and link to <a href="../shared/assistive-tech.md">Assistive Technology Coverage</a> when filing issues.</p>
+      <p>Document results and link to <a href="assistive-tech.html">Assistive Technology Coverage</a> when filing issues.</p>
     </section>
 
     <section aria-labelledby="dev-training">
@@ -346,7 +346,7 @@
         <li>Screen reader testing labs (monthly).</li>
         <li>WCAG 2.2 deep dives (quarterly).</li>
       </ul>
-      <p>On-demand: <a href="../shared/mobile-roadmap.md">Mobile roadmap</a>, <a href="../shared/title-ii-brief.md">Title II brief</a>.</p>
+      <p>On-demand: <a href="mobile-roadmap.html">Mobile roadmap</a>, <a href="title-ii-brief.html">Title II brief</a>.</p>
     </section>
 
     <section aria-labelledby="dev-references">
@@ -354,8 +354,8 @@
       <ul>
         <li><a href="web-app.html">Web &amp; App accessibility hub</a> — WCAG checklist, exception workflow, mobile guidance.</li>
         <li><a href="../shared/checklist-index.json">Checklist index</a> — import into issue trackers for automation.</li>
-        <li><a href="../shared/brand-identity.md">UA brand + color guidance</a> — ensures tokens stay accessible.</li>
-        <li><a href="../shared/resource-registry.md">Resource registry</a> — authoritative sources and review dates.</li>
+        <li><a href="brand-identity.html">UA brand + color guidance</a> — ensures tokens stay accessible.</li>
+        <li><a href="resource-registry.html">Resource registry</a> — authoritative sources and review dates.</li>
         <li><a href="https://webaim.org/resources/">WebAIM resource library</a> — deep dives on forms, landmarks, ARIA, and testing.</li>
         <li><a href="https://dequeuniversity.com/library/">Deque pattern library</a> — code samples for menus, dialogs, and widgets.</li>
       </ul>

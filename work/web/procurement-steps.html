@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accessible Procurement Steps | Accessibility</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <main id="maincontent" class="doc-content">
+    <article id="content">Loading…</article>
+  </main>
+  <footer>
+    <p>&copy; 2025 The University of Arizona.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const mdFile = 'procurement-steps.html';
+      try {
+        const res = await fetch(mdFile);
+        const text = await res.text();
+        const fm = text.match(/^---\n([\s\S]*?)\n---/);
+        let title = '';
+        let body = text;
+        if (fm) {
+          const yaml = fm[1];
+          const m = yaml.match(/^title:\s*(.*)$/m);
+          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
+          body = text.slice(fm[0].length);
+        }
+        const html = marked.parse(body);
+        if (title) document.title = title + ' | Accessibility';
+        const header = title ? ('<h1>'+title+'</h1>') : '';
+        document.getElementById('content').innerHTML = header + html;
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error loading document: ' + e;
+      }
+    })();
+  </script>
+</body>
+</html>

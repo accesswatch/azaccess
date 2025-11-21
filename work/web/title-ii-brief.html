@@ -1,64 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Title II Web &amp; Mobile Brief | Accessibility at Arizona</title>
+  <title>Title II Web & Mobile Brief | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
-        <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
-    </div>
-    <p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policies &amp; Governance</a> / Title II Brief</p>
-    <h1>Title II Web &amp; Mobile Brief</h1>
-    <p class="page-meta">Updated: 2025-11-20 · Next review: 2026-02-20</p>
-  </header>
-  <main id="maincontent">
-    <section aria-labelledby="key-points-title">
-      <h2 id="key-points-title">Key points</h2>
-      <ul>
-        <li>DOJ requires public entities to conform public-facing web and mobile to WCAG 2.1 AA; UA is aligning to 2.2 AA.</li>
-        <li>Compliance deadline: April 24, 2026 for UA as a large entity.</li>
-        <li>Mobile apps are explicitly in scope alongside websites and conventional electronic documents.</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="ua-expectations-title">
-      <h2 id="ua-expectations-title">UA expectations</h2>
-      <ol>
-        <li>Inventory and prioritize critical services (admissions, financial aid, LMS, HR, public information).</li>
-        <li>Remediate gaps on top sites and apps by mid-2026.</li>
-        <li>Document exceptions and alternative access plans.</li>
-        <li>Maintain compliance through governance, testing, and training.</li>
-      </ol>
-    </section>
-
-    <section aria-labelledby="cta-title">
-      <h2 id="cta-title">Executive call to action</h2>
-      <p>Review current state versus KPIs, allocate budget for remediation and training, and require accessibility checkpoints in all digital initiatives.</p>
-    </section>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <main id="maincontent" class="doc-content">
+    <article id="content">Loading…</article>
   </main>
   <footer>
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const mdFile = 'title-ii-brief.html';
+      try {
+        const res = await fetch(mdFile);
+        const text = await res.text();
+        const fm = text.match(/^---\n([\s\S]*?)\n---/);
+        let title = '';
+        let body = text;
+        if (fm) {
+          const yaml = fm[1];
+          const m = yaml.match(/^title:\s*(.*)$/m);
+          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
+          body = text.slice(fm[0].length);
+        }
+        const html = marked.parse(body);
+        if (title) document.title = title + ' | Accessibility';
+        const header = title ? ('<h1>'+title+'</h1>') : '';
+        document.getElementById('content').innerHTML = header + html;
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error loading document: ' + e;
+      }
+    })();
+  </script>
 </body>
 </html>

@@ -1,55 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Do / Don&apos;t Pattern | Accessibility at Arizona</title>
+  <title>Do / Don’t Block Template | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
-        <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
-    </div>
-    <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; App Accessibility</a> / Do / Don&apos;t Pattern</p>
-    <h1>Do / Don&apos;t Pattern</h1>
-  </header>
-  <main id="maincontent">
-    <section aria-labelledby="example-title">
-      <h2 id="example-title">Example block</h2>
-      <h3>Do</h3>
-      <ul>
-        <li>Use descriptive link text such as “Request captioning support.”</li>
-        <li>Provide at least 5 business days for accommodation requests.</li>
-        <li>Test media players with keyboard and screen readers.</li>
-      </ul>
-      <h3>Don&apos;t</h3>
-      <ul>
-        <li>Use “click here” or URLs as visible link text.</li>
-        <li>Announce accommodations only via PDF attachments.</li>
-        <li>Autoplay videos with sound without controls.</li>
-      </ul>
-    </section>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <main id="maincontent" class="doc-content">
+    <article id="content">Loading…</article>
   </main>
   <footer>
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const mdFile = 'do-dont.html';
+      try {
+        const res = await fetch(mdFile);
+        const text = await res.text();
+        const fm = text.match(/^---\n([\s\S]*?)\n---/);
+        let title = '';
+        let body = text;
+        if (fm) {
+          const yaml = fm[1];
+          const m = yaml.match(/^title:\s*(.*)$/m);
+          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
+          body = text.slice(fm[0].length);
+        }
+        const html = marked.parse(body);
+        if (title) document.title = title + ' | Accessibility';
+        const header = title ? ('<h1>'+title+'</h1>') : '';
+        document.getElementById('content').innerHTML = header + html;
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error loading document: ' + e;
+      }
+    })();
+  </script>
 </body>
 </html>
