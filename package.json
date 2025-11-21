@@ -1,0 +1,28 @@
+{
+  "name": "azaccess",
+  "version": "1.0.0",
+  "description": "This repository contains the prototype for the University of Arizona Digital Accessibility website.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/accesswatch/azaccess.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/accesswatch/azaccess/issues"
+  },
+  "homepage": "https://github.com/accesswatch/azaccess#readme",
+  "dependencies": {
+    "axe-core": "^4.11.0",
+    "axe-playwright": "^2.2.2",
+    "playwright": "^1.56.1"
+  }
+}

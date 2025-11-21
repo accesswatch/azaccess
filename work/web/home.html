@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Accessibility at Arizona | Home Prototype</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="header.js" defer></script>
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
       <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-      <nav class="site-header-nav" aria-label="Primary">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <!-- primary-nav id used by responsive toggle -->
         <!-- id added to allow toggle via JS -->
         
@@ -27,13 +27,13 @@
         <a href="policies-governance.html">Policies &amp; Governance</a>
         <a href="support.html">Support</a>
       </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
         <a href="accessibility-101.html">Accessibility 101</a>
         <a href="blog.html">Blog</a>
         <a href="support.html">Get help</a>
       </nav>
     </div>
-    <nav aria-label="On this page">
+    <nav aria-label="On this page" role="navigation">
       <ul class="tag-list">
         <li><a href="#hero">Start</a></li>
         <li><a href="#personas">Personas</a></li>

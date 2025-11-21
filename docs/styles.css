@@ -144,9 +144,11 @@ footer {
     z-index: 1000;
 }
 
-pre,
-code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+.site-header .metric-chip,
+header .metric-chip {
+    background: #fff;
+    color: var(--ua-text);
+    border-color: rgba(0, 0, 0, 0.08);
 }
 
 pre {

@@ -266,7 +266,8 @@ td {
 }
 
 /* If metric chips appear inside the dark header, ensure they remain readable */
-.site-header .metric-chip {
+.site-header .metric-chip,
+header .metric-chip {
     background: var(--ua-white);
     color: var(--ua-text);
     border-color: rgba(0, 0, 0, 0.08);
