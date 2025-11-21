@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Accessible Newsletter Example | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
-    <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+    <div class="site-header-brand">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+University of Arizona · Digital Accessibility</div>
     <p>Example · Documents &amp; Media</p>
     <h1>Accessible Newsletter Example</h1>
   </header>

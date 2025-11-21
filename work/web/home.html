@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Accessibility at Arizona | Home Prototype</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
       <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
       <nav class="site-header-nav" aria-label="Primary">
+        <!-- primary-nav id used by responsive toggle -->
+        <!-- id added to allow toggle via JS -->
+        
         <a href="home.html" aria-current="page">Home</a>
         <a href="personas.html">Personas</a>
         <a href="documents-media.html">Documents &amp; Media</a>

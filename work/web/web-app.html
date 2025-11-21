@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Web &amp; App Accessibility Hub</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <div class="site-header-brand">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+University of Arizona · Digital Accessibility</div>
       <nav class="site-header-nav" aria-label="Primary">
         <a href="home.html">Home</a>
         <a href="personas.html">Personas</a>

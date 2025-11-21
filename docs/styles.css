@@ -37,11 +37,27 @@ header {
 .site-header-brand {
     font-weight: 600;
 }
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.site-header-brand {
+    flex: 0 0 auto;
+}
 
 .site-header-nav,
 .site-header-utilities {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.site-header-nav {
+    flex: 1 1 auto;
 }
 
 main,
@@ -55,6 +71,42 @@ footer {
 .site-header-utilities a {
     color: #fff;
     text-decoration: none;
+    padding: 0.25rem 0.25rem;
+    white-space: nowrap;
+}
+
+.site-header-nav a + a::before {
+    content: '\2022'; /* bullet dot */
+    display: inline-block;
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.45);
+    margin: 0 0.6rem;
+    vertical-align: middle;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--ua-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+    .nav-toggle { display: inline-flex; align-items: center; gap: .5rem; }
+    .site-header-nav, .site-header-utilities { display: none; }
+    .site-header.nav-open .site-header-nav,
+    .site-header.nav-open .site-header-utilities {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    .site-header-nav a, .site-header-utilities a { white-space: normal; padding: 0.5rem 0; }
+    .site-header-nav a + a::before { display: none; }
 }
 
 .site-header-nav a[aria-current="page"] {
@@ -207,9 +259,21 @@ footer {
 }
 
 .tag-list li {
-    background: var(--ua-chip-bg);
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.tag-list a {
+    color: var(--ua-white);
+    text-decoration: none;
+    opacity: 0.95;
+    padding: 0.125rem 0.25rem;
+    border-bottom: 1px dashed transparent;
+}
+.tag-list a:hover,
+.tag-list a:focus {
+    border-bottom-color: rgba(255,255,255,0.35);
 }
 
 .page-meta {

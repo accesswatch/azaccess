@@ -4,8 +4,10 @@
 
 :root {
     /* Official University of Arizona palette (from MarCom) */
-    --ua-arizona-red: #AB0520;    /* Arizona Red - primary */
-    --ua-arizona-blue: #0C234B;   /* Arizona Blue - primary */
+    --ua-arizona-red: #AB0520;
+    /* Arizona Red - primary */
+    --ua-arizona-blue: #0C234B;
+    /* Arizona Blue - primary */
     --ua-white: #FFFFFF;
     --ua-warm-gray: #F4EDE5;
     --ua-cool-gray: #E2E9EB;
@@ -24,15 +26,19 @@
 
     /* Existing site tokens (explicit canonical values) */
     --ua-background: #f5f5f5;
-    --ua-text: #0C234B; /* same as --ua-arizona-blue */
-    --ua-maroon: #AB0520; /* same as --ua-arizona-red */
-    --ua-maroon-hover: #870414; /* keep hover as-is (close to brand darkening) */
+    --ua-text: #0C234B;
+    /* same as --ua-arizona-blue */
+    --ua-maroon: #AB0520;
+    /* same as --ua-arizona-red */
+    --ua-maroon-hover: #870414;
+    /* keep hover as-is (close to brand darkening) */
     --ua-border: #d5d5d5;
     --ua-chip-bg: #e0e8f5;
     --ua-muted-border: var(--ua-cool-gray);
     --ua-alert-bg: #ffe7d9;
     --ua-alert-text: #61120b;
-    --ua-code-bg: #0c234b0d; /* light translucent code/pre background */
+    --ua-code-bg: #0c234b0d;
+    /* light translucent code/pre background */
 }
 
 body {
@@ -71,10 +77,38 @@ header {
     font-weight: 600;
 }
 
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.site-header-brand {
+    flex: 0 0 auto;
+}
+
 .site-header-nav,
 .site-header-utilities {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.site-header-nav {
+    /* allow nav to grow and keep links on one line when possible */
+    flex: 1 1 auto;
+}
+
+/* separators between nav links */
+.site-header-nav a + a::before {
+    content: '\2022'; /* bullet dot */
+    display: inline-block;
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.45);
+    margin: 0 0.6rem;
+    vertical-align: middle;
 }
 
 main,
@@ -88,6 +122,34 @@ footer {
 .site-header-utilities a {
     color: var(--ua-white);
     text-decoration: none;
+    padding: 0.25rem 0.25rem;
+    white-space: nowrap;
+}
+
+/* responsive: hamburger toggle */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--ua-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+    .nav-toggle { display: inline-flex; align-items: center; gap: .5rem; }
+    .site-header-nav, .site-header-utilities { display: none; }
+    .site-header.nav-open .site-header-nav,
+    .site-header.nav-open .site-header-utilities {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    .site-header-nav a, .site-header-utilities a { white-space: normal; padding: 0.5rem 0; }
+    .site-header-nav a + a::before { display: none; }
 }
 
 .site-header-nav a[aria-current="page"] {
@@ -240,9 +302,21 @@ footer {
 }
 
 .tag-list li {
-    background: var(--ua-chip-bg);
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.tag-list a {
+    color: var(--ua-white);
+    text-decoration: none;
+    opacity: 0.95;
+    padding: 0.125rem 0.25rem;
+    border-bottom: 1px dashed transparent;
+}
+.tag-list a:hover,
+.tag-list a:focus {
+    border-bottom-color: rgba(255,255,255,0.35);
 }
 
 .page-meta {
