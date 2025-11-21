@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <p><a href="home.html">Accessibility Home</a> / Personas</p>
     <h1>Web Developers</h1>
     <p>Engineering teams ship WCAG 2.2 AA-compliant Arizona Sites, apps, and integrations.</p>
     <p class="metric-chip">Goal: 0 critical WCAG defects per release</p>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <section aria-labelledby="dev-help">
       <h2 id="dev-help">What this page helps you do</h2>
       <ul>
@@ -375,7 +375,7 @@
       <p>Need help integrating tests? Book Accessibility office hours for a pairing session.</p>
     </section>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>

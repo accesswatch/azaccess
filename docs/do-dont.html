@@ -8,7 +8,7 @@
   <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
       <div class="site-header-brand">
@@ -34,7 +34,7 @@ University of Arizona · Digital Accessibility</div>
     <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; App Accessibility</a> / Do / Don&apos;t Pattern</p>
     <h1>Do / Don&apos;t Pattern</h1>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <section aria-labelledby="example-title">
       <h2 id="example-title">Example block</h2>
       <h3>Do</h3>
@@ -51,7 +51,7 @@ University of Arizona · Digital Accessibility</div>
       </ul>
     </section>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>

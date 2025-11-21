@@ -8,7 +8,7 @@
   <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
       <div class="site-header-brand">
@@ -34,13 +34,13 @@ University of Arizona · Digital Accessibility</div>
     <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; App Accessibility</a> / Focus Management</p>
     <h1>Focus Management Patterns</h1>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <section aria-labelledby="dialog-title">
       <h2 id="dialog-title">Dialogs and modals</h2>
       <p>Move focus into the dialog when it opens, trap focus inside, support Esc to close, and return focus to the trigger when closed.</p>
     </section>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>

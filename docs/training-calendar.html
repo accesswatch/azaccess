@@ -8,7 +8,7 @@
   <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
       <div class="site-header-brand">
@@ -35,7 +35,7 @@ University of Arizona · Digital Accessibility</div>
     <h1>Training &amp; Events Calendar</h1>
     <p class="page-meta">Demo schedule for accessibility trainings and office hours.</p>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <section aria-labelledby="upcoming-title">
       <h2 id="upcoming-title">Upcoming sessions</h2>
       <div class="table-scroll">
@@ -66,7 +66,7 @@ University of Arizona · Digital Accessibility</div>
       </div>
     </section>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>
