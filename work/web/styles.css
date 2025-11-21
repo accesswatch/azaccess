@@ -102,11 +102,12 @@ header {
 }
 
 /* separators between nav links */
-.site-header-nav a + a::before {
-    content: '\2022'; /* bullet dot */
+.site-header-nav a+a::before {
+    content: '\2022';
+    /* bullet dot */
     display: inline-block;
     font-size: 0.6rem;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255, 255, 255, 0.45);
     margin: 0 0.6rem;
     vertical-align: middle;
 }
@@ -130,7 +131,7 @@ footer {
 .nav-toggle {
     display: none;
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: var(--ua-white);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
@@ -138,8 +139,17 @@ footer {
 }
 
 @media (max-width: 800px) {
-    .nav-toggle { display: inline-flex; align-items: center; gap: .5rem; }
-    .site-header-nav, .site-header-utilities { display: none; }
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .site-header-nav,
+    .site-header-utilities {
+        display: none;
+    }
+
     .site-header.nav-open .site-header-nav,
     .site-header.nav-open .site-header-utilities {
         display: flex;
@@ -148,8 +158,16 @@ footer {
         width: 100%;
         margin-top: 0.5rem;
     }
-    .site-header-nav a, .site-header-utilities a { white-space: normal; padding: 0.5rem 0; }
-    .site-header-nav a + a::before { display: none; }
+
+    .site-header-nav a,
+    .site-header-utilities a {
+        white-space: normal;
+        padding: 0.5rem 0;
+    }
+
+    .site-header-nav a+a::before {
+        display: none;
+    }
 }
 
 .site-header-nav a[aria-current="page"] {
@@ -247,6 +265,13 @@ td {
     font-weight: 600;
 }
 
+/* If metric chips appear inside the dark header, ensure they remain readable */
+.site-header .metric-chip {
+    background: var(--ua-white);
+    color: var(--ua-text);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
 button,
 .cta {
     display: inline-block;
@@ -314,9 +339,10 @@ footer {
     padding: 0.125rem 0.25rem;
     border-bottom: 1px dashed transparent;
 }
+
 .tag-list a:hover,
 .tag-list a:focus {
-    border-bottom-color: rgba(255,255,255,0.35);
+    border-bottom-color: rgba(255, 255, 255, 0.35);
 }
 
 .page-meta {
