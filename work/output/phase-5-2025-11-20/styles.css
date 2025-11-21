@@ -5,19 +5,19 @@
 body {
     font-family: "Segoe UI", Arial, sans-serif;
     margin: 0;
-    background: #f5f5f5;
-    color: #0c234b;
+    background: var(--ua-background);
+    color: var(--ua-text);
     line-height: 1.6;
 }
 
 a {
-    color: #ab0520;
+    color: var(--ua-maroon);
 }
 
 a:focus,
 a:focus-visible,
 button:focus {
-    outline: 3px solid #ab0520;
+    outline: 3px solid var(--ua-maroon);
     outline-offset: 2px;
 }
 
@@ -29,7 +29,7 @@ footer {
 }
 
 header {
-    background: #0c234b;
+    background: var(--ua-text);
     color: #fff;
 }
 
@@ -38,7 +38,7 @@ header {
     top: 0;
     left: 0;
     background: #fff;
-    color: #0c234b;
+    color: var(--ua-text);
     padding: 0.5rem 1rem;
     transform: translateY(-200%);
     transition: transform 0.2s ease;
@@ -50,9 +50,9 @@ header {
 }
 
 .site-alert {
-    background: #ffe7d9;
-    color: #61120b;
-    border-left: 4px solid #ab0520;
+    background: var(--ua-alert-bg);
+    color: var(--ua-alert-text);
+    border-left: 4px solid var(--ua-maroon);
     margin-bottom: 1rem;
     padding: 0.75rem 1rem;
 }
@@ -68,7 +68,7 @@ header {
 
 .card {
     background: #fff;
-    border: 1px solid #d5d5d5;
+    border: 1px solid var(--ua-border);
     border-radius: 6px;
     padding: 1rem;
 }
@@ -80,14 +80,14 @@ header {
     background: #fff;
     border-radius: 999px;
     padding: 0.25rem 0.75rem;
-    border: 1px solid #d5d5d5;
+    border: 1px solid var(--ua-border);
     font-weight: 600;
 }
 
 button,
 .cta {
     display: inline-block;
-    background: #ab0520;
+    background: var(--ua-maroon);
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -97,7 +97,7 @@ button,
 
 button:hover,
 .cta:hover {
-    background: #870414;
+    background: var(--ua-maroon-hover);
 }
 
 .table-scroll {
@@ -111,7 +111,7 @@ table {
 
 th,
 td {
-    border: 1px solid #d5d5d5;
+    border: 1px solid var(--ua-border);
     padding: 0.5rem;
     text-align: left;
 }
@@ -123,7 +123,7 @@ h3 {
 }
 
 .accordion {
-    border: 1px solid #d5d5d5;
+    border: 1px solid var(--ua-border);
     border-radius: 6px;
 }
 
@@ -137,7 +137,7 @@ h3 {
 }
 
 footer {
-    background: #0c234b;
+    background: var(--ua-text);
     color: #fff;
     margin-top: 2rem;
 }
@@ -151,7 +151,7 @@ footer {
 }
 
 .tag-list li {
-    background: #e0e8f5;
+    background: var(--ua-chip-bg);
     padding: 0.25rem 0.75rem;
     border-radius: 999px;
 }
