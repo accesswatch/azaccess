@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faculty &amp; Instructors Persona Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <p><a href="home.html">Accessibility Home</a> / Personas</p>
+    <h1>Faculty &amp; Instructors</h1>
+    <p>Faculty create accessible learning environments, interpret accommodation letters quickly, and keep course media inclusive.</p>
+    <p class="metric-chip">Caption turnaround goal: &lt; 3 business days</p>
+  </header>
+  <main id="maincontent">
+    <section aria-labelledby="tasks">
+      <h2 id="tasks">Top tasks</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Steps</th>
+              <th scope="col">Primary Tools</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Respond to accommodation letters</td>
+              <td>Review DRC letter → Confirm logistics with student → Adjust assessments/Deadlines.</td>
+              <td>DRC Instructor Portal, email</td>
+            </tr>
+            <tr>
+              <td>Build accessible Brightspace modules</td>
+              <td>Use templates → Add alt text → Run accessibility checker → Publish materials.</td>
+              <td>Brightspace Next, UCATT templates</td>
+            </tr>
+            <tr>
+              <td>Caption instructional media</td>
+              <td>Record in Panopto → Edit captions → Upload transcripts → Share with class.</td>
+              <td>Panopto, UCATT Multimedia</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="faculty-principles">
+      <h2 id="faculty-principles">Impactful principles &amp; tools</h2>
+      <p>Accessibility stays manageable when you pair consistent principles with the right tools. Use these expandable guides (aligned to <a href="../shared/wcag22-highlights.md">WCAG 2.2 AA highlights</a>) each time you prep course content.</p>
+      <details class="accordion" open>
+        <summary>Course structure &amp; navigation</summary>
+        <div>
+          <p>Focus on SC 1.3.1, 2.4.3, and 2.4.11 by keeping Brightspace modules in a logical order, revealing focus outlines, and avoiding “mystery meat” links.</p>
+          <ul>
+            <li>Run <strong>Accessibility Insights</strong> on course homepages to confirm headings and landmarks.</li>
+            <li>Spot-check with <strong>WAVE</strong> or <strong>DubBot</strong> before publishing or copying course shells.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Documents, slides, and PDFs</summary>
+        <div>
+          <ul>
+            <li>Run the <strong>Microsoft Accessibility Checker</strong> inside Word, PowerPoint, and Excel; remediate all errors before sharing.</li>
+            <li>Create alt text that conveys purpose (follow <a href="https://webaim.org/techniques/alttext/">WebAIM’s alt text guidance</a>).</li>
+            <li>When exporting PDFs, tag headings, set reading order, and label form fields using the <a href="../shared/pdf-remediation.md">Adobe remediation guide</a>.</li>
+          </ul>
+          <p>Store both the accessible source file and the tagged PDF in case accommodations require edits.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Media, labs, and assessments</summary>
+        <div>
+          <p>Meet SC 1.2.x and 3.3.x by captioning Panopto/Zoom recordings, offering descriptive audio for visuals, and providing clear error recovery.</p>
+          <ul>
+            <li>UCATT Multimedia can edit machine captions to reach 99% accuracy.</li>
+            <li>For labs or simulations, provide text alternatives or recorded walkthroughs.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="guidance">
+      <h2 id="guidance">Guidance</h2>
+      <details class="accordion" open>
+        <summary>Accommodation workflow</summary>
+        <div>
+          <ol>
+            <li>Read each DRC letter fully; note testing, communication, and material deadlines.</li>
+            <li>Reply within 2 business days confirming how accommodations will be implemented.</li>
+            <li>Document agreements in Brightspace announcements or email for transparency.</li>
+          </ol>
+          <p><strong>Do:</strong> Offer multiple participation methods. <strong>Don’t:</strong> Delay accommodations until after the first assignment.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Accessible course content</summary>
+        <div>
+          <ul>
+            <li>Use the <a href="../shared/lms-brightspace.md">Brightspace checklist</a> for headings, alt text, and color.</li>
+            <li>Upload documents that pass Word/Google accessibility checkers.</li>
+            <li>Provide redundant formats (slides + tagged PDF + HTML) for complex visuals.</li>
+            <li>Cross-check modules with <a href="https://webaim.org/resources/">WebAIM course content resources</a> to ensure lists, links, and tables read correctly.</li>
+            <li>Use Deque’s <a href="https://dequeuniversity.com/library/aria/aria-practices">ARIA patterns</a> when embedding custom simulations or LTI tools.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Media &amp; assessments</summary>
+        <div>
+          <p>Submit caption requests via Panopto, plan exams so extended time can be delivered seamlessly, and provide audio-described alternatives for visual labs.</p>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="tools">
+      <h2 id="tools">Tools &amp; contacts</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>DRC Instructor Portal</h3>
+          <p>View accommodation letters, confirm logistics, and contact Access Consultants.</p>
+          <a class="cta" href="https://drc.arizona.edu/instructors">Open portal</a>
+        </article>
+        <article class="card">
+          <h3>UCATT Teaching Resources</h3>
+          <p>Templates, workshops, and one-on-one consults for inclusive pedagogy.</p>
+          <a class="cta" href="https://ucatt.arizona.edu">Visit UCATT</a>
+        </article>
+        <article class="card">
+          <h3>Panopto Caption Support</h3>
+          <p>Request machine or professional captions; learn how to edit transcripts.</p>
+          <a class="cta" href="../shared/media-captioning.md">Caption guide</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="assistive-tech">
+      <h2 id="assistive-tech">Assistive technologies to plan for</h2>
+      <p>Students and co-instructors may rely on the following tools when using your course materials. Ensure demos, labs, quizzes, and custom tools work with them.</p>
+      <ul>
+        <li><strong>JAWS for Windows</strong> and <strong>NVDA</strong> for reading syllabi, quizzes, and embedded tools.</li>
+        <li><strong>VoiceOver</strong> (iOS/macOS) and <strong>TalkBack</strong> (Android) for mobile access to Brightspace, Panopto, VoiceThread.</li>
+        <li><strong>Fusion</strong> and <strong>ZoomText</strong> for low-vision viewing of slides and live demonstrations.</li>
+      </ul>
+      <p>See the <a href="../shared/assistive-tech.md">Assistive Technology Coverage</a> overview for training links and test scripts.</p>
+    </section>
+
+    <section aria-labelledby="training">
+      <h2 id="training">Training &amp; community</h2>
+      <ul>
+        <li>Accessible Teaching Essentials (UCATT) – monthly workshop.</li>
+        <li>Panopto Caption Editing lab – every other Tuesday.</li>
+        <li>Faculty learning community on inclusive pedagogy.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="feedback">
+      <h2 id="feedback">Feedback</h2>
+      <p>Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> with course questions or submit a consultation request. Last reviewed: 2025-11-20.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 The University of Arizona.</p>
+  </footer>
+</body>
+</html>

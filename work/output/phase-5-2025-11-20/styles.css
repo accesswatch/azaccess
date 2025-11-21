@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+    color: #0c234b;
+    line-height: 1.6;
+}
+
+a {
+    color: #ab0520;
+}
+
+a:focus,
+a:focus-visible,
+button:focus {
+    outline: 3px solid #ab0520;
+    outline-offset: 2px;
+}
+
+header,
+nav,
+main,
+footer {
+    padding: 1rem 1.5rem;
+}
+
+header {
+    background: #0c234b;
+    color: #fff;
+}
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: #0c234b;
+    padding: 0.5rem 1rem;
+    transform: translateY(-200%);
+    transition: transform 0.2s ease;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.site-alert {
+    background: #ffe7d9;
+    color: #61120b;
+    border-left: 4px solid #ab0520;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.metric-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #d5d5d5;
+    font-weight: 600;
+}
+
+button,
+.cta {
+    display: inline-block;
+    background: #ab0520;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    text-decoration: none;
+}
+
+button:hover,
+.cta:hover {
+    background: #870414;
+}
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #d5d5d5;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 1.5rem;
+}
+
+.accordion {
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+}
+
+.accordion summary {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+}
+
+.accordion div {
+    padding: 0 1rem 1rem;
+}
+
+footer {
+    background: #0c234b;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+.tag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-list li {
+    background: #e0e8f5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+}

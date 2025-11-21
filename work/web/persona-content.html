@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Content Creators Persona Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <p><a href="home.html">Accessibility Home</a> / Personas</p>
+    <h1>Content Creators</h1>
+    <p>Writers, editors, and coordinators produce accessible documents, slides, PDFs, and shared files before publishing or distributing.</p>
+    <p class="metric-chip">Document SLA: Accessibility Checker cleared before release</p>
+  </header>
+  <main id="maincontent">
+    <section aria-labelledby="content-exec">
+      <h2 id="content-exec">Executive summary</h2>
+      <p>Every document must be ready for screen readers and magnifiers before it leaves your desktop:</p>
+      <ul>
+        <li><strong>Structure</strong>: apply heading styles, real lists, and table headers so assistive technologies can announce content correctly.</li>
+        <li><strong>Descriptions</strong>: write concise alt text and include captions/transcripts for media.</li>
+        <li><strong>Validation</strong>: run Microsoft/Google accessibility checkers and remediate flagged issues.</li>
+        <li><strong>Distribution</strong>: share both source files and tagged PDFs; avoid image-only emails.</li>
+      </ul>
+      <p>Use the sections below for quick direction and drill into format-specific playbooks in the Document &amp; Media hub.</p>
+    </section>
+    <section aria-labelledby="content-tasks">
+      <h2 id="content-tasks">Top tasks</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Steps</th>
+              <th scope="col">Primary Tools</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Author accessible Word/Google docs</td>
+              <td>Use heading styles → add alt text → run checker → export tagged formats.</td>
+              <td>Microsoft 365, Google Workspace</td>
+            </tr>
+            <tr>
+              <td>Create inclusive slide decks</td>
+              <td>Use templates → confirm reading order → describe visuals → caption embedded media.</td>
+              <td>PowerPoint, Google Slides</td>
+            </tr>
+            <tr>
+              <td>Remediate PDFs</td>
+              <td>Fix source → tag in Acrobat → verify reading order → publish statement.</td>
+              <td>Adobe Acrobat Pro</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="content-principles">
+      <h2 id="content-principles">Impactful principles &amp; tools</h2>
+      <p>Accessible content is faster when you rely on shared rules plus automated checks. Tie every document and campaign to the <a href="../shared/wcag22-highlights.md">WCAG 2.2 AA highlights</a> below.</p>
+      <details class="accordion" open>
+        <summary>Structure &amp; alternative text</summary>
+        <div>
+          <ul>
+            <li>Apply built-in heading styles (SC 1.3.1) and keep link text descriptive.</li>
+            <li>Write alt text using the <a href="https://webaim.org/techniques/alttext/">WebAIM decision tree</a>; note when images are decorative.</li>
+            <li>Confirm lists and tables read correctly by previewing in screen-reader mode.</li>
+            <li>Follow the <a href="../shared/meaningful-links.md">Meaningful Links guide</a> for descriptive, format-aware link text.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Testing &amp; monitoring</summary>
+        <div>
+          <ul>
+            <li>Run the <strong>Microsoft Accessibility Checker</strong> (Word/PowerPoint/Excel) or <strong>Grackle</strong> (Google) until no errors remain.</li>
+            <li>Scan published pages with <strong>Accessibility Insights</strong> or <strong>WAVE</strong> to confirm headings, contrast, and form labels.</li>
+            <li>Use the campus <strong>DubBot</strong> license for ongoing newsletter/archive audits; export issues to Trello/Jira.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Adobe PDF remediation</summary>
+        <div>
+          <p>When PDFs are required, follow the <a href="../shared/pdf-remediation.md">Adobe remediation workflow</a>:</p>
+          <ol>
+            <li>Tag the document tree and set reading order.</li>
+            <li>Label form fields and buttons; add tooltips where necessary.</li>
+            <li>Re-run Accessibility Checker in Acrobat and attach the report to Trellis/consult tickets.</li>
+          </ol>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Manual review before publishing</summary>
+        <div>
+          <p>Use this five-minute sweep to catch issues before files go live:</p>
+          <ol>
+            <li>Keyboard through the document or email template to ensure the tab order makes sense.</li>
+            <li>Run <strong>Microsoft Accessibility Checker</strong> (or Grackle) and fix every error.</li>
+            <li>Open the exported HTML/PDF in a browser and run <strong>Accessibility Insights FastPass</strong> for quick WCAG coverage.</li>
+            <li>Spot-check headings, alt text, and contrast with <strong>WebAIM WAVE</strong>; note findings in your content log.</li>
+            <li>Schedule (or append to) the next <strong>DubBot</strong> crawl so newsletters/archives stay compliant.</li>
+          </ol>
+          <p>This checklist keeps reviews content-focused—no developer tooling required.</p>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="content-guidance">
+      <h2 id="content-guidance">Guidance</h2>
+      <details class="accordion" open>
+        <summary>Microsoft 365 &amp; Google Workspace</summary>
+        <div>
+          <p>Follow the <a href="../shared/doc-word.md">Word/PowerPoint basics</a> and <a href="../shared/doc-google.md">Google Workspace checklist</a>. Always run built-in accessibility checkers.</p>
+          <p>Drill down: <a href="../shared/doc-powerpoint.md">PowerPoint slides</a>, <a href="../shared/doc-excel.md">Excel tables</a>, <a href="../shared/email-outlook.md">Outlook email</a>.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>PDF creation</summary>
+        <div>
+          <p>Use <a href="../shared/pdf-remediation.md">PDF remediation workflow</a> for legacy files. Provide accessible source files alongside PDFs.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Email &amp; newsletters</summary>
+        <div>
+          <p>Use <a href="../shared/email-newsletters.md">email guidance</a> plus Outlook/Gmail checklists to ensure alt text, contrast, and descriptive links.</p>
+          <p>Template snippets: <a href="../shared/do-dont.md">Do/Don’t library</a>, <a href="../shared/events-inclusive.md">event statements</a>.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>UA branding &amp; color schemes</summary>
+        <div>
+          <p>Start from official UA templates and Quickstart patterns to maintain the Block A logo, typography, and approved palettes.</p>
+          <ul>
+            <li>Reference the <a href="../shared/brand-identity.md">UA Brand &amp; Accessibility guide</a> for palette ratios and template links.</li>
+            <li>Use color pairings documented in <a href="../shared/color-contrast.md">Color &amp; Contrast guidance</a> to keep text ≥ 4.5:1.</li>
+            <li>When exporting graphics, test them in grayscale/high-contrast modes to confirm UA colors remain distinguishable.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Plain language &amp; alternative text</summary>
+        <div>
+          <p>Pair UA templates with inclusive writing tips from WebAIM.</p>
+          <ul>
+            <li>Follow <a href="https://webaim.org/techniques/alttext/">WebAIM’s alt text guidance</a> so descriptions convey intent, not decoration.</li>
+            <li>Write headings and link text that describe the outcome (“Download syllabus (accessible PDF)”).</li>
+            <li>Use the <a href="https://webaim.org/resources/evalquickref/">WebAIM evaluation quick reference</a> during peer review.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="content-tools">
+      <h2 id="content-tools">Tools &amp; contacts</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Document &amp; Media hub</h3>
+          <p>Executive summaries, format tabs, checklists.</p>
+          <a class="cta" href="documents-media.html">Open hub</a>
+        </article>
+        <article class="card">
+          <h3>Grackle / Accessibility Checker</h3>
+          <p>Automated review add-ons for Google Workspace; built-in Microsoft checker.</p>
+          <a class="cta" href="../shared/doc-google.md">View steps</a>
+        </article>
+        <article class="card">
+          <h3>Accessibility consults</h3>
+          <p>Request template reviews or remediation support.</p>
+          <a class="cta" href="https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu">Request help</a>
+        </article>
+        <article class="card">
+          <h3>WebAIM checklists</h3>
+          <p>Quick reminders for headings, contrast, tables, and media descriptions.</p>
+          <a class="cta" href="https://webaim.org/resources/checklist/">Open checklist</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="content-at">
+      <h2 id="content-at">Assistive technologies to account for</h2>
+      <p>Documents must be usable for readers relying on:</p>
+      <ul>
+        <li><strong>JAWS</strong> and <strong>NVDA</strong> for Windows-based document reading and editing.</li>
+        <li><strong>VoiceOver</strong> and <strong>TalkBack</strong> for PDFs and cloud docs opened on mobile devices.</li>
+        <li><strong>Fusion</strong> and <strong>ZoomText</strong> for large-print review and color adjustments.</li>
+      </ul>
+      <p>Include alt text, meaningful headings, tagged tables, and avoid scanned-only PDFs so these AT solutions can interpret content. Reference <a href="../shared/assistive-tech.md">Assistive Technology Coverage</a>.</p>
+    </section>
+
+    <section aria-labelledby="content-training">
+      <h2 id="content-training">Training &amp; community</h2>
+      <ul>
+        <li>Accessible Documents Essentials (monthly).</li>
+        <li>PDF remediation labs (bi-monthly).</li>
+        <li>Communications &amp; Marketing accessibility roundtable.</li>
+      </ul>
+      <p>Self-serve: <a href="documents-media.html">Document &amp; Media hub</a>, <a href="../shared/training-calendar.md">training calendar</a>.</p>
+    </section>
+
+    <section aria-labelledby="content-feedback">
+      <h2 id="content-feedback">Feedback</h2>
+      <p>Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> or join the Content Creator Teams channel. Last reviewed: 2025-11-20.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 The University of Arizona.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{
+    "students": {
+        "headline": "Students",
+        "summary": "Get accommodations, accessible course media, and event access support.",
+        "topTasks": [
+            "Request or renew DRC accommodations",
+            "Find captioned recordings",
+            "Report a barrier"
+        ]
+    },
+    "faculty": {
+        "headline": "Faculty & Instructors",
+        "summary": "Design inclusive courses, respond to accommodation letters, and caption media.",
+        "topTasks": [
+            "Interpret DRC notifications",
+            "Make Brightspace content accessible",
+            "Plan inclusive assessments"
+        ]
+    },
+    "staff": {
+        "headline": "Staff & Units",
+        "summary": "Run accessible events, procure inclusive technology, and maintain unit websites.",
+        "topTasks": [
+            "Follow Buying Accessible IT workflow",
+            "Plan inclusive events",
+            "Update department sites"
+        ]
+    },
+    "developers": {
+        "headline": "Web Developers",
+        "summary": "Ship WCAG 2.2 AA-compliant Arizona Sites and custom apps.",
+        "topTasks": [
+            "Use skip links and focus management",
+            "Run automated/manual tests",
+            "Escalate vendor widgets"
+        ]
+    },
+    "mobile": {
+        "headline": "Mobile App Teams",
+        "summary": "Meet Title II mobile timelines with accessible iOS/Android experiences.",
+        "topTasks": [
+            "Audit critical flows",
+            "Implement platform accessibility APIs",
+            "Plan roadmap"
+        ]
+    },
+    "content": {
+        "headline": "Content Creators",
+        "summary": "Author accessible Word, Google, PDF, and email content.",
+        "topTasks": [
+            "Use heading styles",
+            "Write alt text",
+            "Export tagged PDFs"
+        ]
+    },
+    "comms": {
+        "headline": "Communications & Marketing",
+        "summary": "Publish accessible news, campaigns, and social media.",
+        "topTasks": [
+            "Caption and describe media",
+            "Apply contrast-checked palettes",
+            "Provide inclusive calls-to-action"
+        ]
+    },
+    "leadership": {
+        "headline": "Leadership",
+        "summary": "Track Title II risk, fund remediation, and champion governance.",
+        "topTasks": [
+            "Review compliance dashboard",
+            "Approve accessibility investments",
+            "Communicate expectations"
+        ]
+    }
+}
