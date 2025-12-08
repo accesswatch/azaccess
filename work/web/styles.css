@@ -73,6 +73,14 @@ header {
     color: var(--ua-white);
 }
 
+header a {
+    color: var(--ua-white);
+}
+
+header .muted {
+    color: rgba(255, 255, 255, 0.85);
+}
+
 .site-header-brand {
     font-weight: 600;
 }
@@ -317,6 +325,11 @@ footer {
     background: var(--ua-text);
     color: var(--ua-white);
     margin-top: 2rem;
+}
+
+footer a {
+    color: var(--ua-white);
+    text-decoration: underline;
 }
 
 .tag-list {
