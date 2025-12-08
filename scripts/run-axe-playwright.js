@@ -54,6 +54,7 @@ async function run() {
 
     const webFiles = fs.existsSync(webDir) ? fs.readdirSync(webDir).filter(f => f.endsWith('.html')) : [];
     const docsFiles = fs.existsSync(docsDir) ? fs.readdirSync(docsDir).filter(f => f.endsWith('.html')) : [];
+    // Serve as root-relative paths so the static server can resolve from candidate roots
     const pages = webFiles.map(f => '/' + f).concat(docsFiles.map(f => '/' + f));
     console.log('Pages to scan:', pages.length);
 
@@ -79,13 +80,15 @@ async function run() {
             await page.goto(targetUrl, { waitUntil: 'load', timeout: 30000 });
             await injectAxe(page);
 
-            // Run axe in the page and always capture results (don't throw on violations)
+            // Run axe in-page and capture results; be defensive if injection failed
             const results = await page.evaluate(async () => {
-                // axe should be on window after injectAxe
-                if (!window.axe) return { error: 'axe not injected' };
-                return await window.axe.run();
+                try {
+                    if (!window.axe) return { error: 'axe not injected' };
+                    return await window.axe.run();
+                } catch (err) {
+                    return { error: String(err) };
+                }
             });
-
             const fileName = p.replace(/\//g, '_') + '.json';
             fs.writeFileSync(path.join(outDir, fileName), JSON.stringify(results, null, 2));
             console.log('Saved report:', fileName, 'violations:', (results.violations || []).length);
