@@ -1,33 +1,13 @@
 {
   "summary": {
     "totalPages": 121,
-    "pagesWithViolations": 120,
-    "uniqueRules": 7,
-    "totalInstances": 306
+    "pagesWithViolations": 115,
+    "uniqueRules": 4,
+    "totalInstances": 230
   },
   "byImpact": {
     "critical": [],
     "serious": [
-      {
-        "rule": "document-title",
-        "page": "_docs_ua-accessibility-framework-accordion-full.html",
-        "nodes": 1
-      },
-      {
-        "rule": "html-has-lang",
-        "page": "_docs_ua-accessibility-framework-accordion-full.html",
-        "nodes": 1
-      },
-      {
-        "rule": "document-title",
-        "page": "_docs_ua-accessibility-framework-full.html",
-        "nodes": 1
-      },
-      {
-        "rule": "html-has-lang",
-        "page": "_docs_ua-accessibility-framework-full.html",
-        "nodes": 1
-      },
       {
         "rule": "color-contrast",
         "page": "_work_web_accessibility-101.html",
@@ -146,11 +126,6 @@
       {
         "rule": "color-contrast",
         "page": "_work_web_heading-basics.html",
-        "nodes": 1
-      },
-      {
-        "rule": "color-contrast",
-        "page": "_work_web_home.html",
         "nodes": 1
       },
       {
@@ -366,16 +341,6 @@
     ],
     "moderate": [
       {
-        "rule": "landmark-one-main",
-        "page": "_docs_Digital_Accessibility_Framework_Course_Mapping.html",
-        "nodes": 1
-      },
-      {
-        "rule": "region",
-        "page": "_docs_Digital_Accessibility_Framework_Course_Mapping.html",
-        "nodes": 7
-      },
-      {
         "rule": "region",
         "page": "_docs_accessibility-101.html",
         "nodes": 1
@@ -399,16 +364,6 @@
         "rule": "region",
         "page": "_docs_color-contrast.html",
         "nodes": 1
-      },
-      {
-        "rule": "landmark-one-main",
-        "page": "_docs_course_integration_plan.html",
-        "nodes": 1
-      },
-      {
-        "rule": "region",
-        "page": "_docs_course_integration_plan.html",
-        "nodes": 17
       },
       {
         "rule": "region",
@@ -464,16 +419,6 @@
         "rule": "region",
         "page": "_docs_home.html",
         "nodes": 1
-      },
-      {
-        "rule": "landmark-one-main",
-        "page": "_docs_index.html",
-        "nodes": 1
-      },
-      {
-        "rule": "region",
-        "page": "_docs_index.html",
-        "nodes": 2
       },
       {
         "rule": "region",
@@ -604,26 +549,6 @@
         "rule": "region",
         "page": "_docs_training-calendar.html",
         "nodes": 1
-      },
-      {
-        "rule": "landmark-one-main",
-        "page": "_docs_ua-accessibility-framework-accordion-full.html",
-        "nodes": 1
-      },
-      {
-        "rule": "region",
-        "page": "_docs_ua-accessibility-framework-accordion-full.html",
-        "nodes": 1
-      },
-      {
-        "rule": "landmark-one-main",
-        "page": "_docs_ua-accessibility-framework-full.html",
-        "nodes": 1
-      },
-      {
-        "rule": "region",
-        "page": "_docs_ua-accessibility-framework-full.html",
-        "nodes": 39
       },
       {
         "rule": "region",
@@ -1234,34 +1159,18 @@
     "minor": []
   },
   "byRule": {
-    "landmark-one-main": {
-      "description": "Ensure the document has a main landmark",
-      "help": "Document should have one main landmark",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
-      "impact": "moderate",
-      "count": 5,
-      "pages": [
-        "_docs_Digital_Accessibility_Framework_Course_Mapping.html",
-        "_docs_course_integration_plan.html",
-        "_docs_index.html",
-        "_docs_ua-accessibility-framework-accordion-full.html",
-        "_docs_ua-accessibility-framework-full.html"
-      ]
-    },
     "region": {
       "description": "Ensure all page content is contained by landmarks",
       "help": "All page content should be contained by landmarks",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
       "impact": "moderate",
-      "count": 181,
+      "count": 115,
       "pages": [
-        "_docs_Digital_Accessibility_Framework_Course_Mapping.html",
         "_docs_accessibility-101.html",
         "_docs_assistive-tech.html",
         "_docs_blog.html",
         "_docs_changelog.html",
         "_docs_color-contrast.html",
-        "_docs_course_integration_plan.html",
         "_docs_do-dont.html",
         "_docs_doc-word.html",
         "_docs_documents-media.html",
@@ -1272,7 +1181,6 @@
         "_docs_focus-management.html",
         "_docs_governance-charter.html",
         "_docs_home.html",
-        "_docs_index.html",
         "_docs_legacy-redirects.html",
         "_docs_lms-brightspace.html",
         "_docs_media-captioning.html",
@@ -1299,8 +1207,6 @@
         "_docs_title-ii-brief.html",
         "_docs_tools-checklists.html",
         "_docs_training-calendar.html",
-        "_docs_ua-accessibility-framework-accordion-full.html",
-        "_docs_ua-accessibility-framework-full.html",
         "_docs_wcag22-highlights.html",
         "_docs_web-app.html",
         "_docs_web-keyboard.html",
@@ -1388,34 +1294,12 @@
         "_work_web_home.html"
       ]
     },
-    "document-title": {
-      "description": "Ensure each HTML document contains a non-empty <title> element",
-      "help": "Documents must have <title> element to aid in navigation",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/document-title?application=axeAPI",
-      "impact": "serious",
-      "count": 2,
-      "pages": [
-        "_docs_ua-accessibility-framework-accordion-full.html",
-        "_docs_ua-accessibility-framework-full.html"
-      ]
-    },
-    "html-has-lang": {
-      "description": "Ensure every HTML document has a lang attribute",
-      "help": "<html> element must have a lang attribute",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/html-has-lang?application=axeAPI",
-      "impact": "serious",
-      "count": 2,
-      "pages": [
-        "_docs_ua-accessibility-framework-accordion-full.html",
-        "_docs_ua-accessibility-framework-full.html"
-      ]
-    },
     "color-contrast": {
       "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
       "help": "Elements must meet minimum color contrast ratio thresholds",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
       "impact": "serious",
-      "count": 68,
+      "count": 67,
       "pages": [
         "_work_web_accessibility-101.html",
         "_work_web_adobe-media.html",
@@ -1441,7 +1325,6 @@
         "_work_web_focus-management.html",
         "_work_web_governance-charter.html",
         "_work_web_heading-basics.html",
-        "_work_web_home.html",
         "_work_web_legacy-redirects.html",
         "_work_web_lms-brightspace.html",
         "_work_web_lms-panopto.html",
@@ -1543,13 +1426,11 @@
     }
   },
   "byPage": {
-    "_docs_Digital_Accessibility_Framework_Course_Mapping.html": 2,
     "_docs_accessibility-101.html": 1,
     "_docs_assistive-tech.html": 1,
     "_docs_blog.html": 1,
     "_docs_changelog.html": 1,
     "_docs_color-contrast.html": 1,
-    "_docs_course_integration_plan.html": 2,
     "_docs_do-dont.html": 1,
     "_docs_doc-word.html": 1,
     "_docs_documents-media.html": 1,
@@ -1560,7 +1441,6 @@
     "_docs_focus-management.html": 1,
     "_docs_governance-charter.html": 1,
     "_docs_home.html": 2,
-    "_docs_index.html": 2,
     "_docs_legacy-redirects.html": 1,
     "_docs_lms-brightspace.html": 1,
     "_docs_media-captioning.html": 1,
@@ -1587,8 +1467,6 @@
     "_docs_title-ii-brief.html": 1,
     "_docs_tools-checklists.html": 1,
     "_docs_training-calendar.html": 1,
-    "_docs_ua-accessibility-framework-accordion-full.html": 4,
-    "_docs_ua-accessibility-framework-full.html": 4,
     "_docs_wcag22-highlights.html": 1,
     "_docs_web-app.html": 1,
     "_docs_web-keyboard.html": 1,
@@ -1620,7 +1498,7 @@
     "_work_web_focus-management.html": 3,
     "_work_web_governance-charter.html": 3,
     "_work_web_heading-basics.html": 3,
-    "_work_web_home.html": 3,
+    "_work_web_home.html": 2,
     "_work_web_legacy-redirects.html": 3,
     "_work_web_lms-brightspace.html": 3,
     "_work_web_lms-panopto.html": 3,

@@ -13,7 +13,7 @@
     "orientationAngle": 0,
     "orientationType": "landscape-primary"
   },
-  "timestamp": "2025-12-08T20:17:39.638Z",
+  "timestamp": "2025-12-08T20:24:12.808Z",
   "url": "http://127.0.0.1:8000/docs/course_integration_plan.html",
   "toolOptions": {
     "reporter": "v1"
@@ -73,18 +73,6 @@
       "nodes": []
     },
     {
-      "id": "aria-allowed-role",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "best-practice"
-      ],
-      "description": "Ensure role attribute has an appropriate value for the element",
-      "help": "ARIA role should be appropriate for the element",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-role?application=axeAPI",
-      "nodes": []
-    },
-    {
       "id": "aria-braille-equivalent",
       "impact": null,
       "tags": [
@@ -134,23 +122,6 @@
       "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
       "help": "ARIA attributes must be used as specified for the element's role",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-conditional-attr?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "aria-deprecated-role",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure elements do not use deprecated roles",
-      "help": "Deprecated ARIA roles must not be used",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-deprecated-role?application=axeAPI",
       "nodes": []
     },
     {
@@ -256,23 +227,6 @@
       "nodes": []
     },
     {
-      "id": "aria-required-attr",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure elements with ARIA roles have all required ARIA attributes",
-      "help": "Required ARIA attributes must be provided",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-required-attr?application=axeAPI",
-      "nodes": []
-    },
-    {
       "id": "aria-required-children",
       "impact": null,
       "tags": [
@@ -304,23 +258,6 @@
       "description": "Ensure elements with an ARIA role that require parent roles are contained by them",
       "help": "Certain ARIA roles must be contained by particular parents",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-required-parent?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "aria-roles",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure all elements with a role attribute use a valid value",
-      "help": "ARIA roles used must conform to valid values",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-roles?application=axeAPI",
       "nodes": []
     },
     {
@@ -838,18 +775,6 @@
       "nodes": []
     },
     {
-      "id": "landmark-main-is-top-level",
-      "impact": null,
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure the main landmark is at top level",
-      "help": "Main landmark should not be contained in another landmark",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-main-is-top-level?application=axeAPI",
-      "nodes": []
-    },
-    {
       "id": "landmark-no-duplicate-banner",
       "impact": null,
       "tags": [
@@ -871,30 +796,6 @@
       "description": "Ensure the document has at most one contentinfo landmark",
       "help": "Document should not have more than one contentinfo landmark",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-contentinfo?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "landmark-no-duplicate-main",
-      "impact": null,
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure the document has at most one main landmark",
-      "help": "Document should not have more than one main landmark",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-main?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "landmark-unique",
-      "impact": null,
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure landmarks are unique",
-      "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=axeAPI",
       "nodes": []
     },
     {
@@ -1314,6 +1215,73 @@
   ],
   "passes": [
     {
+      "id": "aria-allowed-role",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "best-practice"
+      ],
+      "description": "Ensure role attribute has an appropriate value for the element",
+      "help": "ARIA role should be appropriate for the element",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-role?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "aria-allowed-role",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "minor",
+              "message": "ARIA role is allowed for given element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aria-deprecated-role",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure elements do not use deprecated roles",
+      "help": "Deprecated ARIA roles must not be used",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-deprecated-role?application=axeAPI",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "deprecatedrole",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "minor",
+              "message": "ARIA role is not deprecated"
+            }
+          ],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
       "id": "aria-hidden-body",
       "impact": null,
       "tags": [
@@ -1347,6 +1315,92 @@
           "html": "<body>",
           "target": [
             "body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aria-required-attr",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure elements with ARIA roles have all required ARIA attributes",
+      "help": "Required ARIA attributes must be provided",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-required-attr?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "aria-required-attr",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aria-roles",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure all elements with a role attribute use a valid value",
+      "help": "ARIA roles used must conform to valid values",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-roles?application=axeAPI",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "invalidrole",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "ARIA role is valid"
+            },
+            {
+              "id": "abstractrole",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Abstract roles are not used"
+            },
+            {
+              "id": "unsupportedrole",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "ARIA role is supported"
+            }
+          ],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
           ]
         }
       ]
@@ -3169,43 +3223,43 @@
                 "headingOrder": [
                   {
                     "ancestry": [
-                      "html > body > h1:nth-child(1)"
+                      "html > body > main > h1:nth-child(1)"
                     ],
                     "level": 1
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(3)"
+                      "html > body > main > h2:nth-child(3)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(5)"
+                      "html > body > main > h2:nth-child(5)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(8)"
+                      "html > body > main > h2:nth-child(8)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(11)"
+                      "html > body > main > h2:nth-child(11)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(13)"
+                      "html > body > main > h2:nth-child(13)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(15)"
+                      "html > body > main > h2:nth-child(15)"
                     ],
                     "level": 2
                   }
@@ -3408,6 +3462,142 @@
           "html": "<html lang=\"en\">",
           "target": [
             "html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landmark-main-is-top-level",
+      "impact": null,
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the main landmark is at top level",
+      "help": "Main landmark should not be contained in another landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-main-is-top-level?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-top-level",
+              "data": {
+                "role": "main"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "The main landmark is at the top level."
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landmark-no-duplicate-main",
+      "impact": null,
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has at most one main landmark",
+      "help": "Document should not have more than one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-main?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "page-no-duplicate-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have more than one main landmark"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": null,
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<main id=\"maincontent\" role=\"main\">",
+                  "target": [
+                    "#maincontent"
+                  ]
+                }
+              ],
+              "impact": "moderate",
+              "message": "Document has at least one main landmark"
+            }
+          ],
+          "none": [],
+          "impact": null,
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landmark-unique",
+      "impact": null,
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure landmarks are unique",
+      "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-unique",
+              "data": {
+                "role": "main",
+                "accessibleText": null
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Landmarks must have a unique role or role/label/title (i.e. accessible name) combination"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
           ]
         }
       ]
@@ -4024,7 +4214,7 @@
     },
     {
       "id": "region",
-      "impact": "moderate",
+      "impact": null,
       "tags": [
         "cat.keyboard",
         "best-practice",
@@ -4035,6 +4225,106 @@
       "help": "All page content should be contained by landmarks",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
       "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<h1>Course Integration Plan — Digital Accessibility Framework</h1>",
+          "target": [
+            "h1"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"note\">Purpose: capture a practical, low-risk approach to integrate the LinkedIn Learning course mapping into the site.</p>",
+          "target": [
+            ".note:nth-child(2)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<h2>Desired data model (per course)</h2>",
+          "target": [
+            "h2:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<ul>",
+          "target": [
+            "ul:nth-child(4)"
+          ]
+        },
         {
           "any": [
             {
@@ -4550,6 +4840,46 @@
           "all": [],
           "none": [],
           "impact": null,
+          "html": "<h2>Immediate action (fast, no external scraping)</h2>",
+          "target": [
+            "h2:nth-child(5)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<ol>",
+          "target": [
+            "ol"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
           "html": "<li>Use the spreadsheet descriptions (already exported to <code>Digital_Accessibility_Framework_Course_Mapping.md</code>).</li>",
           "target": [
             "ol > li:nth-child(1)"
@@ -4710,6 +5040,86 @@
           "all": [],
           "none": [],
           "impact": null,
+          "html": "<p class=\"note\">Benefits: quick, no scraping or auth required; content is ready to publish and attributed.</p>",
+          "target": [
+            ".note:nth-child(7)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<h2>Enrichment (optional)</h2>",
+          "target": [
+            "h2:nth-child(8)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p>Goal: add canonical LinkedIn URLs and short meta descriptions.</p>",
+          "target": [
+            "p:nth-child(9)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<ul>",
+          "target": [
+            "ul:nth-child(10)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
           "html": "<li>Manual: Admin copy/paste of each LinkedIn URL (fast for ~30 courses).</li>",
           "target": [
             "ul:nth-child(10) > li:nth-child(1)"
@@ -4813,6 +5223,46 @@
           "html": "<li>LinkedIn Learning Admin/API: If you have an admin account, request CSV export or API access for canonical meta and URLs.</li>",
           "target": [
             "ul:nth-child(10) > li:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<h2>Tooling (optional automation)</h2>",
+          "target": [
+            "h2:nth-child(11)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<ul>",
+          "target": [
+            "ul:nth-child(12)"
           ]
         },
         {
@@ -4970,9 +5420,89 @@
           "all": [],
           "none": [],
           "impact": null,
+          "html": "<h2>Minimal <code>requirements.txt</code> (for automation scripts)</h2>",
+          "target": [
+            "h2:nth-child(13)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
           "html": "<code>requirements.txt</code>",
           "target": [
             "h2:nth-child(13) > code"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<pre>pandas\nrequests\nbeautifulsoup4\nopenpyxl\n  </pre>",
+          "target": [
+            "pre"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<h2>Next steps I can do for you</h2>",
+          "target": [
+            "h2:nth-child(15)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<ul>",
+          "target": [
+            "ul:nth-child(16)"
           ]
         },
         {
@@ -5114,415 +5644,30 @@
           "target": [
             "ul:nth-child(16) > li:nth-child(3)"
           ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"note\">Choose one option and I will proceed.</p>",
+          "target": [
+            ".note:nth-child(17)"
+          ]
         }
       ]
     }
   ],
   "incomplete": [],
-  "violations": [
-    {
-      "id": "landmark-one-main",
-      "impact": "moderate",
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure the document has a main landmark",
-      "help": "Document should have one main landmark",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
-      "nodes": [
-        {
-          "any": [],
-          "all": [
-            {
-              "id": "page-has-main",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Document does not have a main landmark"
-            }
-          ],
-          "none": [],
-          "impact": "moderate",
-          "html": "<html lang=\"en\">",
-          "target": [
-            "html"
-          ],
-          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
-        }
-      ]
-    },
-    {
-      "id": "region",
-      "impact": "moderate",
-      "tags": [
-        "cat.keyboard",
-        "best-practice",
-        "RGAAv4",
-        "RGAA-9.2.1"
-      ],
-      "description": "Ensure all page content is contained by landmarks",
-      "help": "All page content should be contained by landmarks",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
-      "nodes": [
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<h1>Course Integration Plan — Digital Accessibility Framework</h1>",
-          "target": [
-            "h1"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<p class=\"note\">Purpose: capture a practical, low-risk approach to integrate the LinkedIn Learning course mapping into the site.</p>",
-          "target": [
-            ".note:nth-child(2)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<h2>Desired data model (per course)</h2>",
-          "target": [
-            "h2:nth-child(3)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<ul>",
-          "target": [
-            "ul:nth-child(4)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<h2>Immediate action (fast, no external scraping)</h2>",
-          "target": [
-            "h2:nth-child(5)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<ol>",
-          "target": [
-            "ol"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<p class=\"note\">Benefits: quick, no scraping or auth required; content is ready to publish and attributed.</p>",
-          "target": [
-            ".note:nth-child(7)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<h2>Enrichment (optional)</h2>",
-          "target": [
-            "h2:nth-child(8)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<p>Goal: add canonical LinkedIn URLs and short meta descriptions.</p>",
-          "target": [
-            "p:nth-child(9)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<ul>",
-          "target": [
-            "ul:nth-child(10)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<h2>Tooling (optional automation)</h2>",
-          "target": [
-            "h2:nth-child(11)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<ul>",
-          "target": [
-            "ul:nth-child(12)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<h2>Minimal <code>requirements.txt</code> (for automation scripts)</h2>",
-          "target": [
-            "h2:nth-child(13)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<pre>pandas\nrequests\nbeautifulsoup4\nopenpyxl\n  </pre>",
-          "target": [
-            "pre"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<h2>Next steps I can do for you</h2>",
-          "target": [
-            "h2:nth-child(15)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<ul>",
-          "target": [
-            "ul:nth-child(16)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<p class=\"note\">Choose one option and I will proceed.</p>",
-          "target": [
-            ".note:nth-child(17)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-        }
-      ]
-    }
-  ]
+  "violations": []
 }

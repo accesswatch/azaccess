@@ -13,7 +13,7 @@
     "orientationAngle": 0,
     "orientationType": "landscape-primary"
   },
-  "timestamp": "2025-12-08T20:17:46.768Z",
+  "timestamp": "2025-12-08T20:24:19.971Z",
   "url": "http://127.0.0.1:8000/docs/ua-accessibility-framework-full.html",
   "toolOptions": {
     "reporter": "v1"
@@ -73,18 +73,6 @@
       "nodes": []
     },
     {
-      "id": "aria-allowed-role",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "best-practice"
-      ],
-      "description": "Ensure role attribute has an appropriate value for the element",
-      "help": "ARIA role should be appropriate for the element",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-role?application=axeAPI",
-      "nodes": []
-    },
-    {
       "id": "aria-braille-equivalent",
       "impact": null,
       "tags": [
@@ -134,23 +122,6 @@
       "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
       "help": "ARIA attributes must be used as specified for the element's role",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-conditional-attr?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "aria-deprecated-role",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure elements do not use deprecated roles",
-      "help": "Deprecated ARIA roles must not be used",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-deprecated-role?application=axeAPI",
       "nodes": []
     },
     {
@@ -256,23 +227,6 @@
       "nodes": []
     },
     {
-      "id": "aria-required-attr",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure elements with ARIA roles have all required ARIA attributes",
-      "help": "Required ARIA attributes must be provided",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-required-attr?application=axeAPI",
-      "nodes": []
-    },
-    {
       "id": "aria-required-children",
       "impact": null,
       "tags": [
@@ -304,23 +258,6 @@
       "description": "Ensure elements with an ARIA role that require parent roles are contained by them",
       "help": "Certain ARIA roles must be contained by particular parents",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-required-parent?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "aria-roles",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure all elements with a role attribute use a valid value",
-      "help": "ARIA roles used must conform to valid values",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-roles?application=axeAPI",
       "nodes": []
     },
     {
@@ -669,26 +606,6 @@
       "nodes": []
     },
     {
-      "id": "html-lang-valid",
-      "impact": null,
-      "tags": [
-        "cat.language",
-        "wcag2a",
-        "wcag311",
-        "TTv5",
-        "TT11.a",
-        "EN-301-549",
-        "EN-9.3.1.1",
-        "ACT",
-        "RGAAv4",
-        "RGAA-8.4.1"
-      ],
-      "description": "Ensure the lang attribute of the <html> element has a valid value",
-      "help": "<html> element must have a valid value for the lang attribute",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/html-lang-valid?application=axeAPI",
-      "nodes": []
-    },
-    {
       "id": "html-xml-lang-mismatch",
       "impact": null,
       "tags": [
@@ -858,18 +775,6 @@
       "nodes": []
     },
     {
-      "id": "landmark-main-is-top-level",
-      "impact": null,
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure the main landmark is at top level",
-      "help": "Main landmark should not be contained in another landmark",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-main-is-top-level?application=axeAPI",
-      "nodes": []
-    },
-    {
       "id": "landmark-no-duplicate-banner",
       "impact": null,
       "tags": [
@@ -891,30 +796,6 @@
       "description": "Ensure the document has at most one contentinfo landmark",
       "help": "Document should not have more than one contentinfo landmark",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-contentinfo?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "landmark-no-duplicate-main",
-      "impact": null,
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure the document has at most one main landmark",
-      "help": "Document should not have more than one main landmark",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-main?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "landmark-unique",
-      "impact": null,
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure landmarks are unique",
-      "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=axeAPI",
       "nodes": []
     },
     {
@@ -1398,6 +1279,73 @@
   ],
   "passes": [
     {
+      "id": "aria-allowed-role",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "best-practice"
+      ],
+      "description": "Ensure role attribute has an appropriate value for the element",
+      "help": "ARIA role should be appropriate for the element",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-role?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "aria-allowed-role",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "minor",
+              "message": "ARIA role is allowed for given element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aria-deprecated-role",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure elements do not use deprecated roles",
+      "help": "Deprecated ARIA roles must not be used",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-deprecated-role?application=axeAPI",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "deprecatedrole",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "minor",
+              "message": "ARIA role is not deprecated"
+            }
+          ],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
       "id": "aria-hidden-body",
       "impact": null,
       "tags": [
@@ -1431,6 +1379,92 @@
           "html": "<body>",
           "target": [
             "body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aria-required-attr",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure elements with ARIA roles have all required ARIA attributes",
+      "help": "Required ARIA attributes must be provided",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-required-attr?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "aria-required-attr",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aria-roles",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure all elements with a role attribute use a valid value",
+      "help": "ARIA roles used must conform to valid values",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-roles?application=axeAPI",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "invalidrole",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "ARIA role is valid"
+            },
+            {
+              "id": "abstractrole",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Abstract roles are not used"
+            },
+            {
+              "id": "unsupportedrole",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "ARIA role is supported"
+            }
+          ],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
           ]
         }
       ]
@@ -2432,6 +2466,45 @@
       ]
     },
     {
+      "id": "document-title",
+      "impact": null,
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag242",
+        "TTv5",
+        "TT12.a",
+        "EN-301-549",
+        "EN-9.2.4.2",
+        "ACT",
+        "RGAAv4",
+        "RGAA-8.5.1"
+      ],
+      "description": "Ensure each HTML document contains a non-empty <title> element",
+      "help": "Documents must have <title> element to aid in navigation",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/document-title?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "doc-has-title",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Document has a non-empty <title> element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ]
+        }
+      ]
+    },
+    {
       "id": "empty-heading",
       "impact": null,
       "tags": [
@@ -2823,121 +2896,121 @@
                 "headingOrder": [
                   {
                     "ancestry": [
-                      "html > body > h1:nth-child(1)"
+                      "html > body > main > h1:nth-child(1)"
                     ],
                     "level": 1
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(2)"
+                      "html > body > main > h2:nth-child(2)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(4)"
+                      "html > body > main > h2:nth-child(4)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(6)"
+                      "html > body > main > h2:nth-child(6)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(8)"
+                      "html > body > main > h2:nth-child(8)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(10)"
+                      "html > body > main > h2:nth-child(10)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(12)"
+                      "html > body > main > h2:nth-child(12)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(14)"
+                      "html > body > main > h2:nth-child(14)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(16)"
+                      "html > body > main > h2:nth-child(16)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(18)"
+                      "html > body > main > h2:nth-child(18)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(20)"
+                      "html > body > main > h2:nth-child(20)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(22)"
+                      "html > body > main > h2:nth-child(22)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(24)"
+                      "html > body > main > h2:nth-child(24)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(26)"
+                      "html > body > main > h2:nth-child(26)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(28)"
+                      "html > body > main > h2:nth-child(28)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(30)"
+                      "html > body > main > h2:nth-child(30)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(32)"
+                      "html > body > main > h2:nth-child(32)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(34)"
+                      "html > body > main > h2:nth-child(34)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(36)"
+                      "html > body > main > h2:nth-child(36)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > h2:nth-child(38)"
+                      "html > body > main > h2:nth-child(38)"
                     ],
                     "level": 2
                   }
@@ -3301,6 +3374,220 @@
       ]
     },
     {
+      "id": "html-has-lang",
+      "impact": null,
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT",
+        "RGAAv4",
+        "RGAA-8.3.1"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/html-has-lang?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element has a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "html-lang-valid",
+      "impact": null,
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT",
+        "RGAAv4",
+        "RGAA-8.4.1"
+      ],
+      "description": "Ensure the lang attribute of the <html> element has a valid value",
+      "help": "<html> element must have a valid value for the lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/html-lang-valid?application=axeAPI",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "valid-lang",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Value of lang attribute is included in the list of valid languages"
+            }
+          ],
+          "impact": null,
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landmark-main-is-top-level",
+      "impact": null,
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the main landmark is at top level",
+      "help": "Main landmark should not be contained in another landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-main-is-top-level?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-top-level",
+              "data": {
+                "role": "main"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "The main landmark is at the top level."
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landmark-no-duplicate-main",
+      "impact": null,
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has at most one main landmark",
+      "help": "Document should not have more than one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-main?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "page-no-duplicate-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have more than one main landmark"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": null,
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<main id=\"maincontent\" role=\"main\">",
+                  "target": [
+                    "#maincontent"
+                  ]
+                }
+              ],
+              "impact": "moderate",
+              "message": "Document has at least one main landmark"
+            }
+          ],
+          "none": [],
+          "impact": null,
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landmark-unique",
+      "impact": null,
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure landmarks are unique",
+      "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-unique",
+              "data": {
+                "role": "main",
+                "accessibleText": null
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Landmarks must have a unique role or role/label/title (i.e. accessible name) combination"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        }
+      ]
+    },
+    {
       "id": "page-has-heading-one",
       "impact": null,
       "tags": [
@@ -3331,133 +3618,16 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<html>",
+          "html": "<html lang=\"en\">",
           "target": [
             "html"
           ]
         }
       ]
-    }
-  ],
-  "incomplete": [],
-  "violations": [
-    {
-      "id": "document-title",
-      "impact": "serious",
-      "tags": [
-        "cat.text-alternatives",
-        "wcag2a",
-        "wcag242",
-        "TTv5",
-        "TT12.a",
-        "EN-301-549",
-        "EN-9.2.4.2",
-        "ACT",
-        "RGAAv4",
-        "RGAA-8.5.1"
-      ],
-      "description": "Ensure each HTML document contains a non-empty <title> element",
-      "help": "Documents must have <title> element to aid in navigation",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/document-title?application=axeAPI",
-      "nodes": [
-        {
-          "any": [
-            {
-              "id": "doc-has-title",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Document does not have a non-empty <title> element"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "serious",
-          "html": "<html>",
-          "target": [
-            "html"
-          ],
-          "failureSummary": "Fix any of the following:\n  Document does not have a non-empty <title> element"
-        }
-      ]
-    },
-    {
-      "id": "html-has-lang",
-      "impact": "serious",
-      "tags": [
-        "cat.language",
-        "wcag2a",
-        "wcag311",
-        "TTv5",
-        "TT11.a",
-        "EN-301-549",
-        "EN-9.3.1.1",
-        "ACT",
-        "RGAAv4",
-        "RGAA-8.3.1"
-      ],
-      "description": "Ensure every HTML document has a lang attribute",
-      "help": "<html> element must have a lang attribute",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/html-has-lang?application=axeAPI",
-      "nodes": [
-        {
-          "any": [
-            {
-              "id": "has-lang",
-              "data": {
-                "messageKey": "noLang"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "The <html> element does not have a lang attribute"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "serious",
-          "html": "<html>",
-          "target": [
-            "html"
-          ],
-          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
-        }
-      ]
-    },
-    {
-      "id": "landmark-one-main",
-      "impact": "moderate",
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure the document has a main landmark",
-      "help": "Document should have one main landmark",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
-      "nodes": [
-        {
-          "any": [],
-          "all": [
-            {
-              "id": "page-has-main",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Document does not have a main landmark"
-            }
-          ],
-          "none": [],
-          "impact": "moderate",
-          "html": "<html>",
-          "target": [
-            "html"
-          ],
-          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
-        }
-      ]
     },
     {
       "id": "region",
-      "impact": "moderate",
+      "impact": null,
       "tags": [
         "cat.keyboard",
         "best-practice",
@@ -3477,17 +3647,36 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
+          "html": "<main id=\"maincontent\" role=\"main\">",
+          "target": [
+            "#maincontent"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
           "html": "<h1>UA Accessibility Framework (Full Version)</h1>",
           "target": [
             "h1"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3498,17 +3687,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Understanding Digital Accessibility</h2>",
           "target": [
             "h2:nth-child(2)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3519,17 +3707,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>",
           "target": [
             "p:nth-child(3)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3540,17 +3727,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Prepare for Digital Accessibility</h2>",
           "target": [
             "h2:nth-child(4)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3561,17 +3747,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>",
           "target": [
             "p:nth-child(5)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3582,17 +3767,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Build for Digital Accessibility</h2>",
           "target": [
             "h2:nth-child(6)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3603,17 +3787,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>",
           "target": [
             "p:nth-child(7)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3624,17 +3807,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Maintain Digital Accessibility</h2>",
           "target": [
             "h2:nth-child(8)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3645,17 +3827,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>",
           "target": [
             "p:nth-child(9)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3666,17 +3847,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Accessibility and AI: Bridging the Disability Divide</h2>",
           "target": [
             "h2:nth-child(10)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3687,17 +3867,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>",
           "target": [
             "p:nth-child(11)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3708,17 +3887,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>UX Foundations: Accessibility</h2>",
           "target": [
             "h2:nth-child(12)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3729,17 +3907,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course examines UX design through an accessibility lens, covering universal design principles, user research with people with disabilities, inclusive patterns, and approaches to making digital experiences intuitive and equitable. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(13)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3750,17 +3927,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Accessibility for Web Design</h2>",
           "target": [
             "h2:nth-child(14)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3771,17 +3947,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course teaches designers how to create accessible layouts, navigation structures, color systems, and interactive elements. It connects visual decisions to usability for people with disabilities. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(15)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3792,17 +3967,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Web Accessibility for Developers</h2>",
           "target": [
             "h2:nth-child(16)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3813,17 +3987,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>A technical course focusing on semantic HTML, ARIA, keyboard support, focus handling, forms, dynamic content, and debugging common issues using accessibility testing tools. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(17)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3834,17 +4007,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Practical Accessibility for Designers</h2>",
           "target": [
             "h2:nth-child(18)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3855,17 +4027,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>A design-focused course showing practical methods for incorporating accessibility into wireframes, prototypes, typography, spacing, and component-level decisions. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(19)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3876,17 +4047,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Creating Accessible PDFs</h2>",
           "target": [
             "h2:nth-child(20)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3897,17 +4067,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course teaches how to convert documents into tagged, navigable, screen-reader-friendly PDFs using Acrobat, Word, and InDesign. Topics include reading order, alternative text, tables, and accessibility checkers. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(21)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3918,17 +4087,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Creating Accessible Documents</h2>",
           "target": [
             "h2:nth-child(22)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3939,17 +4107,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course covers building accessible Word, Google Docs, and similar documents. It explains heading structure, list formatting, alt text, proper hyperlinking, and best practices for template creation. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(23)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3960,17 +4127,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Creating Accessible Presentations</h2>",
           "target": [
             "h2:nth-child(24)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -3981,17 +4147,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course explains how to design accessible slides with readable text, strong color contrast, structured layouts, alt text for images, and accessible exported formats. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(25)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4002,17 +4167,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Creating Accessible Video</h2>",
           "target": [
             "h2:nth-child(26)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4023,17 +4187,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course covers captioning, audio descriptions, transcripts, accessible players, and production workflows that ensure video content is usable for all audiences. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(27)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4044,17 +4207,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Supporting Coworkers with Disabilities</h2>",
           "target": [
             "h2:nth-child(28)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4065,17 +4227,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>A leadership-oriented course focused on disability etiquette, communication strategies, workplace adjustments, and building an inclusive team culture. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(29)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4086,17 +4247,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Strengthening Teams: Foster Disability Inclusion</h2>",
           "target": [
             "h2:nth-child(30)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4107,17 +4267,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course helps managers and team leads build disability-inclusive work environments through communication practices, inclusive policies, and proactive accessibility support. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(31)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4128,17 +4287,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Accessibility and Inclusion Advocates</h2>",
           "target": [
             "h2:nth-child(32)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4149,17 +4307,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This learning path trains individuals to champion accessibility efforts within their organizations, providing strategies for influencing culture, improving collaboration, and supporting accessibility initiatives. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(33)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4170,17 +4327,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Foundations of Accessible eLearning</h2>",
           "target": [
             "h2:nth-child(34)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4191,17 +4347,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course covers creating accessible online learning materials, including LMS content, multimedia, assessments, and documentation aligned to WCAG and instructional design principles. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(35)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4212,17 +4367,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Using AI for Accessible Design Workflows</h2>",
           "target": [
             "h2:nth-child(36)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4233,17 +4387,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course demonstrates how AI tools can assist designers in generating accessible content, checking contrast, identifying usability issues, and enhancing efficiency while maintaining compliance. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(37)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4254,17 +4407,16 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<h2>Making a Case for Accessibility</h2>",
           "target": [
             "h2:nth-child(38)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         },
         {
           "any": [
@@ -4275,19 +4427,20 @@
               },
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Some page content is not contained by landmarks"
+              "message": "All page content is contained by landmarks"
             }
           ],
           "all": [],
           "none": [],
-          "impact": "moderate",
+          "impact": null,
           "html": "<p>This course helps professionals communicate the business, legal, ethical, and usability benefits of accessibility to stakeholders, executives, and teams. (Paraphrased with attribution to LinkedIn Learning.)</p>",
           "target": [
             "p:nth-child(39)"
-          ],
-          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          ]
         }
       ]
     }
-  ]
+  ],
+  "incomplete": [],
+  "violations": []
 }

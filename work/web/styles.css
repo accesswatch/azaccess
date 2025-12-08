@@ -73,6 +73,10 @@ header {
     color: var(--ua-white);
 }
 
+header a {
+    color: var(--ua-white);
+}
+
 .site-header-brand {
     font-weight: 600;
 }
