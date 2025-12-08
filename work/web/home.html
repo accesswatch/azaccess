@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Accessibility at Arizona | Home Prototype</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="header.js" defer></script>
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
       <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-      <nav class="site-header-nav" aria-label="Primary">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <!-- primary-nav id used by responsive toggle -->
         <!-- id added to allow toggle via JS -->
         
@@ -26,14 +26,15 @@
         <a href="tools-checklists.html">Tools &amp; Checklists</a>
         <a href="policies-governance.html">Policies &amp; Governance</a>
         <a href="support.html">Support</a>
+        <a href="learning.html">Learning</a>
       </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
         <a href="accessibility-101.html">Accessibility 101</a>
         <a href="blog.html">Blog</a>
         <a href="support.html">Get help</a>
       </nav>
     </div>
-    <nav aria-label="On this page">
+    <nav aria-label="On this page" role="navigation">
       <ul class="tag-list">
         <li><a href="#hero">Start</a></li>
         <li><a href="#personas">Personas</a></li>
@@ -43,7 +44,7 @@
       </ul>
     </nav>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <section id="hero" aria-labelledby="hero-title">
       <h1 id="hero-title">Everyone deserves a welcoming Arizona experience</h1>
       <p>Students, employees, families, alumni, and community members can find clear next steps. This site is here to help you make things work for more people—without needing to be an accessibility expert.</p>
@@ -142,6 +143,23 @@
       </div>
     </section>
 
+    <section id="learning-paths" aria-labelledby="learning-paths-title">
+      <h2 id="learning-paths-title">Learning paths</h2>
+      <p>Curated learning paths for teams and individuals. Choose the full outline or an accordion view for quick scanning.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>UA Accessibility Framework</h3>
+          <p>A structured set of short courses and learning paths covering planning, building, and sustaining accessibility across the university.</p>
+          <p>
+            <a class="cta" href="add/ua-accessibility-framework-full.html">Full outline</a>
+          </p>
+          <p>
+            <a class="cta" href="add/ua-accessibility-framework-accordion-full.html">Accordion view</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
     <section id="quick-wins" aria-labelledby="quick-wins-title">
       <h2 id="quick-wins-title">Quick wins you can do today</h2>
       <ul>
@@ -179,7 +197,7 @@
       <p class="card">Stay in the loop. Subscribe to the Accessibility newsletter for Title II updates and training invites. <a href="https://trellis.tfaforms.net/72?tfa_4=AccessibilityNews">Subscribe now</a>.</p>
     </section>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>
     <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
     <p>Last reviewed: 2025-11-20 · Next review: 2026-02-20</p>

@@ -5,18 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Accessible Slide Deck Example | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
-    <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+    <div class="site-header-brand">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+University of Arizona · Digital Accessibility</div>
     <p>Example · Documents &amp; Media</p>
     <h1>Accessible Slide Deck Example</h1>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <p>This example compares an inaccessible slide layout to an accessible template-based layout with proper reading order.</p>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>

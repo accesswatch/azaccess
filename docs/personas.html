@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Persona Guides</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
+      <div class="site-header-brand">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
         <a href="personas.html" aria-current="page">Personas</a>
         <a href="documents-media.html">Documents &amp; Media</a>
@@ -22,7 +25,7 @@
         <a href="policies-governance.html">Policies &amp; Governance</a>
         <a href="support.html">Support</a>
       </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
         <a href="accessibility-101.html">Accessibility 101</a>
         <a href="blog.html">Blog</a>
         <a href="support.html">Get help</a>
@@ -33,7 +36,7 @@
     <p>Select the persona that best matches your role to see top tasks, tools, and training.</p>
     <p class="metric-chip">Updated: 2025-11-20</p>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <section aria-labelledby="personas-intro">
       <h2 id="personas-intro">How to use these guides</h2>
       <p>Each persona provides an executive overview plus drill-down guidance, assistive technology expectations, and UA-specific workflows. Start with the card that matches your primary responsibilities; you can always explore others.</p>
@@ -103,7 +106,7 @@
       </ul>
     </section>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>

@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Page Not Found | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
+      <div class="site-header-brand">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
         <a href="personas.html">Personas</a>
         <a href="documents-media.html">Documents &amp; Media</a>
@@ -22,7 +25,7 @@
         <a href="policies-governance.html">Policies &amp; Governance</a>
         <a href="support.html">Support</a>
       </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
         <a href="accessibility-101.html">Accessibility 101</a>
         <a href="blog.html">Blog</a>
         <a href="support.html">Get help</a>
@@ -31,7 +34,7 @@
     <p><a href="home.html">Accessibility Home</a> / Page not found</p>
     <h1>We couldn&apos;t find that page</h1>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <p>The page you were looking for may have moved or been renamed.</p>
     <ul>
       <li><a href="home.html">Go to the Accessibility home page</a></li>
@@ -39,7 +42,7 @@
       <li><a href="support.html">Contact us for help finding the right resource</a></li>
     </ul>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>

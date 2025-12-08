@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Title II Web &amp; Mobile Brief | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
+      <div class="site-header-brand">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
         <a href="personas.html">Personas</a>
         <a href="documents-media.html">Documents &amp; Media</a>
@@ -22,7 +25,7 @@
         <a href="policies-governance.html">Policies &amp; Governance</a>
         <a href="support.html">Support</a>
       </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
         <a href="accessibility-101.html">Accessibility 101</a>
         <a href="blog.html">Blog</a>
         <a href="support.html">Get help</a>
@@ -32,7 +35,7 @@
     <h1>Title II Web &amp; Mobile Brief</h1>
     <p class="page-meta">Updated: 2025-11-20 · Next review: 2026-02-20</p>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <section aria-labelledby="key-points-title">
       <h2 id="key-points-title">Key points</h2>
       <ul>
@@ -57,7 +60,7 @@
       <p>Review current state versus KPIs, allocate budget for remediation and training, and require accessibility checkpoints in all digital initiatives.</p>
     </section>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>

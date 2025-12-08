@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Focus Management Patterns | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
+      <div class="site-header-brand">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
         <a href="personas.html">Personas</a>
         <a href="documents-media.html">Documents &amp; Media</a>
@@ -22,7 +25,7 @@
         <a href="policies-governance.html">Policies &amp; Governance</a>
         <a href="support.html">Support</a>
       </nav>
-      <nav class="site-header-utilities" aria-label="Quick links">
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
         <a href="accessibility-101.html">Accessibility 101</a>
         <a href="blog.html">Blog</a>
         <a href="support.html">Get help</a>
@@ -31,13 +34,13 @@
     <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; App Accessibility</a> / Focus Management</p>
     <h1>Focus Management Patterns</h1>
   </header>
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <section aria-labelledby="dialog-title">
       <h2 id="dialog-title">Dialogs and modals</h2>
       <p>Move focus into the dialog when it opens, trap focus inside, support Esc to close, and return focus to the trigger when closed.</p>
     </section>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 The University of Arizona.</p>
   </footer>
 </body>
