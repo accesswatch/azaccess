@@ -1,0 +1,427 @@
+{
+  "totalPages": 76,
+  "pagesWithViolations": 70,
+  "totalViolations": 116,
+  "violationsByRule": {
+    "page-has-heading-one": {
+      "count": 46,
+      "impact": "moderate",
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/page-has-heading-one?application=axeAPI",
+      "pages": [
+        "_accessibility-101.html",
+        "_adobe-media.html",
+        "_assistive-tech.html",
+        "_blog-cta.html",
+        "_blog-template.html",
+        "_brand-identity.html",
+        "_changelog.html",
+        "_color-contrast.html",
+        "_consultation-map.html",
+        "_do-dont.html",
+        "_doc-excel.html",
+        "_doc-google.html",
+        "_doc-powerpoint.html",
+        "_doc-word.html",
+        "_documents-overview.html",
+        "_email-gmail.html",
+        "_email-newsletters.html",
+        "_email-outlook.html",
+        "_events-inclusive.html",
+        "_focus-management.html",
+        "_governance-charter.html",
+        "_heading-basics.html",
+        "_legacy-redirects.html",
+        "_lms-brightspace.html",
+        "_lms-panopto.html",
+        "_meaningful-links.html",
+        "_media-captioning.html",
+        "_metrics-kpis.html",
+        "_mobile-roadmap.html",
+        "_pdf-remediation.html",
+        "_pedagogy-checklist.html",
+        "_persona-template.html",
+        "_procurement-steps.html",
+        "_references.html",
+        "_resource-registry.html",
+        "_service-levels.html",
+        "_shared-md-template.html",
+        "_site-alerts.html",
+        "_skip-link-snippet.html",
+        "_testing-tools.html",
+        "_title-ii-brief.html",
+        "_training-calendar.html",
+        "_vendor-faq.html",
+        "_vpat-review.html",
+        "_wcag22-highlights.html",
+        "_web-keyboard.html"
+      ]
+    },
+    "region": {
+      "count": 70,
+      "impact": "moderate",
+      "description": "Ensure all page content is contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+      "pages": [
+        "_accessibility-101.html",
+        "_adobe-media.html",
+        "_assistive-tech.html",
+        "_blog-cta.html",
+        "_blog-template.html",
+        "_blog.html",
+        "_brand-identity.html",
+        "_changelog.html",
+        "_color-contrast.html",
+        "_consultation-map.html",
+        "_do-dont.html",
+        "_doc-excel.html",
+        "_doc-google.html",
+        "_doc-powerpoint.html",
+        "_doc-word.html",
+        "_documents-media.html",
+        "_documents-overview.html",
+        "_email-gmail.html",
+        "_email-newsletters.html",
+        "_email-outlook.html",
+        "_events-inclusive.html",
+        "_example-newsletter.html",
+        "_example-slides.html",
+        "_example-syllabus.html",
+        "_focus-management.html",
+        "_governance-charter.html",
+        "_heading-basics.html",
+        "_home.html",
+        "_legacy-redirects.html",
+        "_lms-brightspace.html",
+        "_lms-panopto.html",
+        "_meaningful-links.html",
+        "_media-captioning.html",
+        "_metrics-kpis.html",
+        "_mobile-roadmap.html",
+        "_not-found.html",
+        "_pdf-remediation.html",
+        "_pedagogy-checklist.html",
+        "_persona-comms.html",
+        "_persona-content.html",
+        "_persona-developers.html",
+        "_persona-faculty.html",
+        "_persona-leadership.html",
+        "_persona-mobile.html",
+        "_persona-public.html",
+        "_persona-staff.html",
+        "_persona-students.html",
+        "_persona-template.html",
+        "_personas.html",
+        "_policies-governance.html",
+        "_procurement-steps.html",
+        "_procurement.html",
+        "_references.html",
+        "_resource-registry.html",
+        "_service-levels.html",
+        "_shared-md-template.html",
+        "_site-alerts.html",
+        "_skip-link-snippet.html",
+        "_support.html",
+        "_teaching-learning.html",
+        "_testing-tools.html",
+        "_title-ii-brief.html",
+        "_tools-checklists.html",
+        "_training-calendar.html",
+        "_vendor-faq.html",
+        "_vpat-review.html",
+        "_wcag22-highlights.html",
+        "_web-app.html",
+        "_web-keyboard.html",
+        "_wizard.html"
+      ]
+    }
+  },
+  "violationsByImpact": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 116,
+    "minor": 0
+  },
+  "pageViolations": [
+    {
+      "page": "_accessibility-101.html",
+      "count": 2
+    },
+    {
+      "page": "_adobe-media.html",
+      "count": 2
+    },
+    {
+      "page": "_assistive-tech.html",
+      "count": 2
+    },
+    {
+      "page": "_blog-cta.html",
+      "count": 2
+    },
+    {
+      "page": "_blog-template.html",
+      "count": 2
+    },
+    {
+      "page": "_brand-identity.html",
+      "count": 2
+    },
+    {
+      "page": "_changelog.html",
+      "count": 2
+    },
+    {
+      "page": "_color-contrast.html",
+      "count": 2
+    },
+    {
+      "page": "_consultation-map.html",
+      "count": 2
+    },
+    {
+      "page": "_do-dont.html",
+      "count": 2
+    },
+    {
+      "page": "_doc-excel.html",
+      "count": 2
+    },
+    {
+      "page": "_doc-google.html",
+      "count": 2
+    },
+    {
+      "page": "_doc-powerpoint.html",
+      "count": 2
+    },
+    {
+      "page": "_doc-word.html",
+      "count": 2
+    },
+    {
+      "page": "_documents-overview.html",
+      "count": 2
+    },
+    {
+      "page": "_email-gmail.html",
+      "count": 2
+    },
+    {
+      "page": "_email-newsletters.html",
+      "count": 2
+    },
+    {
+      "page": "_email-outlook.html",
+      "count": 2
+    },
+    {
+      "page": "_events-inclusive.html",
+      "count": 2
+    },
+    {
+      "page": "_focus-management.html",
+      "count": 2
+    },
+    {
+      "page": "_governance-charter.html",
+      "count": 2
+    },
+    {
+      "page": "_heading-basics.html",
+      "count": 2
+    },
+    {
+      "page": "_legacy-redirects.html",
+      "count": 2
+    },
+    {
+      "page": "_lms-brightspace.html",
+      "count": 2
+    },
+    {
+      "page": "_lms-panopto.html",
+      "count": 2
+    },
+    {
+      "page": "_meaningful-links.html",
+      "count": 2
+    },
+    {
+      "page": "_media-captioning.html",
+      "count": 2
+    },
+    {
+      "page": "_metrics-kpis.html",
+      "count": 2
+    },
+    {
+      "page": "_mobile-roadmap.html",
+      "count": 2
+    },
+    {
+      "page": "_pdf-remediation.html",
+      "count": 2
+    },
+    {
+      "page": "_pedagogy-checklist.html",
+      "count": 2
+    },
+    {
+      "page": "_persona-template.html",
+      "count": 2
+    },
+    {
+      "page": "_procurement-steps.html",
+      "count": 2
+    },
+    {
+      "page": "_references.html",
+      "count": 2
+    },
+    {
+      "page": "_resource-registry.html",
+      "count": 2
+    },
+    {
+      "page": "_service-levels.html",
+      "count": 2
+    },
+    {
+      "page": "_shared-md-template.html",
+      "count": 2
+    },
+    {
+      "page": "_site-alerts.html",
+      "count": 2
+    },
+    {
+      "page": "_skip-link-snippet.html",
+      "count": 2
+    },
+    {
+      "page": "_testing-tools.html",
+      "count": 2
+    },
+    {
+      "page": "_title-ii-brief.html",
+      "count": 2
+    },
+    {
+      "page": "_training-calendar.html",
+      "count": 2
+    },
+    {
+      "page": "_vendor-faq.html",
+      "count": 2
+    },
+    {
+      "page": "_vpat-review.html",
+      "count": 2
+    },
+    {
+      "page": "_wcag22-highlights.html",
+      "count": 2
+    },
+    {
+      "page": "_web-keyboard.html",
+      "count": 2
+    },
+    {
+      "page": "_blog.html",
+      "count": 1
+    },
+    {
+      "page": "_documents-media.html",
+      "count": 1
+    },
+    {
+      "page": "_example-newsletter.html",
+      "count": 1
+    },
+    {
+      "page": "_example-slides.html",
+      "count": 1
+    },
+    {
+      "page": "_example-syllabus.html",
+      "count": 1
+    },
+    {
+      "page": "_home.html",
+      "count": 1
+    },
+    {
+      "page": "_not-found.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-comms.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-content.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-developers.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-faculty.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-leadership.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-mobile.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-public.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-staff.html",
+      "count": 1
+    },
+    {
+      "page": "_persona-students.html",
+      "count": 1
+    },
+    {
+      "page": "_personas.html",
+      "count": 1
+    },
+    {
+      "page": "_policies-governance.html",
+      "count": 1
+    },
+    {
+      "page": "_procurement.html",
+      "count": 1
+    },
+    {
+      "page": "_support.html",
+      "count": 1
+    },
+    {
+      "page": "_teaching-learning.html",
+      "count": 1
+    },
+    {
+      "page": "_tools-checklists.html",
+      "count": 1
+    },
+    {
+      "page": "_web-app.html",
+      "count": 1
+    },
+    {
+      "page": "_wizard.html",
+      "count": 1
+    }
+  ]
+}

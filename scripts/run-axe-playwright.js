@@ -59,7 +59,8 @@ async function run() {
     console.log('Pages to scan:', pages.length);
 
     // Start minimal static server so Playwright can load pages in CI without external setup
-    const roots = [webDir, path.join(repoRoot, 'web'), repoRoot];
+    // Roots are searched in order; first match is served
+    const roots = [webDir, docsDir, repoRoot];
     let server;
     try {
         server = await createStaticServer(roots, 8000, '127.0.0.1');
