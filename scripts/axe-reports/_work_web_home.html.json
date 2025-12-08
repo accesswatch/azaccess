@@ -13,7 +13,7 @@
     "orientationAngle": 0,
     "orientationType": "landscape-primary"
   },
-  "timestamp": "2025-12-08T20:27:32.337Z",
+  "timestamp": "2025-12-08T20:30:32.636Z",
   "url": "http://127.0.0.1:8000/work/web/home.html",
   "toolOptions": {
     "reporter": "v1"
@@ -2897,27 +2897,27 @@
                   ]
                 },
                 {
-                  "html": "<h3>Choose your guide</h3>",
+                  "html": "<h2>Choose your guide</h2>",
                   "target": [
-                    "#hero > .grid.grid-3 > article:nth-child(1) > h3"
+                    "article:nth-child(1) > h2"
                   ]
                 },
                 {
-                  "html": "<h3>Request support</h3>",
+                  "html": "<h2>Request support</h2>",
                   "target": [
-                    "#hero > .grid.grid-3 > article:nth-child(2) > h3"
+                    "article:nth-child(2) > h2"
                   ]
                 },
                 {
-                  "html": "<h3>New to accessibility?</h3>",
+                  "html": "<h2>New to accessibility?</h2>",
                   "target": [
-                    "#hero > .grid.grid-3 > article:nth-child(3) > h3"
+                    "article:nth-child(3) > h2"
                   ]
                 },
                 {
-                  "html": "<h3>Answer a few questions</h3>",
+                  "html": "<h2>Answer a few questions</h2>",
                   "target": [
-                    "#hero > .grid.grid-3 > article:nth-child(4) > h3"
+                    "article:nth-child(4) > h2"
                   ]
                 },
                 {
@@ -3746,9 +3746,9 @@
                 "fgColor": "#0c234b",
                 "bgColor": "#ffffff",
                 "contrastRatio": 15.46,
-                "fontSize": "13.2pt (17.6px)",
+                "fontSize": "18.0pt (24px)",
                 "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
+                "expectedContrastRatio": "3:1"
               },
               "relatedNodes": [],
               "impact": "serious",
@@ -3758,9 +3758,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Choose your guide</h3>",
+          "html": "<h2>Choose your guide</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(1) > h3"
+            "article:nth-child(1) > h2"
           ]
         },
         {
@@ -3821,9 +3821,9 @@
                 "fgColor": "#0c234b",
                 "bgColor": "#ffffff",
                 "contrastRatio": 15.46,
-                "fontSize": "13.2pt (17.6px)",
+                "fontSize": "18.0pt (24px)",
                 "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
+                "expectedContrastRatio": "3:1"
               },
               "relatedNodes": [],
               "impact": "serious",
@@ -3833,9 +3833,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Request support</h3>",
+          "html": "<h2>Request support</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(2) > h3"
+            "article:nth-child(2) > h2"
           ]
         },
         {
@@ -3896,9 +3896,9 @@
                 "fgColor": "#0c234b",
                 "bgColor": "#ffffff",
                 "contrastRatio": 15.46,
-                "fontSize": "13.2pt (17.6px)",
+                "fontSize": "18.0pt (24px)",
                 "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
+                "expectedContrastRatio": "3:1"
               },
               "relatedNodes": [],
               "impact": "serious",
@@ -3908,9 +3908,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>New to accessibility?</h3>",
+          "html": "<h2>New to accessibility?</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(3) > h3"
+            "article:nth-child(3) > h2"
           ]
         },
         {
@@ -3971,9 +3971,9 @@
                 "fgColor": "#0c234b",
                 "bgColor": "#ffffff",
                 "contrastRatio": 15.46,
-                "fontSize": "13.2pt (17.6px)",
+                "fontSize": "18.0pt (24px)",
                 "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
+                "expectedContrastRatio": "3:1"
               },
               "relatedNodes": [],
               "impact": "serious",
@@ -3983,9 +3983,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Answer a few questions</h3>",
+          "html": "<h2>Answer a few questions</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(4) > h3"
+            "article:nth-child(4) > h2"
           ]
         },
         {
@@ -6233,9 +6233,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Choose your guide</h3>",
+          "html": "<h2>Choose your guide</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(1) > h3"
+            "article:nth-child(1) > h2"
           ]
         },
         {
@@ -6251,9 +6251,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Request support</h3>",
+          "html": "<h2>Request support</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(2) > h3"
+            "article:nth-child(2) > h2"
           ]
         },
         {
@@ -6269,9 +6269,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>New to accessibility?</h3>",
+          "html": "<h2>New to accessibility?</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(3) > h3"
+            "article:nth-child(3) > h2"
           ]
         },
         {
@@ -6287,9 +6287,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Answer a few questions</h3>",
+          "html": "<h2>Answer a few questions</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(4) > h3"
+            "article:nth-child(4) > h2"
           ]
         },
         {
@@ -6656,7 +6656,7 @@
     },
     {
       "id": "heading-order",
-      "impact": "moderate",
+      "impact": null,
       "tags": [
         "cat.semantics",
         "best-practice"
@@ -6679,27 +6679,27 @@
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(3) > section:nth-child(1) > div:nth-child(5) > article:nth-child(1) > h3:nth-child(1)"
+                      "html > body > main:nth-child(3) > section:nth-child(1) > div:nth-child(5) > article:nth-child(1) > h2:nth-child(1)"
                     ],
-                    "level": 3
+                    "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(3) > section:nth-child(1) > div:nth-child(5) > article:nth-child(2) > h3:nth-child(1)"
+                      "html > body > main:nth-child(3) > section:nth-child(1) > div:nth-child(5) > article:nth-child(2) > h2:nth-child(1)"
                     ],
-                    "level": 3
+                    "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(3) > section:nth-child(1) > div:nth-child(5) > article:nth-child(3) > h3:nth-child(1)"
+                      "html > body > main:nth-child(3) > section:nth-child(1) > div:nth-child(5) > article:nth-child(3) > h2:nth-child(1)"
                     ],
-                    "level": 3
+                    "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(3) > section:nth-child(1) > div:nth-child(5) > article:nth-child(4) > h3:nth-child(1)"
+                      "html > body > main:nth-child(3) > section:nth-child(1) > div:nth-child(5) > article:nth-child(4) > h2:nth-child(1)"
                     ],
-                    "level": 3
+                    "level": 2
                   },
                   {
                     "ancestry": [
@@ -6849,9 +6849,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Request support</h3>",
+          "html": "<h2>Choose your guide</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(2) > h3"
+            "article:nth-child(1) > h2"
           ]
         },
         {
@@ -6867,9 +6867,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>New to accessibility?</h3>",
+          "html": "<h2>Request support</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(3) > h3"
+            "article:nth-child(2) > h2"
           ]
         },
         {
@@ -6885,9 +6885,27 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Answer a few questions</h3>",
+          "html": "<h2>New to accessibility?</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(4) > h3"
+            "article:nth-child(3) > h2"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "heading-order",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Heading order valid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<h2>Answer a few questions</h2>",
+          "target": [
+            "article:nth-child(4) > h2"
           ]
         },
         {
@@ -10691,7 +10709,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<article class=\"card\">\n          <h3>Choose your guide</h3>\n          <p>Find tailored tasks, tools, and support for your role or visit.</p>\n          <a class=\"cta\" href=\"personas.html\">Open persona hub</a>\n        </article>",
+          "html": "<article class=\"card\">\n          <h2>Choose your guide</h2>\n          <p>Find tailored tasks, tools, and support for your role or visit.</p>\n          <a class=\"cta\" href=\"personas.html\">Open persona hub</a>\n        </article>",
           "target": [
             "#hero > .grid.grid-3 > article:nth-child(1)"
           ]
@@ -10711,9 +10729,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Choose your guide</h3>",
+          "html": "<h2>Choose your guide</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(1) > h3"
+            "article:nth-child(1) > h2"
           ]
         },
         {
@@ -10771,7 +10789,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<article class=\"card\">\n          <h3>Request support</h3>\n          <p>Ask for reviews, captioning, accommodations, or general questions.</p>\n          <a class=\"cta\" href=\"support.html\">Go to support</a>\n        </article>",
+          "html": "<article class=\"card\">\n          <h2>Request support</h2>\n          <p>Ask for reviews, captioning, accommodations, or general questions.</p>\n          <a class=\"cta\" href=\"support.html\">Go to support</a>\n        </article>",
           "target": [
             "#hero > .grid.grid-3 > article:nth-child(2)"
           ]
@@ -10791,9 +10809,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Request support</h3>",
+          "html": "<h2>Request support</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(2) > h3"
+            "article:nth-child(2) > h2"
           ]
         },
         {
@@ -10871,9 +10889,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>New to accessibility?</h3>",
+          "html": "<h2>New to accessibility?</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(3) > h3"
+            "article:nth-child(3) > h2"
           ]
         },
         {
@@ -10931,7 +10949,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<article class=\"card\">\n          <h3>Answer a few questions</h3>\n          <p>Use the accessibility wizard to get personalized links to personas, forms, and contacts.</p>\n          <a class=\"cta\" href=\"wizard.html\">Launch wizard</a>\n        </article>",
+          "html": "<article class=\"card\">\n          <h2>Answer a few questions</h2>\n          <p>Use the accessibility wizard to get personalized links to personas, forms, and contacts.</p>\n          <a class=\"cta\" href=\"wizard.html\">Launch wizard</a>\n        </article>",
           "target": [
             "#hero > .grid.grid-3 > article:nth-child(4)"
           ]
@@ -10951,9 +10969,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Answer a few questions</h3>",
+          "html": "<h2>Answer a few questions</h2>",
           "target": [
-            "#hero > .grid.grid-3 > article:nth-child(4) > h3"
+            "article:nth-child(4) > h2"
           ]
         },
         {
@@ -13201,38 +13219,6 @@
   ],
   "incomplete": [],
   "violations": [
-    {
-      "id": "heading-order",
-      "impact": "moderate",
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "description": "Ensure the order of headings is semantically correct",
-      "help": "Heading levels should only increase by one",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/heading-order?application=axeAPI",
-      "nodes": [
-        {
-          "any": [
-            {
-              "id": "heading-order",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Heading order invalid"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "moderate",
-          "html": "<h3>Choose your guide</h3>",
-          "target": [
-            "#hero > .grid.grid-3 > article:nth-child(1) > h3"
-          ],
-          "failureSummary": "Fix any of the following:\n  Heading order invalid"
-        }
-      ]
-    },
     {
       "id": "region",
       "impact": "moderate",

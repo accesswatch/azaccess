@@ -2,8 +2,8 @@
   "summary": {
     "totalPages": 121,
     "pagesWithViolations": 115,
-    "uniqueRules": 3,
-    "totalInstances": 163
+    "uniqueRules": 2,
+    "totalInstances": 161
   },
   "byImpact": {
     "critical": [],
@@ -77,11 +77,6 @@
       {
         "rule": "region",
         "page": "_docs_governance-charter.html",
-        "nodes": 1
-      },
-      {
-        "rule": "heading-order",
-        "page": "_docs_home.html",
         "nodes": 1
       },
       {
@@ -482,11 +477,6 @@
       {
         "rule": "region",
         "page": "_work_web_heading-basics.html",
-        "nodes": 1
-      },
-      {
-        "rule": "heading-order",
-        "page": "_work_web_home.html",
         "nodes": 1
       },
       {
@@ -952,17 +942,6 @@
         "_work_web_wizard.html"
       ]
     },
-    "heading-order": {
-      "description": "Ensure the order of headings is semantically correct",
-      "help": "Heading levels should only increase by one",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/heading-order?application=axeAPI",
-      "impact": "moderate",
-      "count": 2,
-      "pages": [
-        "_docs_home.html",
-        "_work_web_home.html"
-      ]
-    },
     "page-has-heading-one": {
       "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
       "help": "Page should contain a level-one heading",
@@ -1034,7 +1013,7 @@
     "_docs_example-syllabus.html": 1,
     "_docs_focus-management.html": 1,
     "_docs_governance-charter.html": 1,
-    "_docs_home.html": 2,
+    "_docs_home.html": 1,
     "_docs_legacy-redirects.html": 1,
     "_docs_lms-brightspace.html": 1,
     "_docs_media-captioning.html": 1,
@@ -1092,7 +1071,7 @@
     "_work_web_focus-management.html": 2,
     "_work_web_governance-charter.html": 2,
     "_work_web_heading-basics.html": 2,
-    "_work_web_home.html": 2,
+    "_work_web_home.html": 1,
     "_work_web_legacy-redirects.html": 2,
     "_work_web_lms-brightspace.html": 2,
     "_work_web_lms-panopto.html": 2,
