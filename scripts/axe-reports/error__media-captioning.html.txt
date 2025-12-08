@@ -1,0 +1,3 @@
+Error: page.goto: Navigation to "http://127.0.0.1:8000/media-captioning.html" is interrupted by another navigation to "http://127.0.0.1:8000/lms-brightspace.html"
+Call log:
+  - navigating to "http://127.0.0.1:8000/media-captioning.html", waiting until "load"
