@@ -13,7 +13,7 @@
     "orientationAngle": 0,
     "orientationType": "landscape-primary"
   },
-  "timestamp": "2025-12-08T20:24:08.496Z",
+  "timestamp": "2025-12-08T20:27:35.761Z",
   "url": "http://127.0.0.1:8000/work/web/persona-students.html",
   "toolOptions": {
     "reporter": "v1"
@@ -2510,7 +2510,7 @@
     },
     {
       "id": "color-contrast",
-      "impact": "serious",
+      "impact": null,
       "tags": [
         "cat.color",
         "wcag2aa",
@@ -2550,6 +2550,31 @@
           "html": "<p><a href=\"home.html\">Accessibility Home</a> / Personas</p>",
           "target": [
             "header > p:nth-child(1)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#ffffff",
+                "bgColor": "#0c234b",
+                "contrastRatio": 15.46,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 15.46"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"home.html\">Accessibility Home</a>",
+          "target": [
+            "a[href$=\"home.html\"]"
           ]
         },
         {
@@ -12344,61 +12369,6 @@
   ],
   "incomplete": [],
   "violations": [
-    {
-      "id": "color-contrast",
-      "impact": "serious",
-      "tags": [
-        "cat.color",
-        "wcag2aa",
-        "wcag143",
-        "TTv5",
-        "TT13.c",
-        "EN-301-549",
-        "EN-9.1.4.3",
-        "ACT",
-        "RGAAv4",
-        "RGAA-3.2.1"
-      ],
-      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-      "help": "Elements must meet minimum color contrast ratio thresholds",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
-      "nodes": [
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ab0520",
-                "bgColor": "#0c234b",
-                "contrastRatio": 2.04,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "messageKey": null,
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [
-                {
-                  "html": "<header>",
-                  "target": [
-                    "header"
-                  ]
-                }
-              ],
-              "impact": "serious",
-              "message": "Element has insufficient color contrast of 2.04 (foreground color: #ab0520, background color: #0c234b, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "serious",
-          "html": "<a href=\"home.html\">Accessibility Home</a>",
-          "target": [
-            "a[href$=\"home.html\"]"
-          ],
-          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.04 (foreground color: #ab0520, background color: #0c234b, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
-        }
-      ]
-    },
     {
       "id": "region",
       "impact": "moderate",
