@@ -13,8 +13,8 @@
     "orientationAngle": 0,
     "orientationType": "landscape-primary"
   },
-  "timestamp": "2025-12-08T22:34:35.582Z",
-  "url": "http://127.0.0.1:8000/learning.html",
+  "timestamp": "2025-12-08T22:34:44.417Z",
+  "url": "http://127.0.0.1:8000/index.html",
   "toolOptions": {
     "reporter": "v1"
   },
@@ -56,6 +56,23 @@
       "nodes": []
     },
     {
+      "id": "aria-allowed-attr",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure an element's role supports its ARIA attributes",
+      "help": "Elements must only use supported ARIA attributes",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-attr?application=axeAPI",
+      "nodes": []
+    },
+    {
       "id": "aria-braille-equivalent",
       "impact": null,
       "tags": [
@@ -88,6 +105,23 @@
       "description": "Ensure every ARIA button, link and menuitem has an accessible name",
       "help": "ARIA commands must have an accessible name",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-command-name?application=axeAPI",
+      "nodes": []
+    },
+    {
+      "id": "aria-conditional-attr",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
+      "help": "ARIA attributes must be used as specified for the element's role",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-conditional-attr?application=axeAPI",
       "nodes": []
     },
     {
@@ -173,6 +207,23 @@
       "description": "Ensure every ARIA progressbar node has an accessible name",
       "help": "ARIA progressbar nodes must have an accessible name",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-progressbar-name?application=axeAPI",
+      "nodes": []
+    },
+    {
+      "id": "aria-prohibited-attr",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure ARIA attributes are not prohibited for an element's role",
+      "help": "Elements must only use permitted ARIA attributes",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=axeAPI",
       "nodes": []
     },
     {
@@ -269,6 +320,40 @@
       "nodes": []
     },
     {
+      "id": "aria-valid-attr-value",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure all ARIA attributes have valid values",
+      "help": "ARIA attributes must conform to valid values",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr-value?application=axeAPI",
+      "nodes": []
+    },
+    {
+      "id": "aria-valid-attr",
+      "impact": null,
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
+      "help": "ARIA attributes must conform to valid names",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr?application=axeAPI",
+      "nodes": []
+    },
+    {
       "id": "autocomplete-valid",
       "impact": null,
       "tags": [
@@ -284,22 +369,6 @@
       "description": "Ensure the autocomplete attribute is correct and suitable for the form field",
       "help": "autocomplete attribute must be used correctly",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid?application=axeAPI",
-      "nodes": []
-    },
-    {
-      "id": "avoid-inline-spacing",
-      "impact": null,
-      "tags": [
-        "cat.structure",
-        "wcag21aa",
-        "wcag1412",
-        "EN-301-549",
-        "EN-9.1.4.12",
-        "ACT"
-      ],
-      "description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
-      "help": "Inline text spacing must be adjustable with custom stylesheets",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/avoid-inline-spacing?application=axeAPI",
       "nodes": []
     },
     {
@@ -377,6 +446,23 @@
       "description": "Ensure <dt> and <dd> elements are contained by a <dl>",
       "help": "<dt> and <dd> elements must be contained by a <dl>",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/dlitem?application=axeAPI",
+      "nodes": []
+    },
+    {
+      "id": "duplicate-id-aria",
+      "impact": null,
+      "tags": [
+        "cat.parsing",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-8.2.1"
+      ],
+      "description": "Ensure every id attribute value used in ARIA and in labels is unique",
+      "help": "IDs used in ARIA and labels must be unique",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-aria?application=axeAPI",
       "nodes": []
     },
     {
@@ -666,25 +752,6 @@
       "nodes": []
     },
     {
-      "id": "nested-interactive",
-      "impact": null,
-      "tags": [
-        "cat.keyboard",
-        "wcag2a",
-        "wcag412",
-        "TTv5",
-        "TT6.a",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
-      "help": "Interactive controls must not be nested",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/nested-interactive?application=axeAPI",
-      "nodes": []
-    },
-    {
       "id": "object-alt",
       "impact": null,
       "tags": [
@@ -812,6 +879,20 @@
       "description": "Ensure that server-side image maps are not used",
       "help": "Server-side image maps must not be used",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/server-side-image-map?application=axeAPI",
+      "nodes": []
+    },
+    {
+      "id": "skip-link",
+      "impact": null,
+      "tags": [
+        "cat.keyboard",
+        "best-practice",
+        "RGAAv4",
+        "RGAA-12.7.1"
+      ],
+      "description": "Ensure all skip links have a focusable target",
+      "help": "The skip-link target should exist and be focusable",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/skip-link?application=axeAPI",
       "nodes": []
     },
     {
@@ -987,76 +1068,6 @@
   ],
   "passes": [
     {
-      "id": "aria-allowed-attr",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure an element's role supports its ARIA attributes",
-      "help": "Elements must only use supported ARIA attributes",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-attr?application=axeAPI",
-      "nodes": [
-        {
-          "any": [],
-          "all": [
-            {
-              "id": "aria-allowed-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA attributes are used correctly for the defined role"
-            }
-          ],
-          "none": [
-            {
-              "id": "aria-unsupported-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA attribute is supported"
-            }
-          ],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
-        {
-          "any": [],
-          "all": [
-            {
-              "id": "aria-allowed-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA attributes are used correctly for the defined role"
-            }
-          ],
-          "none": [
-            {
-              "id": "aria-unsupported-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA attribute is supported"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"learning.html\" aria-current=\"false\">Learning</a>",
-          "target": [
-            "a[href$=\"learning.html\"]:nth-child(10)"
-          ]
-        }
-      ]
-    },
-    {
       "id": "aria-allowed-role",
       "impact": null,
       "tags": [
@@ -1067,24 +1078,6 @@
       "help": "ARIA role should be appropriate for the element",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-role?application=axeAPI",
       "nodes": [
-        {
-          "any": [
-            {
-              "id": "aria-allowed-role",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "minor",
-              "message": "ARIA role is allowed for given element"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
         {
           "any": [
             {
@@ -1116,63 +1109,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<footer role=\"contentinfo\">\n    <p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>\n  </footer>",
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
           "target": [
             "footer"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "aria-conditional-attr",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
-      "help": "ARIA attributes must be used as specified for the element's role",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-conditional-attr?application=axeAPI",
-      "nodes": [
-        {
-          "any": [],
-          "all": [
-            {
-              "id": "aria-conditional-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "ARIA attribute is allowed"
-            }
-          ],
-          "none": [],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
-        {
-          "any": [],
-          "all": [
-            {
-              "id": "aria-conditional-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "ARIA attribute is allowed"
-            }
-          ],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"learning.html\" aria-current=\"false\">Learning</a>",
-          "target": [
-            "a[href$=\"learning.html\"]:nth-child(10)"
           ]
         }
       ]
@@ -1206,24 +1145,6 @@
             }
           ],
           "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
-        {
-          "any": [],
-          "all": [],
-          "none": [
-            {
-              "id": "deprecatedrole",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "minor",
-              "message": "ARIA role is not deprecated"
-            }
-          ],
-          "impact": null,
           "html": "<main id=\"maincontent\" role=\"main\">",
           "target": [
             "#maincontent"
@@ -1242,7 +1163,7 @@
             }
           ],
           "impact": null,
-          "html": "<footer role=\"contentinfo\">\n    <p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>\n  </footer>",
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
           "target": [
             "footer"
           ]
@@ -1288,60 +1209,6 @@
       ]
     },
     {
-      "id": "aria-prohibited-attr",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure ARIA attributes are not prohibited for an element's role",
-      "help": "Elements must only use permitted ARIA attributes",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=axeAPI",
-      "nodes": [
-        {
-          "any": [],
-          "all": [],
-          "none": [
-            {
-              "id": "aria-prohibited-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "ARIA attribute is allowed"
-            }
-          ],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
-        {
-          "any": [],
-          "all": [],
-          "none": [
-            {
-              "id": "aria-prohibited-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "ARIA attribute is allowed"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"learning.html\" aria-current=\"false\">Learning</a>",
-          "target": [
-            "a[href$=\"learning.html\"]:nth-child(10)"
-          ]
-        }
-      ]
-    },
-    {
       "id": "aria-required-attr",
       "impact": null,
       "tags": [
@@ -1357,24 +1224,6 @@
       "help": "Required ARIA attributes must be provided",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-required-attr?application=axeAPI",
       "nodes": [
-        {
-          "any": [
-            {
-              "id": "aria-required-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "All required ARIA attributes are present"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
         {
           "any": [
             {
@@ -1406,7 +1255,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<footer role=\"contentinfo\">\n    <p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>\n  </footer>",
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
           "target": [
             "footer"
           ]
@@ -1456,38 +1305,6 @@
             }
           ],
           "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
-        {
-          "any": [],
-          "all": [],
-          "none": [
-            {
-              "id": "invalidrole",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA role is valid"
-            },
-            {
-              "id": "abstractrole",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "Abstract roles are not used"
-            },
-            {
-              "id": "unsupportedrole",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA role is supported"
-            }
-          ],
-          "impact": null,
           "html": "<main id=\"maincontent\" role=\"main\">",
           "target": [
             "#maincontent"
@@ -1520,7 +1337,7 @@
             }
           ],
           "impact": null,
-          "html": "<footer role=\"contentinfo\">\n    <p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>\n  </footer>",
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
           "target": [
             "footer"
           ]
@@ -1528,137 +1345,50 @@
       ]
     },
     {
-      "id": "aria-valid-attr-value",
+      "id": "avoid-inline-spacing",
       "impact": null,
       "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
+        "cat.structure",
+        "wcag21aa",
+        "wcag1412",
         "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
+        "EN-9.1.4.12",
+        "ACT"
       ],
-      "description": "Ensure all ARIA attributes have valid values",
-      "help": "ARIA attributes must conform to valid values",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr-value?application=axeAPI",
+      "description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
+      "help": "Inline text spacing must be adjustable with custom stylesheets",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/avoid-inline-spacing?application=axeAPI",
       "nodes": [
         {
           "any": [],
           "all": [
             {
-              "id": "aria-valid-attr-value",
+              "id": "important-letter-spacing",
               "data": null,
               "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA attribute values are valid"
+              "impact": "serious",
+              "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
             },
             {
-              "id": "aria-errormessage",
+              "id": "important-word-spacing",
               "data": null,
               "relatedNodes": [],
-              "impact": "critical",
-              "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              "impact": "serious",
+              "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
             },
             {
-              "id": "aria-level",
+              "id": "important-line-height",
               "data": null,
               "relatedNodes": [],
-              "impact": "critical",
-              "message": "aria-level values are valid"
+              "impact": "serious",
+              "message": "line-height in the style attribute is not set to !important, or meets the minimum"
             }
           ],
           "none": [],
           "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
+          "html": "<hr style=\"margin-top:24px\">",
           "target": [
-            "#primary-nav"
-          ]
-        },
-        {
-          "any": [],
-          "all": [
-            {
-              "id": "aria-valid-attr-value",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA attribute values are valid"
-            },
-            {
-              "id": "aria-errormessage",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
-            },
-            {
-              "id": "aria-level",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "aria-level values are valid"
-            }
-          ],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"learning.html\" aria-current=\"false\">Learning</a>",
-          "target": [
-            "a[href$=\"learning.html\"]:nth-child(10)"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "aria-valid-attr",
-      "impact": null,
-      "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-7.1.1"
-      ],
-      "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
-      "help": "ARIA attributes must conform to valid names",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr?application=axeAPI",
-      "nodes": [
-        {
-          "any": [
-            {
-              "id": "aria-valid-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA attribute name is valid"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "aria-valid-attr",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "ARIA attribute name is valid"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"learning.html\" aria-current=\"false\">Learning</a>",
-          "target": [
-            "a[href$=\"learning.html\"]:nth-child(10)"
+            "hr"
           ]
         }
       ]
@@ -1697,13 +1427,13 @@
               "data": null,
               "relatedNodes": [
                 {
-                  "html": "<h1>Learning</h1>",
+                  "html": "<h1>Digital Accessibility Framework — Quickstart</h1>",
                   "target": [
                     "h1"
                   ]
                 },
                 {
-                  "html": "<h2>External resources</h2>",
+                  "html": "<h2>Quickstart Steps</h2>",
                   "target": [
                     "h2"
                   ]
@@ -1761,297 +1491,22 @@
             {
               "id": "color-contrast",
               "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<div class=\"site-header-brand\">University of Arizona · Digital Accessibility</div>",
-          "target": [
-            ".site-header-brand"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"home.html\">Home</a>",
-          "target": [
-            "a[href$=\"home.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"personas.html\">Personas</a>",
-          "target": [
-            "a[href$=\"personas.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"documents-media.html\">Documents &amp; Media</a>",
-          "target": [
-            "a[href$=\"documents-media.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"web-app.html\">Web &amp; Apps</a>",
-          "target": [
-            "a[href$=\"web-app.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"teaching-learning.html\">Teaching &amp; Learning</a>",
-          "target": [
-            "a[href$=\"teaching-learning.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"procurement.html\">Procurement</a>",
-          "target": [
-            "a[href$=\"procurement.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"tools-checklists.html\">Tools &amp; Checklists</a>",
-          "target": [
-            "a[href$=\"tools-checklists.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"policies-governance.html\">Policies &amp; Governance</a>",
-          "target": [
-            "a[href$=\"policies-governance.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"support.html\">Support</a>",
-          "target": [
-            "a[href$=\"support.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"learning.html\" aria-current=\"false\">Learning</a>",
-          "target": [
-            "a[href$=\"learning.html\"]:nth-child(10)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#0c234b",
-                "bgColor": "#f5f5f5",
-                "contrastRatio": 14.18,
+                "fgColor": "#0b5394",
+                "bgColor": "#ffffff",
+                "contrastRatio": 7.83,
                 "fontSize": "24.0pt (32px)",
                 "fontWeight": "bold",
                 "expectedContrastRatio": "3:1"
               },
               "relatedNodes": [],
               "impact": "serious",
-              "message": "Element has sufficient color contrast of 14.18"
+              "message": "Element has sufficient color contrast of 7.83"
             }
           ],
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h1>Learning</h1>",
+          "html": "<h1>Digital Accessibility Framework — Quickstart</h1>",
           "target": [
             "h1"
           ]
@@ -2061,24 +1516,24 @@
             {
               "id": "color-contrast",
               "data": {
-                "fgColor": "#0c234b",
-                "bgColor": "#f5f5f5",
-                "contrastRatio": 14.18,
+                "fgColor": "#444444",
+                "bgColor": "#ffffff",
+                "contrastRatio": 9.73,
                 "fontSize": "12.0pt (16px)",
                 "fontWeight": "normal",
                 "expectedContrastRatio": "4.5:1"
               },
               "relatedNodes": [],
               "impact": "serious",
-              "message": "Element has sufficient color contrast of 14.18"
+              "message": "Element has sufficient color contrast of 9.73"
             }
           ],
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<p>Curated learning paths and training resources. Some pages paraphrase content from external providers; confirm licensing before republishing externally.</p>",
+          "html": "<p class=\"lead\">A fast-launch collection of guidance, course mappings and implementation notes to help your organization adopt digital accessibility training.</p>",
           "target": [
-            "p:nth-child(2)"
+            ".lead"
           ]
         },
         {
@@ -2086,72 +1541,22 @@
             {
               "id": "color-contrast",
               "data": {
-                "fgColor": "#ab0520",
-                "bgColor": "#f5f5f5",
-                "contrastRatio": 6.94,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 6.94"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"add/ua-accessibility-framework-full.html\">UA Accessibility Framework — Full</a>",
-          "target": [
-            "ul:nth-child(3) > li:nth-child(1) > a"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ab0520",
-                "bgColor": "#f5f5f5",
-                "contrastRatio": 6.94,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 6.94"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"add/ua-accessibility-framework-accordion-full.html\">UA Accessibility Framework — Accordion</a>",
-          "target": [
-            "li:nth-child(2) > a"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#0c234b",
-                "bgColor": "#f5f5f5",
-                "contrastRatio": 14.18,
+                "fgColor": "#222222",
+                "bgColor": "#ffffff",
+                "contrastRatio": 15.9,
                 "fontSize": "18.0pt (24px)",
                 "fontWeight": "bold",
                 "expectedContrastRatio": "3:1"
               },
               "relatedNodes": [],
               "impact": "serious",
-              "message": "Element has sufficient color contrast of 14.18"
+              "message": "Element has sufficient color contrast of 15.9"
             }
           ],
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h2>External resources</h2>",
+          "html": "<h2>Quickstart Steps</h2>",
           "target": [
             "h2"
           ]
@@ -2161,24 +1566,24 @@
             {
               "id": "color-contrast",
               "data": {
-                "fgColor": "#0c234b",
-                "bgColor": "#f5f5f5",
-                "contrastRatio": 14.18,
-                "fontSize": "12.0pt (16px)",
+                "fgColor": "#666666",
+                "bgColor": "#ffffff",
+                "contrastRatio": 5.74,
+                "fontSize": "11.4pt (15.2px)",
                 "fontWeight": "normal",
                 "expectedContrastRatio": "4.5:1"
               },
               "relatedNodes": [],
               "impact": "serious",
-              "message": "Element has sufficient color contrast of 14.18"
+              "message": "Element has sufficient color contrast of 5.74"
             }
           ],
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<p>If linking externally, we add vendor attribution and use safe link attributes.</p>",
+          "html": "<li class=\"muted\">Review the framework overview to align stakeholders: <a href=\"ua-accessibility-framework-full.html\">Framework overview (full)</a>.</li>",
           "target": [
-            "p:nth-child(5)"
+            "li:nth-child(1)"
           ]
         },
         {
@@ -2186,24 +1591,24 @@
             {
               "id": "color-contrast",
               "data": {
-                "fgColor": "#0c234b",
-                "bgColor": "#f5f5f5",
-                "contrastRatio": 14.18,
-                "fontSize": "12.0pt (16px)",
+                "fgColor": "#0000ee",
+                "bgColor": "#ffffff",
+                "contrastRatio": 9.39,
+                "fontSize": "11.4pt (15.2px)",
                 "fontWeight": "normal",
                 "expectedContrastRatio": "4.5:1"
               },
               "relatedNodes": [],
               "impact": "serious",
-              "message": "Element has sufficient color contrast of 14.18"
+              "message": "Element has sufficient color contrast of 9.39"
             }
           ],
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<li><a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a> (source material paraphrased)</li>",
+          "html": "<a href=\"ua-accessibility-framework-full.html\">Framework overview (full)</a>",
           "target": [
-            "ul:nth-child(6) > li"
+            "li:nth-child(1) > a"
           ]
         },
         {
@@ -2211,24 +1616,199 @@
             {
               "id": "color-contrast",
               "data": {
-                "fgColor": "#ab0520",
-                "bgColor": "#f5f5f5",
-                "contrastRatio": 6.94,
-                "fontSize": "12.0pt (16px)",
+                "fgColor": "#666666",
+                "bgColor": "#ffffff",
+                "contrastRatio": 5.74,
+                "fontSize": "11.4pt (15.2px)",
                 "fontWeight": "normal",
                 "expectedContrastRatio": "4.5:1"
               },
               "relatedNodes": [],
               "impact": "serious",
-              "message": "Element has sufficient color contrast of 6.94"
+              "message": "Element has sufficient color contrast of 5.74"
             }
           ],
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a>",
+          "html": "<li class=\"muted\">Browse the course mapping and identify courses to add to your learning paths: <a href=\"Digital_Accessibility_Framework_Course_Mapping.html\">Course mapping</a>.</li>",
           "target": [
-            "a[target=\"_blank\"]"
+            "li:nth-child(2)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#0000ee",
+                "bgColor": "#ffffff",
+                "contrastRatio": 9.39,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 9.39"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"Digital_Accessibility_Framework_Course_Mapping.html\">Course mapping</a>",
+          "target": [
+            "li:nth-child(2) > a"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#666666",
+                "bgColor": "#ffffff",
+                "contrastRatio": 5.74,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.74"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"muted\">Read the integration plan for recommended implementation options: <a href=\"course_integration_plan.html\">Integration plan</a>.</li>",
+          "target": [
+            "li:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#0000ee",
+                "bgColor": "#ffffff",
+                "contrastRatio": 9.39,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 9.39"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"course_integration_plan.html\">Integration plan</a>",
+          "target": [
+            "li:nth-child(3) > a[href=\"course_integration_plan.html\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#666666",
+                "bgColor": "#ffffff",
+                "contrastRatio": 5.74,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.74"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"muted\">Use the accordion view for quick in-page review: <a href=\"ua-accessibility-framework-accordion-full.html\">Accordion view</a>.</li>",
+          "target": [
+            "li:nth-child(4)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#0000ee",
+                "bgColor": "#ffffff",
+                "contrastRatio": 9.39,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 9.39"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"ua-accessibility-framework-accordion-full.html\">Accordion view</a>",
+          "target": [
+            "li:nth-child(4) > a"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#222222",
+                "bgColor": "#ffffff",
+                "contrastRatio": 15.9,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 15.9"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<strong>Publish</strong>",
+          "target": [
+            ".card:nth-child(1) > strong"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#666666",
+                "bgColor": "#ffffff",
+                "contrastRatio": 5.74,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.74"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"muted\">These files are now part of the repository docs/ folder. To publish to GitHub Pages, commit and push changes to the default branch and enable Pages from the `docs/` folder in repository settings.</p>",
+          "target": [
+            ".card:nth-child(1) > p"
           ]
         },
         {
@@ -2237,23 +1817,173 @@
               "id": "color-contrast",
               "data": {
                 "fgColor": "#ffffff",
-                "bgColor": "#0c234b",
-                "contrastRatio": 15.46,
+                "bgColor": "#0b5394",
+                "contrastRatio": 7.83,
                 "fontSize": "12.0pt (16px)",
                 "fontWeight": "normal",
                 "expectedContrastRatio": "4.5:1"
               },
               "relatedNodes": [],
               "impact": "serious",
-              "message": "Element has sufficient color contrast of 15.46"
+              "message": "Element has sufficient color contrast of 7.83"
             }
           ],
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>",
+          "html": "<a class=\"cta\" href=\"#publish\">How to publish</a>",
           "target": [
-            "footer > p"
+            "a[href$=\"#publish\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#222222",
+                "bgColor": "#ffffff",
+                "contrastRatio": 15.9,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 15.9"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<strong>Next actions</strong>",
+          "target": [
+            ".card:nth-child(2) > strong"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#666666",
+                "bgColor": "#ffffff",
+                "contrastRatio": 5.74,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.74"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"muted\">Add canonical LinkedIn URLs (manual), or run the enrichment script to fetch summaries and metadata.</p>",
+          "target": [
+            ".card:nth-child(2) > p"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#ffffff",
+                "bgColor": "#0b5394",
+                "contrastRatio": 7.83,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 7.83"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a class=\"cta\" href=\"course_integration_plan.html\">Get the plan</a>",
+          "target": [
+            ".cta[href=\"course_integration_plan.html\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#222222",
+                "bgColor": "#ffffff",
+                "contrastRatio": 15.9,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 15.9"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<strong>Content source</strong>",
+          "target": [
+            ".card:nth-child(3) > strong"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#666666",
+                "bgColor": "#ffffff",
+                "contrastRatio": 5.74,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.74"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"muted\">Source files live in `add/` (spreadsheet and PDFs). Mapped content is exported into `docs/` for immediate publishing.</p>",
+          "target": [
+            ".card:nth-child(3) > p"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#666666",
+                "bgColor": "#ffffff",
+                "contrastRatio": 5.74,
+                "fontSize": "11.4pt (15.2px)",
+                "fontWeight": "normal",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.74"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
+          "target": [
+            "footer"
           ]
         }
       ]
@@ -2298,42 +2028,6 @@
       ]
     },
     {
-      "id": "duplicate-id-aria",
-      "impact": null,
-      "tags": [
-        "cat.parsing",
-        "wcag2a",
-        "wcag412",
-        "EN-301-549",
-        "EN-9.4.1.2",
-        "RGAAv4",
-        "RGAA-8.2.1"
-      ],
-      "description": "Ensure every id attribute value used in ARIA and in labels is unique",
-      "help": "IDs used in ARIA and labels must be unique",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-aria?application=axeAPI",
-      "nodes": [
-        {
-          "any": [
-            {
-              "id": "duplicate-id-aria",
-              "data": "primary-nav",
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "Document has no elements referenced with ARIA or labels that share the same id attribute"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        }
-      ]
-    },
-    {
       "id": "empty-heading",
       "impact": null,
       "tags": [
@@ -2357,7 +2051,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h1>Learning</h1>",
+          "html": "<h1>Digital Accessibility Framework — Quickstart</h1>",
           "target": [
             "h1"
           ]
@@ -2375,7 +2069,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h2>External resources</h2>",
+          "html": "<h2>Quickstart Steps</h2>",
           "target": [
             "h2"
           ]
@@ -2401,13 +2095,13 @@
                 "headingOrder": [
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(3) > article > h1:nth-child(1)"
+                      "html > body > header:nth-child(1) > h1:nth-child(1)"
                     ],
                     "level": 1
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(3) > article > h2:nth-child(4)"
+                      "html > body > main:nth-child(2) > section:nth-child(1) > h2:nth-child(1)"
                     ],
                     "level": 2
                   }
@@ -2421,7 +2115,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h1>Learning</h1>",
+          "html": "<h1>Digital Accessibility Framework — Quickstart</h1>",
           "target": [
             "h1"
           ]
@@ -2439,7 +2133,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h2>External resources</h2>",
+          "html": "<h2>Quickstart Steps</h2>",
           "target": [
             "h2"
           ]
@@ -2550,7 +2244,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<header>",
+          "html": "<header>\n    <h1>Digital Accessibility Framework — Quickstart</h1>\n    <p class=\"lead\">A fast-launch collection of guidance, course mappings and implementation notes to help your organization adopt digital accessibility training.</p>\n  </header>",
           "target": [
             "header"
           ]
@@ -2583,7 +2277,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<footer role=\"contentinfo\">\n    <p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>\n  </footer>",
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
           "target": [
             "footer"
           ]
@@ -2647,7 +2341,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<header>",
+          "html": "<header>\n    <h1>Digital Accessibility Framework — Quickstart</h1>\n    <p class=\"lead\">A fast-launch collection of guidance, course mappings and implementation notes to help your organization adopt digital accessibility training.</p>\n  </header>",
           "target": [
             "header"
           ]
@@ -2678,7 +2372,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<footer role=\"contentinfo\">\n    <p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>\n  </footer>",
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
           "target": [
             "footer"
           ]
@@ -2781,30 +2475,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<header>",
+          "html": "<header>\n    <h1>Digital Accessibility Framework — Quickstart</h1>\n    <p class=\"lead\">A fast-launch collection of guidance, course mappings and implementation notes to help your organization adopt digital accessibility training.</p>\n  </header>",
           "target": [
             "header"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "landmark-is-unique",
-              "data": {
-                "role": "navigation",
-                "accessibleText": "primary"
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Landmarks must have a unique role or role/label/title (i.e. accessible name) combination"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
           ]
         },
         {
@@ -2844,7 +2517,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<footer role=\"contentinfo\">\n    <p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>\n  </footer>",
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
           "target": [
             "footer"
           ]
@@ -2876,9 +2549,9 @@
               "data": null,
               "relatedNodes": [
                 {
-                  "html": "<li><a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a> (source material paraphrased)</li>",
+                  "html": "<li class=\"muted\">Review the framework overview to align stakeholders: <a href=\"ua-accessibility-framework-full.html\">Framework overview (full)</a>.</li>",
                   "target": [
-                    "ul:nth-child(6) > li"
+                    "li:nth-child(1)"
                   ]
                 }
               ],
@@ -2889,9 +2562,84 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a>",
+          "html": "<a href=\"ua-accessibility-framework-full.html\">Framework overview (full)</a>",
           "target": [
-            "a[target=\"_blank\"]"
+            "li:nth-child(1) > a"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "link-in-text-block-style",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<li class=\"muted\">Browse the course mapping and identify courses to add to your learning paths: <a href=\"Digital_Accessibility_Framework_Course_Mapping.html\">Course mapping</a>.</li>",
+                  "target": [
+                    "li:nth-child(2)"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Links can be distinguished from surrounding text by visual styling"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"Digital_Accessibility_Framework_Course_Mapping.html\">Course mapping</a>",
+          "target": [
+            "li:nth-child(2) > a"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "link-in-text-block-style",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<li class=\"muted\">Read the integration plan for recommended implementation options: <a href=\"course_integration_plan.html\">Integration plan</a>.</li>",
+                  "target": [
+                    "li:nth-child(3)"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Links can be distinguished from surrounding text by visual styling"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"course_integration_plan.html\">Integration plan</a>",
+          "target": [
+            "li:nth-child(3) > a[href=\"course_integration_plan.html\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "link-in-text-block-style",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<li class=\"muted\">Use the accordion view for quick in-page review: <a href=\"ua-accessibility-framework-accordion-full.html\">Accordion view</a>.</li>",
+                  "target": [
+                    "li:nth-child(4)"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Links can be distinguished from surrounding text by visual styling"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"ua-accessibility-framework-accordion-full.html\">Accordion view</a>",
+          "target": [
+            "li:nth-child(4) > a"
           ]
         }
       ]
@@ -2940,9 +2688,9 @@
             }
           ],
           "impact": null,
-          "html": "<a class=\"skip-link\" href=\"#maincontent\">Skip to main content</a>",
+          "html": "<a href=\"ua-accessibility-framework-full.html\">Framework overview (full)</a>",
           "target": [
-            ".skip-link"
+            "li:nth-child(1) > a"
           ]
         },
         {
@@ -2966,293 +2714,7 @@
             }
           ],
           "impact": null,
-          "html": "<a href=\"home.html\">Home</a>",
-          "target": [
-            "a[href$=\"home.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"personas.html\">Personas</a>",
-          "target": [
-            "a[href$=\"personas.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"documents-media.html\">Documents &amp; Media</a>",
-          "target": [
-            "a[href$=\"documents-media.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"web-app.html\">Web &amp; Apps</a>",
-          "target": [
-            "a[href$=\"web-app.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"teaching-learning.html\">Teaching &amp; Learning</a>",
-          "target": [
-            "a[href$=\"teaching-learning.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"procurement.html\">Procurement</a>",
-          "target": [
-            "a[href$=\"procurement.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"tools-checklists.html\">Tools &amp; Checklists</a>",
-          "target": [
-            "a[href$=\"tools-checklists.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"policies-governance.html\">Policies &amp; Governance</a>",
-          "target": [
-            "a[href$=\"policies-governance.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"support.html\">Support</a>",
-          "target": [
-            "a[href$=\"support.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"learning.html\" aria-current=\"false\">Learning</a>",
-          "target": [
-            "a[href$=\"learning.html\"]:nth-child(10)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"add/ua-accessibility-framework-full.html\">UA Accessibility Framework — Full</a>",
-          "target": [
-            "ul:nth-child(3) > li:nth-child(1) > a"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is not in tab order or has accessible text"
-            }
-          ],
-          "impact": null,
-          "html": "<a href=\"add/ua-accessibility-framework-accordion-full.html\">UA Accessibility Framework — Accordion</a>",
+          "html": "<a href=\"Digital_Accessibility_Framework_Course_Mapping.html\">Course mapping</a>",
           "target": [
             "li:nth-child(2) > a"
           ]
@@ -3278,9 +2740,87 @@
             }
           ],
           "impact": null,
-          "html": "<a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a>",
+          "html": "<a href=\"course_integration_plan.html\">Integration plan</a>",
           "target": [
-            "a[target=\"_blank\"]"
+            "li:nth-child(3) > a[href=\"course_integration_plan.html\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has text that is visible to screen readers"
+            }
+          ],
+          "all": [],
+          "none": [
+            {
+              "id": "focusable-no-name",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "impact": null,
+          "html": "<a href=\"ua-accessibility-framework-accordion-full.html\">Accordion view</a>",
+          "target": [
+            "li:nth-child(4) > a"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has text that is visible to screen readers"
+            }
+          ],
+          "all": [],
+          "none": [
+            {
+              "id": "focusable-no-name",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "impact": null,
+          "html": "<a class=\"cta\" href=\"#publish\">How to publish</a>",
+          "target": [
+            "a[href$=\"#publish\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has text that is visible to screen readers"
+            }
+          ],
+          "all": [],
+          "none": [
+            {
+              "id": "focusable-no-name",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "impact": null,
+          "html": "<a class=\"cta\" href=\"course_integration_plan.html\">Get the plan</a>",
+          "target": [
+            ".cta[href=\"course_integration_plan.html\"]"
           ]
         }
       ]
@@ -3314,27 +2854,9 @@
             }
           ],
           "impact": null,
-          "html": "<ul>\n        <li><a href=\"add/ua-accessibility-framework-full.html\">UA Accessibility Framework — Full</a></li>\n        <li><a href=\"add/ua-accessibility-framework-accordion-full.html\">UA Accessibility Framework — Accordion</a></li>\n      </ul>",
+          "html": "<ol>",
           "target": [
-            "ul:nth-child(3)"
-          ]
-        },
-        {
-          "any": [],
-          "all": [],
-          "none": [
-            {
-              "id": "only-listitems",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "List element only has direct children that are allowed inside <li> elements"
-            }
-          ],
-          "impact": null,
-          "html": "<ul>\n        <li><a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a> (source material paraphrased)</li>\n      </ul>",
-          "target": [
-            "ul:nth-child(6)"
+            "ol"
           ]
         }
       ]
@@ -3368,9 +2890,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<li><a href=\"add/ua-accessibility-framework-full.html\">UA Accessibility Framework — Full</a></li>",
+          "html": "<li class=\"muted\">Review the framework overview to align stakeholders: <a href=\"ua-accessibility-framework-full.html\">Framework overview (full)</a>.</li>",
           "target": [
-            "ul:nth-child(3) > li:nth-child(1)"
+            "li:nth-child(1)"
           ]
         },
         {
@@ -3386,7 +2908,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<li><a href=\"add/ua-accessibility-framework-accordion-full.html\">UA Accessibility Framework — Accordion</a></li>",
+          "html": "<li class=\"muted\">Browse the course mapping and identify courses to add to your learning paths: <a href=\"Digital_Accessibility_Framework_Course_Mapping.html\">Course mapping</a>.</li>",
           "target": [
             "li:nth-child(2)"
           ]
@@ -3404,9 +2926,27 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<li><a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a> (source material paraphrased)</li>",
+          "html": "<li class=\"muted\">Read the integration plan for recommended implementation options: <a href=\"course_integration_plan.html\">Integration plan</a>.</li>",
           "target": [
-            "ul:nth-child(6) > li"
+            "li:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "listitem",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"muted\">Use the accordion view for quick in-page review: <a href=\"ua-accessibility-framework-accordion-full.html\">Accordion view</a>.</li>",
+          "target": [
+            "li:nth-child(4)"
           ]
         }
       ]
@@ -3435,7 +2975,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+          "html": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">",
           "target": [
             "meta[name=\"viewport\"]"
           ]
@@ -3472,9 +3012,47 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+          "html": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">",
           "target": [
             "meta[name=\"viewport\"]"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nested-interactive",
+      "impact": null,
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/nested-interactive?application=axeAPI",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element does not have focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<hr style=\"margin-top:24px\">",
+          "target": [
+            "hr"
           ]
         }
       ]
@@ -3498,7 +3076,7 @@
               "data": null,
               "relatedNodes": [
                 {
-                  "html": "<h1>Learning</h1>",
+                  "html": "<h1>Digital Accessibility Framework — Quickstart</h1>",
                   "target": [
                     "h1"
                   ]
@@ -3545,27 +3123,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<a class=\"skip-link\" href=\"#maincontent\">Skip to main content</a>",
-          "target": [
-            ".skip-link"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<header>",
+          "html": "<header>\n    <h1>Digital Accessibility Framework — Quickstart</h1>\n    <p class=\"lead\">A fast-launch collection of guidance, course mappings and implementation notes to help your organization adopt digital accessibility training.</p>\n  </header>",
           "target": [
             "header"
           ]
@@ -3585,9 +3143,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"site-header\">",
+          "html": "<h1>Digital Accessibility Framework — Quickstart</h1>",
           "target": [
-            ".site-header"
+            "h1"
           ]
         },
         {
@@ -3605,229 +3163,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"site-header-brand\">University of Arizona · Digital Accessibility</div>",
+          "html": "<p class=\"lead\">A fast-launch collection of guidance, course mappings and implementation notes to help your organization adopt digital accessibility training.</p>",
           "target": [
-            ".site-header-brand"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<nav class=\"site-header-nav\" aria-label=\"Primary\" role=\"navigation\" id=\"primary-nav\">",
-          "target": [
-            "#primary-nav"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"home.html\">Home</a>",
-          "target": [
-            "a[href$=\"home.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"personas.html\">Personas</a>",
-          "target": [
-            "a[href$=\"personas.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"documents-media.html\">Documents &amp; Media</a>",
-          "target": [
-            "a[href$=\"documents-media.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"web-app.html\">Web &amp; Apps</a>",
-          "target": [
-            "a[href$=\"web-app.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"teaching-learning.html\">Teaching &amp; Learning</a>",
-          "target": [
-            "a[href$=\"teaching-learning.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"procurement.html\">Procurement</a>",
-          "target": [
-            "a[href$=\"procurement.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"tools-checklists.html\">Tools &amp; Checklists</a>",
-          "target": [
-            "a[href$=\"tools-checklists.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"policies-governance.html\">Policies &amp; Governance</a>",
-          "target": [
-            "a[href$=\"policies-governance.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"support.html\">Support</a>",
-          "target": [
-            "a[href$=\"support.html\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"learning.html\" aria-current=\"false\">Learning</a>",
-          "target": [
-            "a[href$=\"learning.html\"]:nth-child(10)"
+            ".lead"
           ]
         },
         {
@@ -3865,9 +3203,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<article class=\"container\">",
+          "html": "<section>",
           "target": [
-            "article"
+            "section"
           ]
         },
         {
@@ -3885,147 +3223,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h1>Learning</h1>",
-          "target": [
-            "h1"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<p>Curated learning paths and training resources. Some pages paraphrase content from external providers; confirm licensing before republishing externally.</p>",
-          "target": [
-            "p:nth-child(2)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<ul>\n        <li><a href=\"add/ua-accessibility-framework-full.html\">UA Accessibility Framework — Full</a></li>\n        <li><a href=\"add/ua-accessibility-framework-accordion-full.html\">UA Accessibility Framework — Accordion</a></li>\n      </ul>",
-          "target": [
-            "ul:nth-child(3)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<li><a href=\"add/ua-accessibility-framework-full.html\">UA Accessibility Framework — Full</a></li>",
-          "target": [
-            "ul:nth-child(3) > li:nth-child(1)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"add/ua-accessibility-framework-full.html\">UA Accessibility Framework — Full</a>",
-          "target": [
-            "ul:nth-child(3) > li:nth-child(1) > a"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<li><a href=\"add/ua-accessibility-framework-accordion-full.html\">UA Accessibility Framework — Accordion</a></li>",
-          "target": [
-            "li:nth-child(2)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a href=\"add/ua-accessibility-framework-accordion-full.html\">UA Accessibility Framework — Accordion</a>",
-          "target": [
-            "li:nth-child(2) > a"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<h2>External resources</h2>",
+          "html": "<h2>Quickstart Steps</h2>",
           "target": [
             "h2"
           ]
@@ -4045,9 +3243,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<p>If linking externally, we add vendor attribution and use safe link attributes.</p>",
+          "html": "<ol>",
           "target": [
-            "p:nth-child(5)"
+            "ol"
           ]
         },
         {
@@ -4065,9 +3263,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<ul>\n        <li><a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a> (source material paraphrased)</li>\n      </ul>",
+          "html": "<li class=\"muted\">Review the framework overview to align stakeholders: <a href=\"ua-accessibility-framework-full.html\">Framework overview (full)</a>.</li>",
           "target": [
-            "ul:nth-child(6)"
+            "li:nth-child(1)"
           ]
         },
         {
@@ -4085,9 +3283,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<li><a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a> (source material paraphrased)</li>",
+          "html": "<a href=\"ua-accessibility-framework-full.html\">Framework overview (full)</a>",
           "target": [
-            "ul:nth-child(6) > li"
+            "li:nth-child(1) > a"
           ]
         },
         {
@@ -4105,9 +3303,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<a href=\"https://www.linkedin.com/learning/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn Learning</a>",
+          "html": "<li class=\"muted\">Browse the course mapping and identify courses to add to your learning paths: <a href=\"Digital_Accessibility_Framework_Course_Mapping.html\">Course mapping</a>.</li>",
           "target": [
-            "a[target=\"_blank\"]"
+            "li:nth-child(2)"
           ]
         },
         {
@@ -4125,62 +3323,369 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<footer role=\"contentinfo\">\n    <p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>\n  </footer>",
+          "html": "<a href=\"Digital_Accessibility_Framework_Course_Mapping.html\">Course mapping</a>",
+          "target": [
+            "li:nth-child(2) > a"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"muted\">Read the integration plan for recommended implementation options: <a href=\"course_integration_plan.html\">Integration plan</a>.</li>",
+          "target": [
+            "li:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"course_integration_plan.html\">Integration plan</a>",
+          "target": [
+            "li:nth-child(3) > a[href=\"course_integration_plan.html\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"muted\">Use the accordion view for quick in-page review: <a href=\"ua-accessibility-framework-accordion-full.html\">Accordion view</a>.</li>",
+          "target": [
+            "li:nth-child(4)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"ua-accessibility-framework-accordion-full.html\">Accordion view</a>",
+          "target": [
+            "li:nth-child(4) > a"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"cards\">",
+          "target": [
+            ".cards"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"card\">",
+          "target": [
+            ".card:nth-child(1)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<strong>Publish</strong>",
+          "target": [
+            ".card:nth-child(1) > strong"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"muted\">These files are now part of the repository docs/ folder. To publish to GitHub Pages, commit and push changes to the default branch and enable Pages from the `docs/` folder in repository settings.</p>",
+          "target": [
+            ".card:nth-child(1) > p"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a class=\"cta\" href=\"#publish\">How to publish</a>",
+          "target": [
+            "a[href$=\"#publish\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"card\">\n      <strong>Next actions</strong>\n      <p class=\"muted\">Add canonical LinkedIn URLs (manual), or run the enrichment script to fetch summaries and metadata.</p>\n      <a class=\"cta\" href=\"course_integration_plan.html\">Get the plan</a>\n    </div>",
+          "target": [
+            ".card:nth-child(2)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<strong>Next actions</strong>",
+          "target": [
+            ".card:nth-child(2) > strong"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"muted\">Add canonical LinkedIn URLs (manual), or run the enrichment script to fetch summaries and metadata.</p>",
+          "target": [
+            ".card:nth-child(2) > p"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a class=\"cta\" href=\"course_integration_plan.html\">Get the plan</a>",
+          "target": [
+            ".cta[href=\"course_integration_plan.html\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"card\">\n      <strong>Content source</strong>\n      <p class=\"muted\">Source files live in `add/` (spreadsheet and PDFs). Mapped content is exported into `docs/` for immediate publishing.</p>\n    </div>",
+          "target": [
+            ".card:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<strong>Content source</strong>",
+          "target": [
+            ".card:nth-child(3) > strong"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"muted\">Source files live in `add/` (spreadsheet and PDFs). Mapped content is exported into `docs/` for immediate publishing.</p>",
+          "target": [
+            ".card:nth-child(3) > p"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<hr style=\"margin-top:24px\">",
+          "target": [
+            "hr"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<footer class=\"muted\" role=\"contentinfo\">Generated: 2025-12-08 — Contact your site admin to complete publishing steps.</footer>",
           "target": [
             "footer"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<p>© 2025 The Arizona Board of Regents on behalf of The University of Arizona.</p>",
-          "target": [
-            "footer > p"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "skip-link",
-      "impact": null,
-      "tags": [
-        "cat.keyboard",
-        "best-practice",
-        "RGAAv4",
-        "RGAA-12.7.1"
-      ],
-      "description": "Ensure all skip links have a focusable target",
-      "help": "The skip-link target should exist and be focusable",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/skip-link?application=axeAPI",
-      "nodes": [
-        {
-          "any": [
-            {
-              "id": "skip-link",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Skip link target exists"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<a class=\"skip-link\" href=\"#maincontent\">Skip to main content</a>",
-          "target": [
-            ".skip-link"
           ]
         }
       ]

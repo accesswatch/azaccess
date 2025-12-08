@@ -1,3 +1,0 @@
-Error: page.goto: Navigation to "http://127.0.0.1:8000/policies-governance.html" is interrupted by another navigation to "http://127.0.0.1:8000/personas.html"
-Call log:
-  - navigating to "http://127.0.0.1:8000/policies-governance.html", waiting until "load"
