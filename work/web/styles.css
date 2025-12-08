@@ -319,6 +319,11 @@ footer {
     margin-top: 2rem;
 }
 
+footer a {
+    color: var(--ua-white);
+    text-decoration: underline;
+}
+
 .tag-list {
     list-style: none;
     padding: 0;
