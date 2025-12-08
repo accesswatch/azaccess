@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Course Integration Plan — Digital Accessibility Framework</title>
@@ -13,11 +11,7 @@
   </style>
 </head>
 <body>
-  <h1>Course Integration Plan — Digital Accessibility Framework</h1>
-  <p class="note">Purpose: capture a practical, low-risk approach to integrate the LinkedIn Learning course mapping into the site.</p>
-
-  <h2>Desired data model (per course)</h2>
-  <ul>
+  <main id="maincontent" role="main"><h1>Course Integration Plan — Digital Accessibility Framework</h1><p class="note">Purpose: capture a practical, low-risk approach to integrate the LinkedIn Learning course mapping into the site.</p><h2>Desired data model (per course)</h2><ul>
     <li><strong>title</strong>: string</li>
     <li><strong>slug</strong>: string (kebab-case)</li>
     <li><strong>framework</strong>: <code>Understand|Prepare|Build|Maintain</code></li>
@@ -28,46 +22,51 @@
     <li><strong>linkedin_url</strong>: external URL (placeholder if unknown)</li>
     <li><strong>source</strong>: <code>LinkedIn Learning</code> or <code>imported_spreadsheet</code></li>
     <li><strong>date_added</strong>: ISO date</li>
-  </ul>
-
-  <h2>Immediate action (fast, no external scraping)</h2>
-  <ol>
+  </ul><h2>Immediate action (fast, no external scraping)</h2><ol>
     <li>Use the spreadsheet descriptions (already exported to <code>Digital_Accessibility_Framework_Course_Mapping.md</code>).</li>
     <li>Generate one Markdown file per course under <code>content/courses/</code> with YAML frontmatter containing the data model above and the spreadsheet description used for <code>description_excerpt</code>.</li>
     <li>Add a course listing page on the site that groups courses by <code>framework</code> and renders a CTA button linking to <code>linkedin_url</code> (which can be filled later).</li>
-  </ol>
-
-  <p class="note">Benefits: quick, no scraping or auth required; content is ready to publish and attributed.</p>
-
-  <h2>Enrichment (optional)</h2>
-  <p>Goal: add canonical LinkedIn URLs and short meta descriptions.</p>
-  <ul>
+  </ol><p class="note">Benefits: quick, no scraping or auth required; content is ready to publish and attributed.</p><h2>Enrichment (optional)</h2><p>Goal: add canonical LinkedIn URLs and short meta descriptions.</p><ul>
     <li>Manual: Admin copy/paste of each LinkedIn URL (fast for ~30 courses).</li>
     <li>Automated (programmatic): use a search API (Bing Web Search API) to find <code>site:linkedin.com/learning "{course title}"</code> and extract <code>og:description</code> or <code>meta[name=description]</code>.</li>
     <li>LinkedIn Learning Admin/API: If you have an admin account, request CSV export or API access for canonical meta and URLs.</li>
-  </ul>
-
-  <h2>Tooling (optional automation)</h2>
-  <ul>
+  </ul><h2>Tooling (optional automation)</h2><ul>
     <li><code>scripts/generate_course_md.py</code> — reads the spreadsheet and writes <code>content/courses/*.md</code> files.</li>
     <li><code>scripts/refresh_linkedin_meta.py</code> — given a list of <code>linkedin_url</code>s (or API key), fetches page metadata and updates <code>description_excerpt</code>.</li>
-  </ul>
-
-  <h2>Minimal <code>requirements.txt</code> (for automation scripts)</h2>
-  <pre>pandas
+  </ul><h2>Minimal <code>requirements.txt</code> (for automation scripts)</h2><pre>pandas
 requests
 beautifulsoup4
 openpyxl
-  </pre>
-
-  <h2>Next steps I can do for you</h2>
-  <ul>
+  </pre><h2>Next steps I can do for you</h2><ul>
     <li>Option 1: Generate <code>content/courses/*.md</code> files using the spreadsheet descriptions (no external scraping). (I can do this now.)</li>
     <li>Option 2: Generate the automation scripts (<code>generate_course_md.py</code>, <code>refresh_linkedin_meta.py</code>, <code>requirements.txt</code>, README) so you can run enrichment with keys/credentials.</li>
     <li>Option 3: Attempt automated enrichment for N courses if you provide a search API key or LinkedIn admin access.</li>
-  </ul>
+  </ul><p class="note">Choose one option and I will proceed.</p></main>
+  
 
-  <p class="note">Choose one option and I will proceed.</p>
+  
+  
 
-</body>
-</html>
+  
+  
+
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+
+</body></html>
