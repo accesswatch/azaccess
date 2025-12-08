@@ -98,7 +98,7 @@ stats.pageViolations.slice(0, 10).forEach(pv => {
 });
 
 // Write detailed JSON report
-const outputPath = path.join(__dirname, 'axe-summary.json');
+const outputPath = path.join(__dirname, '..', 'work', 'output', 'axe-summary.json');
 fs.writeFileSync(outputPath, JSON.stringify(stats, null, 2));
 console.log(`\nDetailed summary written to: ${outputPath}`);
 
