@@ -222,6 +222,41 @@ class A11yAutomatedFixer {
         return changed;
     }
 
+    // Fix 8: Add an H1 if missing (use title or filename)
+    fixAddHeadingOne(filePath, $) {
+        let changed = false;
+        if ($('h1').length === 0) {
+            // try to derive from title tag
+            let titleText = $('title').text().trim();
+            if (!titleText) {
+                // derive from filename
+                const filename = path.basename(filePath, '.html');
+                titleText = filename.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            }
+
+            // Insert h1 at top of main or article#content
+            const main = $('main').first();
+            if (main.length > 0) {
+                main.prepend(`<h1>${titleText}</h1>\n`);
+            } else if ($('#content').length > 0) {
+                $('#content').prepend(`<h1>${titleText}</h1>\n`);
+            } else {
+                // fallback to body
+                $('body').prepend(`<h1>${titleText}</h1>\n`);
+            }
+
+            changed = true;
+            this.fixes.push({
+                file: filePath,
+                rule: 'add-h1',
+                description: `Inserted H1: ${titleText}`
+            });
+            this.log(`  ✓ Inserted H1: ${titleText}`);
+        }
+
+        return changed;
+    }
+
     // Fix 7: Wrap orphan content in proper HTML structure
     fixBasicStructure(filePath, $) {
         let changed = false;
@@ -284,6 +319,7 @@ ${bodyContent}
         changed = this.fixBasicStructure(filePath, $) || changed;
         changed = this.fixHtmlLang(filePath, $) || changed;
         changed = this.fixDocumentTitle(filePath, $) || changed;
+        changed = this.fixAddHeadingOne(filePath, $) || changed;
         changed = this.fixMainLandmark(filePath, $) || changed;
         changed = this.fixFooterRole(filePath, $) || changed;
         changed = this.fixButtonTypes(filePath, $) || changed;
