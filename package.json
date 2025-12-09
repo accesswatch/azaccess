@@ -22,8 +22,11 @@
   "homepage": "https://github.com/accesswatch/azaccess#readme",
   "dependencies": {
     "axe-core": "^4.11.0",
+    "cheerio": "^1.1.2"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
     "axe-playwright": "^2.2.2",
-    "cheerio": "^1.1.2",
-    "playwright": "^1.56.1"
+    "playwright": "^1.57.0"
   }
 }
