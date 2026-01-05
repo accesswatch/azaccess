@@ -99,7 +99,7 @@ azaccess/
     └── web/
         ├── home.html              # Homepage
         ├── styles.css             # Shared styles
-        ├── personas.html          # Persona hub
+        ├── roles.html             # Role selection hub
         ├── accessibility-101.html # Intro guide
         ├── documents-media.html   # Documents hub
         ├── web-app.html          # Web & apps hub
@@ -108,7 +108,7 @@ azaccess/
         ├── policies-governance.html # Governance hub
         ├── tools-checklists.html  # Tools hub
         ├── support.html           # Support page
-        ├── persona-*.html         # Individual personas
+        ├── persona-*.html         # Individual role guides
         └── [45+ other pages]      # Additional content
 ```
 

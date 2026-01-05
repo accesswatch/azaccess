@@ -6,7 +6,7 @@ Use this checklist before your meeting to ensure everything is ready.
 
 - [ ] Homepage (home.html) displays correctly
 - [ ] All navigation links work
-- [ ] Persona pages are complete
+- [ ] Role pages are complete
 - [ ] Hub pages are complete
 - [ ] Support contact information is correct
 - [ ] No placeholder text remains (check for "Lorem ipsum", "TODO", etc.)
@@ -59,7 +59,7 @@ Use this checklist before your meeting to ensure everything is ready.
 - [ ] Test the live URL before the meeting
 - [ ] Prepare to demo key features:
   - Homepage navigation
-  - Persona selection
+  - Role selection
   - Hub pages
   - Support resources
   - Accessibility features (skip link, focus indicators)

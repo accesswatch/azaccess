@@ -89,7 +89,7 @@ git push
 
 **Homepage Features:**
 - Hero section with quick action cards
-- Persona gateway (Students, Faculty, Staff, Visitors, Builders)
+- Role selection gateway (Students, Faculty, Staff, Visitors, Builders)
 - Foundation hubs (Documents, Web, Teaching, Governance, Tools)
 - Support contact information
 - Blog post highlights
@@ -97,9 +97,9 @@ git push
 
 **Key Pages:**
 - `accessibility-101.html` - Introduction to accessibility
-- `personas.html` - Role-based guidance hub
+- `roles.html` - Role-based guidance hub
 - Hub pages for major content areas
-- Individual persona guides (10+)
+- Individual role guides (10+)
 - Tool and checklist pages
 - Support and contact information
 

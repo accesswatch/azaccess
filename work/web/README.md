@@ -25,8 +25,8 @@ Then open `http://localhost:8000/home.html` in a browser.
 	- `policies-governance.html`
 	- `tools-checklists.html`
 	- `support.html`
-- Personas:
-	- `personas.html` and `persona-*.html`
+- Role Guides:
+	- `roles.html` and `persona-*.html`
 - Patterns and guides: HTML counterparts to `../shared/*.md` (e.g., `doc-word.html`, `media-captioning.html`, `testing-tools.html`, `skip-link-snippet.html`, `lms-brightspace.html`, `pedagogy-checklist.html`).
 
 All pages share a common header/nav and a visible skip link for accessibility.

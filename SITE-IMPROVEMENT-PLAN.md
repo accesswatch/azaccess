@@ -13,7 +13,7 @@ This document outlines issues found during a comprehensive review of the UA Digi
 ### Key Achievements Already Made
 ✅ **100% critical/serious accessibility violations resolved** (per previous remediation)  
 ✅ **Skip-link bug fixed** across all 68+ HTML files  
-✅ **Strong persona-based foundation** with 9 distinct role guides  
+✅ **Strong role-based foundation** with 9 distinct role guides  
 ✅ **WCAG 2.2 AA compliant design** with proper contrast and focus indicators  
 
 ---
@@ -39,14 +39,14 @@ This document outlines issues found during a comprehensive review of the UA Digi
 ### 2.1 Inconsistent Page Headers
 **Issue:** Two header patterns exist, causing navigation inconsistency:
 
-| Pattern          | Used By                                                 | Navigation                     |
-| ---------------- | ------------------------------------------------------- | ------------------------------ |
-| Full site-header | Hub pages (home, documents-media, web-app, support)     | Complete primary + utility nav |
-| Breadcrumb-only  | Persona pages (persona-students, persona-faculty, etc.) | Only breadcrumb link           |
+| Pattern          | Used By                                                    | Navigation                     |
+| ---------------- | ---------------------------------------------------------- | ------------------------------ |
+| Full site-header | Hub pages (home, documents-media, web-app, support)        | Complete primary + utility nav |
+| Breadcrumb-only  | Role guide pages (persona-students, persona-faculty, etc.) | Only breadcrumb link           |
 
-**Impact:** Users on persona pages cannot access other sections without going back to home.
+**Impact:** Users on role guide pages cannot access other sections without going back to home.
 
-**Recommendation:** Standardize all pages to include the full site-header navigation. Add the complete header markup to persona pages.
+**Recommendation:** Standardize all pages to include the full site-header navigation. Add the complete header markup to role guide pages.
 
 **Files to update:**
 - `persona-students.html`
@@ -106,7 +106,7 @@ This document outlines issues found during a comprehensive review of the UA Digi
 │                        HOME                                  │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐ │
-│  │  PERSONAS   │  │    HUBS     │  │   QUICK ACCESS      │ │
+│  │    ROLES    │  │    HUBS     │  │   QUICK ACCESS      │ │
 │  │  (By Role)  │  │  (By Area)  │  │                     │ │
 │  ├─────────────┤  ├─────────────┤  ├─────────────────────┤ │
 │  │ Students    │  │ Documents   │  │ Accessibility 101   │ │
@@ -124,24 +124,24 @@ This document outlines issues found during a comprehensive review of the UA Digi
 
 **Strengths:**
 - Clear dual-path entry (by role vs. by area)
-- Comprehensive persona coverage
+- Comprehensive role coverage
 - Well-organized hub structure
 - Wizard for decision support
 
 **Weaknesses:**
-- Personas are siloed without cross-linking
+- Role guides are siloed without cross-linking
 - No clear "learning paths" connecting content
-- Drill-down options stop at persona level
-- Missing universal tasks accessible from all personas
+- Drill-down options stop at role guide level
+- Missing universal tasks accessible from all roles
 
 ### 3.2 Recommended Enhanced Structure
 
-#### A. Add Cross-Persona Navigation
-Add a "Related personas" or "You might also need" section at the bottom of each persona page:
+#### A. Add Cross-Role Navigation
+Add a "Related roles" or "You might also need" section at the bottom of each role guide page:
 
 ```html
-<section aria-labelledby="related-personas">
-  <h2 id="related-personas">Related guides</h2>
+<section aria-labelledby="related-roles">
+  <h2 id="related-roles">Related guides</h2>
   <p>Your work may overlap with these roles:</p>
   <ul>
     <li><a href="persona-content.html">Content Creators</a> – for document and media guidance</li>
@@ -152,7 +152,7 @@ Add a "Related personas" or "You might also need" section at the bottom of each 
 
 **Suggested relationships:**
 
-| Persona    | Related Personas                            |
+| Role       | Related Roles                               |
 | ---------- | ------------------------------------------- |
 | Students   | Public (families), Faculty (accommodations) |
 | Faculty    | Content, Staff (procurement)                |
@@ -165,7 +165,7 @@ Add a "Related personas" or "You might also need" section at the bottom of each 
 | Public     | Students                                    |
 
 #### B. Create Universal "Quick Tasks" Component
-Add a consistent "Universal tasks" section that appears on every persona page:
+Add a consistent "Universal tasks" section that appears on every role guide page:
 
 ```html
 <aside aria-labelledby="universal-tasks">
@@ -212,7 +212,7 @@ Implement consistent breadcrumb trails that show context:
 <nav aria-label="Breadcrumb">
   <ol class="breadcrumb">
     <li><a href="home.html">Home</a></li>
-    <li><a href="personas.html">Personas</a></li>
+    <li><a href="roles.html">I Am A...</a></li>
     <li aria-current="page">Students</li>
   </ol>
 </nav>
@@ -308,13 +308,13 @@ The following connections should be added:
 
 ### Phase 1: Critical Fixes (Week 1)
 1. ✅ Fix skip-link bug (DONE)
-2. Add full site navigation to all persona pages
+2. Add full site navigation to all role guide pages
 3. Fix placeholder blog links
 4. Fix accessibility-101.html JavaScript issue
 
 ### Phase 2: Structure Improvements (Weeks 2-3)
 1. Standardize header markup across all pages
-2. Add cross-persona navigation sections
+2. Add cross-role navigation sections
 3. Implement universal tasks component
 4. Add consistent breadcrumbs
 
@@ -325,7 +325,7 @@ The following connections should be added:
 4. Add deep-dive topic pages
 
 ### Phase 4: Polish (Ongoing)
-1. User testing with different personas
+1. User testing with different roles
 2. Accessibility audit with real AT users
 3. Analytics to track user flows
 4. Iterative content improvements
@@ -342,7 +342,7 @@ The following connections should be added:
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
     <nav id="primary-nav" class="site-header-nav" aria-label="Primary">
       <a href="home.html">Home</a>
-      <a href="personas.html">Personas</a>
+      <a href="roles.html">I Am A...</a>
       <a href="documents-media.html">Documents &amp; Media</a>
       <a href="web-app.html">Web &amp; Apps</a>
       <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -360,7 +360,7 @@ The following connections should be added:
   <nav aria-label="Breadcrumb">
     <ol class="breadcrumb">
       <li><a href="home.html">Home</a></li>
-      <li><a href="personas.html">Personas</a></li>
+      <li><a href="roles.html">I Am A...</a></li>
       <li aria-current="page">Students</li>
     </ol>
   </nav>
@@ -369,7 +369,7 @@ The following connections should be added:
 </header>
 ```
 
-### 7.2 Cross-Persona Navigation Template
+### 7.2 Cross-Role Navigation Template
 ```html
 <section aria-labelledby="related-guides">
   <h2 id="related-guides">Related guides you may need</h2>
@@ -394,7 +394,7 @@ The following connections should be added:
 
 ### Pages with Full Navigation (Good)
 - `home.html`
-- `personas.html`
+- `roles.html`
 - `documents-media.html`
 - `web-app.html`
 - `teaching-learning.html`

@@ -28,7 +28,7 @@ sources:
 - **Assistive Technology coverage** — outlines required testing combinations (JAWS, NVDA, VoiceOver, TalkBack, Fusion, ZoomText) so releases reflect real user setups.
 
 ## How UA teams can get help
-1. **Pick your persona guide** for tailored checklists, tools, and training.
+1. **Pick your role guide** for tailored checklists, tools, and training.
 2. **Request support** for reviews, captioning, procurement, accommodations, or event planning.
 3. **Report barriers** via the DRC Access Report so we can respond within two business days.
 4. **Join trainings & office hours** to build skills and meet others doing similar work.

@@ -11,7 +11,7 @@
 The UA Accessibility site is a solid foundation with excellent role-based content. However, several structural improvements would significantly enhance usability, discoverability, and the ability for users in any role to drill down into detailed guidance while maintaining a high-level overview.
 
 ### Key Strengths
-- ✅ Strong persona-based content architecture
+- ✅ Strong role-based content architecture
 - ✅ Comprehensive accessibility remediation already performed (47% violation reduction)
 - ✅ Clear "What this page helps you do" pattern
 - ✅ Good use of WCAG 2.2 references and practical guidance
@@ -22,7 +22,7 @@ The UA Accessibility site is a solid foundation with excellent role-based conten
 - ✅ **Skip-link bug fixed** - All 68+ pages had broken skip links (`href="maincontent"` without `#`)
 
 ### Priority Issues to Address
-1. **Navigation Inconsistency** - Persona pages lack full site navigation
+1. **Navigation Inconsistency** - Role guide pages lack full site navigation
 2. **JavaScript Dependency** - accessibility-101.html uses client-side rendering
 3. **Placeholder Links** - 6 blog post links point to `#`
 4. **Header Structure Inconsistency** - Two different header patterns create confusion
@@ -35,9 +35,9 @@ The UA Accessibility site is a solid foundation with excellent role-based conten
 
 **Problem:** Two different header patterns exist:
 - **Hub pages** (home, documents-media, support, etc.) have full site navigation
-- **Persona pages** (persona-students, persona-faculty, persona-developers, etc.) have breadcrumb-only headers without main navigation
+- **Role guide pages** (persona-students, persona-faculty, persona-developers, etc.) have breadcrumb-only headers without main navigation
 
-**Impact:** Users navigating to persona pages lose the ability to quickly access other areas of the site.
+**Impact:** Users navigating to role guide pages lose the ability to quickly access other areas of the site.
 
 **Recommendation:** Standardize ALL pages to use the full site-header pattern:
 
@@ -48,7 +48,7 @@ The UA Accessibility site is a solid foundation with excellent role-based conten
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
     <nav class="site-header-nav" aria-label="Primary" role="navigation">
       <a href="home.html">Home</a>
-      <a href="personas.html">Personas</a>
+      <a href="roles.html">I Am A...</a>
       <!-- ... full navigation ... -->
     </nav>
   </div>
@@ -100,7 +100,7 @@ The UA Accessibility site is a solid foundation with excellent role-based conten
 
 ```
 Home
-├── By Role (Personas)
+├── By Role (I Am A...)
 │   ├── Students & Families
 │   ├── Faculty & Instructors
 │   ├── Staff & Administrative Units
@@ -163,7 +163,7 @@ Add a task-based navigation that shows the same task from different role perspec
 
 ## 🎯 Role-Based Content Recommendations
 
-### Students Persona - Enhancements Needed
+### Student Role Guide - Enhancements Needed
 
 **Current Strengths:**
 - Clear DRC workflow
@@ -176,7 +176,7 @@ Add a task-based navigation that shows the same task from different role perspec
 3. Mobile-first quick actions (most students access via phone)
 4. Integration with university student portal/app
 
-### Faculty Persona - Enhancements Needed
+### Faculty Role Guide - Enhancements Needed
 
 **Current Strengths:**
 - Brightspace focus
@@ -189,7 +189,7 @@ Add a task-based navigation that shows the same task from different role perspec
 3. TA/Graduate instructor sub-guidance
 4. Remediation priority matrix for existing courses
 
-### Developer Persona - Enhancements Needed
+### Developer Role Guide - Enhancements Needed
 
 **Current Strengths:**
 - CI integration guidance
@@ -202,7 +202,7 @@ Add a task-based navigation that shows the same task from different role perspec
 3. Common framework-specific guides (React, Angular, Vue patterns)
 4. API accessibility documentation template
 
-### Leadership Persona - Enhancements Needed
+### Leadership Role Guide - Enhancements Needed
 
 **Current Strengths:**
 - Title II brief
@@ -243,7 +243,7 @@ Add a task-based navigation that shows the same task from different role perspec
 - Multi-language support (Spanish priority for Arizona)
 - LMS integration (embed in Brightspace)
 - Notification system for policy updates
-- User preference persistence (remember persona choice)
+- User preference persistence (remember role choice)
 
 ---
 
@@ -311,7 +311,7 @@ Each page should have:
 
 ### Phase 1: Critical Fixes (This Week)
 - [x] Fix skip-link bug ✅ COMPLETED
-- [ ] Add full navigation to persona pages
+- [ ] Add full navigation to role guide pages
 - [ ] Convert accessibility-101.html to static
 - [ ] Fix/remove placeholder blog links
 
@@ -337,7 +337,7 @@ Each page should have:
 
 ## Summary
 
-This site has an excellent foundation with thoughtful persona-based architecture. The primary improvements needed are:
+This site has an excellent foundation with thoughtful role-based architecture. The primary improvements needed are:
 
 1. **Structural consistency** - Ensure all pages share the full navigation
 2. **Remove dependencies** - Eliminate JavaScript-required content rendering

@@ -10,7 +10,7 @@ Visit the live prototype: [https://accesswatch.github.io/azaccess/work/web/home.
 
 This site provides comprehensive accessibility guidance for students, faculty, staff, and visitors at the University of Arizona. It includes:
 
-- **Persona-based guidance** for different roles (students, faculty, staff, developers, etc.)
+- **Role-based guidance** for different roles (students, faculty, staff, developers, etc.)
 - **Hub pages** for documents, media, web/apps, teaching, and governance
 - **Tools and checklists** for accessibility testing and compliance
 - **Support resources** and contact information
@@ -20,7 +20,7 @@ This site provides comprehensive accessibility guidance for students, faculty, s
 
 - `work/web/` - Main prototype files
   - `home.html` - Homepage with quick links and hubs
-  - `personas.html` - Persona gateway page
+  - `roles.html` - Role selection gateway page
   - `accessibility-101.html` - Introduction to accessibility
   - Various hub and guide pages
   - `styles.css` - Shared stylesheet
