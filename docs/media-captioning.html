@@ -1,44 +1,299 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Captioning Playbook | Accessibility</title>
+  <title>Video Captions &amp; Audio Descriptions | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Captions</p>
+    </nav>
+    <h1>Video Captions &amp; Audio Descriptions</h1>
+    <p>Captions make video content accessible to deaf and hard-of-hearing users, and benefit everyone.</p>
+    <p class="metric-chip">⏱️ Reading time: 8 minutes</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="why-captions">
+      <h2 id="why-captions">Why Captions Matter</h2>
+      <ul>
+        <li><strong>466 million people</strong> worldwide have disabling hearing loss</li>
+        <li><strong>85% of Facebook videos</strong> are watched without sound</li>
+        <li>Captions help <strong>non-native speakers</strong> understand content</li>
+        <li>Captions improve <strong>comprehension and retention</strong> for everyone</li>
+        <li><strong>Legal requirement:</strong> WCAG 1.2.2 requires captions for prerecorded video</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="types">
+      <h2 id="types">Types of Text Alternatives</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">What It Is</th>
+              <th scope="col">When Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Captions</strong></td>
+              <td>Synchronized text of speech and sounds, displayed on video</td>
+              <td>All prerecorded videos with audio</td>
+            </tr>
+            <tr>
+              <td><strong>Subtitles</strong></td>
+              <td>Translation of dialogue to another language</td>
+              <td>When serving non-native speakers</td>
+            </tr>
+            <tr>
+              <td><strong>Transcript</strong></td>
+              <td>Text document of all spoken content</td>
+              <td>Audio-only content; recommended for all video</td>
+            </tr>
+            <tr>
+              <td><strong>Audio Description</strong></td>
+              <td>Narration of visual elements (inserted in pauses)</td>
+              <td>When important visual info isn't in dialogue</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="caption-quality">
+      <h2 id="caption-quality">Caption Quality Standards</h2>
+      <p>Good captions are more than just words on screen. Aim for:</p>
+      
+      <h3>Accuracy</h3>
+      <ul>
+        <li><strong>99% accuracy minimum</strong> — auto-captions typically achieve 70-80%</li>
+        <li>Correct spelling of names, technical terms, and jargon</li>
+        <li>Accurate grammar and punctuation</li>
+      </ul>
+
+      <h3>Synchronization</h3>
+      <ul>
+        <li>Captions appear within 1 second of audio</li>
+        <li>Stay on screen long enough to read (minimum 1 second per line)</li>
+        <li>Don't overlap important on-screen text</li>
+      </ul>
+
+      <h3>Completeness</h3>
+      <ul>
+        <li>All spoken words included</li>
+        <li>Speaker identification when multiple speakers: <code>[Professor:] Today we'll discuss...</code></li>
+        <li>Sound effects that matter: <code>[door slams]</code>, <code>[music playing]</code></li>
+        <li>Indicate music: <code>♪ upbeat music ♪</code></li>
+      </ul>
+
+      <h3>Readability</h3>
+      <ul>
+        <li>Maximum 2 lines per caption frame</li>
+        <li>Maximum 32 characters per line (42 for single-line)</li>
+        <li>Line breaks at natural phrase boundaries</li>
+        <li>Proper capitalization and punctuation</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="auto-vs-human">
+      <h2 id="auto-vs-human">Auto-Captions vs. Human Captions</h2>
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h3>⚠️ Auto-Captions Alone</h3>
+          <ul>
+            <li>70-80% accuracy (not sufficient)</li>
+            <li>Struggles with accents, technical terms</li>
+            <li>No speaker identification</li>
+            <li>No sound effect descriptions</li>
+            <li>Poor punctuation</li>
+          </ul>
+          <p><strong>Use as starting point only</strong></p>
+        </div>
+        <div class="do-card">
+          <h3>✅ Edited/Human Captions</h3>
+          <ul>
+            <li>99%+ accuracy</li>
+            <li>Correct terminology</li>
+            <li>Speaker identification</li>
+            <li>Sound descriptions included</li>
+            <li>Proper formatting</li>
+          </ul>
+          <p><strong>Required for compliance</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="how-to">
+      <h2 id="how-to">How to Add Captions</h2>
+      
+      <h3>YouTube</h3>
+      <ol>
+        <li>Upload video to YouTube Studio</li>
+        <li>Wait for auto-captions to generate (may take hours)</li>
+        <li>Go to <strong>Subtitles</strong> in the left menu</li>
+        <li>Click on the auto-generated captions</li>
+        <li>Click <strong>DUPLICATE AND EDIT</strong></li>
+        <li>Review and correct every line</li>
+        <li>Add speaker IDs and sound descriptions</li>
+        <li>Publish the edited captions</li>
+      </ol>
+
+      <h3>Panopto</h3>
+      <ol>
+        <li>Open video in Panopto editor</li>
+        <li>Click <strong>Captions</strong> in the left panel</li>
+        <li>If no captions, click <strong>Import captions</strong> → <strong>Import automatic captions</strong></li>
+        <li>Click on each caption segment to edit</li>
+        <li>Use keyboard shortcuts: Tab to advance, Shift+Tab to go back</li>
+        <li>Apply changes</li>
+      </ol>
+      <p><a href="lms-panopto.html">Full Panopto Accessibility Guide →</a></p>
+
+      <h3>Microsoft Stream</h3>
+      <ol>
+        <li>Upload video to Stream</li>
+        <li>Go to video details → <strong>Transcript and captions</strong></li>
+        <li>Auto-captions generate automatically</li>
+        <li>Download the .vtt file, edit in a text editor, re-upload</li>
+      </ol>
+
+      <h3>Zoom Recordings</h3>
+      <ol>
+        <li>Enable "Audio transcript" in Zoom settings before recording</li>
+        <li>After recording, edit the transcript in the Zoom web portal</li>
+        <li>Download .vtt file for use in other platforms</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="caption-files">
+      <h2 id="caption-files">Caption File Formats</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Extension</th>
+              <th scope="col">Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>WebVTT</strong></td>
+              <td>.vtt</td>
+              <td>Web standard; HTML5 video; most platforms</td>
+            </tr>
+            <tr>
+              <td><strong>SRT</strong></td>
+              <td>.srt</td>
+              <td>Widely supported; YouTube, social media</td>
+            </tr>
+            <tr>
+              <td><strong>TTML/DFXP</strong></td>
+              <td>.ttml</td>
+              <td>Broadcast; streaming services</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sample WebVTT File</h3>
+      <pre><code>WEBVTT
+
+00:00:01.000 --> 00:00:04.000
+[Professor:] Welcome to today's lecture on accessibility.
+
+00:00:04.500 --> 00:00:08.000
+We'll cover three main topics.
+
+00:00:08.500 --> 00:00:12.000
+[slide clicking]
+First, let's discuss color contrast.</code></pre>
+    </section>
+
+    <section aria-labelledby="audio-description">
+      <h2 id="audio-description">Audio Descriptions</h2>
+      <p>Audio descriptions narrate important visual information for blind users.</p>
+
+      <h3>When Required</h3>
+      <ul>
+        <li>Visual content not described in the regular audio (charts, demonstrations)</li>
+        <li>On-screen text that isn't read aloud</li>
+        <li>Actions or expressions that convey meaning</li>
+      </ul>
+
+      <h3>When Not Required</h3>
+      <ul>
+        <li>Talking head videos where visuals aren't essential</li>
+        <li>Videos where the speaker describes what's on screen</li>
+        <li>Audio-only content (podcasts)</li>
+      </ul>
+
+      <h3>Creating Audio Descriptions</h3>
+      <ol>
+        <li>Identify visual content not covered by existing audio</li>
+        <li>Write concise descriptions that fit in natural pauses</li>
+        <li>Record narration or use text-to-speech</li>
+        <li>Mix into a separate audio track or create an extended version</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="live-captions">
+      <h2 id="live-captions">Live Captioning</h2>
+      <p>For live events, webinars, and meetings:</p>
+      
+      <h3>Options</h3>
+      <ul>
+        <li><strong>Zoom Live Transcription</strong> — Auto-captions; enable in settings</li>
+        <li><strong>Microsoft Teams</strong> — Built-in live captions</li>
+        <li><strong>Google Meet</strong> — Turn on captions in meeting</li>
+        <li><strong>CART (Communication Access Realtime Translation)</strong> — Human captioner for high-stakes events</li>
+      </ul>
+
+      <h3>Best Practices for Live Events</h3>
+      <ul>
+        <li>Enable captions before the event starts</li>
+        <li>Speak clearly and at moderate pace</li>
+        <li>Spell out unusual names or terms</li>
+        <li>Pause for caption display during rapid dialogue</li>
+        <li>For important events, hire a CART provider</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">✅ Caption Checklist</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" id="c1"> <label for="c1">All prerecorded videos have captions</label></li>
+        <li><input type="checkbox" id="c2"> <label for="c2">Captions are 99%+ accurate</label></li>
+        <li><input type="checkbox" id="c3"> <label for="c3">Speaker identification included for multiple speakers</label></li>
+        <li><input type="checkbox" id="c4"> <label for="c4">Sound effects and music noted</label></li>
+        <li><input type="checkbox" id="c5"> <label for="c5">Captions are properly synchronized</label></li>
+        <li><input type="checkbox" id="c6"> <label for="c6">Proper punctuation and capitalization</label></li>
+        <li><input type="checkbox" id="c7"> <label for="c7">Audio descriptions provided when needed</label></li>
+        <li><input type="checkbox" id="c8"> <label for="c8">Transcripts available for audio-only content</label></li>
+        <li><input type="checkbox" id="c9"> <label for="c9">Live events have real-time captions enabled</label></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="related">
+      <h2 id="related">Related Resources</h2>
+      <ul>
+        <li><a href="lms-panopto.html">Panopto Accessibility Guide</a></li>
+        <li><a href="lms-brightspace.html">Brightspace Accessibility Checklist</a></li>
+        <li><a href="events-inclusive.html">Inclusive Events Guide</a></li>
+        <li><a href="https://www.w3.org/WAI/media/av/">W3C: Making Audio and Video Accessible</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'media-captioning.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

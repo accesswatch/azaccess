@@ -1,44 +1,192 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Site Changelog Template | Accessibility</title>
+  <title>Site Changelog | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .changelog { max-width: 800px; }
+    .release { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ua-border); }
+    .release:last-child { border-bottom: none; }
+    .release-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .release-version { font-size: 1.5rem; font-weight: bold; color: var(--ua-arizona-blue); }
+    .release-date { color: #666; font-size: 0.9rem; }
+    .release-tag { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+    .tag-major { background: var(--ua-arizona-red); color: white; }
+    .tag-minor { background: var(--ua-arizona-blue); color: white; }
+    .tag-patch { background: #6c757d; color: white; }
+    .change-category { margin: 1rem 0 0.5rem 0; font-weight: 600; color: var(--ua-midnight); }
+    .change-category::before { margin-right: 0.5rem; }
+    .change-list { margin: 0; padding-left: 1.5rem; }
+    .change-list li { margin: 0.5rem 0; }
+    .change-list a { text-decoration: none; }
+    .change-list a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / Changelog</p>
+    </nav>
+    <h1>Site Changelog</h1>
+    <p>History of updates and changes to the UA Digital Accessibility website.</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <div class="changelog">
+
+      <article class="release">
+        <header class="release-header">
+          <span class="release-version">v2.0.0</span>
+          <span class="release-tag tag-major">Major Release</span>
+          <time class="release-date" datetime="2026-01-05">January 5, 2026</time>
+        </header>
+        
+        <h3 class="change-category">✨ New Features</h3>
+        <ul class="change-list">
+          <li>Complete site redesign with improved navigation and visual hierarchy</li>
+          <li>Added role-based landing pages (<a href="faculty.html">Faculty</a>, <a href="staff.html">Staff</a>, <a href="students.html">Students</a>, etc.)</li>
+          <li>New <a href="wizard.html">Quick Start Wizard</a> to guide users to relevant content</li>
+          <li>Interactive <a href="self-assessment.html">Self-Assessment Tool</a> for documents, websites, and courses</li>
+          <li>Comprehensive <a href="vpat-library.html">VPAT Library</a> with searchable database</li>
+          <li>New <a href="training-calendar.html">Training Calendar</a> with event registration</li>
+          <li><a href="search.html">Site-wide search</a> functionality</li>
+          <li><a href="do-dont.html">Do's and Don'ts</a> quick reference guides</li>
+        </ul>
+
+        <h3 class="change-category">📄 New Content</h3>
+        <ul class="change-list">
+          <li><a href="wcag22-highlights.html">WCAG 2.2 Highlights</a> - Overview of new success criteria</li>
+          <li><a href="title-ii-brief.html">ADA Title II Brief</a> - Compliance timeline for higher education</li>
+          <li><a href="social-media-guide.html">Social Media Accessibility Guide</a></li>
+          <li><a href="pdf-remediation.html">PDF Remediation Guide</a></li>
+          <li><a href="procurement-steps.html">Procurement Process Guide</a></li>
+          <li><a href="vendor-faq.html">Vendor FAQ</a> for accessibility requirements</li>
+          <li><a href="glossary.html">Accessibility Glossary</a></li>
+          <li><a href="champions-directory.html">Accessibility Champions Directory</a></li>
+        </ul>
+
+        <h3 class="change-category">🛠️ Improvements</h3>
+        <ul class="change-list">
+          <li>Enhanced keyboard navigation throughout the site</li>
+          <li>Improved color contrast to meet WCAG 2.2 AA requirements</li>
+          <li>Added reading time estimates to all content pages</li>
+          <li>Added table of contents navigation to long pages</li>
+          <li>Improved mobile responsiveness</li>
+          <li>Added print-friendly styles</li>
+        </ul>
+
+        <h3 class="change-category">🐛 Bug Fixes</h3>
+        <ul class="change-list">
+          <li>Fixed focus visibility on interactive elements</li>
+          <li>Corrected heading hierarchy on several pages</li>
+          <li>Fixed broken links to external resources</li>
+        </ul>
+      </article>
+
+      <article class="release">
+        <header class="release-header">
+          <span class="release-version">v1.5.0</span>
+          <span class="release-tag tag-minor">Minor Release</span>
+          <time class="release-date" datetime="2025-09-15">September 15, 2025</time>
+        </header>
+        
+        <h3 class="change-category">✨ New Features</h3>
+        <ul class="change-list">
+          <li>Added <a href="testing-tools.html">Testing Tools Guide</a> with recommended tools</li>
+          <li>New <a href="templates-downloads.html">Templates & Downloads</a> section</li>
+          <li>Added <a href="compliance-timeline.html">Compliance Timeline</a> page</li>
+        </ul>
+
+        <h3 class="change-category">📄 New Content</h3>
+        <ul class="change-list">
+          <li>Document accessibility guides for <a href="doc-word.html">Word</a>, <a href="doc-powerpoint.html">PowerPoint</a>, <a href="doc-excel.html">Excel</a></li>
+          <li><a href="email-outlook.html">Accessible Email Guide</a></li>
+          <li><a href="media-captioning.html">Captioning Guide</a></li>
+        </ul>
+
+        <h3 class="change-category">🛠️ Improvements</h3>
+        <ul class="change-list">
+          <li>Updated all WCAG references to version 2.2</li>
+          <li>Added more code examples to developer documentation</li>
+          <li>Improved organization of document guides</li>
+        </ul>
+      </article>
+
+      <article class="release">
+        <header class="release-header">
+          <span class="release-version">v1.4.0</span>
+          <span class="release-tag tag-minor">Minor Release</span>
+          <time class="release-date" datetime="2025-06-01">June 1, 2025</time>
+        </header>
+        
+        <h3 class="change-category">✨ New Features</h3>
+        <ul class="change-list">
+          <li>Added <a href="blog.html">Accessibility Blog</a></li>
+          <li>New <a href="faq.html">FAQ Section</a></li>
+        </ul>
+
+        <h3 class="change-category">📄 New Content</h3>
+        <ul class="change-list">
+          <li><a href="focus-management.html">Focus Management Guide</a> for developers</li>
+          <li><a href="color-contrast.html">Color & Contrast Guide</a></li>
+          <li><a href="heading-basics.html">Heading Structure Guide</a></li>
+        </ul>
+      </article>
+
+      <article class="release">
+        <header class="release-header">
+          <span class="release-version">v1.3.0</span>
+          <span class="release-tag tag-minor">Minor Release</span>
+          <time class="release-date" datetime="2025-03-01">March 1, 2025</time>
+        </header>
+        
+        <h3 class="change-category">📄 New Content</h3>
+        <ul class="change-list">
+          <li><a href="developers.html">Developer Guide</a></li>
+          <li><a href="lms-brightspace.html">Brightspace Accessibility Guide</a></li>
+          <li><a href="assistive-tech.html">Assistive Technology Overview</a></li>
+        </ul>
+
+        <h3 class="change-category">🛠️ Improvements</h3>
+        <ul class="change-list">
+          <li>Reorganized navigation structure</li>
+          <li>Added breadcrumb navigation</li>
+        </ul>
+      </article>
+
+      <article class="release">
+        <header class="release-header">
+          <span class="release-version">v1.0.0</span>
+          <span class="release-tag tag-major">Initial Release</span>
+          <time class="release-date" datetime="2024-08-01">August 1, 2024</time>
+        </header>
+        
+        <h3 class="change-category">🎉 Initial Launch</h3>
+        <ul class="change-list">
+          <li>Core site structure and navigation</li>
+          <li><a href="accessibility-101.html">Accessibility 101</a> training content</li>
+          <li><a href="policies-governance.html">Policies & Governance</a> documentation</li>
+          <li><a href="support.html">Support</a> and contact information</li>
+          <li><a href="accessibility-statement.html">Accessibility Statement</a></li>
+        </ul>
+      </article>
+
+    </div>
+
+    <aside class="callout callout-info">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to the <a href="blog.html">accessibility blog</a> for announcements about new content and features.</p>
+      <p>Have suggestions for improvements? <a href="support.html">Contact us</a> with your feedback.</p>
+    </aside>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'changelog.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

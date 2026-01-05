@@ -1,44 +1,239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Color & Contrast Guidance | Accessibility</title>
+  <title>Color & Contrast Guidance | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; Apps</a> / Color &amp; Contrast</p>
+    </nav>
+    <h1>Color &amp; Contrast Guidance</h1>
+    <p>Learn how to choose colors that everyone can see, including people with low vision and color blindness.</p>
+    <p class="metric-chip">⏱️ Reading time: 8 minutes</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="why-contrast">
+      <h2 id="why-contrast">Why Contrast Matters</h2>
+      <p>Color contrast affects <strong>everyone's</strong> ability to read and interact with content:</p>
+      <ul>
+        <li><strong>1 in 12 men</strong> (8%) have some form of color vision deficiency</li>
+        <li><strong>Millions of people</strong> have low vision conditions that require higher contrast</li>
+        <li><strong>Situational impairments</strong> affect us all: bright sunlight, dim rooms, tired eyes, old monitors</li>
+        <li><strong>Legal requirement</strong>: WCAG 2.2 Level AA mandates minimum contrast ratios</li>
+      </ul>
+      <p>Good contrast isn't just accessible—it's better design for everyone.</p>
+    </section>
+
+    <section aria-labelledby="wcag-requirements">
+      <h2 id="wcag-requirements">WCAG Contrast Requirements</h2>
+      <p>The Web Content Accessibility Guidelines specify minimum contrast ratios:</p>
+      
+      <div class="table-scroll">
+        <table>
+          <caption>Minimum Contrast Ratios by Element Type</caption>
+          <thead>
+            <tr>
+              <th scope="col">Element Type</th>
+              <th scope="col">Minimum Ratio</th>
+              <th scope="col">WCAG Criterion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Normal text (under 18pt / 24px)</td>
+              <td><strong>4.5:1</strong></td>
+              <td>1.4.3 Contrast (Minimum)</td>
+            </tr>
+            <tr>
+              <td>Large text (18pt+ or 14pt bold)</td>
+              <td><strong>3:1</strong></td>
+              <td>1.4.3 Contrast (Minimum)</td>
+            </tr>
+            <tr>
+              <td>UI components &amp; graphics</td>
+              <td><strong>3:1</strong></td>
+              <td>1.4.11 Non-text Contrast</td>
+            </tr>
+            <tr>
+              <td>Enhanced Level AAA</td>
+              <td><strong>7:1 / 4.5:1</strong></td>
+              <td>1.4.6 Contrast (Enhanced)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>What Counts as "Large Text"?</h3>
+      <ul>
+        <li><strong>18pt (24px)</strong> at regular weight, OR</li>
+        <li><strong>14pt (18.5px)</strong> at bold weight</li>
+      </ul>
+
+      <h3>What Needs Contrast?</h3>
+      <ul>
+        <li>Body text, headings, and labels</li>
+        <li>Form field borders and placeholders</li>
+        <li>Icon-only buttons and controls</li>
+        <li>Focus indicators</li>
+        <li>Charts, graphs, and data visualizations</li>
+        <li>Links (must be distinguishable from surrounding text)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="testing-tools">
+      <h2 id="testing-tools">Testing Your Colors</h2>
+      <h3>Recommended Tools</h3>
+      <div class="grid grid-2">
+        <article class="card">
+          <h4>WebAIM Contrast Checker</h4>
+          <p>Quick online tool. Enter two colors, get instant pass/fail.</p>
+          <p><a href="https://webaim.org/resources/contrastchecker/">webaim.org/resources/contrastchecker →</a></p>
+        </article>
+        <article class="card">
+          <h4>Colour Contrast Analyser (CCA)</h4>
+          <p>Desktop app with eyedropper. Test colors directly from your screen.</p>
+          <p><a href="https://www.tpgi.com/color-contrast-checker/">Download CCA →</a></p>
+        </article>
+        <article class="card">
+          <h4>axe DevTools</h4>
+          <p>Browser extension that scans entire pages for contrast issues.</p>
+          <p><a href="https://www.deque.com/axe/devtools/">Get axe DevTools →</a></p>
+        </article>
+        <article class="card">
+          <h4>Figma Contrast Plugin</h4>
+          <p>Check contrast while designing, before development.</p>
+          <p><a href="https://www.figma.com/community/plugin/748533339900865323">Stark for Figma →</a></p>
+        </article>
+      </div>
+
+      <h3>How to Test</h3>
+      <ol>
+        <li>Identify the <strong>foreground color</strong> (text or icon)</li>
+        <li>Identify the <strong>background color</strong> (what's behind it)</li>
+        <li>Enter both colors into a contrast checker</li>
+        <li>Verify the ratio meets the requirement for that element type</li>
+        <li>For gradients: test the <em>darkest</em> foreground on the <em>lightest</em> background</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="common-problems">
+      <h2 id="common-problems">Common Problems &amp; Fixes</h2>
+      
+      <h3>Problem 1: Light Gray Text</h3>
+      <p>Gray text on white backgrounds is the most common failure.</p>
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h4>❌ Don't: 2.5:1 ratio</h4>
+          <pre><code>color: #999999;
+background: #ffffff;</code></pre>
+          <p style="color: #999999; background: #ffffff; padding: 0.5rem;">This gray text fails contrast requirements.</p>
+        </div>
+        <div class="do-card">
+          <h4>✅ Do: 4.6:1 ratio</h4>
+          <pre><code>color: #767676;
+background: #ffffff;</code></pre>
+          <p style="color: #767676; background: #ffffff; padding: 0.5rem;">This gray text passes for normal text.</p>
+        </div>
+      </div>
+
+      <h3>Problem 2: Placeholder Text</h3>
+      <p>Most browser defaults for placeholder text fail contrast.</p>
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h4>❌ Don't</h4>
+          <pre><code>::placeholder {
+  color: #aaaaaa;
+}</code></pre>
+        </div>
+        <div class="do-card">
+          <h4>✅ Do</h4>
+          <pre><code>::placeholder {
+  color: #767676;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>Problem 3: Brand Colors That Fail</h3>
+      <p>When your brand colors don't meet contrast requirements:</p>
+      <ul>
+        <li><strong>Option A:</strong> Darken or lighten the color slightly (often unnoticeable)</li>
+        <li><strong>Option B:</strong> Use the color on a dark background instead</li>
+        <li><strong>Option C:</strong> Reserve the color for large text or decorative elements only</li>
+        <li><strong>Option D:</strong> Use as an accent with accessible text alongside</li>
+      </ul>
+
+      <h3>Problem 4: Focus Indicators</h3>
+      <p>Custom focus styles must have 3:1 contrast against adjacent colors.</p>
+      <pre><code>/* Good focus indicator */
+:focus {
+  outline: 3px solid #005EA2;
+  outline-offset: 2px;
+}
+
+/* High contrast focus ring */
+:focus-visible {
+  outline: 2px solid #000000;
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px #000000;
+}</code></pre>
+    </section>
+
+    <section aria-labelledby="color-blindness">
+      <h2 id="color-blindness">Color Blindness Considerations</h2>
+      <p>Contrast ratios help with <em>lightness</em> perception, but don't solve color blindness. Additional steps:</p>
+      <ul>
+        <li><strong>Never use color alone</strong> to convey information—add icons, patterns, or text labels</li>
+        <li><strong>Red/green combinations</strong> are problematic for 8% of men</li>
+        <li><strong>Test with simulators</strong> to see how your design appears to color blind users</li>
+      </ul>
+
+      <h3>Color Blindness Simulation Tools</h3>
+      <ul>
+        <li><strong>Sim Daltonism</strong> (Mac) — Free app that overlays your screen</li>
+        <li><strong>Color Oracle</strong> (Windows/Mac/Linux) — Free desktop simulator</li>
+        <li><strong>Chrome DevTools</strong> → Rendering → Emulate vision deficiencies</li>
+      </ul>
+
+      <div class="callout callout-tip">
+        <h4>💡 Quick Test</h4>
+        <p>Print your design in grayscale. Can you still understand all the information? If not, you're relying too heavily on color.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">✅ Color &amp; Contrast Checklist</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" id="c1"> <label for="c1">Body text has at least 4.5:1 contrast</label></li>
+        <li><input type="checkbox" id="c2"> <label for="c2">Large text (18pt+) has at least 3:1 contrast</label></li>
+        <li><input type="checkbox" id="c3"> <label for="c3">Form field borders have at least 3:1 contrast</label></li>
+        <li><input type="checkbox" id="c4"> <label for="c4">Icons and UI components have at least 3:1 contrast</label></li>
+        <li><input type="checkbox" id="c5"> <label for="c5">Focus indicators have at least 3:1 contrast</label></li>
+        <li><input type="checkbox" id="c6"> <label for="c6">Links are distinguishable from surrounding text</label></li>
+        <li><input type="checkbox" id="c7"> <label for="c7">Color is not the only way to convey information</label></li>
+        <li><input type="checkbox" id="c8"> <label for="c8">Tested with color blindness simulators</label></li>
+        <li><input type="checkbox" id="c9"> <label for="c9">Placeholder text meets contrast requirements</label></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="related">
+      <h2 id="related">Related Resources</h2>
+      <ul>
+        <li><a href="brand-identity.html">Brand Identity &amp; Accessible Colors</a></li>
+        <li><a href="testing-tools.html">Accessibility Testing Tools</a></li>
+        <li><a href="persona-developers.html">Developer Accessibility Guide</a></li>
+        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">WCAG: Understanding Contrast (Minimum)</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'color-contrast.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

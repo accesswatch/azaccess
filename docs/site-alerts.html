@@ -1,44 +1,289 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Site Alert Banner | Accessibility</title>
+  <title>Accessible Alert Banners | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .alert-demo { margin: 1.5rem 0; }
+    .alert { padding: 1rem 1.25rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid; }
+    .alert-info { background: #cce5ff; border-color: #004085; color: #004085; }
+    .alert-success { background: #d4edda; border-color: #155724; color: #155724; }
+    .alert-warning { background: #fff3cd; border-color: #856404; color: #856404; }
+    .alert-danger { background: #f8d7da; border-color: #721c24; color: #721c24; }
+    .alert-title { font-weight: bold; margin-bottom: 0.25rem; }
+    .alert a { color: inherit; text-decoration: underline; }
+    .alert-dismissible { position: relative; padding-right: 3rem; }
+    .alert-dismiss { position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: transparent; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0.7; color: inherit; }
+    .alert-dismiss:hover { opacity: 1; }
+    .code-block { background: #1e1e1e; border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto; }
+    .code-block pre { margin: 0; color: #d4d4d4; font-family: 'Consolas', monospace; font-size: 0.9rem; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="developers.html">Developers</a> / Alert Banners</p>
+    </nav>
+    <h1>Accessible Alert Banners</h1>
+    <p>How to create accessible notification and alert banners for your website.</p>
+    <p class="metric-chip">⏱️ Reading time: 8 minutes</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="overview-heading">
+      <h2 id="overview-heading">Alert Accessibility Overview</h2>
+      <p>Alerts communicate important information to users. Making them accessible ensures everyone receives critical updates.</p>
+      
+      <h3>Key Requirements</h3>
+      <ul>
+        <li><strong>ARIA roles:</strong> Use <code>role="alert"</code> or <code>role="status"</code> for dynamic announcements</li>
+        <li><strong>Color + text:</strong> Don't rely on color alone—use icons and text labels</li>
+        <li><strong>Contrast:</strong> Text must have 4.5:1 contrast ratio</li>
+        <li><strong>Focus management:</strong> Critical alerts may need to receive focus</li>
+        <li><strong>Dismissible:</strong> Allow users to close non-critical alerts</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="examples-heading">
+      <h2 id="examples-heading">Alert Examples</h2>
+      
+      <h3>Static Alerts</h3>
+      <p>Alerts that are present when the page loads:</p>
+      
+      <div class="alert-demo">
+        <div class="alert alert-info">
+          <div class="alert-title">ℹ️ Information</div>
+          <p>Registration opens on January 15. <a href="#">View schedule</a></p>
+        </div>
+
+        <div class="alert alert-success">
+          <div class="alert-title">✅ Success</div>
+          <p>Your document has been saved successfully.</p>
+        </div>
+
+        <div class="alert alert-warning">
+          <div class="alert-title">⚠️ Warning</div>
+          <p>Your session will expire in 5 minutes. <a href="#">Extend session</a></p>
+        </div>
+
+        <div class="alert alert-danger">
+          <div class="alert-title">🚨 Error</div>
+          <p>Unable to connect to the server. Please try again later.</p>
+        </div>
+      </div>
+
+      <h3>Dismissible Alert</h3>
+      <div class="alert-demo">
+        <div class="alert alert-info alert-dismissible" role="alert">
+          <div class="alert-title">📢 Announcement</div>
+          <p>The Digital Accessibility Office has moved to ILC 350.</p>
+          <button class="alert-dismiss" aria-label="Dismiss alert">&times;</button>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="code-heading">
+      <h2 id="code-heading">Code Patterns</h2>
+      
+      <h3>Basic Static Alert</h3>
+      <p>For alerts present on page load, no ARIA role is needed:</p>
+      <div class="code-block">
+        <pre>&lt;div class="alert alert-info"&gt;
+  &lt;strong&gt;ℹ️ Information:&lt;/strong&gt;
+  Registration opens on January 15.
+&lt;/div&gt;</pre>
+      </div>
+
+      <h3>Dynamic Alert (Appears After Action)</h3>
+      <p>Use <code>role="alert"</code> for urgent messages that appear dynamically:</p>
+      <div class="code-block">
+        <pre>&lt;div role="alert" class="alert alert-danger"&gt;
+  &lt;strong&gt;🚨 Error:&lt;/strong&gt;
+  Form submission failed. Please check required fields.
+&lt;/div&gt;</pre>
+      </div>
+      
+      <div class="callout callout-info">
+        <h4>role="alert" vs role="status"</h4>
+        <ul>
+          <li><strong>role="alert":</strong> Interrupts screen readers immediately (use sparingly)</li>
+          <li><strong>role="status":</strong> Announced at next pause, less intrusive</li>
+        </ul>
+      </div>
+
+      <h3>Dismissible Alert with ARIA</h3>
+      <div class="code-block">
+        <pre>&lt;div class="alert alert-warning alert-dismissible" role="alert"&gt;
+  &lt;strong&gt;⚠️ Warning:&lt;/strong&gt;
+  Your session will expire in 5 minutes.
+  
+  &lt;button type="button" 
+          class="alert-dismiss" 
+          aria-label="Dismiss alert"&gt;
+    &amp;times;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+document.querySelector('.alert-dismiss').addEventListener('click', function() {
+  const alert = this.closest('.alert');
+  alert.remove();
+  // Return focus to a logical location
+});
+&lt;/script&gt;</pre>
+      </div>
+
+      <h3>Live Region for Updates</h3>
+      <p>For status updates that don't require immediate attention:</p>
+      <div class="code-block">
+        <pre>&lt;!-- Hidden live region --&gt;
+&lt;div id="status-region" 
+     role="status" 
+     aria-live="polite" 
+     class="visually-hidden"&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+function announceStatus(message) {
+  const region = document.getElementById('status-region');
+  region.textContent = message;
+}
+
+// Usage
+announceStatus('3 items added to cart');
+&lt;/script&gt;</pre>
+      </div>
+    </section>
+
+    <section aria-labelledby="css-heading">
+      <h2 id="css-heading">Accessible CSS</h2>
+      
+      <div class="code-block">
+        <pre>/* Base alert styles */
+.alert {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  margin-bottom: 1rem;
+}
+
+/* Use both color AND icon/text for meaning */
+.alert-info {
+  background: #cce5ff;
+  border-color: #004085;
+  color: #004085;  /* 4.5:1 contrast on background */
+}
+
+.alert-success {
+  background: #d4edda;
+  border-color: #155724;
+  color: #155724;
+}
+
+.alert-warning {
+  background: #fff3cd;
+  border-color: #856404;
+  color: #856404;
+}
+
+.alert-danger {
+  background: #f8d7da;
+  border-color: #721c24;
+  color: #721c24;
+}
+
+/* Links within alerts */
+.alert a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Dismissible alerts */
+.alert-dismissible {
+  position: relative;
+  padding-right: 3rem;
+}
+
+.alert-dismiss {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+  padding: 0.5rem;
+}
+
+.alert-dismiss:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}</pre>
+      </div>
+    </section>
+
+    <section aria-labelledby="best-practices-heading">
+      <h2 id="best-practices-heading">Best Practices</h2>
+      
+      <h3>Do ✅</h3>
+      <ul>
+        <li>Use icons AND text labels (not just color)</li>
+        <li>Keep alert messages concise and actionable</li>
+        <li>Provide a way to dismiss non-critical alerts</li>
+        <li>Test with screen readers to verify announcements</li>
+        <li>Use <code>role="alert"</code> sparingly—only for truly urgent messages</li>
+        <li>Return focus appropriately after dismissing an alert</li>
+      </ul>
+
+      <h3>Don't ❌</h3>
+      <ul>
+        <li>Don't rely on color alone to convey alert type</li>
+        <li>Don't use <code>role="alert"</code> for page content present on load</li>
+        <li>Don't auto-dismiss alerts too quickly (minimum 5 seconds for non-critical)</li>
+        <li>Don't trap focus inside alert banners</li>
+        <li>Don't use alerts for decorative purposes</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="testing-heading">
+      <h2 id="testing-heading">Testing Alerts</h2>
+      <ol>
+        <li><strong>Visual check:</strong> Can you understand the alert type without color?</li>
+        <li><strong>Contrast:</strong> Test text against background (4.5:1 minimum)</li>
+        <li><strong>Keyboard:</strong> Can dismiss button be reached and activated with keyboard?</li>
+        <li><strong>Screen reader:</strong> Is alert announced when it appears?</li>
+        <li><strong>Focus:</strong> After dismissing, does focus go to a logical location?</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="resources-heading">
+      <h2 id="resources-heading">Related Resources</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/">W3C APG: Alert Pattern</a></li>
+        <li><a href="color-contrast.html">Color & Contrast Guide</a></li>
+        <li><a href="focus-management.html">Focus Management</a></li>
+        <li><a href="developers.html">Developer Guide</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <script>
-    (async function(){
-      const mdFile = 'site-alerts.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
+    document.querySelectorAll('.alert-dismiss').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.closest('.alert').remove();
+      });
+    });
   </script>
 </body>
 </html>

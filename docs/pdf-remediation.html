@@ -1,44 +1,317 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PDF Remediation | Accessibility</title>
+  <title>PDF Remediation Guide | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / PDF Remediation</p>
+    </nav>
+    <h1>PDF Remediation Guide</h1>
+    <p>Learn when to remediate PDFs, step-by-step workflows in Adobe Acrobat, and how to test for accessibility.</p>
+    <p class="metric-chip">⏱️ Reading time: 12 minutes</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="decision">
+      <h2 id="decision">Remediate, Recreate, or Provide Alternative?</h2>
+      <p>Before spending hours fixing a PDF, decide the best approach:</p>
+      
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Approach</th>
+              <th scope="col">When to Use</th>
+              <th scope="col">Time Estimate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Remediate existing PDF</strong></td>
+              <td>Source file unavailable; document is final; simple structure</td>
+              <td>30 min – 4 hours</td>
+            </tr>
+            <tr>
+              <td><strong>Recreate from source</strong></td>
+              <td>Word/InDesign file available; complex tables; major issues</td>
+              <td>Often faster than remediation</td>
+            </tr>
+            <tr>
+              <td><strong>Provide HTML alternative</strong></td>
+              <td>Content should be on web anyway; frequently updated</td>
+              <td>Varies; best long-term</td>
+            </tr>
+            <tr>
+              <td><strong>Provide text transcript</strong></td>
+              <td>PDF is scanned image; extremely complex (diagrams)</td>
+              <td>Depends on length</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-tip">
+        <h3>💡 Pro Tip</h3>
+        <p>If you have the source Word document, it's almost always faster to fix accessibility there and re-export than to remediate the PDF directly.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="requirements">
+      <h2 id="requirements">PDF Accessibility Requirements</h2>
+      <p>Accessible PDFs must have:</p>
+      <ul>
+        <li><strong>Document title</strong> set in properties</li>
+        <li><strong>Language</strong> specified (e.g., English)</li>
+        <li><strong>Tags</strong> that define document structure</li>
+        <li><strong>Logical reading order</strong> that makes sense</li>
+        <li><strong>Alt text</strong> for all meaningful images</li>
+        <li><strong>Table headers</strong> properly marked</li>
+        <li><strong>Bookmarks</strong> for navigation in long documents</li>
+        <li><strong>Accessible forms</strong> with labeled fields</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="acrobat-workflow">
+      <h2 id="acrobat-workflow">Adobe Acrobat Pro Workflow</h2>
+      
+      <h3>Step 1: Run the Accessibility Check</h3>
+      <ol>
+        <li>Open your PDF in Adobe Acrobat Pro</li>
+        <li>Go to <strong>Tools → Accessibility</strong></li>
+        <li>Click <strong>Full Check</strong></li>
+        <li>In the dialog, ensure all options are checked</li>
+        <li>Click <strong>Start Checking</strong></li>
+        <li>Review the report—it shows pass/fail/manual check for each item</li>
+      </ol>
+
+      <h3>Step 2: Set Document Properties</h3>
+      <ol>
+        <li>Go to <strong>File → Properties</strong></li>
+        <li>In the <strong>Description</strong> tab:
+          <ul>
+            <li>Add a <strong>Title</strong> (required—this is what screen readers announce)</li>
+            <li>Add <strong>Author</strong> and <strong>Subject</strong> (optional but helpful)</li>
+          </ul>
+        </li>
+        <li>In the <strong>Initial View</strong> tab:
+          <ul>
+            <li>Set <strong>Show: Document Title</strong> (not filename)</li>
+          </ul>
+        </li>
+        <li>In the <strong>Advanced</strong> tab:
+          <ul>
+            <li>Set <strong>Language</strong> to English (or appropriate language)</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>Step 3: Add or Fix Tags</h3>
+      <p>Tags define the document structure (headings, paragraphs, lists, tables).</p>
+      <ol>
+        <li>If no tags exist: <strong>Tools → Accessibility → Add Tags to Document</strong></li>
+        <li>Open the Tags panel: <strong>View → Show/Hide → Navigation Panes → Tags</strong></li>
+        <li>Review auto-generated tags—they're often wrong</li>
+        <li>Right-click tags to change type (e.g., change &lt;P&gt; to &lt;H1&gt;)</li>
+      </ol>
+
+      <h3>Step 4: Fix Reading Order</h3>
+      <ol>
+        <li>Go to <strong>Tools → Accessibility → Reading Order</strong></li>
+        <li>Click <strong>Show Order Panel</strong></li>
+        <li>Numbers show the reading sequence</li>
+        <li>Drag items to reorder if needed</li>
+        <li>Select content and click buttons to tag as Figure, Table, Heading, etc.</li>
+      </ol>
+
+      <h3>Step 5: Add Alt Text to Images</h3>
+      <ol>
+        <li>In the Tags panel, find <strong>&lt;Figure&gt;</strong> tags</li>
+        <li>Right-click → <strong>Properties</strong></li>
+        <li>In the <strong>Tag</strong> tab, add <strong>Alternate Text</strong></li>
+        <li>For decorative images, check <strong>Decorative Figure</strong> (or change tag to Artifact)</li>
+      </ol>
+
+      <div class="callout callout-info">
+        <h4>Writing Good Alt Text</h4>
+        <ul>
+          <li>Describe what the image <em>conveys</em>, not just what it shows</li>
+          <li>Keep it concise (usually under 125 characters)</li>
+          <li>Don't start with "Image of" or "Picture of"</li>
+          <li>For charts/graphs, summarize the key data or trend</li>
+        </ul>
+      </div>
+
+      <h3>Step 6: Fix Tables</h3>
+      <ol>
+        <li>In the Tags panel, find the <strong>&lt;Table&gt;</strong> tag</li>
+        <li>Right-click → <strong>Table Editor</strong></li>
+        <li>Click on header cells and mark them as <strong>Header Cell (TH)</strong></li>
+        <li>Set the <strong>Scope</strong> (Column or Row) for each header</li>
+        <li>Ensure data cells are marked as <strong>Data Cell (TD)</strong></li>
+      </ol>
+
+      <h3>Step 7: Fix Forms</h3>
+      <ol>
+        <li>Go to <strong>Tools → Prepare Form</strong></li>
+        <li>For each field, double-click to open properties</li>
+        <li>Add a <strong>Name</strong> (label for screen readers)</li>
+        <li>Add a <strong>Tooltip</strong> for additional context</li>
+        <li>Set <strong>Tab Order</strong>: Right-click form → Order Panels by Row/Column</li>
+      </ol>
+
+      <h3>Step 8: Final Accessibility Check</h3>
+      <ol>
+        <li>Run <strong>Full Check</strong> again</li>
+        <li>Address any remaining issues</li>
+        <li>Test with a screen reader if possible</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="from-word">
+      <h2 id="from-word">Creating Accessible PDFs from Word</h2>
+      <p>Start with an accessible Word document, then export correctly.</p>
+
+      <h3>Before Exporting</h3>
+      <ul class="checklist">
+        <li><input type="checkbox" id="w1"> <label for="w1">Use Styles for headings (Heading 1, Heading 2, etc.)</label></li>
+        <li><input type="checkbox" id="w2"> <label for="w2">Add alt text to images (right-click → Edit Alt Text)</label></li>
+        <li><input type="checkbox" id="w3"> <label for="w3">Use real tables (Insert → Table), not tabs or spaces</label></li>
+        <li><input type="checkbox" id="w4"> <label for="w4">Mark header rows in tables (Table Design → Header Row)</label></li>
+        <li><input type="checkbox" id="w5"> <label for="w5">Use built-in list formatting</label></li>
+        <li><input type="checkbox" id="w6"> <label for="w6">Add meaningful hyperlink text (not "click here")</label></li>
+        <li><input type="checkbox" id="w7"> <label for="w7">Run the Accessibility Checker (Review → Check Accessibility)</label></li>
+      </ul>
+
+      <h3>Export Settings</h3>
+      <ol>
+        <li>Go to <strong>File → Save As</strong> (or Export)</li>
+        <li>Choose <strong>PDF</strong> format</li>
+        <li>Click <strong>Options</strong> (or More Options)</li>
+        <li>Check: <strong>"Create bookmarks using: Headings"</strong></li>
+        <li>Check: <strong>"Document structure tags for accessibility"</strong></li>
+        <li>Save the PDF</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="common-issues">
+      <h2 id="common-issues">Common Issues &amp; Fixes</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Issue</th>
+              <th scope="col">Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Document has no tags</td>
+              <td>Run "Add Tags to Document" in Accessibility tools</td>
+            </tr>
+            <tr>
+              <td>Images missing alt text</td>
+              <td>Add via Tags panel → Figure → Properties</td>
+            </tr>
+            <tr>
+              <td>Wrong reading order</td>
+              <td>Use Reading Order tool to renumber content</td>
+            </tr>
+            <tr>
+              <td>Table without headers</td>
+              <td>Use Table Editor to mark header cells</td>
+            </tr>
+            <tr>
+              <td>No document title</td>
+              <td>File → Properties → Description → Title</td>
+            </tr>
+            <tr>
+              <td>Language not set</td>
+              <td>File → Properties → Advanced → Language</td>
+            </tr>
+            <tr>
+              <td>Scanned/image-only PDF</td>
+              <td>Run OCR first: Tools → Scan &amp; OCR → Recognize Text</td>
+            </tr>
+            <tr>
+              <td>Form fields unlabeled</td>
+              <td>Prepare Form → Add Name and Tooltip to each field</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="testing-pdfs">
+      <h2 id="testing-pdfs">Testing PDF Accessibility</h2>
+      
+      <h3>Automated Tools</h3>
+      <ul>
+        <li><strong>Adobe Acrobat Accessibility Checker</strong> — Built-in, catches most issues</li>
+        <li><strong>PAC 2024</strong> — Free, thorough, validates against PDF/UA standard
+          <br><a href="https://pac.pdf-accessibility.org/">Download PAC 2024 →</a></li>
+        <li><strong>CommonLook PDF Validator</strong> — Free online validator</li>
+      </ul>
+
+      <h3>Manual Testing</h3>
+      <ul>
+        <li><strong>Screen reader test</strong> — Use NVDA (free) or built-in Narrator/VoiceOver</li>
+        <li><strong>Keyboard navigation</strong> — Tab through forms</li>
+        <li><strong>Reflow test</strong> — View → Zoom → Reflow (checks reading order)</li>
+        <li><strong>Read Out Loud</strong> — View → Read Out Loud → Read This Page Only</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="outsourcing">
+      <h2 id="outsourcing">When to Outsource</h2>
+      <p>Consider professional remediation services for:</p>
+      <ul>
+        <li>Large document backlogs (100+ pages)</li>
+        <li>Complex technical documents with many tables/figures</li>
+        <li>Legal documents requiring PDF/UA certification</li>
+        <li>Time-sensitive compliance deadlines</li>
+        <li>Historical archives needing batch processing</li>
+      </ul>
+      <p>Contact the <a href="support.html">Accessibility Office</a> for vendor recommendations.</p>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">✅ PDF Accessibility Checklist</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" id="p1"> <label for="p1">Document has a title (not just filename)</label></li>
+        <li><input type="checkbox" id="p2"> <label for="p2">Language is set correctly</label></li>
+        <li><input type="checkbox" id="p3"> <label for="p3">Document has tags</label></li>
+        <li><input type="checkbox" id="p4"> <label for="p4">Tags accurately reflect structure</label></li>
+        <li><input type="checkbox" id="p5"> <label for="p5">Reading order is logical</label></li>
+        <li><input type="checkbox" id="p6"> <label for="p6">All images have alt text (or marked decorative)</label></li>
+        <li><input type="checkbox" id="p7"> <label for="p7">Tables have header rows/columns marked</label></li>
+        <li><input type="checkbox" id="p8"> <label for="p8">Form fields have labels</label></li>
+        <li><input type="checkbox" id="p9"> <label for="p9">Bookmarks exist for long documents</label></li>
+        <li><input type="checkbox" id="p10"> <label for="p10">Passes Acrobat Accessibility Check</label></li>
+        <li><input type="checkbox" id="p11"> <label for="p11">Passes PAC 2024 validation</label></li>
+        <li><input type="checkbox" id="p12"> <label for="p12">Tested with screen reader</label></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="related">
+      <h2 id="related">Related Resources</h2>
+      <ul>
+        <li><a href="doc-word.html">Microsoft Word Accessibility</a></li>
+        <li><a href="documents-overview.html">Document Accessibility Overview</a></li>
+        <li><a href="persona-content.html">Content Creator Guide</a></li>
+        <li><a href="https://www.adobe.com/accessibility/pdf/pdf-accessibility-overview.html">Adobe PDF Accessibility Overview</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'pdf-remediation.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

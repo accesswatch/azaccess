@@ -1,44 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Role Hub Template | Accessibility</title>
+  <title>Role Page Template | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .template-note { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+    .template-note strong { color: #856404; }
+    .placeholder { background: #e9ecef; padding: 0.25rem 0.5rem; border-radius: 4px; font-family: monospace; color: #6c757d; }
+    .role-hero { background: linear-gradient(135deg, var(--ua-arizona-blue), var(--ua-azurite)); color: white; padding: 2.5rem 2rem; border-radius: 12px; margin-bottom: 2rem; }
+    .role-hero h1 { color: white; margin: 0 0 0.5rem 0; }
+    .role-hero .subtitle { font-size: 1.15rem; margin: 0; opacity: 0.95; }
+    .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .quick-link-card { background: white; border: 2px solid var(--ua-border); border-radius: 8px; padding: 1.25rem; text-align: center; text-decoration: none; color: inherit; transition: all 0.2s; }
+    .quick-link-card:hover { border-color: var(--ua-arizona-blue); transform: translateY(-2px); }
+    .quick-link-card .icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+    .quick-link-card h3 { margin: 0 0 0.25rem 0; font-size: 1rem; }
+    .quick-link-card p { margin: 0; font-size: 0.85rem; color: #666; }
+    .priority-section { background: var(--ua-cool-gray); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { padding: 0.75rem 0; border-bottom: 1px solid var(--ua-border); display: flex; align-items: start; gap: 0.75rem; }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; }
+    .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .resource-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.25rem; }
+    .resource-card h4 { margin: 0 0 0.5rem 0; }
+    .resource-card p { margin: 0 0 0.75rem 0; font-size: 0.9rem; color: #666; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="personas.html">By Role</a> / <span class="placeholder">[Role Name]</span></p>
+    </nav>
+  </header>
+
+  <main id="maincontent" role="main">
+    <div class="template-note">
+      <strong>📋 Template Note:</strong> This is a template for creating role-based landing pages. Replace placeholder content (shown in <span class="placeholder">gray boxes</span>) with role-specific content.
+    </div>
+
+    <div class="role-hero">
+      <h1>Accessibility for <span class="placeholder">[Role Name]</span></h1>
+      <p class="subtitle"><span class="placeholder">[One sentence describing how this role impacts accessibility]</span></p>
+    </div>
+
+    <section aria-labelledby="quick-links-heading">
+      <h2 id="quick-links-heading">Quick Links</h2>
+      <div class="quick-links">
+        <a href="#" class="quick-link-card">
+          <span class="icon">📚</span>
+          <h3>Getting Started</h3>
+          <p>Essential basics for this role</p>
+        </a>
+        <a href="#" class="quick-link-card">
+          <span class="icon">📋</span>
+          <h3>Checklists</h3>
+          <p>Quick verification guides</p>
+        </a>
+        <a href="#" class="quick-link-card">
+          <span class="icon">📄</span>
+          <h3>Templates</h3>
+          <p>Pre-built accessible files</p>
+        </a>
+        <a href="#" class="quick-link-card">
+          <span class="icon">🎓</span>
+          <h3>Training</h3>
+          <p>Learn accessibility skills</p>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="priorities-heading">
+      <h2 id="priorities-heading">Your Accessibility Priorities</h2>
+      <p><span class="placeholder">[Brief introduction explaining top priorities for this role]</span></p>
+      
+      <div class="priority-section">
+        <h3>Top 5 Things to Do</h3>
+        <ul class="checklist">
+          <li>
+            <input type="checkbox" id="priority1">
+            <label for="priority1"><strong>Priority 1:</strong> <span class="placeholder">[First priority with brief explanation]</span></label>
+          </li>
+          <li>
+            <input type="checkbox" id="priority2">
+            <label for="priority2"><strong>Priority 2:</strong> <span class="placeholder">[Second priority with brief explanation]</span></label>
+          </li>
+          <li>
+            <input type="checkbox" id="priority3">
+            <label for="priority3"><strong>Priority 3:</strong> <span class="placeholder">[Third priority with brief explanation]</span></label>
+          </li>
+          <li>
+            <input type="checkbox" id="priority4">
+            <label for="priority4"><strong>Priority 4:</strong> <span class="placeholder">[Fourth priority with brief explanation]</span></label>
+          </li>
+          <li>
+            <input type="checkbox" id="priority5">
+            <label for="priority5"><strong>Priority 5:</strong> <span class="placeholder">[Fifth priority with brief explanation]</span></label>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="common-tasks-heading">
+      <h2 id="common-tasks-heading">Common Tasks</h2>
+      <p><span class="placeholder">[Introduction to common accessibility tasks for this role]</span></p>
+      
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h4>Task Category 1</h4>
+          <p><span class="placeholder">[Description of this task category]</span></p>
+          <ul>
+            <li><a href="#">Related guide 1</a></li>
+            <li><a href="#">Related guide 2</a></li>
+          </ul>
+        </article>
+        <article class="resource-card">
+          <h4>Task Category 2</h4>
+          <p><span class="placeholder">[Description of this task category]</span></p>
+          <ul>
+            <li><a href="#">Related guide 1</a></li>
+            <li><a href="#">Related guide 2</a></li>
+          </ul>
+        </article>
+        <article class="resource-card">
+          <h4>Task Category 3</h4>
+          <p><span class="placeholder">[Description of this task category]</span></p>
+          <ul>
+            <li><a href="#">Related guide 1</a></li>
+            <li><a href="#">Related guide 2</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="tools-heading">
+      <h2 id="tools-heading">Recommended Tools</h2>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h4>🔧 Tool Name</h4>
+          <p><span class="placeholder">[What this tool does and why it's useful for this role]</span></p>
+          <p><a href="#">Learn more →</a></p>
+        </article>
+        <article class="resource-card">
+          <h4>🔧 Tool Name</h4>
+          <p><span class="placeholder">[What this tool does and why it's useful for this role]</span></p>
+          <p><a href="#">Learn more →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="training-heading">
+      <h2 id="training-heading">Training &amp; Learning</h2>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h4>🎓 Self-Paced Course</h4>
+          <p><span class="placeholder">[Course description]</span></p>
+          <p><strong>Duration:</strong> <span class="placeholder">[Time]</span></p>
+          <p><a href="#">Start learning →</a></p>
+        </article>
+        <article class="resource-card">
+          <h4>📅 Live Workshop</h4>
+          <p><span class="placeholder">[Workshop description]</span></p>
+          <p><strong>Next session:</strong> <span class="placeholder">[Date]</span></p>
+          <p><a href="#">Register →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="support-heading">
+      <h2 id="support-heading">Get Help</h2>
+      <div class="callout callout-info">
+        <h3>Need Assistance?</h3>
+        <p>The Digital Accessibility Office is here to help <span class="placeholder">[role name]</span> with:</p>
+        <ul>
+          <li><span class="placeholder">[Type of support 1]</span></li>
+          <li><span class="placeholder">[Type of support 2]</span></li>
+          <li><span class="placeholder">[Type of support 3]</span></li>
+        </ul>
+        <p><a href="support.html">Contact us →</a></p>
+      </div>
+    </section>
+
+    <section aria-labelledby="related-heading">
+      <h2 id="related-heading">Related Pages</h2>
+      <ul>
+        <li><a href="#">Related role-specific page 1</a></li>
+        <li><a href="#">Related role-specific page 2</a></li>
+        <li><a href="#">Related role-specific page 3</a></li>
+        <li><a href="personas.html">View all role-based guides</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'role-template.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

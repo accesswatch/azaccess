@@ -1,44 +1,221 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skip Link Snippet | Accessibility</title>
+  <title>Skip Link Code Snippet | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .code-example { background: #1e1e1e; border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto; }
+    .code-example pre { margin: 0; color: #d4d4d4; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9rem; line-height: 1.5; }
+    .code-example .comment { color: #6a9955; }
+    .code-example .tag { color: #569cd6; }
+    .code-example .attr { color: #9cdcfe; }
+    .code-example .string { color: #ce9178; }
+    .code-example .property { color: #9cdcfe; }
+    .code-example .value { color: #ce9178; }
+    .demo-area { border: 2px dashed var(--ua-border); border-radius: 8px; padding: 1rem; margin: 1rem 0; background: var(--ua-cool-gray); }
+    .demo-skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 100; }
+    .demo-skip-link:focus { position: static; width: auto; height: auto; overflow: visible; padding: 0.75rem 1rem; background: var(--ua-arizona-blue); color: white; text-decoration: none; font-weight: 600; }
+    .copy-button { padding: 0.5rem 1rem; background: var(--ua-arizona-blue); color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; }
+    .copy-button:hover { background: var(--ua-midnight); }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="developers.html">Developers</a> / Skip Link Snippet</p>
+    </nav>
+    <h1>Skip Link Code Snippet</h1>
+    <p>Ready-to-use skip navigation link code for your websites.</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="why-heading">
+      <h2 id="why-heading">Why Skip Links?</h2>
+      <p>Skip links allow keyboard and screen reader users to bypass repetitive navigation and jump directly to main content. They are:</p>
+      <ul>
+        <li><strong>Required</strong> for WCAG 2.4.1 Bypass Blocks (Level A)</li>
+        <li><strong>Essential</strong> for keyboard users who would otherwise tab through every nav link</li>
+        <li><strong>Helpful</strong> for screen reader users to quickly reach content</li>
+        <li><strong>Usually hidden</strong> until focused, so they don't affect visual design</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="demo-heading">
+      <h2 id="demo-heading">Live Demo</h2>
+      <p>Press <kbd>Tab</kbd> in this demo area to see the skip link appear:</p>
+      <div class="demo-area">
+        <a href="#demo-main" class="demo-skip-link">Skip to main content</a>
+        <nav style="padding: 0.5rem; background: white; margin-bottom: 0.5rem;">
+          <strong>Navigation:</strong> <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Services</a> | <a href="#">Contact</a>
+        </nav>
+        <main id="demo-main" style="padding: 0.5rem; background: white;">
+          <h3>Main Content</h3>
+          <p>This is the main content area. The skip link lets you jump here directly.</p>
+        </main>
+      </div>
+    </section>
+
+    <section aria-labelledby="html-heading">
+      <h2 id="html-heading">HTML Code</h2>
+      <p>Add this as the <strong>first element</strong> inside your <code>&lt;body&gt;</code> tag:</p>
+      
+      <div class="code-example">
+        <pre><span class="comment">&lt;!-- Skip link - place as first element in body --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">class</span>=<span class="string">"skip-link"</span> <span class="attr">href</span>=<span class="string">"#maincontent"</span><span class="tag">&gt;</span>Skip to main content<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Your header/navigation here --&gt;</span>
+<span class="tag">&lt;header&gt;</span>...<span class="tag">&lt;/header&gt;</span>
+
+<span class="comment">&lt;!-- Main content with matching ID --&gt;</span>
+<span class="tag">&lt;main</span> <span class="attr">id</span>=<span class="string">"maincontent"</span><span class="tag">&gt;</span>
+  ...
+<span class="tag">&lt;/main&gt;</span></pre>
+      </div>
+      <button class="copy-button" onclick="copyHTML()">📋 Copy HTML</button>
+    </section>
+
+    <section aria-labelledby="css-heading">
+      <h2 id="css-heading">CSS Code</h2>
+      <p>Add this CSS to hide the skip link until it receives keyboard focus:</p>
+      
+      <div class="code-example">
+        <pre><span class="comment">/* Skip link - hidden until focused */</span>
+<span class="property">.skip-link</span> {
+  <span class="property">position</span>: <span class="value">absolute</span>;
+  <span class="property">left</span>: <span class="value">-9999px</span>;
+  <span class="property">top</span>: <span class="value">auto</span>;
+  <span class="property">width</span>: <span class="value">1px</span>;
+  <span class="property">height</span>: <span class="value">1px</span>;
+  <span class="property">overflow</span>: <span class="value">hidden</span>;
+  <span class="property">z-index</span>: <span class="value">100</span>;
+}
+
+<span class="comment">/* Visible when focused */</span>
+<span class="property">.skip-link:focus</span> {
+  <span class="property">position</span>: <span class="value">fixed</span>;
+  <span class="property">top</span>: <span class="value">0</span>;
+  <span class="property">left</span>: <span class="value">0</span>;
+  <span class="property">width</span>: <span class="value">auto</span>;
+  <span class="property">height</span>: <span class="value">auto</span>;
+  <span class="property">overflow</span>: <span class="value">visible</span>;
+  <span class="property">padding</span>: <span class="value">0.75rem 1.5rem</span>;
+  <span class="property">background</span>: <span class="value">#0C234B</span>;  <span class="comment">/* UA Arizona Blue */</span>
+  <span class="property">color</span>: <span class="value">#ffffff</span>;
+  <span class="property">font-size</span>: <span class="value">1rem</span>;
+  <span class="property">font-weight</span>: <span class="value">600</span>;
+  <span class="property">text-decoration</span>: <span class="value">none</span>;
+  <span class="property">outline</span>: <span class="value">3px solid #AB0520</span>;  <span class="comment">/* UA Arizona Red */</span>
+  <span class="property">outline-offset</span>: <span class="value">2px</span>;
+}</pre>
+      </div>
+      <button class="copy-button" onclick="copyCSS()">📋 Copy CSS</button>
+    </section>
+
+    <section aria-labelledby="variations-heading">
+      <h2 id="variations-heading">Variations</h2>
+      
+      <h3>Multiple Skip Links</h3>
+      <p>For complex pages, you can offer multiple targets:</p>
+      <div class="code-example">
+        <pre><span class="tag">&lt;nav</span> <span class="attr">class</span>=<span class="string">"skip-links"</span> <span class="attr">aria-label</span>=<span class="string">"Skip navigation"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"#maincontent"</span><span class="tag">&gt;</span>Skip to main content<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"#search"</span><span class="tag">&gt;</span>Skip to search<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"#footer"</span><span class="tag">&gt;</span>Skip to footer<span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;/nav&gt;</span></pre>
+      </div>
+
+      <h3>With Smooth Scroll</h3>
+      <p>Add smooth scrolling (but ensure it respects reduced motion preferences):</p>
+      <div class="code-example">
+        <pre><span class="property">html</span> {
+  <span class="property">scroll-behavior</span>: <span class="value">smooth</span>;
+}
+
+<span class="property">@media</span> (prefers-reduced-motion: reduce) {
+  <span class="property">html</span> {
+    <span class="property">scroll-behavior</span>: <span class="value">auto</span>;
+  }
+}</pre>
+      </div>
+    </section>
+
+    <section aria-labelledby="testing-heading">
+      <h2 id="testing-heading">Testing Your Skip Link</h2>
+      <ol>
+        <li>Load your page and press <kbd>Tab</kbd> — skip link should be the first thing focused</li>
+        <li>Verify the skip link is visible when focused</li>
+        <li>Press <kbd>Enter</kbd> — focus should move to main content</li>
+        <li>Test with a screen reader — link should be announced</li>
+        <li>Verify focus indicator is clearly visible (3:1 contrast minimum)</li>
+      </ol>
+
+      <div class="callout callout-warning">
+        <h3>⚠️ Common Mistakes</h3>
+        <ul>
+          <li><strong>Missing target ID:</strong> Ensure <code>#maincontent</code> matches an actual element ID</li>
+          <li><strong>Wrong element order:</strong> Skip link must be first focusable element</li>
+          <li><strong>Hidden from screen readers:</strong> Don't use <code>display: none</code> or <code>visibility: hidden</code></li>
+          <li><strong>Not actually hidden:</strong> Using only <code>opacity: 0</code> still takes up space</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="resources-heading">
+      <h2 id="resources-heading">Related Resources</h2>
+      <ul>
+        <li><a href="focus-management.html">Focus Management</a></li>
+        <li><a href="web-keyboard.html">Keyboard Accessibility</a></li>
+        <li><a href="developers.html">Developer Guide</a></li>
+        <li><a href="https://webaim.org/techniques/skipnav/">WebAIM: Skip Navigation Links</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <script>
-    (async function(){
-      const mdFile = 'skip-link-snippet.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
+    function copyHTML() {
+      const html = `<a class="skip-link" href="#maincontent">Skip to main content</a>`;
+      navigator.clipboard.writeText(html);
+      alert('HTML copied to clipboard!');
+    }
+    function copyCSS() {
+      const css = `.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  padding: 0.75rem 1.5rem;
+  background: #0C234B;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  outline: 3px solid #AB0520;
+  outline-offset: 2px;
+}`;
+      navigator.clipboard.writeText(css);
+      alert('CSS copied to clipboard!');
+    }
   </script>
 </body>
 </html>

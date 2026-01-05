@@ -1,44 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Outlook Email Guidance | Accessibility</title>
+  <title>Outlook Email Accessibility | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-overview.html">Documents</a> / Outlook Email</p>
+    </nav>
+    <h1>Outlook Email Accessibility</h1>
+    <p>Create accessible emails in Microsoft Outlook that everyone can read and understand.</p>
+    <p class="metric-chip">⏱️ Reading time: 6 minutes</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="why">
+      <h2 id="why">Why Accessible Emails Matter</h2>
+      <p>Email is essential for work, and inaccessible emails can exclude:</p>
+      <ul>
+        <li>People using screen readers</li>
+        <li>Those with low vision or color blindness</li>
+        <li>People reading on mobile devices</li>
+        <li>Anyone in a low-bandwidth situation</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="subject">
+      <h2 id="subject">Subject Lines</h2>
+      <p>Every email needs a clear, descriptive subject line:</p>
+      <ul>
+        <li><strong>Good:</strong> "Spring 2026 Course Registration Opens January 15"</li>
+        <li><strong>Bad:</strong> "Important information"</li>
+        <li><strong>Bad:</strong> No subject line</li>
+      </ul>
+      <p>Screen reader users scan inboxes by subject line. Vague subjects are frustrating for everyone.</p>
+    </section>
+
+    <section aria-labelledby="formatting">
+      <h2 id="formatting">Text Formatting</h2>
+
+      <h3>Use Styles for Headings</h3>
+      <p>In Outlook Desktop:</p>
+      <ol>
+        <li>Select heading text</li>
+        <li>In the Format Text tab, click the Styles gallery</li>
+        <li>Choose Heading 1, 2, or 3</li>
+      </ol>
+      <p>In Outlook on the web:</p>
+      <ol>
+        <li>Select heading text</li>
+        <li>Click the Format dropdown (shows "Paragraph")</li>
+        <li>Select Heading 1, 2, or 3</li>
+      </ol>
+
+      <h3>Font Choices</h3>
+      <ul>
+        <li>Use sans-serif fonts (Arial, Calibri, Verdana)</li>
+        <li>Minimum 11pt, preferably 12pt</li>
+        <li>Avoid decorative fonts</li>
+        <li>Don't use all caps for emphasis—it's harder to read</li>
+      </ul>
+
+      <h3>Text Alignment</h3>
+      <ul>
+        <li>Use left-aligned text (easier to read)</li>
+        <li>Avoid justified text (creates uneven spacing)</li>
+        <li>Center text sparingly</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="links">
+      <h2 id="links">Meaningful Links</h2>
+      <p>Use descriptive link text instead of URLs or "click here":</p>
+      
+      <h3>How to Add Links</h3>
+      <ol>
+        <li>Select the text you want to make a link</li>
+        <li>Press <kbd>Ctrl</kbd>+<kbd>K</kbd></li>
+        <li>Enter the URL</li>
+        <li>Click OK</li>
+      </ol>
+
+      <h3>Examples</h3>
+      <p><strong>Good:</strong> "Register through the <a href="#">Student Registration Portal</a>."</p>
+      <p><strong>Bad:</strong> "Register here: <a href="#">https://registrar.arizona.edu/portal/register?session=spring2026</a>"</p>
+      <p><strong>Bad:</strong> "<a href="#">Click here</a> to register."</p>
+    </section>
+
+    <section aria-labelledby="images">
+      <h2 id="images">Images &amp; Alt Text</h2>
+      
+      <h3>Add Alt Text</h3>
+      <p>In Outlook Desktop:</p>
+      <ol>
+        <li>Right-click the image</li>
+        <li>Select <strong>Edit Alt Text</strong></li>
+        <li>Write a description or check "Mark as decorative"</li>
+      </ol>
+
+      <p>In Outlook on the web:</p>
+      <ol>
+        <li>Click the image</li>
+        <li>Click the "..." menu</li>
+        <li>Select <strong>Alt text</strong></li>
+        <li>Add description</li>
+      </ol>
+
+      <h3>Alt Text Tips</h3>
+      <ul>
+        <li>Keep it concise (under 125 characters)</li>
+        <li>Describe the purpose, not just appearance</li>
+        <li>If the image contains text, include that text</li>
+        <li>Mark decorative images (borders, dividers) as decorative</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="lists">
+      <h2 id="lists">Lists</h2>
+      <p>Use the built-in list buttons for lists:</p>
+      <ul>
+        <li>Bulleted lists for unordered items</li>
+        <li>Numbered lists for steps or priorities</li>
+      </ul>
+      <p>Don't manually type bullet characters (•, -, *)—screen readers may not identify these as lists.</p>
+    </section>
+
+    <section aria-labelledby="tables">
+      <h2 id="tables">Tables</h2>
+      <p>Tables in email have limited accessibility support. When using tables:</p>
+      <ul>
+        <li>Use them only for data (not layout)</li>
+        <li>Keep them simple—avoid merged cells</li>
+        <li>Include headers in the first row</li>
+        <li>Consider providing the data as an attachment instead</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="color">
+      <h2 id="color">Color &amp; Contrast</h2>
+      
+      <h3>Don't Rely on Color Alone</h3>
+      <p>If you use color to convey meaning, add text too:</p>
+      <ul>
+        <li>Instead of red text for urgent items, write "URGENT:" before them</li>
+        <li>Use bold or asterisks in addition to color</li>
+      </ul>
+
+      <h3>Contrast Requirements</h3>
+      <ul>
+        <li>Black text on white backgrounds is best</li>
+        <li>Avoid light gray text</li>
+        <li>If using colored backgrounds, ensure text is readable</li>
+        <li>Test: Can you read it if printed in black and white?</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="attachments">
+      <h2 id="attachments">Accessible Attachments</h2>
+      <p>When attaching files:</p>
+      <ul>
+        <li>Ensure attached documents are accessible</li>
+        <li>Use descriptive file names</li>
+        <li>Mention what the attachment contains in your email</li>
+        <li>Consider providing content in the email body when possible</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="signatures">
+      <h2 id="signatures">Email Signatures</h2>
+      <p>Keep signatures simple and accessible:</p>
+      <ul>
+        <li>Use text, not images of text</li>
+        <li>If including a logo, add alt text</li>
+        <li>Keep links minimal and descriptive</li>
+        <li>Use readable font sizes</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="checker">
+      <h2 id="checker">Accessibility Checker</h2>
+      <p>Outlook has a built-in Accessibility Checker:</p>
+      <ol>
+        <li>In a new email, click <strong>Review</strong> tab</li>
+        <li>Click <strong>Check Accessibility</strong></li>
+        <li>Review and fix any issues</li>
+      </ol>
+      <p><strong>Tip:</strong> Set Outlook to automatically check accessibility: File → Options → Ease of Access → "Check accessibility while I work"</p>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">✅ Outlook Email Checklist</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" id="o1"> <label for="o1">Subject line is clear and descriptive</label></li>
+        <li><input type="checkbox" id="o2"> <label for="o2">Headings use styles (not just bold)</label></li>
+        <li><input type="checkbox" id="o3"> <label for="o3">Links have descriptive text</label></li>
+        <li><input type="checkbox" id="o4"> <label for="o4">Images have alt text</label></li>
+        <li><input type="checkbox" id="o5"> <label for="o5">Font is readable (11pt+ sans-serif)</label></li>
+        <li><input type="checkbox" id="o6"> <label for="o6">Good color contrast</label></li>
+        <li><input type="checkbox" id="o7"> <label for="o7">Color not used as only indicator</label></li>
+        <li><input type="checkbox" id="o8"> <label for="o8">Lists use built-in formatting</label></li>
+        <li><input type="checkbox" id="o9"> <label for="o9">Attachments are accessible</label></li>
+        <li><input type="checkbox" id="o10"> <label for="o10">Ran Accessibility Checker</label></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="related">
+      <h2 id="related">Related Resources</h2>
+      <ul>
+        <li><a href="email-gmail.html">Gmail Accessibility Guide</a></li>
+        <li><a href="email-newsletters.html">Newsletter Accessibility</a></li>
+        <li><a href="meaningful-links.html">Writing Meaningful Links</a></li>
+        <li><a href="color-contrast.html">Color &amp; Contrast Guidelines</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'email-outlook.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

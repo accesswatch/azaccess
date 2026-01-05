@@ -3,42 +3,420 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brand & Accessibility | Accessibility</title>
+  <title>Accessible Branding | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / <a href="communications.html">Communications</a></p></header>
   <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+    <article id="content">
+      <h1>Accessible Branding</h1>
+      <p class="lead">Build accessibility into your brand identity from the start—colors, fonts, logos, and visual elements that work for everyone.</p>
+
+      <nav class="toc" aria-label="Table of contents">
+        <h2>On This Page</h2>
+        <ul>
+          <li><a href="#overview">Branding and Accessibility</a></li>
+          <li><a href="#colors">Accessible Color Palettes</a></li>
+          <li><a href="#typography">Typography</a></li>
+          <li><a href="#logos">Logos and Icons</a></li>
+          <li><a href="#imagery">Imagery and Photography</a></li>
+          <li><a href="#templates">Accessible Templates</a></li>
+          <li><a href="#checklist">Brand Accessibility Checklist</a></li>
+        </ul>
+      </nav>
+
+      <section id="overview">
+        <h2>Branding and Accessibility</h2>
+        <p>Accessible branding isn't a limitation—it's an opportunity to create designs that reach more people effectively.</p>
+
+        <h3>Why It Matters</h3>
+        <ul>
+          <li><strong>Broader reach:</strong> 1 in 4 adults in the U.S. has a disability</li>
+          <li><strong>Legal compliance:</strong> Brand materials must meet accessibility standards</li>
+          <li><strong>Better design:</strong> Accessible design often improves usability for everyone</li>
+          <li><strong>Consistency:</strong> Built-in accessibility creates consistent user experiences</li>
+        </ul>
+
+        <h3>Plan Accessibility Early</h3>
+        <p>It's much easier to build accessibility into brand guidelines from the start than to retrofit later. Include accessibility requirements in:</p>
+        <ul>
+          <li>Color palette documentation</li>
+          <li>Typography standards</li>
+          <li>Logo usage guidelines</li>
+          <li>Template libraries</li>
+          <li>Photography/imagery guidelines</li>
+        </ul>
+      </section>
+
+      <section id="colors">
+        <h2>Accessible Color Palettes</h2>
+
+        <h3>Contrast Requirements</h3>
+        <p>WCAG requires minimum contrast ratios between text and background colors:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Use Case</th>
+              <th scope="col">Minimum Ratio</th>
+              <th scope="col">Enhanced (AAA)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Body text</td>
+              <td>4.5:1</td>
+              <td>7:1</td>
+            </tr>
+            <tr>
+              <td>Large text (18pt+/14pt bold)</td>
+              <td>3:1</td>
+              <td>4.5:1</td>
+            </tr>
+            <tr>
+              <td>UI components</td>
+              <td>3:1</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Focus indicators</td>
+              <td>3:1</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Building an Accessible Palette</h3>
+        <ol>
+          <li><strong>Start with brand primaries:</strong> Test your main colors against white and black backgrounds</li>
+          <li><strong>Create accessible pairings:</strong> Document which colors can be used together</li>
+          <li><strong>Add utility colors:</strong> Include colors specifically for text, backgrounds, and borders</li>
+          <li><strong>Test in context:</strong> Check contrast in actual use cases like buttons, links, and text</li>
+        </ol>
+
+        <h3>Example: UArizona Colors</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Color</th>
+              <th scope="col">Hex</th>
+              <th scope="col">Use on White</th>
+              <th scope="col">Use on Black</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Arizona Red</td>
+              <td>#AB0520</td>
+              <td>✅ 7.3:1 (body text OK)</td>
+              <td>❌ 2.9:1 (fails)</td>
+            </tr>
+            <tr>
+              <td>Navy Blue</td>
+              <td>#0C234B</td>
+              <td>✅ 14.2:1 (excellent)</td>
+              <td>❌ 1.5:1 (fails)</td>
+            </tr>
+            <tr>
+              <td>Oasis Blue</td>
+              <td>#378DBD</td>
+              <td>❌ 3.2:1 (large text only)</td>
+              <td>✅ 6.6:1 (body text OK)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Color Pairing Documentation</h3>
+        <p>In brand guidelines, document accessible combinations:</p>
+        <div class="example">
+          <p><strong>Approved pairings:</strong></p>
+          <ul>
+            <li>Arizona Red text on white background (for headings and emphasis)</li>
+            <li>Navy text on white background (for body text)</li>
+            <li>White text on Navy background (for dark sections)</li>
+            <li>White text on Arizona Red background (for buttons and alerts)</li>
+          </ul>
+          <p><strong>Avoid:</strong></p>
+          <ul>
+            <li>Oasis Blue text on white (insufficient contrast for body text)</li>
+            <li>Light gray text on any background</li>
+          </ul>
+        </div>
+
+        <h3>Tools for Checking Contrast</h3>
+        <ul>
+          <li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM Contrast Checker</a></li>
+          <li><a href="https://www.figma.com/community/plugin/733159460536249875" target="_blank" rel="noopener">Stark (Figma plugin)</a></li>
+          <li><a href="https://accessible-colors.com/" target="_blank" rel="noopener">Accessible Colors</a> — suggests accessible alternatives</li>
+          <li><a href="https://colorable.jxnblk.com/" target="_blank" rel="noopener">Colorable</a> — palette contrast testing</li>
+        </ul>
+      </section>
+
+      <section id="typography">
+        <h2>Typography</h2>
+
+        <h3>Choosing Accessible Fonts</h3>
+        <p>Not all fonts are equally readable. Look for:</p>
+        <ul>
+          <li><strong>Clear letterforms:</strong> Distinguish between similar characters (I, l, 1; O, 0)</li>
+          <li><strong>Consistent spacing:</strong> Even letter and word spacing</li>
+          <li><strong>Open counters:</strong> Interior spaces in letters like "a", "e", "o" should be open</li>
+          <li><strong>x-height:</strong> Taller lowercase letters improve readability</li>
+          <li><strong>Weights available:</strong> Multiple weights (regular, medium, bold) for hierarchy</li>
+        </ul>
+
+        <h3>Recommended Font Types</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Good For</th>
+              <th scope="col">Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sans-serif</td>
+              <td>Digital screens, body text</td>
+              <td>Open Sans, Source Sans Pro, Inter, Atkinson Hyperlegible</td>
+            </tr>
+            <tr>
+              <td>Serif</td>
+              <td>Print, headings</td>
+              <td>Georgia, Merriweather, Source Serif Pro</td>
+            </tr>
+            <tr>
+              <td>Monospace</td>
+              <td>Code, tabular data</td>
+              <td>Source Code Pro, JetBrains Mono</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="tip">
+          <p><strong>Tip:</strong> <a href="https://brailleinstitute.org/freefont" target="_blank" rel="noopener">Atkinson Hyperlegible</a> is a free font designed specifically for low vision readers.</p>
+        </div>
+
+        <h3>Fonts to Avoid</h3>
+        <ul>
+          <li>Decorative or script fonts for body text</li>
+          <li>All-caps text for long passages</li>
+          <li>Ultra-light weights (100-200) for body text</li>
+          <li>Condensed fonts for extended reading</li>
+          <li>Fonts without multiple weights</li>
+        </ul>
+
+        <h3>Sizing Guidelines</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Element</th>
+              <th scope="col">Minimum</th>
+              <th scope="col">Recommended</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Body text (web)</td>
+              <td>16px</td>
+              <td>16-18px</td>
+            </tr>
+            <tr>
+              <td>Body text (print)</td>
+              <td>10pt</td>
+              <td>11-12pt</td>
+            </tr>
+            <tr>
+              <td>Line height</td>
+              <td>1.4</td>
+              <td>1.5-1.6</td>
+            </tr>
+            <tr>
+              <td>Paragraph spacing</td>
+              <td>—</td>
+              <td>1.5× line height</td>
+            </tr>
+            <tr>
+              <td>Line length</td>
+              <td>—</td>
+              <td>50-75 characters</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="logos">
+        <h2>Logos and Icons</h2>
+
+        <h3>Logo Requirements</h3>
+        <ul>
+          <li><strong>Provide multiple versions:</strong> Full color, single color, reversed (white on dark)</li>
+          <li><strong>Don't rely on color alone:</strong> Logo should be recognizable in grayscale</li>
+          <li><strong>Minimum size:</strong> Document the smallest size where the logo remains legible</li>
+          <li><strong>Clear space:</strong> Define minimum padding around the logo</li>
+          <li><strong>Alt text guidance:</strong> Provide recommended alt text for digital use</li>
+        </ul>
+
+        <h3>Logo Alt Text</h3>
+        <p>Document standard alt text for your logo:</p>
+        <pre><code>&lt;!-- Standalone logo (links to home) --&gt;
+&lt;img src="logo.svg" alt="University of Arizona"&gt;
+
+&lt;!-- Logo next to name (decorative) --&gt;
+&lt;img src="logo.svg" alt=""&gt;
+&lt;span&gt;University of Arizona&lt;/span&gt;</code></pre>
+
+        <h3>Icon Guidelines</h3>
+        <ul>
+          <li><strong>Size:</strong> Minimum 24×24px touch target for interactive icons</li>
+          <li><strong>Contrast:</strong> 3:1 against background</li>
+          <li><strong>Labeling:</strong> Provide text labels for icon-only buttons, or accessible names</li>
+          <li><strong>Consistency:</strong> Use the same icon for the same action across all materials</li>
+        </ul>
+
+        <h3>Icon Implementation</h3>
+        <pre><code>&lt;!-- Icon with visible label (preferred) --&gt;
+&lt;button&gt;
+  &lt;svg aria-hidden="true"&gt;...&lt;/svg&gt;
+  Download PDF
+&lt;/button&gt;
+
+&lt;!-- Icon-only button (add aria-label) --&gt;
+&lt;button aria-label="Search"&gt;
+  &lt;svg aria-hidden="true"&gt;...&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+      </section>
+
+      <section id="imagery">
+        <h2>Imagery and Photography</h2>
+
+        <h3>Inclusive Imagery</h3>
+        <p>Brand photography should represent diversity:</p>
+        <ul>
+          <li>Include people with visible and non-visible disabilities</li>
+          <li>Show assistive technology in natural use</li>
+          <li>Represent diverse ages, ethnicities, and abilities</li>
+          <li>Avoid "inspiration porn"—people with disabilities as heroes for basic activities</li>
+        </ul>
+
+        <h3>Alt Text Style Guide</h3>
+        <p>Include alt text guidelines in your brand standards:</p>
+        <div class="example">
+          <p><strong>Photography alt text should:</strong></p>
+          <ul>
+            <li>Describe the content and context, not just "photo of..."</li>
+            <li>Include relevant details about people, actions, and settings</li>
+            <li>Be concise (125 characters or less when possible)</li>
+            <li>Not mention disability unless relevant to the message</li>
+          </ul>
+          <p><strong>Example:</strong> "Student using a laptop in the library with study group" rather than "Photo of students" or "Wheelchair user studying."</p>
+        </div>
+
+        <h3>Text Over Images</h3>
+        <p>When placing text over images:</p>
+        <ul>
+          <li>Add a semi-transparent overlay to ensure contrast</li>
+          <li>Test contrast with the lightest and darkest parts of the image</li>
+          <li>Avoid placing text over busy image areas</li>
+          <li>Consider using solid color blocks for text areas</li>
+        </ul>
+      </section>
+
+      <section id="templates">
+        <h2>Accessible Templates</h2>
+
+        <h3>Build Accessibility In</h3>
+        <p>Create templates with accessibility built in:</p>
+
+        <h4>Document Templates</h4>
+        <ul>
+          <li>Pre-configured heading styles</li>
+          <li>Accessible color schemes</li>
+          <li>Proper table structure</li>
+          <li>Alt text placeholders</li>
+          <li>Instructions for users</li>
+        </ul>
+
+        <h4>Presentation Templates</h4>
+        <ul>
+          <li>Slide layouts with proper reading order</li>
+          <li>Unique slide titles (placeholders that require completion)</li>
+          <li>High-contrast text styles</li>
+          <li>Speaker notes section</li>
+        </ul>
+
+        <h4>Social Media Templates</h4>
+        <ul>
+          <li>Text-safe zones for important content</li>
+          <li>Alt text guidelines</li>
+          <li>Contrast-checked color combinations</li>
+          <li>Camel case guidance for hashtags</li>
+        </ul>
+
+        <h4>Email Templates</h4>
+        <ul>
+          <li>Semantic HTML structure</li>
+          <li>Alt text for all images</li>
+          <li>Accessible button styles</li>
+          <li>Plain text version</li>
+        </ul>
+      </section>
+
+      <section id="checklist">
+        <h2>Brand Accessibility Checklist</h2>
+
+        <h3>Color Palette</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c1"> <label for="c1">All color pairings meet 4.5:1 contrast for text</label></li>
+          <li><input type="checkbox" id="c2"> <label for="c2">Large text pairings meet 3:1 contrast</label></li>
+          <li><input type="checkbox" id="c3"> <label for="c3">Documented which colors can be used together</label></li>
+          <li><input type="checkbox" id="c4"> <label for="c4">Colors tested with color blindness simulators</label></li>
+          <li><input type="checkbox" id="c5"> <label for="c5">Alternative to color-only differentiation documented</label></li>
+        </ul>
+
+        <h3>Typography</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c6"> <label for="c6">Primary font has clear letterforms</label></li>
+          <li><input type="checkbox" id="c7"> <label for="c7">Minimum font sizes documented</label></li>
+          <li><input type="checkbox" id="c8"> <label for="c8">Line height and spacing guidelines included</label></li>
+          <li><input type="checkbox" id="c9"> <label for="c9">Multiple font weights available</label></li>
+        </ul>
+
+        <h3>Logos and Icons</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c10"> <label for="c10">Multiple logo versions (color, single color, reversed)</label></li>
+          <li><input type="checkbox" id="c11"> <label for="c11">Logo readable in grayscale</label></li>
+          <li><input type="checkbox" id="c12"> <label for="c12">Standard alt text documented</label></li>
+          <li><input type="checkbox" id="c13"> <label for="c13">Minimum size requirements included</label></li>
+          <li><input type="checkbox" id="c14"> <label for="c14">Icon labeling requirements documented</label></li>
+        </ul>
+
+        <h3>Templates</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c15"> <label for="c15">Document templates have heading styles</label></li>
+          <li><input type="checkbox" id="c16"> <label for="c16">Presentation templates have proper reading order</label></li>
+          <li><input type="checkbox" id="c17"> <label for="c17">Email templates include alt text fields</label></li>
+          <li><input type="checkbox" id="c18"> <label for="c18">Social media guidelines include alt text</label></li>
+        </ul>
+      </section>
+
+      <section id="resources">
+        <h2>Related Resources</h2>
+        <ul>
+          <li><a href="color-contrast.html">Color and Contrast Guide</a></li>
+          <li><a href="meaningful-links.html">Writing Meaningful Links</a></li>
+          <li><a href="email-newsletters.html">Accessible Newsletter Design</a></li>
+          <li><a href="doc-powerpoint.html">Accessible Presentations</a></li>
+          <li><a href="https://brand.arizona.edu" target="_blank" rel="noopener">UArizona Brand Guidelines</a></li>
+        </ul>
+      </section>
+
+    </article>
   </main>
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'brand-identity.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

@@ -3,42 +3,352 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adobe Media Tips | Accessibility</title>
+  <title>Adobe Creative Suite Accessibility | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents</a></p></header>
   <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+    <article id="content">
+      <h1>Adobe Creative Suite Accessibility</h1>
+      <p class="lead">Create accessible content in InDesign, Photoshop, Illustrator, and other Adobe applications.</p>
+
+      <nav class="toc" aria-label="Table of contents">
+        <h2>On This Page</h2>
+        <ul>
+          <li><a href="#indesign">InDesign</a></li>
+          <li><a href="#photoshop">Photoshop</a></li>
+          <li><a href="#illustrator">Illustrator</a></li>
+          <li><a href="#premiere">Premiere Pro</a></li>
+          <li><a href="#aftereffects">After Effects</a></li>
+          <li><a href="#acrobat">Acrobat Pro</a></li>
+          <li><a href="#checklist">Checklist</a></li>
+        </ul>
+      </nav>
+
+      <section id="indesign">
+        <h2>Adobe InDesign</h2>
+        <p>InDesign is excellent for creating accessible PDFs when used correctly.</p>
+
+        <h3>Structure with Paragraph Styles</h3>
+        <ul>
+          <li><strong>Create styles:</strong> Define paragraph styles for Heading 1, Heading 2, Body Text, etc.</li>
+          <li><strong>Apply consistently:</strong> Use styles instead of manual formatting</li>
+          <li><strong>Map to PDF tags:</strong> Edit → Export Tagging → Map styles to PDF tags</li>
+        </ul>
+
+        <h3>Setting Up Tag Export</h3>
+        <ol>
+          <li>Open <strong>Window → Styles → Paragraph Styles</strong></li>
+          <li>Right-click a style → <strong>Edit [style name]</strong></li>
+          <li>Go to <strong>Export Tagging</strong></li>
+          <li>Set PDF Tag (e.g., "H1" for Heading 1)</li>
+          <li>Repeat for all styles</li>
+        </ol>
+
+        <h3>Adding Alt Text</h3>
+        <ol>
+          <li>Select the image</li>
+          <li><strong>Object → Object Export Options</strong></li>
+          <li>Check "Alt Text Source: Custom"</li>
+          <li>Enter your description</li>
+          <li>For decorative images, check "Apply Tag: Artifact"</li>
+        </ol>
+
+        <h3>Articles Panel for Reading Order</h3>
+        <ol>
+          <li>Open <strong>Window → Articles</strong></li>
+          <li>Create a new article</li>
+          <li>Drag content into the article in reading order</li>
+          <li>InDesign will use this order when exporting to PDF</li>
+        </ol>
+
+        <h3>Tables in InDesign</h3>
+        <ul>
+          <li>Create tables using <strong>Table → Insert Table</strong></li>
+          <li>Select header row(s), then <strong>Table → Convert Rows → To Header</strong></li>
+          <li>Headers will be properly tagged in the exported PDF</li>
+        </ul>
+
+        <h3>Exporting Accessible PDFs</h3>
+        <ol>
+          <li><strong>File → Export</strong> (or Ctrl+E)</li>
+          <li>Choose Adobe PDF (Interactive) or Adobe PDF (Print)</li>
+          <li>In the export dialog:
+            <ul>
+              <li>Check "Create Tagged PDF"</li>
+              <li>Check "Use Structure for Tab Order"</li>
+              <li>Set "Bookmarks" to create from structure</li>
+            </ul>
+          </li>
+          <li>Verify the PDF in Acrobat Pro</li>
+        </ol>
+      </section>
+
+      <section id="photoshop">
+        <h2>Adobe Photoshop</h2>
+        <p>Photoshop creates raster images that need alt text when placed in documents.</p>
+
+        <h3>Color and Contrast</h3>
+        <ul>
+          <li><strong>Check contrast:</strong> Use the Info panel to compare color values</li>
+          <li><strong>Simulate color blindness:</strong> View → Proof Setup → Color Blindness (Protanopia/Deuteranopia)</li>
+          <li><strong>Don't use color alone:</strong> Add patterns, labels, or icons to distinguish elements</li>
+        </ul>
+
+        <h3>Text in Images</h3>
+        <div class="warning">
+          <p><strong>Avoid text in images when possible.</strong> If you must include text:</p>
+          <ul>
+            <li>Use high contrast (4.5:1 minimum)</li>
+            <li>Use large, clear fonts</li>
+            <li>Document the text in alt text or captions</li>
+            <li>Consider providing the text content separately</li>
+          </ul>
+        </div>
+
+        <h3>Exporting for Web</h3>
+        <ul>
+          <li><strong>File → Export → Export As</strong> (or File → Save for Web)</li>
+          <li>Use appropriate formats: PNG for graphics, JPEG for photos</li>
+          <li>Optimize file size without sacrificing readability</li>
+          <li>Remember: alt text is added where the image is placed, not in Photoshop</li>
+        </ul>
+
+        <h3>Creating Accessible Social Media Graphics</h3>
+        <ol>
+          <li>Keep text minimal and large</li>
+          <li>Ensure high contrast</li>
+          <li>Document all text for alt text</li>
+          <li>Test with color blindness simulation</li>
+          <li>Leave space for platform UI elements</li>
+        </ol>
+      </section>
+
+      <section id="illustrator">
+        <h2>Adobe Illustrator</h2>
+        <p>Illustrator creates vector graphics that can be made more accessible.</p>
+
+        <h3>SVG Accessibility</h3>
+        <p>SVG files can include accessibility information:</p>
+        <pre><code>&lt;svg role="img" aria-labelledby="title desc"&gt;
+  &lt;title id="title"&gt;Chart Title&lt;/title&gt;
+  &lt;desc id="desc"&gt;Description of the chart...&lt;/desc&gt;
+  &lt;!-- graphic content --&gt;
+&lt;/svg&gt;</code></pre>
+
+        <h3>Adding Metadata in Illustrator</h3>
+        <ol>
+          <li><strong>File → File Info</strong></li>
+          <li>Add Title and Description</li>
+          <li>This metadata can be referenced for alt text</li>
+        </ol>
+
+        <h3>Exporting Accessible SVGs</h3>
+        <ol>
+          <li><strong>File → Export → Export As</strong></li>
+          <li>Choose SVG format</li>
+          <li>In SVG Options:
+            <ul>
+              <li>Set "Responsive" for scalability</li>
+              <li>Include metadata if added</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h3>Creating Accessible Infographics</h3>
+        <ul>
+          <li>Use clear visual hierarchy</li>
+          <li>Don't rely on color alone for meaning</li>
+          <li>Include text labels directly on graphics</li>
+          <li>Create a text-based alternative version</li>
+          <li>Export at appropriate resolution</li>
+        </ul>
+      </section>
+
+      <section id="premiere">
+        <h2>Adobe Premiere Pro</h2>
+        <p>Create accessible video content with captions and audio descriptions.</p>
+
+        <h3>Adding Captions</h3>
+        <ol>
+          <li><strong>Window → Text</strong> to open captions panel</li>
+          <li>Click "Create new caption track"</li>
+          <li>Choose format (CEA-608 for broadcast, SRT for web)</li>
+          <li>Add captions:
+            <ul>
+              <li>Click + to add a caption segment</li>
+              <li>Type the text</li>
+              <li>Adjust timing in the timeline</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h3>Caption Best Practices</h3>
+        <ul>
+          <li><strong>Speaker identification:</strong> [John] or JOHN: for multiple speakers</li>
+          <li><strong>Sound descriptions:</strong> [door slams] [music playing]</li>
+          <li><strong>Line length:</strong> Maximum 2 lines, 32 characters each</li>
+          <li><strong>Reading speed:</strong> 150-160 words per minute maximum</li>
+          <li><strong>Timing:</strong> Sync with speech, leave on screen 1-6 seconds</li>
+        </ul>
+
+        <h3>Transcription Workflow</h3>
+        <ol>
+          <li><strong>Window → Text → Transcribe Sequence</strong></li>
+          <li>Premiere creates automatic transcription</li>
+          <li>Review and correct the transcript</li>
+          <li>Click "Create Captions" to generate from transcript</li>
+          <li>Adjust timing as needed</li>
+        </ol>
+
+        <h3>Exporting Captions</h3>
+        <ul>
+          <li><strong>Open captions (burned in):</strong> Export with "Burn Captions Into Video" enabled</li>
+          <li><strong>Closed captions (sidecar file):</strong> Export caption track as SRT or VTT</li>
+          <li>Provide both when possible</li>
+        </ul>
+      </section>
+
+      <section id="aftereffects">
+        <h2>Adobe After Effects</h2>
+        <p>Motion graphics and animations need accessibility considerations.</p>
+
+        <h3>Reducing Motion Risks</h3>
+        <ul>
+          <li><strong>Avoid flashing:</strong> No more than 3 flashes per second</li>
+          <li><strong>Provide alternatives:</strong> Offer static versions when possible</li>
+          <li><strong>Warn users:</strong> Add content warnings for intense motion</li>
+          <li><strong>Consider prefers-reduced-motion:</strong> Create alternative animations for web</li>
+        </ul>
+
+        <h3>Text in Animations</h3>
+        <ul>
+          <li>Keep text on screen long enough to read</li>
+          <li>Use high contrast</li>
+          <li>Avoid text that moves too quickly</li>
+          <li>Provide transcripts for text-heavy animations</li>
+        </ul>
+
+        <h3>Color Considerations</h3>
+        <ul>
+          <li>Don't rely on color transitions alone to convey meaning</li>
+          <li>Test with color blindness simulation</li>
+          <li>Ensure sufficient contrast throughout animations</li>
+        </ul>
+      </section>
+
+      <section id="acrobat">
+        <h2>Adobe Acrobat Pro</h2>
+        <p>Acrobat Pro is essential for checking and remediating PDF accessibility.</p>
+
+        <h3>Accessibility Check</h3>
+        <ol>
+          <li><strong>Tools → Accessibility → Accessibility Check</strong></li>
+          <li>Select checking options (usually leave all checked)</li>
+          <li>Click "Start Checking"</li>
+          <li>Review the report and fix issues</li>
+        </ol>
+
+        <h3>Common Issues and Fixes</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Issue</th>
+              <th scope="col">Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Missing alt text</td>
+              <td>Right-click image in Tags panel → Properties → Alt Text</td>
+            </tr>
+            <tr>
+              <td>Wrong reading order</td>
+              <td>Use Order panel to drag elements into correct sequence</td>
+            </tr>
+            <tr>
+              <td>Missing title</td>
+              <td>File → Properties → Description → Title</td>
+            </tr>
+            <tr>
+              <td>Missing language</td>
+              <td>File → Properties → Advanced → Reading Options → Language</td>
+            </tr>
+            <tr>
+              <td>Untagged content</td>
+              <td>Use Reading Order tool or manually add tags</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Reading Order Tool</h3>
+        <ol>
+          <li><strong>Tools → Accessibility → Reading Order</strong></li>
+          <li>Draw rectangles around content</li>
+          <li>Click buttons to tag as Text, Figure, Table, etc.</li>
+          <li>Use "Show Order Panel" to verify sequence</li>
+        </ol>
+
+        <p><a href="pdf-remediation.html">Full PDF Remediation Guide →</a></p>
+      </section>
+
+      <section id="checklist">
+        <h2>Adobe Accessibility Checklist</h2>
+
+        <h3>InDesign</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c1"> <label for="c1">Used paragraph styles for all text</label></li>
+          <li><input type="checkbox" id="c2"> <label for="c2">Mapped styles to PDF tags</label></li>
+          <li><input type="checkbox" id="c3"> <label for="c3">Added alt text to all images</label></li>
+          <li><input type="checkbox" id="c4"> <label for="c4">Set reading order in Articles panel</label></li>
+          <li><input type="checkbox" id="c5"> <label for="c5">Table headers defined</label></li>
+          <li><input type="checkbox" id="c6"> <label for="c6">Exported with "Create Tagged PDF"</label></li>
+        </ul>
+
+        <h3>Images (Photoshop/Illustrator)</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c7"> <label for="c7">Sufficient color contrast</label></li>
+          <li><input type="checkbox" id="c8"> <label for="c8">Tested with color blindness simulation</label></li>
+          <li><input type="checkbox" id="c9"> <label for="c9">Text in images documented for alt text</label></li>
+          <li><input type="checkbox" id="c10"> <label for="c10">Color not the only indicator of meaning</label></li>
+        </ul>
+
+        <h3>Video (Premiere Pro/After Effects)</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c11"> <label for="c11">Captions added and timed correctly</label></li>
+          <li><input type="checkbox" id="c12"> <label for="c12">Speaker identification included</label></li>
+          <li><input type="checkbox" id="c13"> <label for="c13">Sound effects described in captions</label></li>
+          <li><input type="checkbox" id="c14"> <label for="c14">No flashing content (or warning provided)</label></li>
+          <li><input type="checkbox" id="c15"> <label for="c15">Transcript available</label></li>
+        </ul>
+
+        <h3>PDFs (Acrobat)</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c16"> <label for="c16">Ran accessibility checker</label></li>
+          <li><input type="checkbox" id="c17"> <label for="c17">All issues resolved or explained</label></li>
+          <li><input type="checkbox" id="c18"> <label for="c18">Document has title</label></li>
+          <li><input type="checkbox" id="c19"> <label for="c19">Language is set</label></li>
+          <li><input type="checkbox" id="c20"> <label for="c20">Reading order verified</label></li>
+        </ul>
+      </section>
+
+      <section id="resources">
+        <h2>Related Resources</h2>
+        <ul>
+          <li><a href="pdf-remediation.html">PDF Remediation Guide</a></li>
+          <li><a href="media-captioning.html">Video Captioning Guide</a></li>
+          <li><a href="color-contrast.html">Color and Contrast</a></li>
+          <li><a href="documents-overview.html">Document Accessibility Overview</a></li>
+          <li><a href="https://helpx.adobe.com/indesign/using/creating-accessible-pdfs.html" target="_blank" rel="noopener">Adobe: Creating Accessible PDFs</a></li>
+        </ul>
+      </section>
+
+    </article>
   </main>
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'adobe-media.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

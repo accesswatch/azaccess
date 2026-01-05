@@ -1,44 +1,318 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vendor Accessibility FAQ | Accessibility</title>
+  <title>Vendor Accessibility FAQ | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="procurement.html">Procurement</a> / Vendor FAQ</p>
+    </nav>
+    <h1>Vendor Accessibility FAQ</h1>
+    <p>Answers to common questions vendors have about UA's accessibility requirements.</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <nav class="toc" aria-label="Table of contents">
+      <h2>On This Page</h2>
+      <ul>
+        <li><a href="#requirements">Accessibility Requirements</a></li>
+        <li><a href="#vpat">VPAT &amp; Documentation</a></li>
+        <li><a href="#compliance">Compliance &amp; Testing</a></li>
+        <li><a href="#contracts">Contracts &amp; RFPs</a></li>
+        <li><a href="#remediation">Remediation &amp; Support</a></li>
+      </ul>
+    </nav>
+
+    <section id="requirements" aria-labelledby="req-heading">
+      <h2 id="req-heading">Accessibility Requirements</h2>
+      
+      <details class="faq-item">
+        <summary><h3>What accessibility standard does UA require?</h3></summary>
+        <div class="faq-answer">
+          <p>The University of Arizona requires all ICT products and services to conform to <strong>WCAG 2.2 Level AA</strong>. This aligns with:</p>
+          <ul>
+            <li>ADA Title II requirements for state/local government</li>
+            <li>Section 508 of the Rehabilitation Act</li>
+            <li>Arizona state IT accessibility policy</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>Do these requirements apply to all products?</h3></summary>
+        <div class="faq-answer">
+          <p>Yes, accessibility requirements apply to all ICT procurements, including:</p>
+          <ul>
+            <li>Web applications and SaaS platforms</li>
+            <li>Desktop and mobile applications</li>
+            <li>Learning management systems and courseware</li>
+            <li>Document management systems</li>
+            <li>Communication and collaboration tools</li>
+            <li>Hardware with embedded software</li>
+            <li>Custom development projects</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>What if our product doesn't meet all requirements?</h3></summary>
+        <div class="faq-answer">
+          <p>Few products are 100% accessible. We evaluate products based on:</p>
+          <ul>
+            <li><strong>Current state:</strong> How many WCAG criteria are supported?</li>
+            <li><strong>Impact:</strong> Do issues block essential functionality?</li>
+            <li><strong>Workarounds:</strong> Are there accessible alternatives?</li>
+            <li><strong>Roadmap:</strong> What's your plan to remediate issues?</li>
+            <li><strong>Commitment:</strong> Is accessibility part of your development process?</li>
+          </ul>
+          <p>We work with vendors on remediation plans when products don't fully meet requirements but show commitment to accessibility.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>Are there exceptions to these requirements?</h3></summary>
+        <div class="faq-answer">
+          <p>Limited exceptions may be granted when:</p>
+          <ul>
+            <li>No accessible alternative exists in the market</li>
+            <li>The product serves a very limited audience</li>
+            <li>Accessibility modifications would fundamentally alter the product</li>
+            <li>A compliant version is in active development with timeline</li>
+          </ul>
+          <p>All exceptions require documentation and an Equally Effective Alternate Access Plan (EEAAP).</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="vpat" aria-labelledby="vpat-heading">
+      <h2 id="vpat-heading">VPAT &amp; Documentation</h2>
+      
+      <details class="faq-item">
+        <summary><h3>What is a VPAT and why do you need one?</h3></summary>
+        <div class="faq-answer">
+          <p>A <strong>VPAT</strong> (Voluntary Product Accessibility Template) is a standardized document that reports how your product conforms to accessibility standards. When completed, it becomes an <strong>ACR</strong> (Accessibility Conformance Report).</p>
+          <p>We require VPATs to:</p>
+          <ul>
+            <li>Evaluate accessibility before purchase</li>
+            <li>Compare products objectively</li>
+            <li>Identify needed accommodations</li>
+            <li>Track vendor commitment to accessibility</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>What VPAT version should we use?</h3></summary>
+        <div class="faq-answer">
+          <p>Please use <strong>VPAT 2.5</strong> (or 2.4 minimum), which covers:</p>
+          <ul>
+            <li>WCAG 2.2 (or 2.1) success criteria</li>
+            <li>Revised Section 508 standards</li>
+            <li>EN 301 549 (European standard)</li>
+          </ul>
+          <p>Older VPAT versions (2.0–2.3) reference outdated standards and should be updated.</p>
+          <p><a href="https://www.itic.org/policy/accessibility/vpat">Download VPAT templates from ITI →</a></p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>How detailed should our VPAT be?</h3></summary>
+        <div class="faq-answer">
+          <p>A quality VPAT includes:</p>
+          <ul>
+            <li><strong>Specific explanations</strong> for all "Partially Supports" and "Does Not Support" ratings</li>
+            <li><strong>Workarounds</strong> for known issues</li>
+            <li><strong>Remediation timelines</strong> for planned fixes</li>
+            <li><strong>Testing methodology</strong> description</li>
+            <li><strong>Product version and date</strong> clearly stated</li>
+          </ul>
+          <p>Avoid vague statements like "some issues may exist." Be specific about what works and what doesn't.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>Who should complete our VPAT?</h3></summary>
+        <div class="faq-answer">
+          <p>VPATs can be completed by:</p>
+          <ul>
+            <li><strong>Internal accessibility teams</strong> - If you have trained accessibility specialists</li>
+            <li><strong>Third-party auditors</strong> - Provides independent validation (preferred for high-stakes purchases)</li>
+            <li><strong>Combined approach</strong> - Internal testing validated by external review</li>
+          </ul>
+          <p>We give more weight to third-party validated VPATs and those with detailed testing methodology.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>How often should we update our VPAT?</h3></summary>
+        <div class="faq-answer">
+          <p>Update your VPAT:</p>
+          <ul>
+            <li>With each <strong>major product release</strong></li>
+            <li>When <strong>accessibility improvements</strong> are released</li>
+            <li>At least <strong>annually</strong>, even without major changes</li>
+            <li>When <strong>WCAG or Section 508 standards</strong> are updated</li>
+          </ul>
+          <p>VPATs older than 18 months are considered outdated.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="compliance" aria-labelledby="compliance-heading">
+      <h2 id="compliance-heading">Compliance &amp; Testing</h2>
+      
+      <details class="faq-item">
+        <summary><h3>How do we test our product for accessibility?</h3></summary>
+        <div class="faq-answer">
+          <p>Comprehensive accessibility testing includes:</p>
+          <ol>
+            <li><strong>Automated testing:</strong> Tools like axe, WAVE, or Lighthouse</li>
+            <li><strong>Manual testing:</strong> Keyboard navigation, screen reader testing</li>
+            <li><strong>User testing:</strong> Testing with people with disabilities</li>
+          </ol>
+          <p>Automated tools catch 30-40% of issues. Manual testing is essential for complete coverage.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>What screen readers should we test with?</h3></summary>
+        <div class="faq-answer">
+          <p>At minimum, test with:</p>
+          <ul>
+            <li><strong>NVDA + Chrome/Firefox</strong> (Windows) - Free</li>
+            <li><strong>VoiceOver + Safari</strong> (macOS/iOS) - Built-in</li>
+            <li><strong>JAWS + Chrome</strong> (Windows) - If enterprise users are a primary audience</li>
+          </ul>
+          <p>For mobile apps, also test with TalkBack (Android).</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>What does "WCAG Level AA" actually require?</h3></summary>
+        <div class="faq-answer">
+          <p>WCAG 2.2 Level AA includes 57 success criteria organized under four principles:</p>
+          <ul>
+            <li><strong>Perceivable:</strong> Alt text, captions, color contrast, text resize</li>
+            <li><strong>Operable:</strong> Keyboard access, timing, navigation, input modalities</li>
+            <li><strong>Understandable:</strong> Readable text, predictable behavior, error handling</li>
+            <li><strong>Robust:</strong> Compatible with assistive technologies</li>
+          </ul>
+          <p><a href="https://www.w3.org/WAI/WCAG22/quickref/?levels=aaa">WCAG Quick Reference →</a></p>
+        </div>
+      </details>
+    </section>
+
+    <section id="contracts" aria-labelledby="contracts-heading">
+      <h2 id="contracts-heading">Contracts &amp; RFPs</h2>
+      
+      <details class="faq-item">
+        <summary><h3>Will accessibility be in our contract?</h3></summary>
+        <div class="faq-answer">
+          <p>Yes. UA contracts typically include accessibility language requiring:</p>
+          <ul>
+            <li>Conformance to WCAG 2.2 Level AA</li>
+            <li>Remediation of reported issues within specified timeframes</li>
+            <li>Updated VPATs with major releases</li>
+            <li>Notification of accessibility regressions</li>
+            <li>Right to audit or request third-party testing</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>How is accessibility weighted in RFP scoring?</h3></summary>
+        <div class="faq-answer">
+          <p>Accessibility typically accounts for <strong>10-20%</strong> of RFP scoring, depending on the product. Evaluation considers:</p>
+          <ul>
+            <li>VPAT quality and completeness</li>
+            <li>Current conformance level</li>
+            <li>Remediation roadmap</li>
+            <li>Vendor accessibility commitment and resources</li>
+            <li>Third-party validation</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>What if we're a small company without accessibility resources?</h3></summary>
+        <div class="faq-answer">
+          <p>We understand resource constraints. We recommend:</p>
+          <ul>
+            <li>Use free tools like WAVE and axe to start testing</li>
+            <li>Follow accessibility basics (semantic HTML, keyboard access, color contrast)</li>
+            <li>Be honest about current limitations in your VPAT</li>
+            <li>Provide a realistic remediation timeline</li>
+            <li>Consider partnering with an accessibility consultant for initial audit</li>
+          </ul>
+          <p>Commitment to improvement matters as much as current state.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="remediation" aria-labelledby="remediation-heading">
+      <h2 id="remediation-heading">Remediation &amp; Support</h2>
+      
+      <details class="faq-item">
+        <summary><h3>What if UA reports accessibility issues after purchase?</h3></summary>
+        <div class="faq-answer">
+          <p>Our contracts specify remediation requirements:</p>
+          <ul>
+            <li><strong>Critical issues</strong> (blocking access): 30-day remediation</li>
+            <li><strong>Major issues</strong> (significant barriers): 90-day remediation</li>
+            <li><strong>Minor issues</strong> (limited impact): Next major release</li>
+          </ul>
+          <p>We work collaboratively with vendors on reasonable timelines when issues are complex.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>How should we handle accessibility support requests?</h3></summary>
+        <div class="faq-answer">
+          <p>Best practices for accessibility support:</p>
+          <ul>
+            <li>Train support staff on accessibility basics</li>
+            <li>Provide a dedicated accessibility contact or channel</li>
+            <li>Respond to accessibility issues within 48 hours</li>
+            <li>Track accessibility issues separately in your bug system</li>
+            <li>Communicate fixes and workarounds to reporting parties</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><h3>Who at UA can we contact about accessibility requirements?</h3></summary>
+        <div class="faq-answer">
+          <p>Contact the Digital Accessibility Office:</p>
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></li>
+            <li><strong>VPAT reviews:</strong> Submit with procurement requests</li>
+            <li><strong>Technical questions:</strong> Available during procurement process</li>
+          </ul>
+          <p>For procurement-specific questions, contact your UA procurement representative.</p>
+        </div>
+      </details>
+    </section>
+
+    <aside class="callout callout-info">
+      <h2>Resources for Vendors</h2>
+      <ul>
+        <li><a href="https://www.itic.org/policy/accessibility/vpat">VPAT 2.5 Template</a> - ITI official templates</li>
+        <li><a href="https://www.w3.org/WAI/WCAG22/quickref/">WCAG Quick Reference</a></li>
+        <li><a href="https://webaim.org/">WebAIM</a> - Free accessibility resources</li>
+        <li><a href="vpat-review.html">UA VPAT Review Guide</a> - What we look for</li>
+      </ul>
+    </aside>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'vendor-faq.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

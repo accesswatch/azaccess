@@ -1,44 +1,230 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meaningful Links & Announcements | Accessibility</title>
+  <title>Writing Meaningful Link Text | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Link Text</p>
+    </nav>
+    <h1>Writing Meaningful Link Text</h1>
+    <p>Link text should describe where the link goes. Screen reader users often navigate by links alone.</p>
+    <p class="metric-chip">⏱️ Reading time: 5 minutes</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="why">
+      <h2 id="why">Why Link Text Matters</h2>
+      <p>Screen reader users can:</p>
+      <ul>
+        <li>Pull up a list of all links on a page</li>
+        <li>Navigate by pressing Tab or the K key to jump between links</li>
+        <li>Hear links read out of context from surrounding text</li>
+      </ul>
+      <p>When every link says "click here" or "read more," users can't tell where they lead.</p>
+
+      <div class="callout callout-info">
+        <h3>Screen Reader Link List Example</h3>
+        <p>Imagine hearing this list of links:</p>
+        <ul>
+          <li>"click here"</li>
+          <li>"click here"</li>
+          <li>"read more"</li>
+          <li>"here"</li>
+          <li>"link"</li>
+        </ul>
+        <p>Not helpful! Now compare to: "Accessibility 101 guide," "Spring 2026 schedule," "Contact the help desk"</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="guidelines">
+      <h2 id="guidelines">Link Text Guidelines</h2>
+      
+      <h3>1. Be Descriptive</h3>
+      <p>Link text should describe the destination or purpose.</p>
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h4>❌ Don't</h4>
+          <p>For more information, <a href="#">click here</a>.</p>
+          <p><a href="#">Read more</a></p>
+          <p>Click <a href="#">here</a> to register.</p>
+        </div>
+        <div class="do-card">
+          <h4>✅ Do</h4>
+          <p>Read the <a href="#">complete accessibility policy</a>.</p>
+          <p><a href="#">Read the full article on color contrast</a></p>
+          <p><a href="#">Register for the accessibility workshop</a></p>
+        </div>
+      </div>
+
+      <h3>2. Be Unique</h3>
+      <p>Different links should have different text (unless they go to the same place).</p>
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h4>❌ Don't: All same text</h4>
+          <ul>
+            <li>Fall 2026 Schedule - <a href="#">Learn more</a></li>
+            <li>Spring 2026 Schedule - <a href="#">Learn more</a></li>
+            <li>Summer 2026 Schedule - <a href="#">Learn more</a></li>
+          </ul>
+        </div>
+        <div class="do-card">
+          <h4>✅ Do: Unique text</h4>
+          <ul>
+            <li><a href="#">Fall 2026 Schedule</a></li>
+            <li><a href="#">Spring 2026 Schedule</a></li>
+            <li><a href="#">Summer 2026 Schedule</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>3. Be Concise</h3>
+      <p>Keep link text to a few words—enough to be clear, not so long it's tedious.</p>
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h4>❌ Too long</h4>
+          <p><a href="#">Click here to read the full text of our comprehensive digital accessibility policy document for the University of Arizona</a></p>
+        </div>
+        <div class="do-card">
+          <h4>✅ Just right</h4>
+          <p><a href="#">University accessibility policy</a></p>
+        </div>
+      </div>
+
+      <h3>4. Don't Use URLs as Link Text</h3>
+      <p>URLs are hard to read and understand, especially for screen reader users.</p>
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h4>❌ Don't</h4>
+          <p>See: <a href="#">https://accessibility.arizona.edu/docs/policies/digital-accessibility-policy-v2-final.pdf</a></p>
+        </div>
+        <div class="do-card">
+          <h4>✅ Do</h4>
+          <p>See the <a href="#">Digital Accessibility Policy (PDF)</a></p>
+        </div>
+      </div>
+      <p><em>Exception:</em> If the URL is short and memorable, and you expect users to type it, showing it may be appropriate.</p>
+
+      <h3>5. Indicate File Types and New Windows</h3>
+      <p>Let users know what to expect:</p>
+      <ul>
+        <li><a href="#">Annual Report (PDF, 2.4 MB)</a> — indicates file type and size</li>
+        <li><a href="#">WCAG Guidelines (opens in new tab)</a> — warns about new window</li>
+        <li><a href="#">Registration form (Excel)</a> — indicates file format</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="patterns">
+      <h2 id="patterns">Common Patterns</h2>
+      
+      <h3>Card-Style Components</h3>
+      <p>When linking an entire card, the heading should be the link:</p>
+      <pre><code>&lt;article class="card"&gt;
+  &lt;h3&gt;&lt;a href="event.html"&gt;Accessibility Workshop&lt;/a&gt;&lt;/h3&gt;
+  &lt;p&gt;Learn the basics of digital accessibility.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+
+      <h3>"Read More" That Works</h3>
+      <p>If you must use "Read more," make it descriptive for screen readers:</p>
+      <pre><code>&lt;a href="article.html"&gt;
+  Read more&lt;span class="visually-hidden"&gt; about color contrast guidelines&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+      <p>The hidden text is announced by screen readers but not visible on screen.</p>
+
+      <h3>Icon-Only Links</h3>
+      <p>Links with only icons need accessible names:</p>
+      <pre><code>&lt;!-- Social media icon link --&gt;
+&lt;a href="https://twitter.com/uarizona" aria-label="Follow us on Twitter"&gt;
+  &lt;svg aria-hidden="true"&gt;...&lt;/svg&gt;
+&lt;/a&gt;</code></pre>
+    </section>
+
+    <section aria-labelledby="links-vs-buttons">
+      <h2 id="links-vs-buttons">Links vs. Buttons</h2>
+      <p>Use the right element for the action:</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Use Link (&lt;a&gt;)</th>
+              <th scope="col">Use Button (&lt;button&gt;)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Navigation to another page</td>
+              <td>Performs an action on current page</td>
+            </tr>
+            <tr>
+              <td>Has a URL destination</td>
+              <td>Submits a form, toggles UI, opens modal</td>
+            </tr>
+            <tr>
+              <td>Can be opened in new tab</td>
+              <td>Doesn't make sense to open in new tab</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h4>❌ Wrong element</h4>
+          <pre><code>&lt;a href="#" onclick="submitForm()"&gt;Submit&lt;/a&gt;
+&lt;button onclick="goToPage()"&gt;Learn more&lt;/button&gt;</code></pre>
+        </div>
+        <div class="do-card">
+          <h4>✅ Right element</h4>
+          <pre><code>&lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;a href="learn-more.html"&gt;Learn more&lt;/a&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="testing">
+      <h2 id="testing">Testing Your Links</h2>
+      <ol>
+        <li><strong>List test:</strong> Read all link text out of context. Does each link clearly indicate its destination?</li>
+        <li><strong>Screen reader:</strong> Use NVDA or VoiceOver's links list (NVDA: Insert+F7)</li>
+        <li><strong>WAVE:</strong> Shows link text warnings for "click here," "more," etc.</li>
+        <li><strong>Uniqueness:</strong> Search your page for duplicate link text going to different destinations</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">✅ Link Text Checklist</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" id="l1"> <label for="l1">Link text describes the destination</label></li>
+        <li><input type="checkbox" id="l2"> <label for="l2">No "click here," "here," or "read more" alone</label></li>
+        <li><input type="checkbox" id="l3"> <label for="l3">Different links have different text (unless same destination)</label></li>
+        <li><input type="checkbox" id="l4"> <label for="l4">Link text is concise (not entire sentences)</label></li>
+        <li><input type="checkbox" id="l5"> <label for="l5">URLs are not used as link text</label></li>
+        <li><input type="checkbox" id="l6"> <label for="l6">File type indicated for downloads (PDF, Word, etc.)</label></li>
+        <li><input type="checkbox" id="l7"> <label for="l7">New window/tab behavior indicated</label></li>
+        <li><input type="checkbox" id="l8"> <label for="l8">Icon-only links have accessible names</label></li>
+        <li><input type="checkbox" id="l9"> <label for="l9">Links vs. buttons used correctly</label></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="related">
+      <h2 id="related">Related Resources</h2>
+      <ul>
+        <li><a href="heading-basics.html">Heading Structure Best Practices</a></li>
+        <li><a href="web-keyboard.html">Keyboard Accessibility</a></li>
+        <li><a href="persona-content.html">Content Creator Guide</a></li>
+        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html">WCAG: Understanding Link Purpose</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'meaningful-links.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

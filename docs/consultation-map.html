@@ -1,44 +1,327 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consultation & Support Decision Map | Accessibility</title>
+  <title>Support &amp; Consultation Decision Map | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .decision-tree { max-width: 800px; margin: 0 auto; }
+    .decision-node { background: white; border: 2px solid var(--ua-arizona-blue); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+    .decision-node.question { background: var(--ua-chip-bg); border-style: dashed; }
+    .decision-node h3 { margin: 0 0 1rem 0; color: var(--ua-arizona-blue); }
+    .decision-options { display: grid; gap: 0.75rem; margin-top: 1rem; }
+    .decision-option { display: block; padding: 1rem; background: white; border: 2px solid var(--ua-border); border-radius: 8px; text-decoration: none; color: inherit; }
+    .decision-option:hover { border-color: var(--ua-arizona-blue); background: var(--ua-cool-gray); }
+    .decision-option strong { display: block; margin-bottom: 0.25rem; }
+    .result-card { background: linear-gradient(135deg, var(--ua-arizona-blue), var(--ua-azurite)); color: white; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+    .result-card h3 { color: white; margin: 0 0 0.5rem 0; }
+    .result-card a { color: white; text-decoration: underline; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .contact-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.25rem; }
+    .contact-card h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+    .contact-card .category { font-size: 0.8rem; color: #666; margin-bottom: 0.75rem; }
+    .contact-card ul { margin: 0.5rem 0; padding-left: 1.25rem; }
+    .contact-card li { margin: 0.25rem 0; }
+    .sla-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .sla-table th, .sla-table td { padding: 0.75rem; border: 1px solid var(--ua-border); text-align: left; }
+    .sla-table th { background: var(--ua-arizona-blue); color: white; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="support.html">Support</a> / Consultation Map</p>
+    </nav>
+    <h1>Support &amp; Consultation Decision Map</h1>
+    <p>Find the right accessibility support resource for your needs.</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="wizard-heading">
+      <h2 id="wizard-heading">What Do You Need Help With?</h2>
+      
+      <div class="decision-tree">
+        <div class="decision-node question">
+          <h3>🤔 Select Your Situation</h3>
+          <div class="decision-options">
+            <a href="#urgent" class="decision-option">
+              <strong>🚨 Urgent Access Issue</strong>
+              Someone with a disability can't access content or a service right now
+            </a>
+            <a href="#learn" class="decision-option">
+              <strong>📚 Learn About Accessibility</strong>
+              Training, resources, or guidance for creating accessible content
+            </a>
+            <a href="#audit" class="decision-option">
+              <strong>🔍 Review or Testing</strong>
+              Get content, website, or document reviewed for accessibility
+            </a>
+            <a href="#procurement" class="decision-option">
+              <strong>🛒 Purchasing Software</strong>
+              Evaluating accessibility of a product before purchase
+            </a>
+            <a href="#development" class="decision-option">
+              <strong>💻 Building Something New</strong>
+              Accessibility guidance for new web projects or applications
+            </a>
+            <a href="#accommodation" class="decision-option">
+              <strong>♿ Accommodation Request</strong>
+              Student or employee needs specific accessibility accommodation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="urgent" aria-labelledby="urgent-heading">
+      <h2 id="urgent-heading">🚨 Urgent Access Issues</h2>
+      <div class="result-card">
+        <h3>Immediate Response Required</h3>
+        <p>If someone cannot access content or services they need right now:</p>
+        <ol>
+          <li><strong>Email:</strong> <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> with "URGENT" in subject</li>
+          <li><strong>Include:</strong> What's inaccessible, who needs access, when it's needed</li>
+          <li><strong>Response time:</strong> Same business day for urgent issues</li>
+        </ol>
+      </div>
+      <p>While waiting for a response, consider:</p>
+      <ul>
+        <li>Can you provide the content in an alternative format?</li>
+        <li>Is there a workaround (phone call, in-person assistance)?</li>
+        <li>Can a colleague access and share the information?</li>
+      </ul>
+    </section>
+
+    <section id="learn" aria-labelledby="learn-heading">
+      <h2 id="learn-heading">📚 Learning &amp; Training</h2>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Self-Paced Learning</h3>
+          <p class="category">Anytime • Free</p>
+          <ul>
+            <li><a href="accessibility-101.html">Accessibility 101</a> - Start here</li>
+            <li><a href="documents-overview.html">Document Accessibility</a></li>
+            <li><a href="web-app.html">Web Accessibility</a></li>
+            <li><a href="media-captioning.html">Captioning &amp; Media</a></li>
+          </ul>
+        </article>
+
+        <article class="contact-card">
+          <h3>Live Training</h3>
+          <p class="category">Scheduled Sessions</p>
+          <ul>
+            <li><a href="training-calendar.html">Training Calendar</a></li>
+            <li>Monthly workshops</li>
+            <li>Department-specific training (request)</li>
+            <li>New employee orientation sessions</li>
+          </ul>
+        </article>
+
+        <article class="contact-card">
+          <h3>Quick Reference</h3>
+          <p class="category">Checklists &amp; Guides</p>
+          <ul>
+            <li><a href="do-dont.html">Do's and Don'ts</a></li>
+            <li><a href="tools-checklists.html">Checklists</a></li>
+            <li><a href="templates-downloads.html">Accessible Templates</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="audit" aria-labelledby="audit-heading">
+      <h2 id="audit-heading">🔍 Reviews &amp; Testing</h2>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Document Review</h3>
+          <p class="category">Word, PowerPoint, PDF</p>
+          <p>Submit documents for accessibility review before publishing.</p>
+          <p><strong>Turnaround:</strong> 3-5 business days</p>
+          <p><strong>Submit:</strong> <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+        </article>
+
+        <article class="contact-card">
+          <h3>Website Audit</h3>
+          <p class="category">Web Pages &amp; Apps</p>
+          <p>Request accessibility evaluation of websites or web applications.</p>
+          <p><strong>Turnaround:</strong> 1-2 weeks (varies by scope)</p>
+          <p><strong>Request:</strong> <a href="support.html">Submit request form</a></p>
+        </article>
+
+        <article class="contact-card">
+          <h3>Self-Service Testing</h3>
+          <p class="category">DIY Tools</p>
+          <p>Test your own content with these tools:</p>
+          <ul>
+            <li><a href="testing-tools.html">Recommended Testing Tools</a></li>
+            <li><a href="https://wave.webaim.org/">WAVE Extension</a></li>
+            <li><a href="https://webaim.org/resources/contrastchecker/">Contrast Checker</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="procurement" aria-labelledby="procurement-heading">
+      <h2 id="procurement-heading">🛒 Procurement &amp; Purchasing</h2>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>VPAT Review</h3>
+          <p class="category">Before Purchase</p>
+          <p>Submit vendor VPATs for accessibility evaluation before purchasing software.</p>
+          <p><strong>Process:</strong></p>
+          <ol>
+            <li>Request VPAT from vendor</li>
+            <li>Submit to <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></li>
+            <li>Receive evaluation report</li>
+          </ol>
+          <p><a href="vpat-review.html">VPAT Review Guide →</a></p>
+        </article>
+
+        <article class="contact-card">
+          <h3>Pre-Reviewed Software</h3>
+          <p class="category">VPAT Library</p>
+          <p>Check if the software has already been evaluated:</p>
+          <p><a href="vpat-library.html">Browse VPAT Library →</a></p>
+        </article>
+
+        <article class="contact-card">
+          <h3>Procurement Guidance</h3>
+          <p class="category">RFP &amp; Contracts</p>
+          <ul>
+            <li><a href="procurement-steps.html">Procurement Process</a></li>
+            <li><a href="vendor-faq.html">Vendor FAQ</a></li>
+            <li>Contract accessibility language</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="development" aria-labelledby="dev-heading">
+      <h2 id="dev-heading">💻 Development &amp; Design</h2>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Design Consultation</h3>
+          <p class="category">Early Stage Projects</p>
+          <p>Get accessibility input during design phase—before you build.</p>
+          <p><strong>Best for:</strong> New websites, major redesigns, application development</p>
+          <p><strong>Request:</strong> <a href="support.html">Submit consultation request</a></p>
+        </article>
+
+        <article class="contact-card">
+          <h3>Developer Resources</h3>
+          <p class="category">Technical Guidance</p>
+          <ul>
+            <li><a href="developers.html">Developer Guide</a></li>
+            <li><a href="focus-management.html">Focus Management</a></li>
+            <li><a href="web-keyboard.html">Keyboard Accessibility</a></li>
+            <li><a href="before-after-examples.html">Code Examples</a></li>
+          </ul>
+        </article>
+
+        <article class="contact-card">
+          <h3>Code Review</h3>
+          <p class="category">Technical Review</p>
+          <p>Request accessibility review of your code or implementation.</p>
+          <p><strong>Include:</strong> Staging URL, specific components to review</p>
+          <p><strong>Request:</strong> <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="accommodation" aria-labelledby="accommodation-heading">
+      <h2 id="accommodation-heading">♿ Accommodation Requests</h2>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Student Accommodations</h3>
+          <p class="category">Disability Resource Center</p>
+          <p>Students needing academic accommodations should contact DRC:</p>
+          <ul>
+            <li><strong>Website:</strong> <a href="https://drc.arizona.edu/">drc.arizona.edu</a></li>
+            <li><strong>Phone:</strong> (520) 621-3268</li>
+            <li><strong>Email:</strong> drc@arizona.edu</li>
+          </ul>
+        </article>
+
+        <article class="contact-card">
+          <h3>Employee Accommodations</h3>
+          <p class="category">Human Resources</p>
+          <p>Employees needing workplace accommodations should contact:</p>
+          <ul>
+            <li><strong>Website:</strong> <a href="https://hr.arizona.edu/employees-702/workplace-accommodations">HR Accommodations</a></li>
+            <li><strong>Email:</strong> ada-coordinator@arizona.edu</li>
+          </ul>
+        </article>
+
+        <article class="contact-card">
+          <h3>Alternate Formats</h3>
+          <p class="category">Materials Conversion</p>
+          <p>Request materials in alternate formats (Braille, large print, audio):</p>
+          <p><strong>Contact:</strong> <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+          <p><strong>Turnaround:</strong> Varies by format and length</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="response-heading">
+      <h2 id="response-heading">Response Times</h2>
+      <table class="sla-table">
+        <thead>
+          <tr>
+            <th scope="col">Request Type</th>
+            <th scope="col">Initial Response</th>
+            <th scope="col">Resolution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🚨 Urgent access barrier</td>
+            <td>Same business day</td>
+            <td>24-48 hours</td>
+          </tr>
+          <tr>
+            <td>📄 Document review</td>
+            <td>1 business day</td>
+            <td>3-5 business days</td>
+          </tr>
+          <tr>
+            <td>🌐 Website audit</td>
+            <td>2 business days</td>
+            <td>1-2 weeks</td>
+          </tr>
+          <tr>
+            <td>📋 VPAT review</td>
+            <td>1 business day</td>
+            <td>3-5 business days</td>
+          </tr>
+          <tr>
+            <td>💬 General questions</td>
+            <td>1-2 business days</td>
+            <td>Varies</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Information</h2>
+      <div class="result-card">
+        <h3>Digital Accessibility Office</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></li>
+          <li><strong>Request Form:</strong> <a href="support.html">Submit a Request</a></li>
+          <li><strong>Office Hours:</strong> Tuesdays 2-3pm (Zoom link in calendar)</li>
+        </ul>
+      </div>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'consultation-map.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

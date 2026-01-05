@@ -1,44 +1,350 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Keyboard Navigation Essentials | Accessibility</title>
+  <title>Keyboard Accessibility Guide | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; Apps</a> / Keyboard Accessibility</p>
+    </nav>
+    <h1>Keyboard Accessibility Guide</h1>
+    <p>All functionality must work for users who can't use a mouse. Learn how to build fully keyboard-accessible interfaces.</p>
+    <p class="metric-chip">⏱️ Reading time: 10 minutes</p>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section aria-labelledby="why-keyboard">
+      <h2 id="why-keyboard">Why Keyboard Accessibility Matters</h2>
+      <p>Many people don't use a mouse:</p>
+      <ul>
+        <li><strong>Motor disabilities</strong> — Users with limited mobility may use keyboards, switches, or sip-and-puff devices</li>
+        <li><strong>Blind users</strong> — Screen reader users navigate primarily with keyboard</li>
+        <li><strong>Power users</strong> — Many prefer keyboard shortcuts for speed</li>
+        <li><strong>Temporary impairments</strong> — Broken arm, carpal tunnel, etc.</li>
+        <li><strong>Device limitations</strong> — Some devices don't have pointer input</li>
+      </ul>
+      <p><strong>WCAG 2.1.1 (Keyboard):</strong> "All functionality of the content is operable through a keyboard interface."</p>
+    </section>
+
+    <section aria-labelledby="essential-keys">
+      <h2 id="essential-keys">Essential Keyboard Controls</h2>
+      <div class="table-scroll">
+        <table>
+          <caption>Standard Keyboard Navigation Keys</caption>
+          <thead>
+            <tr>
+              <th scope="col">Key</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><kbd>Tab</kbd></td>
+              <td>Move to next interactive element</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd> + <kbd>Tab</kbd></td>
+              <td>Move to previous interactive element</td>
+            </tr>
+            <tr>
+              <td><kbd>Enter</kbd></td>
+              <td>Activate links, buttons, submit forms</td>
+            </tr>
+            <tr>
+              <td><kbd>Space</kbd></td>
+              <td>Activate buttons, check checkboxes, expand dropdowns</td>
+            </tr>
+            <tr>
+              <td><kbd>Arrow Keys</kbd></td>
+              <td>Navigate within components (menus, tabs, radio groups)</td>
+            </tr>
+            <tr>
+              <td><kbd>Escape</kbd></td>
+              <td>Close modals, menus, tooltips</td>
+            </tr>
+            <tr>
+              <td><kbd>Home</kbd> / <kbd>End</kbd></td>
+              <td>Jump to first/last item in a list or field</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="native-elements">
+      <h2 id="native-elements">Use Native HTML Elements</h2>
+      <p>Native HTML elements have built-in keyboard support. Use them instead of custom widgets when possible.</p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Element</th>
+              <th scope="col">Built-in Keyboard Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;a href&gt;</code></td>
+              <td>Focusable, Enter activates</td>
+            </tr>
+            <tr>
+              <td><code>&lt;button&gt;</code></td>
+              <td>Focusable, Enter and Space activate</td>
+            </tr>
+            <tr>
+              <td><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code></td>
+              <td>Focusable, full text editing support</td>
+            </tr>
+            <tr>
+              <td><code>&lt;select&gt;</code></td>
+              <td>Focusable, arrow keys navigate options</td>
+            </tr>
+            <tr>
+              <td><code>&lt;details&gt;</code></td>
+              <td>Focusable, Enter/Space toggles</td>
+            </tr>
+            <tr>
+              <td><code>&lt;dialog&gt;</code></td>
+              <td>Focus trapping, Escape closes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="do-dont-grid">
+        <div class="dont-card">
+          <h3>❌ Don't: Custom div "button"</h3>
+          <pre><code>&lt;div class="btn" onclick="save()"&gt;
+  Save
+&lt;/div&gt;
+&lt;!-- Not focusable, not keyboard operable --&gt;</code></pre>
+        </div>
+        <div class="do-card">
+          <h3>✅ Do: Real button</h3>
+          <pre><code>&lt;button type="button" onclick="save()"&gt;
+  Save
+&lt;/button&gt;
+&lt;!-- Focusable, works with Enter/Space --&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="custom-widgets">
+      <h2 id="custom-widgets">Making Custom Widgets Keyboard Accessible</h2>
+      <p>If you must create custom interactive elements, add keyboard support manually.</p>
+
+      <h3>Step 1: Make It Focusable</h3>
+      <pre><code>&lt;!-- Add tabindex="0" to include in tab order --&gt;
+&lt;div role="button" tabindex="0"&gt;Custom Button&lt;/div&gt;</code></pre>
+
+      <h3>Step 2: Handle Keyboard Events</h3>
+      <pre><code>element.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    activateButton();
+  }
+});</code></pre>
+
+      <h3>Step 3: Add ARIA Role</h3>
+      <pre><code>&lt;div role="button" tabindex="0" aria-pressed="false"&gt;
+  Toggle Setting
+&lt;/div&gt;</code></pre>
+
+      <div class="callout callout-warning">
+        <h4>⚠️ Prefer Native Elements</h4>
+        <p>This is a lot of work to replicate what <code>&lt;button&gt;</code> gives you for free. Only create custom widgets when absolutely necessary.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="patterns">
+      <h2 id="patterns">Common Keyboard Patterns</h2>
+
+      <h3>Navigation Menus</h3>
+      <ul>
+        <li><kbd>Tab</kbd> — Enter/exit menu</li>
+        <li><kbd>Arrow keys</kbd> — Move between items</li>
+        <li><kbd>Enter</kbd> — Activate item</li>
+        <li><kbd>Escape</kbd> — Close submenu, return to parent</li>
+      </ul>
+
+      <h3>Tab Panels</h3>
+      <ul>
+        <li><kbd>Tab</kbd> — Move to tab list, then into active panel</li>
+        <li><kbd>Left/Right Arrow</kbd> — Switch between tabs</li>
+        <li><kbd>Home/End</kbd> — First/last tab</li>
+      </ul>
+      <pre><code>&lt;div role="tablist"&gt;
+  &lt;button role="tab" aria-selected="true" aria-controls="panel1"&gt;Tab 1&lt;/button&gt;
+  &lt;button role="tab" aria-selected="false" aria-controls="panel2"&gt;Tab 2&lt;/button&gt;
+&lt;/div&gt;
+&lt;div role="tabpanel" id="panel1"&gt;Content 1&lt;/div&gt;
+&lt;div role="tabpanel" id="panel2" hidden&gt;Content 2&lt;/div&gt;</code></pre>
+
+      <h3>Modal Dialogs</h3>
+      <ul>
+        <li><kbd>Tab</kbd> — Cycles through focusable elements (trapped)</li>
+        <li><kbd>Escape</kbd> — Closes modal</li>
+        <li>Focus moves into modal on open</li>
+        <li>Focus returns to trigger on close</li>
+      </ul>
+
+      <h3>Accordions/Disclosures</h3>
+      <ul>
+        <li><kbd>Enter/Space</kbd> — Toggle open/closed</li>
+        <li><kbd>Tab</kbd> — Move between accordion headers</li>
+      </ul>
+      <pre><code>&lt;!-- Native HTML disclosure --&gt;
+&lt;details&gt;
+  &lt;summary&gt;Section Title&lt;/summary&gt;
+  &lt;p&gt;Content that can be expanded/collapsed.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+    </section>
+
+    <section aria-labelledby="skip-links">
+      <h2 id="skip-links">Skip Links</h2>
+      <p>Allow keyboard users to bypass repetitive navigation:</p>
+      <pre><code>&lt;!-- First element in body --&gt;
+&lt;a href="#maincontent" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+
+&lt;!-- CSS: visible only on focus --&gt;
+&lt;style&gt;
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px 16px;
+  background: #000;
+  color: #fff;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 0;
+}
+&lt;/style&gt;
+
+&lt;!-- Target element --&gt;
+&lt;main id="maincontent"&gt;...&lt;/main&gt;</code></pre>
+    </section>
+
+    <section aria-labelledby="common-failures">
+      <h2 id="common-failures">Common Keyboard Accessibility Failures</h2>
+      
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Problem</th>
+              <th scope="col">Solution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Click-only interactions</td>
+              <td>Add keyboard event handlers (keydown for Enter/Space)</td>
+            </tr>
+            <tr>
+              <td>Hover-only content</td>
+              <td>Also show on focus; make content persistent</td>
+            </tr>
+            <tr>
+              <td>Can't reach element with Tab</td>
+              <td>Use native interactive element or add tabindex="0"</td>
+            </tr>
+            <tr>
+              <td>Can't see where focus is</td>
+              <td>Add visible :focus styles; never use outline:none alone</td>
+            </tr>
+            <tr>
+              <td>Focus gets trapped</td>
+              <td>Ensure Escape closes overlays; check for infinite loops</td>
+            </tr>
+            <tr>
+              <td>Focus gets lost</td>
+              <td>Manage focus when content changes (modals, deletions)</td>
+            </tr>
+            <tr>
+              <td>Wrong tab order</td>
+              <td>Match DOM order to visual order; avoid positive tabindex</td>
+            </tr>
+            <tr>
+              <td>Can't operate carousel/slider</td>
+              <td>Add keyboard controls (arrows, buttons)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="testing">
+      <h2 id="testing">Testing Keyboard Accessibility</h2>
+      <ol>
+        <li><strong>Put your mouse away</strong> — Literally move it out of reach</li>
+        <li><strong>Start at the browser address bar</strong></li>
+        <li><strong>Tab through the entire page</strong>
+          <ul>
+            <li>Can you reach every interactive element?</li>
+            <li>Can you always see where focus is?</li>
+            <li>Does the tab order make sense?</li>
+          </ul>
+        </li>
+        <li><strong>Test all interactions</strong>
+          <ul>
+            <li>Can you activate every button and link?</li>
+            <li>Can you open and close menus, modals, accordions?</li>
+            <li>Can you submit forms?</li>
+          </ul>
+        </li>
+        <li><strong>Check for keyboard traps</strong>
+          <ul>
+            <li>Can you Tab away from every element?</li>
+            <li>Does Escape close overlays?</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>Quick Keyboard Test Script</h3>
+      <pre><code>// Paste in browser console to log focus changes
+document.addEventListener('focusin', (e) => {
+  console.log('Focus:', e.target);
+});</code></pre>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">✅ Keyboard Accessibility Checklist</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" id="k1"> <label for="k1">All interactive elements are reachable with Tab</label></li>
+        <li><input type="checkbox" id="k2"> <label for="k2">All interactive elements are operable with keyboard</label></li>
+        <li><input type="checkbox" id="k3"> <label for="k3">Focus indicator is always visible</label></li>
+        <li><input type="checkbox" id="k4"> <label for="k4">Tab order matches visual/logical order</label></li>
+        <li><input type="checkbox" id="k5"> <label for="k5">Skip link allows bypassing navigation</label></li>
+        <li><input type="checkbox" id="k6"> <label for="k6">No keyboard traps exist</label></li>
+        <li><input type="checkbox" id="k7"> <label for="k7">Escape closes modals, menus, and overlays</label></li>
+        <li><input type="checkbox" id="k8"> <label for="k8">Complex widgets use appropriate arrow key navigation</label></li>
+        <li><input type="checkbox" id="k9"> <label for="k9">Hover-triggered content is also available on focus</label></li>
+        <li><input type="checkbox" id="k10"> <label for="k10">No positive tabindex values used</label></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="related">
+      <h2 id="related">Related Resources</h2>
+      <ul>
+        <li><a href="focus-management.html">Focus Management Patterns</a></li>
+        <li><a href="skip-link-snippet.html">Skip Link Code Snippet</a></li>
+        <li><a href="persona-developers.html">Developer Accessibility Guide</a></li>
+        <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/">ARIA Authoring Practices Guide (APG)</a></li>
+      </ul>
+    </section>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'web-keyboard.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

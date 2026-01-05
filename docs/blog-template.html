@@ -1,44 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Blog Post Template | Accessibility</title>
+  <title>Blog Post Template | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .blog-article { max-width: 750px; margin: 0 auto; }
+    .blog-meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .blog-meta time { font-weight: 500; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--ua-arizona-blue); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .blog-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+    .blog-tags a { background: var(--ua-chip-bg); padding: 0.25rem 0.75rem; border-radius: 4px; text-decoration: none; font-size: 0.85rem; }
+    .blog-tags a:hover { background: var(--ua-arizona-blue); color: white; }
+    .blog-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--ua-border); }
+    .blog-nav a { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .blog-share { background: var(--ua-cool-gray); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .blog-share h3 { margin: 0 0 1rem 0; }
+    .share-buttons { display: flex; gap: 0.75rem; }
+    .share-buttons a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: white; border: 1px solid var(--ua-border); border-radius: 4px; text-decoration: none; }
+    .related-posts { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--ua-border); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .related-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; }
+    .related-card h4 { margin: 0 0 0.5rem 0; }
+    .related-card p { margin: 0; font-size: 0.9rem; color: #666; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <header>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="blog.html">Blog</a> / Sample Post</p>
+    </nav>
+  </header>
+
+  <main id="maincontent" role="main">
+    <article class="blog-article">
+      <header>
+        <h1>How to Write Effective Alt Text: A Complete Guide</h1>
+        <div class="blog-meta">
+          <div class="author-avatar">JD</div>
+          <div>
+            <strong>Jane Doe</strong><br>
+            Digital Accessibility Specialist
+          </div>
+          <span>•</span>
+          <time datetime="2026-01-03">January 3, 2026</time>
+          <span>•</span>
+          <span>⏱️ 8 min read</span>
+        </div>
+      </header>
+
+      <p class="lead">Alt text (alternative text) is one of the most fundamental accessibility practices, yet it's often misunderstood. This guide covers everything you need to know about writing effective alt text for images.</p>
+
+      <nav class="toc" aria-label="Article contents">
+        <h2>In This Article</h2>
+        <ul>
+          <li><a href="#what-is">What is Alt Text?</a></li>
+          <li><a href="#why-matters">Why Alt Text Matters</a></li>
+          <li><a href="#how-to-write">How to Write Good Alt Text</a></li>
+          <li><a href="#examples">Examples: Good vs. Bad</a></li>
+          <li><a href="#special-cases">Special Cases</a></li>
+          <li><a href="#tools">Tools to Help</a></li>
+        </ul>
+      </nav>
+
+      <section id="what-is">
+        <h2>What is Alt Text?</h2>
+        <p>Alt text is a written description of an image that serves as an alternative when the image cannot be seen. It's stored in the HTML <code>alt</code> attribute:</p>
+        <pre><code>&lt;img src="cat.jpg" alt="Orange tabby cat sleeping on a blue couch"&gt;</code></pre>
+        <p>Screen readers announce alt text to users who are blind or have low vision. It also displays when images fail to load or when users have images disabled.</p>
+      </section>
+
+      <section id="why-matters">
+        <h2>Why Alt Text Matters</h2>
+        <ul>
+          <li><strong>Accessibility:</strong> Enables blind and low-vision users to understand image content</li>
+          <li><strong>Legal compliance:</strong> Required by WCAG 1.1.1 (Level A)</li>
+          <li><strong>SEO:</strong> Search engines use alt text to understand and index images</li>
+          <li><strong>Usability:</strong> Helps all users when images don't load</li>
+        </ul>
+      </section>
+
+      <section id="how-to-write">
+        <h2>How to Write Good Alt Text</h2>
+        
+        <h3>1. Be Specific and Concise</h3>
+        <p>Describe what's in the image, not around it. Aim for 125 characters or less when possible.</p>
+
+        <h3>2. Consider Context</h3>
+        <p>Alt text should convey the image's purpose in context. A photo of a cat might need different alt text in a pet adoption article versus an article about cat behavior.</p>
+
+        <h3>3. Don't Start with "Image of" or "Picture of"</h3>
+        <p>Screen readers already announce "image" or "graphic," so this is redundant.</p>
+
+        <h3>4. Include Relevant Details</h3>
+        <p>If text, colors, expressions, or actions are important to understanding the image, include them.</p>
+      </section>
+
+      <section id="examples">
+        <h2>Examples: Good vs. Bad</h2>
+        
+        <div class="do-dont-grid">
+          <div class="do-card">
+            <h4>✅ Good Alt Text</h4>
+            <ul>
+              <li>"Student using laptop in library study area"</li>
+              <li>"Bar chart showing enrollment growth from 2020-2025, rising from 40,000 to 48,000 students"</li>
+              <li>"UA Wildcat mascot high-fiving fans at football game"</li>
+            </ul>
+          </div>
+          <div class="dont-card">
+            <h4>❌ Poor Alt Text</h4>
+            <ul>
+              <li>"Image" or "Photo"</li>
+              <li>"IMG_2847.jpg"</li>
+              <li>"Picture of a student"</li>
+              <li>"Chart"</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="special-cases">
+        <h2>Special Cases</h2>
+        
+        <h3>Decorative Images</h3>
+        <p>If an image is purely decorative (doesn't convey information), use an empty alt attribute:</p>
+        <pre><code>&lt;img src="decorative-line.png" alt=""&gt;</code></pre>
+
+        <h3>Complex Images (Charts, Diagrams)</h3>
+        <p>Provide a brief alt text plus a longer description nearby or linked:</p>
+        <pre><code>&lt;img src="enrollment-chart.png" 
+     alt="Enrollment trend chart. Full data in table below."&gt;</code></pre>
+
+        <h3>Images of Text</h3>
+        <p>Include the exact text in the alt attribute. Better yet, use real text instead of images of text.</p>
+
+        <h3>Linked Images</h3>
+        <p>Describe the link destination, not the image itself:</p>
+        <pre><code>&lt;a href="homepage.html"&gt;
+  &lt;img src="logo.png" alt="University of Arizona home"&gt;
+&lt;/a&gt;</code></pre>
+      </section>
+
+      <section id="tools">
+        <h2>Tools to Help</h2>
+        <ul>
+          <li><a href="https://wave.webaim.org/">WAVE</a> - Flags missing alt text</li>
+          <li><a href="https://www.deque.com/axe/devtools/">axe DevTools</a> - Checks alt text quality</li>
+          <li>Word and PowerPoint accessibility checkers</li>
+          <li><a href="https://www.levelaccess.com/elearning-accessibility-alt-text/">Alt Text Decision Tree</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li>Every meaningful image needs alt text</li>
+          <li>Be specific, concise, and contextual</li>
+          <li>Don't start with "image of"</li>
+          <li>Use empty alt (<code>alt=""</code>) for decorative images</li>
+          <li>Complex images need extended descriptions</li>
+        </ul>
+      </section>
+
+      <div class="blog-tags">
+        <strong>Tags:</strong>
+        <a href="#">Alt Text</a>
+        <a href="#">Images</a>
+        <a href="#">WCAG</a>
+        <a href="#">Basics</a>
+      </div>
+
+      <div class="blog-share">
+        <h3>Share This Article</h3>
+        <div class="share-buttons">
+          <a href="#" aria-label="Share on LinkedIn">🔗 LinkedIn</a>
+          <a href="#" aria-label="Share on Twitter">🐦 Twitter</a>
+          <a href="#" aria-label="Copy link">📋 Copy Link</a>
+        </div>
+      </div>
+
+      <nav class="blog-nav" aria-label="Blog navigation">
+        <a href="#" rel="prev">← Previous: WCAG 2.2 Overview</a>
+        <a href="#" rel="next">Next: Keyboard Navigation Basics →</a>
+      </nav>
+
+      <section class="related-posts">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+          <article class="related-card">
+            <h4><a href="#">Understanding WCAG Success Criteria</a></h4>
+            <p>A beginner's guide to WCAG conformance levels and requirements.</p>
+          </article>
+          <article class="related-card">
+            <h4><a href="#">Making Charts Accessible</a></h4>
+            <p>How to create data visualizations that work for everyone.</p>
+          </article>
+          <article class="related-card">
+            <h4><a href="#">5 Quick Accessibility Wins</a></h4>
+            <p>Simple changes that make a big difference.</p>
+          </article>
+        </div>
+      </section>
+    </article>
   </main>
+
   <footer role="contentinfo">
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'blog-template.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>
