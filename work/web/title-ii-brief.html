@@ -1,44 +1,249 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Title II Web & Mobile Brief | Accessibility</title>
+  <title>Title II ADA Compliance Brief | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html" aria-current="page">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policies</a> / Title II Brief</p>
+    </nav>
+    <h1>Title II ADA Digital Accessibility Requirements</h1>
+    <p>What the 2024 DOJ rule means for the University of Arizona.</p>
+    <p class="metric-chip">⚠️ Compliance deadline: April 24, 2026</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="executive-summary">
+      <h2 id="executive-summary">Executive summary</h2>
+      <div class="card" style="border-left: 4px solid #AB0520;">
+        <p><strong>Key points for UA leadership:</strong></p>
+        <ul>
+          <li>The Department of Justice published final Title II rules on April 24, 2024</li>
+          <li>Public universities must make web content and mobile apps accessible by <strong>April 24, 2026</strong></li>
+          <li>Standard is <strong>WCAG 2.1 Level AA</strong></li>
+          <li>Covers all web content, mobile applications, and electronic documents</li>
+          <li>Limited exceptions exist but require documentation</li>
+          <li>Enforcement includes complaints, investigations, and potential loss of federal funding</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="rule-background">
+      <h2 id="rule-background">Background</h2>
+      <p>Title II of the Americans with Disabilities Act (ADA) prohibits discrimination by state and local government entities, including public universities. While digital accessibility has been required under Title II since 1990, the DOJ had not published specific technical standards until April 2024.</p>
+      
+      <h3>Timeline</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>July 1990</td>
+            <td>ADA signed into law</td>
+          </tr>
+          <tr>
+            <td>August 2023</td>
+            <td>DOJ Notice of Proposed Rulemaking</td>
+          </tr>
+          <tr>
+            <td>April 24, 2024</td>
+            <td>Final rule published</td>
+          </tr>
+          <tr>
+            <td>April 24, 2026</td>
+            <td><strong>Compliance deadline</strong> (entities serving 50,000+ population)</td>
+          </tr>
+          <tr>
+            <td>April 24, 2027</td>
+            <td>Compliance deadline (entities serving under 50,000)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>As a large public research university, UA falls under the April 24, 2026 deadline.</p>
+    </section>
+
+    <section aria-labelledby="scope">
+      <h2 id="scope">What's covered</h2>
+      <h3>Web content</h3>
+      <p>All content made available through a web browser, including:</p>
+      <ul>
+        <li>University websites (arizona.edu and all subdomains)</li>
+        <li>Web applications (student portals, registration systems, course management)</li>
+        <li>Online forms and documents</li>
+        <li>Videos and multimedia</li>
+        <li>Social media content created by the university</li>
+        <li>Third-party content embedded in university pages</li>
+      </ul>
+
+      <h3>Mobile applications</h3>
+      <p>Native mobile applications developed by or for the university, including:</p>
+      <ul>
+        <li>Campus apps (UA mobile, parking, transit)</li>
+        <li>Student services apps</li>
+        <li>Library and research apps</li>
+        <li>Athletic and event apps</li>
+      </ul>
+
+      <h3>Electronic documents</h3>
+      <p>Documents made publicly available, including:</p>
+      <ul>
+        <li>PDFs, Word documents, spreadsheets</li>
+        <li>Course materials in learning management systems</li>
+        <li>Forms and applications</li>
+        <li>Reports and publications</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="exceptions">
+      <h2 id="exceptions">Limited exceptions</h2>
+      <p>The rule includes narrow exceptions, but they require documentation and often alternative access:</p>
+      
+      <h3>Archived content</h3>
+      <p><strong>Exception:</strong> Content created before the compliance date that is maintained exclusively for research, reference, or archival purposes.</p>
+      <p><strong>Requirements:</strong></p>
+      <ul>
+        <li>Must not be updated or used for current programs</li>
+        <li>Must be clearly identified as archived</li>
+        <li>Alternative access must be provided upon request</li>
+      </ul>
+
+      <h3>Preexisting conventional electronic documents</h3>
+      <p><strong>Exception:</strong> Word processing, presentation, PDF, and spreadsheet files created before compliance date.</p>
+      <p><strong>Requirements:</strong></p>
+      <ul>
+        <li>Must provide accessible version upon request</li>
+        <li>Does NOT apply to documents currently used in programs</li>
+        <li>Does NOT apply to forms used to apply for services</li>
+      </ul>
+
+      <h3>Third-party content</h3>
+      <p><strong>Exception:</strong> Content posted by third parties (like public comments on social media).</p>
+      <p><strong>Requirements:</strong></p>
+      <ul>
+        <li>Only applies to content not posted by or on behalf of the university</li>
+        <li>Does NOT apply to contracted third-party services</li>
+      </ul>
+
+      <h3>Individualized password-protected documents</h3>
+      <p><strong>Exception:</strong> Documents created for a specific individual that are secured for that person.</p>
+      <p><strong>Requirements:</strong></p>
+      <ul>
+        <li>Must provide accessible version to that individual upon request</li>
+        <li>Does NOT apply to documents shared with multiple people</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="enforcement">
+      <h2 id="enforcement">Enforcement</h2>
+      <h3>Complaint process</h3>
+      <p>Individuals can file complaints with:</p>
+      <ul>
+        <li>Department of Justice Civil Rights Division</li>
+        <li>Office for Civil Rights (Department of Education)</li>
+        <li>Federal courts (private right of action)</li>
+      </ul>
+
+      <h3>Potential consequences</h3>
+      <ul>
+        <li>DOJ investigation and compliance agreement</li>
+        <li>Mandatory remediation with monitoring</li>
+        <li>Compensatory damages to complainants</li>
+        <li>Civil penalties (up to $75,000 first violation, $150,000 subsequent)</li>
+        <li>Loss of federal funding (via Section 504)</li>
+        <li>Reputational damage and negative publicity</li>
+      </ul>
+
+      <h3>Recent enforcement actions at universities</h3>
+      <p>The DOJ and OCR have investigated and reached settlements with numerous universities in recent years, including:</p>
+      <ul>
+        <li>Large public research universities required to remediate thousands of web pages</li>
+        <li>Mandatory accessibility training for web developers and content creators</li>
+        <li>Establishment of accessibility offices and ongoing monitoring</li>
+        <li>Multi-year compliance agreements with regular reporting</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="ua-response">
+      <h2 id="ua-response">UA compliance approach</h2>
+      <h3>Immediate priorities (2024-2025)</h3>
+      <ul>
+        <li>Inventory all public-facing web properties</li>
+        <li>Automated and manual accessibility audits</li>
+        <li>Remediation of high-traffic, high-priority pages</li>
+        <li>Procurement requirements for new technology purchases</li>
+        <li>Training programs for content creators</li>
+      </ul>
+
+      <h3>Compliance infrastructure</h3>
+      <ul>
+        <li>Centralized accessibility program office</li>
+        <li>Accessibility liaisons in colleges and units</li>
+        <li>Testing and consultation services</li>
+        <li>Ongoing monitoring and reporting</li>
+      </ul>
+
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="support.html">Request accessibility consultation</a></li>
+        <li><a href="training-calendar.html">Training calendar</a></li>
+        <li><a href="tools-checklists.html">Testing tools and checklists</a></li>
+        <li><a href="procurement.html">Procurement accessibility requirements</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="legal-references">
+      <h2 id="legal-references">Legal references</h2>
+      <ul>
+        <li><a href="https://www.ada.gov/resources/web-guidance/">ADA.gov Web Accessibility Guidance</a></li>
+        <li><a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state">Final Rule: Federal Register</a></li>
+        <li><a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1 Specification</a></li>
+        <li><a href="https://www2.ed.gov/about/offices/list/ocr/docs/investigations/more/03152027-a.pdf">Sample OCR Resolution Agreement</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="contact">
+      <h2 id="contact">Questions</h2>
+      <p>For questions about Title II compliance at UA:</p>
+      <ul>
+        <li><strong>Accessibility Program Office:</strong> <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></li>
+        <li><strong>Office of General Counsel:</strong> For legal interpretation questions</li>
+        <li><strong>Disability Resource Center:</strong> <a href="mailto:uadrc@arizona.edu">uadrc@arizona.edu</a> for accommodation requests</li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'title-ii-brief.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

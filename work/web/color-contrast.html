@@ -1,44 +1,333 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Color & Contrast Guidance | Accessibility</title>
+  <title>Color &amp; Contrast Guidance | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; Apps</a> / Color &amp; Contrast</p>
+    </nav>
+    <h1>Color &amp; Contrast Guidance</h1>
+    <p>Ensuring visual accessibility through proper color use and contrast ratios.</p>
+    <p class="metric-chip">🎨 WCAG 1.4.3 &amp; 1.4.11</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="contrast-overview">
+      <h2 id="contrast-overview">Why contrast matters</h2>
+      <p>Sufficient color contrast ensures content is readable for people with:</p>
+      <ul>
+        <li><strong>Low vision:</strong> Affects 246 million people worldwide</li>
+        <li><strong>Color blindness:</strong> 8% of men, 0.5% of women</li>
+        <li><strong>Aging eyes:</strong> Contrast sensitivity decreases with age</li>
+        <li><strong>Situational impairments:</strong> Bright sunlight, low-quality screens</li>
+      </ul>
+      <p>Low contrast is the #1 accessibility issue on the web, affecting 83% of home pages (WebAIM Million 2024).</p>
+    </section>
+
+    <section aria-labelledby="wcag-requirements">
+      <h2 id="wcag-requirements">WCAG contrast requirements</h2>
+      
+      <h3>Text contrast (WCAG 1.4.3 - Level AA)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Text type</th>
+            <th>Definition</th>
+            <th>Required ratio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Normal text</strong></td>
+            <td>Under 18pt (24px) or under 14pt bold (19px)</td>
+            <td>4.5:1 minimum</td>
+          </tr>
+          <tr>
+            <td><strong>Large text</strong></td>
+            <td>18pt+ (24px+) or 14pt bold (19px bold)</td>
+            <td>3:1 minimum</td>
+          </tr>
+          <tr>
+            <td><strong>Incidental text</strong></td>
+            <td>Inactive UI, decorative, logos</td>
+            <td>No requirement</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Non-text contrast (WCAG 1.4.11 - Level AA)</h3>
+      <p>UI components and graphics need 3:1 contrast against adjacent colors:</p>
+      <ul>
+        <li>Form input borders</li>
+        <li>Buttons and controls</li>
+        <li>Focus indicators</li>
+        <li>Icons that convey information</li>
+        <li>Chart elements and data visualization</li>
+      </ul>
+
+      <h3>Enhanced contrast (Level AAA)</h3>
+      <p>For maximum accessibility:</p>
+      <ul>
+        <li>Normal text: 7:1</li>
+        <li>Large text: 4.5:1</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="testing-contrast">
+      <h2 id="testing-contrast">Testing contrast</h2>
+      
+      <h3>Online tools</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Best for</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WebAIM Contrast Checker</td>
+            <td>Quick two-color check</td>
+            <td><a href="https://webaim.org/resources/contrastchecker/">webaim.org/resources/contrastchecker</a></td>
+          </tr>
+          <tr>
+            <td>Coolors Contrast Checker</td>
+            <td>Visual preview</td>
+            <td><a href="https://coolors.co/contrast-checker">coolors.co/contrast-checker</a></td>
+          </tr>
+          <tr>
+            <td>Who Can Use</td>
+            <td>Simulates vision conditions</td>
+            <td><a href="https://www.whocanuse.com/">whocanuse.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Desktop applications</h3>
+      <ul>
+        <li><strong>Colour Contrast Analyser (CCA):</strong> <a href="https://www.tpgi.com/color-contrast-checker/">Free from TPGi</a> — Includes eyedropper tool</li>
+        <li><strong>Stark:</strong> Figma, Sketch, Adobe XD plugin</li>
+      </ul>
+
+      <h3>Browser extensions</h3>
+      <ul>
+        <li><strong>WAVE:</strong> Shows contrast errors in page context</li>
+        <li><strong>axe DevTools:</strong> Detailed contrast analysis</li>
+        <li><strong>Accessibility Insights:</strong> Includes contrast checker</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="ua-brand-colors">
+      <h2 id="ua-brand-colors">UA brand colors and accessibility</h2>
+      
+      <h3>Primary UA colors</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Color</th>
+            <th>Hex</th>
+            <th>On white</th>
+            <th>On black</th>
+            <th>Usage notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="background:#AB0520;color:white;">Arizona Red</td>
+            <td>#AB0520</td>
+            <td>5.9:1 ✓</td>
+            <td>3.5:1 ✓</td>
+            <td>Safe for normal text on white</td>
+          </tr>
+          <tr>
+            <td style="background:#0C234B;color:white;">Arizona Blue</td>
+            <td>#0C234B</td>
+            <td>12.6:1 ✓</td>
+            <td>1.7:1 ✗</td>
+            <td>Excellent on white, not on black</td>
+          </tr>
+          <tr>
+            <td style="background:#1E5288;color:white;">Oasis</td>
+            <td>#1E5288</td>
+            <td>6.8:1 ✓</td>
+            <td>3.1:1 ✓</td>
+            <td>Safe for normal text on white</td>
+          </tr>
+          <tr>
+            <td style="background:#8B0015;color:white;">Darker Red</td>
+            <td>#8B0015</td>
+            <td>8.2:1 ✓</td>
+            <td>2.6:1 ⚠️</td>
+            <td>Better contrast than Arizona Red</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>See the <a href="https://brand.arizona.edu/applying-the-brand/color">UA Brand Color Guide</a> for full palette.</p>
+
+      <h3>Problem combinations to avoid</h3>
+      <ul>
+        <li>Light gray text on white backgrounds</li>
+        <li>Red text on blue backgrounds (or vice versa)</li>
+        <li>Yellow or light blue on white</li>
+        <li>Green and red together (color blindness)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="color-alone">
+      <h2 id="color-alone">Don't use color alone</h2>
+      <p>WCAG 1.4.1: Color cannot be the only way to convey information.</p>
+      
+      <h3>Problem examples</h3>
+      <ul>
+        <li>Red text for errors with no other indicator</li>
+        <li>Color-coded status without labels</li>
+        <li>Required fields marked only with red asterisks</li>
+        <li>Charts using only color to distinguish data</li>
+      </ul>
+
+      <h3>Solutions</h3>
+      <ul>
+        <li>Add icons or symbols (⚠️ ✓ ✗)</li>
+        <li>Include text labels</li>
+        <li>Use patterns in charts</li>
+        <li>Underline links (don't rely on color alone)</li>
+        <li>Add "(required)" text to mandatory fields</li>
+      </ul>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <h4>✗ Color only</h4>
+          <p style="color:red;">Error: Invalid email</p>
+          <p style="color:green;">Success: Form submitted</p>
+        </article>
+        <article class="card">
+          <h4>✓ Color + text/icon</h4>
+          <p style="color:red;">⚠️ Error: Invalid email</p>
+          <p style="color:green;">✓ Success: Form submitted</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="color-blindness">
+      <h2 id="color-blindness">Designing for color blindness</h2>
+      
+      <h3>Types of color blindness</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Affects</th>
+            <th>Prevalence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Protanopia/Protanomaly</td>
+            <td>Red perception</td>
+            <td>~1.5% of men</td>
+          </tr>
+          <tr>
+            <td>Deuteranopia/Deuteranomaly</td>
+            <td>Green perception</td>
+            <td>~6% of men</td>
+          </tr>
+          <tr>
+            <td>Tritanopia/Tritanomaly</td>
+            <td>Blue perception</td>
+            <td>~0.01%</td>
+          </tr>
+          <tr>
+            <td>Achromatopsia</td>
+            <td>All color (grayscale)</td>
+            <td>~0.003%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Safe color combinations</h3>
+      <ul>
+        <li>Blue and orange</li>
+        <li>Blue and yellow</li>
+        <li>Varying lightness/darkness rather than hue</li>
+        <li>Using patterns or textures with colors</li>
+      </ul>
+
+      <h3>Testing for color blindness</h3>
+      <ul>
+        <li><a href="https://www.color-blindness.com/coblis-color-blindness-simulator/">Coblis simulator</a></li>
+        <li><a href="https://www.toptal.com/designers/colorfilter">Toptal Color Filter</a></li>
+        <li>Chrome DevTools: Rendering → Emulate vision deficiencies</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="dark-mode">
+      <h2 id="dark-mode">Dark mode considerations</h2>
+      <p>Many users prefer dark mode for reduced eye strain. Ensure contrast works in both modes:</p>
+      <ul>
+        <li>Test both light and dark themes</li>
+        <li>Don't assume background color</li>
+        <li>Use CSS custom properties for theme switching</li>
+        <li>Ensure focus indicators work on dark backgrounds</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Color &amp; contrast checklist</h2>
+      <ul>
+        <li>☐ Normal text has 4.5:1 contrast</li>
+        <li>☐ Large text has 3:1 contrast</li>
+        <li>☐ UI components have 3:1 contrast</li>
+        <li>☐ Focus indicators are visible</li>
+        <li>☐ Color is not the only indicator</li>
+        <li>☐ Works for color blindness</li>
+        <li>☐ Links are distinguishable from text</li>
+        <li>☐ Charts have patterns or labels</li>
+        <li>☐ Tested with contrast checker tool</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></li>
+        <li><a href="https://www.tpgi.com/color-contrast-checker/">TPGi Colour Contrast Analyser</a></li>
+        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">WCAG Understanding 1.4.3</a></li>
+        <li><a href="https://brand.arizona.edu/applying-the-brand/color">UA Brand Colors</a></li>
+        <li><a href="web-app.html">Web &amp; Apps Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'color-contrast.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

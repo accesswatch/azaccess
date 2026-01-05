@@ -1,44 +1,282 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Assistive Technology Coverage | Accessibility</title>
+  <title>Assistive Technology Overview | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html" aria-current="page">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="teaching-learning.html">Teaching &amp; Learning</a> / Assistive Technology</p>
+    </nav>
+    <h1>Assistive Technology Overview</h1>
+    <p>Understanding the tools people use to access digital content.</p>
+    <p class="metric-chip">🔧 For content creators &amp; developers</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="at-overview">
+      <h2 id="at-overview">What is assistive technology?</h2>
+      <p>Assistive technology (AT) includes any device, software, or equipment that helps people with disabilities perform tasks. Understanding how AT works helps you create content that works for everyone.</p>
+      
+      <div class="card">
+        <h3>Why this matters for content creators</h3>
+        <p>When you understand how assistive technology interprets your content, you can make better decisions about structure, labeling, and formatting. This page provides an overview of common AT to help you test and improve your work.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="screen-readers">
+      <h2 id="screen-readers">Screen readers</h2>
+      <p>Screen readers convert text and interface elements to speech or braille output. They're used primarily by blind and low-vision users.</p>
+      
+      <h3>Common screen readers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Screen reader</th>
+            <th>Platform</th>
+            <th>Cost</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>NVDA</strong></td>
+            <td>Windows</td>
+            <td>Free</td>
+            <td>Most popular free option; great for testing</td>
+          </tr>
+          <tr>
+            <td><strong>JAWS</strong></td>
+            <td>Windows</td>
+            <td>$1,000+</td>
+            <td>Industry standard; most feature-rich</td>
+          </tr>
+          <tr>
+            <td><strong>VoiceOver</strong></td>
+            <td>macOS, iOS</td>
+            <td>Built-in</td>
+            <td>Included with all Apple devices</td>
+          </tr>
+          <tr>
+            <td><strong>TalkBack</strong></td>
+            <td>Android</td>
+            <td>Built-in</td>
+            <td>Included with Android devices</td>
+          </tr>
+          <tr>
+            <td><strong>Narrator</strong></td>
+            <td>Windows</td>
+            <td>Built-in</td>
+            <td>Basic screen reader included with Windows</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>How screen readers navigate</h3>
+      <ul>
+        <li><strong>Headings:</strong> Users press H to jump between headings</li>
+        <li><strong>Links:</strong> Users press K or Tab to navigate links</li>
+        <li><strong>Landmarks:</strong> Users jump to main, nav, search regions</li>
+        <li><strong>Tables:</strong> Users navigate cell by cell with arrow keys</li>
+        <li><strong>Forms:</strong> Users Tab between form controls</li>
+        <li><strong>Lists:</strong> Screen readers announce list length and position</li>
+      </ul>
+
+      <h3>Testing with NVDA (free)</h3>
+      <ol>
+        <li>Download from <a href="https://www.nvaccess.org/download/">nvaccess.org</a></li>
+        <li>Install and launch (runs portable or installed)</li>
+        <li>Press <kbd>Insert</kbd>+<kbd>Q</kbd> to quit when done</li>
+        <li>Use <kbd>H</kbd> to navigate headings, <kbd>Tab</kbd> for links/buttons</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="magnification">
+      <h2 id="magnification">Screen magnification</h2>
+      <p>Magnification software enlarges portions of the screen for users with low vision.</p>
+      
+      <h3>Common magnifiers</h3>
+      <ul>
+        <li><strong>ZoomText:</strong> Windows professional magnifier ($500+)</li>
+        <li><strong>Windows Magnifier:</strong> Built into Windows (free)</li>
+        <li><strong>macOS Zoom:</strong> Built into macOS (free)</li>
+        <li><strong>Browser zoom:</strong> Ctrl/Cmd + Plus to zoom</li>
+      </ul>
+
+      <h3>Design considerations for magnification</h3>
+      <ul>
+        <li>Content should reflow at 200% zoom (no horizontal scrolling)</li>
+        <li>Don't use tiny text (16px minimum for body)</li>
+        <li>Ensure hover states work on touch devices</li>
+        <li>Provide adequate spacing between interactive elements</li>
+        <li>Avoid fixed-width layouts</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="voice-control">
+      <h2 id="voice-control">Voice control</h2>
+      <p>Voice control software allows hands-free computer use through spoken commands.</p>
+      
+      <h3>Common voice control tools</h3>
+      <ul>
+        <li><strong>Dragon NaturallySpeaking:</strong> Professional voice recognition</li>
+        <li><strong>Windows Speech Recognition:</strong> Built into Windows</li>
+        <li><strong>Voice Control (macOS):</strong> Built into macOS</li>
+        <li><strong>Voice Access (Android):</strong> Mobile voice control</li>
+      </ul>
+
+      <h3>Design considerations for voice control</h3>
+      <ul>
+        <li>All interactive elements need visible, speakable labels</li>
+        <li>Link text should be unique and descriptive</li>
+        <li>Button labels should match visible text</li>
+        <li>Avoid icons without text labels</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="switch-devices">
+      <h2 id="switch-devices">Switch devices</h2>
+      <p>Switch devices are simple buttons that emulate keyboard input, used by people with significant motor disabilities.</p>
+      
+      <h3>How switches work</h3>
+      <ul>
+        <li>Single switch: Scans through options, user activates when desired item is highlighted</li>
+        <li>Multiple switches: Different switches for different actions (select, next, back)</li>
+        <li>Sip-and-puff: Breath-controlled switches</li>
+        <li>Eye gaze: Tracks eye movement for selection</li>
+      </ul>
+
+      <h3>Design considerations for switch users</h3>
+      <ul>
+        <li>All functionality must work with keyboard</li>
+        <li>Focus indicators must be highly visible</li>
+        <li>Avoid time limits or provide extensions</li>
+        <li>Keep navigation efficient (don't require many keystrokes)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="text-to-speech">
+      <h2 id="text-to-speech">Text-to-speech (read aloud)</h2>
+      <p>Text-to-speech tools read content aloud without full screen reader functionality. Used by people with dyslexia, learning disabilities, or anyone who prefers audio.</p>
+      
+      <h3>Common TTS tools</h3>
+      <ul>
+        <li><strong>Immersive Reader:</strong> Built into Microsoft Edge, Word, OneNote</li>
+        <li><strong>Read Aloud extensions:</strong> Browser add-ons for Chrome, Firefox</li>
+        <li><strong>Natural Reader:</strong> Online and downloadable TTS</li>
+        <li><strong>Built-in OS features:</strong> Windows Narrator read aloud, macOS text-to-speech</li>
+      </ul>
+
+      <h3>Design considerations</h3>
+      <ul>
+        <li>Use proper document structure (headings, lists)</li>
+        <li>Spell out abbreviations on first use</li>
+        <li>Use simple, clear language</li>
+        <li>Avoid text in images</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="keyboard-alternatives">
+      <h2 id="keyboard-alternatives">Alternative input devices</h2>
+      <p>Many users rely on alternatives to standard keyboards and mice:</p>
+      <ul>
+        <li><strong>Ergonomic keyboards:</strong> Split, angled, or one-handed designs</li>
+        <li><strong>On-screen keyboards:</strong> Virtual keyboards operated by mouse or gaze</li>
+        <li><strong>Head pointers:</strong> Headworn devices that control cursor</li>
+        <li><strong>Mouth sticks:</strong> For typing with mouth-held pointer</li>
+        <li><strong>Trackballs:</strong> Alternative to mouse for limited hand mobility</li>
+        <li><strong>Joysticks:</strong> Game-style controllers for cursor movement</li>
+      </ul>
+      <p>All of these ultimately interact with your content through keyboard commands, which is why keyboard accessibility is fundamental.</p>
+    </section>
+
+    <section aria-labelledby="braille">
+      <h2 id="braille">Braille displays</h2>
+      <p>Refreshable braille displays show screen content as raised braille dots, used alongside or instead of speech output.</p>
+      
+      <h3>How braille displays work</h3>
+      <ul>
+        <li>Typically 40-80 braille cells wide</li>
+        <li>Connects to screen reader (JAWS, NVDA, VoiceOver)</li>
+        <li>Shows one line at a time from screen</li>
+        <li>User navigates with buttons on display</li>
+      </ul>
+
+      <h3>Design considerations</h3>
+      <ul>
+        <li>Same as screen reader considerations</li>
+        <li>Keep line lengths reasonable</li>
+        <li>Don't use ASCII art or visual spacing for layout</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="testing-at">
+      <h2 id="testing-at">Testing with assistive technology</h2>
+      
+      <h3>Recommended testing approach</h3>
+      <ol>
+        <li><strong>Keyboard only:</strong> Navigate entire interface without mouse</li>
+        <li><strong>Screen reader:</strong> Test with NVDA (Windows) or VoiceOver (Mac)</li>
+        <li><strong>Zoom:</strong> Test at 200% browser zoom</li>
+        <li><strong>High contrast:</strong> Test Windows High Contrast mode</li>
+      </ol>
+
+      <h3>Free tools for testing</h3>
+      <ul>
+        <li><strong>NVDA:</strong> Free screen reader for Windows</li>
+        <li><strong>VoiceOver:</strong> Built into macOS and iOS</li>
+        <li><strong>TalkBack:</strong> Built into Android</li>
+        <li><strong>Browser zoom:</strong> Ctrl/Cmd + Plus</li>
+        <li><strong>Windows High Contrast:</strong> Settings → Accessibility → High contrast</li>
+      </ul>
+
+      <h3>Resources for learning AT testing</h3>
+      <ul>
+        <li><a href="https://webaim.org/articles/nvda/">WebAIM NVDA guide</a></li>
+        <li><a href="https://webaim.org/articles/voiceover/">WebAIM VoiceOver guide</a></li>
+        <li><a href="https://www.youtube.com/watch?v=fpbIsN31hLM">Screen reader basics video (Deque)</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.nvaccess.org/download/">NVDA screen reader download</a></li>
+        <li><a href="https://webaim.org/articles/">WebAIM assistive technology articles</a></li>
+        <li><a href="https://www.afb.org/blindness-and-low-vision/using-technology">AFB: Using Technology</a></li>
+        <li><a href="testing-tools.html">Accessibility Testing Tools</a></li>
+        <li><a href="teaching-learning.html">Teaching &amp; Learning Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'assistive-tech.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

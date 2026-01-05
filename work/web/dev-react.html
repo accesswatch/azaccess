@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>React Accessibility Guide | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="web-app.html">Web &amp; Apps</a> / React Accessibility</p>
+    </nav>
+    <h1>React Accessibility Guide</h1>
+    <p>Build inclusive React applications from the start.</p>
+    <p class="metric-chip">⚛️ For React developers</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="react-intro">
+      <h2 id="react-intro">Accessibility in React apps</h2>
+      <p>React has good accessibility defaults, but dynamic SPAs introduce unique challenges. This guide covers React-specific patterns and gotchas.</p>
+      
+      <div class="card" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left: 4px solid #2196f3;">
+        <h3>💡 The good news</h3>
+        <p>React renders standard HTML. All your HTML accessibility knowledge applies! The challenge is managing focus, announcements, and dynamic content.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="jsx-basics">
+      <h2 id="jsx-basics">JSX accessibility basics</h2>
+      
+      <h3>Use htmlFor, not for</h3>
+      <pre>// ❌ Won't work - for is a reserved word
+&lt;label for="email"&gt;Email&lt;/label&gt;
+
+// ✅ Use htmlFor
+&lt;label htmlFor="email"&gt;Email&lt;/label&gt;
+&lt;input id="email" type="email" /&gt;</pre>
+
+      <h3>Use className, not class</h3>
+      <pre>// ❌ class is reserved
+&lt;div class="card"&gt;
+
+// ✅ Use className
+&lt;div className="card"&gt;</pre>
+
+      <h3>ARIA in JSX</h3>
+      <pre>// camelCase for data-* and aria-* attributes
+&lt;button
+  aria-expanded={isOpen}
+  aria-controls="menu-content"
+  aria-label="Toggle menu"
+&gt;
+  Menu
+&lt;/button&gt;</pre>
+
+      <h3>Boolean ARIA attributes</h3>
+      <pre>// ✅ Pass actual booleans - React handles conversion
+&lt;button aria-pressed={isActive}&gt;Toggle&lt;/button&gt;
+
+// Renders as aria-pressed="true" or aria-pressed="false"</pre>
+    </section>
+
+    <section aria-labelledby="semantic-html">
+      <h2 id="semantic-html">Semantic HTML in components</h2>
+      
+      <h3>Fragments preserve semantics</h3>
+      <pre>// ❌ Extra div breaks list semantics
+function ListItems() {
+  return (
+    &lt;div&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;/div&gt;
+  );
+}
+
+// ✅ Fragment preserves semantics
+function ListItems() {
+  return (
+    &lt;&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;/&gt;
+  );
+}</pre>
+
+      <h3>Heading levels in components</h3>
+      <pre>// ❌ Hardcoded heading level breaks hierarchy
+function Card({ title, children }) {
+  return (
+    &lt;article&gt;
+      &lt;h2&gt;{title}&lt;/h2&gt;  {/* Always h2? */}
+      {children}
+    &lt;/article&gt;
+  );
+}
+
+// ✅ Configurable heading level
+function Card({ title, children, headingLevel = 2 }) {
+  const Heading = `h${headingLevel}`;
+  return (
+    &lt;article&gt;
+      &lt;Heading&gt;{title}&lt;/Heading&gt;
+      {children}
+    &lt;/article&gt;
+  );
+}
+
+// Usage
+&lt;Card title="Features" headingLevel={3} /&gt;</pre>
+    </section>
+
+    <section aria-labelledby="focus-management">
+      <h2 id="focus-management">Focus management</h2>
+      <p>SPAs don't trigger page loads, so you must manage focus manually on route changes.</p>
+      
+      <h3>Focus on route change</h3>
+      <pre>import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function App() {
+  const mainRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() =&gt; {
+    // Focus main content on route change
+    mainRef.current?.focus();
+  }, [location.pathname]);
+
+  return (
+    &lt;&gt;
+      &lt;nav&gt;...&lt;/nav&gt;
+      &lt;main ref={mainRef} tabIndex={-1}&gt;
+        {/* Page content */}
+      &lt;/main&gt;
+    &lt;/&gt;
+  );
+}</pre>
+
+      <h3>Focus after actions</h3>
+      <pre>function DeleteButton({ itemId, onDelete }) {
+  const handleDelete = async () =&gt; {
+    await deleteItem(itemId);
+    onDelete(); // Parent moves focus to next item
+  };
+
+  return &lt;button onClick={handleDelete}&gt;Delete&lt;/button&gt;;
+}
+
+function ItemList() {
+  const itemRefs = useRef({});
+
+  const handleDelete = (deletedIndex) =&gt; {
+    // Focus next item, or previous if last
+    const nextIndex = Math.min(deletedIndex, items.length - 2);
+    itemRefs.current[nextIndex]?.focus();
+  };
+
+  return (
+    &lt;ul&gt;
+      {items.map((item, i) =&gt; (
+        &lt;li key={item.id} ref={el =&gt; itemRefs.current[i] = el} tabIndex={-1}&gt;
+          {item.name}
+          &lt;DeleteButton itemId={item.id} onDelete={() =&gt; handleDelete(i)} /&gt;
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</pre>
+    </section>
+
+    <section aria-labelledby="announcements">
+      <h2 id="announcements">Live announcements</h2>
+      <p>Announce dynamic changes to screen reader users.</p>
+      
+      <h3>Live region component</h3>
+      <pre>function LiveAnnouncer({ message, politeness = 'polite' }) {
+  return (
+    &lt;div
+      role="status"
+      aria-live={politeness}
+      aria-atomic="true"
+      className="sr-only"
+    &gt;
+      {message}
+    &lt;/div&gt;
+  );
+}
+
+// CSS
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}</pre>
+
+      <h3>Using a context for app-wide announcements</h3>
+      <pre>const AnnouncerContext = createContext();
+
+export function AnnouncerProvider({ children }) {
+  const [message, setMessage] = useState('');
+
+  const announce = useCallback((text, politeness = 'polite') =&gt; {
+    setMessage(''); // Clear first to ensure re-announcement
+    setTimeout(() =&gt; setMessage(text), 50);
+  }, []);
+
+  return (
+    &lt;AnnouncerContext.Provider value={{ announce }}&gt;
+      {children}
+      &lt;LiveAnnouncer message={message} /&gt;
+    &lt;/AnnouncerContext.Provider&gt;
+  );
+}
+
+// Usage in any component
+function SearchResults({ results }) {
+  const { announce } = useContext(AnnouncerContext);
+
+  useEffect(() =&gt; {
+    announce(`${results.length} results found`);
+  }, [results.length, announce]);
+
+  return /* ... */;
+}</pre>
+    </section>
+
+    <section aria-labelledby="modal-pattern">
+      <h2 id="modal-pattern">Accessible modal component</h2>
+      
+      <pre>import { useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+
+function Modal({ isOpen, onClose, title, children }) {
+  const modalRef = useRef(null);
+  const previousActiveElement = useRef(null);
+
+  // Store and restore focus
+  useEffect(() =&gt; {
+    if (isOpen) {
+      previousActiveElement.current = document.activeElement;
+      modalRef.current?.focus();
+    } else {
+      previousActiveElement.current?.focus();
+    }
+  }, [isOpen]);
+
+  // Trap focus
+  const handleKeyDown = useCallback((e) =&gt; {
+    if (e.key === 'Escape') {
+      onClose();
+      return;
+    }
+
+    if (e.key !== 'Tab') return;
+
+    const focusables = modalRef.current.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey &amp;&amp; document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey &amp;&amp; document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }, [onClose]);
+
+  // Prevent background scroll
+  useEffect(() =&gt; {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      return () =&gt; { document.body.style.overflow = ''; };
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return createPortal(
+    &lt;div className="modal-backdrop" onClick={onClose}&gt;
+      &lt;div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        tabIndex={-1}
+        onClick={(e) =&gt; e.stopPropagation()}
+        onKeyDown={handleKeyDown}
+        className="modal"
+      &gt;
+        &lt;h2 id="modal-title"&gt;{title}&lt;/h2&gt;
+        {children}
+        &lt;button onClick={onClose}&gt;Close&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;,
+    document.body
+  );
+}</pre>
+    </section>
+
+    <section aria-labelledby="forms">
+      <h2 id="forms">Accessible forms</h2>
+      
+      <h3>Form field component</h3>
+      <pre>function FormField({ 
+  label, 
+  id, 
+  error, 
+  hint, 
+  required,
+  ...inputProps 
+}) {
+  const hintId = hint ? `${id}-hint` : undefined;
+  const errorId = error ? `${id}-error` : undefined;
+  const describedBy = [hintId, errorId].filter(Boolean).join(' ') || undefined;
+
+  return (
+    &lt;div className="form-field"&gt;
+      &lt;label htmlFor={id}&gt;
+        {label}
+        {required &amp;&amp; &lt;span aria-hidden="true"&gt; *&lt;/span&gt;}
+        {required &amp;&amp; &lt;span className="sr-only"&gt; (required)&lt;/span&gt;}
+      &lt;/label&gt;
+      
+      {hint &amp;&amp; &lt;p id={hintId} className="hint"&gt;{hint}&lt;/p&gt;}
+      
+      &lt;input
+        id={id}
+        aria-describedby={describedBy}
+        aria-invalid={error ? 'true' : undefined}
+        aria-required={required}
+        {...inputProps}
+      /&gt;
+      
+      {error &amp;&amp; (
+        &lt;p id={errorId} className="error" role="alert"&gt;
+          {error}
+        &lt;/p&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+
+// Usage
+&lt;FormField
+  label="Email address"
+  id="email"
+  type="email"
+  required
+  hint="We'll never share your email."
+  error={errors.email}
+  value={email}
+  onChange={(e) =&gt; setEmail(e.target.value)}
+/&gt;</pre>
+    </section>
+
+    <section aria-labelledby="hooks">
+      <h2 id="hooks">Useful accessibility hooks</h2>
+      
+      <h3>useFocusTrap</h3>
+      <pre>function useFocusTrap(ref, isActive) {
+  useEffect(() =&gt; {
+    if (!isActive || !ref.current) return;
+
+    const element = ref.current;
+    const focusables = element.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    const handleTab = (e) =&gt; {
+      if (e.key !== 'Tab') return;
+      
+      if (e.shiftKey &amp;&amp; document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey &amp;&amp; document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    element.addEventListener('keydown', handleTab);
+    return () =&gt; element.removeEventListener('keydown', handleTab);
+  }, [ref, isActive]);
+}</pre>
+
+      <h3>useReducedMotion</h3>
+      <pre>function useReducedMotion() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() =&gt; {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(query.matches);
+
+    const handler = (e) =&gt; setReducedMotion(e.matches);
+    query.addEventListener('change', handler);
+    return () =&gt; query.removeEventListener('change', handler);
+  }, []);
+
+  return reducedMotion;
+}
+
+// Usage
+function AnimatedComponent() {
+  const reducedMotion = useReducedMotion();
+
+  return (
+    &lt;motion.div
+      animate={{ x: 100 }}
+      transition={{ duration: reducedMotion ? 0 : 0.5 }}
+    /&gt;
+  );
+}</pre>
+    </section>
+
+    <section aria-labelledby="testing">
+      <h2 id="testing">Testing React accessibility</h2>
+      
+      <h3>jest-axe setup</h3>
+      <pre>import { render } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
+expect.extend(toHaveNoViolations);
+
+it('should be accessible', async () =&gt; {
+  const { container } = render(&lt;MyComponent /&gt;);
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});</pre>
+
+      <h3>Testing focus management</h3>
+      <pre>import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+it('moves focus to modal when opened', async () =&gt; {
+  render(&lt;App /&gt;);
+  
+  await userEvent.click(screen.getByText('Open Modal'));
+  
+  expect(screen.getByRole('dialog')).toHaveFocus();
+});
+
+it('returns focus when modal closes', async () =&gt; {
+  render(&lt;App /&gt;);
+  const openButton = screen.getByText('Open Modal');
+  
+  await userEvent.click(openButton);
+  await userEvent.click(screen.getByText('Close'));
+  
+  expect(openButton).toHaveFocus();
+});</pre>
+    </section>
+
+    <section aria-labelledby="component-libraries">
+      <h2 id="component-libraries">Accessible component libraries</h2>
+      <p>Don't reinvent the wheel. These libraries are built with accessibility in mind:</p>
+      
+      <table>
+        <thead>
+          <tr><th>Library</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://react-spectrum.adobe.com/react-aria/">React Aria</a></td>
+            <td>Unstyled hooks, excellent accessibility. From Adobe.</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.radix-ui.com/">Radix UI</a></td>
+            <td>Unstyled primitives, great for design systems.</td>
+          </tr>
+          <tr>
+            <td><a href="https://headlessui.com/">Headless UI</a></td>
+            <td>Unstyled components, works with Tailwind.</td>
+          </tr>
+          <tr>
+            <td><a href="https://chakra-ui.com/">Chakra UI</a></td>
+            <td>Styled components, built on accessibility.</td>
+          </tr>
+          <tr>
+            <td><a href="https://reach.tech/">Reach UI</a></td>
+            <td>Accessible foundation components.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">React accessibility checklist</h2>
+      <ul>
+        <li>☐ Semantic HTML elements used</li>
+        <li>☐ All images have alt text</li>
+        <li>☐ Forms have proper labels and error handling</li>
+        <li>☐ Focus management on route changes</li>
+        <li>☐ Modal/dialog focus trapping works</li>
+        <li>☐ Dynamic content announced via live regions</li>
+        <li>☐ Color contrast meets WCAG AA</li>
+        <li>☐ Keyboard navigation works throughout</li>
+        <li>☐ Skip link to main content</li>
+        <li>☐ Page title updates on route change</li>
+        <li>☐ Respects prefers-reduced-motion</li>
+        <li>☐ eslint-plugin-jsx-a11y enabled</li>
+        <li>☐ jest-axe tests for components</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://react.dev/reference/react-dom/components#form-components">React docs: Form components</a></li>
+        <li><a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices Guide</a></li>
+        <li><a href="aria-patterns.html">ARIA Patterns &amp; Components</a></li>
+        <li><a href="dev-cicd-testing.html">CI/CD Testing Integration</a></li>
+        <li><a href="web-app.html">Web &amp; Apps Hub</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+  </footer>
+</body>
+</html>

@@ -3,13 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Staff &amp; Administrative Units Persona Hub</title>
+  <title>Staff &amp; Administrative Units | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
-    <p><a href="home.html">Accessibility Home</a> / Personas</p>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="personas.html">Personas</a> / Staff</p>
+    </nav>
     <h1>Staff &amp; Administrative Units</h1>
     <p>Administrative units purchase technology, run events, and maintain departmental sites while ensuring equitable access.</p>
     <p class="metric-chip">Procurement SLA: VPAT review within 10 business days</p>
@@ -58,7 +81,7 @@
 
     <section aria-labelledby="staff-principles">
       <h2 id="staff-principles">Impactful principles &amp; tools</h2>
-      <p>Procurement, events, and departmental sites stay compliant when you weave WCAG 2.2 AA into every workflow. Reference the <a href="../work/web/wcag22-highlights.html">WCAG 2.2 highlights</a> plus these toolkits.</p>
+      <p>Procurement, events, and departmental sites stay compliant when you weave WCAG 2.2 AA into every workflow. Reference the <a href="wcag22-highlights.html">WCAG 2.2 highlights</a> plus these toolkits.</p>
       <details class="accordion" open>
         <summary>Procurement checkpoints</summary>
         <div>
@@ -76,7 +99,7 @@
             <li>Run <strong>DubBot</strong> weekly and <strong>WAVE</strong> before publishing campaign pages.</li>
             <li>Use Accessibility Insights FastPass for high-traffic forms or micro-sites.</li>
             <li>Log results in your unit’s remediation tracker so leadership sees progress.</li>
-            <li>Review link text with the <a href="../work/web/meaningful-links.html">Meaningful Links guide</a> so navigation and CTAs stay descriptive.</li>
+            <li>Review link text with the <a href="meaningful-links.html">Meaningful Links guide</a> so navigation and CTAs stay descriptive.</li>
           </ul>
         </div>
       </details>
@@ -86,7 +109,7 @@
           <p>Before distributing HR forms, finance packets, or newsletters:</p>
           <ul>
             <li>Run the Microsoft Accessibility Checker in Word/Excel/PowerPoint.</li>
-            <li>Use <a href="../work/web/pdf-remediation.html">Adobe PDF remediation</a> to confirm reading order, tags, and form labels.</li>
+            <li>Use <a href="pdf-remediation.html">Adobe PDF remediation</a> to confirm reading order, tags, and form labels.</li>
             <li>Apply <a href="https://webaim.org/techniques/alttext/">WebAIM alt text principles</a> for charts and infographics.</li>
           </ul>
         </div>
@@ -99,7 +122,7 @@
         <summary>Procurement workflow</summary>
         <div>
           <ol>
-            <li>Follow the <a href="../work/web/procurement-steps.html">Accessible Procurement Steps</a>.</li>
+            <li>Follow the <a href="procurement-steps.html">Accessible Procurement Steps</a>.</li>
             <li>Attach VPATs and demo recordings showing AT compatibility (JAWS, NVDA, ZoomText).</li>
             <li>Document remediation commitments and interim accommodations before purchasing.</li>
           </ol>
@@ -108,7 +131,7 @@
       <details class="accordion">
         <summary>Event planning</summary>
         <div>
-          <p>Use the <a href="../work/web/events-inclusive.html">Inclusive Events checklist</a> to secure ASL/CART, accessible seating, and clear signage. Provide materials in accessible formats 48 hours prior.</p>
+          <p>Use the <a href="events-inclusive.html">Inclusive Events checklist</a> to secure ASL/CART, accessible seating, and clear signage. Provide materials in accessible formats 48 hours prior.</p>
         </div>
       </details>
       <details class="accordion">
@@ -157,7 +180,7 @@
         <li><strong>VoiceOver</strong> and <strong>TalkBack</strong> for mobile-responsive sites and kiosk experiences.</li>
         <li><strong>Fusion</strong> and <strong>ZoomText</strong> for magnification in ticketing, CRM, and financial systems.</li>
       </ul>
-      <p>Consult the <a href="../work/web/assistive-tech.html">Assistive Technology Coverage</a> doc before deploying or renewing tools.</p>
+      <p>Consult the <a href="assistive-tech.html">Assistive Technology Coverage</a> doc before deploying or renewing tools.</p>
     </section>
 
     <section aria-labelledby="staff-training">
@@ -171,20 +194,34 @@
 
     <section aria-labelledby="staff-feedback">
       <h2 id="staff-feedback">Feedback</h2>
-      <p>Use the consultation form or email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>. Last reviewed: 2025-11-20.</p>
-    <section aria-labelledby="staff-next-steps">
-      <h2 id="staff-next-steps">Next steps for staff and units</h2>
-      <ul>
-        <li><strong>If you are planning an event:</strong> Use the <a href="events-inclusive.html">inclusive events checklist</a> and confirm interpreters, captions, and wayfinding before you advertise.</li>
-        <li><strong>If you are purchasing or renewing a tool:</strong> Start at the <a href="procurement.html">Procurement &amp; Vendors hub</a> and loop in Procurement and Accessibility early.</li>
-        <li><strong>If your website or communications need review:</strong> Request a consultation from the <a href="support.html">Support &amp; Consultations</a> page and attach examples.</li>
-      </ul>
-      <p>You will not get in trouble for asking questions or surfacing barriers—it helps Arizona make better decisions and avoid surprise accessibility issues later.</p>
+      <p>Use the consultation form or email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>. Last reviewed: 2026-01-05.</p>
     </section>
+
+    <section aria-labelledby="related-guides">
+      <h2 id="related-guides">Related guides you may need</h2>
+      <p>Your work may overlap with these roles:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Creating Content?</h3>
+          <p>For accessible documents, newsletters, and media.</p>
+          <a class="cta" href="persona-content.html">Content creators</a>
+        </article>
+        <article class="card">
+          <h3>Leadership Context</h3>
+          <p>Understand executive priorities and governance.</p>
+          <a class="cta" href="persona-leadership.html">Leadership guide</a>
+        </article>
+        <article class="card">
+          <h3>All Personas</h3>
+          <p>Browse all role-based guides.</p>
+          <a class="cta" href="personas.html">Persona hub</a>
+        </article>
+      </div>
     </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
 </body>
 </html>

@@ -1,44 +1,276 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brightspace Accessibility Checklist | Accessibility</title>
+  <title>Brightspace (D2L) Accessibility | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html" aria-current="page">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="teaching-learning.html">Teaching &amp; Learning</a> / Brightspace</p>
+    </nav>
+    <h1>Brightspace (D2L) Accessibility Checklist</h1>
+    <p>Making your Brightspace courses accessible to all students.</p>
+    <p class="metric-chip">📚 For faculty &amp; course designers</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="brightspace-intro">
+      <h2 id="brightspace-intro">Why Brightspace accessibility matters</h2>
+      <p>Brightspace is UA's learning management system (LMS). While D2L builds accessibility into the platform, course content created by instructors can introduce barriers. Approximately 15% of college students have a disability (National Center for Education Statistics, 2023), and many don't disclose or register with disability services.</p>
+      
+      <div class="card">
+        <h3>Key principle: Universal Design for Learning (UDL)</h3>
+        <p>Design courses that work for everyone from the start, rather than retrofitting accommodations. UDL principles benefit all students:</p>
+        <ul>
+          <li><strong>Multiple means of engagement:</strong> Offer choices in how students interact</li>
+          <li><strong>Multiple means of representation:</strong> Present content in different formats</li>
+          <li><strong>Multiple means of expression:</strong> Allow varied ways to demonstrate learning</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="course-structure">
+      <h2 id="course-structure">Course structure and navigation</h2>
+      
+      <h3>Use consistent organization</h3>
+      <ul>
+        <li><strong>Module structure:</strong> Organize content into logical weekly or topic-based modules</li>
+        <li><strong>Consistent naming:</strong> Use the same naming pattern (e.g., "Week 1: Introduction" not "Intro" then "Module Two")</li>
+        <li><strong>Clear instructions:</strong> Start each module with an overview of objectives and activities</li>
+      </ul>
+
+      <h3>Use the Content tool effectively</h3>
+      <ul>
+        <li>Use Content modules rather than just posting files in Dropbox</li>
+        <li>Add descriptions to each content item</li>
+        <li>Use the "Add dates to Calendar" option for consistency</li>
+        <li>Set release conditions thoughtfully (they can confuse students if overused)</li>
+      </ul>
+
+      <h3>Write clear navigation labels</h3>
+      <ul>
+        <li>Use descriptive titles: "Submit Assignment 3: Research Paper" not "Submit here"</li>
+        <li>Avoid abbreviations that may confuse students</li>
+        <li>Keep navigation bar items to essential tools</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="content-accessibility">
+      <h2 id="content-accessibility">Creating accessible content</h2>
+      
+      <h3>Using the Brightspace HTML Editor</h3>
+      <p>When creating content directly in Brightspace:</p>
+      <ol>
+        <li><strong>Use heading structure:</strong> Format section titles using Heading 2, Heading 3 buttons (not just bold)</li>
+        <li><strong>Add alt text:</strong> When inserting images, fill in the "Alternative Text" field</li>
+        <li><strong>Create accessible tables:</strong> Use the Table button and check "Header Row"</li>
+        <li><strong>Use lists:</strong> Use bulleted/numbered list buttons instead of manual dashes</li>
+        <li><strong>Meaningful links:</strong> Highlight descriptive text before inserting links</li>
+      </ol>
+
+      <h3>Uploading documents</h3>
+      <ul>
+        <li>Ensure documents are accessible before uploading (see <a href="doc-word.html">Word/PowerPoint guide</a>)</li>
+        <li>Prefer HTML content over PDF when possible</li>
+        <li>If uploading PDFs, ensure they are tagged (not scanned images)</li>
+        <li>Provide alternative formats when requested</li>
+      </ul>
+
+      <h3>Using the Accessibility Checker</h3>
+      <p>Brightspace includes a built-in accessibility checker:</p>
+      <ol>
+        <li>In the HTML Editor, click the <strong>Accessibility Checker</strong> icon (checkmark in circle)</li>
+        <li>Review and fix identified issues</li>
+        <li>Re-run until no errors remain</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="video-audio">
+      <h2 id="video-audio">Video and audio content</h2>
+      
+      <h3>Captioning requirements</h3>
+      <ul>
+        <li><strong>All videos must have captions</strong> – This is both UA policy and Title II requirement</li>
+        <li>Auto-generated captions require review and editing (typically 80-90% accurate)</li>
+        <li>Captions must be synchronized, accurate, and complete</li>
+      </ul>
+
+      <h3>Using Panopto (UA's video platform)</h3>
+      <ol>
+        <li>Upload or record videos in Panopto</li>
+        <li>Enable automatic captioning in settings</li>
+        <li>Edit captions using Panopto's caption editor</li>
+        <li>Embed videos in Brightspace using the Panopto integration</li>
+      </ol>
+      <p><a href="lms-panopto.html">Full Panopto workflow guide</a></p>
+
+      <h3>YouTube videos</h3>
+      <ul>
+        <li>Check if accurate captions exist before using</li>
+        <li>If using your own YouTube videos, edit auto-captions</li>
+        <li>If captions are poor, consider downloading and adding to Panopto</li>
+      </ul>
+
+      <h3>Audio content</h3>
+      <ul>
+        <li>Provide transcripts for podcasts and audio recordings</li>
+        <li>Include speaker identification in transcripts</li>
+        <li>Note significant non-speech sounds (e.g., [applause], [music])</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="assignments-quizzes">
+      <h2 id="assignments-quizzes">Assignments and quizzes</h2>
+      
+      <h3>Assignment instructions</h3>
+      <ul>
+        <li>Write clear, step-by-step instructions</li>
+        <li>Specify format requirements and file types accepted</li>
+        <li>Include due date, time, and time zone</li>
+        <li>Explain grading criteria (use rubrics when possible)</li>
+      </ul>
+
+      <h3>Accessible quizzes</h3>
+      <ul>
+        <li><strong>Provide adequate time:</strong> Consider that some students read more slowly</li>
+        <li><strong>Use Special Access:</strong> Set extended time for students with accommodations</li>
+        <li><strong>Avoid time pressure:</strong> When possible, avoid timed quizzes</li>
+        <li><strong>Question design:</strong>
+          <ul>
+            <li>Add alt text to images in questions</li>
+            <li>Avoid "all of the above" and "none of the above"</li>
+            <li>Write clear, unambiguous question stems</li>
+            <li>Randomize answer order rather than question order when possible</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Setting accommodations</h3>
+      <ol>
+        <li>Go to <strong>Quizzes</strong> → select quiz → <strong>Restrictions</strong> tab</li>
+        <li>Click <strong>Add Users to Special Access</strong></li>
+        <li>Select the student and set extended time or alternative dates</li>
+        <li>Coordinate with DRC for official accommodation letters</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="discussions">
+      <h2 id="discussions">Discussion forums</h2>
+      <ul>
+        <li><strong>Clear prompts:</strong> Write specific discussion questions with expectations</li>
+        <li><strong>Participation options:</strong> Consider allowing audio/video responses as alternatives</li>
+        <li><strong>Threading:</strong> Teach students to use "Reply" properly for accessible conversation flow</li>
+        <li><strong>Timing:</strong> Give adequate time for students using assistive technology</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="third-party">
+      <h2 id="third-party">Third-party tools and publishers</h2>
+      <p>External tools integrated with Brightspace (publisher platforms, homework systems) must also be accessible:</p>
+      <ul>
+        <li><strong>Check VPATs:</strong> Request accessibility documentation before adopting</li>
+        <li><strong>Test with assistive technology:</strong> Try navigating with keyboard only</li>
+        <li><strong>Have backup plans:</strong> Know how to provide alternatives if tools are inaccessible</li>
+        <li><strong>Report issues:</strong> Contact vendors about accessibility problems</li>
+      </ul>
+      <p><a href="procurement.html">Learn about procurement accessibility requirements</a></p>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Quick checklist</h2>
+      <h3>Before the semester</h3>
+      <ul>
+        <li>☐ Course navigation is clear and consistent</li>
+        <li>☐ Syllabus includes accessibility statement and DRC contact</li>
+        <li>☐ All documents are accessible (Word, PowerPoint, PDF)</li>
+        <li>☐ Videos have accurate captions</li>
+        <li>☐ Third-party tools evaluated for accessibility</li>
+      </ul>
+
+      <h3>Each module/week</h3>
+      <ul>
+        <li>☐ Content pages use proper headings</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ Links are descriptive</li>
+        <li>☐ Assignment instructions are clear and complete</li>
+        <li>☐ Accommodations set up for students who need them</li>
+      </ul>
+
+      <h3>Throughout the semester</h3>
+      <ul>
+        <li>☐ Respond to accessibility requests promptly</li>
+        <li>☐ Check that new content is accessible before posting</li>
+        <li>☐ Caption any new videos</li>
+        <li>☐ Update accommodations as needed</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="getting-help">
+      <h2 id="getting-help">Getting help</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>UCATT</h3>
+          <p>University Center for Assessment, Teaching and Technology provides instructional design support.</p>
+          <p><a href="https://ucatt.arizona.edu">ucatt.arizona.edu</a></p>
+        </article>
+        <article class="card">
+          <h3>Disability Resource Center</h3>
+          <p>For student accommodation questions and coordination.</p>
+          <p><a href="mailto:uadrc@arizona.edu">uadrc@arizona.edu</a> | 520-621-1242</p>
+        </article>
+        <article class="card">
+          <h3>Accessibility Office</h3>
+          <p>For technical accessibility questions and consultations.</p>
+          <p><a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+        </article>
+        <article class="card">
+          <h3>D2L Support</h3>
+          <p>For Brightspace technical issues.</p>
+          <p><a href="https://d2l.arizona.edu">d2l.arizona.edu</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://community.d2l.com/brightspace/kb/articles/3550-accessibility-standards">D2L Accessibility Documentation</a></li>
+        <li><a href="https://udlguidelines.cast.org/">CAST UDL Guidelines</a></li>
+        <li><a href="teaching-learning.html">UA Teaching &amp; Learning Hub</a></li>
+        <li><a href="pedagogy-checklist.html">Inclusive Pedagogy Checklist</a></li>
+        <li><a href="media-captioning.html">Video Captioning Guide</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'lms-brightspace.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

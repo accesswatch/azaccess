@@ -1,44 +1,291 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inclusive Pedagogy Checklist | Accessibility</title>
+  <title>Pedagogy &amp; Course Design Checklist | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html" aria-current="page">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="teaching-learning.html">Teaching &amp; Learning</a> / Pedagogy Checklist</p>
+    </nav>
+    <h1>Pedagogy &amp; Course Design Checklist</h1>
+    <p>Integrating accessibility into course design from the start.</p>
+    <p class="metric-chip">📚 Universal Design for Learning</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="pedagogy-overview">
+      <h2 id="pedagogy-overview">Proactive accessible design</h2>
+      <p>Building accessibility into course design from the start is more effective and efficient than retrofitting. This approach, based on Universal Design for Learning (UDL), benefits all students—not just those with disabilities.</p>
+      
+      <div class="card">
+        <h3>Universal Design for Learning (UDL)</h3>
+        <p>UDL is a framework for designing flexible learning experiences. It provides:</p>
+        <ul>
+          <li><strong>Multiple means of engagement:</strong> Options for how students connect with content</li>
+          <li><strong>Multiple means of representation:</strong> Options for how content is presented</li>
+          <li><strong>Multiple means of action &amp; expression:</strong> Options for how students demonstrate learning</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="syllabus">
+      <h2 id="syllabus">Accessible syllabus</h2>
+      
+      <h3>Accessibility statement</h3>
+      <p>Include a clear accessibility and accommodation statement:</p>
+      <blockquote>
+        <p>"I am committed to creating an accessible learning environment. If you anticipate or experience barriers based on disability, please contact the Disability Resource Center (drc.arizona.edu) to establish accommodations. You are also welcome to contact me privately to discuss your learning needs."</p>
+      </blockquote>
+
+      <h3>Syllabus accessibility checklist</h3>
+      <ul>
+        <li>☐ Heading structure (H1 for title, H2 for sections)</li>
+        <li>☐ Descriptive link text</li>
+        <li>☐ High-contrast colors</li>
+        <li>☐ Available in accessible formats (Word, HTML)</li>
+        <li>☐ Clear contact information</li>
+        <li>☐ Accommodation statement included</li>
+        <li>☐ Course schedule with clear dates</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="course-materials">
+      <h2 id="course-materials">Course materials</h2>
+      
+      <h3>Documents</h3>
+      <ul>
+        <li>☐ All documents have heading structure</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ PDFs are tagged and searchable (not scanned images)</li>
+        <li>☐ Tables have header rows</li>
+        <li>☐ Links have descriptive text</li>
+        <li>☐ Color is not the only way information is conveyed</li>
+      </ul>
+      <p><strong>See:</strong> <a href="doc-word.html">Word Accessibility Guide</a>, <a href="pdf-remediation.html">PDF Remediation</a></p>
+
+      <h3>Presentations</h3>
+      <ul>
+        <li>☐ Slide titles on every slide</li>
+        <li>☐ Built-in layouts used</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ Font size 24pt+ for body text</li>
+        <li>☐ High contrast colors</li>
+        <li>☐ Slides available before class</li>
+      </ul>
+      <p><strong>See:</strong> <a href="doc-powerpoint.html">PowerPoint Accessibility Guide</a></p>
+
+      <h3>Videos</h3>
+      <ul>
+        <li>☐ All videos have accurate captions</li>
+        <li>☐ Audio description available when needed</li>
+        <li>☐ Transcripts provided</li>
+        <li>☐ Video player is keyboard accessible</li>
+      </ul>
+      <p><strong>See:</strong> <a href="media-captioning.html">Video Captioning Guide</a>, <a href="lms-panopto.html">Panopto Guide</a></p>
+
+      <h3>Third-party content</h3>
+      <ul>
+        <li>☐ Textbook accessibility verified (publisher VPAT reviewed)</li>
+        <li>☐ External websites tested for keyboard access</li>
+        <li>☐ Alternative resources available if primary is inaccessible</li>
+        <li>☐ OER/free alternatives considered</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="lms-content">
+      <h2 id="lms-content">LMS content (D2L Brightspace)</h2>
+      
+      <h3>Content organization</h3>
+      <ul>
+        <li>☐ Consistent module structure throughout course</li>
+        <li>☐ Logical navigation flow</li>
+        <li>☐ Clear naming conventions</li>
+        <li>☐ Content available before due dates</li>
+      </ul>
+
+      <h3>HTML content</h3>
+      <ul>
+        <li>☐ Headings used (not just bold text)</li>
+        <li>☐ Lists used for sequential/related items</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ Tables have headers</li>
+        <li>☐ Links are descriptive</li>
+      </ul>
+      <p><strong>See:</strong> <a href="lms-brightspace.html">D2L Brightspace Accessibility Guide</a></p>
+    </section>
+
+    <section aria-labelledby="assessments">
+      <h2 id="assessments">Accessible assessments</h2>
+      
+      <h3>Exam design</h3>
+      <ul>
+        <li>☐ Clear, concise question language</li>
+        <li>☐ Images in questions have alt text</li>
+        <li>☐ Sufficient time allowed (consider extended time needs)</li>
+        <li>☐ Questions don't rely solely on visual information</li>
+        <li>☐ Mathematical notation is accessible (MathML or LaTeX)</li>
+      </ul>
+
+      <h3>Alternative assessment options</h3>
+      <p>Consider offering multiple ways to demonstrate learning:</p>
+      <ul>
+        <li>Written papers or oral presentations</li>
+        <li>Projects or portfolios</li>
+        <li>Group work with defined roles</li>
+        <li>Open-book vs. timed exams</li>
+        <li>Multiple attempts on quizzes</li>
+      </ul>
+
+      <h3>Assignment instructions</h3>
+      <ul>
+        <li>☐ Clear learning objectives stated</li>
+        <li>☐ Submission requirements explicit</li>
+        <li>☐ Grading criteria/rubric provided</li>
+        <li>☐ Contact information for questions</li>
+        <li>☐ Due dates clearly stated</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="live-instruction">
+      <h2 id="live-instruction">Live instruction</h2>
+      
+      <h3>In-class practices</h3>
+      <ul>
+        <li>Use microphone in large classrooms</li>
+        <li>Face class when speaking (for lipreading)</li>
+        <li>Verbally describe visual content</li>
+        <li>Repeat questions from students</li>
+        <li>Provide materials before class</li>
+        <li>Record lectures when possible</li>
+      </ul>
+
+      <h3>Virtual/hybrid sessions</h3>
+      <ul>
+        <li>☐ Enable live captions</li>
+        <li>☐ Record for later viewing</li>
+        <li>☐ Share screen content verbally</li>
+        <li>☐ Monitor chat for questions</li>
+        <li>☐ Provide break time for longer sessions</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="communication">
+      <h2 id="communication">Communication</h2>
+      
+      <h3>Announcements and emails</h3>
+      <ul>
+        <li>☐ Clear subject lines</li>
+        <li>☐ Important information at the beginning</li>
+        <li>☐ Descriptive link text</li>
+        <li>☐ Alternative formats for attachments</li>
+      </ul>
+
+      <h3>Discussion forums</h3>
+      <ul>
+        <li>☐ Clear posting guidelines</li>
+        <li>☐ Descriptive thread titles required</li>
+        <li>☐ Alternative participation options if needed</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="accommodations">
+      <h2 id="accommodations">Working with accommodations</h2>
+      
+      <h3>When you receive accommodation letters</h3>
+      <ol>
+        <li>Review the letter carefully</li>
+        <li>Reach out to the student to discuss implementation</li>
+        <li>Contact DRC with questions (not the student)</li>
+        <li>Implement accommodations promptly</li>
+        <li>Keep accommodation information confidential</li>
+      </ol>
+
+      <h3>Common accommodations</h3>
+      <ul>
+        <li><strong>Extended time:</strong> 1.5x or 2x time on exams</li>
+        <li><strong>Reduced distraction testing:</strong> Testing center environment</li>
+        <li><strong>Note-taking assistance:</strong> Peer notes or recording permission</li>
+        <li><strong>Captioning:</strong> Real-time or asynchronous captions</li>
+        <li><strong>Alternative formats:</strong> Digital text, large print, audio</li>
+      </ul>
+
+      <h3>What accommodations are NOT</h3>
+      <ul>
+        <li>Changing course content or learning objectives</li>
+        <li>Lowering grading standards</li>
+        <li>Excusing students from requirements</li>
+        <li>Giving answers or unfair advantages</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="complete-checklist">
+      <h2 id="complete-checklist">Complete course accessibility checklist</h2>
+      
+      <h3>Before semester</h3>
+      <ul>
+        <li>☐ Syllabus is accessible</li>
+        <li>☐ Course materials reviewed/remediated</li>
+        <li>☐ Videos captioned</li>
+        <li>☐ LMS content organized and accessible</li>
+        <li>☐ Third-party tools evaluated</li>
+      </ul>
+
+      <h3>During semester</h3>
+      <ul>
+        <li>☐ New content created accessibly</li>
+        <li>☐ Accommodations implemented promptly</li>
+        <li>☐ Recordings captioned</li>
+        <li>☐ Student feedback incorporated</li>
+      </ul>
+
+      <h3>After semester</h3>
+      <ul>
+        <li>☐ Student feedback reviewed</li>
+        <li>☐ Accessibility issues documented</li>
+        <li>☐ Improvements planned for next term</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://udlguidelines.cast.org/">CAST: UDL Guidelines</a></li>
+        <li><a href="https://drc.arizona.edu/instructors">UA DRC: Information for Instructors</a></li>
+        <li><a href="https://teachingprotocol.oia.arizona.edu/">UA Office of Instruction &amp; Assessment</a></li>
+        <li><a href="lms-brightspace.html">D2L Brightspace Accessibility</a></li>
+        <li><a href="teaching-learning.html">Teaching &amp; Learning Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'pedagogy-checklist.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

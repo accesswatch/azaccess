@@ -1,44 +1,327 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skip Link Snippet | Accessibility</title>
+  <title>Skip Link Code Snippet | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; Apps</a> / Skip Link Snippet</p>
+    </nav>
+    <h1>Skip Link Code Snippet</h1>
+    <p>Ready-to-use skip link implementation for UA websites.</p>
+    <p class="metric-chip">📋 Copy &amp; paste ready</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="what-skip">
+      <h2 id="what-skip">What is a skip link?</h2>
+      <p>A skip link is a hidden link that becomes visible on keyboard focus, allowing users to bypass repetitive navigation and jump directly to main content. It's required for WCAG 2.4.1 (Bypass Blocks).</p>
+      
+      <h3>Who benefits</h3>
+      <ul>
+        <li>Keyboard users who would otherwise Tab through dozens of nav links</li>
+        <li>Screen reader users navigating linearly</li>
+        <li>Users with motor impairments</li>
+        <li>Anyone using keyboard navigation</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="basic-implementation">
+      <h2 id="basic-implementation">Basic implementation</h2>
+      
+      <h3>Step 1: Add the HTML</h3>
+      <p>Place this as the <strong>first element</strong> inside your <code>&lt;body&gt;</code> tag:</p>
+      <pre>&lt;body&gt;
+  &lt;a href="#maincontent" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+  
+  &lt;!-- Your header/navigation here --&gt;
+  
+  &lt;main id="maincontent"&gt;
+    &lt;!-- Main page content --&gt;
+  &lt;/main&gt;
+&lt;/body&gt;</pre>
+
+      <h3>Step 2: Add the CSS</h3>
+      <pre>.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0C234B;
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #AB0520;
+  outline-offset: 2px;
+}</pre>
+
+      <h3>Step 3: Ensure target exists</h3>
+      <p>Your main content area must have the matching ID:</p>
+      <pre>&lt;main id="maincontent"&gt;
+  &lt;h1&gt;Page Title&lt;/h1&gt;
+  &lt;!-- Content --&gt;
+&lt;/main&gt;</pre>
+    </section>
+
+    <section aria-labelledby="enhanced-version">
+      <h2 id="enhanced-version">Enhanced version with multiple targets</h2>
+      <p>For complex pages, you may want multiple skip links:</p>
+      <pre>&lt;div class="skip-links"&gt;
+  &lt;a href="#maincontent" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+  &lt;a href="#search" class="skip-link"&gt;Skip to search&lt;/a&gt;
+  &lt;a href="#footer-nav" class="skip-link"&gt;Skip to footer&lt;/a&gt;
+&lt;/div&gt;</pre>
+
+      <h3>CSS for multiple skip links</h3>
+      <pre>.skip-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0C234B;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.skip-link:focus {
+  position: static;
+  display: inline-block;
+  outline: 3px solid #AB0520;
+  outline-offset: 2px;
+}</pre>
+    </section>
+
+    <section aria-labelledby="wordpress">
+      <h2 id="wordpress">WordPress implementation</h2>
+      <p>Most WordPress themes include skip links. To add or modify:</p>
+      
+      <h3>In header.php</h3>
+      <pre>&lt;body &lt;?php body_class(); ?&gt;&gt;
+  &lt;a class="skip-link screen-reader-text" href="#primary"&gt;
+    &lt;?php esc_html_e( 'Skip to content', 'theme-name' ); ?&gt;
+  &lt;/a&gt;</pre>
+
+      <h3>In style.css</h3>
+      <pre>.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+  background-color: #0C234B;
+  clip: auto !important;
+  clip-path: none;
+  color: #ffffff;
+  display: block;
+  font-size: 1rem;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}</pre>
+    </section>
+
+    <section aria-labelledby="drupal">
+      <h2 id="drupal">Drupal implementation</h2>
+      <p>Drupal core themes typically include skip links. Customize in your theme's template:</p>
+      
+      <h3>In page.html.twig</h3>
+      <pre>&lt;a href="#main-content" class="visually-hidden focusable skip-link"&gt;
+  {{ 'Skip to main content'|t }}
+&lt;/a&gt;</pre>
+    </section>
+
+    <section aria-labelledby="react">
+      <h2 id="react">React / SPA implementation</h2>
+      <p>For single-page applications, ensure the skip link target is focusable:</p>
+      <pre>// SkipLink.jsx
+function SkipLink() {
+  const handleClick = (e) =&gt; {
+    e.preventDefault();
+    const main = document.getElementById('maincontent');
+    if (main) {
+      main.tabIndex = -1;
+      main.focus();
+      main.scrollIntoView();
+    }
+  };
+
+  return (
+    &lt;a href="#maincontent" className="skip-link" onClick={handleClick}&gt;
+      Skip to main content
+    &lt;/a&gt;
+  );
+}
+
+// In your main layout
+function Layout({ children }) {
+  return (
+    &lt;&gt;
+      &lt;SkipLink /&gt;
+      &lt;Header /&gt;
+      &lt;main id="maincontent" tabIndex="-1"&gt;
+        {children}
+      &lt;/main&gt;
+      &lt;Footer /&gt;
+    &lt;/&gt;
+  );
+}</pre>
+    </section>
+
+    <section aria-labelledby="testing">
+      <h2 id="testing">Testing your skip link</h2>
+      <ol>
+        <li>Load the page and press <kbd>Tab</kbd></li>
+        <li>Skip link should become visible as first focusable element</li>
+        <li>Press <kbd>Enter</kbd> to activate</li>
+        <li>Focus should move to main content</li>
+        <li>Next <kbd>Tab</kbd> should go to first link/button in main content</li>
+      </ol>
+
+      <h3>Common issues</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Problem</th>
+            <th>Solution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Skip link not visible on focus</td>
+            <td>Check CSS <code>:focus</code> styles and z-index</td>
+          </tr>
+          <tr>
+            <td>Focus doesn't move to target</td>
+            <td>Ensure target has matching ID</td>
+          </tr>
+          <tr>
+            <td>Focus moves but next Tab goes to top</td>
+            <td>Add <code>tabindex="-1"</code> to target element</td>
+          </tr>
+          <tr>
+            <td>Skip link covered by sticky header</td>
+            <td>Increase z-index or adjust positioning</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="complete-example">
+      <h2 id="complete-example">Complete example</h2>
+      <p>Copy this complete HTML page structure:</p>
+      <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Page Title&lt;/title&gt;
+  &lt;style&gt;
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #0C234B;
+      color: #ffffff;
+      padding: 8px 16px;
+      z-index: 10000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .skip-link:focus {
+      top: 0;
+      outline: 3px solid #AB0520;
+      outline-offset: 2px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;a href="#maincontent" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+  
+  &lt;header&gt;
+    &lt;nav&gt;
+      &lt;!-- Navigation links --&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  
+  &lt;main id="maincontent"&gt;
+    &lt;h1&gt;Page Title&lt;/h1&gt;
+    &lt;!-- Main content --&gt;
+  &lt;/main&gt;
+  
+  &lt;footer&gt;
+    &lt;!-- Footer content --&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html">WCAG Understanding 2.4.1 Bypass Blocks</a></li>
+        <li><a href="https://webaim.org/techniques/skipnav/">WebAIM: Skip Navigation Links</a></li>
+        <li><a href="web-keyboard.html">Keyboard Accessibility Guide</a></li>
+        <li><a href="web-app.html">Web &amp; Apps Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'skip-link-snippet.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

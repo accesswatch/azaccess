@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accessibility Decision Guide | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .decision-tree {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .decision-step {
+      background: #fff;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      transition: all 0.3s ease;
+    }
+    .decision-step.active {
+      border-color: #1565c0;
+      box-shadow: 0 4px 20px rgba(21, 101, 192, 0.2);
+    }
+    .decision-step.completed {
+      border-color: #4caf50;
+      background: #f1f8e9;
+    }
+    .decision-step.hidden {
+      display: none;
+    }
+    .step-number {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background: #1565c0;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      font-weight: 700;
+      margin-right: 0.75rem;
+    }
+    .completed .step-number {
+      background: #4caf50;
+    }
+    .step-question {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1rem 0;
+      color: #333;
+    }
+    .step-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .option-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.25rem;
+      background: #f5f5f5;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .option-btn:hover {
+      background: #e3f2fd;
+      border-color: #1565c0;
+      transform: translateY(-2px);
+    }
+    .option-btn:focus {
+      outline: 3px solid #1565c0;
+      outline-offset: 2px;
+    }
+    .option-btn.selected {
+      background: #1565c0;
+      color: #fff;
+      border-color: #1565c0;
+    }
+    .option-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .option-label {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .option-desc {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      opacity: 0.8;
+    }
+    .results-panel {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      border: 2px solid #4caf50;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .results-panel h2 {
+      color: #2e7d32;
+      margin-top: 0;
+    }
+    .result-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .result-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .result-card h3 {
+      margin: 0 0 0.5rem;
+      color: #1565c0;
+      font-size: 1.1rem;
+    }
+    .result-card p {
+      margin: 0 0 1rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .result-card .cta {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #1565c0;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .result-card .cta:hover {
+      background: #0d47a1;
+    }
+    .breadcrumb-trail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      padding: 0.75rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    .breadcrumb-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.75rem;
+      background: #fff;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid #ddd;
+    }
+    .breadcrumb-item::after {
+      content: "→";
+      margin-left: 0.5rem;
+      color: #999;
+    }
+    .breadcrumb-item:last-child::after {
+      content: "";
+    }
+    .restart-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    .restart-btn:hover {
+      background: #e0e0e0;
+    }
+    .quick-paths {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .quick-path {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+    .quick-path:hover {
+      border-color: #1565c0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .quick-path h3 {
+      margin: 0 0 0.5rem;
+      color: #1565c0;
+    }
+    .quick-path p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / Decision Guide</p>
+    </nav>
+    <h1>Accessibility Decision Guide</h1>
+    <p>Answer a few questions to get personalized recommendations.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="quick-start">
+      <h2 id="quick-start">Quick paths</h2>
+      <p>Know what you need? Jump directly to a common task:</p>
+      <div class="quick-paths">
+        <a href="doc-word.html" class="quick-path">
+          <h3>📄 Make a Word doc accessible</h3>
+          <p>Headings, alt text, lists, and export options</p>
+        </a>
+        <a href="media-captioning.html" class="quick-path">
+          <h3>🎬 Add captions to a video</h3>
+          <p>Panopto, YouTube, and manual captioning</p>
+        </a>
+        <a href="testing-tools.html" class="quick-path">
+          <h3>🔍 Test a website</h3>
+          <p>Automated tools and manual testing guides</p>
+        </a>
+        <a href="persona-students.html" class="quick-path">
+          <h3>🎓 Request accommodations</h3>
+          <p>Student guide to DRC services</p>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="guide-title">
+      <h2 id="guide-title">Guided decision tree</h2>
+      <p>Not sure where to start? Answer these questions:</p>
+      
+      <div id="breadcrumb-trail" class="breadcrumb-trail" aria-label="Your selections" hidden>
+        <!-- Dynamically populated -->
+      </div>
+
+      <div class="decision-tree" id="decision-tree">
+        <!-- Step 1: What are you working on? -->
+        <div class="decision-step active" data-step="1" id="step-1">
+          <span class="step-number">1</span>
+          <h3 class="step-question">What are you working on?</h3>
+          <div class="step-options" role="group" aria-label="Select content type">
+            <button class="option-btn" data-value="document" data-label="Document">
+              <span class="option-icon" aria-hidden="true">📄</span>
+              <span class="option-label">Document</span>
+              <span class="option-desc">Word, PDF, slides, spreadsheet</span>
+            </button>
+            <button class="option-btn" data-value="web" data-label="Website/App">
+              <span class="option-icon" aria-hidden="true">🌐</span>
+              <span class="option-label">Website / App</span>
+              <span class="option-desc">Web page, application, digital tool</span>
+            </button>
+            <button class="option-btn" data-value="media" data-label="Media">
+              <span class="option-icon" aria-hidden="true">🎬</span>
+              <span class="option-label">Video / Audio</span>
+              <span class="option-desc">Recordings, lectures, podcasts</span>
+            </button>
+            <button class="option-btn" data-value="course" data-label="Course">
+              <span class="option-icon" aria-hidden="true">🎓</span>
+              <span class="option-label">Course / Class</span>
+              <span class="option-desc">Brightspace, teaching materials</span>
+            </button>
+            <button class="option-btn" data-value="event" data-label="Event">
+              <span class="option-icon" aria-hidden="true">📅</span>
+              <span class="option-label">Event / Meeting</span>
+              <span class="option-desc">In-person or virtual gathering</span>
+            </button>
+            <button class="option-btn" data-value="procurement" data-label="Procurement">
+              <span class="option-icon" aria-hidden="true">🛒</span>
+              <span class="option-label">Purchasing</span>
+              <span class="option-desc">Buying software or services</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Document type -->
+        <div class="decision-step hidden" data-step="2" data-parent="document" id="step-2-document">
+          <span class="step-number">2</span>
+          <h3 class="step-question">What type of document?</h3>
+          <div class="step-options" role="group" aria-label="Select document type">
+            <button class="option-btn" data-value="word" data-label="Word">
+              <span class="option-icon" aria-hidden="true">📝</span>
+              <span class="option-label">Word Document</span>
+            </button>
+            <button class="option-btn" data-value="powerpoint" data-label="PowerPoint">
+              <span class="option-icon" aria-hidden="true">📊</span>
+              <span class="option-label">PowerPoint</span>
+            </button>
+            <button class="option-btn" data-value="pdf" data-label="PDF">
+              <span class="option-icon" aria-hidden="true">📕</span>
+              <span class="option-label">PDF</span>
+            </button>
+            <button class="option-btn" data-value="excel" data-label="Excel">
+              <span class="option-icon" aria-hidden="true">📈</span>
+              <span class="option-label">Excel / Sheets</span>
+            </button>
+            <button class="option-btn" data-value="email" data-label="Email">
+              <span class="option-icon" aria-hidden="true">✉️</span>
+              <span class="option-label">Email</span>
+            </button>
+            <button class="option-btn" data-value="google" data-label="Google Docs">
+              <span class="option-icon" aria-hidden="true">📄</span>
+              <span class="option-label">Google Docs/Slides</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Web type -->
+        <div class="decision-step hidden" data-step="2" data-parent="web" id="step-2-web">
+          <span class="step-number">2</span>
+          <h3 class="step-question">What's your role?</h3>
+          <div class="step-options" role="group" aria-label="Select your role">
+            <button class="option-btn" data-value="developer" data-label="Developer">
+              <span class="option-icon" aria-hidden="true">💻</span>
+              <span class="option-label">Developer</span>
+              <span class="option-desc">I write code</span>
+            </button>
+            <button class="option-btn" data-value="content" data-label="Content Editor">
+              <span class="option-icon" aria-hidden="true">✏️</span>
+              <span class="option-label">Content Editor</span>
+              <span class="option-desc">I edit pages in a CMS</span>
+            </button>
+            <button class="option-btn" data-value="tester" data-label="Tester">
+              <span class="option-icon" aria-hidden="true">🔍</span>
+              <span class="option-label">Tester / Auditor</span>
+              <span class="option-desc">I need to evaluate</span>
+            </button>
+            <button class="option-btn" data-value="manager" data-label="Manager">
+              <span class="option-icon" aria-hidden="true">👔</span>
+              <span class="option-label">Manager / Owner</span>
+              <span class="option-desc">I'm responsible for a site</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Media type -->
+        <div class="decision-step hidden" data-step="2" data-parent="media" id="step-2-media">
+          <span class="step-number">2</span>
+          <h3 class="step-question">What do you need to do?</h3>
+          <div class="step-options" role="group" aria-label="Select media task">
+            <button class="option-btn" data-value="caption" data-label="Add captions">
+              <span class="option-icon" aria-hidden="true">💬</span>
+              <span class="option-label">Add captions</span>
+            </button>
+            <button class="option-btn" data-value="transcript" data-label="Create transcript">
+              <span class="option-icon" aria-hidden="true">📝</span>
+              <span class="option-label">Create transcript</span>
+            </button>
+            <button class="option-btn" data-value="audio-desc" data-label="Audio description">
+              <span class="option-icon" aria-hidden="true">🔊</span>
+              <span class="option-label">Audio description</span>
+            </button>
+            <button class="option-btn" data-value="live" data-label="Live event">
+              <span class="option-icon" aria-hidden="true">📡</span>
+              <span class="option-label">Live captioning (CART)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Results panels will be shown based on selections -->
+        <div id="results-container"></div>
+      </div>
+
+      <button class="restart-btn hidden" id="restart-btn" onclick="restartGuide()">
+        <span aria-hidden="true">↺</span> Start over
+      </button>
+    </section>
+
+    <section aria-labelledby="help">
+      <h2 id="help">Still not sure?</h2>
+      <p>No problem! Contact us and describe what you're trying to do in your own words.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Email us</h3>
+          <p>Describe your situation and we'll point you in the right direction.</p>
+          <a class="cta" href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>
+        </article>
+        <article class="card">
+          <h3>Book a consultation</h3>
+          <p>Schedule time to discuss your accessibility needs.</p>
+          <a class="cta" href="support.html">Request consultation</a>
+        </article>
+        <article class="card">
+          <h3>Browse all guides</h3>
+          <p>See the complete list of persona and topic guides.</p>
+          <a class="cta" href="personas.html">View personas</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+
+  <script>
+    // Decision tree logic
+    const results = {
+      // Document results
+      word: {
+        title: "Making Word Documents Accessible",
+        cards: [
+          { title: "Word Accessibility Guide", desc: "Step-by-step guide to accessible Word documents", url: "doc-word.html" },
+          { title: "Quick Reference Card", desc: "Print-friendly checklist for your desk", url: "quick-reference-cards.html" },
+          { title: "Accessibility Checker", desc: "How to use Word's built-in checker", url: "doc-word.html#checker" }
+        ]
+      },
+      powerpoint: {
+        title: "Making PowerPoint Accessible",
+        cards: [
+          { title: "PowerPoint Guide", desc: "Creating accessible presentations", url: "doc-powerpoint.html" },
+          { title: "Quick Reference Card", desc: "PowerPoint accessibility checklist", url: "quick-reference-cards.html" },
+          { title: "Alt Text for Charts", desc: "Describing visual data", url: "doc-powerpoint.html#charts" }
+        ]
+      },
+      pdf: {
+        title: "Creating Accessible PDFs",
+        cards: [
+          { title: "PDF Remediation Guide", desc: "Fix accessibility issues in existing PDFs", url: "pdf-remediation.html" },
+          { title: "Creating from Word", desc: "Export accessible PDFs from source", url: "doc-word.html#export" },
+          { title: "Testing PDFs", desc: "Verify PDF accessibility", url: "pdf-remediation.html#testing" }
+        ]
+      },
+      excel: {
+        title: "Making Spreadsheets Accessible",
+        cards: [
+          { title: "Excel Accessibility Guide", desc: "Tables, charts, and named ranges", url: "doc-excel.html" },
+          { title: "Data Table Best Practices", desc: "Structure for screen readers", url: "doc-excel.html#tables" }
+        ]
+      },
+      email: {
+        title: "Accessible Emails",
+        cards: [
+          { title: "Email Accessibility Guide", desc: "Outlook and email best practices", url: "email-outlook.html" },
+          { title: "Quick Reference Card", desc: "Email checklist", url: "quick-reference-cards.html" }
+        ]
+      },
+      google: {
+        title: "Google Workspace Accessibility",
+        cards: [
+          { title: "Google Docs Guide", desc: "Accessibility in Google Workspace", url: "doc-google.html" },
+          { title: "Documents & Media Hub", desc: "All document guides", url: "documents-media.html" }
+        ]
+      },
+      // Web results
+      developer: {
+        title: "Developer Resources",
+        cards: [
+          { title: "Developer Persona Guide", desc: "Complete guide for developers", url: "persona-developers.html" },
+          { title: "ARIA Patterns", desc: "Accessible component patterns", url: "aria-patterns.html" },
+          { title: "CI/CD Testing", desc: "Automated accessibility testing", url: "dev-cicd-testing.html" },
+          { title: "React Accessibility", desc: "React-specific guidance", url: "dev-react.html" }
+        ]
+      },
+      content: {
+        title: "Content Editor Resources",
+        cards: [
+          { title: "Content Creator Guide", desc: "Accessibility for content authors", url: "persona-content.html" },
+          { title: "Heading Structure", desc: "Proper heading hierarchy", url: "heading-basics.html" },
+          { title: "Alt Text Guide", desc: "Writing effective alt text", url: "quick-reference-cards.html" }
+        ]
+      },
+      tester: {
+        title: "Testing Resources",
+        cards: [
+          { title: "Testing Tools Guide", desc: "Automated and manual testing", url: "testing-tools.html" },
+          { title: "Quick Audit Checklist", desc: "5-minute accessibility check", url: "quick-reference-cards.html" },
+          { title: "Screen Reader Testing", desc: "JAWS, NVDA, VoiceOver basics", url: "quick-reference-cards.html" }
+        ]
+      },
+      manager: {
+        title: "Site Owner Resources",
+        cards: [
+          { title: "Leadership Guide", desc: "Accessibility governance", url: "persona-leadership.html" },
+          { title: "Title II Brief", desc: "Compliance deadlines", url: "title-ii-brief.html" },
+          { title: "Service Levels", desc: "Support SLAs", url: "service-levels.html" }
+        ]
+      },
+      // Media results
+      caption: {
+        title: "Adding Captions",
+        cards: [
+          { title: "Captioning Guide", desc: "Complete captioning workflow", url: "media-captioning.html" },
+          { title: "Panopto Captions", desc: "Using Panopto's caption tools", url: "lms-panopto.html" },
+          { title: "Quality Standards", desc: "Caption accuracy requirements", url: "media-captioning.html#quality" }
+        ]
+      },
+      transcript: {
+        title: "Creating Transcripts",
+        cards: [
+          { title: "Transcription Guide", desc: "Audio and video transcripts", url: "media-captioning.html#transcripts" },
+          { title: "Tools & Services", desc: "Transcription options", url: "media-captioning.html#tools" }
+        ]
+      },
+      "audio-desc": {
+        title: "Audio Description",
+        cards: [
+          { title: "Audio Description Guide", desc: "When and how to add AD", url: "media-captioning.html#audio-description" },
+          { title: "Extended Description", desc: "Complex visual content", url: "media-captioning.html#extended" }
+        ]
+      },
+      live: {
+        title: "Live Captioning (CART)",
+        cards: [
+          { title: "Request CART", desc: "DRC CART request form", url: "https://drc.arizona.edu/asl-cart" },
+          { title: "Planning Live Events", desc: "Accessibility for events", url: "events-inclusive.html" }
+        ]
+      },
+      // Course results
+      course: {
+        title: "Course Accessibility",
+        cards: [
+          { title: "Faculty Guide", desc: "Complete teaching accessibility guide", url: "persona-faculty.html" },
+          { title: "Brightspace Accessibility", desc: "Making D2L courses accessible", url: "lms-brightspace.html" },
+          { title: "UDL Framework", desc: "Universal Design for Learning", url: "udl-framework.html" },
+          { title: "Pedagogy Checklist", desc: "Inclusive teaching practices", url: "pedagogy-checklist.html" }
+        ]
+      },
+      // Event results
+      event: {
+        title: "Accessible Events",
+        cards: [
+          { title: "Inclusive Events Guide", desc: "Planning accessible gatherings", url: "events-inclusive.html" },
+          { title: "Request Interpreters", desc: "ASL/CART for events", url: "https://drc.arizona.edu/asl-cart" },
+          { title: "Zoom Accessibility", desc: "Virtual meeting accessibility", url: "events-inclusive.html#virtual" }
+        ]
+      },
+      // Procurement results
+      procurement: {
+        title: "Accessible Procurement",
+        cards: [
+          { title: "Procurement Hub", desc: "Buying accessible technology", url: "procurement.html" },
+          { title: "VPAT Review Guide", desc: "Evaluating vendor accessibility", url: "vpat-review.html" },
+          { title: "Contract Language", desc: "Accessibility requirements", url: "procurement.html#contracts" }
+        ]
+      }
+    };
+
+    let selections = [];
+
+    // Initialize
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', handleSelection);
+    });
+
+    function handleSelection(e) {
+      const btn = e.currentTarget;
+      const step = btn.closest('.decision-step');
+      const value = btn.dataset.value;
+      const label = btn.dataset.label;
+
+      // Mark as selected
+      step.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      // Store selection
+      const stepNum = parseInt(step.dataset.step);
+      selections[stepNum - 1] = { value, label };
+      selections.length = stepNum; // Truncate if going back
+
+      // Update breadcrumb
+      updateBreadcrumb();
+
+      // Show restart button
+      document.getElementById('restart-btn').classList.remove('hidden');
+
+      // Mark step as completed
+      step.classList.remove('active');
+      step.classList.add('completed');
+
+      // Check for direct results (step 1 -> results)
+      if (stepNum === 1 && ['course', 'event', 'procurement'].includes(value)) {
+        showResults(value);
+        return;
+      }
+
+      // Check for step 2 results
+      if (stepNum === 2) {
+        showResults(value);
+        return;
+      }
+
+      // Show next step
+      const nextStep = document.querySelector(`.decision-step[data-step="2"][data-parent="${value}"]`);
+      if (nextStep) {
+        nextStep.classList.remove('hidden');
+        nextStep.classList.add('active');
+        nextStep.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        // No specific sub-step, show results for this category
+        showResults(value);
+      }
+    }
+
+    function showResults(key) {
+      const resultData = results[key];
+      if (!resultData) return;
+
+      const container = document.getElementById('results-container');
+      let html = `
+        <div class="results-panel" role="region" aria-labelledby="results-title">
+          <h2 id="results-title">✨ ${resultData.title}</h2>
+          <p>Based on your selections, here are your recommended resources:</p>
+          <div class="result-cards">
+      `;
+
+      resultData.cards.forEach(card => {
+        html += `
+          <div class="result-card">
+            <h3>${card.title}</h3>
+            <p>${card.desc}</p>
+            <a href="${card.url}" class="cta">View guide</a>
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+          <p style="margin-top: 1.5rem;">Need more help? <a href="support.html">Contact the accessibility team</a></p>
+        </div>
+      `;
+
+      container.innerHTML = html;
+      container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Announce to screen readers
+      const announcement = document.createElement('div');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.className = 'visually-hidden';
+      announcement.textContent = `Showing results for ${resultData.title}. ${resultData.cards.length} resources recommended.`;
+      document.body.appendChild(announcement);
+      setTimeout(() => announcement.remove(), 1000);
+    }
+
+    function updateBreadcrumb() {
+      const trail = document.getElementById('breadcrumb-trail');
+      if (selections.length === 0) {
+        trail.hidden = true;
+        return;
+      }
+
+      trail.hidden = false;
+      trail.innerHTML = selections
+        .filter(s => s)
+        .map(s => `<span class="breadcrumb-item">${s.label}</span>`)
+        .join('');
+    }
+
+    function restartGuide() {
+      selections = [];
+      
+      // Reset all steps
+      document.querySelectorAll('.decision-step').forEach(step => {
+        step.classList.remove('active', 'completed');
+        if (step.dataset.step === '1') {
+          step.classList.add('active');
+        } else {
+          step.classList.add('hidden');
+        }
+        step.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+      });
+
+      // Clear results
+      document.getElementById('results-container').innerHTML = '';
+
+      // Hide restart button
+      document.getElementById('restart-btn').classList.add('hidden');
+
+      // Clear breadcrumb
+      updateBreadcrumb();
+
+      // Scroll to top
+      document.getElementById('step-1').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
+</body>
+</html>

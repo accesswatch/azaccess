@@ -2,6 +2,45 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Official University of Arizona palette (from MarCom) */
+    --ua-arizona-red: #AB0520;
+    /* Arizona Red - primary */
+    --ua-arizona-blue: #0C234B;
+    /* Arizona Blue - primary */
+    --ua-white: #FFFFFF;
+    --ua-warm-gray: #F4EDE5;
+    --ua-cool-gray: #E2E9EB;
+
+    /* Complimentary */
+    --ua-midnight: #001C48;
+    --ua-azurite: #1E5288;
+    --ua-oasis: #378DBD;
+
+    /* Highlights */
+    --ua-bloom: #EF4056;
+    --ua-sky: #81D3EB;
+    --ua-leaf: #70B865;
+    --ua-river: #007D84;
+    --ua-mesa: #A95C42;
+
+    /* Existing site tokens (explicit canonical values) */
+    --ua-background: #f5f5f5;
+    --ua-text: #0C234B;
+    /* same as --ua-arizona-blue */
+    --ua-maroon: #AB0520;
+    /* same as --ua-arizona-red */
+    --ua-maroon-hover: #870414;
+    /* keep hover as-is (close to brand darkening) */
+    --ua-border: #d5d5d5;
+    --ua-chip-bg: #e0e8f5;
+    --ua-muted-border: var(--ua-cool-gray);
+    --ua-alert-bg: #ffe7d9;
+    --ua-alert-text: #61120b;
+    --ua-code-bg: #0c234b0d;
+    /* light translucent code/pre background */
+}
+
 body {
     font-family: "Segoe UI", Arial, sans-serif;
     margin: 0;
@@ -31,7 +70,15 @@ footer {
 
 header {
     background: var(--ua-text);
-    color: #fff;
+    color: var(--ua-white);
+}
+
+header a {
+    color: var(--ua-white);
+}
+
+header .muted {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .site-header-brand {
@@ -58,7 +105,19 @@ header {
 }
 
 .site-header-nav {
+    /* allow nav to grow and keep links on one line when possible */
     flex: 1 1 auto;
+}
+
+/* separators between nav links */
+.site-header-nav a+a::before {
+    content: '\2022';
+    /* bullet dot */
+    display: inline-block;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 0.6rem;
+    vertical-align: middle;
 }
 
 main,
@@ -70,22 +129,13 @@ footer {
 
 .site-header-nav a,
 .site-header-utilities a {
-    color: #fff;
+    color: var(--ua-white);
     text-decoration: none;
     padding: 0.25rem 0.25rem;
     white-space: nowrap;
 }
 
-.site-header-nav a+a::before {
-    content: '\2022';
-    /* bullet dot */
-    display: inline-block;
-    font-size: 0.6rem;
-    color: rgba(255, 255, 255, 0.45);
-    margin: 0 0.6rem;
-    vertical-align: middle;
-}
-
+/* responsive: hamburger toggle */
 .nav-toggle {
     display: none;
     background: transparent;
@@ -136,7 +186,7 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    background: #fff;
+    background: var(--ua-white);
     color: var(--ua-text);
     padding: 0.5rem 1rem;
     transform: translateY(-200%);
@@ -144,15 +194,13 @@ footer {
     z-index: 1000;
 }
 
-.site-header .metric-chip,
-header .metric-chip {
-    background: #fff;
-    color: var(--ua-text);
-    border-color: rgba(0, 0, 0, 0.08);
+pre,
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 pre {
-    background: var(--ua-text)0d;
+    background: var(--ua-code-bg);
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     overflow-x: auto;
@@ -192,7 +240,7 @@ td {
 }
 
 .card {
-    background: #fff;
+    background: var(--ua-white);
     border: 1px solid var(--ua-border);
     border-radius: 6px;
     padding: 1rem;
@@ -218,16 +266,17 @@ td {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: #fff;
+    background: var(--ua-white);
     border-radius: 999px;
     padding: 0.25rem 0.75rem;
     border: 1px solid var(--ua-border);
     font-weight: 600;
 }
 
-/* Ensure metric chips inside header remain readable */
-.site-header .metric-chip {
-    background: #fff;
+/* If metric chips appear inside the dark header, ensure they remain readable */
+.site-header .metric-chip,
+header .metric-chip {
+    background: var(--ua-white);
     color: var(--ua-text);
     border-color: rgba(0, 0, 0, 0.08);
 }
@@ -236,7 +285,7 @@ button,
 .cta {
     display: inline-block;
     background: var(--ua-maroon);
-    color: #fff;
+    color: var(--ua-white);
     border: none;
     border-radius: 4px;
     padding: 0.6rem 1rem;
@@ -274,8 +323,13 @@ h3 {
 
 footer {
     background: var(--ua-text);
-    color: #fff;
+    color: var(--ua-white);
     margin-top: 2rem;
+}
+
+footer a {
+    color: var(--ua-white);
+    text-decoration: underline;
 }
 
 .tag-list {

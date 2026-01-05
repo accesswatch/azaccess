@@ -1,44 +1,338 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Focus Management Patterns | Accessibility</title>
+  <title>Focus Management | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; Apps</a> / Focus Management</p>
+    </nav>
+    <h1>Focus Management</h1>
+    <p>Controlling keyboard focus in dynamic web applications.</p>
+    <p class="metric-chip">🎯 WCAG 2.4.3, 2.4.7, 2.4.11</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="focus-overview">
+      <h2 id="focus-overview">What is focus management?</h2>
+      <p>Focus management is the practice of programmatically controlling where keyboard focus goes in response to user actions. It's critical for:</p>
+      <ul>
+        <li>Single-page applications (SPAs)</li>
+        <li>Modal dialogs and overlays</li>
+        <li>Dynamic content updates</li>
+        <li>Error handling in forms</li>
+        <li>Tab interfaces and accordions</li>
+      </ul>
+      <p>Poor focus management can leave keyboard users lost on a page, unable to continue their task.</p>
+    </section>
+
+    <section aria-labelledby="focus-indicators">
+      <h2 id="focus-indicators">Focus indicators (WCAG 2.4.7)</h2>
+      <p>Focus indicators show which element currently has keyboard focus.</p>
+      
+      <h3>Requirements</h3>
+      <ul>
+        <li>Must be visible for all focusable elements</li>
+        <li>Should have sufficient contrast against all backgrounds</li>
+        <li>Should not be removed without replacement</li>
+      </ul>
+
+      <h3>Recommended CSS approach</h3>
+      <pre>/* Use :focus-visible for keyboard-only focus */
+:focus-visible {
+  outline: 3px solid #0C234B;
+  outline-offset: 2px;
+}
+
+/* Fallback for browsers without :focus-visible */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* High contrast for dark backgrounds */
+.dark-bg :focus-visible {
+  outline-color: #FFD700;
+}</pre>
+
+      <h3>Never do this</h3>
+      <pre>/* ❌ Removes all focus indicators */
+*:focus {
+  outline: none;
+}
+
+/* ❌ Hides focus on specific elements */
+a:focus, button:focus {
+  outline: 0;
+}</pre>
+    </section>
+
+    <section aria-labelledby="focus-order">
+      <h2 id="focus-order">Focus order (WCAG 2.4.3)</h2>
+      <p>Focus order should match the visual reading order and preserve meaning.</p>
+      
+      <h3>Best practices</h3>
+      <ul>
+        <li>Use semantic HTML in logical source order</li>
+        <li>Avoid positive <code>tabindex</code> values (1, 2, 3...)</li>
+        <li>Test by tabbing through without mouse</li>
+        <li>Ensure CSS layout doesn't create visual/focus mismatch</li>
+      </ul>
+
+      <h3>CSS layout considerations</h3>
+      <pre>/* Flexbox can reorder visually but not focus order */
+.flex-container {
+  display: flex;
+  flex-direction: row-reverse; /* Visual order changed */
+}
+/* Focus still follows DOM order - may confuse users */
+
+/* If you must reorder, consider matching tabindex or DOM order */</pre>
+    </section>
+
+    <section aria-labelledby="focus-not-obscured">
+      <h2 id="focus-not-obscured">Focus not obscured (WCAG 2.4.11)</h2>
+      <p>New in WCAG 2.2: When an element receives focus, it must not be entirely hidden by other content.</p>
+      
+      <h3>Common problems</h3>
+      <ul>
+        <li>Sticky headers covering focused elements</li>
+        <li>Cookie consent banners</li>
+        <li>Chat widgets</li>
+        <li>Fixed navigation</li>
+      </ul>
+
+      <h3>Solutions</h3>
+      <pre>/* Use scroll-margin to offset for sticky headers */
+[id] {
+  scroll-margin-top: 80px; /* Height of sticky header */
+}
+
+/* Or scroll-padding on the container */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Ensure modals don't cover focused content behind them */
+.modal-open {
+  /* Trap focus inside modal instead */
+}</pre>
+    </section>
+
+    <section aria-labelledby="modal-focus">
+      <h2 id="modal-focus">Modal dialog focus management</h2>
+      <p>Modal dialogs require careful focus management to be accessible.</p>
+      
+      <h3>Requirements</h3>
+      <ol>
+        <li><strong>On open:</strong> Move focus into the modal (first focusable element or modal itself)</li>
+        <li><strong>Focus trap:</strong> Keep focus inside modal while open</li>
+        <li><strong>On close:</strong> Return focus to the element that opened the modal</li>
+        <li><strong>Escape key:</strong> Close modal and return focus</li>
+      </ol>
+
+      <h3>Implementation pattern</h3>
+      <pre>// Store trigger element
+let triggerElement;
+
+function openModal(modal) {
+  triggerElement = document.activeElement;
+  modal.setAttribute('aria-hidden', 'false');
+  modal.style.display = 'block';
+  
+  // Focus first focusable element or modal
+  const firstFocusable = modal.querySelector(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  if (firstFocusable) {
+    firstFocusable.focus();
+  } else {
+    modal.setAttribute('tabindex', '-1');
+    modal.focus();
+  }
+}
+
+function closeModal(modal) {
+  modal.setAttribute('aria-hidden', 'true');
+  modal.style.display = 'none';
+  
+  // Return focus to trigger
+  if (triggerElement) {
+    triggerElement.focus();
+  }
+}</pre>
+
+      <h3>Focus trap implementation</h3>
+      <pre>function trapFocus(modal) {
+  const focusableElements = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  modal.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    }
+    if (e.key === 'Escape') {
+      closeModal(modal);
+    }
+  });
+}</pre>
+    </section>
+
+    <section aria-labelledby="spa-focus">
+      <h2 id="spa-focus">Single-page application focus</h2>
+      <p>SPAs don't trigger page loads, so focus management must be handled manually.</p>
+      
+      <h3>Route change patterns</h3>
+      <ul>
+        <li><strong>Focus heading:</strong> Move focus to the new page's H1</li>
+        <li><strong>Focus container:</strong> Focus main content area with <code>tabindex="-1"</code></li>
+        <li><strong>Announce change:</strong> Use ARIA live region to announce new page</li>
+      </ul>
+
+      <h3>Example: React route change</h3>
+      <pre>// Focus main content on route change
+useEffect(() =&gt; {
+  const mainContent = document.getElementById('maincontent');
+  if (mainContent) {
+    mainContent.tabIndex = -1;
+    mainContent.focus();
+    // Remove tabindex after focus to prevent re-focus issues
+    mainContent.addEventListener('blur', () =&gt; {
+      mainContent.removeAttribute('tabindex');
+    }, { once: true });
+  }
+}, [location.pathname]);</pre>
+    </section>
+
+    <section aria-labelledby="dynamic-content">
+      <h2 id="dynamic-content">Dynamic content focus</h2>
+      
+      <h3>Form error handling</h3>
+      <p>When form validation fails:</p>
+      <ol>
+        <li>Move focus to error summary or first error</li>
+        <li>Announce errors to screen readers</li>
+        <li>Link errors to specific fields</li>
+      </ol>
+      <pre>function handleFormErrors(errors) {
+  // Create or update error summary
+  const summary = document.getElementById('error-summary');
+  summary.innerHTML = `&lt;h2&gt;${errors.length} errors found&lt;/h2&gt;...`;
+  
+  // Focus error summary
+  summary.tabIndex = -1;
+  summary.focus();
+  
+  // Announce to screen readers
+  summary.setAttribute('role', 'alert');
+}</pre>
+
+      <h3>Infinite scroll / Load more</h3>
+      <p>When new content loads:</p>
+      <ul>
+        <li>Don't automatically move focus</li>
+        <li>Announce new content with live region</li>
+        <li>Keep focus on "Load more" button</li>
+      </ul>
+
+      <h3>Delete actions</h3>
+      <p>When an item is deleted:</p>
+      <ul>
+        <li>Move focus to next item in list</li>
+        <li>Or move to previous item if last was deleted</li>
+        <li>Or move to container if list is empty</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="testing-focus">
+      <h2 id="testing-focus">Testing focus management</h2>
+      
+      <h3>Manual testing</h3>
+      <ol>
+        <li>Tab through entire page without mouse</li>
+        <li>Open/close modals and verify focus returns</li>
+        <li>Trigger route changes and check focus</li>
+        <li>Submit forms with errors</li>
+        <li>Verify focus is never lost off-screen</li>
+      </ol>
+
+      <h3>Automated tools</h3>
+      <ul>
+        <li><strong>Accessibility Insights:</strong> Tab stops visualization</li>
+        <li><strong>axe DevTools:</strong> Focus order issues</li>
+        <li><strong>Browser DevTools:</strong> <code>document.activeElement</code> in console</li>
+      </ul>
+
+      <h3>Debug tip</h3>
+      <pre>// Log focus changes in console
+document.addEventListener('focusin', (e) =&gt; {
+  console.log('Focus moved to:', e.target);
+});</pre>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Focus management checklist</h2>
+      <ul>
+        <li>☐ All focusable elements have visible focus indicator</li>
+        <li>☐ Focus order matches reading order</li>
+        <li>☐ Focus not obscured by sticky/fixed elements</li>
+        <li>☐ Modals trap focus and return focus on close</li>
+        <li>☐ Route changes move focus appropriately</li>
+        <li>☐ Form errors focus error summary or first error</li>
+        <li>☐ Dynamic content doesn't cause focus loss</li>
+        <li>☐ Escape key closes modals/menus</li>
+        <li>☐ No positive tabindex values used</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">WCAG Understanding 2.4.7 Focus Visible</a></li>
+        <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/">ARIA APG: Modal Dialog Pattern</a></li>
+        <li><a href="https://webaim.org/techniques/keyboard/">WebAIM: Keyboard Accessibility</a></li>
+        <li><a href="web-keyboard.html">Keyboard Accessibility Guide</a></li>
+        <li><a href="web-app.html">Web &amp; Apps Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'focus-management.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

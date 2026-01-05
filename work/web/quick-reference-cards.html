@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick Reference Cards | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .ref-card {
+      background: #fff;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      page-break-inside: avoid;
+    }
+    .ref-card h3 {
+      margin-top: 0;
+      color: #1565c0;
+      border-bottom: 2px solid #1565c0;
+      padding-bottom: 0.5rem;
+    }
+    .ref-card table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .ref-card th, .ref-card td {
+      padding: 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    .ref-card th {
+      background: #f5f5f5;
+      font-weight: 600;
+    }
+    .kbd {
+      display: inline-block;
+      background: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0.15rem 0.4rem;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+    .check-list {
+      list-style: none;
+      padding: 0;
+    }
+    .check-list li {
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .check-list li::before {
+      content: "☐";
+      position: absolute;
+      left: 0;
+    }
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #1565c0;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .print-btn:hover, .print-btn:focus {
+      background: #0d47a1;
+    }
+    .download-section {
+      background: #e3f2fd;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    @media print {
+      .no-print, header, footer, .site-header, nav {
+        display: none !important;
+      }
+      .ref-card {
+        border: 1px solid #000;
+        margin: 0.5rem 0;
+      }
+      body {
+        font-size: 11pt;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html" aria-current="page">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="tools-checklists.html">Tools</a> / Quick Reference Cards</p>
+    </nav>
+    <h1>Quick Reference Cards</h1>
+    <p>Print-friendly cheat sheets for your desk or wall.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section class="no-print" aria-labelledby="intro">
+      <h2 id="intro">About these cards</h2>
+      <p>Keep these quick reference cards at your desk for easy access to accessibility best practices. Each card covers a specific topic and fits on one printed page.</p>
+      
+      <div class="download-section">
+        <h3>🖨️ Print options</h3>
+        <p>Print individual cards or the entire collection.</p>
+        <button class="print-btn" onclick="window.print()">
+          <span aria-hidden="true">🖨️</span> Print all cards
+        </button>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Tip: Use your browser's print dialog to select specific pages or save as PDF.</p>
+      </div>
+    </section>
+
+    <!-- Card 1: Word Document Accessibility -->
+    <article class="ref-card" aria-labelledby="card-word">
+      <h3 id="card-word">📄 Microsoft Word Accessibility Checklist</h3>
+      <p><strong>Run Accessibility Checker:</strong> Review → Check Accessibility</p>
+      
+      <ul class="check-list">
+        <li><strong>Headings:</strong> Use built-in Heading styles (Home → Styles), not bold text</li>
+        <li><strong>Alt text:</strong> Right-click images → Edit Alt Text → Write description</li>
+        <li><strong>Links:</strong> Use descriptive text, not "click here" (Ctrl+K to edit)</li>
+        <li><strong>Lists:</strong> Use built-in bullet/number lists, not manual dashes</li>
+        <li><strong>Tables:</strong> Use Insert → Table; check "Header row" in Table Design</li>
+        <li><strong>Color:</strong> Don't use color alone to convey meaning; check contrast</li>
+        <li><strong>Language:</strong> Review → Language → Set Proofing Language</li>
+        <li><strong>Reading order:</strong> Selection Pane shows order (Home → Select → Selection Pane)</li>
+      </ul>
+      
+      <p><strong>Export to PDF:</strong> File → Export → Create PDF/XPS → Options → ✓ Document structure tags for accessibility</p>
+    </article>
+
+    <!-- Card 2: PowerPoint Accessibility -->
+    <article class="ref-card" aria-labelledby="card-ppt">
+      <h3 id="card-ppt">📊 PowerPoint Accessibility Checklist</h3>
+      <p><strong>Run Accessibility Checker:</strong> Review → Check Accessibility</p>
+      
+      <ul class="check-list">
+        <li><strong>Slide titles:</strong> Every slide needs a unique title (use Layout with title placeholder)</li>
+        <li><strong>Reading order:</strong> Home → Arrange → Selection Pane → Drag to reorder</li>
+        <li><strong>Alt text:</strong> Right-click images/charts → Edit Alt Text</li>
+        <li><strong>Links:</strong> Insert → Link → Display text (make it descriptive)</li>
+        <li><strong>Tables:</strong> Simple tables only; use "Header Row" in Table Design</li>
+        <li><strong>Color contrast:</strong> 4.5:1 for text; avoid red/green combinations</li>
+        <li><strong>Animations:</strong> Keep simple; avoid auto-advance; no flashing</li>
+        <li><strong>Videos:</strong> Add captions (Insert → Video → right-click → Insert Captions)</li>
+      </ul>
+      
+      <p><strong>Share as PDF:</strong> File → Export → Create PDF/XPS → Options → ✓ Document structure tags</p>
+    </article>
+
+    <!-- Card 3: Keyboard Shortcuts -->
+    <article class="ref-card" aria-labelledby="card-keyboard">
+      <h3 id="card-keyboard">⌨️ Essential Keyboard Navigation</h3>
+      <p><strong>Test every interactive element with these keys:</strong></p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="kbd">Tab</span></td>
+            <td>Move to next interactive element</td>
+          </tr>
+          <tr>
+            <td><span class="kbd">Shift</span> + <span class="kbd">Tab</span></td>
+            <td>Move to previous interactive element</td>
+          </tr>
+          <tr>
+            <td><span class="kbd">Enter</span></td>
+            <td>Activate link or button</td>
+          </tr>
+          <tr>
+            <td><span class="kbd">Space</span></td>
+            <td>Activate button, toggle checkbox, scroll page</td>
+          </tr>
+          <tr>
+            <td><span class="kbd">Escape</span></td>
+            <td>Close modal/dialog, cancel action</td>
+          </tr>
+          <tr>
+            <td><span class="kbd">↑</span> <span class="kbd">↓</span></td>
+            <td>Navigate within menus, radio groups, select boxes</td>
+          </tr>
+          <tr>
+            <td><span class="kbd">←</span> <span class="kbd">→</span></td>
+            <td>Navigate tabs, sliders, tree items</td>
+          </tr>
+          <tr>
+            <td><span class="kbd">Home</span> / <span class="kbd">End</span></td>
+            <td>Jump to first/last item in list</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p><strong>✓ Pass:</strong> Focus visible, logical order, no traps, all features accessible</p>
+      <p><strong>✗ Fail:</strong> Can't reach element, can't escape, focus invisible, wrong order</p>
+    </article>
+
+    <!-- Card 4: Alt Text Quick Guide -->
+    <article class="ref-card" aria-labelledby="card-alt">
+      <h3 id="card-alt">🖼️ Alt Text Quick Guide</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Image type</th>
+            <th scope="col">Alt text approach</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Informative</strong></td>
+            <td>Describe the content and purpose. "Student studying in library with laptop"</td>
+          </tr>
+          <tr>
+            <td><strong>Decorative</strong></td>
+            <td>Mark as decorative or use alt="" (empty). Don't describe.</td>
+          </tr>
+          <tr>
+            <td><strong>Functional</strong> (button/link)</td>
+            <td>Describe the action. "Search", "Submit form", "Go to homepage"</td>
+          </tr>
+          <tr>
+            <td><strong>Chart/Graph</strong></td>
+            <td>Summarize the data and trend. Provide data table nearby.</td>
+          </tr>
+          <tr>
+            <td><strong>Complex</strong> (diagram)</td>
+            <td>Brief alt + link to full description or long description nearby.</td>
+          </tr>
+          <tr>
+            <td><strong>Text in image</strong></td>
+            <td>Include all visible text. Better: use real text instead.</td>
+          </tr>
+          <tr>
+            <td><strong>Logo</strong></td>
+            <td>"University of Arizona logo" or just "University of Arizona"</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p><strong>Tips:</strong></p>
+      <ul style="margin: 0.5rem 0;">
+        <li>Be concise (usually under 125 characters)</li>
+        <li>Don't start with "Image of..." or "Picture of..."</li>
+        <li>Context matters—same image may need different alt text in different places</li>
+      </ul>
+    </article>
+
+    <!-- Card 5: Color Contrast -->
+    <article class="ref-card" aria-labelledby="card-contrast">
+      <h3 id="card-contrast">🎨 Color Contrast Requirements</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Content type</th>
+            <th scope="col">Minimum ratio</th>
+            <th scope="col">WCAG criterion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Normal text (&lt;18pt or &lt;14pt bold)</td>
+            <td><strong>4.5:1</strong></td>
+            <td>1.4.3 AA</td>
+          </tr>
+          <tr>
+            <td>Large text (≥18pt or ≥14pt bold)</td>
+            <td><strong>3:1</strong></td>
+            <td>1.4.3 AA</td>
+          </tr>
+          <tr>
+            <td>UI components, graphics</td>
+            <td><strong>3:1</strong></td>
+            <td>1.4.11 AA</td>
+          </tr>
+          <tr>
+            <td>Focus indicators</td>
+            <td><strong>3:1</strong></td>
+            <td>1.4.11 AA</td>
+          </tr>
+          <tr>
+            <td>Enhanced (AAA) normal text</td>
+            <td><strong>7:1</strong></td>
+            <td>1.4.6 AAA</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p><strong>Quick test tools:</strong></p>
+      <ul style="margin: 0.5rem 0;">
+        <li><a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></li>
+        <li><a href="https://www.tpgi.com/color-contrast-checker/">TPGi Colour Contrast Analyser</a> (desktop app)</li>
+        <li>axe DevTools, WAVE browser extensions</li>
+      </ul>
+      
+      <p><strong>Remember:</strong> Never use color alone to convey information!</p>
+    </article>
+
+    <!-- Card 6: WCAG POUR Principles -->
+    <article class="ref-card" aria-labelledby="card-pour">
+      <h3 id="card-pour">📋 WCAG 2.2 POUR Principles</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Principle</th>
+            <th scope="col">Key questions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>P</strong>erceivable</td>
+            <td>Can users <em>see or hear</em> the content?<br>
+              • Alt text for images?<br>
+              • Captions for video?<br>
+              • Sufficient contrast?</td>
+          </tr>
+          <tr>
+            <td><strong>O</strong>perable</td>
+            <td>Can users <em>interact</em> with everything?<br>
+              • Keyboard accessible?<br>
+              • No time limits?<br>
+              • Clear navigation?</td>
+          </tr>
+          <tr>
+            <td><strong>U</strong>nderstandable</td>
+            <td>Can users <em>comprehend</em> content and UI?<br>
+              • Clear language?<br>
+              • Consistent navigation?<br>
+              • Helpful error messages?</td>
+          </tr>
+          <tr>
+            <td><strong>R</strong>obust</td>
+            <td>Does it work with <em>assistive technology</em>?<br>
+              • Valid HTML?<br>
+              • Proper ARIA usage?<br>
+              • Tested with screen readers?</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p><strong>Target:</strong> WCAG 2.2 Level AA | <strong>Deadline:</strong> April 24, 2026</p>
+    </article>
+
+    <!-- Card 7: Quick Accessibility Audit -->
+    <article class="ref-card" aria-labelledby="card-audit">
+      <h3 id="card-audit">🔍 5-Minute Accessibility Audit</h3>
+      
+      <ul class="check-list">
+        <li><strong>Tab through the page</strong> — Can you reach everything? Is focus visible?</li>
+        <li><strong>Zoom to 200%</strong> — Does content reflow without horizontal scrolling?</li>
+        <li><strong>Check headings</strong> — Run WAVE or axe; is there a logical H1→H2→H3 structure?</li>
+        <li><strong>View without images</strong> — Are alt texts meaningful? Is info still clear?</li>
+        <li><strong>Test one form</strong> — Are labels connected? Do errors identify the problem?</li>
+        <li><strong>Play any video</strong> — Are captions available and accurate?</li>
+        <li><strong>Check links</strong> — Do link texts make sense out of context? (No "click here")</li>
+        <li><strong>Try high contrast</strong> — Does the page still work in Windows High Contrast mode?</li>
+      </ul>
+      
+      <p><strong>Found issues?</strong> Log them and prioritize by user impact.</p>
+      <p><strong>Need help?</strong> <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+    </article>
+
+    <!-- Card 8: Email Accessibility -->
+    <article class="ref-card" aria-labelledby="card-email">
+      <h3 id="card-email">✉️ Accessible Email Checklist (Outlook)</h3>
+      
+      <ul class="check-list">
+        <li><strong>Subject line:</strong> Clear and descriptive (not "Newsletter" alone)</li>
+        <li><strong>Headings:</strong> Use Format Text → Styles (not just bold text)</li>
+        <li><strong>Images:</strong> Right-click → Edit Alt Text (or mark decorative)</li>
+        <li><strong>Links:</strong> Descriptive text, not bare URLs or "click here"</li>
+        <li><strong>Lists:</strong> Use built-in bullet/numbered lists</li>
+        <li><strong>Tables:</strong> Simple structure only; use for data, not layout</li>
+        <li><strong>Color:</strong> Don't rely on color alone; maintain contrast</li>
+        <li><strong>Attachments:</strong> Include accessible versions; mention format in email</li>
+        <li><strong>Plain text:</strong> Provide plain text alternative for complex HTML emails</li>
+        <li><strong>Test:</strong> Send yourself a test; check in different email clients</li>
+      </ul>
+      
+      <p><strong>Run check:</strong> Options → Check Accessibility (before sending)</p>
+    </article>
+
+    <!-- Card 9: Video/Media -->
+    <article class="ref-card" aria-labelledby="card-video">
+      <h3 id="card-video">🎬 Video &amp; Media Accessibility</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Content type</th>
+            <th scope="col">Requirements</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pre-recorded video</td>
+            <td>Captions (synchronized text for dialogue + sounds)</td>
+          </tr>
+          <tr>
+            <td>Pre-recorded audio</td>
+            <td>Transcript (text version of all audio content)</td>
+          </tr>
+          <tr>
+            <td>Live video/audio</td>
+            <td>Live captions (CART) for real-time events</td>
+          </tr>
+          <tr>
+            <td>Visual-only content</td>
+            <td>Audio description or text description</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p><strong>Caption quality targets:</strong></p>
+      <ul style="margin: 0.5rem 0;">
+        <li>99%+ accuracy for educational content</li>
+        <li>Speaker identification for multiple speakers</li>
+        <li>Sound effects noted: [applause], [music playing]</li>
+        <li>Synchronized within 2-3 seconds of audio</li>
+      </ul>
+      
+      <p><strong>Tools:</strong> Panopto (auto-caption + edit), YouTube Studio, Rev.com</p>
+    </article>
+
+    <!-- Card 10: Screen Reader Testing -->
+    <article class="ref-card" aria-labelledby="card-sr">
+      <h3 id="card-sr">🔊 Screen Reader Quick Start</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Platform</th>
+            <th scope="col">Screen reader</th>
+            <th scope="col">Start/Stop</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Windows (free)</td>
+            <td>NVDA</td>
+            <td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">N</span> / <span class="kbd">Insert</span>+<span class="kbd">Q</span></td>
+          </tr>
+          <tr>
+            <td>Windows (built-in)</td>
+            <td>Narrator</td>
+            <td><span class="kbd">Win</span>+<span class="kbd">Ctrl</span>+<span class="kbd">Enter</span></td>
+          </tr>
+          <tr>
+            <td>Mac</td>
+            <td>VoiceOver</td>
+            <td><span class="kbd">Cmd</span>+<span class="kbd">F5</span></td>
+          </tr>
+          <tr>
+            <td>iPhone/iPad</td>
+            <td>VoiceOver</td>
+            <td>Settings → Accessibility → VoiceOver (or triple-click home/side)</td>
+          </tr>
+          <tr>
+            <td>Android</td>
+            <td>TalkBack</td>
+            <td>Settings → Accessibility → TalkBack</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p><strong>Basic NVDA commands:</strong></p>
+      <ul style="margin: 0.5rem 0; columns: 2;">
+        <li><span class="kbd">↓</span> Next item</li>
+        <li><span class="kbd">H</span> Next heading</li>
+        <li><span class="kbd">K</span> Next link</li>
+        <li><span class="kbd">F</span> Next form field</li>
+        <li><span class="kbd">T</span> Next table</li>
+        <li><span class="kbd">D</span> Next landmark</li>
+      </ul>
+    </article>
+
+    <section class="no-print" aria-labelledby="more-resources">
+      <h2 id="more-resources">More resources</h2>
+      <ul>
+        <li><a href="testing-tools.html">Testing Tools</a> — Full guide to accessibility testing tools</li>
+        <li><a href="documents-media.html">Documents &amp; Media</a> — Detailed document accessibility guides</li>
+        <li><a href="web-keyboard.html">Keyboard Accessibility</a> — Complete keyboard guidance</li>
+        <li><a href="glossary.html">Glossary</a> — Definitions of accessibility terms</li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+  <script src="scripts/feedback-widget.js" defer></script>
+</body>
+</html>

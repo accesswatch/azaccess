@@ -1,83 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessible Word &amp; PowerPoint Basics | Accessibility at Arizona</title>
+  <title>Accessible Word & PowerPoint Basics | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary" role="navigation">
-        <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
-        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
-    </div>
-    <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Word &amp; PowerPoint Basics</p>
-    <h1>Accessible Word &amp; PowerPoint Basics</h1>
-    <p class="page-meta">Updated: 2025-11-20 · Next review: 2026-02-20</p>
-  </header>
-  <main id="maincontent" role="main">
-    <section aria-labelledby="why-title">
-      <h2 id="why-title">Why it matters</h2>
-      <p>Microsoft 365 files count as conventional electronic documents under Title II when they stay in active circulation. Fixing accessibility in Word and PowerPoint prevents repeated remediation work when exporting to PDF or posting in Brightspace.</p>
-    </section>
-
-    <section aria-labelledby="actions-title">
-      <h2 id="actions-title">Key actions</h2>
-      <ol>
-        <li>Use built-in styles for headings, lists, and tables instead of manual formatting.</li>
-        <li>Write clear alt text for informative images; mark decorative images as decorative.</li>
-        <li>Check slide reading order in PowerPoint using the Selection Pane.</li>
-        <li>Ensure sufficient color contrast for text and links.</li>
-        <li>Name links descriptively (avoid "click here").</li>
-        <li>Use real tables for data with header rows identified.</li>
-        <li>Run the Accessibility Checker and resolve issues before publishing.</li>
-        <li>Export to tagged PDF only after the source passes checks.</li>
-      </ol>
-    </section>
-
-    <section aria-labelledby="checklist-title">
-      <h2 id="checklist-title">Quick checklist</h2>
-      <ul>
-        <li>Heading styles applied with no skipped levels.</li>
-        <li>Alt text present or images marked decorative.</li>
-        <li>Slide reading order verified.</li>
-        <li>Color contrast and link styling meet guidance.</li>
-        <li>Tables have header rows identified.</li>
-        <li>Accessibility Checker reports zero errors.</li>
-        <li>Document language set correctly.</li>
-      </ul>
-    </section>
-    <section aria-labelledby="also-docs">
-      <h2 id="also-docs">Also in Documents &amp; Media</h2>
-      <ul>
-        <li><a href="documents-overview.html">Documents overview</a></li>
-        <li><a href="media-captioning.html">Media &amp; captioning guide</a></li>
-        <li><a href="example-syllabus.html">Accessible syllabus example</a></li>
-      </ul>
-    </section>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <main id="maincontent" class="doc-content" role="main">
+    <article id="content">Loading…</article>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const mdFile = 'doc-word.html';
+      try {
+        const res = await fetch(mdFile);
+        const text = await res.text();
+        const fm = text.match(/^---\n([\s\S]*?)\n---/);
+        let title = '';
+        let body = text;
+        if (fm) {
+          const yaml = fm[1];
+          const m = yaml.match(/^title:\s*(.*)$/m);
+          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
+          body = text.slice(fm[0].length);
+        }
+        const html = marked.parse(body);
+        if (title) document.title = title + ' | Accessibility';
+        const header = title ? ('<h1>'+title+'</h1>') : '';
+        document.getElementById('content').innerHTML = header + html;
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error loading document: ' + e;
+      }
+    })();
+  </script>
 </body>
 </html>

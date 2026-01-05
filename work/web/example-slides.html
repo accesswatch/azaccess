@@ -3,24 +3,126 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessible Slide Deck Example | Accessibility at Arizona</title>
+  <title>Accessible Slides Example | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
-    <div class="site-header-brand">
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-University of Arizona · Digital Accessibility</div>
-    <p>Example · Documents &amp; Media</p>
-    <h1>Accessible Slide Deck Example</h1>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Slides Example</p>
+    </nav>
+    <h1>Accessible Slides Example</h1>
+    <p>This example demonstrates accessible presentation design with proper structure, contrast, and alternative text.</p>
   </header>
   <main id="maincontent" role="main">
-    <p>This example compares an inaccessible slide layout to an accessible template-based layout with proper reading order.</p>
+    <section aria-labelledby="slides-demo">
+      <h2 id="slides-demo">Sample Slide Deck Structure</h2>
+      
+      <article class="card">
+        <h3>Slide 1: Title Slide</h3>
+        <p><strong>Title:</strong> Digital Accessibility at Arizona</p>
+        <p><strong>Subtitle:</strong> Making our digital world work for everyone</p>
+        <p><strong>Presenter:</strong> Accessibility Program Office</p>
+        <p><strong>Date:</strong> January 2026</p>
+        <p class="muted">Alt text for UA logo: "University of Arizona logo"</p>
+      </article>
+      
+      <article class="card">
+        <h3>Slide 2: Why Accessibility Matters</h3>
+        <ul>
+          <li>1 in 4 adults have a disability (CDC, 2023)</li>
+          <li>Title II deadline: April 24, 2026</li>
+          <li>Accessibility benefits everyone: mobile users, situational disabilities, aging populations</li>
+        </ul>
+        <p class="muted">Speaker notes: Emphasize that accessibility is not just legal compliance—it improves usability for all users.</p>
+      </article>
+      
+      <article class="card">
+        <h3>Slide 3: WCAG 2.2 Principles</h3>
+        <p>The four principles of accessible content:</p>
+        <ol>
+          <li><strong>Perceivable:</strong> Information must be presentable to all senses</li>
+          <li><strong>Operable:</strong> Interface must work with keyboard and assistive tech</li>
+          <li><strong>Understandable:</strong> Content and operation must be clear</li>
+          <li><strong>Robust:</strong> Content must work across platforms and tools</li>
+        </ol>
+      </article>
+      
+      <article class="card">
+        <h3>Slide 4: Quick Wins</h3>
+        <ul>
+          <li>Use built-in heading styles (don't just make text bold)</li>
+          <li>Add alt text to all images</li>
+          <li>Ensure 4.5:1 color contrast ratio</li>
+          <li>Use meaningful link text ("View training calendar" not "Click here")</li>
+        </ul>
+      </article>
+      
+      <article class="card">
+        <h3>Slide 5: Resources</h3>
+        <ul>
+          <li>accessibility.arizona.edu</li>
+          <li>accessibility@arizona.edu</li>
+          <li>Office Hours: Tuesdays, 2-4 PM</li>
+        </ul>
+        <p class="muted">QR code alt text: "QR code linking to accessibility.arizona.edu"</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="slides-tips">
+      <h2 id="slides-tips">Best practices for accessible slides</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Structure</h3>
+          <ul>
+            <li>Use built-in slide layouts</li>
+            <li>Apply proper heading hierarchy</li>
+            <li>Set logical reading order</li>
+            <li>Keep one topic per slide</li>
+          </ul>
+        </article>
+        
+        <article class="card">
+          <h3>Visual design</h3>
+          <ul>
+            <li>Maintain 4.5:1 contrast ratio</li>
+            <li>Use 18pt+ font for body text</li>
+            <li>Avoid text over complex backgrounds</li>
+            <li>Don't rely on color alone to convey meaning</li>
+          </ul>
+        </article>
+        
+        <article class="card">
+          <h3>Images &amp; media</h3>
+          <ul>
+            <li>Add alt text to all images</li>
+            <li>Caption or describe videos</li>
+            <li>Mark decorative images appropriately</li>
+            <li>Use high-contrast diagrams</li>
+          </ul>
+        </article>
+        
+        <article class="card">
+          <h3>Sharing</h3>
+          <ul>
+            <li>Run Accessibility Checker before sharing</li>
+            <li>Export to accessible PDF if needed</li>
+            <li>Provide speaker notes as alternative</li>
+            <li>Share slides before presentations</li>
+          </ul>
+        </article>
+      </div>
+      <p><a class="cta" href="documents-media.html">Full document guidance</a></p>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="documents-media.html">Back to Documents &amp; Media</a></p>
   </footer>
 </body>
 </html>

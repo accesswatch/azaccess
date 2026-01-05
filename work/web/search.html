@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .search-container {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .search-box {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .search-box input[type="search"] {
+      flex: 1;
+      padding: 1rem 1.25rem;
+      font-size: 1.1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+    .search-box input[type="search"]:focus {
+      border-color: #1565c0;
+      outline: 3px solid rgba(21, 101, 192, 0.3);
+      outline-offset: 2px;
+    }
+    .search-box button {
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      background: #1565c0;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .search-box button:hover, .search-box button:focus {
+      background: #0d47a1;
+    }
+    .search-tips {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    .search-tips summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .search-results {
+      margin-top: 2rem;
+    }
+    .result-count {
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .search-result {
+      padding: 1.25rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: #fff;
+    }
+    .search-result:hover {
+      border-color: #1565c0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .search-result h3 {
+      margin: 0 0 0.5rem;
+    }
+    .search-result h3 a {
+      color: #1565c0;
+      text-decoration: none;
+    }
+    .search-result h3 a:hover {
+      text-decoration: underline;
+    }
+    .search-result .category {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1565c0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    .search-result .excerpt {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .search-result .excerpt mark {
+      background: #fff59d;
+      padding: 0 2px;
+    }
+    .no-results {
+      text-align: center;
+      padding: 3rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    .no-results h3 {
+      margin-bottom: 1rem;
+    }
+    .popular-searches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .popular-searches a {
+      background: #e0e0e0;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.9rem;
+    }
+    .popular-searches a:hover {
+      background: #1565c0;
+      color: #fff;
+    }
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+    }
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .quick-links a {
+      display: block;
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #333;
+      text-align: center;
+    }
+    .quick-links a:hover {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / Search</p>
+    </nav>
+    <h1>Search Accessibility Resources</h1>
+    <p>Find guides, tools, and answers across the entire site.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <div class="search-container">
+      <form role="search" id="search-form" onsubmit="performSearch(event)">
+        <div class="search-box">
+          <label for="search-input" class="visually-hidden">Search for accessibility resources</label>
+          <input type="search" id="search-input" placeholder="Search for guides, tools, terms..." autocomplete="off" aria-describedby="search-desc">
+          <button type="submit">Search</button>
+        </div>
+        <p id="search-desc" class="visually-hidden">Type your search query and press Enter or click Search. Results will appear below.</p>
+      </form>
+      
+      <details class="search-tips">
+        <summary>💡 Search tips</summary>
+        <ul>
+          <li><strong>Use keywords:</strong> "alt text", "captions", "keyboard"</li>
+          <li><strong>Search by role:</strong> "faculty", "developer", "student"</li>
+          <li><strong>Search by tool:</strong> "Word", "PowerPoint", "Brightspace"</li>
+          <li><strong>Search by standard:</strong> "WCAG", "Section 508", "Title II"</li>
+        </ul>
+      </details>
+    </div>
+
+    <div id="search-results" class="search-results" aria-live="polite" aria-atomic="false">
+      <!-- Initial state: Quick links -->
+      <section aria-labelledby="browse-heading">
+        <h2 id="browse-heading">Browse by category</h2>
+        <div class="quick-links">
+          <a href="personas.html">👤 By Role (Personas)</a>
+          <a href="documents-media.html">📄 Documents &amp; Media</a>
+          <a href="web-app.html">🌐 Web &amp; Apps</a>
+          <a href="teaching-learning.html">🎓 Teaching &amp; Learning</a>
+          <a href="tools-checklists.html">🔧 Tools &amp; Checklists</a>
+          <a href="glossary.html">📖 Glossary</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="popular-heading">
+        <h2 id="popular-heading">Popular searches</h2>
+        <div class="popular-searches">
+          <a href="#" onclick="searchFor('alt text'); return false;">alt text</a>
+          <a href="#" onclick="searchFor('captions'); return false;">captions</a>
+          <a href="#" onclick="searchFor('keyboard'); return false;">keyboard</a>
+          <a href="#" onclick="searchFor('WCAG'); return false;">WCAG</a>
+          <a href="#" onclick="searchFor('screen reader'); return false;">screen reader</a>
+          <a href="#" onclick="searchFor('color contrast'); return false;">color contrast</a>
+          <a href="#" onclick="searchFor('PDF'); return false;">PDF</a>
+          <a href="#" onclick="searchFor('Title II'); return false;">Title II</a>
+          <a href="#" onclick="searchFor('accommodations'); return false;">accommodations</a>
+          <a href="#" onclick="searchFor('Brightspace'); return false;">Brightspace</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+
+  <script>
+    // Search index - comprehensive site content
+    const searchIndex = [
+      // Main hubs
+      { title: "Accessibility 101", url: "accessibility-101.html", category: "Getting Started", keywords: "basics fundamentals introduction wcag pour principles what is accessibility beginner", excerpt: "Your foundational guide to understanding digital accessibility—what it means, why it matters, and how to get started." },
+      { title: "Home", url: "home.html", category: "Navigation", keywords: "start main hub welcome", excerpt: "Central hub for all accessibility resources at the University of Arizona." },
+      { title: "Support & Help", url: "support.html", category: "Support", keywords: "help contact consultation assistance questions email phone", excerpt: "Request consultations, report barriers, or get answers to accessibility questions." },
+      
+      // Personas
+      { title: "Students", url: "persona-students.html", category: "Personas", keywords: "student accommodations drc disability resource center rights barriers", excerpt: "Accommodations, captioned media, barrier reporting, and assistive technology resources for students." },
+      { title: "Faculty", url: "persona-faculty.html", category: "Personas", keywords: "faculty instructor teacher professor course brightspace panopto syllabus", excerpt: "Creating accessible courses, lectures, and materials for all learners." },
+      { title: "Staff", url: "persona-staff.html", category: "Personas", keywords: "staff employee administrative procurement events", excerpt: "Accessible procurement, event planning, and office communications." },
+      { title: "Developers", url: "persona-developers.html", category: "Personas", keywords: "developer programmer engineer code web app mobile testing ci cd", excerpt: "Building accessible websites, applications, and digital services." },
+      { title: "Content Creators", url: "persona-content.html", category: "Personas", keywords: "content writer author editor documents images", excerpt: "Creating accessible documents, images, and digital content." },
+      { title: "Communications", url: "persona-comms.html", category: "Personas", keywords: "communications marketing social media newsletter email campaigns", excerpt: "Accessible communications, marketing materials, and social media." },
+      { title: "Leadership", url: "persona-leadership.html", category: "Personas", keywords: "leadership executive manager director compliance governance", excerpt: "Strategic accessibility planning and compliance for leaders." },
+      { title: "All Personas", url: "personas.html", category: "Personas", keywords: "roles guides audience", excerpt: "Choose your role to get tailored accessibility guidance." },
+      
+      // Documents & Media
+      { title: "Documents & Media Hub", url: "documents-media.html", category: "Documents", keywords: "documents files media video audio images", excerpt: "Central hub for creating accessible documents, presentations, and media." },
+      { title: "Documents Overview", url: "documents-overview.html", category: "Documents", keywords: "documents overview fundamentals basics structure alt text", excerpt: "Understanding the fundamentals of accessible digital documents." },
+      { title: "Microsoft Word", url: "doc-word.html", category: "Documents", keywords: "word document docx microsoft office headings styles", excerpt: "Creating accessible Word documents with proper structure and alt text." },
+      { title: "Microsoft PowerPoint", url: "doc-powerpoint.html", category: "Documents", keywords: "powerpoint slides presentation pptx microsoft office", excerpt: "Creating accessible PowerPoint presentations with proper structure." },
+      { title: "Microsoft Excel", url: "doc-excel.html", category: "Documents", keywords: "excel spreadsheet xlsx data tables charts", excerpt: "Making spreadsheets accessible with named ranges and proper structure." },
+      { title: "Google Docs & Slides", url: "doc-google.html", category: "Documents", keywords: "google docs slides drive workspace", excerpt: "Accessibility features in Google Workspace applications." },
+      { title: "PDF Remediation", url: "pdf-remediation.html", category: "Documents", keywords: "pdf tagged acrobat remediation reading order", excerpt: "Creating and fixing accessible PDF documents." },
+      { title: "Email Accessibility", url: "email-outlook.html", category: "Documents", keywords: "email outlook accessible newsletters", excerpt: "Writing accessible emails in Outlook and other clients." },
+      { title: "Gmail Accessibility", url: "email-gmail.html", category: "Documents", keywords: "gmail google email accessible", excerpt: "Writing accessible emails in Gmail." },
+      { title: "Newsletter Accessibility", url: "email-newsletters.html", category: "Documents", keywords: "newsletter email mass communications mailchimp", excerpt: "Creating accessible email newsletters and mass communications." },
+      { title: "Meaningful Link Text", url: "meaningful-links.html", category: "Documents", keywords: "links link text descriptive click here", excerpt: "Writing link text that makes sense out of context." },
+      { title: "Media Captioning", url: "media-captioning.html", category: "Media", keywords: "captions subtitles video audio transcript panopto", excerpt: "Adding accurate captions to videos and creating transcripts." },
+      { title: "Panopto Captioning", url: "lms-panopto.html", category: "Media", keywords: "panopto video lecture recording captions", excerpt: "Using Panopto's captioning features for lecture recordings." },
+      
+      // Web & Apps
+      { title: "Web & App Hub", url: "web-app.html", category: "Web", keywords: "web website app application digital wcag", excerpt: "Building accessible websites and applications that meet WCAG standards." },
+      { title: "Keyboard Accessibility", url: "web-keyboard.html", category: "Web", keywords: "keyboard navigation tab focus trap", excerpt: "Ensuring all functionality works with keyboard-only navigation." },
+      { title: "Focus Management", url: "focus-management.html", category: "Web", keywords: "focus indicator ring visible modal dialog", excerpt: "Managing keyboard focus for dialogs, menus, and dynamic content." },
+      { title: "Color Contrast", url: "color-contrast.html", category: "Web", keywords: "color contrast ratio text background wcag 1.4.3", excerpt: "Meeting color contrast requirements for text and UI components." },
+      { title: "Skip Links", url: "skip-link-snippet.html", category: "Web", keywords: "skip link bypass navigation main content", excerpt: "Implementing skip links for keyboard users." },
+      { title: "Heading Structure", url: "heading-basics.html", category: "Web", keywords: "headings h1 h2 h3 structure hierarchy outline", excerpt: "Creating proper heading structure for navigation and understanding." },
+      { title: "ARIA Patterns", url: "aria-patterns.html", category: "Web", keywords: "aria wai-aria roles states properties modal tabs accordion", excerpt: "Accessible patterns for complex UI components using ARIA." },
+      { title: "React Accessibility", url: "dev-react.html", category: "Web", keywords: "react javascript jsx component hooks accessibility", excerpt: "Building accessible React applications with best practices." },
+      { title: "CI/CD Testing", url: "dev-cicd-testing.html", category: "Web", keywords: "ci cd continuous integration testing automation github actions", excerpt: "Integrating accessibility testing into your development pipeline." },
+      
+      // Teaching & Learning
+      { title: "Teaching & Learning Hub", url: "teaching-learning.html", category: "Teaching", keywords: "teaching learning courses syllabus udl universal design", excerpt: "Creating accessible learning experiences and course materials." },
+      { title: "Brightspace LMS", url: "lms-brightspace.html", category: "Teaching", keywords: "brightspace d2l lms learning management", excerpt: "Building accessible courses in Brightspace/D2L." },
+      { title: "Pedagogy Checklist", url: "pedagogy-checklist.html", category: "Teaching", keywords: "pedagogy teaching inclusive udl checklist", excerpt: "Inclusive teaching practices and course design checklist." },
+      { title: "UDL Framework", url: "udl-framework.html", category: "Teaching", keywords: "udl universal design learning cast", excerpt: "Universal Design for Learning principles and application." },
+      
+      // Procurement
+      { title: "Procurement Hub", url: "procurement.html", category: "Procurement", keywords: "procurement purchasing vendor vpat contract", excerpt: "Accessible technology procurement and vendor evaluation." },
+      { title: "VPAT Review", url: "vpat-review.html", category: "Procurement", keywords: "vpat acr accessibility conformance report evaluation", excerpt: "How to evaluate VPATs and accessibility conformance reports." },
+      { title: "Vendor FAQ", url: "vendor-faq.html", category: "Procurement", keywords: "vendor questions answers accessibility requirements", excerpt: "Common questions vendors ask about accessibility requirements." },
+      
+      // Tools & Checklists
+      { title: "Tools & Checklists Hub", url: "tools-checklists.html", category: "Tools", keywords: "tools checklists testing resources", excerpt: "Central inventory of accessibility tools, templates, and guides." },
+      { title: "Testing Tools", url: "testing-tools.html", category: "Tools", keywords: "testing tools axe wave accessibility insights lighthouse", excerpt: "Automated and manual testing tools for accessibility evaluation." },
+      { title: "Quick Reference Cards", url: "quick-reference-cards.html", category: "Tools", keywords: "quick reference cards cheat sheet printable", excerpt: "Print-friendly cheat sheets for Word, PowerPoint, keyboard, and more." },
+      { title: "Glossary", url: "glossary.html", category: "Reference", keywords: "glossary terms definitions vocabulary jargon acronyms", excerpt: "A-Z definitions of accessibility terms and acronyms." },
+      { title: "Interactive Tools", url: "interactive-tools.html", category: "Tools", keywords: "interactive tools contrast checker alt text heading validator practice", excerpt: "Practice accessibility skills with color contrast checker, alt text trainer, and heading validator." },
+      { title: "Success Stories", url: "success-stories.html", category: "Awareness", keywords: "success stories case studies examples before after lessons", excerpt: "Real accessibility improvement examples from across campus with lessons learned." },
+      
+      // Policies & Governance
+      { title: "Policies & Governance Hub", url: "policies-governance.html", category: "Policies", keywords: "policies governance compliance legal", excerpt: "Accessibility policies, governance structure, and compliance." },
+      { title: "Title II Brief", url: "title-ii-brief.html", category: "Policies", keywords: "title ii ada doj deadline 2026 compliance", excerpt: "Summary of Title II requirements and April 2026 deadline." },
+      { title: "WCAG 2.2 Highlights", url: "wcag22-highlights.html", category: "Standards", keywords: "wcag 2.2 new criteria focus appearance dragging", excerpt: "What's new in WCAG 2.2 and how it affects UA compliance." },
+      { title: "Governance Charter", url: "governance-charter.html", category: "Policies", keywords: "governance charter roles responsibilities committee", excerpt: "Accessibility governance structure and committee charter." },
+      { title: "Service Levels", url: "service-levels.html", category: "Policies", keywords: "sla service levels response times support", excerpt: "Service level agreements for accessibility support." },
+      
+      // Awareness & Education
+      { title: "Why Accessibility Matters", url: "why-accessibility-matters.html", category: "Awareness", keywords: "why matters importance benefits case", excerpt: "The human, legal, and business case for digital accessibility." },
+      { title: "Business Case for Accessibility", url: "business-case.html", category: "Awareness", keywords: "business case roi return investment benefits", excerpt: "Beyond compliance: how accessibility drives better outcomes for everyone." },
+      { title: "Myths vs Facts", url: "myths-vs-facts.html", category: "Awareness", keywords: "myths facts misconceptions debunked", excerpt: "Common accessibility misconceptions debunked with facts." },
+      { title: "Quick Wins", url: "quick-wins.html", category: "Getting Started", keywords: "quick wins easy fixes fast improvements", excerpt: "High-impact accessibility improvements you can make in minutes." },
+      { title: "Disability Statistics", url: "disability-statistics.html", category: "Awareness", keywords: "statistics data numbers disability prevalence", excerpt: "Data on disability prevalence and the importance of accessibility." },
+      { title: "Experience Simulations", url: "experience-simulations.html", category: "Awareness", keywords: "simulations experience empathy disability", excerpt: "Interactive simulations to experience accessibility barriers." },
+      { title: "Assistive Technology Guide", url: "assistive-tech-guide.html", category: "Tools", keywords: "assistive technology screen reader magnifier voice control", excerpt: "Overview of assistive technologies and how they work." },
+      
+      // Student Resources
+      { title: "Student Rights", url: "student-rights.html", category: "Students", keywords: "student rights ada section 504 accommodations advocacy", excerpt: "Your rights as a student with a disability under ADA and Section 504." },
+      
+      // Additional Resources
+      { title: "Training Calendar", url: "training-calendar.html", category: "Training", keywords: "training workshops events calendar schedule", excerpt: "Upcoming accessibility training sessions and workshops." },
+      { title: "Blog", url: "blog.html", category: "News", keywords: "blog news updates announcements", excerpt: "Latest accessibility news, tips, and announcements." },
+      { title: "Do's and Don'ts", url: "do-dont.html", category: "Reference", keywords: "do dont best practices patterns", excerpt: "Accessibility do's and don'ts with visual examples." },
+      { title: "Accessibility Statement", url: "accessibility-statement.html", category: "About", keywords: "accessibility statement conformance commitment", excerpt: "Our commitment to accessibility and site conformance status." },
+      { title: "Wizard", url: "wizard.html", category: "Tools", keywords: "wizard guide questions personalized", excerpt: "Answer questions to get personalized accessibility guidance." },
+      { title: "Decision Guide", url: "decision-guide.html", category: "Tools", keywords: "decision guide flowchart what to do", excerpt: "Interactive guide: I need to make X accessible - where do I start?" },
+      { title: "Inclusive Events", url: "events-inclusive.html", category: "Events", keywords: "events meetings inclusive accessible planning", excerpt: "Planning accessible and inclusive events and meetings." },
+    ];
+
+    function searchFor(query) {
+      document.getElementById('search-input').value = query;
+      performSearch({ preventDefault: () => {} });
+    }
+
+    function performSearch(event) {
+      event.preventDefault();
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+      const resultsContainer = document.getElementById('search-results');
+
+      if (!query) {
+        // Reset to default view
+        resultsContainer.innerHTML = `
+          <section aria-labelledby="browse-heading">
+            <h2 id="browse-heading">Browse by category</h2>
+            <div class="quick-links">
+              <a href="personas.html">👤 By Role (Personas)</a>
+              <a href="documents-media.html">📄 Documents &amp; Media</a>
+              <a href="web-app.html">🌐 Web &amp; Apps</a>
+              <a href="teaching-learning.html">🎓 Teaching &amp; Learning</a>
+              <a href="tools-checklists.html">🔧 Tools &amp; Checklists</a>
+              <a href="glossary.html">📖 Glossary</a>
+            </div>
+          </section>
+        `;
+        return;
+      }
+
+      // Search through index
+      const results = searchIndex.filter(item => {
+        const searchText = `${item.title} ${item.keywords} ${item.excerpt} ${item.category}`.toLowerCase();
+        return searchText.includes(query);
+      });
+
+      // Sort by relevance (title match first, then keyword match)
+      results.sort((a, b) => {
+        const aTitle = a.title.toLowerCase().includes(query) ? 0 : 1;
+        const bTitle = b.title.toLowerCase().includes(query) ? 0 : 1;
+        return aTitle - bTitle;
+      });
+
+      // Display results
+      if (results.length === 0) {
+        resultsContainer.innerHTML = `
+          <div class="no-results">
+            <h3>No results found for "${escapeHtml(query)}"</h3>
+            <p>Try different keywords or browse by category:</p>
+            <div class="popular-searches">
+              <a href="#" onclick="searchFor('documents'); return false;">documents</a>
+              <a href="#" onclick="searchFor('video'); return false;">video</a>
+              <a href="#" onclick="searchFor('testing'); return false;">testing</a>
+              <a href="#" onclick="searchFor('training'); return false;">training</a>
+            </div>
+            <p style="margin-top: 1rem;">Can't find what you need? <a href="support.html">Contact us</a></p>
+          </div>
+        `;
+      } else {
+        let html = `<p class="result-count">${results.length} result${results.length !== 1 ? 's' : ''} for "${escapeHtml(query)}"</p>`;
+        
+        results.forEach(item => {
+          const highlightedExcerpt = highlightMatch(item.excerpt, query);
+          html += `
+            <article class="search-result">
+              <span class="category">${escapeHtml(item.category)}</span>
+              <h3><a href="${item.url}">${escapeHtml(item.title)}</a></h3>
+              <p class="excerpt">${highlightedExcerpt}</p>
+            </article>
+          `;
+        });
+
+        resultsContainer.innerHTML = html;
+      }
+
+      // Announce to screen readers
+      const announcement = results.length === 0 
+        ? `No results found for ${query}` 
+        : `${results.length} results found for ${query}`;
+      announceToScreenReader(announcement);
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function highlightMatch(text, query) {
+      const escaped = escapeHtml(text);
+      const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+      return escaped.replace(regex, '<mark>$1</mark>');
+    }
+
+    function escapeRegex(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function announceToScreenReader(message) {
+      const announcer = document.createElement('div');
+      announcer.setAttribute('aria-live', 'polite');
+      announcer.setAttribute('aria-atomic', 'true');
+      announcer.className = 'visually-hidden';
+      announcer.textContent = message;
+      document.body.appendChild(announcer);
+      setTimeout(() => announcer.remove(), 1000);
+    }
+
+    // Handle URL parameters for direct search
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryParam = urlParams.get('q');
+    if (queryParam) {
+      document.getElementById('search-input').value = queryParam;
+      performSearch({ preventDefault: () => {} });
+    }
+
+    // Focus search input on load if no query
+    if (!queryParam) {
+      document.getElementById('search-input').focus();
+    }
+  </script>
+</body>
+</html>

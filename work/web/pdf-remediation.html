@@ -1,44 +1,306 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PDF Remediation | Accessibility</title>
+  <title>PDF Accessibility &amp; Remediation | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / PDF Remediation</p>
+    </nav>
+    <h1>PDF Accessibility &amp; Remediation</h1>
+    <p>Making PDFs accessible or finding better alternatives.</p>
+    <p class="metric-chip">⚠️ PDFs are often problematic — consider alternatives first</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="pdf-challenges">
+      <h2 id="pdf-challenges">Why PDFs are challenging</h2>
+      <p>PDF (Portable Document Format) was designed for print, not digital accessibility. While PDFs can be made accessible, they present significant challenges:</p>
+      <ul>
+        <li><strong>Scanned PDFs are images</strong> — No selectable text, completely inaccessible</li>
+        <li><strong>Complex remediation</strong> — Requires specialized software and expertise</li>
+        <li><strong>Often unnecessary</strong> — HTML or Word formats are usually better alternatives</li>
+        <li><strong>Inconsistent support</strong> — Screen reader behavior varies across PDF readers</li>
+      </ul>
+      
+      <div class="card" style="border-left: 4px solid #AB0520;">
+        <h3>Consider alternatives first</h3>
+        <p><strong>Before creating or remediating a PDF, ask:</strong></p>
+        <ul>
+          <li>Could this be a web page (HTML)?</li>
+          <li>Could users access a Word document instead?</li>
+          <li>Is the PDF necessary for legal/archival purposes?</li>
+        </ul>
+        <p>Web pages and Word documents are almost always more accessible than PDFs.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="pdf-types">
+      <h2 id="pdf-types">Types of PDFs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>How created</th>
+            <th>Accessibility status</th>
+            <th>What to do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Scanned/image PDF</strong></td>
+            <td>Scanner, photo</td>
+            <td>❌ Inaccessible</td>
+            <td>OCR + full remediation needed</td>
+          </tr>
+          <tr>
+            <td><strong>Untagged digital PDF</strong></td>
+            <td>Export without accessibility settings</td>
+            <td>⚠️ Partially accessible</td>
+            <td>Add tags and structure</td>
+          </tr>
+          <tr>
+            <td><strong>Tagged PDF</strong></td>
+            <td>Proper export from Word/InDesign</td>
+            <td>✓ Potentially accessible</td>
+            <td>Verify and fix issues</td>
+          </tr>
+          <tr>
+            <td><strong>PDF/UA compliant</strong></td>
+            <td>Professional remediation</td>
+            <td>✓✓ Fully accessible</td>
+            <td>Verify periodically</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="checking-pdf">
+      <h2 id="checking-pdf">Checking if a PDF is accessible</h2>
+      
+      <h3>Quick tests</h3>
+      <ol>
+        <li><strong>Select text:</strong> Try to highlight text. If you can't, it's a scanned image.</li>
+        <li><strong>Check for tags:</strong> In Acrobat, go to File → Properties → check if "Tagged PDF: Yes"</li>
+        <li><strong>Read with screen reader:</strong> Does it make sense when read aloud?</li>
+      </ol>
+
+      <h3>Using Adobe Acrobat Pro accessibility checker</h3>
+      <ol>
+        <li>Open PDF in Acrobat Pro</li>
+        <li>Go to <strong>All tools</strong> → <strong>Prepare for accessibility</strong></li>
+        <li>Click <strong>Check for accessibility</strong></li>
+        <li>Run <strong>Full Check</strong></li>
+        <li>Review results in the Accessibility Checker panel</li>
+      </ol>
+
+      <h3>Free checking tools</h3>
+      <ul>
+        <li><a href="https://pave-pdf.org/">PAVE</a> — Free online PDF accessibility checker</li>
+        <li><a href="https://www.access-for-all.ch/en/pdf-lab/pdf-accessibility-checker-pac/">PAC 2024</a> — Free desktop checker (Windows)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="creating-accessible">
+      <h2 id="creating-accessible">Creating accessible PDFs</h2>
+      <p>The best approach is to create accessible source documents and export properly.</p>
+      
+      <h3>From Microsoft Word</h3>
+      <ol>
+        <li>Create accessible Word document (see <a href="doc-word.html">Word guide</a>)</li>
+        <li>Run Accessibility Checker in Word first</li>
+        <li>Go to <strong>File</strong> → <strong>Export</strong> → <strong>Create PDF/XPS</strong></li>
+        <li>Click <strong>Options</strong></li>
+        <li>Check <strong>"Document structure tags for accessibility"</strong></li>
+        <li>Check <strong>"PDF/A compliance"</strong> if needed for archival</li>
+        <li>Click OK, then Publish</li>
+      </ol>
+
+      <h3>From Adobe InDesign</h3>
+      <ol>
+        <li>Build accessibility into the InDesign document:
+          <ul>
+            <li>Use paragraph styles for headings</li>
+            <li>Set reading order in Articles panel</li>
+            <li>Add alt text to images (Object → Object Export Options)</li>
+          </ul>
+        </li>
+        <li>Export: <strong>File</strong> → <strong>Export</strong> → Adobe PDF (Interactive)</li>
+        <li>Check <strong>"Create Tagged PDF"</strong></li>
+        <li>Set language in Advanced options</li>
+      </ol>
+
+      <h3>From Google Docs</h3>
+      <p>Google Docs PDF export has limited accessibility support:</p>
+      <ul>
+        <li>Exports some structure but often incomplete</li>
+        <li>Better option: Download as Word, then export from Word</li>
+        <li>Or: Publish as web page (File → Share → Publish to web)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="remediation">
+      <h2 id="remediation">Remediating existing PDFs</h2>
+      <p>If you must remediate an existing PDF, here's the process:</p>
+      
+      <h3>Tools needed</h3>
+      <ul>
+        <li><strong>Adobe Acrobat Pro</strong> — Required for full remediation (UA site license available)</li>
+        <li><strong>ABBYY FineReader</strong> — For OCR of scanned documents</li>
+        <li><strong>CommonLook PDF</strong> — Professional remediation tool</li>
+      </ul>
+
+      <h3>Basic remediation steps (Acrobat Pro)</h3>
+      <ol>
+        <li><strong>OCR if needed:</strong> All tools → Scan &amp; OCR → Recognize Text</li>
+        <li><strong>Add tags:</strong> All tools → Prepare for accessibility → Auto-tag document</li>
+        <li><strong>Set language:</strong> File → Properties → Advanced → Reading Options → Language</li>
+        <li><strong>Set title:</strong> File → Properties → Description → Title</li>
+        <li><strong>Fix reading order:</strong> All tools → Prepare for accessibility → Set reading order</li>
+        <li><strong>Add alt text:</strong> Right-click images → Edit Alt Text</li>
+        <li><strong>Fix tables:</strong> Use Table Editor to set headers</li>
+        <li><strong>Create bookmarks:</strong> For long documents, add navigational bookmarks</li>
+        <li><strong>Run checker:</strong> Full accessibility check, fix remaining issues</li>
+      </ol>
+
+      <h3>Scanned document remediation</h3>
+      <ol>
+        <li><strong>Run OCR:</strong> Converts image text to selectable text</li>
+        <li><strong>Review OCR accuracy:</strong> Check for recognition errors, especially in tables</li>
+        <li><strong>Add structure:</strong> Follow basic remediation steps above</li>
+        <li><strong>Consider alternatives:</strong> Often easier to recreate than remediate</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="when-to-remediate">
+      <h2 id="when-to-remediate">When to remediate vs. recreate</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Simple text document</td>
+            <td>Recreate in Word or as web page</td>
+          </tr>
+          <tr>
+            <td>Scanned form</td>
+            <td>Recreate as fillable web form or Word</td>
+          </tr>
+          <tr>
+            <td>Complex report with source files</td>
+            <td>Fix source, re-export with accessibility</td>
+          </tr>
+          <tr>
+            <td>Historical document (no source)</td>
+            <td>Remediate if important; provide text alternative</td>
+          </tr>
+          <tr>
+            <td>Legal/archival document</td>
+            <td>Remediate; may need PDF/UA compliance</td>
+          </tr>
+          <tr>
+            <td>Frequently updated document</td>
+            <td>Convert to web page for easier maintenance</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="pdf-forms">
+      <h2 id="pdf-forms">Accessible PDF forms</h2>
+      <p>PDF forms have additional accessibility requirements:</p>
+      <ul>
+        <li>All form fields must have labels</li>
+        <li>Tab order must be logical</li>
+        <li>Required fields must be indicated</li>
+        <li>Error messages must be accessible</li>
+        <li>Submit buttons must be keyboard accessible</li>
+      </ul>
+      
+      <div class="card">
+        <h3>Better alternative: Web forms</h3>
+        <p>Consider using web-based forms instead of PDF forms:</p>
+        <ul>
+          <li>Microsoft Forms — Accessible and UA-supported</li>
+          <li>Qualtrics — For surveys and complex forms</li>
+          <li>HTML forms — Most flexible and accessible option</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">PDF accessibility checklist</h2>
+      <ul>
+        <li>☐ Document is tagged (not a scanned image)</li>
+        <li>☐ Document title is set in properties</li>
+        <li>☐ Document language is specified</li>
+        <li>☐ Reading order is logical</li>
+        <li>☐ Headings are properly tagged (H1, H2, etc.)</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ Tables have header cells identified</li>
+        <li>☐ Links have meaningful text</li>
+        <li>☐ Color contrast is sufficient</li>
+        <li>☐ Bookmarks exist for long documents</li>
+        <li>☐ Acrobat Accessibility Checker passes</li>
+        <li>☐ Tested with screen reader</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="getting-help">
+      <h2 id="getting-help">Getting help</h2>
+      <p>PDF remediation can be time-consuming. Get help:</p>
+      <ul>
+        <li><strong>High-volume remediation:</strong> Contact <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> for vendor options</li>
+        <li><strong>Training:</strong> Request Acrobat accessibility training through <a href="training-calendar.html">training calendar</a></li>
+        <li><strong>Consultation:</strong> <a href="support.html">Request a consultation</a> for guidance on complex documents</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.adobe.com/accessibility/pdf/pdf-accessibility-overview.html">Adobe PDF Accessibility Overview</a></li>
+        <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/pdf/">WCAG PDF Techniques</a></li>
+        <li><a href="https://pave-pdf.org/">PAVE Free PDF Checker</a></li>
+        <li><a href="doc-word.html">Creating Accessible Word Documents</a></li>
+        <li><a href="documents-media.html">Documents &amp; Media Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'pdf-remediation.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

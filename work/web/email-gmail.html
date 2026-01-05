@@ -1,44 +1,123 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gmail Guidance | Accessibility</title>
+  <title>Gmail Accessibility | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Gmail</p>
+    </nav>
+    <h1>Accessible Gmail Messages</h1>
+    <p>Write emails in Gmail that everyone can read.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="gmail-intro">
+      <h2 id="gmail-intro">Why accessible email matters</h2>
+      <p>Email is essential for university communication. When emails aren't accessible, recipients using screen readers or other assistive technologies may miss important information.</p>
+      <p><strong>Note:</strong> UA primarily uses Outlook. See the <a href="email-outlook.html">Outlook accessibility guide</a> for the main email platform. This guide covers Gmail for those who use Google Workspace.</p>
+    </section>
+
+    <section aria-labelledby="gmail-checklist">
+      <h2 id="gmail-checklist">Gmail accessibility checklist</h2>
+      <ul>
+        <li><input type="checkbox" id="gm1"><label for="gm1">Use clear, descriptive subject lines</label></li>
+        <li><input type="checkbox" id="gm2"><label for="gm2">Use formatting tools for structure (not just visual)</label></li>
+        <li><input type="checkbox" id="gm3"><label for="gm3">Add alt text to images</label></li>
+        <li><input type="checkbox" id="gm4"><label for="gm4">Write descriptive link text</label></li>
+        <li><input type="checkbox" id="gm5"><label for="gm5">Use sufficient color contrast</label></li>
+        <li><input type="checkbox" id="gm6"><label for="gm6">Keep layouts simple</label></li>
+        <li><input type="checkbox" id="gm7"><label for="gm7">Provide plain text alternative for complex formatting</label></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="gmail-tips">
+      <h2 id="gmail-tips">Key accessibility tips for Gmail</h2>
+      
+      <h3>Structure your content</h3>
+      <p>Gmail's formatting toolbar includes basic options:</p>
+      <ul>
+        <li>Use the <strong>Bold</strong> and <strong>Italic</strong> buttons for emphasis</li>
+        <li>Use numbered or bulleted lists for multiple items</li>
+        <li>Use the formatting options dropdown for headings (though limited in Gmail)</li>
+      </ul>
+
+      <h3>Add alt text to images</h3>
+      <ol>
+        <li>Insert an image using the image icon in the toolbar</li>
+        <li>Right-click on the inserted image</li>
+        <li>Select <strong>Alt text</strong></li>
+        <li>Enter a description and click <strong>OK</strong></li>
+      </ol>
+
+      <h3>Write meaningful links</h3>
+      <ol>
+        <li>Select the text you want to make a link</li>
+        <li>Click the link icon (or press Ctrl+K)</li>
+        <li>Enter the URL</li>
+        <li>Make sure the visible text describes the destination</li>
+      </ol>
+      <p><strong>Good:</strong> "View the <a href="#">2026 training calendar</a>"<br>
+      <strong>Bad:</strong> "Click <a href="#">here</a> to view the calendar"</p>
+
+      <h3>Keep formatting simple</h3>
+      <ul>
+        <li>Avoid complex tables in emails</li>
+        <li>Don't rely on color alone to convey meaning</li>
+        <li>Use default fonts or standard web-safe fonts</li>
+        <li>Ensure text is at least 12pt or larger</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="gmail-keyboard">
+      <h2 id="gmail-keyboard">Gmail keyboard shortcuts</h2>
+      <p>Gmail supports keyboard navigation. Enable shortcuts in Settings → General → Keyboard shortcuts.</p>
+      <p>Common shortcuts:</p>
+      <ul>
+        <li><kbd>c</kbd> — Compose new email</li>
+        <li><kbd>r</kbd> — Reply</li>
+        <li><kbd>a</kbd> — Reply all</li>
+        <li><kbd>f</kbd> — Forward</li>
+        <li><kbd>e</kbd> — Archive</li>
+        <li><kbd>/</kbd> — Search</li>
+        <li><kbd>?</kbd> — Show all shortcuts</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="gmail-resources">
+      <h2 id="gmail-resources">Related resources</h2>
+      <ul>
+        <li><a href="email-outlook.html">Outlook Accessibility Guide</a> — Primary UA email platform</li>
+        <li><a href="email-newsletters.html">Newsletter Accessibility</a> — For bulk email communications</li>
+        <li><a href="meaningful-links.html">Writing Meaningful Links</a></li>
+        <li><a href="https://support.google.com/mail/answer/90559">Google: Gmail accessibility features</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'email-gmail.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Tools | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .tool-section {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .tool-section h3 {
+      margin-top: 0;
+      color: #1565c0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    /* Contrast Checker */
+    .contrast-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 600px) {
+      .contrast-inputs {
+        grid-template-columns: 1fr;
+      }
+    }
+    .color-input-group {
+      background: #f5f5f5;
+      padding: 1.25rem;
+      border-radius: 8px;
+    }
+    .color-input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .color-picker-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .color-picker-row input[type="color"] {
+      width: 60px;
+      height: 40px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .color-picker-row input[type="text"] {
+      flex: 1;
+      padding: 0.5rem;
+      font-family: monospace;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .contrast-preview {
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin: 1.5rem 0;
+      transition: all 0.3s ease;
+    }
+    .contrast-preview .sample-text {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .contrast-preview .sample-small {
+      font-size: 0.9rem;
+    }
+    .contrast-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .contrast-result {
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .contrast-result.pass {
+      background: #e8f5e9;
+      border: 2px solid #4caf50;
+    }
+    .contrast-result.fail {
+      background: #ffebee;
+      border: 2px solid #f44336;
+    }
+    .contrast-ratio {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .pass .contrast-ratio { color: #2e7d32; }
+    .fail .contrast-ratio { color: #c62828; }
+    .contrast-label {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .result-icon {
+      font-size: 1.5rem;
+    }
+    
+    /* Alt Text Practice */
+    .alt-text-exercise {
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    .alt-text-image {
+      max-width: 100%;
+      max-height: 300px;
+      display: block;
+      margin: 0 auto 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .alt-text-input {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .alt-text-input:focus {
+      border-color: #1565c0;
+      outline: none;
+    }
+    .alt-text-feedback {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    .alt-text-feedback.good {
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+    }
+    .alt-text-feedback.needs-work {
+      background: #fff8e1;
+      border-left: 4px solid #ffc107;
+    }
+    .image-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    .image-nav button {
+      padding: 0.5rem 1rem;
+      background: #1565c0;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .image-nav button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .reveal-btn {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    
+    /* Heading Validator */
+    .heading-input {
+      width: 100%;
+      min-height: 200px;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.95rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .heading-input:focus {
+      border-color: #1565c0;
+      outline: none;
+    }
+    .heading-output {
+      margin: 1.5rem 0;
+    }
+    .heading-tree {
+      font-family: monospace;
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+    .heading-error {
+      color: #c62828;
+      background: #ffebee;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+    }
+    .heading-warning {
+      color: #f57c00;
+      background: #fff3e0;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+    }
+    .heading-success {
+      color: #2e7d32;
+      background: #e8f5e9;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+    }
+    .analyze-btn {
+      padding: 0.75rem 1.5rem;
+      background: #1565c0;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .analyze-btn:hover {
+      background: #0d47a1;
+    }
+    
+    /* Link Text Checker */
+    .link-examples {
+      display: grid;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .link-example {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    .link-status {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .link-content {
+      flex: 1;
+    }
+    .link-text {
+      font-weight: 600;
+      color: #1565c0;
+    }
+    .link-context {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+    .link-verdict {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .link-verdict.good {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .link-verdict.bad {
+      background: #ffebee;
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html" aria-current="page">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="tools-checklists.html">Tools</a> / Interactive Tools</p>
+    </nav>
+    <h1>Interactive Accessibility Tools</h1>
+    <p>Practice and test accessibility concepts hands-on.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <!-- Tool 1: Color Contrast Checker -->
+    <section class="tool-section" aria-labelledby="contrast-title">
+      <h3 id="contrast-title">🎨 Color Contrast Checker</h3>
+      <p>Enter two colors to check if they meet WCAG contrast requirements.</p>
+      
+      <div class="contrast-inputs">
+        <div class="color-input-group">
+          <label for="fg-color">Text color (foreground)</label>
+          <div class="color-picker-row">
+            <input type="color" id="fg-color-picker" value="#000000" aria-label="Pick foreground color">
+            <input type="text" id="fg-color" value="#000000" placeholder="#000000" aria-describedby="fg-format">
+          </div>
+          <small id="fg-format">Enter hex color (e.g., #1565c0)</small>
+        </div>
+        <div class="color-input-group">
+          <label for="bg-color">Background color</label>
+          <div class="color-picker-row">
+            <input type="color" id="bg-color-picker" value="#ffffff" aria-label="Pick background color">
+            <input type="text" id="bg-color" value="#ffffff" placeholder="#ffffff" aria-describedby="bg-format">
+          </div>
+          <small id="bg-format">Enter hex color (e.g., #ffffff)</small>
+        </div>
+      </div>
+
+      <div id="contrast-preview" class="contrast-preview" style="background: #ffffff; color: #000000;">
+        <p class="sample-text"><strong>Sample text at 16px</strong></p>
+        <p class="sample-small">Small text at 14px — harder to read with low contrast</p>
+      </div>
+
+      <div id="contrast-results" class="contrast-results" aria-live="polite">
+        <div class="contrast-result pass" id="result-ratio">
+          <div class="contrast-ratio">21:1</div>
+          <div class="contrast-label">Contrast ratio</div>
+        </div>
+        <div class="contrast-result pass" id="result-aa-normal">
+          <div class="result-icon">✓</div>
+          <div class="contrast-label">AA Normal text (4.5:1)</div>
+        </div>
+        <div class="contrast-result pass" id="result-aa-large">
+          <div class="result-icon">✓</div>
+          <div class="contrast-label">AA Large text (3:1)</div>
+        </div>
+        <div class="contrast-result pass" id="result-aaa">
+          <div class="result-icon">✓</div>
+          <div class="contrast-label">AAA Enhanced (7:1)</div>
+        </div>
+      </div>
+
+      <details>
+        <summary>📚 About contrast requirements</summary>
+        <ul>
+          <li><strong>WCAG AA Normal text:</strong> 4.5:1 — Required for body text</li>
+          <li><strong>WCAG AA Large text:</strong> 3:1 — For text 18pt+ or 14pt+ bold</li>
+          <li><strong>WCAG AAA Enhanced:</strong> 7:1 — Recommended for best readability</li>
+          <li><strong>UI Components:</strong> 3:1 — For icons, borders, focus indicators</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- Tool 2: Alt Text Practice -->
+    <section class="tool-section" aria-labelledby="alt-title">
+      <h3 id="alt-title">🖼️ Alt Text Practice</h3>
+      <p>Practice writing effective alt text for different types of images.</p>
+
+      <div class="alt-text-exercise" id="alt-exercise">
+        <p id="image-context"><strong>Context:</strong> This image appears on a university news article about research achievements.</p>
+        <img id="practice-image" class="alt-text-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect fill='%23e3f2fd' width='400' height='250'/%3E%3Ctext x='200' y='120' text-anchor='middle' fill='%231565c0' font-size='16' font-family='Arial'%3EResearcher in lab%3C/text%3E%3Ctext x='200' y='145' text-anchor='middle' fill='%231565c0' font-size='12' font-family='Arial'%3E(Image 1 of 5)%3C/text%3E%3C/svg%3E" alt="Practice image placeholder">
+        
+        <label for="alt-input"><strong>Write your alt text:</strong></label>
+        <textarea id="alt-input" class="alt-text-input" placeholder="Describe this image for someone who cannot see it..." rows="3"></textarea>
+        
+        <button class="analyze-btn" onclick="analyzeAltText()">Check my alt text</button>
+        <button class="reveal-btn" onclick="revealSuggestion()">Show suggested alt text</button>
+        
+        <div id="alt-feedback" class="alt-text-feedback" hidden></div>
+        <div id="alt-suggestion" hidden style="margin-top: 1rem; padding: 1rem; background: #e3f2fd; border-radius: 8px;">
+          <strong>Suggested alt text:</strong>
+          <p id="suggestion-text"></p>
+        </div>
+
+        <div class="image-nav">
+          <button id="prev-image" onclick="changeImage(-1)" disabled>← Previous</button>
+          <span id="image-counter">Image 1 of 5</span>
+          <button id="next-image" onclick="changeImage(1)">Next →</button>
+        </div>
+      </div>
+
+      <details>
+        <summary>📚 Alt text tips</summary>
+        <ul>
+          <li>Be concise but descriptive (usually under 125 characters)</li>
+          <li>Don't start with "Image of..." or "Picture of..."</li>
+          <li>Context matters — same image may need different alt text in different places</li>
+          <li>For decorative images, use empty alt (alt="")</li>
+          <li>Describe the purpose, not just appearance</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- Tool 3: Heading Structure Validator -->
+    <section class="tool-section" aria-labelledby="heading-title">
+      <h3 id="heading-title">📋 Heading Structure Validator</h3>
+      <p>Paste your heading structure to check for hierarchy issues.</p>
+
+      <label for="heading-input"><strong>Enter headings (one per line, include level):</strong></label>
+      <textarea id="heading-input" class="heading-input" placeholder="H1 Page Title
+H2 First Section
+H3 Subsection
+H3 Another Subsection
+H2 Second Section
+H3 Subsection"></textarea>
+      
+      <button class="analyze-btn" onclick="validateHeadings()">Validate structure</button>
+
+      <div id="heading-output" class="heading-output" hidden>
+        <h4>Heading outline</h4>
+        <div id="heading-tree" class="heading-tree"></div>
+        <div id="heading-issues"></div>
+      </div>
+
+      <details>
+        <summary>📚 Heading structure rules</summary>
+        <ul>
+          <li>Every page should have exactly one H1</li>
+          <li>Don't skip heading levels (H2 → H4 is bad)</li>
+          <li>Headings should create a logical outline</li>
+          <li>Use headings for structure, not just styling</li>
+          <li>Screen reader users navigate by headings</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- Tool 4: Link Text Checker -->
+    <section class="tool-section" aria-labelledby="link-title">
+      <h3 id="link-title">🔗 Link Text Examples</h3>
+      <p>Learn to write descriptive link text by reviewing these examples.</p>
+
+      <div class="link-examples">
+        <div class="link-example">
+          <span class="link-status" aria-hidden="true">❌</span>
+          <div class="link-content">
+            <span class="link-text">"Click here"</span>
+            <p class="link-context">To learn more about our accessibility services, click here.</p>
+            <span class="link-verdict bad">Bad — doesn't describe destination</span>
+          </div>
+        </div>
+        <div class="link-example">
+          <span class="link-status" aria-hidden="true">✅</span>
+          <div class="link-content">
+            <span class="link-text">"accessibility services"</span>
+            <p class="link-context">Learn more about our accessibility services.</p>
+            <span class="link-verdict good">Good — describes what you'll find</span>
+          </div>
+        </div>
+        <div class="link-example">
+          <span class="link-status" aria-hidden="true">❌</span>
+          <div class="link-content">
+            <span class="link-text">"Read more"</span>
+            <p class="link-context">University announces new research center. Read more.</p>
+            <span class="link-verdict bad">Bad — no context when links are listed</span>
+          </div>
+        </div>
+        <div class="link-example">
+          <span class="link-status" aria-hidden="true">✅</span>
+          <div class="link-content">
+            <span class="link-text">"Read more about the new research center"</span>
+            <p class="link-context">University announces new research center. Read more about the new research center.</p>
+            <span class="link-verdict good">Good — works out of context</span>
+          </div>
+        </div>
+        <div class="link-example">
+          <span class="link-status" aria-hidden="true">❌</span>
+          <div class="link-content">
+            <span class="link-text">"https://arizona.edu/forms/registration.pdf"</span>
+            <p class="link-context">Download the form: https://arizona.edu/forms/registration.pdf</p>
+            <span class="link-verdict bad">Bad — URLs are hard to read/hear</span>
+          </div>
+        </div>
+        <div class="link-example">
+          <span class="link-status" aria-hidden="true">✅</span>
+          <div class="link-content">
+            <span class="link-text">"Registration form (PDF, 245KB)"</span>
+            <p class="link-context">Download the Registration form (PDF, 245KB).</p>
+            <span class="link-verdict good">Good — describes content and format</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <strong>The "list of links" test:</strong> If someone hears only the link text (via screen reader's links list), will they understand where each link goes?
+      </div>
+    </section>
+
+    <section aria-labelledby="more-tools">
+      <h2 id="more-tools">More testing tools</h2>
+      <p>These interactive tools complement full testing suites:</p>
+      <ul>
+        <li><a href="testing-tools.html">Complete Testing Tools Guide</a> — axe, WAVE, and more</li>
+        <li><a href="quick-reference-cards.html">Quick Reference Cards</a> — Printable checklists</li>
+        <li><a href="experience-simulations.html">Disability Simulations</a> — Experience barriers firsthand</li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+
+  <script>
+    // ========== Color Contrast Checker ==========
+    const fgPicker = document.getElementById('fg-color-picker');
+    const fgInput = document.getElementById('fg-color');
+    const bgPicker = document.getElementById('bg-color-picker');
+    const bgInput = document.getElementById('bg-color');
+
+    function hexToRgb(hex) {
+      hex = hex.replace('#', '');
+      if (hex.length === 3) {
+        hex = hex.split('').map(c => c + c).join('');
+      }
+      const num = parseInt(hex, 16);
+      return {
+        r: (num >> 16) & 255,
+        g: (num >> 8) & 255,
+        b: num & 255
+      };
+    }
+
+    function getLuminance(r, g, b) {
+      const [rs, gs, bs] = [r, g, b].map(c => {
+        c = c / 255;
+        return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+    }
+
+    function getContrastRatio(hex1, hex2) {
+      const rgb1 = hexToRgb(hex1);
+      const rgb2 = hexToRgb(hex2);
+      const l1 = getLuminance(rgb1.r, rgb1.g, rgb1.b);
+      const l2 = getLuminance(rgb2.r, rgb2.g, rgb2.b);
+      const lighter = Math.max(l1, l2);
+      const darker = Math.min(l1, l2);
+      return (lighter + 0.05) / (darker + 0.05);
+    }
+
+    function updateContrast() {
+      const fg = fgInput.value;
+      const bg = bgInput.value;
+      
+      if (!/^#[0-9A-Fa-f]{6}$/.test(fg) || !/^#[0-9A-Fa-f]{6}$/.test(bg)) return;
+
+      const ratio = getContrastRatio(fg, bg);
+      
+      // Update preview
+      const preview = document.getElementById('contrast-preview');
+      preview.style.color = fg;
+      preview.style.background = bg;
+
+      // Update results
+      document.querySelector('#result-ratio .contrast-ratio').textContent = ratio.toFixed(2) + ':1';
+      
+      const updateResult = (id, passes) => {
+        const el = document.getElementById(id);
+        el.classList.toggle('pass', passes);
+        el.classList.toggle('fail', !passes);
+        el.querySelector('.result-icon').textContent = passes ? '✓' : '✗';
+      };
+
+      updateResult('result-ratio', ratio >= 4.5);
+      updateResult('result-aa-normal', ratio >= 4.5);
+      updateResult('result-aa-large', ratio >= 3);
+      updateResult('result-aaa', ratio >= 7);
+    }
+
+    fgPicker.addEventListener('input', () => {
+      fgInput.value = fgPicker.value;
+      updateContrast();
+    });
+    fgInput.addEventListener('input', () => {
+      if (/^#[0-9A-Fa-f]{6}$/.test(fgInput.value)) {
+        fgPicker.value = fgInput.value;
+      }
+      updateContrast();
+    });
+    bgPicker.addEventListener('input', () => {
+      bgInput.value = bgPicker.value;
+      updateContrast();
+    });
+    bgInput.addEventListener('input', () => {
+      if (/^#[0-9A-Fa-f]{6}$/.test(bgInput.value)) {
+        bgPicker.value = bgInput.value;
+      }
+      updateContrast();
+    });
+
+    // ========== Alt Text Practice ==========
+    const altImages = [
+      {
+        context: "This image appears on a university news article about research achievements.",
+        description: "A researcher looking through a microscope in a laboratory",
+        suggestion: "Dr. Sarah Chen examines tissue samples through a microscope in the biochemistry research lab",
+        tips: ["Include the action being performed", "Name people if relevant", "Describe the setting briefly"]
+      },
+      {
+        context: "This image is a decorative header for a webpage about campus life.",
+        description: "Aerial view of campus buildings and trees",
+        suggestion: "Leave empty (decorative) OR 'University of Arizona campus aerial view' if needed for context",
+        tips: ["Decorative images can have empty alt", "Consider if the image adds meaning", "Campus photos are often decorative"]
+      },
+      {
+        context: "This chart appears in a financial report showing enrollment trends.",
+        description: "Bar chart showing enrollment numbers",
+        suggestion: "Bar chart showing enrollment growth from 45,000 students in 2020 to 52,000 in 2025. Full data available in table below.",
+        tips: ["Summarize the key data/trend", "Reference where to find full data", "Don't describe every bar"]
+      },
+      {
+        context: "This is a logo that links to the homepage.",
+        description: "University of Arizona logo",
+        suggestion: "University of Arizona - go to homepage",
+        tips: ["For functional images, describe the function", "Include where the link goes", "Keep logos simple"]
+      },
+      {
+        context: "This infographic explains the 4-step enrollment process.",
+        description: "Infographic showing enrollment steps",
+        suggestion: "4-step enrollment process: 1) Apply online, 2) Submit transcripts, 3) Complete orientation, 4) Register for classes. Detailed steps described below.",
+        tips: ["Provide the key information in alt", "Note where detailed info is available", "Complex graphics need longer descriptions"]
+      }
+    ];
+
+    let currentImageIndex = 0;
+
+    function loadImage(index) {
+      const img = altImages[index];
+      document.getElementById('image-context').innerHTML = `<strong>Context:</strong> ${img.context}`;
+      document.getElementById('practice-image').alt = "Practice image: " + img.description;
+      document.getElementById('practice-image').src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect fill='%23e3f2fd' width='400' height='250'/%3E%3Ctext x='200' y='120' text-anchor='middle' fill='%231565c0' font-size='14' font-family='Arial'%3E${encodeURIComponent(img.description)}%3C/text%3E%3Ctext x='200' y='145' text-anchor='middle' fill='%231565c0' font-size='12' font-family='Arial'%3E(Image ${index + 1} of ${altImages.length})%3C/text%3E%3C/svg%3E`;
+      document.getElementById('image-counter').textContent = `Image ${index + 1} of ${altImages.length}`;
+      document.getElementById('suggestion-text').textContent = img.suggestion;
+      document.getElementById('alt-input').value = '';
+      document.getElementById('alt-feedback').hidden = true;
+      document.getElementById('alt-suggestion').hidden = true;
+      
+      document.getElementById('prev-image').disabled = index === 0;
+      document.getElementById('next-image').disabled = index === altImages.length - 1;
+    }
+
+    function changeImage(delta) {
+      currentImageIndex += delta;
+      loadImage(currentImageIndex);
+    }
+
+    function analyzeAltText() {
+      const userAlt = document.getElementById('alt-input').value.trim();
+      const feedback = document.getElementById('alt-feedback');
+      const img = altImages[currentImageIndex];
+      
+      let feedbackHtml = '';
+      let isGood = true;
+
+      if (!userAlt) {
+        feedbackHtml = '<strong>Please enter some alt text to check.</strong>';
+        isGood = false;
+      } else if (userAlt.length < 10) {
+        feedbackHtml = '<strong>Too short!</strong> Try to be more descriptive about what\'s in the image.';
+        isGood = false;
+      } else if (userAlt.length > 200) {
+        feedbackHtml = '<strong>Consider shortening.</strong> Alt text over 125 characters can be overwhelming. Consider using a longer description separately.';
+        isGood = false;
+      } else if (/^(image of|picture of|photo of)/i.test(userAlt)) {
+        feedbackHtml = '<strong>Good start, but...</strong> Screen readers already announce "image" — no need to repeat it.';
+        isGood = false;
+      } else {
+        feedbackHtml = '<strong>Nice work!</strong> Your alt text is a good length and follows best practices.';
+        isGood = true;
+      }
+
+      feedbackHtml += '<br><br><strong>Tips for this image:</strong><ul>';
+      img.tips.forEach(tip => {
+        feedbackHtml += `<li>${tip}</li>`;
+      });
+      feedbackHtml += '</ul>';
+
+      feedback.innerHTML = feedbackHtml;
+      feedback.className = 'alt-text-feedback ' + (isGood ? 'good' : 'needs-work');
+      feedback.hidden = false;
+    }
+
+    function revealSuggestion() {
+      document.getElementById('alt-suggestion').hidden = false;
+    }
+
+    // Initialize first image
+    loadImage(0);
+
+    // ========== Heading Validator ==========
+    function validateHeadings() {
+      const input = document.getElementById('heading-input').value.trim();
+      const output = document.getElementById('heading-output');
+      const tree = document.getElementById('heading-tree');
+      const issues = document.getElementById('heading-issues');
+
+      if (!input) {
+        output.hidden = true;
+        return;
+      }
+
+      const lines = input.split('\n').filter(line => line.trim());
+      const headings = [];
+      const errors = [];
+      const warnings = [];
+
+      // Parse headings
+      lines.forEach((line, i) => {
+        const match = line.match(/^h?(\d)\s+(.+)/i);
+        if (match) {
+          headings.push({ level: parseInt(match[1]), text: match[2].trim(), line: i + 1 });
+        }
+      });
+
+      // Build tree visualization
+      let treeHtml = '';
+      headings.forEach(h => {
+        const indent = '  '.repeat(h.level - 1);
+        treeHtml += `${indent}H${h.level}: ${h.text}\n`;
+      });
+      tree.textContent = treeHtml || 'No valid headings found';
+
+      // Check for issues
+      const h1Count = headings.filter(h => h.level === 1).length;
+      if (h1Count === 0) {
+        errors.push('No H1 found — every page needs exactly one H1');
+      } else if (h1Count > 1) {
+        errors.push(`Found ${h1Count} H1 headings — there should only be one`);
+      }
+
+      // Check for skipped levels
+      for (let i = 1; i < headings.length; i++) {
+        const prev = headings[i - 1].level;
+        const curr = headings[i].level;
+        if (curr > prev + 1) {
+          errors.push(`Skipped heading level: H${prev} → H${curr} at "${headings[i].text}"`);
+        }
+      }
+
+      // Check if first heading is H1
+      if (headings.length > 0 && headings[0].level !== 1) {
+        warnings.push('Page should start with H1, not H' + headings[0].level);
+      }
+
+      // Display issues
+      let issuesHtml = '';
+      errors.forEach(e => {
+        issuesHtml += `<p class="heading-error">❌ ${e}</p>`;
+      });
+      warnings.forEach(w => {
+        issuesHtml += `<p class="heading-warning">⚠️ ${w}</p>`;
+      });
+      if (errors.length === 0 && warnings.length === 0) {
+        issuesHtml = '<p class="heading-success">✅ Heading structure looks good!</p>';
+      }
+      issues.innerHTML = issuesHtml;
+
+      output.hidden = false;
+    }
+  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
+</body>
+</html>

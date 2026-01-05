@@ -1,44 +1,310 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Google Workspace Checklist | Accessibility</title>
+  <title>Google Workspace Accessibility | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Google Workspace</p>
+    </nav>
+    <h1>Google Workspace Accessibility</h1>
+    <p>Creating accessible documents in Google Docs, Slides, Sheets, and Forms.</p>
+    <p class="metric-chip">📝 Covers Docs, Slides, Sheets &amp; Forms</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="google-overview">
+      <h2 id="google-overview">Google Workspace at UA</h2>
+      <p>Google Workspace (Docs, Slides, Sheets, Forms) is widely used at UA for collaboration. While Google has improved accessibility features, some limitations remain compared to Microsoft 365. This guide covers best practices for each application.</p>
+      
+      <div class="card">
+        <h3>Key limitation</h3>
+        <p>Google Workspace does not have a built-in accessibility checker like Microsoft Office. Use the <strong>Grackle</strong> add-on (free for basic checking) or manually verify accessibility.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="google-docs">
+      <h2 id="google-docs">Google Docs</h2>
+      
+      <h3>Use heading styles</h3>
+      <ol>
+        <li>Select your heading text</li>
+        <li>Click the <strong>Styles</strong> dropdown (shows "Normal text")</li>
+        <li>Choose <strong>Heading 1</strong>, <strong>Heading 2</strong>, etc.</li>
+        <li>Maintain hierarchy (don't skip from H1 to H3)</li>
+      </ol>
+      <p><strong>Keyboard shortcut:</strong> Ctrl+Alt+1 through Ctrl+Alt+6 for headings</p>
+      
+      <h3>Add alt text to images</h3>
+      <ol>
+        <li>Right-click the image</li>
+        <li>Select <strong>Alt text</strong></li>
+        <li>Enter a <strong>Description</strong> (the Title field is optional)</li>
+        <li>Click <strong>OK</strong></li>
+      </ol>
+      
+      <h3>Create accessible tables</h3>
+      <ul>
+        <li>Use <strong>Insert</strong> → <strong>Table</strong> to create tables</li>
+        <li>Put header information in the first row</li>
+        <li>Keep tables simple (avoid merged cells)</li>
+        <li><strong>Limitation:</strong> Google Docs doesn't support marking header rows for screen readers</li>
+      </ul>
+      
+      <h3>Use meaningful link text</h3>
+      <ol>
+        <li>Select the text you want to link</li>
+        <li>Press <strong>Ctrl+K</strong> or click the link icon</li>
+        <li>Enter the URL</li>
+        <li>Ensure the selected text describes the link destination</li>
+      </ol>
+      
+      <h3>Use built-in lists</h3>
+      <ul>
+        <li>Use the bulleted or numbered list buttons</li>
+        <li>Don't manually type dashes or numbers</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="google-slides">
+      <h2 id="google-slides">Google Slides</h2>
+      
+      <h3>Use slide layouts</h3>
+      <ul>
+        <li>Choose layouts from <strong>Slide</strong> → <strong>Apply layout</strong></li>
+        <li>Use the title placeholder on every slide</li>
+        <li>Built-in layouts have better structure than freeform text boxes</li>
+      </ul>
+      
+      <h3>Unique slide titles</h3>
+      <ul>
+        <li>Every slide must have a unique, descriptive title</li>
+        <li>Screen reader users navigate by slide titles</li>
+      </ul>
+      
+      <h3>Add alt text to images</h3>
+      <ol>
+        <li>Click the image</li>
+        <li>Right-click → <strong>Alt text</strong></li>
+        <li>Enter description</li>
+      </ol>
+      
+      <h3>Check reading order</h3>
+      <p><strong>Limitation:</strong> Google Slides doesn't have a reading order tool. Elements are read in the order they were added. To fix:</p>
+      <ol>
+        <li>Cut all elements (Ctrl+X)</li>
+        <li>Paste them back in the order they should be read</li>
+        <li>Or use <strong>Arrange</strong> → <strong>Order</strong> to adjust layering</li>
+      </ol>
+      
+      <h3>Sufficient font size</h3>
+      <ul>
+        <li>Title text: 36pt minimum</li>
+        <li>Body text: 24pt minimum</li>
+        <li>Avoid dense text slides</li>
+      </ul>
+      
+      <h3>Video captions</h3>
+      <p>If embedding videos, ensure they have captions. Google Slides can display captions from YouTube videos if available.</p>
+    </section>
+
+    <section aria-labelledby="google-sheets">
+      <h2 id="google-sheets">Google Sheets</h2>
+      
+      <h3>Structure your data</h3>
+      <ul>
+        <li>Start data in cell A1</li>
+        <li>One data table per sheet</li>
+        <li>Use descriptive sheet names (not "Sheet1")</li>
+        <li>Avoid blank rows/columns within data</li>
+      </ul>
+      
+      <h3>Freeze header rows</h3>
+      <ol>
+        <li>Click on the row below your headers</li>
+        <li><strong>View</strong> → <strong>Freeze</strong> → <strong>1 row</strong></li>
+      </ol>
+      
+      <h3>Avoid merged cells</h3>
+      <p>Merged cells break screen reader navigation. Use "Center across selection" formatting instead.</p>
+      
+      <h3>Add alt text to charts</h3>
+      <ol>
+        <li>Click the chart</li>
+        <li>Click the three-dot menu → <strong>Alt text</strong></li>
+        <li>Describe the key data or trend</li>
+      </ol>
+      
+      <h3>Color usage</h3>
+      <ul>
+        <li>Don't convey meaning through color alone</li>
+        <li>Add a status column with text labels</li>
+        <li>Use high contrast colors</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="google-forms">
+      <h2 id="google-forms">Google Forms</h2>
+      
+      <h3>Form accessibility</h3>
+      <p>Google Forms has improved accessibility, but has limitations:</p>
+      <ul>
+        <li>✓ Forms are keyboard navigable</li>
+        <li>✓ Questions are labeled for screen readers</li>
+        <li>⚠️ Complex question types may be challenging</li>
+        <li>⚠️ Image-based questions need descriptions</li>
+      </ul>
+      
+      <h3>Best practices</h3>
+      <ul>
+        <li>Write clear, concise questions</li>
+        <li>Provide instructions in the form description</li>
+        <li>Add descriptions to questions that need clarification</li>
+        <li>Avoid required questions unless truly necessary</li>
+        <li>Add alt text to any images in questions</li>
+        <li>Test the form with keyboard navigation</li>
+      </ul>
+      
+      <h3>Adding descriptions</h3>
+      <ol>
+        <li>Click the question</li>
+        <li>Click the three-dot menu → <strong>Description</strong></li>
+        <li>Add helpful context or instructions</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="grackle">
+      <h2 id="grackle">Using Grackle for accessibility checking</h2>
+      <p><a href="https://workspace.google.com/marketplace/app/grackle_docs/1085045339">Grackle</a> is a free add-on that checks Google Docs and Slides accessibility:</p>
+      
+      <h3>Installing Grackle</h3>
+      <ol>
+        <li>Open a Google Doc or Slides</li>
+        <li><strong>Extensions</strong> → <strong>Add-ons</strong> → <strong>Get add-ons</strong></li>
+        <li>Search for "Grackle"</li>
+        <li>Install Grackle Docs or Grackle Slides</li>
+      </ol>
+      
+      <h3>Running a check</h3>
+      <ol>
+        <li><strong>Extensions</strong> → <strong>Grackle Docs</strong> → <strong>Launch</strong></li>
+        <li>Click <strong>Check Accessibility</strong></li>
+        <li>Review issues in the sidebar</li>
+        <li>Click issues to navigate to them</li>
+      </ol>
+      
+      <h3>What Grackle checks</h3>
+      <ul>
+        <li>Heading structure</li>
+        <li>Alt text on images</li>
+        <li>Table structure</li>
+        <li>Link text</li>
+        <li>Document language</li>
+        <li>Reading order (Slides)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="exporting">
+      <h2 id="exporting">Exporting accessible documents</h2>
+      
+      <h3>Sharing as Google files (preferred)</h3>
+      <p>Native Google format preserves the most structure. Share via link when possible.</p>
+      
+      <h3>Exporting to Microsoft format</h3>
+      <p><strong>File</strong> → <strong>Download</strong> → <strong>Microsoft Word/PowerPoint/Excel</strong></p>
+      <ul>
+        <li>Most structure transfers well</li>
+        <li>Review in Microsoft app and run Accessibility Checker</li>
+      </ul>
+      
+      <h3>Exporting to PDF</h3>
+      <p><strong>File</strong> → <strong>Download</strong> → <strong>PDF</strong></p>
+      <ul>
+        <li>⚠️ PDF export has accessibility limitations</li>
+        <li>Headings may not transfer as tagged structure</li>
+        <li>Better option: Download as Word first, then export accessible PDF from Word</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Quick checklist</h2>
+      
+      <h3>Google Docs</h3>
+      <ul>
+        <li>☐ Heading styles used (not just bold)</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ Links have meaningful text</li>
+        <li>☐ Lists use built-in formatting</li>
+        <li>☐ Tables are simple (no merged cells)</li>
+      </ul>
+      
+      <h3>Google Slides</h3>
+      <ul>
+        <li>☐ Built-in layouts used</li>
+        <li>☐ Every slide has unique title</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ Font size 24pt+ for body</li>
+        <li>☐ Videos have captions</li>
+      </ul>
+      
+      <h3>Google Sheets</h3>
+      <ul>
+        <li>☐ Data starts in A1</li>
+        <li>☐ Header row frozen</li>
+        <li>☐ No merged cells</li>
+        <li>☐ Charts have alt text</li>
+        <li>☐ Descriptive sheet names</li>
+      </ul>
+      
+      <h3>Google Forms</h3>
+      <ul>
+        <li>☐ Questions are clear and concise</li>
+        <li>☐ Descriptions added where needed</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ Tested with keyboard</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://support.google.com/docs/answer/6199477">Google: Make Docs, Sheets, Slides accessible</a></li>
+        <li><a href="https://workspace.google.com/marketplace/app/grackle_docs/1085045339">Grackle Docs (accessibility checker)</a></li>
+        <li><a href="doc-word.html">Microsoft Word &amp; PowerPoint Guide</a></li>
+        <li><a href="doc-excel.html">Excel Accessibility Guide</a></li>
+        <li><a href="documents-media.html">Documents &amp; Media Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'doc-google.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

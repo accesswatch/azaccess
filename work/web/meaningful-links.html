@@ -1,44 +1,207 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meaningful Links & Announcements | Accessibility</title>
+  <title>Meaningful Link Text | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Meaningful Links</p>
+    </nav>
+    <h1>Writing Meaningful Link Text</h1>
+    <p>Make links that work for everyone, everywhere.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="links-intro">
+      <h2 id="links-intro">Why link text matters</h2>
+      <p>Screen reader users often navigate by pulling up a list of all links on a page. If every link says "click here" or "read more," they can't tell where any link goes. Meaningful link text helps everyone understand the destination before clicking.</p>
+      <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+        <strong>The "link list" test:</strong> Read your links out of context. Can you tell where each one goes? If not, rewrite them.
+      </div>
+    </section>
+
+    <section aria-labelledby="links-examples">
+      <h2 id="links-examples">Good vs. bad link text</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">❌ Avoid</th>
+              <th scope="col">✅ Better</th>
+              <th scope="col">Why it's better</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">Click here</a> to register</td>
+              <td><a href="#">Register for spring classes</a></td>
+              <td>Describes the action and destination</td>
+            </tr>
+            <tr>
+              <td><a href="#">Read more</a></td>
+              <td><a href="#">Read more about accessibility training</a></td>
+              <td>Specifies what you'll read more about</td>
+            </tr>
+            <tr>
+              <td><a href="#">https://arizona.edu/forms/reg.pdf</a></td>
+              <td><a href="#">Registration form (PDF, 245KB)</a></td>
+              <td>Human-readable with file info</td>
+            </tr>
+            <tr>
+              <td><a href="#">Learn more</a><br><a href="#">Learn more</a><br><a href="#">Learn more</a></td>
+              <td><a href="#">Learn about tuition</a><br><a href="#">Learn about housing</a><br><a href="#">Learn about meal plans</a></td>
+              <td>Each link is unique and specific</td>
+            </tr>
+            <tr>
+              <td>The <a href="#">policy</a> is available online</td>
+              <td>The <a href="#">accessibility policy</a> is available online</td>
+              <td>More specific about which policy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="links-guidelines">
+      <h2 id="links-guidelines">Guidelines for link text</h2>
+      
+      <h3>1. Be descriptive and specific</h3>
+      <ul>
+        <li>Link text should describe where the link goes or what action it performs</li>
+        <li>Avoid generic phrases like "click here," "read more," "learn more," or "more info"</li>
+        <li>If you must use "learn more," add context: "Learn more about registration deadlines"</li>
+      </ul>
+
+      <h3>2. Make links work out of context</h3>
+      <ul>
+        <li>Screen reader users navigate via lists of links</li>
+        <li>Each link should make sense without surrounding text</li>
+        <li>Unique link text for each unique destination</li>
+      </ul>
+
+      <h3>3. Keep it concise</h3>
+      <ul>
+        <li>Link text should be meaningful but not overly long</li>
+        <li>Aim for 4-8 words when possible</li>
+        <li>Don't make entire paragraphs into links</li>
+      </ul>
+
+      <h3>4. Indicate file types and external links</h3>
+      <ul>
+        <li>For downloads: include format and size — "Budget report (PDF, 1.2MB)"</li>
+        <li>For external sites: consider noting it opens a new window (if it does)</li>
+        <li>Example: "Visit the Department of Education website (opens in new window)"</li>
+      </ul>
+
+      <h3>5. Avoid bare URLs</h3>
+      <ul>
+        <li>URLs are hard to read and impossible to pronounce well</li>
+        <li>Screen readers spell out URLs character by character</li>
+        <li>Exception: If the URL itself is the information (e.g., arizona.edu in print)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="links-patterns">
+      <h2 id="links-patterns">Common patterns</h2>
+      
+      <h3>Action links</h3>
+      <p>When linking to forms or actions:</p>
+      <ul>
+        <li><a href="#">Submit your travel request</a></li>
+        <li><a href="#">Download the syllabus template</a></li>
+        <li><a href="#">Register for the accessibility workshop</a></li>
+      </ul>
+
+      <h3>Navigation links</h3>
+      <p>When linking to pages:</p>
+      <ul>
+        <li><a href="#">View all training events</a></li>
+        <li><a href="#">Return to the home page</a></li>
+        <li><a href="#">Browse the accessibility glossary</a></li>
+      </ul>
+
+      <h3>Document links</h3>
+      <p>Include file type and size:</p>
+      <ul>
+        <li><a href="#">2026 Budget Summary (PDF, 450KB)</a></li>
+        <li><a href="#">Accessibility checklist (Word, 125KB)</a></li>
+        <li><a href="#">Training schedule (Excel, 85KB)</a></li>
+      </ul>
+
+      <h3>Email and phone links</h3>
+      <p>Make it clear what happens:</p>
+      <ul>
+        <li><a href="mailto:accessibility@arizona.edu">Email the accessibility team</a></li>
+        <li><a href="tel:+15206213268">Call 520-621-3268</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="links-html">
+      <h2 id="links-html">Technical implementation</h2>
+      
+      <h3>Standard link</h3>
+      <pre><code>&lt;a href="registration.html"&gt;Register for spring classes&lt;/a&gt;</code></pre>
+
+      <h3>Link with additional context (aria-label)</h3>
+      <p>Use when you can't change the visible text but need more context:</p>
+      <pre><code>&lt;a href="news.html" aria-label="Read all accessibility news"&gt;Read more&lt;/a&gt;</code></pre>
+
+      <h3>Link opening in new window</h3>
+      <pre><code>&lt;a href="https://external-site.com" target="_blank" rel="noopener"&gt;
+  External resource (opens in new window)
+&lt;/a&gt;</code></pre>
+
+      <h3>Download link</h3>
+      <pre><code>&lt;a href="report.pdf" download&gt;
+  Annual report (PDF, 2.3MB)
+&lt;/a&gt;</code></pre>
+    </section>
+
+    <section aria-labelledby="links-test">
+      <h2 id="links-test">Test your links</h2>
+      <p>Use these quick tests to verify your link text:</p>
+      <ol>
+        <li><strong>Link list test:</strong> Read only the links on your page. Can you understand where each goes?</li>
+        <li><strong>Out of context test:</strong> Does each link make sense without surrounding text?</li>
+        <li><strong>Uniqueness test:</strong> Do identical link texts go to identical destinations?</li>
+        <li><strong>Screen reader test:</strong> Use NVDA or VoiceOver to hear how your links sound</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="links-resources">
+      <h2 id="links-resources">Related resources</h2>
+      <ul>
+        <li><a href="interactive-tools.html#link-title">Link text examples (interactive)</a></li>
+        <li><a href="quick-reference-cards.html">Quick reference cards</a></li>
+        <li><a href="glossary.html#link-text">Glossary: link text definition</a></li>
+        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html">WCAG 2.4.4: Link Purpose</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'meaningful-links.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

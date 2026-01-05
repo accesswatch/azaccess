@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Experience Accessibility Simulations | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .sim-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .sim-demo {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .sim-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .sim-btn {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #1565c0;
+      background: #fff;
+      color: #1565c0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .sim-btn:hover, .sim-btn:focus {
+      background: #1565c0;
+      color: #fff;
+    }
+    .sim-btn.active {
+      background: #1565c0;
+      color: #fff;
+    }
+    .sim-result {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    .warning-box {
+      background: #fff3e0;
+      border-left: 4px solid #ff9800;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    /* Color blindness filters */
+    .protanopia { filter: url('#protanopia'); }
+    .deuteranopia { filter: url('#deuteranopia'); }
+    .tritanopia { filter: url('#tritanopia'); }
+    .achromatopsia { filter: grayscale(100%); }
+    
+    /* Blur for low vision */
+    .low-vision-mild { filter: blur(1px); }
+    .low-vision-moderate { filter: blur(2px); }
+    .low-vision-severe { filter: blur(4px); }
+    
+    /* Tunnel vision */
+    .tunnel-vision {
+      mask: radial-gradient(circle at center, black 20%, transparent 40%);
+      -webkit-mask: radial-gradient(circle at center, black 20%, transparent 40%);
+    }
+    
+    /* Dyslexia simulation */
+    .dyslexia-sim {
+      font-family: 'Comic Sans MS', cursive;
+      word-spacing: -2px;
+      letter-spacing: 0.5px;
+    }
+    .dyslexia-sim::first-letter {
+      font-size: 1.2em;
+    }
+    
+    /* Motor simulation */
+    .motor-challenge {
+      animation: shake 0.5s infinite;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      75% { transform: translateX(3px); }
+    }
+    
+    /* Sample content to apply filters to */
+    .sample-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .color-sample {
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    .sample-red { background: #f44336; color: white; }
+    .sample-green { background: #4caf50; color: white; }
+    .sample-blue { background: #2196f3; color: white; }
+    .sample-yellow { background: #ffeb3b; color: black; }
+    .sample-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+      height: 150px;
+    }
+    .chart-bar {
+      flex: 1;
+      border-radius: 4px 4px 0 0;
+    }
+    .bar-1 { background: #4caf50; height: 80%; }
+    .bar-2 { background: #f44336; height: 60%; }
+    .bar-3 { background: #2196f3; height: 90%; }
+    .bar-4 { background: #ff9800; height: 45%; }
+    
+    .challenge-box {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- SVG filters for color blindness -->
+  <svg style="display: none;">
+    <defs>
+      <filter id="protanopia">
+        <feColorMatrix type="matrix" values="0.567, 0.433, 0, 0, 0
+                                              0.558, 0.442, 0, 0, 0
+                                              0, 0.242, 0.758, 0, 0
+                                              0, 0, 0, 1, 0"/>
+      </filter>
+      <filter id="deuteranopia">
+        <feColorMatrix type="matrix" values="0.625, 0.375, 0, 0, 0
+                                              0.7, 0.3, 0, 0, 0
+                                              0, 0.3, 0.7, 0, 0
+                                              0, 0, 0, 1, 0"/>
+      </filter>
+      <filter id="tritanopia">
+        <feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0
+                                              0, 0.433, 0.567, 0, 0
+                                              0, 0.475, 0.525, 0, 0
+                                              0, 0, 0, 1, 0"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html" aria-current="page">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="tools-checklists.html">Tools</a> / Experience Simulations</p>
+    </nav>
+    <h1>Experience Accessibility Simulations</h1>
+    <p>Walk in someone else's shoes to understand why accessibility matters.</p>
+    <p class="metric-chip">🎮 Interactive learning</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="intro">
+      <h2 id="intro">Understanding through experience</h2>
+      <p>The best way to understand accessibility is to experience barriers firsthand. These simulations approximate—but can never fully replicate—what people with different disabilities experience daily.</p>
+      
+      <div class="warning-box">
+        <h3>⚠️ Important note</h3>
+        <p>These simulations are educational tools, not perfect representations. Real experiences vary widely. Use these to build empathy and understanding, but always center the voices of people with disabilities themselves.</p>
+      </div>
+    </section>
+
+    <section class="sim-section" aria-labelledby="color-vision">
+      <h2 id="color-vision">🎨 Color vision simulation</h2>
+      <p>About <strong>8% of men</strong> and <strong>0.5% of women</strong> have some form of color vision deficiency. See how your content appears to them.</p>
+      
+      <div class="sim-controls" role="group" aria-label="Color blindness filters">
+        <button class="sim-btn" onclick="setColorFilter('none')">Normal vision</button>
+        <button class="sim-btn" onclick="setColorFilter('protanopia')">Protanopia (red-blind)</button>
+        <button class="sim-btn" onclick="setColorFilter('deuteranopia')">Deuteranopia (green-blind)</button>
+        <button class="sim-btn" onclick="setColorFilter('tritanopia')">Tritanopia (blue-blind)</button>
+        <button class="sim-btn" onclick="setColorFilter('achromatopsia')">Achromatopsia (no color)</button>
+      </div>
+
+      <div class="sim-demo" id="color-demo">
+        <h3>Sample content</h3>
+        <div class="sample-content">
+          <div class="color-sample sample-red">Error: Required field</div>
+          <div class="color-sample sample-green">Success: Saved!</div>
+          <div class="color-sample sample-blue">Info: New update</div>
+          <div class="color-sample sample-yellow">Warning: Check input</div>
+        </div>
+        <h4>Chart showing Q1-Q4 performance</h4>
+        <div class="sample-chart">
+          <div class="chart-bar bar-1" title="Q1: 80%"></div>
+          <div class="chart-bar bar-2" title="Q2: 60%"></div>
+          <div class="chart-bar bar-3" title="Q3: 90%"></div>
+          <div class="chart-bar bar-4" title="Q4: 45%"></div>
+        </div>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Legend: <span style="color: #4caf50;">■</span> Q1 <span style="color: #f44336;">■</span> Q2 <span style="color: #2196f3;">■</span> Q3 <span style="color: #ff9800;">■</span> Q4</p>
+      </div>
+
+      <div class="sim-result">
+        <h4>What did you notice?</h4>
+        <ul>
+          <li>Red and green become nearly identical in most color blindness types</li>
+          <li>Color-only indicators (like red=error) become meaningless</li>
+          <li>Charts using color-coding become unreadable</li>
+        </ul>
+        <h4>Solutions:</h4>
+        <ul>
+          <li>Use icons + text + color (not color alone)</li>
+          <li>Add patterns or labels to charts</li>
+          <li>Ensure sufficient contrast between adjacent colors</li>
+          <li>Test with color blindness simulators</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sim-section" aria-labelledby="low-vision">
+      <h2 id="low-vision">👁️ Low vision simulation</h2>
+      <p>About <strong>12 million</strong> Americans over 40 have vision impairment beyond what glasses can correct. See how blur affects content perception.</p>
+      
+      <div class="sim-controls" role="group" aria-label="Vision blur controls">
+        <button class="sim-btn" onclick="setBlur('none')">Clear vision</button>
+        <button class="sim-btn" onclick="setBlur('low-vision-mild')">Mild blur</button>
+        <button class="sim-btn" onclick="setBlur('low-vision-moderate')">Moderate blur</button>
+        <button class="sim-btn" onclick="setBlur('low-vision-severe')">Severe blur</button>
+        <button class="sim-btn" onclick="setBlur('tunnel-vision')">Tunnel vision</button>
+      </div>
+
+      <div class="sim-demo" id="vision-demo">
+        <h3>Sample form</h3>
+        <form onsubmit="return false;">
+          <p><label>Name: <input type="text" value="Jane Doe" style="padding: 8px;"></label></p>
+          <p><label>Email: <input type="email" value="jane@example.com" style="padding: 8px;"></label></p>
+          <p><small style="color: #666;">* Required fields</small></p>
+          <button type="submit" style="padding: 10px 20px; background: #1565c0; color: white; border: none; border-radius: 4px;">Submit</button>
+        </form>
+      </div>
+
+      <div class="sim-result">
+        <h4>What did you notice?</h4>
+        <ul>
+          <li>Small text becomes unreadable</li>
+          <li>Low contrast elements disappear</li>
+          <li>Tunnel vision means missing content outside focus area</li>
+          <li>Form field boundaries become unclear</li>
+        </ul>
+        <h4>Solutions:</h4>
+        <ul>
+          <li>Use high contrast (4.5:1 minimum)</li>
+          <li>Support browser zoom up to 400%</li>
+          <li>Keep related content close together</li>
+          <li>Use clear visual boundaries</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sim-section" aria-labelledby="keyboard">
+      <h2 id="keyboard">⌨️ Keyboard-only navigation challenge</h2>
+      <p>Many users can't use a mouse due to motor impairments, tremors, or situational factors. Try navigating with keyboard only!</p>
+      
+      <div class="challenge-box">
+        <h3>🎯 The Challenge</h3>
+        <ol>
+          <li><strong>Put your mouse aside</strong> (seriously, don't touch it!)</li>
+          <li>Navigate to each button below using only <kbd>Tab</kbd></li>
+          <li>Activate each button using <kbd>Enter</kbd> or <kbd>Space</kbd></li>
+          <li>Notice which elements are easy or hard to reach</li>
+        </ol>
+      </div>
+
+      <div class="sim-demo">
+        <h3>Interactive elements</h3>
+        <p>
+          <button onclick="this.textContent = 'Clicked!'" style="padding: 10px 20px;">Button 1</button>
+          <button onclick="this.textContent = 'Clicked!'" style="padding: 10px 20px;">Button 2</button>
+          <button onclick="this.textContent = 'Clicked!'" style="padding: 10px 20px;">Button 3</button>
+        </p>
+        
+        <h4>Now try these problematic elements:</h4>
+        <p>
+          <!-- Inaccessible div button -->
+          <span onclick="this.textContent = 'Clicked (but keyboard users cannot reach me!)'" 
+                style="padding: 10px 20px; background: #e0e0e0; cursor: pointer; display: inline-block;">
+            ❌ Click me (div, not button)
+          </span>
+        </p>
+        <p>
+          <!-- Button with no focus style -->
+          <button onclick="this.textContent = 'Clicked!'" 
+                  style="padding: 10px 20px; outline: none;">
+            ⚠️ No focus indicator
+          </button>
+        </p>
+        <p>
+          <!-- Proper accessible button -->
+          <button onclick="this.textContent = 'Clicked!'" 
+                  style="padding: 10px 20px;">
+            ✅ Proper button
+          </button>
+        </p>
+      </div>
+
+      <div class="sim-result">
+        <h4>What did you experience?</h4>
+        <ul>
+          <li>The div "button" can't receive keyboard focus</li>
+          <li>Without focus indicator, you can't see where you are</li>
+          <li>Tab order should follow visual order</li>
+        </ul>
+        <h4>Key takeaways:</h4>
+        <ul>
+          <li>Use real <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements</li>
+          <li>Never remove focus outlines without replacement</li>
+          <li>Test every interactive element with keyboard</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sim-section" aria-labelledby="screen-reader">
+      <h2 id="screen-reader">🔊 Screen reader simulation</h2>
+      <p>Screen readers convert visual content to audio. Experience how your content sounds.</p>
+      
+      <div class="challenge-box">
+        <h3>🎯 The Challenge</h3>
+        <ol>
+          <li><strong>Close your eyes</strong> (or look away from screen)</li>
+          <li>Have someone read ONLY the text below—no descriptions of layout</li>
+          <li>Try to understand the content and navigate the "page"</li>
+        </ol>
+      </div>
+
+      <div class="sim-demo">
+        <h3>What a screen reader might announce:</h3>
+        <div style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; font-family: monospace; border-radius: 8px;">
+          <p>"Heading level 1: Welcome"</p>
+          <p>"Image" [no alt text]</p>
+          <p>"Link: Click here"</p>
+          <p>"Link: Click here"</p>
+          <p>"Link: Click here"</p>
+          <p>"Button"</p>
+          <p>"Table with 5 columns and 10 rows"</p>
+          <p>"Edit text"</p>
+        </div>
+        
+        <h4>vs. Accessible version:</h4>
+        <div style="background: #e8f5e9; color: #1b5e20; padding: 1rem; font-family: monospace; border-radius: 8px;">
+          <p>"Heading level 1: Welcome to University of Arizona Accessibility"</p>
+          <p>"Image: Students studying together in the library"</p>
+          <p>"Link: Accessibility training schedule"</p>
+          <p>"Link: Testing tools and resources"</p>
+          <p>"Link: Contact the accessibility office"</p>
+          <p>"Button: Submit registration form"</p>
+          <p>"Table: Course schedule with columns: Course, Day, Time, Location, Instructor"</p>
+          <p>"Edit text: Enter your email address, required"</p>
+        </div>
+      </div>
+
+      <div class="sim-result">
+        <h4>Key differences:</h4>
+        <ul>
+          <li><strong>Alt text</strong> describes images meaningfully</li>
+          <li><strong>Link text</strong> describes destination (not "click here")</li>
+          <li><strong>Button labels</strong> describe the action</li>
+          <li><strong>Table captions</strong> explain what data the table contains</li>
+          <li><strong>Form labels</strong> explain what to enter</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sim-section" aria-labelledby="cognitive">
+      <h2 id="cognitive">🧠 Cognitive load simulation</h2>
+      <p>Cognitive disabilities affect attention, memory, and processing. Experience content overload.</p>
+      
+      <div class="sim-demo">
+        <h3>Try to read and understand this:</h3>
+        <div id="cognitive-demo" style="transition: all 0.3s;">
+          <p style="text-align: justify; font-size: 0.85rem; line-height: 1.2;">
+            IMPORTANT: ReadthisentirepagewithoutmistakesBYDecember31stORyouwillLOSEaccesstoyouraccountforeverandallofyourdatawillbeDELETEDpermanentlywithNOwaytorecover!!!Toavoidthismakesureyouclick<span style="color: red; animation: blink 0.5s infinite;">HERE</span>ANDthenenterYOURinformationANDsubmitwithinTHEtimeframeindicatedONscreen.
+          </p>
+          <p style="color: #666; font-size: 0.75rem;">
+            Note: Additional terms and conditions may apply. See section 47.3.2(b) of the user agreement for details on data retention policies as they relate to account termination procedures outlined in appendix C.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button style="padding: 5px 10px; font-size: 0.7rem; background: #f5f5f5;">Maybe</button>
+            <button style="padding: 5px 10px; font-size: 0.7rem; background: #f44336; color: white;">DELETE ALL</button>
+            <button style="padding: 5px 10px; font-size: 0.7rem; background: #f5f5f5;">Skip</button>
+            <button style="padding: 5px 10px; font-size: 0.7rem; background: #f5f5f5;">Cancel</button>
+            <button style="padding: 5px 10px; font-size: 0.7rem; background: #4caf50; color: white;">OK</button>
+            <button style="padding: 5px 10px; font-size: 0.7rem; background: #f5f5f5;">Later</button>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 2rem;">Now try the accessible version:</h3>
+        <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+          <h4>Your account needs attention</h4>
+          <p>Please update your contact information by December 31, 2026.</p>
+          <p><strong>What you need to do:</strong></p>
+          <ol>
+            <li>Review your email address</li>
+            <li>Confirm your phone number</li>
+            <li>Click "Save changes"</li>
+          </ol>
+          <p>Need help? <a href="#">Contact support</a></p>
+          <div style="margin-top: 1rem;">
+            <button style="padding: 10px 24px; background: #1565c0; color: white; border: none; border-radius: 4px; margin-right: 1rem;">Update my information</button>
+            <button style="padding: 10px 24px; background: #fff; border: 1px solid #ccc; border-radius: 4px;">Remind me later</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-result">
+        <h4>What makes content cognitively accessible:</h4>
+        <ul>
+          <li><strong>Clear headings</strong> that explain what follows</li>
+          <li><strong>Short sentences</strong> and paragraphs</li>
+          <li><strong>Bulleted lists</strong> for multiple items</li>
+          <li><strong>White space</strong> to reduce visual clutter</li>
+          <li><strong>Consistent layout</strong> across pages</li>
+          <li><strong>Clear calls to action</strong> with obvious buttons</li>
+          <li><strong>Plain language</strong> without jargon</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="real-testing">
+      <h2 id="real-testing">Take it further: Real testing</h2>
+      
+      <p>Simulations build awareness, but real testing finds real issues:</p>
+      
+      <ul>
+        <li><strong>Screen reader testing:</strong> <a href="assistive-tech-guide.html">Try NVDA or VoiceOver</a></li>
+        <li><strong>Automated testing:</strong> <a href="testing-tools.html">Use WAVE, axe, or Lighthouse</a></li>
+        <li><strong>User testing:</strong> Include people with disabilities in your research</li>
+      </ul>
+
+      <div class="card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left: 4px solid #4caf50;">
+        <h3>🎯 Your next step</h3>
+        <p>Try navigating your own website or application using only a keyboard. Spend just 5 minutes. You'll be amazed at what you discover.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="assistive-tech-guide.html">Assistive Technology Deep Dive</a></li>
+        <li><a href="testing-tools.html">Testing Tools</a></li>
+        <li><a href="why-accessibility-matters.html">Why Accessibility Matters</a></li>
+        <li><a href="https://www.funkify.org/">Funkify</a> — Browser extension for disability simulations</li>
+        <li><a href="https://chromewebstore.google.com/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl">NoCoffee</a> — Chrome extension for vision simulations</li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+  </footer>
+
+  <script>
+    function setColorFilter(filterClass) {
+      const demo = document.getElementById('color-demo');
+      demo.className = 'sim-demo ' + (filterClass === 'none' ? '' : filterClass);
+    }
+
+    function setBlur(blurClass) {
+      const demo = document.getElementById('vision-demo');
+      demo.className = 'sim-demo ' + (blurClass === 'none' ? '' : blurClass);
+    }
+  </script>
+</body>
+</html>

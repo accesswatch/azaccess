@@ -1,67 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Governance Charter | Accessibility at Arizona</title>
+  <title>Accessibility Governance Charter | Accessibility</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary" role="navigation">
-        <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
-    </div>
-    <p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policies &amp; Governance</a> / Governance Charter</p>
-    <h1>Accessibility Governance Charter</h1>
-    <p class="page-meta">Updated: 2025-11-20 · Next review: 2026-05-20</p>
-  </header>
-  <main id="maincontent" role="main">
-    <section aria-labelledby="purpose-title">
-      <h2 id="purpose-title">Purpose</h2>
-      <p>This charter describes how the University of Arizona coordinates digital accessibility work across colleges, departments, and partner units to meet WCAG 2.2 AA and Title II expectations.</p>
-    </section>
-
-    <section aria-labelledby="roles-title">
-      <h2 id="roles-title">Roles</h2>
-      <ul>
-        <li><strong>Executive Sponsor:</strong> authorizes budget, resolves escalations, and signs external commitments.</li>
-        <li><strong>Accessibility Program Office:</strong> manages roadmap, content standards, and crosswalk mapping.</li>
-        <li><strong>Partner Units:</strong> DRC, UCATT, Arizona Digital, Procurement, Equity, Communications, and others implement and maintain accessible experiences.</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="cadence-title">
-      <h2 id="cadence-title">Cadence</h2>
-      <ul>
-        <li>Quarterly steering meeting with KPIs, risk review, and decision log.</li>
-        <li>Monthly shared content and registry review.</li>
-        <li>Annual Title II readiness assessment and roadmap refresh.</li>
-      </ul>
-      <p>For the current schedule, see the <a href="policies-governance.html">Policies &amp; Governance hub</a>.</p>
-    </section>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
+  <main id="maincontent" class="doc-content" role="main">
+    <article id="content">Loading…</article>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const mdFile = 'governance-charter.html';
+      try {
+        const res = await fetch(mdFile);
+        const text = await res.text();
+        const fm = text.match(/^---\n([\s\S]*?)\n---/);
+        let title = '';
+        let body = text;
+        if (fm) {
+          const yaml = fm[1];
+          const m = yaml.match(/^title:\s*(.*)$/m);
+          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
+          body = text.slice(fm[0].length);
+        }
+        const html = marked.parse(body);
+        if (title) document.title = title + ' | Accessibility';
+        const header = title ? ('<h1>'+title+'</h1>') : '';
+        document.getElementById('content').innerHTML = header + html;
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error loading document: ' + e;
+      }
+    })();
+  </script>
 </body>
 </html>

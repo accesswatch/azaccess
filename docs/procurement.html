@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Procurement &amp; Vendors Hub</title>
+  <title>Procurement &amp; Vendors | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="../scripts/header.js" defer></script>
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
-      <div class="site-header-brand">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-University of Arizona · Digital Accessibility</div>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
         <a href="personas.html">Personas</a>
@@ -31,18 +30,20 @@ University of Arizona · Digital Accessibility</div>
         <a href="support.html">Get help</a>
       </nav>
     </div>
-    <p><a href="home.html">Accessibility Home</a> / Procurement &amp; Vendors</p>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / Procurement &amp; Vendors</p>
+    </nav>
     <h1>Procurement &amp; Vendors</h1>
     <p>Ensure every technology purchase, renewal, and contract enforces WCAG 2.2 AA.</p>
     <p class="metric-chip">VPAT review SLA: 10 business days</p>
-    <p class="page-meta">Owner: Procurement + Accessibility PMO · Last reviewed: 2025-11-20 · Next review: 2026-02-20</p>
+    <p class="page-meta">Owner: Procurement + Accessibility PMO · Last reviewed: 2026-01-05 · Next review: 2026-04-05</p>
   </header>
   <main id="maincontent" role="main">
     <section aria-labelledby="proc-exec">
       <h2 id="proc-exec">Executive summary</h2>
       <p>All campus units share responsibility for buying accessible IT. Start accessibility reviews early, require remediation commitments, and document alternative access plans before deployment.</p>
       <ul>
-        <li>Follow the <a href="../work/web/procurement-steps.html">Accessible Procurement Steps</a>.</li>
+        <li>Follow the <a href="procurement-steps.html">Accessible Procurement Steps</a>.</li>
         <li>Collect vendor VPATs (WCAG 2.1/2.2 or EN 301 549) and accessibility roadmaps.</li>
         <li>Engage the Accessibility team for demos with JAWS, NVDA, VoiceOver, TalkBack, Fusion, and ZoomText.</li>
         <li>Store decisions and exceptions in the procurement tracker.</li>
@@ -90,12 +91,12 @@ University of Arizona · Digital Accessibility</div>
         </table>
       </div>
       <p>Download templates and sample language from the shared procurement toolkit.</p>
-      <a class="cta" href="../work/web/vendor-faq.html">Vendor FAQ</a>
+      <a class="cta" href="vendor-faq.html">Vendor FAQ</a>
     </section>
 
     <section aria-labelledby="vpat">
       <h2 id="vpat">VPAT evaluation</h2>
-      <p>Use the <a href="../work/web/vpat-review.html">VPAT review guide</a> to interpret conformance levels and product notes. Prioritize WCAG 2.2 AA evaluations when available.</p>
+      <p>Use the <a href="vpat-review.html">VPAT review guide</a> to interpret conformance levels and product notes. Prioritize WCAG 2.2 AA evaluations when available.</p>
       <ul>
         <li>Confirm scope (web, desktop, mobile) and versions.</li>
         <li>Request demos showing actual AT usage.</li>
@@ -109,17 +110,17 @@ University of Arizona · Digital Accessibility</div>
         <article class="card">
           <h3>RFP language</h3>
           <p>Require WCAG 2.2 AA compliance, testing plans, and AT compatibility statements.</p>
-          <a class="cta" href="../work/web/procurement-steps.html">Copy text</a>
+          <a class="cta" href="procurement-steps.html">Copy text</a>
         </article>
         <article class="card">
           <h3>Contract addendum</h3>
           <p>Include remediation milestones, reporting cadence, and termination options.</p>
-          <a class="cta" href="../work/web/vendor-faq.html">View addendum</a>
+          <a class="cta" href="vendor-faq.html">View addendum</a>
         </article>
         <article class="card">
           <h3>Acceptance checklist</h3>
           <p>Document tests run with JAWS, NVDA, VoiceOver, TalkBack, Fusion, ZoomText before go-live.</p>
-          <a class="cta" href="../work/web/assistive-tech.html">Assistive tech coverage</a>
+          <a class="cta" href="assistive-tech.html">Assistive tech coverage</a>
         </article>
       </div>
     </section>
@@ -148,7 +149,9 @@ University of Arizona · Digital Accessibility</div>
     </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
 </body>
 </html>

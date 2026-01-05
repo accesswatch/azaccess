@@ -1,44 +1,334 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VPAT / ACR Review Guide | Accessibility</title>
+  <title>VPAT Review Guide | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html" aria-current="page">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="procurement.html">Procurement</a> / VPAT Review</p>
+    </nav>
+    <h1>VPAT Review Guide</h1>
+    <p>How to evaluate Voluntary Product Accessibility Templates.</p>
+    <p class="metric-chip">📋 For procurement &amp; IT</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="vpat-overview">
+      <h2 id="vpat-overview">What is a VPAT?</h2>
+      <p>A <strong>Voluntary Product Accessibility Template (VPAT)</strong> is a document that explains how a technology product conforms to accessibility standards. When completed, it's called an <strong>Accessibility Conformance Report (ACR)</strong>.</p>
+      
+      <div class="card">
+        <h3>Why VPATs matter</h3>
+        <p>VPATs help UA make informed decisions about technology purchases. They document:</p>
+        <ul>
+          <li>How well a product meets WCAG standards</li>
+          <li>Known accessibility issues</li>
+          <li>Vendor commitment to accessibility</li>
+          <li>Potential barriers for users with disabilities</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="requesting-vpats">
+      <h2 id="requesting-vpats">Requesting VPATs from vendors</h2>
+      
+      <h3>Where to find VPATs</h3>
+      <ul>
+        <li><strong>Vendor website:</strong> Often under "Accessibility" or "Legal" sections</li>
+        <li><strong>ITIC VPAT Repository:</strong> <a href="https://www.itic.org/policy/accessibility/vpat">itic.org/policy/accessibility/vpat</a></li>
+        <li><strong>Direct request:</strong> Contact vendor sales or support</li>
+      </ul>
+
+      <h3>Sample request language</h3>
+      <blockquote>
+        <p>"As part of our accessibility evaluation, please provide the most recent Accessibility Conformance Report (ACR)/VPAT for [product name]. We require documentation based on WCAG 2.1 Level AA. If an ACR is not available, please provide your product accessibility roadmap or indicate when one will be available."</p>
+      </blockquote>
+
+      <h3>Red flags when requesting</h3>
+      <ul>
+        <li>Vendor doesn't know what a VPAT is</li>
+        <li>VPAT is more than 18 months old</li>
+        <li>VPAT based on older standards (WCAG 2.0 or Section 508 original)</li>
+        <li>Vendor refuses to provide documentation</li>
+        <li>VPAT only covers part of the product</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="vpat-format">
+      <h2 id="vpat-format">Understanding VPAT format</h2>
+      
+      <h3>VPAT versions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Standards covered</th>
+            <th>Preferred?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VPAT 2.4 WCAG</td>
+            <td>WCAG 2.1 (web content)</td>
+            <td>✓ Yes</td>
+          </tr>
+          <tr>
+            <td>VPAT 2.4 508</td>
+            <td>Revised Section 508</td>
+            <td>✓ Acceptable</td>
+          </tr>
+          <tr>
+            <td>VPAT 2.4 INT</td>
+            <td>WCAG + 508 + EN 301 549</td>
+            <td>✓ Best for comprehensive</td>
+          </tr>
+          <tr>
+            <td>VPAT 2.3 or earlier</td>
+            <td>Varies</td>
+            <td>⚠️ Request update</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Conformance levels</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Meaning</th>
+            <th>Acceptable?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Supports</strong></td>
+            <td>Functionality fully meets criterion</td>
+            <td>✓ Best</td>
+          </tr>
+          <tr>
+            <td><strong>Partially Supports</strong></td>
+            <td>Some functionality meets criterion</td>
+            <td>⚠️ Review details</td>
+          </tr>
+          <tr>
+            <td><strong>Does Not Support</strong></td>
+            <td>Most functionality doesn't meet criterion</td>
+            <td>✗ Concern</td>
+          </tr>
+          <tr>
+            <td><strong>Not Applicable</strong></td>
+            <td>Criterion doesn't apply to product</td>
+            <td>— Verify claim</td>
+          </tr>
+          <tr>
+            <td><strong>Not Evaluated</strong></td>
+            <td>Not tested</td>
+            <td>⚠️ Request testing</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="evaluating">
+      <h2 id="evaluating">Evaluating a VPAT</h2>
+      
+      <h3>Quick assessment questions</h3>
+      <ol>
+        <li><strong>Date:</strong> Is it within 18 months? Has product had major updates since?</li>
+        <li><strong>Version:</strong> Does it cover WCAG 2.1? Or at least WCAG 2.0 AA?</li>
+        <li><strong>Scope:</strong> Does it cover all features you'll use?</li>
+        <li><strong>Detail:</strong> Are remarks specific or vague/generic?</li>
+        <li><strong>Honesty:</strong> Does it acknowledge any issues? (No product is perfect)</li>
+      </ol>
+
+      <h3>Priority criteria to review</h3>
+      <p>Focus on these high-impact WCAG criteria:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Criterion</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.1.1 Non-text Content</td>
+            <td>Images, charts must have alternatives</td>
+          </tr>
+          <tr>
+            <td>1.4.3 Contrast (Minimum)</td>
+            <td>Text must be readable</td>
+          </tr>
+          <tr>
+            <td>2.1.1 Keyboard</td>
+            <td>All functionality by keyboard</td>
+          </tr>
+          <tr>
+            <td>2.4.4 Link Purpose</td>
+            <td>Links make sense out of context</td>
+          </tr>
+          <tr>
+            <td>4.1.2 Name, Role, Value</td>
+            <td>Works with assistive technology</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Scoring approach</h3>
+      <p>Calculate an informal accessibility score:</p>
+      <ul>
+        <li><strong>Supports:</strong> 2 points</li>
+        <li><strong>Partially Supports:</strong> 1 point</li>
+        <li><strong>Does Not Support:</strong> 0 points</li>
+        <li><strong>Not Applicable:</strong> Exclude from calculation</li>
+      </ul>
+      <p><strong>Target:</strong> 80%+ of applicable criteria should be "Supports" or "Partially Supports"</p>
+    </section>
+
+    <section aria-labelledby="red-flags">
+      <h2 id="red-flags">VPAT red flags</h2>
+      
+      <h3>Warning signs</h3>
+      <ul>
+        <li><strong>All "Supports":</strong> Unrealistic; every product has some issues</li>
+        <li><strong>Vague remarks:</strong> "Generally accessible" without specifics</li>
+        <li><strong>Copied remarks:</strong> Same text for multiple criteria</li>
+        <li><strong>Missing criteria:</strong> Entire sections marked N/A without explanation</li>
+        <li><strong>Very old date:</strong> More than 2 years old</li>
+        <li><strong>Unknown author:</strong> No company identification or contact</li>
+      </ul>
+
+      <h3>Questions to ask vendors</h3>
+      <ul>
+        <li>When was accessibility last tested?</li>
+        <li>Was testing done internally or by third party?</li>
+        <li>What testing methodology was used?</li>
+        <li>What's your accessibility roadmap for reported issues?</li>
+        <li>Do you have users with disabilities beta test?</li>
+        <li>What support do you offer for accessibility issues?</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="no-vpat">
+      <h2 id="no-vpat">What if there's no VPAT?</h2>
+      
+      <h3>Options</h3>
+      <ol>
+        <li><strong>Request one:</strong> Give vendor timeline to produce</li>
+        <li><strong>Conduct own evaluation:</strong> Test critical functionality</li>
+        <li><strong>Require in contract:</strong> Make VPAT a deliverable</li>
+        <li><strong>Consider alternatives:</strong> Look for products with VPATs</li>
+        <li><strong>Document risk:</strong> If proceeding, document accessibility risk</li>
+      </ol>
+
+      <h3>Self-evaluation checklist</h3>
+      <p>If vendor has no VPAT, test these basics:</p>
+      <ul>
+        <li>☐ Can you Tab through all interactive elements?</li>
+        <li>☐ Are focus indicators visible?</li>
+        <li>☐ Do images have alt text?</li>
+        <li>☐ Is text contrast sufficient?</li>
+        <li>☐ Can you use all features without a mouse?</li>
+        <li>☐ Are form fields labeled?</li>
+        <li>☐ Does it work with screen reader (basic test)?</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="documentation">
+      <h2 id="documentation">Documenting your review</h2>
+      <p>When reviewing a VPAT, document:</p>
+      <ul>
+        <li>Date of review</li>
+        <li>VPAT version and date</li>
+        <li>Product name and version</li>
+        <li>Features evaluated</li>
+        <li>Summary of findings</li>
+        <li>Risk assessment (low/medium/high)</li>
+        <li>Recommended conditions (if approving)</li>
+        <li>Required vendor commitments</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="decision-framework">
+      <h2 id="decision-framework">Decision framework</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>VPAT quality</th>
+            <th>Accessibility level</th>
+            <th>Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Current, detailed</td>
+            <td>80%+ Supports</td>
+            <td>✓ Approve</td>
+          </tr>
+          <tr>
+            <td>Current, detailed</td>
+            <td>60-80% Supports</td>
+            <td>⚠️ Conditional approval with remediation plan</td>
+          </tr>
+          <tr>
+            <td>Current, detailed</td>
+            <td>&lt;60% Supports</td>
+            <td>✗ Request alternatives</td>
+          </tr>
+          <tr>
+            <td>Outdated/vague</td>
+            <td>Any</td>
+            <td>⚠️ Request updated VPAT or self-evaluate</td>
+          </tr>
+          <tr>
+            <td>No VPAT</td>
+            <td>Unknown</td>
+            <td>⚠️ Self-evaluate or require in contract</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.itic.org/policy/accessibility/vpat">ITIC VPAT Template &amp; Repository</a></li>
+        <li><a href="https://www.section508.gov/buy/request-accessibility-information/">Section508.gov: Request Accessibility Information</a></li>
+        <li><a href="procurement.html">Procurement Hub</a></li>
+        <li><a href="vendor-faq.html">Vendor Accessibility FAQ</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'vpat-review.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

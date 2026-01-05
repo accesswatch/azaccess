@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accessibility Testing in CI/CD | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="web-app.html">Web &amp; Apps</a> / CI/CD Testing</p>
+    </nav>
+    <h1>Accessibility Testing in CI/CD</h1>
+    <p>Shift left: Catch accessibility issues before they reach production.</p>
+    <p class="metric-chip">⚙️ DevOps automation</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="why-automate">
+      <h2 id="why-automate">Why automate accessibility testing?</h2>
+      
+      <div class="card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left: 4px solid #4caf50;">
+        <h3>💡 The earlier you catch bugs, the cheaper they are to fix</h3>
+        <p>Accessibility issues found in production cost <strong>10-100x more</strong> to fix than those caught during development. Automated testing catches ~30-40% of issues instantly, on every commit.</p>
+      </div>
+
+      <h3>Benefits of CI/CD integration</h3>
+      <ul>
+        <li><strong>Prevent regressions:</strong> New code doesn't break existing accessibility</li>
+        <li><strong>Immediate feedback:</strong> Developers learn about issues in minutes</li>
+        <li><strong>Consistent enforcement:</strong> Every PR gets the same checks</li>
+        <li><strong>Documentation:</strong> Build reports track accessibility over time</li>
+        <li><strong>Culture shift:</strong> Makes accessibility part of "done"</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="testing-pyramid">
+      <h2 id="testing-pyramid">The accessibility testing pyramid</h2>
+      
+      <pre style="text-align: center; font-family: monospace;">
+          /\
+         /  \
+        / 👤 \     Manual testing (10%)
+       /      \    - Screen reader, keyboard
+      /--------\   - Usability studies
+     /   🔍    \   Integration tests (30%)
+    /           \  - axe-core in e2e tests
+   /-------------\ - Storybook a11y addon
+  /     ⚡       \  Unit tests (60%)
+ /                \ - Component-level axe
+/------------------\ - eslint-plugin-jsx-a11y
+      </pre>
+
+      <p>Automate what you can (bottom), manually test what you must (top).</p>
+    </section>
+
+    <section aria-labelledby="tool-axe">
+      <h2 id="tool-axe">axe-core: The industry standard</h2>
+      <p><a href="https://github.com/dequelabs/axe-core">axe-core</a> by Deque is the most widely-used accessibility testing engine. It powers most automated tools.</p>
+      
+      <h3>What it catches</h3>
+      <ul>
+        <li>Missing alt text</li>
+        <li>Color contrast failures</li>
+        <li>Missing form labels</li>
+        <li>Invalid ARIA</li>
+        <li>Heading structure issues</li>
+        <li>Keyboard accessibility problems</li>
+        <li>And 80+ more rules</li>
+      </ul>
+
+      <h3>What it can't catch</h3>
+      <ul>
+        <li>Whether alt text is <em>meaningful</em></li>
+        <li>Logical focus order</li>
+        <li>Whether content makes sense</li>
+        <li>Complex interaction patterns</li>
+        <li>Cognitive accessibility</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="setup-github">
+      <h2 id="setup-github">GitHub Actions setup</h2>
+      
+      <h3>Basic workflow with axe</h3>
+      <pre># .github/workflows/accessibility.yml
+name: Accessibility Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  a11y-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build project
+        run: npm run build
+      
+      - name: Start server
+        run: npm run start &amp;
+        
+      - name: Wait for server
+        run: npx wait-on http://localhost:3000
+      
+      - name: Run accessibility tests
+        run: npm run test:a11y
+      
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: a11y-results
+          path: a11y-results/</pre>
+
+      <h3>Using pa11y-ci</h3>
+      <pre># package.json
+{
+  "scripts": {
+    "test:a11y": "pa11y-ci"
+  },
+  "devDependencies": {
+    "pa11y-ci": "^3.0.0"
+  }
+}
+
+# .pa11yci.json
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["axe"],
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    }
+  },
+  "urls": [
+    "http://localhost:3000/",
+    "http://localhost:3000/about",
+    "http://localhost:3000/contact",
+    "http://localhost:3000/products"
+  ]
+}</pre>
+    </section>
+
+    <section aria-labelledby="setup-jest">
+      <h2 id="setup-jest">Jest + React Testing Library</h2>
+      
+      <h3>Setup jest-axe</h3>
+      <pre>npm install --save-dev jest-axe @testing-library/react</pre>
+
+      <h3>Component test example</h3>
+      <pre>import { render } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
+import Button from './Button';
+
+expect.extend(toHaveNoViolations);
+
+describe('Button', () =&gt; {
+  it('should have no accessibility violations', async () =&gt; {
+    const { container } = render(
+      &lt;Button onClick={() =&gt; {}}&gt;Click me&lt;/Button&gt;
+    );
+    
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it('should have no violations when disabled', async () =&gt; {
+    const { container } = render(
+      &lt;Button disabled&gt;Disabled button&lt;/Button&gt;
+    );
+    
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+});</pre>
+
+      <h3>Testing specific rules</h3>
+      <pre>it('should have sufficient color contrast', async () =&gt; {
+  const { container } = render(&lt;Alert type="warning"&gt;Warning!&lt;/Alert&gt;);
+  
+  const results = await axe(container, {
+    rules: {
+      'color-contrast': { enabled: true }
+    }
+  });
+  
+  expect(results).toHaveNoViolations();
+});</pre>
+    </section>
+
+    <section aria-labelledby="setup-cypress">
+      <h2 id="setup-cypress">Cypress integration</h2>
+      
+      <h3>Install cypress-axe</h3>
+      <pre>npm install --save-dev cypress-axe axe-core</pre>
+
+      <h3>Setup in cypress/support/e2e.js</h3>
+      <pre>import 'cypress-axe';
+
+// Custom command to check accessibility
+Cypress.Commands.add('checkA11y', (context, options) =&gt; {
+  cy.injectAxe();
+  cy.checkA11y(context, options, (violations) =&gt; {
+    // Log violations to console with details
+    violations.forEach((violation) =&gt; {
+      const nodes = violation.nodes.map(n =&gt; n.target).join(', ');
+      cy.log(`${violation.impact}: ${violation.description} (${nodes})`);
+    });
+  });
+});</pre>
+
+      <h3>E2E test example</h3>
+      <pre>describe('Homepage accessibility', () =&gt; {
+  beforeEach(() =&gt; {
+    cy.visit('/');
+    cy.injectAxe();
+  });
+
+  it('should have no accessibility violations on load', () =&gt; {
+    cy.checkA11y();
+  });
+
+  it('should have no violations after opening modal', () =&gt; {
+    cy.get('[data-cy="open-modal"]').click();
+    cy.get('[data-cy="modal"]').should('be.visible');
+    cy.checkA11y('[data-cy="modal"]');
+  });
+
+  it('should have no violations in dark mode', () =&gt; {
+    cy.get('[data-cy="theme-toggle"]').click();
+    cy.checkA11y(null, {
+      rules: {
+        'color-contrast': { enabled: true }
+      }
+    });
+  });
+});</pre>
+    </section>
+
+    <section aria-labelledby="setup-playwright">
+      <h2 id="setup-playwright">Playwright integration</h2>
+      
+      <h3>Install @axe-core/playwright</h3>
+      <pre>npm install --save-dev @axe-core/playwright</pre>
+
+      <h3>Test example</h3>
+      <pre>import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+
+test.describe('Accessibility tests', () =&gt; {
+  test('homepage should have no violations', async ({ page }) =&gt; {
+    await page.goto('/');
+    
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    
+    expect(results.violations).toEqual([]);
+  });
+
+  test('form page should be accessible', async ({ page }) =&gt; {
+    await page.goto('/contact');
+    
+    // Fill form to test all states
+    await page.fill('#name', 'Test User');
+    await page.fill('#email', 'test@example.com');
+    
+    const results = await new AxeBuilder({ page }).analyze();
+    expect(results.violations).toEqual([]);
+  });
+});</pre>
+    </section>
+
+    <section aria-labelledby="storybook">
+      <h2 id="storybook">Storybook a11y addon</h2>
+      <p>Test components in isolation during development.</p>
+      
+      <h3>Install</h3>
+      <pre>npm install --save-dev @storybook/addon-a11y</pre>
+
+      <h3>Configure in .storybook/main.js</h3>
+      <pre>module.exports = {
+  addons: [
+    '@storybook/addon-a11y'
+  ]
+};</pre>
+
+      <h3>Run in CI</h3>
+      <pre># Using storybook test runner
+npm install --save-dev @storybook/test-runner axe-playwright
+
+# package.json
+{
+  "scripts": {
+    "test:storybook": "test-storybook"
+  }
+}</pre>
+    </section>
+
+    <section aria-labelledby="eslint">
+      <h2 id="eslint">ESLint for JSX accessibility</h2>
+      
+      <h3>Install eslint-plugin-jsx-a11y</h3>
+      <pre>npm install --save-dev eslint-plugin-jsx-a11y</pre>
+
+      <h3>ESLint config</h3>
+      <pre>// .eslintrc.js
+module.exports = {
+  plugins: ['jsx-a11y'],
+  extends: ['plugin:jsx-a11y/recommended'],
+  rules: {
+    // Enforce alt text
+    'jsx-a11y/alt-text': 'error',
+    
+    // Require labels for inputs
+    'jsx-a11y/label-has-associated-control': 'error',
+    
+    // No onClick on non-interactive elements
+    'jsx-a11y/click-events-have-key-events': 'error',
+    'jsx-a11y/no-static-element-interactions': 'error',
+    
+    // Enforce heading order
+    'jsx-a11y/heading-has-content': 'error'
+  }
+};</pre>
+
+      <p>This catches issues <strong>at write-time</strong> in the IDE, before code is even committed.</p>
+    </section>
+
+    <section aria-labelledby="reporting">
+      <h2 id="reporting">Reporting and tracking</h2>
+      
+      <h3>Generate HTML reports</h3>
+      <pre>// Custom reporter for pa11y
+const reporter = {
+  results: (results) =&gt; {
+    const html = generateHTMLReport(results);
+    fs.writeFileSync('a11y-report.html', html);
+  }
+};
+
+// Or use axe-html-reporter
+const { createHtmlReport } = require('axe-html-reporter');
+createHtmlReport({ results });</pre>
+
+      <h3>Track metrics over time</h3>
+      <ul>
+        <li>Number of violations by severity</li>
+        <li>Pages with zero violations</li>
+        <li>Violations by rule type</li>
+        <li>Time to fix accessibility bugs</li>
+      </ul>
+
+      <h3>Dashboard integration</h3>
+      <p>Send metrics to your monitoring dashboard:</p>
+      <pre>// After running axe
+const metrics = {
+  total_violations: results.violations.length,
+  critical: results.violations.filter(v =&gt; v.impact === 'critical').length,
+  serious: results.violations.filter(v =&gt; v.impact === 'serious').length,
+  pages_tested: urls.length
+};
+
+// Send to your metrics system
+await sendToDatadog(metrics);
+await sendToGrafana(metrics);</pre>
+    </section>
+
+    <section aria-labelledby="best-practices">
+      <h2 id="best-practices">Best practices</h2>
+      
+      <h3>Do</h3>
+      <ul>
+        <li>✅ Run tests on every PR</li>
+        <li>✅ Fail the build for critical/serious violations</li>
+        <li>✅ Test all major pages and states</li>
+        <li>✅ Include accessibility in code review checklist</li>
+        <li>✅ Combine automated + manual testing</li>
+      </ul>
+
+      <h3>Don't</h3>
+      <ul>
+        <li>❌ Assume 100% automated pass = accessible</li>
+        <li>❌ Disable tests to make builds pass</li>
+        <li>❌ Only test the homepage</li>
+        <li>❌ Ignore "minor" violations forever</li>
+      </ul>
+
+      <h3>Progressive enforcement</h3>
+      <pre>// Start by warning only
+cy.checkA11y(null, null, null, { skipFailures: true });
+
+// Then fail on critical only
+cy.checkA11y(null, {
+  rules: {
+    'critical': { enabled: true }
+  }
+});
+
+// Finally, fail on all WCAG 2.1 AA
+cy.checkA11y(null, {
+  runOnly: {
+    type: 'tag',
+    values: ['wcag2a', 'wcag2aa', 'wcag21aa']
+  }
+});</pre>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://github.com/dequelabs/axe-core">axe-core GitHub</a></li>
+        <li><a href="https://github.com/pa11y/pa11y-ci">pa11y-ci documentation</a></li>
+        <li><a href="https://storybook.js.org/addons/@storybook/addon-a11y">Storybook a11y addon</a></li>
+        <li><a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y">eslint-plugin-jsx-a11y</a></li>
+        <li><a href="testing-tools.html">Accessibility Testing Tools</a></li>
+        <li><a href="web-app.html">Web &amp; Apps Hub</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+  </footer>
+</body>
+</html>

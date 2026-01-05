@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accessibility Myths vs. Facts | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .myth-card {
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    .myth {
+      background: linear-gradient(135deg, #ffebee, #ffcdd2);
+      border-left: 4px solid #f44336;
+    }
+    .fact {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      border-left: 4px solid #4caf50;
+    }
+    .myth h3::before { content: "❌ Myth: "; color: #d32f2f; }
+    .fact h3::before { content: "✅ Fact: "; color: #388e3c; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="accessibility-101.html">Accessibility 101</a> / Myths vs. Facts</p>
+    </nav>
+    <h1>Accessibility Myths vs. Facts</h1>
+    <p>Busting misconceptions about digital accessibility.</p>
+    <p class="metric-chip">💡 Learn the truth</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="intro">
+      <h2 id="intro">Clearing up common misconceptions</h2>
+      <p>Accessibility is often misunderstood. These myths can lead to poor decisions, wasted effort, and continued barriers for people with disabilities. Let's set the record straight!</p>
+    </section>
+
+    <section aria-labelledby="myths">
+      <h2 id="myths">The myths</h2>
+
+      <div class="myth-card myth">
+        <h3>"Accessibility only helps a small number of people"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>Accessibility benefits far more people than you think</h3>
+        <ul>
+          <li><strong>1 in 4</strong> U.S. adults has a disability (CDC)</li>
+          <li><strong>15%</strong> of the world population experiences disability (WHO)</li>
+          <li><strong>Everyone</strong> benefits: Captions help in noisy environments, high contrast helps in sunlight, keyboard navigation helps when your mouse breaks</li>
+          <li><strong>Temporary &amp; situational disabilities</strong>: Broken arm, holding a baby, bright sunlight</li>
+          <li><strong>Aging population</strong>: Most people will experience disability at some point</li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"Accessibility is expensive and time-consuming"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>Building accessible from the start is far cheaper than retrofitting</h3>
+        <ul>
+          <li>Accessibility issues found in production cost <strong>10-100x more</strong> to fix</li>
+          <li>Most accessibility is <strong>free</strong>: semantic HTML, alt text, heading structure</li>
+          <li>Lawsuits are expensive: Average settlement is <strong>$50,000-$150,000</strong></li>
+          <li>Good accessibility = good UX = <strong>better engagement</strong> for everyone</li>
+          <li>Accessible design often <strong>simplifies</strong> development (fewer workarounds)</li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"We can make it accessible later"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>Retrofitting is 10x harder than building accessible from the start</h3>
+        <ul>
+          <li>Inaccessible architecture creates <strong>technical debt</strong></li>
+          <li>Fixing navigation or heading structure may require <strong>redesign</strong></li>
+          <li>Users with disabilities are <strong>blocked now</strong>—later is too late for them</li>
+          <li>Legal compliance is required <strong>now</strong>, not later</li>
+          <li>The best time was at the start; the second best time is <strong>today</strong></li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"Automated testing catches all accessibility issues"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>Automated tools catch only 30-40% of issues</h3>
+        <ul>
+          <li>Tools can verify alt text <strong>exists</strong>, not that it's <strong>meaningful</strong></li>
+          <li>Keyboard navigation <strong>logic</strong> requires human judgment</li>
+          <li>Cognitive accessibility can't be fully automated</li>
+          <li>Use automation for baseline + <strong>manual testing</strong> for complete coverage</li>
+          <li>User testing with people with disabilities is <strong>essential</strong></li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"Accessibility makes websites ugly"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>The most beautiful websites in the world are accessible</h3>
+        <ul>
+          <li>Apple, Airbnb, BBC—all highly accessible and visually stunning</li>
+          <li>Accessibility constraints <strong>inspire creativity</strong>, not limit it</li>
+          <li>Good contrast = <strong>better readability for everyone</strong></li>
+          <li>Clear visual hierarchy = accessible headings = <strong>better design</strong></li>
+          <li>Accessibility and aesthetics are <strong>not opposites</strong></li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"Blind people don't use the internet"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>Blind and visually impaired people are power users of the web</h3>
+        <ul>
+          <li>Screen readers make the web <strong>more</strong> accessible than print ever was</li>
+          <li>Blind users often <strong>navigate faster</strong> than sighted users (keyboard shortcuts)</li>
+          <li>The web is essential: banking, education, healthcare, social connection</li>
+          <li>Many blind people work in <strong>tech careers</strong></li>
+          <li><strong>285 million</strong> people worldwide have visual impairments (WHO)</li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"Accessibility is just about screen readers"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>Accessibility covers a wide range of disabilities and needs</h3>
+        <ul>
+          <li><strong>Motor:</strong> Keyboard navigation, voice control, switch access</li>
+          <li><strong>Cognitive:</strong> Clear language, consistent navigation, error prevention</li>
+          <li><strong>Hearing:</strong> Captions, transcripts, visual alerts</li>
+          <li><strong>Vision:</strong> Screen readers, magnification, color contrast, dark mode</li>
+          <li><strong>Situational:</strong> Bright sunlight, noisy environments, slow internet</li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"WCAG compliance means we're done"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>WCAG compliance is the floor, not the ceiling</h3>
+        <ul>
+          <li>You can pass WCAG and still have a <strong>terrible user experience</strong></li>
+          <li>Real accessibility requires <strong>user testing</strong></li>
+          <li>Guidelines evolve—WCAG 2.2, WCAG 3.0 coming</li>
+          <li>Compliance is ongoing, not a one-time checkbox</li>
+          <li>The goal is <strong>usability</strong>, not just compliance</li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"We've never gotten a complaint, so we're fine"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>People with disabilities often leave silently instead of complaining</h3>
+        <ul>
+          <li>Users with disabilities face barriers <strong>constantly</strong>—complaint fatigue is real</li>
+          <li>If your site is inaccessible, they may never <strong>get to</strong> the contact form</li>
+          <li>You're losing users (and customers) <strong>you don't even know about</strong></li>
+          <li>Lawsuits often come <strong>without warning</strong></li>
+          <li>Absence of complaints ≠ accessibility</li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"People with disabilities don't use our product"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>They might not be able to—that's the problem</h3>
+        <ul>
+          <li>Inaccessible products <strong>exclude</strong> people with disabilities</li>
+          <li>You may have users with <strong>invisible disabilities</strong> struggling right now</li>
+          <li>Every demographic includes people with disabilities</li>
+          <li>People acquire disabilities throughout life</li>
+          <li>You can't know who your users are if you've built barriers to entry</li>
+        </ul>
+      </div>
+
+      <div class="myth-card myth">
+        <h3>"We have an overlay, so we're covered"</h3>
+      </div>
+      <div class="myth-card fact">
+        <h3>Accessibility overlays don't work and may increase legal risk</h3>
+        <ul>
+          <li>Overlays can <strong>interfere</strong> with actual assistive technology</li>
+          <li><strong>96%+</strong> of lawsuits target sites with overlays installed</li>
+          <li>Disability rights organizations have <strong>condemned</strong> overlay vendors</li>
+          <li>Overlays address symptoms, not <strong>root causes</strong></li>
+          <li>There's no substitute for building accessible code</li>
+        </ul>
+        <p><a href="https://overlayfactsheet.com/">Learn more at overlayfactsheet.com</a></p>
+      </div>
+    </section>
+
+    <section aria-labelledby="truth">
+      <h2 id="truth">The truth about accessibility</h2>
+      
+      <div class="card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left: 4px solid #4caf50;">
+        <h3>Accessibility is...</h3>
+        <ul>
+          <li>✅ A civil right and legal requirement</li>
+          <li>✅ Good for business (larger audience, better SEO, fewer lawsuits)</li>
+          <li>✅ Good engineering (semantic, maintainable, performant)</li>
+          <li>✅ An ongoing practice, not a one-time fix</li>
+          <li>✅ Everyone's responsibility</li>
+          <li>✅ Something you can learn and improve at!</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Learn more</h2>
+      <ul>
+        <li><a href="accessibility-101.html">Accessibility 101</a></li>
+        <li><a href="why-accessibility-matters.html">Why Accessibility Matters</a></li>
+        <li><a href="disability-statistics.html">Disability by the Numbers</a></li>
+        <li><a href="business-case.html">The Business Case for Accessibility</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+  </footer>
+</body>
+</html>

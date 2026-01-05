@@ -5,11 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Student Persona Hub | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
-    <p><a href="home.html">Accessibility Home</a> / Personas</p>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="personas.html">Personas</a> / Students</p>
+    </nav>
     <h1>Students</h1>
     <p>Students expect frictionless accommodations, accessible course media, and transparent support pathways.</p>
     <p class="metric-chip">Avg accommodation processing time: 7 days</p>
@@ -59,7 +82,7 @@
 
     <section aria-labelledby="student-principles">
       <h2 id="student-principles">Impactful principles &amp; tools</h2>
-      <p>Accessibility shouldn’t feel like extra work for students. Use this guided checklist to know what “good” looks like and what to request from faculty and staff. Each item maps back to the <a href="../work/web/wcag22-highlights.html">WCAG 2.2 AA highlights</a>.</p>
+      <p>Accessibility shouldn’t feel like extra work for students. Use this guided checklist to know what “good” looks like and what to request from faculty and staff. Each item maps back to the <a href="wcag22-highlights.html">WCAG 2.2 AA highlights</a>.</p>
       <details class="accordion" open>
         <summary>Know your rights (WCAG focus areas)</summary>
         <div>
@@ -85,7 +108,7 @@
       <details class="accordion">
         <summary>Documents, PDFs, and media</summary>
         <div>
-          <p>Ask instructors to run Microsoft Accessibility Checker before sharing Word, PowerPoint, or Excel files. For PDFs, request tagged versions following the <a href="../work/web/pdf-remediation.html">Adobe remediation guide</a> so reading order and labels make sense on screen readers.</p>
+          <p>Ask instructors to run Microsoft Accessibility Checker before sharing Word, PowerPoint, or Excel files. For PDFs, request tagged versions following the <a href="pdf-remediation.html">Adobe remediation guide</a> so reading order and labels make sense on screen readers.</p>
           <p>If you receive slides without alt text or captions, reference the Document &amp; Media hub when requesting fixes.</p>
         </div>
       </details>
@@ -170,7 +193,7 @@
         <li><strong>VoiceOver</strong> on macOS/iOS and <strong>TalkBack</strong> on Android for Brightspace, Panopto, and campus apps.</li>
         <li><strong>Fusion</strong> (JAWS + ZoomText) and standalone <strong>ZoomText</strong> for low-vision access at 200%+ magnification.</li>
       </ul>
-      <p>See <a href="../work/web/assistive-tech.html">Assistive Technology Coverage</a> for full expectations and training links.</p>
+      <p>See <a href="assistive-tech.html">Assistive Technology Coverage</a> for full expectations and training links.</p>
     </section>
 
     <section aria-labelledby="student-at-resources">
@@ -264,7 +287,7 @@
     <section aria-labelledby="feedback">
       <h2 id="feedback">Feedback</h2>
       <p>Use the <a href="https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx">Access Report</a> or email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> with suggestions. We respond within two business days.</p>
-      <p>Last reviewed: 2025-11-20 · Next review: 2026-02-20 · Owner: DRC + Accessibility Team</p>
+      <p>Last reviewed: 2026-01-05 · Next review: 2026-02-20 · Owner: DRC + Accessibility Team</p>
     </section>
     <section aria-labelledby="student-next-steps">
       <h2 id="student-next-steps">Next steps for students</h2>
@@ -275,9 +298,32 @@
       </ul>
       <p>Sharing barriers and questions will not get you or anyone else in trouble—it helps Arizona fix issues and improve access for more students.</p>
     </section>
+
+    <section aria-labelledby="related-guides">
+      <h2 id="related-guides">Related guides you may need</h2>
+      <p>Your situation may overlap with these roles:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Families &amp; Visitors</h3>
+          <p>If you&apos;re bringing family to campus or planning events.</p>
+          <a class="cta" href="persona-public.html">Public guide</a>
+        </article>
+        <article class="card">
+          <h3>Working with Faculty</h3>
+          <p>Understand what faculty are asked to do when implementing accommodations.</p>
+          <a class="cta" href="persona-faculty.html">Faculty guide</a>
+        </article>
+        <article class="card">
+          <h3>All Personas</h3>
+          <p>Browse all role-based guides.</p>
+          <a class="cta" href="personas.html">Persona hub</a>
+        </article>
+      </div>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
 </body>
 </html>

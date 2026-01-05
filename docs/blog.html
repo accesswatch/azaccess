@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Blog</title>
+  <title>Accessibility Blog | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="../scripts/header.js" defer></script>
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
-      <div class="site-header-brand">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-University of Arizona · Digital Accessibility</div>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
         <a href="personas.html">Personas</a>
@@ -31,7 +30,9 @@ University of Arizona · Digital Accessibility</div>
         <a href="support.html">Get help</a>
       </nav>
     </div>
-    <p><a href="home.html">Accessibility Home</a> / Blog</p>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / Blog</p>
+    </nav>
     <h1>Accessibility Blog</h1>
     <p>Stories, updates, and case studies from across the University of Arizona accessibility community.</p>
     <label for="tag-filter">Filter by tag</label>
@@ -49,7 +50,7 @@ University of Arizona · Digital Accessibility</div>
       <h2 id="featured">Featured posts</h2>
       <div class="grid grid-3">
         <article class="card" aria-labelledby="post1-title">
-          <p class="metric-chip">Nov 18, 2025 · Title II</p>
+          <p class="metric-chip">Jan 2, 2026 · Title II</p>
           <h3 id="post1-title">Executive Brief: Title II Web &amp; Mobile Rule</h3>
           <p><strong>Takeaways</strong></p>
           <ul>
@@ -57,10 +58,10 @@ University of Arizona · Digital Accessibility</div>
             <li>WCAG 2.1 AA baseline; UA aligning to 2.2 AA.</li>
           </ul>
           <p>The Accessibility Program Office outlines the roadmap, KPIs, and governance required to meet DOJ expectations.</p>
-          <p><a class="cta" href="#">Read post</a></p>
+          <p><a class="cta" href="title-ii-brief.html">Read post</a></p>
         </article>
         <article class="card" aria-labelledby="post2-title">
-          <p class="metric-chip">Nov 12, 2025 · Faculty</p>
+          <p class="metric-chip">Dec 15, 2025 · Faculty</p>
           <h3 id="post2-title">Brightspace Next Accessibility Upgrades</h3>
           <p><strong>Takeaways</strong></p>
           <ul>
@@ -68,10 +69,10 @@ University of Arizona · Digital Accessibility</div>
             <li>Media panel integrates caption checks.</li>
           </ul>
           <p>UCATT shares new tools that flag issues before content goes live.</p>
-          <p><a class="cta" href="#">Read post</a></p>
+          <p><a class="cta" href="lms-brightspace.html">Read post</a></p>
         </article>
         <article class="card" aria-labelledby="post3-title">
-          <p class="metric-chip">Nov 4, 2025 · Developers</p>
+          <p class="metric-chip">Dec 8, 2025 · Developers</p>
           <h3 id="post3-title">Testing Toolkit refresh</h3>
           <p><strong>Takeaways</strong></p>
           <ul>
@@ -79,7 +80,7 @@ University of Arizona · Digital Accessibility</div>
             <li>Standardized screen reader scripts.</li>
           </ul>
           <p>The Digital Accessibility QA group walks through updated tooling and documentation.</p>
-          <p><a class="cta" href="#">Read post</a></p>
+          <p><a class="cta" href="testing-tools.html">Read post</a></p>
         </article>
       </div>
     </section>
@@ -96,7 +97,7 @@ University of Arizona · Digital Accessibility</div>
       <h2 id="post-template">Post template</h2>
       <article class="card">
         <header>
-          <p>Published Nov 20, 2025 · Last reviewed Nov 20, 2025 · Tags: Faculty, Documents</p>
+          <p>Published Jan 5, 2026 · Last reviewed Jan 5, 2026 · Tags: Faculty, Documents</p>
           <h3>Template example: Accessible Document Sprint</h3>
         </header>
         <p><strong>Executive takeaway</strong></p>
@@ -115,7 +116,7 @@ University of Arizona · Digital Accessibility</div>
         <section>
           <h4>Action list</h4>
           <ul>
-            <li>Enroll in Accessible Documents workshop (Dec 3).</li>
+            <li>Enroll in Accessible Documents workshop (Jan 15).</li>
             <li>Download Word/PowerPoint checklist.</li>
             <li>Schedule consultation for departmental templates.</li>
           </ul>
@@ -131,7 +132,9 @@ University of Arizona · Digital Accessibility</div>
     </section>
   </main>
   <footer role="contentinfo">
-    <p>Accessibility Communications · Last reviewed 2025-11-20 · Next review 2026-02-20</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
 </body>
 </html>

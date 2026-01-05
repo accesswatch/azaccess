@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Accessibility Matters | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .impact-stat {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+    .impact-stat .number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1565c0;
+      display: block;
+    }
+    .impact-stat .label {
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .story-card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      border-left: 4px solid #9c27b0;
+    }
+    .story-card blockquote {
+      margin: 0;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+    .story-card cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-style: normal;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="accessibility-101.html">Accessibility 101</a> / Why It Matters</p>
+    </nav>
+    <h1>Why Accessibility Matters</h1>
+    <p>The human, legal, and business case for digital inclusion.</p>
+    <p class="metric-chip">❤️ The heart of accessibility</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="the-why">
+      <h2 id="the-why">It's about people</h2>
+      
+      <div class="card" style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); border-left: 4px solid #e91e63; font-size: 1.1rem;">
+        <p>"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."</p>
+        <p><strong>— Tim Berners-Lee, inventor of the World Wide Web</strong></p>
+      </div>
+
+      <p>When we build accessible digital experiences, we're not checking boxes—we're opening doors. We're saying to every person who wants to learn, work, create, or connect: <strong>you belong here.</strong></p>
+
+      <h3>Real impact, real lives</h3>
+      
+      <div class="story-card">
+        <blockquote>"Before accessible course materials, I had to wait days for someone to describe my textbook diagrams. Now I can study at midnight like everyone else. That independence changed everything."</blockquote>
+        <cite>— Maya, UA graduate student, blind</cite>
+      </div>
+
+      <div class="story-card">
+        <blockquote>"When your hands shake from Parkinson's, small touch targets are impossible. Keyboard shortcuts and larger buttons aren't just 'nice to have'—they're how I stay connected to my grandkids."</blockquote>
+        <cite>— Robert, 67, retired professor</cite>
+      </div>
+
+      <div class="story-card">
+        <blockquote>"I'm not deaf, but I have auditory processing disorder. Captions aren't a disability accommodation for me—they're how I actually understand what's being said."</blockquote>
+        <cite>— Jordan, UA sophomore</cite>
+      </div>
+    </section>
+
+    <section aria-labelledby="by-numbers">
+      <h2 id="by-numbers">By the numbers</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+        <div class="impact-stat">
+          <span class="number">1 in 4</span>
+          <span class="label">U.S. adults has a disability</span>
+        </div>
+        <div class="impact-stat">
+          <span class="number">1.3B</span>
+          <span class="label">People globally with disabilities</span>
+        </div>
+        <div class="impact-stat">
+          <span class="number">$13T</span>
+          <span class="label">Annual spending power</span>
+        </div>
+        <div class="impact-stat">
+          <span class="number">71%</span>
+          <span class="label">Leave inaccessible sites immediately</span>
+        </div>
+      </div>
+
+      <h3>Who are we talking about?</h3>
+      <ul>
+        <li><strong>13 million</strong> Americans with vision impairments</li>
+        <li><strong>11 million</strong> Americans who are deaf or hard of hearing</li>
+        <li><strong>17 million</strong> Americans with cognitive disabilities</li>
+        <li><strong>6.8 million</strong> Americans with mobility impairments affecting computer use</li>
+        <li><strong>Countless</strong> people with temporary or situational disabilities</li>
+      </ul>
+      <p>These aren't edge cases. This is your community, your customers, your family, and eventually—statistically—<strong>you</strong>.</p>
+    </section>
+
+    <section aria-labelledby="legal-case">
+      <h2 id="legal-case">The legal imperative</h2>
+      
+      <h3>Key laws and deadlines</h3>
+      <table>
+        <thead>
+          <tr><th>Law</th><th>Applies to</th><th>Key point</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ADA Title II</strong></td>
+            <td>State/local government (including public universities)</td>
+            <td>WCAG 2.1 AA compliance required by <strong>April 2026</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Section 504</strong></td>
+            <td>Any org receiving federal funds</td>
+            <td>Must provide equal access to programs</td>
+          </tr>
+          <tr>
+            <td><strong>Section 508</strong></td>
+            <td>Federal agencies &amp; contractors</td>
+            <td>Technical accessibility standards</td>
+          </tr>
+          <tr>
+            <td><strong>Arizona HB 2319</strong></td>
+            <td>Arizona state agencies</td>
+            <td>Accessible government websites required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Lawsuit trends</h3>
+      <ul>
+        <li><strong>4,500+</strong> web accessibility lawsuits filed in 2023</li>
+        <li>Higher education is increasingly targeted</li>
+        <li>Average settlement: <strong>$50,000 - $150,000</strong></li>
+        <li>Plus legal fees, remediation costs, and reputation damage</li>
+      </ul>
+      <p><strong>See:</strong> <a href="title-ii-brief.html">ADA Title II Requirements</a></p>
+    </section>
+
+    <section aria-labelledby="business-case">
+      <h2 id="business-case">The business case</h2>
+      
+      <h3>ROI of accessibility</h3>
+      <ul>
+        <li><strong>Larger audience:</strong> 15% of the world has a disability</li>
+        <li><strong>Better SEO:</strong> Accessible sites rank higher (semantic HTML, alt text, transcripts)</li>
+        <li><strong>Mobile-friendly:</strong> Accessibility practices improve mobile experience</li>
+        <li><strong>Innovation driver:</strong> Curb cuts, voice assistants, closed captions—all started as accessibility features</li>
+        <li><strong>Brand reputation:</strong> Inclusion is a competitive advantage</li>
+      </ul>
+
+      <h3>The cost of NOT being accessible</h3>
+      <ul>
+        <li>Legal settlements and fees</li>
+        <li>Lost customers (71% leave immediately)</li>
+        <li>Expensive retrofitting</li>
+        <li>Negative press and social media</li>
+        <li>Failing to attract diverse talent</li>
+      </ul>
+
+      <div class="card" style="background: #fff3e0; border-left: 4px solid #ff9800;">
+        <h3>💰 Quick math</h3>
+        <p>If 15% of potential students can't use your website, and your enrollment goal is 10,000 students...</p>
+        <p>That's <strong>1,500 students</strong> you might be losing before they even apply.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="education-case">
+      <h2 id="education-case">The education mission</h2>
+      <p>Universities exist to expand knowledge and opportunity. Inaccessible education undermines that mission.</p>
+      
+      <h3>Accessibility supports learning for all</h3>
+      <ul>
+        <li><strong>Captions</strong> help non-native English speakers, people in noisy environments, and those who learn better by reading</li>
+        <li><strong>Structured content</strong> helps everyone find information faster</li>
+        <li><strong>Multiple formats</strong> accommodate different learning styles</li>
+        <li><strong>Clear language</strong> benefits everyone, especially those under stress</li>
+      </ul>
+
+      <h3>Universal Design for Learning</h3>
+      <p>Accessibility aligns with UDL principles:</p>
+      <ul>
+        <li><strong>Multiple means of engagement</strong> — options for how students connect</li>
+        <li><strong>Multiple means of representation</strong> — options for how content is presented</li>
+        <li><strong>Multiple means of expression</strong> — options for how students demonstrate learning</li>
+      </ul>
+      <p><strong>See:</strong> <a href="udl-framework.html">Universal Design for Learning Guide</a></p>
+    </section>
+
+    <section aria-labelledby="innovation">
+      <h2 id="innovation">Accessibility drives innovation</h2>
+      <p>Features designed for people with disabilities often become essential for everyone:</p>
+      
+      <table>
+        <thead>
+          <tr><th>Innovation</th><th>Original purpose</th><th>Mainstream use</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Closed captions</strong></td>
+            <td>Deaf viewers</td>
+            <td>Gyms, airports, watching without sound</td>
+          </tr>
+          <tr>
+            <td><strong>Voice assistants</strong></td>
+            <td>Motor/vision impairments</td>
+            <td>Siri, Alexa, Google Assistant</td>
+          </tr>
+          <tr>
+            <td><strong>Curb cuts</strong></td>
+            <td>Wheelchair users</td>
+            <td>Strollers, bikes, luggage, delivery carts</td>
+          </tr>
+          <tr>
+            <td><strong>Autocomplete</strong></td>
+            <td>Motor impairments</td>
+            <td>Faster typing for everyone</td>
+          </tr>
+          <tr>
+            <td><strong>Dark mode</strong></td>
+            <td>Light sensitivity</td>
+            <td>Reduce eye strain, save battery</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>When we design for the margins, we often improve the experience for everyone.</p>
+    </section>
+
+    <section aria-labelledby="temporary">
+      <h2 id="temporary">Disability is universal</h2>
+      <p>Disability isn't a fixed category—it's a spectrum that touches everyone:</p>
+      
+      <h3>Permanent, temporary, and situational</h3>
+      <table>
+        <thead>
+          <tr><th>Ability</th><th>Permanent</th><th>Temporary</th><th>Situational</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Touch</strong></td>
+            <td>One arm</td>
+            <td>Arm injury</td>
+            <td>Holding a baby</td>
+          </tr>
+          <tr>
+            <td><strong>See</strong></td>
+            <td>Blind</td>
+            <td>Cataracts</td>
+            <td>Bright sunlight</td>
+          </tr>
+          <tr>
+            <td><strong>Hear</strong></td>
+            <td>Deaf</td>
+            <td>Ear infection</td>
+            <td>Noisy environment</td>
+          </tr>
+          <tr>
+            <td><strong>Speak</strong></td>
+            <td>Non-verbal</td>
+            <td>Laryngitis</td>
+            <td>Heavy accent on phone</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>If you live long enough, you will experience disability. Building accessible experiences is building for your future self.</p>
+    </section>
+
+    <section aria-labelledby="call-to-action">
+      <h2 id="call-to-action">What you can do</h2>
+      
+      <h3>Today</h3>
+      <ul>
+        <li>Add alt text to images you post</li>
+        <li>Use headings in your documents</li>
+        <li>Turn on captions in your next video</li>
+        <li>Test a website using only your keyboard</li>
+      </ul>
+
+      <h3>This week</h3>
+      <ul>
+        <li>Take the <a href="accessibility-101.html">Accessibility 101</a> overview</li>
+        <li>Run an accessibility check on a document you own</li>
+        <li>Watch a video with captions and notice what you learn</li>
+      </ul>
+
+      <h3>This month</h3>
+      <ul>
+        <li>Audit one website or application you manage</li>
+        <li>Attend an accessibility training session</li>
+        <li>Talk to someone about their accessibility experience</li>
+      </ul>
+
+      <div class="card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left: 4px solid #4caf50;">
+        <h3>🌟 Remember</h3>
+        <p>You don't have to be perfect. Every step toward accessibility opens a door for someone. Start where you are, use what you have, do what you can.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Keep learning</h2>
+      <ul>
+        <li><a href="accessibility-101.html">Accessibility 101</a></li>
+        <li><a href="myths-vs-facts.html">Myths vs. Facts</a></li>
+        <li><a href="disability-statistics.html">Disability by the Numbers</a></li>
+        <li><a href="assistive-tech.html">Assistive Technology Overview</a></li>
+        <li><a href="quick-wins.html">Quick Accessibility Wins</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+  </footer>
+</body>
+</html>

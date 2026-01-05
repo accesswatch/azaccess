@@ -3,13 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Faculty &amp; Instructors Persona Hub</title>
+  <title>Faculty &amp; Instructors | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
-    <p><a href="home.html">Accessibility Home</a> / Personas</p>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="personas.html">Personas</a> / Faculty</p>
+    </nav>
     <h1>Faculty &amp; Instructors</h1>
     <p>Faculty create accessible learning environments, interpret accommodation letters quickly, and keep course media inclusive.</p>
     <p class="metric-chip">Caption turnaround goal: &lt; 3 business days</p>
@@ -58,7 +81,7 @@
 
     <section aria-labelledby="faculty-principles">
       <h2 id="faculty-principles">Impactful principles &amp; tools</h2>
-      <p>Accessibility stays manageable when you pair consistent principles with the right tools. Use these expandable guides (aligned to <a href="../work/web/wcag22-highlights.html">WCAG 2.2 AA highlights</a>) each time you prep course content.</p>
+      <p>Accessibility stays manageable when you pair consistent principles with the right tools. Use these expandable guides (aligned to <a href="wcag22-highlights.html">WCAG 2.2 AA highlights</a>) each time you prep course content.</p>
       <details class="accordion" open>
         <summary>Course structure &amp; navigation</summary>
         <div>
@@ -75,7 +98,7 @@
           <ul>
             <li>Run the <strong>Microsoft Accessibility Checker</strong> inside Word, PowerPoint, and Excel; remediate all errors before sharing.</li>
             <li>Create alt text that conveys purpose (follow <a href="https://webaim.org/techniques/alttext/">WebAIM’s alt text guidance</a>).</li>
-            <li>When exporting PDFs, tag headings, set reading order, and label form fields using the <a href="../work/web/pdf-remediation.html">Adobe remediation guide</a>.</li>
+            <li>When exporting PDFs, tag headings, set reading order, and label form fields using the <a href="pdf-remediation.html">Adobe remediation guide</a>.</li>
           </ul>
           <p>Store both the accessible source file and the tagged PDF in case accommodations require edits.</p>
         </div>
@@ -109,7 +132,7 @@
         <summary>Accessible course content</summary>
         <div>
           <ul>
-            <li>Use the <a href="../work/web/lms-brightspace.html">Brightspace checklist</a> for headings, alt text, and color.</li>
+            <li>Use the <a href="lms-brightspace.html">Brightspace checklist</a> for headings, alt text, and color.</li>
             <li>Upload documents that pass Word/Google accessibility checkers.</li>
             <li>Provide redundant formats (slides + tagged PDF + HTML) for complex visuals.</li>
             <li>Cross-check modules with <a href="https://webaim.org/resources/">WebAIM course content resources</a> to ensure lists, links, and tables read correctly.</li>
@@ -141,7 +164,7 @@
         <article class="card">
           <h3>Panopto Caption Support</h3>
           <p>Request machine or professional captions; learn how to edit transcripts.</p>
-          <a class="cta" href="../work/web/media-captioning.html">Caption guide</a>
+          <a class="cta" href="media-captioning.html">Caption guide</a>
         </article>
       </div>
     </section>
@@ -154,7 +177,7 @@
         <li><strong>VoiceOver</strong> (iOS/macOS) and <strong>TalkBack</strong> (Android) for mobile access to Brightspace, Panopto, VoiceThread.</li>
         <li><strong>Fusion</strong> and <strong>ZoomText</strong> for low-vision viewing of slides and live demonstrations.</li>
       </ul>
-      <p>See the <a href="../work/web/assistive-tech.html">Assistive Technology Coverage</a> overview for training links and test scripts.</p>
+      <p>See the <a href="assistive-tech.html">Assistive Technology Coverage</a> overview for training links and test scripts.</p>
     </section>
 
     <section aria-labelledby="training">
@@ -168,7 +191,7 @@
 
     <section aria-labelledby="feedback">
       <h2 id="feedback">Feedback</h2>
-      <p>Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> with course questions or submit a consultation request. Last reviewed: 2025-11-20.</p>
+      <p>Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> with course questions or submit a consultation request. Last reviewed: 2026-01-05.</p>
     </section>
     <section aria-labelledby="faculty-next-steps">
       <h2 id="faculty-next-steps">Next steps for faculty</h2>
@@ -179,9 +202,32 @@
       </ul>
       <p>For assistance, request a consultation via the <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu">Accessibility consultation form</a>.</p>
     </section>
+
+    <section aria-labelledby="related-guides">
+      <h2 id="related-guides">Related guides you may need</h2>
+      <p>Your work may overlap with these roles:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Creating Content?</h3>
+          <p>For accessible documents, slides, and media guidance.</p>
+          <a class="cta" href="persona-content.html">Content creators</a>
+        </article>
+        <article class="card">
+          <h3>Understanding Students</h3>
+          <p>See what students experience when requesting accommodations.</p>
+          <a class="cta" href="persona-students.html">Student guide</a>
+        </article>
+        <article class="card">
+          <h3>All Personas</h3>
+          <p>Browse all role-based guides.</p>
+          <a class="cta" href="personas.html">Persona hub</a>
+        </article>
+      </div>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
 </body>
 </html>

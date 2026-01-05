@@ -3,13 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Visitors &amp; Public Persona Hub</title>
+  <title>Visitors &amp; Families | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
-    <p><a href="home.html">Accessibility Home</a> / Personas</p>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="personas.html">Personas</a> / Visitors</p>
+    </nav>
     <h1>Visitors, Families, and Community Members</h1>
     <p>Plan accessible campus visits, events, and online interactions with ease.</p>
     <p class="metric-chip">Response goal: within 2 business days</p>
@@ -58,7 +81,7 @@
 
     <section aria-labelledby="public-principles">
       <h2 id="public-principles">Impactful principles &amp; toolset</h2>
-      <p>Use these quick principles (aligned to the <a href="../work/web/wcag22-highlights.html">WCAG 2.2 AA highlights</a>) when reviewing campus information.</p>
+      <p>Use these quick principles (aligned to the <a href="wcag22-highlights.html">WCAG 2.2 AA highlights</a>) when reviewing campus information.</p>
       <details class="accordion" open>
         <summary>Plan ahead</summary>
         <div>
@@ -150,7 +173,7 @@
         <li><strong>Magnification</strong>: Fusion, ZoomText, browser/system zoom.</li>
         <li><strong>Communication access</strong>: CART, ASL, captioning, assistive listening devices.</li>
       </ul>
-      <p>See <a href="../work/web/assistive-tech.html">Assistive Technology Coverage</a> for details.</p>
+      <p>See <a href="assistive-tech.html">Assistive Technology Coverage</a> for details.</p>
     </section>
 
     <section aria-labelledby="public-training">
@@ -164,7 +187,7 @@
 
     <section aria-labelledby="public-feedback">
       <h2 id="public-feedback">Feedback</h2>
-      <p>Share compliments, concerns, or ideas via the Access Report or email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>. Last reviewed: 2025-11-20.</p>
+      <p>Share compliments, concerns, or ideas via the Access Report or email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>. Last reviewed: 2026-01-05.</p>
     </section>
     <section aria-labelledby="public-next-steps">
       <h2 id="public-next-steps">Next steps for visitors and families</h2>
@@ -175,9 +198,32 @@
       </ul>
       <p>You will not get in trouble for sharing concerns—your feedback helps Arizona make campus more welcoming for everyone.</p>
     </section>
+
+    <section aria-labelledby="related-guides">
+      <h2 id="related-guides">Related guides you may need</h2>
+      <p>Other resources that may help:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Prospective Students</h3>
+          <p>If you’re planning to enroll or are supporting someone who is.</p>
+          <a class="cta" href="persona-students.html">Student guide</a>
+        </article>
+        <article class="card">
+          <h3>Report a Barrier</h3>
+          <p>Quick access to report inaccessible experiences.</p>
+          <a class="cta" href="https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx">Access Report</a>
+        </article>
+        <article class="card">
+          <h3>All Personas</h3>
+          <p>Browse all role-based guides.</p>
+          <a class="cta" href="personas.html">Persona hub</a>
+        </article>
+      </div>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
 </body>
 </html>

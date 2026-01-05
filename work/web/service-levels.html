@@ -1,44 +1,385 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Service Levels | Accessibility</title>
+  <title>Accessibility Service Level Agreements | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html" aria-current="page">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policies &amp; Governance</a> / Service Levels</p>
+    </nav>
+    <h1>Accessibility Service Level Agreements</h1>
+    <p>Response times and resolution targets for accessibility issues.</p>
+    <p class="metric-chip">⏱️ SLA definitions</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="sla-overview">
+      <h2 id="sla-overview">Overview</h2>
+      <p>These Service Level Agreements (SLAs) define expected response and resolution times for accessibility issues reported to UA. They ensure consistent handling of accessibility barriers across the university.</p>
+      
+      <div class="card">
+        <h3>Scope</h3>
+        <p>These SLAs apply to:</p>
+        <ul>
+          <li>University-owned websites and applications</li>
+          <li>University-managed content</li>
+          <li>Third-party services procured by UA</li>
+          <li>Course materials in the LMS</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="severity-levels">
+      <h2 id="severity-levels">Severity levels</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Severity</th>
+            <th>Definition</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Critical (P1)</strong></td>
+            <td>Complete barrier preventing task completion with no workaround</td>
+            <td>
+              <ul>
+                <li>Cannot log in to essential system</li>
+                <li>Cannot submit required form</li>
+                <li>Cannot access grades or course content</li>
+                <li>Cannot register for classes</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>High (P2)</strong></td>
+            <td>Significant barrier to core functionality; workaround possible but difficult</td>
+            <td>
+              <ul>
+                <li>Video without captions needed for course</li>
+                <li>Key navigation inaccessible by keyboard</li>
+                <li>Important document is inaccessible PDF</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Medium (P3)</strong></td>
+            <td>Barrier to functionality with reasonable workaround available</td>
+            <td>
+              <ul>
+                <li>Missing alt text on informational images</li>
+                <li>Low contrast on non-critical content</li>
+                <li>Focus order issues</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Low (P4)</strong></td>
+            <td>Minor issue that doesn't significantly impact functionality</td>
+            <td>
+              <ul>
+                <li>Decorative images missing null alt</li>
+                <li>Minor heading structure issues</li>
+                <li>Best practice recommendations</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="response-times">
+      <h2 id="response-times">Response time targets</h2>
+      <p><strong>Response time</strong> = Time from issue report to first meaningful response to reporter.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Severity</th>
+            <th>Response time</th>
+            <th>Business hours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Critical (P1)</strong></td>
+            <td>4 hours</td>
+            <td>8 AM - 5 PM weekdays</td>
+          </tr>
+          <tr>
+            <td><strong>High (P2)</strong></td>
+            <td>1 business day</td>
+            <td>8 AM - 5 PM weekdays</td>
+          </tr>
+          <tr>
+            <td><strong>Medium (P3)</strong></td>
+            <td>3 business days</td>
+            <td>8 AM - 5 PM weekdays</td>
+          </tr>
+          <tr>
+            <td><strong>Low (P4)</strong></td>
+            <td>5 business days</td>
+            <td>8 AM - 5 PM weekdays</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="resolution-times">
+      <h2 id="resolution-times">Resolution time targets</h2>
+      <p><strong>Resolution time</strong> = Time from issue report to barrier removed or workaround provided.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Severity</th>
+            <th>Target resolution</th>
+            <th>Maximum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Critical (P1)</strong></td>
+            <td>24 hours (workaround)<br>5 business days (fix)</td>
+            <td>10 business days</td>
+          </tr>
+          <tr>
+            <td><strong>High (P2)</strong></td>
+            <td>5 business days</td>
+            <td>15 business days</td>
+          </tr>
+          <tr>
+            <td><strong>Medium (P3)</strong></td>
+            <td>15 business days</td>
+            <td>30 business days</td>
+          </tr>
+          <tr>
+            <td><strong>Low (P4)</strong></td>
+            <td>30 business days</td>
+            <td>90 business days</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Notes on resolution</h3>
+      <ul>
+        <li><strong>Workaround:</strong> An equally effective alternative that allows task completion</li>
+        <li><strong>Fix:</strong> The accessibility barrier is removed from the original content/application</li>
+        <li>Resolution times start when issue is triaged and assigned</li>
+        <li>Clock pauses when waiting for information from reporter</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="content-types">
+      <h2 id="content-types">SLAs by content type</h2>
+      
+      <h3>Course content</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Issue type</th>
+            <th>Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Missing captions (student request)</td>
+            <td>5 business days or next use, whichever is sooner</td>
+          </tr>
+          <tr>
+            <td>Inaccessible document (student request)</td>
+            <td>3 business days</td>
+          </tr>
+          <tr>
+            <td>LMS content accessibility</td>
+            <td>Per severity above</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>University websites</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Issue type</th>
+            <th>Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary university website (arizona.edu)</td>
+            <td>Per severity, expedited</td>
+          </tr>
+          <tr>
+            <td>Department/college websites</td>
+            <td>Per severity above</td>
+          </tr>
+          <tr>
+            <td>Event/campaign microsites</td>
+            <td>Per severity above</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Applications and systems</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Issue type</th>
+            <th>Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Enterprise systems (UAccess, D2L)</td>
+            <td>Per severity; escalate to vendor if needed</td>
+          </tr>
+          <tr>
+            <td>Department applications</td>
+            <td>Per severity above</td>
+          </tr>
+          <tr>
+            <td>Third-party SaaS</td>
+            <td>Workaround within severity target; vendor fix per contract</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="escalation">
+      <h2 id="escalation">Escalation process</h2>
+      
+      <h3>When to escalate</h3>
+      <ul>
+        <li>Issue not acknowledged within response time</li>
+        <li>Resolution exceeds maximum timeframe</li>
+        <li>Workaround is inadequate</li>
+        <li>Pattern of repeated issues from same source</li>
+        <li>Reporter requests escalation</li>
+      </ul>
+
+      <h3>Escalation path</h3>
+      <ol>
+        <li><strong>Level 1:</strong> Digital Accessibility Coordinator</li>
+        <li><strong>Level 2:</strong> Unit head/supervisor of responsible party</li>
+        <li><strong>Level 3:</strong> Digital Accessibility Steering Committee</li>
+        <li><strong>Level 4:</strong> ADA/504 Coordinator</li>
+      </ol>
+
+      <h3>Escalation triggers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Severity</th>
+            <th>Auto-escalate if not resolved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Critical (P1)</td>
+            <td>24 hours → Level 2; 48 hours → Level 3</td>
+          </tr>
+          <tr>
+            <td>High (P2)</td>
+            <td>7 days → Level 2; 15 days → Level 3</td>
+          </tr>
+          <tr>
+            <td>Medium (P3)</td>
+            <td>21 days → Level 2</td>
+          </tr>
+          <tr>
+            <td>Low (P4)</td>
+            <td>60 days → Level 2</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="accommodation-requests">
+      <h2 id="accommodation-requests">Accommodation-related requests</h2>
+      <p>When accessibility issues are reported as part of a disability accommodation:</p>
+      <ul>
+        <li>Treated as minimum P2 severity</li>
+        <li>Coordinate with DRC if student-related</li>
+        <li>Document accommodation provision</li>
+        <li>Follow up to ensure alternative is equally effective</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="reporting">
+      <h2 id="reporting">Reporting and metrics</h2>
+      
+      <h3>Tracked metrics</h3>
+      <ul>
+        <li>Number of issues by severity</li>
+        <li>Average response time by severity</li>
+        <li>Average resolution time by severity</li>
+        <li>Percentage of SLA targets met</li>
+        <li>Issues by content type/unit</li>
+        <li>Recurring issues and patterns</li>
+      </ul>
+
+      <h3>Reporting schedule</h3>
+      <ul>
+        <li><strong>Weekly:</strong> P1/P2 issue status to Operations Team</li>
+        <li><strong>Monthly:</strong> SLA compliance to unit liaisons</li>
+        <li><strong>Quarterly:</strong> Full metrics to Steering Committee</li>
+        <li><strong>Annually:</strong> Year-over-year trend analysis</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="exceptions">
+      <h2 id="exceptions">SLA exceptions</h2>
+      <p>SLA targets may be adjusted when:</p>
+      <ul>
+        <li>Issue requires vendor resolution (third-party software)</li>
+        <li>Fix requires significant development work (document in plan)</li>
+        <li>Issue is in legacy system scheduled for replacement</li>
+        <li>Resource constraints during peak periods (must document)</li>
+      </ul>
+      <p>All exceptions must be documented and approved by Digital Accessibility Coordinator.</p>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Related documents</h2>
+      <ul>
+        <li><a href="governance-charter.html">Accessibility Governance Charter</a></li>
+        <li><a href="support.html">Report an Accessibility Issue</a></li>
+        <li><a href="policies-governance.html">Policies &amp; Governance Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'service-levels.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

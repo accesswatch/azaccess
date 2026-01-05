@@ -1,44 +1,293 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Outlook Email Guidance | Accessibility</title>
+  <title>Accessible Email Guide | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Email Accessibility</p>
+    </nav>
+    <h1>Accessible Email Guide</h1>
+    <p>Creating accessible emails in Outlook, Gmail, and newsletters.</p>
+    <p class="metric-chip">📧 For all UA email communications</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="email-overview">
+      <h2 id="email-overview">Why email accessibility matters</h2>
+      <p>Email is a primary communication channel at UA. Inaccessible emails exclude recipients who:</p>
+      <ul>
+        <li>Use screen readers</li>
+        <li>Have low vision or color blindness</li>
+        <li>Read email on mobile devices</li>
+        <li>Have cognitive disabilities</li>
+        <li>Use email in plain text mode</li>
+      </ul>
+      <p>Following accessibility practices also improves deliverability and readability for everyone.</p>
+    </section>
+
+    <section aria-labelledby="core-principles">
+      <h2 id="core-principles">Core accessibility principles for email</h2>
+      
+      <h3>1. Write meaningful subject lines</h3>
+      <ul>
+        <li>Be specific: "Fall 2026 Registration Opens March 1" not "Important Update"</li>
+        <li>Put key information first</li>
+        <li>Avoid ALL CAPS</li>
+        <li>Keep under 50 characters when possible</li>
+      </ul>
+
+      <h3>2. Use proper text structure</h3>
+      <ul>
+        <li>Use short paragraphs (2-3 sentences)</li>
+        <li>Use headings for sections in longer emails</li>
+        <li>Use bulleted lists for multiple items</li>
+        <li>Put the most important information first</li>
+      </ul>
+
+      <h3>3. Write descriptive link text</h3>
+      <ul>
+        <li><strong>Good:</strong> "Register for the workshop"</li>
+        <li><strong>Poor:</strong> "Click here" or bare URLs</li>
+        <li>Make links understandable out of context</li>
+      </ul>
+
+      <h3>4. Add alt text to images</h3>
+      <ul>
+        <li>All images need alternative text</li>
+        <li>Don't use images for text content</li>
+        <li>If images are blocked, your message should still make sense</li>
+      </ul>
+
+      <h3>5. Use sufficient color contrast</h3>
+      <ul>
+        <li>Dark text on light backgrounds</li>
+        <li>Don't convey information by color alone</li>
+        <li>Avoid light gray text</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="outlook">
+      <h2 id="outlook">Microsoft Outlook accessibility</h2>
+      
+      <h3>Adding headings</h3>
+      <ol>
+        <li>Select your heading text</li>
+        <li>Go to <strong>Format Text</strong> tab</li>
+        <li>Click <strong>Styles</strong> → choose <strong>Heading 1</strong>, <strong>Heading 2</strong>, etc.</li>
+      </ol>
+
+      <h3>Adding alt text to images</h3>
+      <ol>
+        <li>Right-click the image</li>
+        <li>Select <strong>Edit Alt Text</strong></li>
+        <li>Enter a description</li>
+        <li>If decorative, check <strong>Mark as decorative</strong></li>
+      </ol>
+
+      <h3>Creating accessible tables</h3>
+      <ol>
+        <li>Insert table via <strong>Insert</strong> → <strong>Table</strong></li>
+        <li>Keep tables simple (no merged cells)</li>
+        <li>Include header row</li>
+        <li>Note: Email clients have limited table support</li>
+      </ol>
+
+      <h3>Using the Accessibility Checker</h3>
+      <ol>
+        <li>Go to <strong>Review</strong> tab</li>
+        <li>Click <strong>Check Accessibility</strong></li>
+        <li>Fix any issues before sending</li>
+      </ol>
+
+      <h3>Outlook keyboard shortcuts</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Shortcut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bold</td>
+            <td>Ctrl+B</td>
+          </tr>
+          <tr>
+            <td>Italic</td>
+            <td>Ctrl+I</td>
+          </tr>
+          <tr>
+            <td>Insert hyperlink</td>
+            <td>Ctrl+K</td>
+          </tr>
+          <tr>
+            <td>Bulleted list</td>
+            <td>Ctrl+Shift+L</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="gmail">
+      <h2 id="gmail">Gmail accessibility</h2>
+      
+      <h3>Formatting text</h3>
+      <p>Gmail has limited formatting options:</p>
+      <ul>
+        <li>Use the formatting toolbar for bold, italic, lists</li>
+        <li>Note: Gmail doesn't support heading styles natively</li>
+        <li>Use visual hierarchy with bold for section titles</li>
+      </ul>
+
+      <h3>Adding images</h3>
+      <ol>
+        <li>Click the image icon or drag/drop</li>
+        <li>Gmail doesn't have built-in alt text</li>
+        <li>Add text description below important images</li>
+        <li>Or include image information in email text</li>
+      </ol>
+
+      <h3>Making links accessible</h3>
+      <ol>
+        <li>Select descriptive text</li>
+        <li>Click the link icon (Ctrl+K)</li>
+        <li>Enter the URL</li>
+        <li>Don't paste bare URLs into email body</li>
+      </ol>
+
+      <h3>Gmail Labs and add-ons</h3>
+      <p>Consider using Chrome extensions like "Gmail Accessibility" for enhanced features.</p>
+    </section>
+
+    <section aria-labelledby="newsletters">
+      <h2 id="newsletters">Mass emails and newsletters</h2>
+      
+      <h3>Email marketing platform accessibility</h3>
+      <p>When using platforms like Mailchimp, Constant Contact, or Emma:</p>
+      <ul>
+        <li>Use accessible email templates</li>
+        <li>Test with multiple email clients</li>
+        <li>Always include plain text version</li>
+        <li>Don't rely on images alone for content</li>
+      </ul>
+
+      <h3>Newsletter best practices</h3>
+      <ul>
+        <li><strong>Use semantic HTML:</strong> Proper heading tags, not just styled text</li>
+        <li><strong>Keep width reasonable:</strong> 600px max width for readability</li>
+        <li><strong>Use web-safe fonts:</strong> Arial, Georgia, Verdana</li>
+        <li><strong>Include preheader text:</strong> Descriptive preview text</li>
+        <li><strong>Test mobile view:</strong> Many read email on phones</li>
+      </ul>
+
+      <h3>Required elements</h3>
+      <ul>
+        <li>Plain text version of all content</li>
+        <li>Alt text on all images</li>
+        <li>Unsubscribe link (legally required)</li>
+        <li>Physical mailing address (CAN-SPAM)</li>
+        <li>Accessible color contrast</li>
+      </ul>
+
+      <h3>Image-based emails</h3>
+      <p>Avoid sending emails that are primarily images:</p>
+      <ul>
+        <li>Images may be blocked by default</li>
+        <li>Screen readers cannot read image text</li>
+        <li>Poor mobile experience</li>
+        <li>Deliverability issues (spam filters)</li>
+      </ul>
+      <p>If you must use images, ensure all text content is also in HTML or alt text.</p>
+    </section>
+
+    <section aria-labelledby="attachments">
+      <h2 id="attachments">Accessible attachments</h2>
+      <ul>
+        <li>Ensure all attached documents are accessible</li>
+        <li>Include file type and size in link text: "Budget Report (PDF, 2 MB)"</li>
+        <li>Prefer accessible formats (Word over PDF when possible)</li>
+        <li>Summarize key points in email body</li>
+        <li>Offer alternative formats on request</li>
+      </ul>
+      <p>See our guides for creating accessible <a href="doc-word.html">Word documents</a> and <a href="pdf-remediation.html">PDFs</a>.</p>
+    </section>
+
+    <section aria-labelledby="signature">
+      <h2 id="signature">Accessible email signatures</h2>
+      <ul>
+        <li>Keep signatures simple and text-based</li>
+        <li>If using logo images, add alt text</li>
+        <li>Use sufficient color contrast</li>
+        <li>Don't use images of text for contact info</li>
+        <li>Include pronouns if desired (helps accessibility in gendered languages)</li>
+      </ul>
+      
+      <h3>Example accessible signature</h3>
+      <pre>Jane Smith (she/her)
+Digital Accessibility Coordinator
+University of Arizona
+Phone: 520-621-3268
+accessibility@arizona.edu</pre>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Email accessibility checklist</h2>
+      <ul>
+        <li>☐ Subject line is specific and descriptive</li>
+        <li>☐ Most important info comes first</li>
+        <li>☐ Short paragraphs and clear structure</li>
+        <li>☐ Headings used for sections (when supported)</li>
+        <li>☐ Lists used for multiple items</li>
+        <li>☐ Link text is descriptive</li>
+        <li>☐ Images have alt text</li>
+        <li>☐ No image-only content</li>
+        <li>☐ Sufficient color contrast</li>
+        <li>☐ Attachments are accessible</li>
+        <li>☐ Plain text version available (newsletters)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://support.microsoft.com/en-us/office/make-your-outlook-email-accessible-71ce71f4-7b15-4b7a-a2e3-cf91721bbacb">Microsoft: Make Outlook email accessible</a></li>
+        <li><a href="https://support.google.com/mail/answer/6573459">Google: Gmail accessibility</a></li>
+        <li><a href="https://www.emailonacid.com/blog/article/email-development/email-accessibilty-in-2017/">Email on Acid: Email Accessibility Guide</a></li>
+        <li><a href="https://litmus.com/blog/ultimate-guide-accessible-emails">Litmus: Ultimate Guide to Accessible Emails</a></li>
+        <li><a href="documents-media.html">Documents &amp; Media Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'email-outlook.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

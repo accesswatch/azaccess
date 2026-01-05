@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Success Stories | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .case-study {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+    .case-study-header {
+      background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+      color: #fff;
+      padding: 1.5rem 2rem;
+    }
+    .case-study-header h3 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+    .case-study-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    .case-study-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .case-study-body {
+      padding: 2rem;
+    }
+    .case-study-section {
+      margin-bottom: 1.5rem;
+    }
+    .case-study-section h4 {
+      color: #1565c0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 768px) {
+      .before-after {
+        grid-template-columns: 1fr;
+      }
+    }
+    .before-panel, .after-panel {
+      padding: 1.25rem;
+      border-radius: 8px;
+    }
+    .before-panel {
+      background: #ffebee;
+      border-left: 4px solid #f44336;
+    }
+    .after-panel {
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+    }
+    .before-panel h5, .after-panel h5 {
+      margin: 0 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .before-panel h5 {
+      color: #c62828;
+    }
+    .after-panel h5 {
+      color: #2e7d32;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .metric-card {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1565c0;
+    }
+    .metric-value.positive {
+      color: #2e7d32;
+    }
+    .metric-label {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+    .lessons-list {
+      background: #fff8e1;
+      padding: 1.25rem;
+      border-radius: 8px;
+      border-left: 4px solid #ffc107;
+    }
+    .lessons-list h5 {
+      margin: 0 0 0.75rem;
+      color: #f57f17;
+    }
+    .lessons-list ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+    .lessons-list li {
+      margin-bottom: 0.5rem;
+    }
+    .quote-block {
+      background: #e3f2fd;
+      border-left: 4px solid #1565c0;
+      padding: 1.25rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    .quote-block cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-weight: 600;
+      color: #1565c0;
+    }
+    .timeline {
+      border-left: 3px solid #1565c0;
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.75rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      background: #1565c0;
+      border-radius: 50%;
+    }
+    .timeline-date {
+      font-weight: 600;
+      color: #1565c0;
+      font-size: 0.9rem;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .filter-btn:hover {
+      background: #e3f2fd;
+      border-color: #1565c0;
+    }
+    .filter-btn.active {
+      background: #1565c0;
+      color: #fff;
+      border-color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / Success Stories</p>
+    </nav>
+    <h1>Accessibility Success Stories</h1>
+    <p>Real examples of accessibility improvements across campus.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="intro">
+      <h2 id="intro">Learning from each other</h2>
+      <p>These case studies showcase how departments and individuals across the University of Arizona have improved accessibility. Each story includes the challenge faced, solutions implemented, measurable results, and lessons learned.</p>
+      <p><strong>Have a success story to share?</strong> Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> — we'd love to feature your work!</p>
+    </section>
+
+    <div class="filter-bar" role="group" aria-label="Filter stories">
+      <button class="filter-btn active" data-filter="all">All stories</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="documents">Documents</button>
+      <button class="filter-btn" data-filter="courses">Courses</button>
+      <button class="filter-btn" data-filter="procurement">Procurement</button>
+    </div>
+
+    <!-- Case Study 1: Library Website -->
+    <article class="case-study" data-category="web" aria-labelledby="case-1-title">
+      <div class="case-study-header">
+        <h3 id="case-1-title">University Libraries Website Redesign</h3>
+        <div class="case-study-meta">
+          <span>📍 UA Libraries</span>
+          <span>📅 2025</span>
+          <span>🏷️ Web</span>
+        </div>
+      </div>
+      <div class="case-study-body">
+        <div class="case-study-section">
+          <h4>The Challenge</h4>
+          <p>The UA Libraries website served over 50,000 unique visitors monthly but had accumulated accessibility debt over 15 years of incremental updates. An automated scan revealed 2,400+ accessibility errors, and user feedback indicated screen reader users struggled to find resources.</p>
+        </div>
+
+        <div class="case-study-section">
+          <h4>Before & After</h4>
+          <div class="before-after">
+            <div class="before-panel">
+              <h5>❌ Before</h5>
+              <ul>
+                <li>No skip links or landmarks</li>
+                <li>Images without alt text</li>
+                <li>Forms without labels</li>
+                <li>Color contrast failures on headers</li>
+                <li>Nested tables for layout</li>
+                <li>10+ minute time to find catalog (screen reader)</li>
+              </ul>
+            </div>
+            <div class="after-panel">
+              <h5>✅ After</h5>
+              <ul>
+                <li>Skip links + ARIA landmarks on every page</li>
+                <li>Descriptive alt text for all images</li>
+                <li>Proper form labels + instructions</li>
+                <li>UA brand colors with compliant contrast</li>
+                <li>CSS Grid layout, semantic HTML</li>
+                <li>Under 2 minutes to catalog (screen reader)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-section">
+          <h4>Results</h4>
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-value positive">97%</div>
+              <div class="metric-label">Error reduction</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value positive">5x</div>
+              <div class="metric-label">Faster screen reader navigation</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value positive">↑23%</div>
+              <div class="metric-label">Mobile usage increase</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value positive">Zero</div>
+              <div class="metric-label">Accessibility complaints</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-section">
+          <h4>Timeline</h4>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Month 1-2</div>
+              <p>Comprehensive audit with axe, manual keyboard testing, and screen reader evaluation with NVDA and VoiceOver.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Month 3-4</div>
+              <p>Prioritized fixes by severity and user impact. Fixed critical keyboard traps and form issues first.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Month 5-6</div>
+              <p>Redesigned navigation structure and implemented skip links. User testing with DRC students.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Month 7</div>
+              <p>Final testing, documentation, and team training on maintaining accessibility.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          "The accessibility improvements didn't just help users with disabilities—our analytics showed everyone benefited from the clearer navigation and faster page loads."
+          <cite>— Sarah Chen, Web Services Manager, UA Libraries</cite>
+        </div>
+
+        <div class="lessons-list">
+          <h5>💡 Key Lessons</h5>
+          <ul>
+            <li>Automated testing catches ~30% of issues; manual testing is essential</li>
+            <li>User testing with actual assistive technology users revealed issues tools missed</li>
+            <li>Accessibility improvements often improve SEO and mobile experience</li>
+            <li>Building accessibility into the CMS template prevented future regressions</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Case Study 2: Course Materials -->
+    <article class="case-study" data-category="courses" aria-labelledby="case-2-title">
+      <div class="case-study-header">
+        <h3 id="case-2-title">Chemistry Department Course Materials Overhaul</h3>
+        <div class="case-study-meta">
+          <span>📍 Chemistry & Biochemistry</span>
+          <span>📅 2024-2025</span>
+          <span>🏷️ Courses</span>
+        </div>
+      </div>
+      <div class="case-study-body">
+        <div class="case-study-section">
+          <h4>The Challenge</h4>
+          <p>The Chemistry department discovered that many course PDFs were scanned images without OCR, lecture slides had no alt text for complex molecular diagrams, and videos lacked captions. A student accommodation request highlighted the scope of the problem.</p>
+        </div>
+
+        <div class="before-after">
+          <div class="before-panel">
+            <h5>❌ Before</h5>
+            <ul>
+              <li>500+ PDFs without text layer</li>
+              <li>Molecular diagrams as images only</li>
+              <li>100+ hours of uncaptioned video</li>
+              <li>2-week accommodation turnaround</li>
+            </ul>
+          </div>
+          <div class="after-panel">
+            <h5>✅ After</h5>
+            <ul>
+              <li>All PDFs OCR'd and tagged</li>
+              <li>Extended descriptions for diagrams</li>
+              <li>98% caption accuracy on videos</li>
+              <li>Same-day material availability</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-study-section">
+          <h4>Approach</h4>
+          <p>The department partnered with IT and the DRC to develop a sustainable workflow:</p>
+          <ul>
+            <li><strong>Prioritization:</strong> Started with highest-enrollment courses (CHEM 151, 152)</li>
+            <li><strong>Templates:</strong> Created accessible PowerPoint templates with placeholder for diagram descriptions</li>
+            <li><strong>Training:</strong> Faculty workshop on alt text for scientific content</li>
+            <li><strong>Process:</strong> Built captioning into Panopto recording workflow</li>
+          </ul>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value positive">100%</div>
+            <div class="metric-label">Core courses accessible</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value positive">↓85%</div>
+            <div class="metric-label">Accommodation request time</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value positive">↑15%</div>
+            <div class="metric-label">Student satisfaction scores</div>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          "Writing descriptions for molecular structures actually made me think more carefully about what I wanted students to understand. It improved my teaching."
+          <cite>— Dr. Michael Torres, Associate Professor of Chemistry</cite>
+        </div>
+
+        <div class="lessons-list">
+          <h5>💡 Key Lessons</h5>
+          <ul>
+            <li>Start with high-impact courses; don't try to fix everything at once</li>
+            <li>Student workers can be trained to help with PDF remediation</li>
+            <li>Building accessibility into creation is faster than remediation</li>
+            <li>Faculty champions make adoption much easier</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Case Study 3: Procurement -->
+    <article class="case-study" data-category="procurement" aria-labelledby="case-3-title">
+      <div class="case-study-header">
+        <h3 id="case-3-title">Student Information System Accessibility Requirements</h3>
+        <div class="case-study-meta">
+          <span>📍 Office of the Registrar</span>
+          <span>📅 2024</span>
+          <span>🏷️ Procurement</span>
+        </div>
+      </div>
+      <div class="case-study-body">
+        <div class="case-study-section">
+          <h4>The Challenge</h4>
+          <p>During procurement of a new student information system module, the initial vendor VPAT claimed "Supports" for most criteria but testing revealed significant issues with keyboard navigation and screen reader compatibility in critical enrollment workflows.</p>
+        </div>
+
+        <div class="case-study-section">
+          <h4>Our Approach</h4>
+          <ul>
+            <li><strong>Due diligence:</strong> Requested live demo instead of relying on VPAT alone</li>
+            <li><strong>Testing:</strong> Conducted independent testing with JAWS and keyboard-only</li>
+            <li><strong>Documentation:</strong> Created detailed accessibility requirements as RFP criteria</li>
+            <li><strong>Contract:</strong> Added accessibility conformance clause with remediation timeline</li>
+          </ul>
+        </div>
+
+        <div class="case-study-section">
+          <h4>Results</h4>
+          <p>Working with the vendor, we achieved:</p>
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-value">17</div>
+              <div class="metric-label">Issues identified pre-launch</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value positive">15</div>
+              <div class="metric-label">Fixed before go-live</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">90 days</div>
+              <div class="metric-label">Remediation timeline for remaining</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          "The accessibility testing we did during procurement saved us from a much bigger problem after launch. Students would have been locked out of enrollment."
+          <cite>— Jennifer Walsh, Associate Registrar</cite>
+        </div>
+
+        <div class="lessons-list">
+          <h5>💡 Key Lessons</h5>
+          <ul>
+            <li>Never rely solely on vendor VPATs—conduct your own testing</li>
+            <li>Include accessibility requirements in RFPs from the start</li>
+            <li>Contract language gives you leverage for fixes</li>
+            <li>Early engagement with vendors is usually well-received</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Case Study 4: Document Accessibility -->
+    <article class="case-study" data-category="documents" aria-labelledby="case-4-title">
+      <div class="case-study-header">
+        <h3 id="case-4-title">HR Forms Accessibility Initiative</h3>
+        <div class="case-study-meta">
+          <span>📍 Human Resources</span>
+          <span>📅 2025</span>
+          <span>🏷️ Documents</span>
+        </div>
+      </div>
+      <div class="case-study-body">
+        <div class="case-study-section">
+          <h4>The Challenge</h4>
+          <p>HR managed over 200 PDF forms that employees needed for benefits, leave, and employment processes. Most were created years ago as flat PDFs without form fields or proper tagging, making them unusable for employees with disabilities.</p>
+        </div>
+
+        <div class="before-after">
+          <div class="before-panel">
+            <h5>❌ Before</h5>
+            <ul>
+              <li>Static PDFs requiring print-and-scan</li>
+              <li>No tagged structure</li>
+              <li>Tables announced incorrectly</li>
+              <li>3-5 day turnaround for assistance</li>
+            </ul>
+          </div>
+          <div class="after-panel">
+            <h5>✅ After</h5>
+            <ul>
+              <li>Interactive fillable PDFs</li>
+              <li>Proper tagging and reading order</li>
+              <li>Form fields with labels</li>
+              <li>Self-service completion</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-study-section">
+          <h4>Process</h4>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Phase 1</div>
+              <p>Audited all forms; identified 50 high-priority forms used by 80% of employees.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Phase 2</div>
+              <p>Recreated forms in Word with proper structure, then exported to tagged fillable PDFs.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Phase 3</div>
+              <p>Tested all forms with Adobe Acrobat's accessibility checker and manual screen reader testing.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Phase 4</div>
+              <p>Trained HR staff on maintaining accessible forms and established QA process.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value positive">200+</div>
+            <div class="metric-label">Forms made accessible</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value positive">↓90%</div>
+            <div class="metric-label">Form assistance requests</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value positive">↑40%</div>
+            <div class="metric-label">Online form submissions</div>
+          </div>
+        </div>
+
+        <div class="lessons-list">
+          <h5>💡 Key Lessons</h5>
+          <ul>
+            <li>Recreating in Word is often faster than remediating bad PDFs</li>
+            <li>Keep source files (Word/InDesign) for future updates</li>
+            <li>Interactive PDFs benefit everyone, not just AT users</li>
+            <li>Clear form instructions reduce errors for all users</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <section aria-labelledby="share">
+      <h2 id="share">Share your story</h2>
+      <p>Has your department made accessibility improvements you're proud of? We want to hear about it! Success stories help inspire and guide others across campus.</p>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Submit a story</h3>
+          <p>Share your accessibility wins, challenges overcome, and lessons learned.</p>
+          <a class="cta" href="mailto:accessibility@arizona.edu?subject=Success%20Story%20Submission">Share your story</a>
+        </article>
+        <article class="card">
+          <h3>Get featured</h3>
+          <p>We can help you document your work and share it with the campus community.</p>
+          <a class="cta" href="support.html">Request assistance</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+
+  <script>
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const caseStudies = document.querySelectorAll('.case-study');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter case studies
+        caseStudies.forEach(study => {
+          if (filter === 'all' || study.dataset.category === filter) {
+            study.style.display = 'block';
+          } else {
+            study.style.display = 'none';
+          }
+        });
+
+        // Announce filter change
+        const visibleCount = document.querySelectorAll('.case-study[style="display: block"], .case-study:not([style])').length;
+        announceToScreenReader(`Showing ${visibleCount} ${filter === 'all' ? '' : filter + ' '}stories`);
+      });
+    });
+
+    function announceToScreenReader(message) {
+      const announcement = document.createElement('div');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.className = 'visually-hidden';
+      announcement.textContent = message;
+      document.body.appendChild(announcement);
+      setTimeout(() => announcement.remove(), 1000);
+    }
+  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
+</body>
+</html>

@@ -1,44 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Training Calendar Snippet | Accessibility</title>
+  <title>Training Calendar | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / Training Calendar</p>
+    </nav>
+    <h1>Training Calendar</h1>
+    <p>Upcoming workshops, office hours, and learning opportunities across campus.</p>
+    <p class="metric-chip">Updated: 2026-01-05</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="upcoming-training">
+      <h2 id="upcoming-training">Upcoming Training Sessions</h2>
+      <p>All sessions are free for UA employees and students. Register through the links below or join drop-in sessions directly.</p>
+      
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Accessibility Office Hours</h3>
+          <p><strong>When:</strong> Tuesdays, 2–4 PM</p>
+          <p><strong>Format:</strong> Drop-in via Teams</p>
+          <p>Get quick answers about documents, websites, or accommodations. No appointment needed.</p>
+          <a class="cta" href="https://teams.microsoft.com/l/channel/accessibility-office-hours">Join on Teams</a>
+        </article>
+        
+        <article class="card">
+          <h3>Document Remediation Lab</h3>
+          <p><strong>When:</strong> Thursdays, 10–11 AM</p>
+          <p><strong>Format:</strong> Hands-on via Zoom</p>
+          <p>Bring your Word, PowerPoint, or PDF files. We'll help you fix accessibility issues in real time.</p>
+          <a class="cta" href="https://arizona.zoom.us/j/remediation-lab">Join on Zoom</a>
+        </article>
+        
+        <article class="card">
+          <h3>Developer Code Reviews</h3>
+          <p><strong>When:</strong> Fridays, 11 AM–12 PM</p>
+          <p><strong>Format:</strong> Drop-in via Teams</p>
+          <p>Review your web code, components, or mobile apps with accessibility experts.</p>
+          <a class="cta" href="https://teams.microsoft.com/l/channel/dev-code-reviews">Join on Teams</a>
+        </article>
+        
+        <article class="card">
+          <h3>Accessible Teaching Essentials</h3>
+          <p><strong>When:</strong> First Wednesday of each month, 1–2 PM</p>
+          <p><strong>Format:</strong> Workshop via Zoom</p>
+          <p>Learn inclusive course design, Brightspace best practices, and caption workflows.</p>
+          <a class="cta" href="https://ucatt.arizona.edu/training">Register at UCATT</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="monthly-workshops">
+      <h2 id="monthly-workshops">Monthly Workshops</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Session</th>
+            <th>Frequency</th>
+            <th>Duration</th>
+            <th>Audience</th>
+            <th>Registration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Buying Accessible IT</td>
+            <td>Quarterly</td>
+            <td>90 min</td>
+            <td>Procurement, Staff</td>
+            <td><a href="https://forms.office.com/r/procurement-workshop">Register</a></td>
+          </tr>
+          <tr>
+            <td>VPAT Review Lab</td>
+            <td>Monthly</td>
+            <td>60 min</td>
+            <td>Procurement, IT</td>
+            <td><a href="https://forms.office.com/r/vpat-lab">Register</a></td>
+          </tr>
+          <tr>
+            <td>WCAG 2.2 Code Labs</td>
+            <td>Monthly</td>
+            <td>90 min</td>
+            <td>Developers</td>
+            <td><a href="https://forms.office.com/r/wcag-lab">Register</a></td>
+          </tr>
+          <tr>
+            <td>Panopto Caption Editing</td>
+            <td>Bi-weekly</td>
+            <td>45 min</td>
+            <td>Faculty, Staff</td>
+            <td><a href="https://ucatt.arizona.edu/training">UCATT Calendar</a></td>
+          </tr>
+          <tr>
+            <td>Mobile Accessibility Deep Dive</td>
+            <td>Quarterly</td>
+            <td>2 hours</td>
+            <td>Developers, QA</td>
+            <td><a href="https://forms.office.com/r/mobile-a11y">Register</a></td>
+          </tr>
+          <tr>
+            <td>Inclusive Events Planning</td>
+            <td>Monthly</td>
+            <td>60 min</td>
+            <td>Staff, Communications</td>
+            <td><a href="https://forms.office.com/r/inclusive-events">Register</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="self-paced">
+      <h2 id="self-paced">Self-Paced Learning</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>LinkedIn Learning</h3>
+          <p>Accessibility courses available free to all UA employees and students.</p>
+          <ul>
+            <li>Accessibility for Web Design</li>
+            <li>Creating Accessible Documents</li>
+            <li>Inclusive Design Principles</li>
+          </ul>
+          <a class="cta" href="https://linkedinlearning.arizona.edu">Access LinkedIn Learning</a>
+        </article>
+        
+        <article class="card">
+          <h3>Deque University</h3>
+          <p>In-depth WCAG training and certifications for developers and testers.</p>
+          <ul>
+            <li>WCAG 2.2 Fundamentals</li>
+            <li>Accessible ARIA Development</li>
+            <li>Mobile Accessibility</li>
+          </ul>
+          <a class="cta" href="https://dequeuniversity.com">Visit Deque</a>
+        </article>
+        
+        <article class="card">
+          <h3>Web Accessibility Initiative</h3>
+          <p>Free W3C tutorials and resources on inclusive design.</p>
+          <ul>
+            <li>Introduction to Web Accessibility</li>
+            <li>How People with Disabilities Use the Web</li>
+            <li>WCAG Quick Reference</li>
+          </ul>
+          <a class="cta" href="https://www.w3.org/WAI/tutorials/">W3C WAI Tutorials</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="communities">
+      <h2 id="communities">Communities of Practice</h2>
+      <ul>
+        <li><strong>Developer Guild:</strong> Bi-weekly meetings for web and app developers. Join the #a11y-developers Teams channel.</li>
+        <li><strong>Mobile App Guild:</strong> Monthly meetings for iOS/Android developers. Join the #mobile-accessibility Teams channel.</li>
+        <li><strong>Content Creators Circle:</strong> Monthly meetups for document and media producers. Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> to join.</li>
+        <li><strong>Inclusive Pedagogy Learning Community:</strong> Semester-based faculty cohort. Apply through UCATT.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="request-training">
+      <h2 id="request-training">Request Custom Training</h2>
+      <p>Need training for your department, college, or team? We offer customized sessions on:</p>
+      <ul>
+        <li>Document accessibility (Word, PowerPoint, PDF, Google Docs)</li>
+        <li>Web and mobile development best practices</li>
+        <li>Procurement and vendor evaluation</li>
+        <li>Inclusive event planning</li>
+        <li>Title II compliance overview</li>
+      </ul>
+      <a class="cta" href="support.html">Request custom training</a>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'training-calendar.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

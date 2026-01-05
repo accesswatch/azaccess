@@ -1,44 +1,213 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Email Newsletters | Accessibility</title>
+  <title>Newsletter Accessibility | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Newsletters</p>
+    </nav>
+    <h1>Accessible Email Newsletters</h1>
+    <p>Creating inclusive mass communications that reach everyone.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="newsletter-intro">
+      <h2 id="newsletter-intro">Why newsletter accessibility matters</h2>
+      <p>Newsletters reach hundreds or thousands of recipients. When they're not accessible, you exclude people who use screen readers, have low vision, or read on mobile devices. Accessible newsletters also perform better—they're easier to read for everyone and often have better engagement rates.</p>
+    </section>
+
+    <section aria-labelledby="newsletter-checklist">
+      <h2 id="newsletter-checklist">Newsletter accessibility checklist</h2>
+      <div class="checklist">
+        <h3>Content &amp; Structure</h3>
+        <ul>
+          <li><input type="checkbox" id="nl1"><label for="nl1">Clear, descriptive subject line</label></li>
+          <li><input type="checkbox" id="nl2"><label for="nl2">Preheader text summarizes content</label></li>
+          <li><input type="checkbox" id="nl3"><label for="nl3">Logical reading order (single column preferred)</label></li>
+          <li><input type="checkbox" id="nl4"><label for="nl4">Headings used for sections</label></li>
+          <li><input type="checkbox" id="nl5"><label for="nl5">Short paragraphs and bullet lists</label></li>
+          <li><input type="checkbox" id="nl6"><label for="nl6">Plain language (avoid jargon)</label></li>
+        </ul>
+
+        <h3>Images &amp; Media</h3>
+        <ul>
+          <li><input type="checkbox" id="nl7"><label for="nl7">Alt text on all meaningful images</label></li>
+          <li><input type="checkbox" id="nl8"><label for="nl8">Decorative images have empty alt (alt="")</label></li>
+          <li><input type="checkbox" id="nl9"><label for="nl9">Important info is in text, not just images</label></li>
+          <li><input type="checkbox" id="nl10"><label for="nl10">Images sized appropriately for email</label></li>
+        </ul>
+
+        <h3>Links &amp; Buttons</h3>
+        <ul>
+          <li><input type="checkbox" id="nl11"><label for="nl11">Descriptive link text (not "click here")</label></li>
+          <li><input type="checkbox" id="nl12"><label for="nl12">Links are visually distinct (underlined or buttons)</label></li>
+          <li><input type="checkbox" id="nl13"><label for="nl13">Buttons have adequate size (44×44px touch target)</label></li>
+          <li><input type="checkbox" id="nl14"><label for="nl14">Unsubscribe link is easy to find</label></li>
+        </ul>
+
+        <h3>Design &amp; Color</h3>
+        <ul>
+          <li><input type="checkbox" id="nl15"><label for="nl15">Text contrast at least 4.5:1</label></li>
+          <li><input type="checkbox" id="nl16"><label for="nl16">Color not used alone to convey meaning</label></li>
+          <li><input type="checkbox" id="nl17"><label for="nl17">Font size at least 14px for body text</label></li>
+          <li><input type="checkbox" id="nl18"><label for="nl18">Responsive design for mobile</label></li>
+        </ul>
+
+        <h3>Technical</h3>
+        <ul>
+          <li><input type="checkbox" id="nl19"><label for="nl19">HTML lang attribute set</label></li>
+          <li><input type="checkbox" id="nl20"><label for="nl20">Tables used for layout have role="presentation"</label></li>
+          <li><input type="checkbox" id="nl21"><label for="nl21">Plain text version available</label></li>
+          <li><input type="checkbox" id="nl22"><label for="nl22">Tested in multiple email clients</label></li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="newsletter-best">
+      <h2 id="newsletter-best">Best practices by element</h2>
+      
+      <h3>Subject lines &amp; preheaders</h3>
+      <ul>
+        <li>Keep subject lines under 50 characters</li>
+        <li>Front-load the most important information</li>
+        <li>Use the preheader to expand on the subject (not repeat it)</li>
+        <li>Avoid ALL CAPS and excessive punctuation</li>
+      </ul>
+
+      <h3>Layout and structure</h3>
+      <ul>
+        <li><strong>Single-column layouts</strong> are most accessible and mobile-friendly</li>
+        <li>If using multiple columns, ensure they stack properly on mobile</li>
+        <li>Use semantic headings (H1, H2, H3) even in email HTML</li>
+        <li>Keep the newsletter focused—don't overload with content</li>
+      </ul>
+
+      <h3>Images</h3>
+      <ul>
+        <li>Write alt text that conveys the image's purpose, not just a description</li>
+        <li>For images with text, include that text in the alt attribute</li>
+        <li>Limit image file sizes for faster loading</li>
+        <li>Always provide key information in text, not just in images (images may be blocked)</li>
+      </ul>
+
+      <h3>Links and CTAs</h3>
+      <ul>
+        <li>Each link's text should make sense on its own</li>
+        <li>Use buttons for primary calls-to-action</li>
+        <li>Ensure adequate spacing between clickable elements</li>
+        <li>Make URLs human-readable in plain text version</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="newsletter-tools">
+      <h2 id="newsletter-tools">Recommended email platforms</h2>
+      <p>These platforms include accessibility features:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Mailchimp</h3>
+          <p>Includes alt text fields, accessibility checker, and plain text generation.</p>
+          <a class="cta" href="https://mailchimp.com/help/add-alt-text-to-images/">Mailchimp guide</a>
+        </article>
+        <article class="card">
+          <h3>Constant Contact</h3>
+          <p>Built-in accessibility checker and mobile preview.</p>
+          <a class="cta" href="https://www.constantcontact.com/">Learn more</a>
+        </article>
+        <article class="card">
+          <h3>Campaign Monitor</h3>
+          <p>Supports semantic HTML and automated plain text.</p>
+          <a class="cta" href="https://www.campaignmonitor.com/">Learn more</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="newsletter-testing">
+      <h2 id="newsletter-testing">Testing your newsletter</h2>
+      <ol>
+        <li><strong>Preview in multiple clients</strong> — Outlook, Gmail, Apple Mail render differently</li>
+        <li><strong>Test on mobile</strong> — Most emails are read on phones</li>
+        <li><strong>Check with images disabled</strong> — Does it still make sense?</li>
+        <li><strong>Review the plain text version</strong> — Is it readable?</li>
+        <li><strong>Use a screen reader</strong> — Or test with NVDA/VoiceOver briefly</li>
+        <li><strong>Run an accessibility checker</strong> — Tools like Litmus or Email on Acid can help</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="newsletter-example">
+      <h2 id="newsletter-example">Example: accessible newsletter structure</h2>
+      <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+        <pre style="margin: 0; white-space: pre-wrap;">
+&lt;!-- Set language --&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;UA Weekly Update - January 5, 2026&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Preheader text (hidden visually but read by screen readers) --&gt;
+  &lt;span style="display:none;"&gt;This week: registration opens, new parking policy, and more.&lt;/span&gt;
+  
+  &lt;!-- Main content table with role="presentation" for layout --&gt;
+  &lt;table role="presentation" width="100%"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;!-- Logo with alt text --&gt;
+        &lt;img src="logo.png" alt="University of Arizona" width="200"&gt;
+        
+        &lt;!-- Heading --&gt;
+        &lt;h1&gt;UA Weekly Update&lt;/h1&gt;
+        
+        &lt;!-- Content sections with headings --&gt;
+        &lt;h2&gt;Registration Now Open&lt;/h2&gt;
+        &lt;p&gt;Spring 2026 registration is now open for all students...&lt;/p&gt;
+        &lt;a href="..."&gt;Register for spring classes&lt;/a&gt;
+        
+        &lt;h2&gt;New Parking Policy&lt;/h2&gt;
+        &lt;p&gt;Starting February 1...&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+      </div>
+    </section>
+
+    <section aria-labelledby="newsletter-resources">
+      <h2 id="newsletter-resources">Related resources</h2>
+      <ul>
+        <li><a href="email-outlook.html">Outlook Email Accessibility</a></li>
+        <li><a href="meaningful-links.html">Writing Meaningful Links</a></li>
+        <li><a href="color-contrast.html">Color Contrast Guide</a></li>
+        <li><a href="example-newsletter.html">Example Accessible Newsletter</a></li>
+        <li><a href="https://www.emailonacid.com/blog/article/email-marketing/email-accessibility-checklist/">Email on Acid: Accessibility Checklist</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'email-newsletters.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

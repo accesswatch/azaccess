@@ -1,44 +1,148 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Documents Overview | Accessibility</title>
+  <title>Documents Overview | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Overview</p>
+    </nav>
+    <h1>Document Accessibility Overview</h1>
+    <p>Understanding the fundamentals of accessible digital documents.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="overview-intro">
+      <h2 id="overview-intro">Why document accessibility matters</h2>
+      <p>Documents are the backbone of university communication—syllabi, reports, forms, newsletters, and presentations. When these aren't accessible, people who use screen readers, have low vision, or have cognitive disabilities face significant barriers.</p>
+      <p>The good news: making documents accessible is straightforward once you know the key principles.</p>
+    </section>
+
+    <section aria-labelledby="core-principles">
+      <h2 id="core-principles">Core accessibility principles</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>📑 Structure</h3>
+          <p>Use built-in heading styles and lists. Screen readers use this structure to navigate—without it, users hear documents as one long stream of text.</p>
+        </article>
+        <article class="card">
+          <h3>🖼️ Alternative text</h3>
+          <p>Every meaningful image needs alt text that conveys its purpose. Decorative images should be marked as such.</p>
+        </article>
+        <article class="card">
+          <h3>🎨 Color &amp; contrast</h3>
+          <p>Text must have sufficient contrast against backgrounds. Never use color alone to convey information.</p>
+        </article>
+        <article class="card">
+          <h3>🔗 Meaningful links</h3>
+          <p>Link text should describe the destination, not say "click here." Links should make sense out of context.</p>
+        </article>
+        <article class="card">
+          <h3>📊 Simple tables</h3>
+          <p>Tables should have header rows, avoid merged cells, and include a summary for complex data.</p>
+        </article>
+        <article class="card">
+          <h3>📝 Plain language</h3>
+          <p>Write clearly and concisely. Use short sentences and common words when possible.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="by-format">
+      <h2 id="by-format">Guides by format</h2>
+      <p>Choose your document type for specific instructions:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Microsoft Word</h3>
+          <p>Reports, letters, syllabi, and other text documents.</p>
+          <a class="cta" href="doc-word.html">Word guide</a>
+        </article>
+        <article class="card">
+          <h3>PowerPoint</h3>
+          <p>Presentations and slide decks.</p>
+          <a class="cta" href="doc-powerpoint.html">PowerPoint guide</a>
+        </article>
+        <article class="card">
+          <h3>Excel</h3>
+          <p>Spreadsheets, data tables, and charts.</p>
+          <a class="cta" href="doc-excel.html">Excel guide</a>
+        </article>
+        <article class="card">
+          <h3>Google Docs &amp; Slides</h3>
+          <p>Google Workspace documents and presentations.</p>
+          <a class="cta" href="doc-google.html">Google guide</a>
+        </article>
+        <article class="card">
+          <h3>PDF Documents</h3>
+          <p>Creating and remediating accessible PDFs.</p>
+          <a class="cta" href="pdf-remediation.html">PDF guide</a>
+        </article>
+        <article class="card">
+          <h3>Email</h3>
+          <p>Outlook and email accessibility.</p>
+          <a class="cta" href="email-outlook.html">Email guide</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="quick-checks">
+      <h2 id="quick-checks">Universal quick checks</h2>
+      <p>Before publishing any document, verify these basics:</p>
+      <ol>
+        <li><strong>Run the built-in checker</strong> — Word, PowerPoint, and Google Docs all have accessibility checkers. Use them.</li>
+        <li><strong>Check heading structure</strong> — Are you using Heading 1, Heading 2, etc. in logical order?</li>
+        <li><strong>Review images</strong> — Does every meaningful image have alt text?</li>
+        <li><strong>Test links</strong> — Do they describe where they go? Can you understand them without surrounding context?</li>
+        <li><strong>Verify contrast</strong> — Is all text readable against its background?</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="common-issues">
+      <h2 id="common-issues">Common issues to avoid</h2>
+      <ul>
+        <li><strong>Using bold/font size instead of headings</strong> — Screen readers can't navigate by visual formatting</li>
+        <li><strong>Images of text</strong> — Use actual text whenever possible</li>
+        <li><strong>Scanned PDFs without OCR</strong> — These are just images; run OCR to create searchable text</li>
+        <li><strong>Complex tables</strong> — Avoid merged cells; split into simpler tables if needed</li>
+        <li><strong>"Click here" links</strong> — Use descriptive link text like "download the registration form"</li>
+        <li><strong>Missing document title</strong> — Set the document title in file properties</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Quick reference tools</h2>
+      <ul>
+        <li><a href="quick-reference-cards.html">Printable Quick Reference Cards</a> — One-page cheat sheets for each application</li>
+        <li><a href="interactive-tools.html">Interactive Tools</a> — Practice with contrast checkers and alt text</li>
+        <li><a href="glossary.html">Accessibility Glossary</a> — Definitions of common terms</li>
+        <li><a href="documents-media.html">Documents &amp; Media Hub</a> — Full resource collection</li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'documents-overview.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

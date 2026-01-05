@@ -1,44 +1,253 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WCAG 2.2 AA Highlights | Accessibility</title>
+  <title>WCAG 2.2 AA Highlights | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html" aria-current="page">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policies</a> / WCAG 2.2 Highlights</p>
+    </nav>
+    <h1>WCAG 2.2 AA Highlights</h1>
+    <p>Understanding the Web Content Accessibility Guidelines and what's new in version 2.2.</p>
+    <p class="metric-chip">Title II standard · Effective April 24, 2026</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="wcag-overview">
+      <h2 id="wcag-overview">What is WCAG?</h2>
+      <p>The Web Content Accessibility Guidelines (WCAG) are internationally recognized standards developed by the World Wide Web Consortium (W3C). They define how to make web content accessible to people with disabilities, including blindness, low vision, deafness, hearing loss, limited movement, speech disabilities, photosensitivity, and cognitive limitations.</p>
+      
+      <h3>Conformance levels</h3>
+      <ul>
+        <li><strong>Level A:</strong> Minimum accessibility requirements. Essential for basic access.</li>
+        <li><strong>Level AA:</strong> Addresses major barriers. <mark>Required by Title II and UA policy.</mark></li>
+        <li><strong>Level AAA:</strong> Highest level. Not required but beneficial for specialized audiences.</li>
+      </ul>
+      
+      <h3>Legal context</h3>
+      <p>The U.S. Department of Justice's April 2024 Title II rule requires state and local governments (including public universities) to conform to WCAG 2.1 Level AA by April 24, 2026 for entities with 50,000+ population. UA must meet this deadline for all web content and mobile applications.</p>
+    </section>
+
+    <section aria-labelledby="four-principles">
+      <h2 id="four-principles">The POUR principles</h2>
+      <p>WCAG is organized around four foundational principles. Content must be:</p>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Perceivable</h3>
+          <p>Information must be presentable in ways users can perceive.</p>
+          <ul>
+            <li>Text alternatives for images</li>
+            <li>Captions for audio/video</li>
+            <li>Sufficient color contrast</li>
+            <li>Resizable text without loss of function</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Operable</h3>
+          <p>Interface components must be navigable and usable.</p>
+          <ul>
+            <li>Keyboard accessible</li>
+            <li>Enough time to read content</li>
+            <li>No seizure-triggering content</li>
+            <li>Clear navigation mechanisms</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Understandable</h3>
+          <p>Information and operation must be comprehensible.</p>
+          <ul>
+            <li>Readable text</li>
+            <li>Predictable page behavior</li>
+            <li>Input assistance for forms</li>
+            <li>Error identification and suggestions</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Robust</h3>
+          <p>Content must work across technologies and assistive tools.</p>
+          <ul>
+            <li>Valid, well-formed markup</li>
+            <li>Proper ARIA usage</li>
+            <li>Compatible with current and future tools</li>
+            <li>Status messages for screen readers</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="new-in-22">
+      <h2 id="new-in-22">What's new in WCAG 2.2</h2>
+      <p>WCAG 2.2 was published in October 2023 and adds 9 new success criteria. While Title II currently references WCAG 2.1, UA is aligning to 2.2 for best practice. Here are the new AA-level requirements:</p>
+      
+      <h3>2.4.11 Focus Not Obscured (Minimum) — Level AA</h3>
+      <p><strong>Requirement:</strong> When a component receives keyboard focus, it is not entirely hidden by other content (like sticky headers or modals).</p>
+      <p><strong>Why it matters:</strong> Users navigating by keyboard need to see what's focused. Sticky navigation bars and cookie banners often cover focused elements.</p>
+      <p><strong>How to comply:</strong></p>
+      <ul>
+        <li>Ensure sticky headers don't completely cover focused elements</li>
+        <li>Use CSS <code>scroll-margin-top</code> to offset anchored content</li>
+        <li>Test by tabbing through all interactive elements</li>
+      </ul>
+
+      <h3>2.4.12 Focus Not Obscured (Enhanced) — Level AAA</h3>
+      <p><strong>Requirement:</strong> No part of the focused element is hidden by author-created content.</p>
+
+      <h3>2.4.13 Focus Appearance — Level AAA</h3>
+      <p><strong>Requirement:</strong> Focus indicators must have sufficient size and contrast.</p>
+
+      <h3>2.5.7 Dragging Movements — Level AA</h3>
+      <p><strong>Requirement:</strong> Any functionality that uses dragging must have a single-pointer alternative.</p>
+      <p><strong>Why it matters:</strong> Users with motor disabilities, tremors, or those using switch devices cannot perform drag operations.</p>
+      <p><strong>How to comply:</strong></p>
+      <ul>
+        <li>Provide click-based alternatives for drag-and-drop</li>
+        <li>Allow selecting items and choosing a destination</li>
+        <li>Offer keyboard shortcuts for reordering</li>
+      </ul>
+
+      <h3>2.5.8 Target Size (Minimum) — Level AA</h3>
+      <p><strong>Requirement:</strong> Touch targets must be at least 24×24 CSS pixels, or have sufficient spacing.</p>
+      <p><strong>Why it matters:</strong> Small touch targets are difficult for users with motor impairments, tremors, or limited dexterity.</p>
+      <p><strong>How to comply:</strong></p>
+      <ul>
+        <li>Make buttons and links at least 24×24 pixels</li>
+        <li>If smaller, ensure 24px spacing between targets</li>
+        <li>Exception: Inline links within text blocks</li>
+      </ul>
+
+      <h3>3.2.6 Consistent Help — Level A</h3>
+      <p><strong>Requirement:</strong> If a page provides help mechanisms (contact info, chat, FAQ), they appear in the same relative order across pages.</p>
+      <p><strong>Why it matters:</strong> Users with cognitive disabilities rely on consistent patterns to find help.</p>
+      <p><strong>How to comply:</strong></p>
+      <ul>
+        <li>Place help links in consistent footer/header locations</li>
+        <li>Use consistent labeling ("Help," "Support," "Contact")</li>
+        <li>Maintain the same order across all pages</li>
+      </ul>
+
+      <h3>3.3.7 Redundant Entry — Level A</h3>
+      <p><strong>Requirement:</strong> Don't require users to re-enter information they've already provided in the same process.</p>
+      <p><strong>Why it matters:</strong> Redundant entry creates barriers for users with cognitive disabilities and motor impairments.</p>
+      <p><strong>How to comply:</strong></p>
+      <ul>
+        <li>Auto-populate previously entered information</li>
+        <li>Allow users to select from previous entries</li>
+        <li>Exception: Security verification or expired sessions</li>
+      </ul>
+
+      <h3>3.3.8 Accessible Authentication (Minimum) — Level AA</h3>
+      <p><strong>Requirement:</strong> Authentication processes must not rely on cognitive function tests (like remembering passwords or solving puzzles) unless alternatives are provided.</p>
+      <p><strong>Why it matters:</strong> CAPTCHAs, password recall, and puzzle-based verification exclude users with cognitive disabilities.</p>
+      <p><strong>How to comply:</strong></p>
+      <ul>
+        <li>Support password managers (don't block paste)</li>
+        <li>Offer authentication alternatives (WebAuthn, SSO)</li>
+        <li>Provide copy/paste-friendly verification codes</li>
+        <li>Allow object recognition alternatives to CAPTCHAs</li>
+      </ul>
+
+      <h3>3.3.9 Accessible Authentication (Enhanced) — Level AAA</h3>
+      <p><strong>Requirement:</strong> No cognitive function test for authentication, with no exceptions for object recognition.</p>
+    </section>
+
+    <section aria-labelledby="removed-criteria">
+      <h2 id="removed-criteria">Removed from WCAG 2.2</h2>
+      <p>One success criterion was removed:</p>
+      <ul>
+        <li><strong>4.1.1 Parsing</strong> — Previously required well-formed HTML. Removed because modern browsers and assistive technologies handle parsing errors gracefully. Good coding practices still recommended.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="priority-checklist">
+      <h2 id="priority-checklist">High-priority checklist for UA</h2>
+      <p>Based on WebAIM Million data and common issues at universities, focus on these first:</p>
+      
+      <h3>Most common failures</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Issue</th>
+            <th>WCAG criteria</th>
+            <th>Prevalence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Low contrast text</td>
+            <td>1.4.3 Contrast (Minimum)</td>
+            <td>83% of pages</td>
+          </tr>
+          <tr>
+            <td>Missing image alt text</td>
+            <td>1.1.1 Non-text Content</td>
+            <td>55% of pages</td>
+          </tr>
+          <tr>
+            <td>Empty links</td>
+            <td>2.4.4 Link Purpose</td>
+            <td>50% of pages</td>
+          </tr>
+          <tr>
+            <td>Missing form labels</td>
+            <td>1.3.1 Info and Relationships</td>
+            <td>46% of pages</td>
+          </tr>
+          <tr>
+            <td>Empty buttons</td>
+            <td>2.4.4 Link Purpose</td>
+            <td>28% of pages</td>
+          </tr>
+          <tr>
+            <td>Missing document language</td>
+            <td>3.1.1 Language of Page</td>
+            <td>18% of pages</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><em>Data source: WebAIM Million 2024 annual report</em></p>
+    </section>
+
+    <section aria-labelledby="wcag-resources">
+      <h2 id="wcag-resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/WCAG22/quickref/">WCAG 2.2 Quick Reference</a> — Filterable list of all criteria</li>
+        <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/">Understanding WCAG 2.2</a> — Detailed explanations and examples</li>
+        <li><a href="https://www.w3.org/WAI/WCAG22/Techniques/">Techniques for WCAG 2.2</a> — How-to guides</li>
+        <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 Specification</a> — Official W3C standard</li>
+        <li><a href="title-ii-brief.html">UA Title II Brief</a> — Legal requirements for our institution</li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'wcag22-highlights.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

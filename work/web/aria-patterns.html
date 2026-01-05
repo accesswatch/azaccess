@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ARIA Patterns & Components | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="web-app.html">Web &amp; Apps</a> / ARIA Patterns</p>
+    </nav>
+    <h1>ARIA Patterns &amp; Components</h1>
+    <p>Build accessible interactive components that work for everyone.</p>
+    <p class="metric-chip">🧩 For developers</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="aria-intro">
+      <h2 id="aria-intro">The first rule of ARIA</h2>
+      <blockquote>
+        <p>"No ARIA is better than bad ARIA."</p>
+        <footer>— W3C WAI-ARIA Best Practices</footer>
+      </blockquote>
+      <p>Before reaching for ARIA, ask:</p>
+      <ol>
+        <li><strong>Can I use a native HTML element?</strong> Native elements have built-in accessibility.</li>
+        <li><strong>Can I style a native element?</strong> A styled <code>&lt;button&gt;</code> beats a <code>&lt;div role="button"&gt;</code>.</li>
+        <li><strong>Do I really need this custom widget?</strong> Simpler is often better.</li>
+      </ol>
+      <p>Use ARIA when HTML alone can't express the semantics you need—but use it correctly.</p>
+    </section>
+
+    <section aria-labelledby="essential-aria">
+      <h2 id="essential-aria">Essential ARIA attributes</h2>
+      
+      <h3>Labeling</h3>
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Purpose</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>aria-label</code></td>
+            <td>Provides accessible name when no visible label</td>
+            <td><code>&lt;button aria-label="Close"&gt;×&lt;/button&gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>aria-labelledby</code></td>
+            <td>Points to element(s) that label this element</td>
+            <td><code>&lt;div aria-labelledby="heading1"&gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>aria-describedby</code></td>
+            <td>Points to element with additional description</td>
+            <td><code>&lt;input aria-describedby="hint1"&gt;</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>State &amp; properties</h3>
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Purpose</th><th>Values</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>aria-expanded</code></td>
+            <td>Indicates expandable element state</td>
+            <td><code>true</code> / <code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>aria-selected</code></td>
+            <td>Indicates selection state</td>
+            <td><code>true</code> / <code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>aria-checked</code></td>
+            <td>Checkbox/toggle state</td>
+            <td><code>true</code> / <code>false</code> / <code>mixed</code></td>
+          </tr>
+          <tr>
+            <td><code>aria-pressed</code></td>
+            <td>Toggle button state</td>
+            <td><code>true</code> / <code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>aria-hidden</code></td>
+            <td>Hides from assistive tech (not visual)</td>
+            <td><code>true</code> / <code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>aria-live</code></td>
+            <td>Announces dynamic content changes</td>
+            <td><code>polite</code> / <code>assertive</code> / <code>off</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="pattern-button">
+      <h2 id="pattern-button">Pattern: Button</h2>
+      <p><strong>First choice:</strong> Use <code>&lt;button&gt;</code> element.</p>
+      
+      <h3>If you must use a div/span:</h3>
+      <pre>&lt;div role="button" 
+     tabindex="0"
+     onclick="handleClick()"
+     onkeydown="handleKeyDown(event)"&gt;
+  Click me
+&lt;/div&gt;
+
+&lt;script&gt;
+function handleKeyDown(event) {
+  // Buttons respond to Enter and Space
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    handleClick();
+  }
+}
+&lt;/script&gt;</pre>
+
+      <h3>Requirements checklist</h3>
+      <ul>
+        <li>☐ <code>role="button"</code></li>
+        <li>☐ <code>tabindex="0"</code> (keyboard focusable)</li>
+        <li>☐ Handle <kbd>Enter</kbd> and <kbd>Space</kbd> key</li>
+        <li>☐ Visible focus indicator</li>
+        <li>☐ Accessible name (text content or aria-label)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="pattern-modal">
+      <h2 id="pattern-modal">Pattern: Modal dialog</h2>
+      
+      <h3>HTML structure</h3>
+      <pre>&lt;div role="dialog" 
+     aria-modal="true"
+     aria-labelledby="dialog-title"
+     aria-describedby="dialog-desc"&gt;
+  &lt;h2 id="dialog-title"&gt;Confirm deletion&lt;/h2&gt;
+  &lt;p id="dialog-desc"&gt;This action cannot be undone.&lt;/p&gt;
+  &lt;button&gt;Delete&lt;/button&gt;
+  &lt;button&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;</pre>
+
+      <h3>Keyboard behavior</h3>
+      <ul>
+        <li><kbd>Tab</kbd> — Cycle through focusable elements inside dialog only</li>
+        <li><kbd>Escape</kbd> — Close dialog</li>
+        <li>Focus trapped inside while open</li>
+        <li>Focus returns to trigger element when closed</li>
+      </ul>
+
+      <h3>JavaScript requirements</h3>
+      <pre>function openModal(modal, triggerButton) {
+  // 1. Show modal
+  modal.style.display = 'block';
+  
+  // 2. Store trigger for later
+  modal.triggerElement = triggerButton;
+  
+  // 3. Move focus to first focusable element
+  const firstFocusable = modal.querySelector('button, [href], input');
+  firstFocusable.focus();
+  
+  // 4. Trap focus
+  modal.addEventListener('keydown', trapFocus);
+}
+
+function closeModal(modal) {
+  modal.style.display = 'none';
+  modal.triggerElement.focus(); // Return focus
+}
+
+function trapFocus(event) {
+  if (event.key !== 'Tab') return;
+  
+  const focusables = modal.querySelectorAll('button, [href], input');
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  
+  if (event.shiftKey &amp;&amp; document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey &amp;&amp; document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}</pre>
+    </section>
+
+    <section aria-labelledby="pattern-tabs">
+      <h2 id="pattern-tabs">Pattern: Tabs</h2>
+      
+      <h3>HTML structure</h3>
+      <pre>&lt;div class="tabs"&gt;
+  &lt;div role="tablist" aria-label="Course sections"&gt;
+    &lt;button role="tab" 
+            id="tab-1" 
+            aria-selected="true" 
+            aria-controls="panel-1"&gt;
+      Overview
+    &lt;/button&gt;
+    &lt;button role="tab" 
+            id="tab-2" 
+            aria-selected="false" 
+            aria-controls="panel-2"
+            tabindex="-1"&gt;
+      Schedule
+    &lt;/button&gt;
+    &lt;button role="tab" 
+            id="tab-3" 
+            aria-selected="false" 
+            aria-controls="panel-3"
+            tabindex="-1"&gt;
+      Resources
+    &lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div role="tabpanel" id="panel-1" aria-labelledby="tab-1"&gt;
+    Overview content...
+  &lt;/div&gt;
+  &lt;div role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden&gt;
+    Schedule content...
+  &lt;/div&gt;
+  &lt;div role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden&gt;
+    Resources content...
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      <h3>Keyboard behavior</h3>
+      <table>
+        <thead>
+          <tr><th>Key</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><kbd>Tab</kbd></td><td>Move into tablist, then to panel</td></tr>
+          <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Move between tabs</td></tr>
+          <tr><td><kbd>Home</kbd></td><td>First tab</td></tr>
+          <tr><td><kbd>End</kbd></td><td>Last tab</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Key implementation detail</h3>
+      <p>Use <strong>roving tabindex</strong>: Only the selected tab has <code>tabindex="0"</code>; others have <code>tabindex="-1"</code>. Arrow keys move focus and update tabindex.</p>
+    </section>
+
+    <section aria-labelledby="pattern-accordion">
+      <h2 id="pattern-accordion">Pattern: Accordion</h2>
+      
+      <h3>HTML structure</h3>
+      <pre>&lt;div class="accordion"&gt;
+  &lt;h3&gt;
+    &lt;button aria-expanded="true" aria-controls="sect1"&gt;
+      Section 1
+    &lt;/button&gt;
+  &lt;/h3&gt;
+  &lt;div id="sect1" role="region" aria-labelledby="sect1-btn"&gt;
+    Section 1 content...
+  &lt;/div&gt;
+  
+  &lt;h3&gt;
+    &lt;button aria-expanded="false" aria-controls="sect2"&gt;
+      Section 2
+    &lt;/button&gt;
+  &lt;/h3&gt;
+  &lt;div id="sect2" role="region" aria-labelledby="sect2-btn" hidden&gt;
+    Section 2 content...
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      <h3>Key points</h3>
+      <ul>
+        <li>Buttons inside headings (maintain heading structure)</li>
+        <li><code>aria-expanded</code> reflects state</li>
+        <li><code>aria-controls</code> links to panel</li>
+        <li><code>hidden</code> attribute hides collapsed panels</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="pattern-menu">
+      <h2 id="pattern-menu">Pattern: Dropdown menu</h2>
+      
+      <h3>HTML structure</h3>
+      <pre>&lt;div class="dropdown"&gt;
+  &lt;button aria-haspopup="true" 
+          aria-expanded="false"
+          aria-controls="menu1"&gt;
+    Actions ▼
+  &lt;/button&gt;
+  &lt;ul role="menu" id="menu1" hidden&gt;
+    &lt;li role="menuitem"&gt;&lt;a href="#"&gt;Edit&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="menuitem"&gt;&lt;a href="#"&gt;Duplicate&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="separator"&gt;&lt;/li&gt;
+    &lt;li role="menuitem"&gt;&lt;a href="#"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+      <h3>Keyboard behavior</h3>
+      <table>
+        <thead>
+          <tr><th>Key</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><kbd>Enter</kbd> / <kbd>Space</kbd></td><td>Open menu, focus first item</td></tr>
+          <tr><td><kbd>↓</kbd></td><td>Open menu or next item</td></tr>
+          <tr><td><kbd>↑</kbd></td><td>Previous item</td></tr>
+          <tr><td><kbd>Escape</kbd></td><td>Close menu, focus trigger</td></tr>
+          <tr><td><kbd>Home</kbd></td><td>First item</td></tr>
+          <tr><td><kbd>End</kbd></td><td>Last item</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="pattern-live">
+      <h2 id="pattern-live">Pattern: Live regions</h2>
+      <p>Announce dynamic content changes to screen reader users.</p>
+      
+      <h3>Types</h3>
+      <pre>&lt;!-- Polite: Waits for pause in speech --&gt;
+&lt;div aria-live="polite"&gt;
+  3 items in cart
+&lt;/div&gt;
+
+&lt;!-- Assertive: Interrupts immediately --&gt;
+&lt;div role="alert"&gt;
+  Error: Please fill in all required fields
+&lt;/div&gt;
+
+&lt;!-- Status: For status updates --&gt;
+&lt;div role="status"&gt;
+  Saving...
+&lt;/div&gt;</pre>
+
+      <h3>Best practices</h3>
+      <ul>
+        <li>Live region must exist in DOM before content changes</li>
+        <li>Use <code>polite</code> for most updates</li>
+        <li>Reserve <code>assertive</code> / <code>alert</code> for errors</li>
+        <li>Keep messages concise</li>
+        <li>Don't overuse — too many announcements are overwhelming</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="testing-aria">
+      <h2 id="testing-aria">Testing your ARIA</h2>
+      
+      <h3>Browser DevTools</h3>
+      <ul>
+        <li><strong>Chrome:</strong> Elements → Accessibility tab shows computed name/role</li>
+        <li><strong>Firefox:</strong> Accessibility Inspector shows full a11y tree</li>
+      </ul>
+
+      <h3>Screen reader testing</h3>
+      <p>Test these scenarios:</p>
+      <ul>
+        <li>Can user identify what the element is?</li>
+        <li>Can user determine current state?</li>
+        <li>Can user operate the widget?</li>
+        <li>Are changes announced appropriately?</li>
+      </ul>
+
+      <h3>Common ARIA mistakes</h3>
+      <table>
+        <thead>
+          <tr><th>Mistake</th><th>Fix</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Using role on wrong element</td>
+            <td>Check allowed child roles</td>
+          </tr>
+          <tr>
+            <td>Duplicate IDs for aria-labelledby</td>
+            <td>Ensure IDs are unique</td>
+          </tr>
+          <tr>
+            <td>aria-hidden on focusable element</td>
+            <td>Also set tabindex="-1"</td>
+          </tr>
+          <tr>
+            <td>Missing required ARIA attributes</td>
+            <td>Check role requirements</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices Guide (APG)</a> — Definitive patterns</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">MDN ARIA documentation</a></li>
+        <li><a href="https://a11ysupport.io/">Accessibility Support</a> — AT support for ARIA</li>
+        <li><a href="web-app.html">Web &amp; Apps Hub</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+  </footer>
+</body>
+</html>

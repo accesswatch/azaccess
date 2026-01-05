@@ -1,44 +1,296 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Governance Charter | Accessibility</title>
+  <title>Accessibility Governance Charter | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html" aria-current="page">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policies &amp; Governance</a> / Governance Charter</p>
+    </nav>
+    <h1>Accessibility Governance Charter</h1>
+    <p>Structure, roles, and accountability for UA's digital accessibility program.</p>
+    <p class="metric-chip">📜 Official governance document</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="charter-overview">
+      <h2 id="charter-overview">Charter overview</h2>
+      <p>This charter establishes the governance framework for digital accessibility at the University of Arizona. It defines organizational structure, roles, responsibilities, and accountability mechanisms to ensure compliance with legal requirements and institutional commitment to access.</p>
+      
+      <div class="card">
+        <h3>Charter scope</h3>
+        <p>This governance structure applies to:</p>
+        <ul>
+          <li>All university websites and web applications</li>
+          <li>Mobile applications</li>
+          <li>Learning management systems and educational technology</li>
+          <li>Documents and digital content</li>
+          <li>Procured third-party technology</li>
+          <li>Audio and video content</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="governance-structure">
+      <h2 id="governance-structure">Governance structure</h2>
+      
+      <h3>Digital Accessibility Steering Committee</h3>
+      <p><strong>Purpose:</strong> Provide strategic direction, resource allocation, and executive oversight.</p>
+      <p><strong>Composition:</strong></p>
+      <ul>
+        <li>Chief Information Officer (Chair)</li>
+        <li>Vice Provost for Academic Affairs</li>
+        <li>ADA/504 Coordinator</li>
+        <li>Director of Disability Resource Center</li>
+        <li>University Communications representative</li>
+        <li>Faculty Senate representative</li>
+        <li>Staff Advisory Council representative</li>
+        <li>Student representative (appointed by ASUA)</li>
+      </ul>
+      <p><strong>Meetings:</strong> Quarterly</p>
+
+      <h3>Digital Accessibility Operations Team</h3>
+      <p><strong>Purpose:</strong> Implement policies, provide training, and manage day-to-day accessibility operations.</p>
+      <p><strong>Composition:</strong></p>
+      <ul>
+        <li>Digital Accessibility Coordinator (Lead)</li>
+        <li>Web Accessibility Specialist</li>
+        <li>Instructional Technology Accessibility Specialist</li>
+        <li>Procurement Accessibility Liaison</li>
+        <li>Communications Accessibility Liaison</li>
+      </ul>
+      <p><strong>Meetings:</strong> Bi-weekly</p>
+
+      <h3>Unit Accessibility Liaisons</h3>
+      <p><strong>Purpose:</strong> Serve as accessibility points of contact within colleges, departments, and administrative units.</p>
+      <p><strong>Responsibilities:</strong></p>
+      <ul>
+        <li>Coordinate accessibility efforts within unit</li>
+        <li>Report issues to Operations Team</li>
+        <li>Communicate policy updates to unit staff</li>
+        <li>Attend quarterly liaison meetings</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="roles">
+      <h2 id="roles">Roles and responsibilities</h2>
+      
+      <h3>Digital Accessibility Coordinator</h3>
+      <ul>
+        <li>Develop and maintain accessibility policies and standards</li>
+        <li>Coordinate accessibility training programs</li>
+        <li>Manage accessibility auditing and testing</li>
+        <li>Track and report on accessibility metrics</li>
+        <li>Respond to accessibility complaints and requests</li>
+        <li>Advise on procurement accessibility evaluations</li>
+      </ul>
+
+      <h3>Content owners (all staff)</h3>
+      <ul>
+        <li>Create accessible content following guidelines</li>
+        <li>Remediate existing inaccessible content</li>
+        <li>Report accessibility issues when identified</li>
+        <li>Complete required accessibility training</li>
+        <li>Respond to accommodation requests</li>
+      </ul>
+
+      <h3>Web developers and IT staff</h3>
+      <ul>
+        <li>Build accessible websites and applications</li>
+        <li>Test for accessibility during development</li>
+        <li>Follow WCAG 2.1 AA standards</li>
+        <li>Fix accessibility bugs as high priority</li>
+        <li>Maintain accessibility in third-party integrations</li>
+      </ul>
+
+      <h3>Procurement officers</h3>
+      <ul>
+        <li>Include accessibility requirements in RFPs</li>
+        <li>Evaluate vendor VPATs</li>
+        <li>Document accessibility exceptions</li>
+        <li>Consult with Accessibility Coordinator on technology purchases</li>
+      </ul>
+
+      <h3>Supervisors and managers</h3>
+      <ul>
+        <li>Ensure staff complete accessibility training</li>
+        <li>Allocate time for accessibility work</li>
+        <li>Include accessibility in job descriptions</li>
+        <li>Hold staff accountable for accessible output</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="standards">
+      <h2 id="standards">Standards and compliance</h2>
+      
+      <h3>Technical standards</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Content type</th>
+            <th>Standard</th>
+            <th>Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Websites</td>
+            <td>WCAG 2.1</td>
+            <td>AA</td>
+          </tr>
+          <tr>
+            <td>Web applications</td>
+            <td>WCAG 2.1</td>
+            <td>AA</td>
+          </tr>
+          <tr>
+            <td>Mobile apps</td>
+            <td>WCAG 2.1</td>
+            <td>AA</td>
+          </tr>
+          <tr>
+            <td>Documents (PDF, Word)</td>
+            <td>PDF/UA, WCAG 2.1 AA principles</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Video</td>
+            <td>WCAG 2.1 (captions, audio description)</td>
+            <td>AA</td>
+          </tr>
+          <tr>
+            <td>Procured software</td>
+            <td>VPAT/ACR documenting WCAG 2.1 AA</td>
+            <td>AA</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Legal compliance framework</h3>
+      <ul>
+        <li><strong>ADA Title II:</strong> Requires accessible public services (deadline April 2026)</li>
+        <li><strong>Section 504:</strong> Requires accessibility for institutions receiving federal funds</li>
+        <li><strong>Section 508:</strong> Standards for federal electronic and IT</li>
+        <li><strong>Arizona State Law:</strong> HB 2319 requires accessible government websites</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="accountability">
+      <h2 id="accountability">Accountability mechanisms</h2>
+      
+      <h3>Training requirements</h3>
+      <ul>
+        <li><strong>All employees:</strong> Accessibility awareness training within 90 days of hire</li>
+        <li><strong>Content creators:</strong> Document accessibility training within 6 months</li>
+        <li><strong>Web developers:</strong> Technical accessibility training annually</li>
+        <li><strong>Supervisors:</strong> Accessibility management training within 1 year</li>
+      </ul>
+
+      <h3>Auditing and reporting</h3>
+      <ul>
+        <li><strong>Automated scans:</strong> Monthly scanning of university websites</li>
+        <li><strong>Manual audits:</strong> Annual audit of high-traffic pages and applications</li>
+        <li><strong>User testing:</strong> Quarterly testing with users of assistive technology</li>
+        <li><strong>Metrics reporting:</strong> Quarterly accessibility dashboard to Steering Committee</li>
+      </ul>
+
+      <h3>Issue resolution</h3>
+      <ol>
+        <li><strong>Report:</strong> Issues reported to accessibility@arizona.edu or web form</li>
+        <li><strong>Triage:</strong> Operations Team categorizes by severity (24-48 hours)</li>
+        <li><strong>Assignment:</strong> Issue assigned to responsible unit</li>
+        <li><strong>Resolution:</strong> Unit remediates within SLA timeframe</li>
+        <li><strong>Verification:</strong> Operations Team verifies fix</li>
+        <li><strong>Escalation:</strong> Unresolved issues escalate to Steering Committee</li>
+      </ol>
+
+      <h3>Performance integration</h3>
+      <p>Accessibility responsibilities will be:</p>
+      <ul>
+        <li>Included in position descriptions for relevant roles</li>
+        <li>Part of performance evaluation criteria</li>
+        <li>Considered in unit-level assessment</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="exception-process">
+      <h2 id="exception-process">Exception process</h2>
+      <p>When full accessibility cannot be achieved, units may request an exception:</p>
+      
+      <h3>Exception criteria</h3>
+      <ul>
+        <li>Fundamental alteration of program/service</li>
+        <li>Undue burden (documented financial analysis required)</li>
+        <li>Technical impossibility with current technology</li>
+      </ul>
+
+      <h3>Exception requirements</h3>
+      <ul>
+        <li>Documented business justification</li>
+        <li>Description of barriers and affected users</li>
+        <li>Proposed equally effective alternative access</li>
+        <li>Timeline for remediation if possible</li>
+        <li>Approval by unit head and Digital Accessibility Coordinator</li>
+      </ul>
+
+      <h3>Exception review</h3>
+      <p>Exceptions are reviewed annually and must be re-approved to remain in effect.</p>
+    </section>
+
+    <section aria-labelledby="amendments">
+      <h2 id="amendments">Charter amendments</h2>
+      <p>This charter may be amended by:</p>
+      <ul>
+        <li>Proposal from Steering Committee member</li>
+        <li>Review by Operations Team</li>
+        <li>Approval by majority of Steering Committee</li>
+        <li>Annual review and update cycle</li>
+      </ul>
+      
+      <p><strong>Version:</strong> 1.0<br>
+      <strong>Effective date:</strong> January 1, 2026<br>
+      <strong>Next review:</strong> January 2027</p>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Related documents</h2>
+      <ul>
+        <li><a href="service-levels.html">Accessibility Service Level Agreements</a></li>
+        <li><a href="policies-governance.html">Policies &amp; Governance Hub</a></li>
+        <li><a href="title-ii-brief.html">ADA Title II Requirements</a></li>
+        <li><a href="support.html">Report an Issue</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'governance-charter.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

@@ -1,44 +1,307 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vendor Accessibility FAQ | Accessibility</title>
+  <title>Vendor Accessibility FAQ | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html" aria-current="page">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="procurement.html">Procurement</a> / Vendor FAQ</p>
+    </nav>
+    <h1>Vendor Accessibility FAQ</h1>
+    <p>Questions to ask vendors about their accessibility practices.</p>
+    <p class="metric-chip">❓ Procurement guidance</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="faq-overview">
+      <h2 id="faq-overview">Using this guide</h2>
+      <p>When evaluating technology vendors, asking the right questions helps you understand their commitment to accessibility. Use these questions during demos, RFP responses, and contract negotiations.</p>
+      
+      <div class="card">
+        <h3>Key areas to evaluate</h3>
+        <ul>
+          <li>Documentation and testing</li>
+          <li>Organizational commitment</li>
+          <li>User experience and support</li>
+          <li>Roadmap and remediation</li>
+          <li>Contractual commitments</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="documentation-questions">
+      <h2 id="documentation-questions">Documentation &amp; testing questions</h2>
+      
+      <h3>Q: Do you have a current VPAT/ACR?</h3>
+      <p><strong>What to look for:</strong></p>
+      <ul>
+        <li>VPAT based on WCAG 2.1 AA (not just WCAG 2.0)</li>
+        <li>Dated within last 18 months</li>
+        <li>Covers the specific product/version you're evaluating</li>
+        <li>Detailed remarks, not just "Supports" without explanation</li>
+      </ul>
+      <p><strong>Red flag:</strong> "We're working on it" without timeline, or VPAT more than 2 years old.</p>
+
+      <h3>Q: How do you test for accessibility?</h3>
+      <p><strong>Good answers include:</strong></p>
+      <ul>
+        <li>Automated testing integrated into development</li>
+        <li>Manual testing with screen readers (NVDA, JAWS, VoiceOver)</li>
+        <li>Testing with keyboard-only navigation</li>
+        <li>Third-party audits periodically</li>
+        <li>Testing with users who have disabilities</li>
+      </ul>
+      <p><strong>Red flag:</strong> "We use [automated tool only]" — automated testing catches only 30-40% of issues.</p>
+
+      <h3>Q: What accessibility standards do you follow?</h3>
+      <p><strong>Good answers:</strong></p>
+      <ul>
+        <li>"WCAG 2.1 Level AA" — current standard</li>
+        <li>"Section 508" — acceptable for US federal compliance</li>
+        <li>"EN 301 549" — European standard, comprehensive</li>
+      </ul>
+      <p><strong>Red flag:</strong> "We follow ADA" — ADA doesn't specify technical standards for web.</p>
+    </section>
+
+    <section aria-labelledby="organization-questions">
+      <h2 id="organization-questions">Organizational commitment questions</h2>
+      
+      <h3>Q: Do you have dedicated accessibility staff?</h3>
+      <p><strong>Good answers:</strong></p>
+      <ul>
+        <li>Dedicated accessibility team or specialist</li>
+        <li>Accessibility responsibilities embedded in development roles</li>
+        <li>Executive sponsor for accessibility</li>
+        <li>Accessibility training for all developers</li>
+      </ul>
+      <p><strong>Red flag:</strong> "It's everyone's responsibility" with no specific ownership.</p>
+
+      <h3>Q: What is your company's accessibility policy?</h3>
+      <p><strong>What to look for:</strong></p>
+      <ul>
+        <li>Published accessibility statement on website</li>
+        <li>Clear commitment to WCAG compliance</li>
+        <li>Process for receiving and addressing feedback</li>
+        <li>Regular review and update cycle</li>
+      </ul>
+
+      <h3>Q: How do you handle accessibility in your development process?</h3>
+      <p><strong>Good answers:</strong></p>
+      <ul>
+        <li>Accessibility requirements in user stories</li>
+        <li>Accessibility testing in QA process</li>
+        <li>Accessibility review before release</li>
+        <li>Accessibility bugs prioritized appropriately</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="user-experience-questions">
+      <h2 id="user-experience-questions">User experience questions</h2>
+      
+      <h3>Q: Can users complete all tasks using only a keyboard?</h3>
+      <p><strong>What to verify:</strong></p>
+      <ul>
+        <li>All interactive elements are focusable</li>
+        <li>Focus order is logical</li>
+        <li>Focus indicator is visible</li>
+        <li>No keyboard traps</li>
+        <li>Complex widgets have appropriate keyboard patterns</li>
+      </ul>
+      <p><strong>Request:</strong> Demo the product using only keyboard during evaluation.</p>
+
+      <h3>Q: What screen readers do you test with?</h3>
+      <p><strong>Good answers:</strong></p>
+      <ul>
+        <li>NVDA (Windows, free)</li>
+        <li>JAWS (Windows, industry standard)</li>
+        <li>VoiceOver (macOS/iOS)</li>
+        <li>TalkBack (Android)</li>
+      </ul>
+      <p><strong>Better answer:</strong> "We test with multiple screen readers across browsers."</p>
+
+      <h3>Q: Do you have users with disabilities test your product?</h3>
+      <p><strong>Good answers:</strong></p>
+      <ul>
+        <li>Beta testing program includes users with disabilities</li>
+        <li>Usability studies with assistive technology users</li>
+        <li>Accessibility advisory board</li>
+        <li>Employees with disabilities on product team</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="support-questions">
+      <h2 id="support-questions">Support &amp; remediation questions</h2>
+      
+      <h3>Q: How do you handle accessibility bug reports?</h3>
+      <p><strong>Good answers:</strong></p>
+      <ul>
+        <li>Dedicated channel or tag for accessibility issues</li>
+        <li>Clear SLAs for accessibility bug resolution</li>
+        <li>Accessibility bugs not deprioritized vs. other bugs</li>
+        <li>Process for interim workarounds</li>
+      </ul>
+
+      <h3>Q: What is your timeline for fixing accessibility issues?</h3>
+      <p><strong>Reasonable expectations:</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Severity</th>
+            <th>Expected resolution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Blocker (can't use feature)</td>
+            <td>Days to 2 weeks + workaround</td>
+          </tr>
+          <tr>
+            <td>Major (difficult to use)</td>
+            <td>Next release or 30-60 days</td>
+          </tr>
+          <tr>
+            <td>Minor (inconvenience)</td>
+            <td>Within 2-3 releases</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Q: What's on your accessibility roadmap?</h3>
+      <p><strong>Good answers:</strong></p>
+      <ul>
+        <li>Specific plans to address known issues</li>
+        <li>Timeline for WCAG 2.1 or 2.2 compliance</li>
+        <li>Plans for improving specific features</li>
+        <li>Regular accessibility audit schedule</li>
+      </ul>
+      <p><strong>Red flag:</strong> No roadmap or "accessibility is complete."</p>
+    </section>
+
+    <section aria-labelledby="contract-questions">
+      <h2 id="contract-questions">Contract &amp; commitment questions</h2>
+      
+      <h3>Q: Will you include accessibility requirements in the contract?</h3>
+      <p><strong>Request inclusion of:</strong></p>
+      <ul>
+        <li>WCAG 2.1 AA conformance requirement</li>
+        <li>Requirement to provide current VPAT</li>
+        <li>Timeline for addressing accessibility issues</li>
+        <li>Right to audit or request third-party audit</li>
+        <li>Indemnification for accessibility claims</li>
+      </ul>
+
+      <h3>Q: What happens if we find accessibility issues after purchase?</h3>
+      <p><strong>Good answers:</strong></p>
+      <ul>
+        <li>Commitment to fix within agreed timeline</li>
+        <li>Provide workarounds while fixing</li>
+        <li>Regular progress updates</li>
+        <li>Credit or remediation if issues not fixed</li>
+      </ul>
+
+      <h3>Q: Will you notify us of accessibility changes?</h3>
+      <p><strong>Request:</strong></p>
+      <ul>
+        <li>Updated VPAT with major releases</li>
+        <li>Notification of accessibility regressions</li>
+        <li>Release notes include accessibility changes</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="demo-requests">
+      <h2 id="demo-requests">During the demo</h2>
+      <p>When vendors demo their product, ask them to:</p>
+      <ul>
+        <li>Navigate using only keyboard for 5 minutes</li>
+        <li>Show focus indicators on all interactive elements</li>
+        <li>Read a form using a screen reader</li>
+        <li>Show how images are described</li>
+        <li>Demonstrate how error messages are communicated</li>
+        <li>Show accessibility settings or features</li>
+        <li>Complete a core task (like creating content) with keyboard only</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="scoring">
+      <h2 id="scoring">Scoring vendor responses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Criteria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Excellent (4)</strong></td>
+            <td>Current VPAT, dedicated resources, proven commitment, contractual guarantees</td>
+          </tr>
+          <tr>
+            <td><strong>Good (3)</strong></td>
+            <td>Recent VPAT, accessibility in process, responsive to issues, roadmap exists</td>
+          </tr>
+          <tr>
+            <td><strong>Fair (2)</strong></td>
+            <td>VPAT available but dated, some accessibility awareness, willing to improve</td>
+          </tr>
+          <tr>
+            <td><strong>Poor (1)</strong></td>
+            <td>No VPAT, vague commitment, no dedicated resources, poor issue response</td>
+          </tr>
+          <tr>
+            <td><strong>Unacceptable (0)</strong></td>
+            <td>No documentation, dismissive of accessibility, unwilling to commit</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="sample-rfp">
+      <h2 id="sample-rfp">Sample RFP language</h2>
+      <p>Include in RFP requirements:</p>
+      <blockquote>
+        <p>"The vendor shall provide an Accessibility Conformance Report (VPAT) based on WCAG 2.1 Level AA for the proposed product. The product must conform to WCAG 2.1 Level AA standards. The vendor shall describe their accessibility testing methodology, accessibility support resources, and process for addressing accessibility issues reported by the University."</p>
+      </blockquote>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="vpat-review.html">VPAT Review Guide</a></li>
+        <li><a href="procurement.html">Procurement Hub</a></li>
+        <li><a href="https://www.section508.gov/buy/determine-ict-exceptions/">Section508.gov: Buying Accessible ICT</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'vendor-faq.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

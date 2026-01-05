@@ -1,44 +1,345 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Captioning Playbook | Accessibility</title>
+  <title>Video Captioning Guide | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Captioning</p>
+    </nav>
+    <h1>Video Captioning Guide</h1>
+    <p>Creating accurate, synchronized captions for all video content.</p>
+    <p class="metric-chip">🎬 Required for all UA video content</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="caption-requirements">
+      <h2 id="caption-requirements">Why captions are required</h2>
+      <p>Captions are required for all university video content under Title II ADA, Section 504, and UA policy. Beyond compliance, captions benefit:</p>
+      <ul>
+        <li><strong>Deaf and hard of hearing viewers</strong> — Primary accessibility need</li>
+        <li><strong>Non-native English speakers</strong> — Supports language comprehension</li>
+        <li><strong>Students in noisy or quiet environments</strong> — Libraries, public transit</li>
+        <li><strong>Viewers with cognitive disabilities</strong> — Reinforces audio with text</li>
+        <li><strong>Search and findability</strong> — Captions are indexed and searchable</li>
+      </ul>
+      <p><strong>Research shows:</strong> 80% of people who use captions are not deaf or hard of hearing (3Play Media, 2019). Studies show captions improve comprehension and retention for all viewers.</p>
+    </section>
+
+    <section aria-labelledby="caption-types">
+      <h2 id="caption-types">Types of captions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>When to use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Closed captions (CC)</strong></td>
+            <td>Can be turned on/off by viewer</td>
+            <td>Standard for most content</td>
+          </tr>
+          <tr>
+            <td><strong>Open captions</strong></td>
+            <td>Always visible, burned into video</td>
+            <td>Social media, signage displays</td>
+          </tr>
+          <tr>
+            <td><strong>Subtitles</strong></td>
+            <td>Translation for different languages</td>
+            <td>Multilingual content</td>
+          </tr>
+          <tr>
+            <td><strong>SDH (Subtitles for Deaf/HoH)</strong></td>
+            <td>Includes non-speech audio descriptions</td>
+            <td>When sound effects matter</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="caption-standards">
+      <h2 id="caption-standards">Caption quality standards</h2>
+      <p>Captions must meet WCAG 2.1 AA requirements (Success Criterion 1.2.2). Quality captions are:</p>
+      
+      <h3>Accurate</h3>
+      <ul>
+        <li>Verbatim speech (not paraphrased)</li>
+        <li>Correct spelling of names and technical terms</li>
+        <li>Proper grammar and punctuation</li>
+        <li>Speaker identification when multiple speakers</li>
+        <li>Target: 99% accuracy</li>
+      </ul>
+
+      <h3>Synchronized</h3>
+      <ul>
+        <li>Captions appear within 1 second of speech</li>
+        <li>Duration matches speech timing</li>
+        <li>Line breaks at natural pause points</li>
+      </ul>
+
+      <h3>Complete</h3>
+      <ul>
+        <li>All spoken content included</li>
+        <li>Relevant non-speech sounds described: [music], [applause], [phone rings]</li>
+        <li>Speaker changes indicated</li>
+        <li>No missing or dropped words</li>
+      </ul>
+
+      <h3>Readable</h3>
+      <ul>
+        <li>2-3 lines maximum per caption frame</li>
+        <li>32-42 characters per line</li>
+        <li>Sufficient display time to read (minimum 1 second per frame)</li>
+        <li>Proper line breaks (don't split phrases awkwardly)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="captioning-workflow">
+      <h2 id="captioning-workflow">Captioning workflow at UA</h2>
+      
+      <h3>Option 1: Panopto (recommended for courses)</h3>
+      <p>UA's video platform with integrated captioning:</p>
+      <ol>
+        <li><strong>Upload or record</strong> video in Panopto</li>
+        <li><strong>Enable ASR:</strong> Settings → Captions → Enable automatic captions</li>
+        <li><strong>Wait for processing</strong> (usually 1-2 hours for ASR)</li>
+        <li><strong>Edit captions:</strong> Click "Captions" in the video editor</li>
+        <li><strong>Review and correct</strong> all auto-generated text</li>
+        <li><strong>Publish</strong> when captions are accurate</li>
+      </ol>
+      <p><a href="lms-panopto.html">Full Panopto workflow guide</a></p>
+
+      <h3>Option 2: YouTube Studio</h3>
+      <ol>
+        <li>Upload video to YouTube</li>
+        <li>Go to <strong>Subtitles</strong> in YouTube Studio</li>
+        <li>Wait for auto-generated captions</li>
+        <li>Click <strong>Edit</strong> to review and correct</li>
+        <li>Publish captions</li>
+      </ol>
+
+      <h3>Option 3: Professional captioning services</h3>
+      <p>For high-volume or high-stakes content, use professional services:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Turnaround</th>
+            <th>Cost estimate</th>
+            <th>Best for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3Play Media</td>
+            <td>1-4 business days</td>
+            <td>$2-4/minute</td>
+            <td>High accuracy, large volumes</td>
+          </tr>
+          <tr>
+            <td>Rev</td>
+            <td>12-24 hours</td>
+            <td>$1.50-2/minute</td>
+            <td>Fast turnaround</td>
+          </tr>
+          <tr>
+            <td>Verbit</td>
+            <td>Same day</td>
+            <td>$2-5/minute</td>
+            <td>Live events, lectures</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Contact <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> for department purchasing guidance.</p>
+
+      <h3>Option 4: Manual captioning</h3>
+      <p>For short videos or when other options aren't available:</p>
+      <ul>
+        <li><strong>Amara:</strong> <a href="https://amara.org">amara.org</a> — Free web-based caption editor</li>
+        <li><strong>YouTube caption editor</strong> — Built into YouTube Studio</li>
+        <li><strong>Subtitle Edit:</strong> Free desktop software for Windows</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="editing-tips">
+      <h2 id="editing-tips">Caption editing best practices</h2>
+      
+      <h3>Common auto-caption errors to fix</h3>
+      <ul>
+        <li><strong>Names and proper nouns:</strong> "Dr. Smith" not "doctor smith"</li>
+        <li><strong>Technical terms:</strong> "WCAG" not "W cag" or "double-u cag"</li>
+        <li><strong>Homophones:</strong> "their/there/they're" — check context</li>
+        <li><strong>Numbers:</strong> Verify dates, statistics, phone numbers</li>
+        <li><strong>Acronyms:</strong> "UA" not "you a"</li>
+      </ul>
+
+      <h3>Formatting conventions</h3>
+      <ul>
+        <li><strong>Speaker identification:</strong> Use [Professor]: or >> Professor: for multiple speakers</li>
+        <li><strong>Sound effects:</strong> [music], [applause], [inaudible]</li>
+        <li><strong>Emphasis:</strong> Use italics for emphasis or foreign words</li>
+        <li><strong>Numbers:</strong> Spell out one through ten; use digits for 11+</li>
+      </ul>
+
+      <h3>Line breaking</h3>
+      <p><strong>Good:</strong></p>
+      <pre>The accessibility guidelines
+require captions on all videos.</pre>
+      <p><strong>Poor:</strong></p>
+      <pre>The accessibility guidelines require
+captions on all videos.</pre>
+      <p>Break at natural phrase boundaries, not in the middle of thoughts.</p>
+    </section>
+
+    <section aria-labelledby="live-captioning">
+      <h2 id="live-captioning">Live event captioning</h2>
+      <p>For live events, webinars, and synchronous classes:</p>
+      
+      <h3>Zoom automatic captions</h3>
+      <ul>
+        <li>Enable in meeting settings</li>
+        <li>Quality varies (70-85% accuracy)</li>
+        <li>Suitable for informal meetings</li>
+        <li>Not sufficient for formal accommodations</li>
+      </ul>
+
+      <h3>Professional CART (Communication Access Realtime Translation)</h3>
+      <ul>
+        <li>Human captioner provides 98%+ accuracy</li>
+        <li>Required for formal accommodations</li>
+        <li>Schedule through DRC for student accommodations</li>
+        <li>Book 2+ weeks in advance for events</li>
+      </ul>
+      <p>Contact <a href="mailto:uadrc@arizona.edu">uadrc@arizona.edu</a> to arrange CART services.</p>
+    </section>
+
+    <section aria-labelledby="transcripts">
+      <h2 id="transcripts">Transcripts</h2>
+      <p>In addition to captions, provide downloadable transcripts for:</p>
+      <ul>
+        <li>Audio-only content (podcasts)</li>
+        <li>Long-form videos</li>
+        <li>Content where users may want to search or reference</li>
+      </ul>
+      
+      <h3>Transcript best practices</h3>
+      <ul>
+        <li>Include speaker names</li>
+        <li>Add timestamps for long content</li>
+        <li>Use headings for sections/topics</li>
+        <li>Note significant non-speech audio</li>
+        <li>Provide in accessible format (HTML or accessible Word/PDF)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="audio-description">
+      <h2 id="audio-description">Audio description</h2>
+      <p>Audio description narrates important visual information for blind and low-vision viewers. Required when:</p>
+      <ul>
+        <li>Visual content conveys information not in the audio track</li>
+        <li>Demonstrations, charts, or on-screen text</li>
+        <li>Videos where action is important to understanding</li>
+      </ul>
+      
+      <h3>When audio description is needed</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Content type</th>
+            <th>Audio description needed?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Talking head lecture</td>
+            <td>Usually no (if slides are described verbally)</td>
+          </tr>
+          <tr>
+            <td>Software demo</td>
+            <td>Yes (describe on-screen actions)</td>
+          </tr>
+          <tr>
+            <td>Lab demonstration</td>
+            <td>Yes (describe physical actions)</td>
+          </tr>
+          <tr>
+            <td>Chart or graph shown</td>
+            <td>Yes (describe data and trends)</td>
+          </tr>
+          <tr>
+            <td>Interview</td>
+            <td>Usually no (unless visual context matters)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Providing audio description</h3>
+      <ul>
+        <li><strong>Integrate into script:</strong> Narrate what you're showing as you present</li>
+        <li><strong>Extended description:</strong> Pause video to describe complex visuals</li>
+        <li><strong>Separate track:</strong> Create alternative version with AD</li>
+        <li><strong>Text description:</strong> Provide written description of visual content</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Caption quality checklist</h2>
+      <ul>
+        <li>☐ All speech is captioned verbatim</li>
+        <li>☐ Speaker identification included</li>
+        <li>☐ Names and technical terms spelled correctly</li>
+        <li>☐ Non-speech sounds described [music], [applause]</li>
+        <li>☐ Captions synchronized with audio</li>
+        <li>☐ Line breaks at natural phrases</li>
+        <li>☐ 99%+ accuracy achieved</li>
+        <li>☐ Captions display long enough to read</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://dcmp.org/learn/captioningkey">DCMP Captioning Key</a> — Industry standard guide</li>
+        <li><a href="https://www.3playmedia.com/resources/">3Play Media Resources</a> — Best practices and research</li>
+        <li><a href="lms-panopto.html">Panopto Workflow Guide</a></li>
+        <li><a href="teaching-learning.html">Teaching &amp; Learning Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'media-captioning.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

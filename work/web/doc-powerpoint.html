@@ -1,44 +1,162 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PowerPoint Slides | Accessibility</title>
+  <title>PowerPoint Accessibility | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / PowerPoint</p>
+    </nav>
+    <h1>Accessible PowerPoint Presentations</h1>
+    <p>Create inclusive slides that work for everyone.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="ppt-intro">
+      <h2 id="ppt-intro">Why accessible slides matter</h2>
+      <p>Presentations are used everywhere—classrooms, meetings, conferences, and online courses. When slides aren't accessible, people who use screen readers, have low vision, or process information differently can miss key content.</p>
+      <p><a href="quick-reference-cards.html#powerpoint">Download the PowerPoint Quick Reference Card</a> for a printable checklist.</p>
+    </section>
+
+    <section aria-labelledby="ppt-checklist">
+      <h2 id="ppt-checklist">Accessibility checklist</h2>
+      <div class="checklist">
+        <h3>Structure &amp; Layout</h3>
+        <ul>
+          <li><input type="checkbox" id="ppt1"><label for="ppt1">Use built-in slide layouts (don't create from blank)</label></li>
+          <li><input type="checkbox" id="ppt2"><label for="ppt2">Every slide has a unique title</label></li>
+          <li><input type="checkbox" id="ppt3"><label for="ppt3">Reading order is logical (check in Selection Pane)</label></li>
+          <li><input type="checkbox" id="ppt4"><label for="ppt4">Use bullet lists, not manual line breaks</label></li>
+        </ul>
+
+        <h3>Text &amp; Fonts</h3>
+        <ul>
+          <li><input type="checkbox" id="ppt5"><label for="ppt5">Minimum 24pt for body text, 32pt+ for titles</label></li>
+          <li><input type="checkbox" id="ppt6"><label for="ppt6">Sans-serif fonts (Arial, Calibri, Verdana)</label></li>
+          <li><input type="checkbox" id="ppt7"><label for="ppt7">Sufficient color contrast (4.5:1 for normal text)</label></li>
+          <li><input type="checkbox" id="ppt8"><label for="ppt8">Don't use color alone to convey meaning</label></li>
+        </ul>
+
+        <h3>Images &amp; Media</h3>
+        <ul>
+          <li><input type="checkbox" id="ppt9"><label for="ppt9">Alt text on all meaningful images</label></li>
+          <li><input type="checkbox" id="ppt10"><label for="ppt10">Mark decorative images as decorative</label></li>
+          <li><input type="checkbox" id="ppt11"><label for="ppt11">Videos have captions</label></li>
+          <li><input type="checkbox" id="ppt12"><label for="ppt12">Audio has transcripts or is described</label></li>
+        </ul>
+
+        <h3>Tables &amp; Charts</h3>
+        <ul>
+          <li><input type="checkbox" id="ppt13"><label for="ppt13">Tables have header rows defined</label></li>
+          <li><input type="checkbox" id="ppt14"><label for="ppt14">Simple tables only (avoid merged cells)</label></li>
+          <li><input type="checkbox" id="ppt15"><label for="ppt15">Charts have alt text describing the trend/data</label></li>
+        </ul>
+
+        <h3>Links &amp; Navigation</h3>
+        <ul>
+          <li><input type="checkbox" id="ppt16"><label for="ppt16">Hyperlinks have descriptive text (not "click here")</label></li>
+          <li><input type="checkbox" id="ppt17"><label for="ppt17">Slide numbers are included</label></li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="ppt-steps">
+      <h2 id="ppt-steps">Step-by-step guides</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Add alt text to images</h3>
+          <ol>
+            <li>Right-click the image</li>
+            <li>Select <strong>Edit Alt Text</strong></li>
+            <li>Write a concise description of what the image conveys</li>
+            <li>Or check <strong>Mark as decorative</strong> if purely visual</li>
+          </ol>
+        </article>
+        <article class="card">
+          <h3>Check reading order</h3>
+          <ol>
+            <li>Go to <strong>Home</strong> tab</li>
+            <li>Click <strong>Arrange</strong> → <strong>Selection Pane</strong></li>
+            <li>Items are read bottom-to-top</li>
+            <li>Drag items to reorder if needed</li>
+          </ol>
+        </article>
+        <article class="card">
+          <h3>Add slide titles</h3>
+          <ol>
+            <li>Use layouts that include a title placeholder</li>
+            <li>If hiding the title, use the <strong>Outline View</strong> to add one</li>
+            <li>Each title should be unique and descriptive</li>
+          </ol>
+        </article>
+        <article class="card">
+          <h3>Run the Accessibility Checker</h3>
+          <ol>
+            <li>Go to <strong>Review</strong> tab</li>
+            <li>Click <strong>Check Accessibility</strong></li>
+            <li>Fix errors first, then warnings</li>
+            <li>Click each issue for instructions</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="ppt-templates">
+      <h2 id="ppt-templates">UA accessible templates</h2>
+      <p>Start with these pre-built accessible templates:</p>
+      <ul>
+        <li><a href="https://brand.arizona.edu/apply-the-brand/visual-style/digital/powerpoint-templates">UA Brand PowerPoint Templates</a> — Accessible versions with proper layouts</li>
+        <li><a href="https://marcom.arizona.edu/resources/templates">MarCom Templates</a> — Marketing-approved accessible designs</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="ppt-export">
+      <h2 id="ppt-export">Exporting accessible files</h2>
+      <h3>Export to PDF</h3>
+      <ol>
+        <li>Run Accessibility Checker first and fix issues</li>
+        <li>Go to <strong>File</strong> → <strong>Export</strong> → <strong>Create PDF/XPS</strong></li>
+        <li>Click <strong>Options</strong></li>
+        <li>Check <strong>Document structure tags for accessibility</strong></li>
+        <li>Save the file</li>
+      </ol>
+      <p><strong>Note:</strong> Always test the PDF with a screen reader or Adobe Acrobat's accessibility checker.</p>
+    </section>
+
+    <section aria-labelledby="ppt-resources">
+      <h2 id="ppt-resources">Additional resources</h2>
+      <ul>
+        <li><a href="https://support.microsoft.com/en-us/office/make-your-powerpoint-presentations-accessible-6f7772b2-2f33-4bd2-8ca7-dae3b2b3ef25">Microsoft: Make your PowerPoint accessible</a></li>
+        <li><a href="color-contrast.html">Color Contrast Guide</a></li>
+        <li><a href="quick-reference-cards.html">All Quick Reference Cards</a></li>
+        <li><a href="documents-media.html">Documents &amp; Media Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'doc-powerpoint.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

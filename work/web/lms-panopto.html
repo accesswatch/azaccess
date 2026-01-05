@@ -1,44 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Panopto Workflow | Accessibility</title>
+  <title>Panopto Accessibility Guide | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html" aria-current="page">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="teaching-learning.html">Teaching &amp; Learning</a> / Panopto</p>
+    </nav>
+    <h1>Panopto Accessibility Guide</h1>
+    <p>Creating accessible video content with UA's video platform.</p>
+    <p class="metric-chip">🎥 For instructors &amp; content creators</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="panopto-overview">
+      <h2 id="panopto-overview">About Panopto at UA</h2>
+      <p>Panopto is UA's primary video hosting platform, integrated with D2L Brightspace. It provides automatic speech recognition (ASR) for captions, though human review is required for accuracy.</p>
+      
+      <div class="card">
+        <h3>Key accessibility features</h3>
+        <ul>
+          <li>Automatic speech recognition (ASR) captions</li>
+          <li>Caption editing tools</li>
+          <li>Searchable video content</li>
+          <li>Keyboard-accessible player</li>
+          <li>Adjustable playback speed</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="enabling-captions">
+      <h2 id="enabling-captions">Enabling automatic captions</h2>
+      
+      <h3>For new recordings</h3>
+      <ol>
+        <li>Open Panopto and start a new recording or upload</li>
+        <li>After upload completes, click on the video</li>
+        <li>Go to <strong>Settings</strong> (gear icon)</li>
+        <li>Select <strong>Captions</strong></li>
+        <li>Check <strong>"Enable automatic captions"</strong></li>
+        <li>Wait for processing (typically 1-2 hours depending on length)</li>
+      </ol>
+
+      <h3>For existing videos</h3>
+      <ol>
+        <li>Navigate to your video in Panopto</li>
+        <li>Click <strong>Edit</strong></li>
+        <li>Go to <strong>Captions</strong> tab</li>
+        <li>Click <strong>"Import automatic captions"</strong></li>
+        <li>Select language (English)</li>
+        <li>Wait for processing</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="editing-captions">
+      <h2 id="editing-captions">Editing captions for accuracy</h2>
+      <p><strong>Important:</strong> ASR captions are typically 70-85% accurate. Human review and editing is required for compliance.</p>
+      
+      <h3>Opening the caption editor</h3>
+      <ol>
+        <li>Open your video in Panopto</li>
+        <li>Click <strong>Edit</strong></li>
+        <li>Select the <strong>Captions</strong> tab on the left</li>
+        <li>Click on any caption segment to edit</li>
+      </ol>
+
+      <h3>Caption editing tips</h3>
+      <ul>
+        <li><strong>Watch and listen:</strong> Play the video while reviewing captions</li>
+        <li><strong>Fix common errors:</strong> Names, technical terms, acronyms</li>
+        <li><strong>Add speaker identification:</strong> [Professor]: or >> Professor:</li>
+        <li><strong>Add non-speech audio:</strong> [music], [applause], [video playing]</li>
+        <li><strong>Check timing:</strong> Ensure captions sync with speech</li>
+      </ul>
+
+      <h3>Keyboard shortcuts in editor</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Shortcut</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><kbd>Tab</kbd></td>
+            <td>Move to next caption segment</td>
+          </tr>
+          <tr>
+            <td><kbd>Shift</kbd>+<kbd>Tab</kbd></td>
+            <td>Move to previous segment</td>
+          </tr>
+          <tr>
+            <td><kbd>Ctrl</kbd>+<kbd>Space</kbd></td>
+            <td>Play/pause video</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="chapter-markers">
+      <h2 id="chapter-markers">Adding chapter markers</h2>
+      <p>Chapter markers help users navigate long videos and are announced by screen readers.</p>
+      
+      <ol>
+        <li>Open video in Edit mode</li>
+        <li>Go to <strong>Contents</strong> tab</li>
+        <li>Position playhead at chapter start</li>
+        <li>Click <strong>"Add a table of contents entry"</strong></li>
+        <li>Enter descriptive chapter title</li>
+        <li>Repeat for each major section</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="player-accessibility">
+      <h2 id="player-accessibility">Panopto player accessibility</h2>
+      
+      <h3>Keyboard shortcuts for viewers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><kbd>Space</kbd> or <kbd>K</kbd></td>
+            <td>Play/Pause</td>
+          </tr>
+          <tr>
+            <td><kbd>←</kbd> / <kbd>→</kbd></td>
+            <td>Seek back/forward 5 seconds</td>
+          </tr>
+          <tr>
+            <td><kbd>C</kbd></td>
+            <td>Toggle captions</td>
+          </tr>
+          <tr>
+            <td><kbd>F</kbd></td>
+            <td>Full screen</td>
+          </tr>
+          <tr>
+            <td><kbd>M</kbd></td>
+            <td>Mute/Unmute</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Panopto accessibility checklist</h2>
+      <ul>
+        <li>☐ Automatic captions enabled</li>
+        <li>☐ Captions reviewed and edited for accuracy</li>
+        <li>☐ Names and technical terms corrected</li>
+        <li>☐ Non-speech sounds indicated [music], [applause]</li>
+        <li>☐ Speaker identification added (if multiple speakers)</li>
+        <li>☐ Chapter markers added for long videos</li>
+        <li>☐ Visual content described verbally</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://support.panopto.com/s/article/How-to-Use-Automatic-Speech-Recognition-ASR-for-Captioning">Panopto: ASR Captioning</a></li>
+        <li><a href="media-captioning.html">Video Captioning Guide</a></li>
+        <li><a href="lms-brightspace.html">D2L Brightspace Accessibility</a></li>
+        <li><a href="teaching-learning.html">Teaching &amp; Learning Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'lms-panopto.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

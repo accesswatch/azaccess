@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Document &amp; Media Accessibility Hub</title>
+  <title>Document &amp; Media Accessibility | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="../scripts/header.js" defer></script>
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
-      <div class="site-header-brand">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-University of Arizona · Digital Accessibility</div>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
         <a href="personas.html">Personas</a>
@@ -31,12 +30,23 @@ University of Arizona · Digital Accessibility</div>
         <a href="support.html">Get help</a>
       </nav>
     </div>
-    <p><a href="home.html">Accessibility Home</a> / Document &amp; Media</p>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / Document &amp; Media</p>
+    </nav>
     <h1>Document &amp; Media Accessibility</h1>
     <p>Every document, slide deck, email, and video must work for people using screen readers, magnifiers, captions, and alternative input.</p>
-    <p class="page-meta">Owner: Digital Accessibility Team · Last reviewed: 2025-11-20 · Next review: 2026-02-20</p>
+    <p class="page-meta">Owner: Digital Accessibility Team · Last reviewed: 2026-01-05 · Next review: 2026-04-05</p>
   </header>
   <main id="maincontent" role="main">
+    <section aria-labelledby="doc-help">
+      <h2 id="doc-help">What this page helps you do</h2>
+      <ul>
+        <li>Create documents, slides, emails, and media that work with screen readers, magnifiers, captions, and keyboard navigation.</li>
+        <li>Pick the right checklist and pattern for Word, Google, PDFs, newsletters, and video.</li>
+        <li>Decide when you can remediate content yourself and when to request guided or full-service help.</li>
+      </ul>
+    </section>
+
     <section>
       <h2>Executive summary</h2>
       <ul>
@@ -49,6 +59,25 @@ University of Arizona · Digital Accessibility</div>
       <p><a class="cta" href="https://trellis.tfaforms.net/72?tfa_4=DocTraining">Request doc &amp; media training</a></p>
     </section>
 
+    <section aria-labelledby="doc-quick-wins">
+      <h2 id="doc-quick-wins">Quick wins (5–10 minutes)</h2>
+      <ul>
+        <li><strong>Word or PowerPoint:</strong> Run the Accessibility Checker, add missing alt text, fix hard-to-read contrast, and mark heading levels before exporting to PDF.</li>
+        <li><strong>Google Docs or Slides:</strong> Apply headings from the Styles menu, check link text for meaning, and avoid using color alone for emphasis.</li>
+        <li><strong>PDFs you must post today:</strong> If you only have time for one pass, set a logical reading order and tags for headings and lists using Acrobat.</li>
+        <li><strong>Videos:</strong> Turn on machine captions in Panopto or Zoom and scan for obvious errors in names, technical terms, and numbers.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="doc-maturity">
+      <h2 id="doc-maturity">Minimum, better, best for documents &amp; media</h2>
+      <ul>
+        <li><strong>Minimum:</strong> New documents and media avoid obvious barriers (no image-only PDFs for required content, captions on required videos, headings instead of manual spacing, readable color contrast).</li>
+        <li><strong>Better:</strong> Teams use the checklists in this hub, remediate high-traffic and student-facing content, and keep accessible source files for anything published as PDF.</li>
+        <li><strong>Best:</strong> Colleges and units standardize on accessible templates, bake accessibility checks into content workflows and editorial calendars, and log remediation decisions for Title II reviews.</li>
+      </ul>
+    </section>
+
     <section aria-labelledby="formats">
       <h2 id="formats">Guides by format</h2>
       <div class="grid grid-3">
@@ -57,41 +86,41 @@ University of Arizona · Digital Accessibility</div>
           <p>Word, PowerPoint, Excel, and Outlook checklists with styles, alt text, tables, and export guidance.</p>
           <ul>
             <li><a href="doc-word.html">Word/PowerPoint basics</a></li>
-            <li><a href="../work/web/doc-powerpoint.html">Slide design checklist</a></li>
-            <li><a href="../work/web/doc-excel.html">Excel data tables</a></li>
-            <li><a href="../work/web/email-outlook.html">Outlook emails</a></li>
+            <li><a href="doc-powerpoint.html">Slide design checklist</a></li>
+            <li><a href="doc-excel.html">Excel data tables</a></li>
+            <li><a href="email-outlook.html">Outlook emails</a></li>
           </ul>
         </article>
         <article class="card">
           <h3>Google Workspace</h3>
           <p>Docs, Sheets, Slides, and Gmail tips including alt text, heading shortcuts, and accessible exports.</p>
           <ul>
-            <li><a href="../work/web/doc-google.html">Docs/Slides checklist</a></li>
-            <li><a href="../work/web/doc-excel.html">Sheets guidance</a></li>
-            <li><a href="../work/web/email-gmail.html">Gmail invites</a></li>
+            <li><a href="doc-google.html">Docs/Slides checklist</a></li>
+            <li><a href="doc-excel.html">Sheets guidance</a></li>
+            <li><a href="email-gmail.html">Gmail invites</a></li>
           </ul>
         </article>
         <article class="card">
           <h3>PDF &amp; Adobe</h3>
           <p>Acrobat tagging workflows, InDesign exports, Premiere captions, Firefly prompts.</p>
           <ul>
-            <li><a href="../work/web/pdf-remediation.html">PDF remediation</a></li>
-            <li><a href="../work/web/adobe-media.html">Adobe media tips</a></li>
+            <li><a href="pdf-remediation.html">PDF remediation</a></li>
+            <li><a href="adobe-media.html">Adobe media tips</a></li>
           </ul>
         </article>
         <article class="card">
           <h3>Media &amp; Streaming</h3>
           <p>Captioning decision tree for Panopto, Zoom, YouTube, and social video plus audio description cues.</p>
           <ul>
-            <li><a href="../work/web/media-captioning.html">Captioning playbook</a></li>
-            <li><a href="../work/web/lms-panopto.html">Panopto workflow</a></li>
+            <li><a href="media-captioning.html">Captioning playbook</a></li>
+            <li><a href="lms-panopto.html">Panopto workflow</a></li>
           </ul>
         </article>
         <article class="card">
           <h3>Email &amp; Newsletters</h3>
           <p>Use bulletproof buttons, alt text, and descriptive subjects for campus-wide communications.</p>
           <ul>
-            <li><a href="../work/web/email-newsletters.html">Newsletter pattern</a></li>
+            <li><a href="email-newsletters.html">Newsletter pattern</a></li>
           </ul>
         </article>
         <article class="card">
@@ -103,8 +132,8 @@ University of Arizona · Digital Accessibility</div>
           <h3>UA branding &amp; Quickstart</h3>
           <p>Keep the Block A logo, typography, and palettes accessible across Word, Slides, and graphics.</p>
           <ul>
-            <li><a href="../work/web/brand-identity.html">Brand &amp; accessibility guide</a></li>
-            <li><a href="../work/web/color-contrast.html">Color &amp; contrast ratios</a></li>
+            <li><a href="brand-identity.html">Brand &amp; accessibility guide</a></li>
+            <li><a href="color-contrast.html">Color &amp; contrast ratios</a></li>
             <li><a href="https://quickstart.arizona.edu/best-practices/accessibility-guidelines">Quickstart guidance</a></li>
           </ul>
         </article>
@@ -124,10 +153,10 @@ University of Arizona · Digital Accessibility</div>
       <p>Select a checklist to export as markdown or PDF.</p>
       <ul>
         <li><a href="doc-word.html">Word &amp; PowerPoint</a></li>
-        <li><a href="../work/web/doc-google.html">Google Workspace</a></li>
-        <li><a href="../work/web/pdf-remediation.html">PDF remediation</a></li>
+        <li><a href="doc-google.html">Google Workspace</a></li>
+        <li><a href="pdf-remediation.html">PDF remediation</a></li>
         <li><a href="media-captioning.html">Captioning &amp; transcripts</a></li>
-        <li><a href="../work/web/email-newsletters.html">Email newsletters</a></li>
+        <li><a href="email-newsletters.html">Email newsletters</a></li>
       </ul>
     </section>
 
@@ -160,8 +189,8 @@ University of Arizona · Digital Accessibility</div>
           <h3>Self-service (preferred)</h3>
           <p>Teams remediate their own files using UA templates, Microsoft Accessibility Checker, and Acrobat tagging tools. Ideal for recurring syllabi, newsletters, and reports.</p>
           <ul>
-            <li>Follow the <a href="../work/web/documents-overview.html">Documents overview</a> and relevant checklists.</li>
-            <li>Use <a href="../work/web/pdf-remediation.html">PDF remediation</a> steps for tagging, reading order, and form fields.</li>
+            <li>Follow the <a href="documents-overview.html">Documents overview</a> and relevant checklists.</li>
+            <li>Use <a href="pdf-remediation.html">PDF remediation</a> steps for tagging, reading order, and form fields.</li>
             <li>Attach checker reports (DOCX/PPTX/PDF) when submitting to Trellis, D2L, or public sites.</li>
           </ul>
         </article>
@@ -211,7 +240,9 @@ University of Arizona · Digital Accessibility</div>
     <p><a href="#maincontent">Back to top</a></p>
   </main>
   <footer role="contentinfo">
-    <p>Owner: Digital Accessibility Team · Last reviewed: 2025-11-20 · Next review: 2026-02-20</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
 </body>
 </html>

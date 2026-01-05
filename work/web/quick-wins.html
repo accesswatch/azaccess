@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick Accessibility Wins | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .win-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-left: 5px solid #4caf50;
+    }
+    .win-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0;
+    }
+    .win-card .time {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .win-card .impact {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .impact-high { color: #d32f2f; }
+    .impact-medium { color: #f57c00; }
+    .code-example {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / Quick Wins</p>
+    </nav>
+    <h1>Quick Accessibility Wins 🏆</h1>
+    <p>High-impact fixes you can make in minutes.</p>
+    <p class="metric-chip">⚡ Start making a difference today</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="intro">
+      <h2 id="intro">Start here, start now</h2>
+      <p>You don't need a big budget or months of training to improve accessibility. These quick wins can be implemented immediately and make a real difference for users with disabilities.</p>
+      
+      <div class="card" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left: 4px solid #ff9800;">
+        <h3>💡 Pro tip</h3>
+        <p>Pick ONE thing from this list and do it today. Small consistent actions beat grand plans that never happen.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="documents">
+      <h2 id="documents">📄 Document quick wins</h2>
+
+      <div class="win-card">
+        <h3>Add alt text to images <span class="time">30 seconds/image</span></h3>
+        <p>Describe what the image conveys, not just what it shows.</p>
+        <p><strong>How:</strong> Right-click image → Edit Alt Text (Word/PowerPoint/Google Docs)</p>
+        <p><strong>Example:</strong> Instead of "chart" → "Bar chart showing 40% increase in enrollment from 2020-2024"</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Use real headings <span class="time">2 minutes</span></h3>
+        <p>Don't just make text big and bold—use the Heading styles.</p>
+        <p><strong>How:</strong> Select text → Home → Styles → Heading 1, 2, 3...</p>
+        <p><strong>Why:</strong> Screen readers use headings to navigate. Big bold text looks like a heading but isn't "seen" as one.</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Add meaningful link text <span class="time">30 seconds/link</span></h3>
+        <p>Links should make sense out of context.</p>
+        <p><strong>Bad:</strong> "Click here" or "Read more"</p>
+        <p><strong>Good:</strong> "Download the registration form" or "Read the full accessibility policy"</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Run the accessibility checker <span class="time">1 minute</span></h3>
+        <p>Word, PowerPoint, and Google Docs have built-in checkers.</p>
+        <p><strong>How:</strong> Review → Check Accessibility (Microsoft) or Tools → Accessibility (Google)</p>
+        <p><strong>Fix:</strong> Address the issues it finds before sharing your document.</p>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Add table headers <span class="time">1 minute</span></h3>
+        <p>Tell screen readers which cells are headers.</p>
+        <p><strong>How:</strong> Click in table → Table Design → check "Header Row"</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="web">
+      <h2 id="web">🌐 Web quick wins</h2>
+
+      <div class="win-card">
+        <h3>Add a skip link <span class="time">5 minutes</span></h3>
+        <p>Let keyboard users skip navigation and jump to content.</p>
+        <div class="code-example">
+&lt;a href="#main" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+...
+&lt;main id="main"&gt;
+
+/* CSS */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  background: #000;
+  color: #fff;
+}
+.skip-link:focus {
+  top: 0;
+}
+        </div>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Add alt text to all images <span class="time">30 seconds/image</span></h3>
+        <div class="code-example">
+&lt;!-- Informative image --&gt;
+&lt;img src="chart.png" alt="Sales increased 40% in Q4"&gt;
+
+&lt;!-- Decorative image --&gt;
+&lt;img src="decorative-line.png" alt=""&gt;
+        </div>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Ensure visible focus indicators <span class="time">2 minutes</span></h3>
+        <p>Never remove focus outlines without adding a replacement!</p>
+        <div class="code-example">
+/* ❌ Never do this */
+*:focus { outline: none; }
+
+/* ✅ Do this instead */
+:focus {
+  outline: 2px solid #005ea2;
+  outline-offset: 2px;
+}
+        </div>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Use buttons for actions, links for navigation <span class="time">Ongoing</span></h3>
+        <div class="code-example">
+&lt;!-- ✅ Button for action --&gt;
+&lt;button onclick="submitForm()"&gt;Submit&lt;/button&gt;
+
+&lt;!-- ✅ Link for navigation --&gt;
+&lt;a href="/about"&gt;About us&lt;/a&gt;
+
+&lt;!-- ❌ Don't do this --&gt;
+&lt;a href="#" onclick="submitForm()"&gt;Submit&lt;/a&gt;
+        </div>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Add labels to form fields <span class="time">1 minute/field</span></h3>
+        <div class="code-example">
+&lt;!-- ✅ Proper label --&gt;
+&lt;label for="email"&gt;Email address&lt;/label&gt;
+&lt;input type="email" id="email" name="email"&gt;
+
+&lt;!-- ❌ Missing label --&gt;
+&lt;input type="email" placeholder="Email"&gt;
+        </div>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Check color contrast <span class="time">2 minutes</span></h3>
+        <p>Text needs 4.5:1 contrast ratio against its background.</p>
+        <p><strong>Tool:</strong> <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></p>
+        <p><strong>Common fails:</strong> Gray text on white, light blue links, colored text on images</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="video">
+      <h2 id="video">🎥 Video &amp; media quick wins</h2>
+
+      <div class="win-card">
+        <h3>Enable auto-captions <span class="time">1 minute</span></h3>
+        <p>YouTube, Zoom, Teams, and Panopto can auto-generate captions.</p>
+        <p><strong>YouTube:</strong> Studio → Subtitles → Add → Auto-generate</p>
+        <p><strong>Zoom:</strong> Enable Live Transcription in meeting settings</p>
+        <p><strong>Important:</strong> Review and edit auto-captions for accuracy!</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Say what you're showing <span class="time">During recording</span></h3>
+        <p>When presenting, describe what's on screen.</p>
+        <p><strong>Instead of:</strong> "As you can see here..."</p>
+        <p><strong>Say:</strong> "This chart shows enrollment increasing from 5,000 to 7,000 students..."</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Upload transcripts <span class="time">5 minutes</span></h3>
+        <p>Auto-captions can generate a transcript. Download and post it.</p>
+        <p><strong>Benefits:</strong> Searchable, scannable, works for deaf-blind users, helps SEO</p>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="social">
+      <h2 id="social">📱 Social media quick wins</h2>
+
+      <div class="win-card">
+        <h3>Add alt text to images <span class="time">30 seconds</span></h3>
+        <p>Most platforms now support alt text.</p>
+        <p><strong>Twitter/X:</strong> Click "Add description" when uploading</p>
+        <p><strong>Instagram:</strong> Advanced Settings → Write Alt Text</p>
+        <p><strong>LinkedIn:</strong> Alt text option when adding image</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Use CamelCase hashtags <span class="time">2 seconds</span></h3>
+        <p>Screen readers can read CamelCase hashtags as separate words.</p>
+        <p><strong>Bad:</strong> #accessibilitymatters</p>
+        <p><strong>Good:</strong> #AccessibilityMatters</p>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Add captions to video posts <span class="time">5-10 minutes</span></h3>
+        <p>Many people watch videos without sound (85% of Facebook videos are watched muted!).</p>
+        <p><strong>Tools:</strong> CapCut, Kapwing, or built-in platform tools</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Limit emoji use <span class="time">Awareness</span></h3>
+        <p>Screen readers read each emoji aloud. 🎉🎉🎉🎉🎉 = "party popper party popper party popper party popper party popper"</p>
+        <p><strong>Better:</strong> Use 1-2 emojis, placed at the end of text</p>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="email">
+      <h2 id="email">📧 Email quick wins</h2>
+
+      <div class="win-card">
+        <h3>Use descriptive subject lines <span class="time">10 seconds</span></h3>
+        <p><strong>Bad:</strong> "Important" or "Meeting"</p>
+        <p><strong>Good:</strong> "Action required: Submit grades by Dec 15" or "Wed 3pm: Accessibility Committee meeting agenda"</p>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Use built-in heading styles <span class="time">1 minute</span></h3>
+        <p>In Outlook: Format Text → Styles → Heading 1, 2, 3</p>
+        <p>In Gmail: Use the formatting toolbar (it creates semantic HTML)</p>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Add alt text to inline images <span class="time">30 seconds</span></h3>
+        <p><strong>Outlook:</strong> Right-click image → Edit Alt Text</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="meetings">
+      <h2 id="meetings">🎤 Meeting quick wins</h2>
+
+      <div class="win-card">
+        <h3>Enable live captions <span class="time">10 seconds</span></h3>
+        <p><strong>Zoom:</strong> Click "Live Transcript" → Enable</p>
+        <p><strong>Teams:</strong> Turn on "Live captions" in meeting controls</p>
+        <p><strong>Google Meet:</strong> Click CC button</p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Share materials in advance <span class="time">5 minutes before</span></h3>
+        <p>Send slides, agenda, and documents before the meeting. This helps:</p>
+        <ul>
+          <li>Screen reader users prepare</li>
+          <li>People who process information slowly</li>
+          <li>Non-native speakers</li>
+          <li>Anyone who wants to follow along</li>
+        </ul>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Identify yourself when speaking <span class="time">2 seconds</span></h3>
+        <p>Say your name before speaking, especially in large meetings.</p>
+        <p><strong>Example:</strong> "This is Sarah. I have a question about the timeline..."</p>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="testing">
+      <h2 id="testing">🧪 Testing quick wins</h2>
+
+      <div class="win-card">
+        <h3>Navigate with keyboard only <span class="time">2 minutes</span></h3>
+        <p>Tab through your page without using a mouse. Can you:</p>
+        <ul>
+          <li>Reach all interactive elements?</li>
+          <li>See where focus is?</li>
+          <li>Get past the navigation to content?</li>
+          <li>Open menus and dialogs?</li>
+        </ul>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Zoom to 200% <span class="time">30 seconds</span></h3>
+        <p>Press Ctrl/Cmd + until page is at 200%. Is everything still usable?</p>
+        <ul>
+          <li>No horizontal scrolling?</li>
+          <li>Text doesn't overlap?</li>
+          <li>Buttons still clickable?</li>
+        </ul>
+        <p class="impact impact-medium">★★☆ Medium impact</p>
+      </div>
+
+      <div class="win-card">
+        <h3>Run WAVE or axe DevTools <span class="time">1 minute</span></h3>
+        <p>Browser extensions that check for common issues.</p>
+        <p><strong>WAVE:</strong> <a href="https://wave.webaim.org/extension/">wave.webaim.org/extension</a></p>
+        <p><strong>axe DevTools:</strong> <a href="https://www.deque.com/axe/devtools/">deque.com/axe/devtools</a></p>
+        <p class="impact impact-high">★★★ High impact</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="challenge">
+      <h2 id="challenge">🎯 Take the challenge</h2>
+      
+      <div class="card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left: 4px solid #4caf50;">
+        <h3>This week's challenge</h3>
+        <ol>
+          <li>Pick <strong>3 quick wins</strong> from this page</li>
+          <li>Implement them <strong>today</strong></li>
+          <li>Share what you did with your team</li>
+          <li>Come back next week for <strong>3 more</strong></li>
+        </ol>
+        <p>In a month, you'll have made 12+ improvements! 🎉</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Learn more</h2>
+      <ul>
+        <li><a href="accessibility-101.html">Accessibility 101</a></li>
+        <li><a href="testing-tools.html">Testing Tools</a></li>
+        <li><a href="do-dont.html">Accessibility Do's and Don'ts</a></li>
+        <li><a href="tools-checklists.html">Tools &amp; Checklists Hub</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></p>
+  </footer>
+</body>
+</html>

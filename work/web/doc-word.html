@@ -1,44 +1,269 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessible Word & PowerPoint Basics | Accessibility</title>
+  <title>Accessible Word &amp; PowerPoint | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Word &amp; PowerPoint</p>
+    </nav>
+    <h1>Creating Accessible Word &amp; PowerPoint Documents</h1>
+    <p>Step-by-step guidance for Microsoft Word and PowerPoint accessibility.</p>
+    <p class="metric-chip">⏱️ Reading time: 12 minutes</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="word-overview">
+      <h2 id="word-overview">Microsoft Word accessibility</h2>
+      <p>Word documents are among the most common files shared at the university. Following accessibility practices from the start is easier than remediating later.</p>
+      
+      <h3>1. Use built-in heading styles</h3>
+      <p><strong>Why:</strong> Screen readers use heading structure to navigate documents. Users can jump between sections and understand document organization.</p>
+      <p><strong>How:</strong></p>
+      <ol>
+        <li>Select your heading text</li>
+        <li>Go to <strong>Home</strong> tab → <strong>Styles</strong> gallery</li>
+        <li>Choose <strong>Heading 1</strong> for main title, <strong>Heading 2</strong> for major sections, <strong>Heading 3</strong> for subsections</li>
+        <li>Don't skip levels (e.g., don't go from Heading 1 directly to Heading 3)</li>
+      </ol>
+      <p><strong>Don't:</strong> Make text bold or larger to look like a heading. This is visual-only and provides no structure.</p>
+
+      <h3>2. Add alternative text to images</h3>
+      <p><strong>Why:</strong> Screen readers cannot interpret images. Alt text describes the image content to users who cannot see it.</p>
+      <p><strong>How:</strong></p>
+      <ol>
+        <li>Right-click the image → <strong>View Alt Text</strong> (or <strong>Edit Alt Text</strong>)</li>
+        <li>Write a concise description of what the image shows or conveys</li>
+        <li>If the image is decorative (adds no information), check <strong>Mark as decorative</strong></li>
+      </ol>
+      <p><strong>Tips for good alt text:</strong></p>
+      <ul>
+        <li>Be concise: 1-2 sentences is usually sufficient</li>
+        <li>Describe the content and function, not appearance</li>
+        <li>For charts/graphs, describe the key data or trend</li>
+        <li>Don't start with "Image of..." - screen readers already announce it's an image</li>
+      </ul>
+
+      <h3>3. Create accessible tables</h3>
+      <p><strong>Why:</strong> Screen readers read tables cell by cell. Without proper structure, data becomes meaningless.</p>
+      <p><strong>How:</strong></p>
+      <ol>
+        <li>Use <strong>Insert</strong> → <strong>Table</strong> to create tables (don't draw them)</li>
+        <li>Select the header row → <strong>Table Design</strong> tab → check <strong>Header Row</strong></li>
+        <li>Right-click header row → <strong>Table Properties</strong> → <strong>Row</strong> tab → check <strong>Repeat as header row at top of each page</strong></li>
+        <li>Keep tables simple: avoid merged cells, nested tables, or blank cells</li>
+      </ol>
+      <p><strong>Don't:</strong> Use tables for layout purposes. Tables should only contain tabular data.</p>
+
+      <h3>4. Use meaningful link text</h3>
+      <p><strong>Why:</strong> Screen reader users often navigate by links. "Click here" doesn't explain where the link goes.</p>
+      <p><strong>How:</strong></p>
+      <ul>
+        <li><strong>Good:</strong> "View the <a href="#">UA accessibility policy</a>"</li>
+        <li><strong>Bad:</strong> "<a href="#">Click here</a> to view the policy"</li>
+        <li><strong>Bad:</strong> "Learn more at <a href="#">https://accessibility.arizona.edu/policies/web</a>"</li>
+      </ul>
+
+      <h3>5. Ensure sufficient color contrast</h3>
+      <p><strong>Why:</strong> Low contrast text is difficult to read for users with low vision or color blindness.</p>
+      <p><strong>How:</strong></p>
+      <ul>
+        <li>Use dark text on light backgrounds</li>
+        <li>Avoid light gray text or pastel colors</li>
+        <li>Don't convey information by color alone (add text labels or patterns)</li>
+        <li>Test with the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></li>
+      </ul>
+
+      <h3>6. Use built-in lists</h3>
+      <p><strong>Why:</strong> Screen readers announce list items and counts, helping users understand document structure.</p>
+      <p><strong>How:</strong></p>
+      <ul>
+        <li>Use <strong>Home</strong> → <strong>Bullets</strong> or <strong>Numbering</strong></li>
+        <li>Don't manually type dashes or numbers</li>
+      </ul>
+
+      <h3>7. Set document language</h3>
+      <p><strong>Why:</strong> Screen readers use the language setting for correct pronunciation.</p>
+      <p><strong>How:</strong></p>
+      <ol>
+        <li>Select all text (Ctrl+A)</li>
+        <li><strong>Review</strong> tab → <strong>Language</strong> → <strong>Set Proofing Language</strong></li>
+        <li>Choose English (United States) or appropriate language</li>
+      </ol>
+
+      <h3>8. Run the Accessibility Checker</h3>
+      <p><strong>Why:</strong> Word's built-in checker catches common issues automatically.</p>
+      <p><strong>How:</strong></p>
+      <ol>
+        <li><strong>Review</strong> tab → <strong>Check Accessibility</strong></li>
+        <li>Review each issue in the Accessibility pane</li>
+        <li>Click issues to navigate to them and follow recommended actions</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="powerpoint-overview">
+      <h2 id="powerpoint-overview">Microsoft PowerPoint accessibility</h2>
+      <p>Presentations require additional considerations for both live delivery and shared files.</p>
+
+      <h3>1. Use built-in slide layouts</h3>
+      <p><strong>Why:</strong> Built-in layouts have proper reading order and structure. Custom layouts may read in wrong order.</p>
+      <p><strong>How:</strong></p>
+      <ol>
+        <li><strong>Home</strong> tab → <strong>Layout</strong> → choose appropriate layout</li>
+        <li>Use Title Slide for first slide, Title and Content for body slides</li>
+        <li>If you need custom layouts, create them in Slide Master with proper placeholders</li>
+      </ol>
+
+      <h3>2. Give every slide a unique title</h3>
+      <p><strong>Why:</strong> Screen reader users navigate by slide titles. Duplicate or missing titles make navigation impossible.</p>
+      <p><strong>How:</strong></p>
+      <ul>
+        <li>Always use the title placeholder</li>
+        <li>If you don't want visible title, use <strong>View</strong> → <strong>Outline View</strong> to add titles that can be hidden</li>
+        <li>Make each title unique and descriptive</li>
+      </ul>
+
+      <h3>3. Set reading order</h3>
+      <p><strong>Why:</strong> Screen readers read slide elements in a specific order. Default order may not match visual layout.</p>
+      <p><strong>How:</strong></p>
+      <ol>
+        <li><strong>Home</strong> tab → <strong>Arrange</strong> → <strong>Selection Pane</strong></li>
+        <li>Items are read bottom to top in the Selection Pane</li>
+        <li>Drag items to reorder them logically (title first, then content)</li>
+      </ol>
+
+      <h3>4. Add alt text to images, charts, and SmartArt</h3>
+      <p><strong>Why:</strong> Same as Word - visual content needs text descriptions.</p>
+      <p><strong>How:</strong></p>
+      <ol>
+        <li>Right-click the object → <strong>View Alt Text</strong></li>
+        <li>Write a description of what the image conveys</li>
+        <li>For charts, describe the key data trend or conclusion</li>
+      </ol>
+
+      <h3>5. Use sufficient font size and contrast</h3>
+      <p><strong>Why:</strong> Presentations are often viewed at a distance or on small screens.</p>
+      <p><strong>Recommendations:</strong></p>
+      <ul>
+        <li>Title text: 36pt minimum</li>
+        <li>Body text: 24pt minimum</li>
+        <li>Use high contrast colors (dark on light)</li>
+        <li>Avoid busy backgrounds that reduce readability</li>
+      </ul>
+
+      <h3>6. Make links meaningful</h3>
+      <p><strong>Why:</strong> Same principle as Word documents.</p>
+      <p><strong>Additional tip:</strong> Include full URLs in speaker notes or handouts for in-person presentations, since people can't click slides.</p>
+
+      <h3>7. Avoid auto-playing media</h3>
+      <p><strong>Why:</strong> Auto-playing content can be disorienting and interfere with screen readers.</p>
+      <p><strong>How:</strong></p>
+      <ul>
+        <li>Set videos and audio to play on click, not automatically</li>
+        <li>Provide controls for all multimedia</li>
+        <li>Add captions to videos (see <a href="media-captioning.html">captioning guide</a>)</li>
+      </ul>
+
+      <h3>8. Create accessible animations</h3>
+      <p><strong>Why:</strong> Complex animations can be disorienting and may not convey information to screen reader users.</p>
+      <p><strong>How:</strong></p>
+      <ul>
+        <li>Use animations sparingly and purposefully</li>
+        <li>Avoid flashing content (can trigger seizures)</li>
+        <li>Ensure content makes sense without animations</li>
+      </ul>
+
+      <h3>9. Run the Accessibility Checker</h3>
+      <ol>
+        <li><strong>Review</strong> tab → <strong>Check Accessibility</strong></li>
+        <li>Address each error and warning</li>
+        <li>Pay special attention to reading order and missing alt text</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="sharing-tips">
+      <h2 id="sharing-tips">Sharing accessible documents</h2>
+      <h3>Sharing Word documents</h3>
+      <ul>
+        <li><strong>Keep as .docx:</strong> The native format preserves accessibility best</li>
+        <li><strong>PDF export:</strong> Use <strong>File</strong> → <strong>Export</strong> → <strong>Create PDF/XPS</strong> with "Document structure tags for accessibility" checked</li>
+        <li><strong>Check the PDF:</strong> Open in Adobe Acrobat and verify tags are present</li>
+      </ul>
+
+      <h3>Sharing PowerPoint</h3>
+      <ul>
+        <li><strong>Keep as .pptx:</strong> Best for accessibility and editability</li>
+        <li><strong>PDF export:</strong> Use <strong>File</strong> → <strong>Export</strong> → <strong>Create PDF/XPS</strong></li>
+        <li><strong>Video export:</strong> Include captions if exporting to video format</li>
+        <li><strong>Provide notes:</strong> Share speaker notes as a separate accessible document</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="quick-checklist">
+      <h2 id="quick-checklist">Quick checklist</h2>
+      <h3>Word documents</h3>
+      <ul>
+        <li>☐ Built-in heading styles used (no skipped levels)</li>
+        <li>☐ Alt text on all images</li>
+        <li>☐ Table headers defined</li>
+        <li>☐ Meaningful link text</li>
+        <li>☐ Document language set</li>
+        <li>☐ Accessibility Checker passed</li>
+      </ul>
+
+      <h3>PowerPoint presentations</h3>
+      <ul>
+        <li>☐ Built-in slide layouts used</li>
+        <li>☐ Every slide has unique title</li>
+        <li>☐ Reading order verified</li>
+        <li>☐ Alt text on all images/charts</li>
+        <li>☐ Font size 24pt+ for body, 36pt+ for titles</li>
+        <li>☐ Videos have captions</li>
+        <li>☐ Accessibility Checker passed</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://support.microsoft.com/en-us/office/make-your-word-documents-accessible-d9bf3683-87ac-47ea-b91a-78dcacb3c66d">Microsoft: Make Word documents accessible</a></li>
+        <li><a href="https://support.microsoft.com/en-us/office/make-your-powerpoint-presentations-accessible-6f7772b2-2f33-4bd2-8ca7-dae3b2b3ef25">Microsoft: Make PowerPoint accessible</a></li>
+        <li><a href="doc-excel.html">Excel accessibility guide</a></li>
+        <li><a href="doc-google.html">Google Workspace accessibility</a></li>
+        <li><a href="pdf-remediation.html">PDF remediation guide</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'doc-word.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

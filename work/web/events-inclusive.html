@@ -1,44 +1,304 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inclusive Events & Communications | Accessibility</title>
+  <title>Inclusive Events Guide | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html" aria-current="page">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="teaching-learning.html">Teaching &amp; Learning</a> / Inclusive Events</p>
+    </nav>
+    <h1>Inclusive Events Guide</h1>
+    <p>Planning and hosting accessible in-person and virtual events.</p>
+    <p class="metric-chip">📅 For event planners &amp; organizers</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="events-overview">
+      <h2 id="events-overview">Why event accessibility matters</h2>
+      <p>Accessible events ensure all participants can fully engage regardless of disability. This includes physical accessibility for in-person events and digital accessibility for virtual and hybrid events.</p>
+      
+      <div class="card">
+        <h3>Legal requirements</h3>
+        <p>As a public university, UA must provide equal access to all programs, services, and activities under the ADA and Section 504. This includes events.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="planning">
+      <h2 id="planning">Pre-event planning</h2>
+      
+      <h3>Accommodation requests</h3>
+      <ul>
+        <li>Include accommodation request option on registration forms</li>
+        <li>Provide contact person for accessibility questions</li>
+        <li>Set deadline for requests (at least 2 weeks before event)</li>
+        <li>Follow up with requesters to confirm arrangements</li>
+      </ul>
+      
+      <h3>Sample registration language</h3>
+      <blockquote>
+        <p>"The University of Arizona is committed to accessibility. To request disability-related accommodations for this event, please contact [name] at [email] by [date]. Requests made after this date will be honored when possible."</p>
+      </blockquote>
+
+      <h3>Budget considerations</h3>
+      <p>Include accessibility costs in event budgets:</p>
+      <ul>
+        <li>Sign language interpreters</li>
+        <li>CART (real-time captioning)</li>
+        <li>Accessible venue features</li>
+        <li>Assistive listening devices</li>
+        <li>Large print or Braille materials</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="physical-venue">
+      <h2 id="physical-venue">In-person venue accessibility</h2>
+      
+      <h3>Venue checklist</h3>
+      <ul>
+        <li>☐ Wheelchair-accessible entrance</li>
+        <li>☐ Accessible parking nearby</li>
+        <li>☐ Accessible restrooms</li>
+        <li>☐ Elevator access to all floors</li>
+        <li>☐ Adequate lighting</li>
+        <li>☐ Clear pathways (36" minimum width)</li>
+        <li>☐ Assistive listening system available</li>
+        <li>☐ Space for wheelchair users in seating</li>
+        <li>☐ Scent-free or low-scent environment</li>
+      </ul>
+
+      <h3>Seating arrangements</h3>
+      <ul>
+        <li>Reserve front-row seating for deaf/hard of hearing attendees near interpreters</li>
+        <li>Integrate wheelchair spaces throughout (not just back row)</li>
+        <li>Provide chairs with arms for attendees who need support</li>
+        <li>Leave clear aisles for mobility devices</li>
+      </ul>
+
+      <h3>Wayfinding</h3>
+      <ul>
+        <li>Provide clear directional signage</li>
+        <li>Offer event maps with accessibility features marked</li>
+        <li>Have staff available to provide directions</li>
+        <li>Include accessibility information on event website</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="communication-access">
+      <h2 id="communication-access">Communication access services</h2>
+      
+      <h3>Sign language interpreters</h3>
+      <ul>
+        <li>Book certified ASL interpreters through approved vendors</li>
+        <li>Provide materials to interpreters in advance</li>
+        <li>Position interpreters next to speaker and well-lit</li>
+        <li>Allow for team interpretation for events over 1 hour</li>
+      </ul>
+
+      <h3>CART (real-time captioning)</h3>
+      <ul>
+        <li>Useful for deaf/hard of hearing attendees who don't use ASL</li>
+        <li>Display on screen visible to audience</li>
+        <li>Book providers at least 2 weeks in advance</li>
+        <li>Provide speaker names and specialized vocabulary</li>
+      </ul>
+
+      <h3>Assistive listening devices</h3>
+      <ul>
+        <li>Confirm venue has assistive listening system</li>
+        <li>Announce availability at event start</li>
+        <li>Provide receivers and headphones</li>
+        <li>Test equipment before event</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="virtual-events">
+      <h2 id="virtual-events">Virtual event accessibility</h2>
+      
+      <h3>Platform selection</h3>
+      <p>Choose platforms with accessibility features:</p>
+      <ul>
+        <li><strong>Zoom:</strong> Live captions, screen reader support, keyboard navigation</li>
+        <li><strong>Microsoft Teams:</strong> Live captions, high contrast mode</li>
+        <li><strong>Webex:</strong> Real-time translation, closed captions</li>
+      </ul>
+
+      <h3>Enabling captions in Zoom</h3>
+      <ol>
+        <li>Go to meeting settings</li>
+        <li>Enable <strong>Closed captioning</strong></li>
+        <li>Enable <strong>Live transcription</strong></li>
+        <li>During meeting, click <strong>CC</strong> button to start</li>
+      </ol>
+
+      <h3>Virtual event checklist</h3>
+      <ul>
+        <li>☐ Live captions enabled</li>
+        <li>☐ Screen sharing includes audio description when needed</li>
+        <li>☐ Slides shared in advance</li>
+        <li>☐ Recording will be captioned</li>
+        <li>☐ Chat and Q&A monitored for accessibility issues</li>
+        <li>☐ Alternative ways to participate (phone, email)</li>
+      </ul>
+
+      <h3>Best practices for presenters</h3>
+      <ul>
+        <li>Speak clearly at moderate pace</li>
+        <li>Describe visual content on slides</li>
+        <li>State name before speaking</li>
+        <li>Repeat questions from chat before answering</li>
+        <li>Use accessible slide designs</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="hybrid-events">
+      <h2 id="hybrid-events">Hybrid event considerations</h2>
+      <p>Hybrid events (in-person + virtual) require both physical and digital accessibility:</p>
+      <ul>
+        <li>All in-person requirements still apply</li>
+        <li>Remote attendees need equal access to content</li>
+        <li>Position camera to capture interpreter and speaker</li>
+        <li>Ensure microphones capture all audio for remote attendees</li>
+        <li>Monitor both in-person and virtual Q&A</li>
+        <li>Provide captions for virtual participants</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="materials">
+      <h2 id="materials">Accessible event materials</h2>
+      
+      <h3>Presentation slides</h3>
+      <ul>
+        <li>Use accessible slide templates</li>
+        <li>Include alt text on images</li>
+        <li>Use high contrast colors</li>
+        <li>Share slides in advance (24-48 hours)</li>
+        <li>Provide in multiple formats (PDF, PowerPoint)</li>
+      </ul>
+
+      <h3>Printed materials</h3>
+      <ul>
+        <li>Use 12pt minimum font size</li>
+        <li>Choose sans-serif fonts</li>
+        <li>Provide large print versions on request</li>
+        <li>Have digital versions available</li>
+      </ul>
+
+      <h3>Videos</h3>
+      <ul>
+        <li>All videos must have captions</li>
+        <li>Provide audio description when needed</li>
+        <li>Test videos with sound system beforehand</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="during-event">
+      <h2 id="during-event">During the event</h2>
+      
+      <h3>Opening announcements</h3>
+      <p>At event start, announce:</p>
+      <ul>
+        <li>Locations of accessible features (restrooms, exits)</li>
+        <li>Availability of assistive listening devices</li>
+        <li>How to access captions</li>
+        <li>Where interpreters are located</li>
+        <li>Contact for accessibility issues during event</li>
+      </ul>
+
+      <h3>Speaker reminders</h3>
+      <ul>
+        <li>Use microphones (don't say "you can hear me, right?")</li>
+        <li>Face the audience when speaking</li>
+        <li>Describe visual content</li>
+        <li>Allow time for interpreter lag</li>
+        <li>Repeat audience questions</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="post-event">
+      <h2 id="post-event">Post-event accessibility</h2>
+      <ul>
+        <li>Caption recordings before sharing</li>
+        <li>Provide accessible versions of presentation materials</li>
+        <li>Include accessibility in feedback surveys</li>
+        <li>Document what worked for future events</li>
+        <li>Follow up with attendees who requested accommodations</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Complete event accessibility checklist</h2>
+      
+      <h3>Planning phase</h3>
+      <ul>
+        <li>☐ Accommodation request process in place</li>
+        <li>☐ Accessibility contact identified</li>
+        <li>☐ Budget includes accommodation costs</li>
+        <li>☐ Venue accessibility confirmed</li>
+      </ul>
+
+      <h3>Communications</h3>
+      <ul>
+        <li>☐ Registration includes accommodation request</li>
+        <li>☐ Event website is accessible</li>
+        <li>☐ Directions include accessibility info</li>
+        <li>☐ Materials shared in advance</li>
+      </ul>
+
+      <h3>Day of event</h3>
+      <ul>
+        <li>☐ Interpreters/CART confirmed</li>
+        <li>☐ Assistive listening tested</li>
+        <li>☐ Accessibility features announced</li>
+        <li>☐ Staff aware of accessibility resources</li>
+      </ul>
+
+      <h3>Post-event</h3>
+      <ul>
+        <li>☐ Recordings captioned</li>
+        <li>☐ Materials made available</li>
+        <li>☐ Feedback collected</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://drc.arizona.edu/">UA Disability Resource Center</a></li>
+        <li><a href="https://www.ada.gov/resources/effective-communication/">ADA: Effective Communication</a></li>
+        <li><a href="https://www.w3.org/WAI/media/av/">W3C: Making Audio and Video Accessible</a></li>
+        <li><a href="teaching-learning.html">Teaching &amp; Learning Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'events-inclusive.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

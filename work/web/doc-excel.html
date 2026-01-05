@@ -1,44 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Excel Tables | Accessibility</title>
+  <title>Accessible Excel Spreadsheets | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html" aria-current="page">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Excel</p>
+    </nav>
+    <h1>Creating Accessible Excel Spreadsheets</h1>
+    <p>Making data tables and spreadsheets usable for everyone.</p>
+    <p class="metric-chip">⏱️ Reading time: 8 minutes</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="excel-overview">
+      <h2 id="excel-overview">Excel accessibility fundamentals</h2>
+      <p>Spreadsheets present unique accessibility challenges because screen readers navigate cell by cell. Users need structure to understand data relationships. Well-designed spreadsheets benefit all users through clear organization.</p>
+    </section>
+
+    <section aria-labelledby="structure">
+      <h2 id="structure">1. Create clear structure</h2>
+      
+      <h3>Start data in cell A1</h3>
+      <p>Screen reader users navigate from the top-left. Don't leave empty rows/columns at the top or left of your data.</p>
+      
+      <h3>One table per worksheet</h3>
+      <p>Multiple tables on one sheet are confusing to navigate. Use separate worksheets for different data sets.</p>
+      
+      <h3>Use descriptive sheet names</h3>
+      <ul>
+        <li><strong>Good:</strong> "Q1 Sales Data", "Employee Directory"</li>
+        <li><strong>Poor:</strong> "Sheet1", "Data", "Copy of Sheet1"</li>
+      </ul>
+      
+      <h3>Avoid blank rows and columns within data</h3>
+      <p>Blank rows/columns make screen readers think the table has ended. Use formatting (borders, colors) to separate sections instead.</p>
+    </section>
+
+    <section aria-labelledby="headers">
+      <h2 id="headers">2. Define table headers</h2>
+      <p>Headers help screen reader users understand what each column/row contains.</p>
+      
+      <h3>Using Format as Table</h3>
+      <ol>
+        <li>Select your data range (including headers)</li>
+        <li>Go to <strong>Home</strong> tab → <strong>Format as Table</strong></li>
+        <li>Choose a table style</li>
+        <li>Check <strong>"My table has headers"</strong></li>
+      </ol>
+      
+      <h3>Using Defined Names</h3>
+      <p>For complex data, define named ranges:</p>
+      <ol>
+        <li>Select the header row</li>
+        <li>Go to <strong>Formulas</strong> tab → <strong>Define Name</strong></li>
+        <li>Give a descriptive name like "SalesHeaders"</li>
+      </ol>
+
+      <h3>Freeze header rows</h3>
+      <p>So headers stay visible when scrolling:</p>
+      <ol>
+        <li>Click in the row below your headers</li>
+        <li><strong>View</strong> tab → <strong>Freeze Panes</strong> → <strong>Freeze Top Row</strong></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="cell-content">
+      <h2 id="cell-content">3. Write accessible cell content</h2>
+      
+      <h3>Avoid merged cells</h3>
+      <p>Merged cells break the table structure for screen readers. Use "Center Across Selection" formatting instead if you need centered headers.</p>
+      
+      <h3>Don't use blank cells for formatting</h3>
+      <p>If a cell has no data, consider:</p>
+      <ul>
+        <li>Using "N/A" or "No data"</li>
+        <li>Adding a note explaining why it's empty</li>
+        <li>Using a zero if appropriate</li>
+      </ul>
+
+      <h3>Write meaningful cell content</h3>
+      <ul>
+        <li>Avoid abbreviations without explanation</li>
+        <li>Use consistent date formats</li>
+        <li>Include units in headers ("Revenue ($)" not just "Revenue")</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="colors">
+      <h2 id="colors">4. Use color appropriately</h2>
+      
+      <h3>Don't convey information by color alone</h3>
+      <p><strong>Problem:</strong> Highlighting overdue items in red only.</p>
+      <p><strong>Solution:</strong> Add a "Status" column with text labels ("Overdue", "On Time").</p>
+      
+      <h3>Ensure sufficient contrast</h3>
+      <ul>
+        <li>Dark text on light backgrounds</li>
+        <li>Avoid red text on green backgrounds (or vice versa)</li>
+        <li>Test with the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="charts">
+      <h2 id="charts">5. Make charts accessible</h2>
+      
+      <h3>Add alt text to charts</h3>
+      <ol>
+        <li>Right-click the chart → <strong>View Alt Text</strong></li>
+        <li>Describe the key data or trend the chart shows</li>
+        <li>Example: "Bar chart showing Q1 revenue increased 15% compared to previous year"</li>
+      </ol>
+
+      <h3>Don't rely on charts alone</h3>
+      <p>Include the source data table alongside charts. Some users cannot interpret visual charts regardless of alt text.</p>
+      
+      <h3>Use patterns in addition to colors</h3>
+      <p>For users with color blindness, add patterns or data labels to distinguish chart elements.</p>
+    </section>
+
+    <section aria-labelledby="links-notes">
+      <h2 id="links-notes">6. Links, notes, and validation</h2>
+      
+      <h3>Meaningful hyperlinks</h3>
+      <ul>
+        <li><strong>Good:</strong> Display text = "Q1 Report" linking to report</li>
+        <li><strong>Poor:</strong> Full URL visible in cell</li>
+      </ul>
+      
+      <h3>Cell comments and notes</h3>
+      <p>Excel comments are generally accessible to screen readers. Use them to provide additional context without cluttering the data.</p>
+      
+      <h3>Data validation messages</h3>
+      <p>When using data validation (dropdown lists), add input messages:</p>
+      <ol>
+        <li>Select cells with validation</li>
+        <li><strong>Data</strong> tab → <strong>Data Validation</strong></li>
+        <li>Go to <strong>Input Message</strong> tab</li>
+        <li>Add a helpful title and message</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="formulas">
+      <h2 id="formulas">7. Accessible formulas</h2>
+      
+      <h3>Show results, not just formulas</h3>
+      <p>Screen readers announce the calculated value, which is usually what users need.</p>
+      
+      <h3>Provide formula explanations</h3>
+      <p>For complex spreadsheets, add a documentation sheet explaining:</p>
+      <ul>
+        <li>What formulas calculate</li>
+        <li>Data sources</li>
+        <li>How to update data</li>
+      </ul>
+      
+      <h3>Use named ranges in formulas</h3>
+      <p><code>=SUM(Q1Sales)</code> is clearer than <code>=SUM(B2:B50)</code></p>
+    </section>
+
+    <section aria-labelledby="accessibility-checker">
+      <h2 id="accessibility-checker">8. Run the Accessibility Checker</h2>
+      <ol>
+        <li>Go to <strong>Review</strong> tab → <strong>Check Accessibility</strong></li>
+        <li>Review each issue in the Accessibility pane</li>
+        <li>Click issues to navigate to them</li>
+        <li>Follow recommended actions</li>
+      </ol>
+      <p>Common issues the checker finds:</p>
+      <ul>
+        <li>Missing alt text on images/charts</li>
+        <li>Default sheet names</li>
+        <li>Merged cells</li>
+        <li>Tables without header rows</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="sharing">
+      <h2 id="sharing">9. Sharing accessible Excel files</h2>
+      
+      <h3>Keep as .xlsx when possible</h3>
+      <p>Native Excel format preserves accessibility best.</p>
+      
+      <h3>Exporting to PDF</h3>
+      <p>Excel-to-PDF conversion often loses structure. If PDF is required:</p>
+      <ol>
+        <li>Use <strong>File</strong> → <strong>Export</strong> → <strong>Create PDF/XPS</strong></li>
+        <li>Check the exported PDF for structure</li>
+        <li>May need manual remediation in Acrobat</li>
+      </ol>
+      
+      <h3>Exporting to CSV</h3>
+      <p>CSV files lose all formatting but preserve data. Useful for data sharing but provide documentation separately.</p>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Quick checklist</h2>
+      <ul>
+        <li>☐ Data starts in cell A1</li>
+        <li>☐ One data table per worksheet</li>
+        <li>☐ Worksheets have descriptive names</li>
+        <li>☐ Table headers are defined</li>
+        <li>☐ No merged cells</li>
+        <li>☐ No blank rows/columns within data</li>
+        <li>☐ Color is not the only way to convey meaning</li>
+        <li>☐ Charts have alt text</li>
+        <li>☐ Source data accompanies charts</li>
+        <li>☐ Accessibility Checker passes</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://support.microsoft.com/en-us/office/make-your-excel-documents-accessible-to-people-with-disabilities-6cc05fc5-1314-48b5-8eb3-683e49b3e593">Microsoft: Make Excel accessible</a></li>
+        <li><a href="doc-word.html">Accessible Word &amp; PowerPoint</a></li>
+        <li><a href="doc-google.html">Google Workspace Accessibility</a></li>
+        <li><a href="documents-media.html">Documents &amp; Media Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'doc-excel.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

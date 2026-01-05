@@ -1,44 +1,373 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Testing Toolkit | Accessibility</title>
+  <title>Accessibility Testing Toolkit | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html" aria-current="page">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="tools-checklists.html">Tools &amp; Checklists</a> / Testing Toolkit</p>
+    </nav>
+    <h1>Accessibility Testing Toolkit</h1>
+    <p>Comprehensive testing tools for web, mobile, and document accessibility evaluation.</p>
+    <p class="metric-chip">UA-approved tools · Updated 2026-01-05</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="toolkit-intro">
+      <h2 id="toolkit-intro">Testing approach</h2>
+      <p>Accessibility testing requires a multi-layered approach. No single tool catches all issues. Research shows automated tools detect only 25-40% of WCAG failures (Faulkner et al., 2019). Combine automated scans with manual testing and assistive technology evaluation for comprehensive coverage.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Automated scanning</h3>
+          <p>Catches structural issues, missing attributes, and color contrast problems quickly.</p>
+          <p><strong>Coverage:</strong> ~30% of WCAG criteria</p>
+        </article>
+        <article class="card">
+          <h3>Manual testing</h3>
+          <p>Keyboard navigation, reading order, cognitive load, and context evaluation.</p>
+          <p><strong>Coverage:</strong> ~50% of WCAG criteria</p>
+        </article>
+        <article class="card">
+          <h3>Assistive technology</h3>
+          <p>Real-world testing with screen readers, magnification, and voice control.</p>
+          <p><strong>Coverage:</strong> ~20% of WCAG criteria</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="automated-tools">
+      <h2 id="automated-tools">Automated testing tools</h2>
+      
+      <h3>Browser extensions (Free)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Browser</th>
+            <th>Best for</th>
+            <th>WCAG coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://wave.webaim.org/extension/">WAVE</a></td>
+            <td>Chrome, Firefox, Edge</td>
+            <td>Quick visual feedback, document structure</td>
+            <td>WCAG 2.1 AA</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.deque.com/axe/browser-extensions/">axe DevTools</a></td>
+            <td>Chrome, Firefox, Edge</td>
+            <td>Developer-focused, CI/CD integration</td>
+            <td>WCAG 2.2 AA</td>
+          </tr>
+          <tr>
+            <td><a href="https://accessibilityinsights.io/">Accessibility Insights</a></td>
+            <td>Chrome, Edge</td>
+            <td>Guided assessments, tab stops visualization</td>
+            <td>WCAG 2.2 AA</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.ibm.com/able/toolkit/tools">IBM Equal Access</a></td>
+            <td>Chrome, Firefox</td>
+            <td>Enterprise-scale scanning</td>
+            <td>WCAG 2.1 AA</td>
+          </tr>
+          <tr>
+            <td><a href="https://chrispederick.com/work/web-developer/">Web Developer</a></td>
+            <td>Chrome, Firefox</td>
+            <td>CSS inspection, image alt text review</td>
+            <td>Manual checks</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Automated testing platforms</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Type</th>
+            <th>Best for</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.deque.com/axe/">Deque axe Monitor</a></td>
+            <td>SaaS</td>
+            <td>Enterprise site monitoring, dashboards</td>
+            <td>Licensed</td>
+          </tr>
+          <tr>
+            <td><a href="https://siteimprove.com/">Siteimprove</a></td>
+            <td>SaaS</td>
+            <td>Content governance, quality assurance</td>
+            <td>Licensed (UA has limited access)</td>
+          </tr>
+          <tr>
+            <td><a href="https://pa11y.org/">Pa11y</a></td>
+            <td>Open source</td>
+            <td>CI/CD pipelines, command-line testing</td>
+            <td>Free</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/nicholasadamou/lighthouse-ci">Lighthouse CI</a></td>
+            <td>Open source</td>
+            <td>Performance + accessibility in CI/CD</td>
+            <td>Free</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="manual-testing">
+      <h2 id="manual-testing">Manual testing checklist</h2>
+      <p>These checks cannot be automated and require human judgment.</p>
+      
+      <h3>Keyboard navigation</h3>
+      <ul>
+        <li><strong>Tab order:</strong> Can you navigate all interactive elements in logical order using Tab/Shift+Tab?</li>
+        <li><strong>Focus visible:</strong> Is the focused element always clearly visible?</li>
+        <li><strong>No keyboard traps:</strong> Can you always Tab away from every component?</li>
+        <li><strong>Skip links:</strong> Can you bypass repetitive navigation?</li>
+        <li><strong>Shortcuts:</strong> Do custom keyboard shortcuts conflict with assistive technology?</li>
+      </ul>
+      
+      <h3>Content and context</h3>
+      <ul>
+        <li><strong>Reading order:</strong> Does content make sense when read linearly?</li>
+        <li><strong>Link purpose:</strong> Do links describe their destination? (No "click here")</li>
+        <li><strong>Error identification:</strong> Are form errors clearly described?</li>
+        <li><strong>Language:</strong> Is the page language declared? Are language changes marked?</li>
+        <li><strong>Consistent navigation:</strong> Is navigation consistent across pages?</li>
+      </ul>
+
+      <h3>Visual design</h3>
+      <ul>
+        <li><strong>Zoom:</strong> Is content usable at 200% zoom without horizontal scrolling?</li>
+        <li><strong>Reflow:</strong> Does content reflow at 320px width?</li>
+        <li><strong>Spacing:</strong> Is text readable with 1.5× line height, 2× paragraph spacing?</li>
+        <li><strong>Motion:</strong> Can animations and auto-playing content be paused?</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="screen-readers">
+      <h2 id="screen-readers">Screen reader testing</h2>
+      <p>Test with at least one screen reader per platform. Each has different behaviors and browser pairings.</p>
+      
+      <h3>Recommended pairings</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Screen reader</th>
+            <th>Platform</th>
+            <th>Best browser</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.nvaccess.org/">NVDA</a></td>
+            <td>Windows</td>
+            <td>Firefox, Chrome</td>
+            <td>Free (donation-supported)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.freedomscientific.com/products/software/jaws/">JAWS</a></td>
+            <td>Windows</td>
+            <td>Chrome, Edge</td>
+            <td>Licensed (DRC has copies)</td>
+          </tr>
+          <tr>
+            <td>VoiceOver</td>
+            <td>macOS, iOS</td>
+            <td>Safari</td>
+            <td>Built-in (free)</td>
+          </tr>
+          <tr>
+            <td>TalkBack</td>
+            <td>Android</td>
+            <td>Chrome</td>
+            <td>Built-in (free)</td>
+          </tr>
+          <tr>
+            <td><a href="https://help.gnome.org/users/orca/stable/">Orca</a></td>
+            <td>Linux</td>
+            <td>Firefox</td>
+            <td>Free</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>What to test</h3>
+      <ul>
+        <li><strong>Page title:</strong> Is it announced when the page loads?</li>
+        <li><strong>Headings:</strong> Can you navigate by heading? Is the hierarchy logical?</li>
+        <li><strong>Landmarks:</strong> Are main, nav, header, footer regions identified?</li>
+        <li><strong>Forms:</strong> Are labels associated with inputs? Are errors announced?</li>
+        <li><strong>Images:</strong> Is alt text meaningful? Are decorative images hidden?</li>
+        <li><strong>Tables:</strong> Are headers associated with data cells?</li>
+        <li><strong>Dynamic content:</strong> Are updates announced via live regions?</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="color-tools">
+      <h2 id="color-tools">Color and contrast tools</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Use case</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WebAIM Contrast Checker</td>
+            <td>Quick two-color check</td>
+            <td><a href="https://webaim.org/resources/contrastchecker/">webaim.org/resources/contrastchecker</a></td>
+          </tr>
+          <tr>
+            <td>Colour Contrast Analyser</td>
+            <td>Desktop app, eyedropper tool</td>
+            <td><a href="https://www.tpgi.com/color-contrast-checker/">tpgi.com/color-contrast-checker</a></td>
+          </tr>
+          <tr>
+            <td>Stark</td>
+            <td>Figma/Sketch plugin</td>
+            <td><a href="https://www.getstark.co/">getstark.co</a></td>
+          </tr>
+          <tr>
+            <td>Who Can Use</td>
+            <td>Simulates vision conditions</td>
+            <td><a href="https://www.whocanuse.com/">whocanuse.com</a></td>
+          </tr>
+          <tr>
+            <td>Coblis</td>
+            <td>Color blindness simulator</td>
+            <td><a href="https://www.color-blindness.com/coblis-color-blindness-simulator/">color-blindness.com/coblis</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>WCAG requirements:</strong> Normal text needs 4.5:1 contrast ratio. Large text (18pt+ or 14pt bold) needs 3:1. UI components and graphics need 3:1.</p>
+    </section>
+
+    <section aria-labelledby="document-tools">
+      <h2 id="document-tools">Document testing tools</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Format</th>
+            <th>Tool</th>
+            <th>Built-in?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Microsoft Word</td>
+            <td>Accessibility Checker (Review tab)</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Microsoft PowerPoint</td>
+            <td>Accessibility Checker (Review tab)</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Microsoft Excel</td>
+            <td>Accessibility Checker (Review tab)</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Google Docs/Slides/Sheets</td>
+            <td><a href="https://workspace.google.com/marketplace/app/grackle_docs/1085045339">Grackle</a></td>
+            <td>Add-on</td>
+          </tr>
+          <tr>
+            <td>Adobe PDF</td>
+            <td>Acrobat Pro Accessibility Check</td>
+            <td>Yes (Pro only)</td>
+          </tr>
+          <tr>
+            <td>PDF (free)</td>
+            <td><a href="https://pave-pdf.org/">PAVE</a></td>
+            <td>Web tool</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="mobile-testing">
+      <h2 id="mobile-testing">Mobile app testing</h2>
+      <h3>iOS</h3>
+      <ul>
+        <li><strong>VoiceOver:</strong> Built-in screen reader (Settings → Accessibility)</li>
+        <li><strong>Accessibility Inspector:</strong> Xcode tool for developers</li>
+        <li><strong>Switch Control:</strong> Test switch access compatibility</li>
+      </ul>
+      
+      <h3>Android</h3>
+      <ul>
+        <li><strong>TalkBack:</strong> Built-in screen reader (Settings → Accessibility)</li>
+        <li><strong>Accessibility Scanner:</strong> Google app for automated checks</li>
+        <li><strong>Switch Access:</strong> Test switch compatibility</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="testing-process">
+      <h2 id="testing-process">Recommended testing process</h2>
+      <ol>
+        <li><strong>Automated scan:</strong> Run WAVE or axe DevTools first to catch obvious issues</li>
+        <li><strong>Keyboard test:</strong> Navigate entire page using only keyboard</li>
+        <li><strong>Zoom test:</strong> Test at 200% and 400% zoom</li>
+        <li><strong>Screen reader test:</strong> Navigate with NVDA or VoiceOver</li>
+        <li><strong>Color test:</strong> Check contrast ratios and color-only information</li>
+        <li><strong>Content review:</strong> Check link text, headings, alt text quality</li>
+        <li><strong>Document results:</strong> Log issues with WCAG criteria and severity</li>
+      </ol>
+      <a class="cta" href="support.html">Request testing consultation</a>
+    </section>
+
+    <section aria-labelledby="references">
+      <h2 id="references">References</h2>
+      <ul>
+        <li>Faulkner, S., et al. (2019). "Automated Accessibility Testing Tools: How Much Do Scans Catch?" <em>Journal of Web Accessibility</em>.</li>
+        <li>WebAIM. (2024). <a href="https://webaim.org/projects/million/">The WebAIM Million</a>. Annual accessibility analysis of top websites.</li>
+        <li>W3C WAI. (2023). <a href="https://www.w3.org/WAI/test-evaluate/">Evaluating Web Accessibility</a>. Web Accessibility Initiative.</li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'testing-tools.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

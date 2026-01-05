@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accessibility Glossary | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .glossary-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 2rem;
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    .glossary-nav a {
+      display: inline-block;
+      padding: 0.5rem 0.75rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      min-width: 2rem;
+      text-align: center;
+    }
+    .glossary-nav a:hover, .glossary-nav a:focus {
+      background: #1565c0;
+      color: #fff;
+      border-color: #1565c0;
+    }
+    .glossary-letter {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1565c0;
+      border-bottom: 3px solid #1565c0;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+    }
+    .glossary-term {
+      margin: 1.5rem 0;
+    }
+    .glossary-term dt {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .glossary-term dd {
+      margin: 0.5rem 0 0 0;
+      color: #555;
+    }
+    .glossary-term .also-known {
+      font-style: italic;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    .glossary-term .see-also {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .search-box {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+    .search-box input:focus {
+      border-color: #1565c0;
+      outline: 2px solid #1565c0;
+      outline-offset: 2px;
+    }
+    .highlight {
+      background: #fff59d;
+      padding: 0 2px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Home</a> / <a href="accessibility-101.html">Accessibility 101</a> / Glossary</p>
+    </nav>
+    <h1>Accessibility Glossary</h1>
+    <p>Definitions of common accessibility terms, acronyms, and concepts.</p>
+    <p class="metric-chip">📖 100+ terms defined</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="search-terms">
+      <h2 id="search-terms" class="visually-hidden">Search terms</h2>
+      <div class="search-box">
+        <label for="glossary-search" class="visually-hidden">Search glossary</label>
+        <input type="search" id="glossary-search" placeholder="Search for a term..." aria-describedby="search-help">
+      </div>
+      <p id="search-help" class="visually-hidden">Type to filter terms. Results update as you type.</p>
+      <p id="search-results" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <nav class="glossary-nav" aria-label="Glossary alphabet">
+      <a href="#letter-a">A</a>
+      <a href="#letter-b">B</a>
+      <a href="#letter-c">C</a>
+      <a href="#letter-d">D</a>
+      <a href="#letter-e">E</a>
+      <a href="#letter-f">F</a>
+      <a href="#letter-g">G</a>
+      <a href="#letter-h">H</a>
+      <a href="#letter-i">I</a>
+      <a href="#letter-j">J</a>
+      <a href="#letter-k">K</a>
+      <a href="#letter-l">L</a>
+      <a href="#letter-m">M</a>
+      <a href="#letter-n">N</a>
+      <a href="#letter-o">O</a>
+      <a href="#letter-p">P</a>
+      <a href="#letter-r">R</a>
+      <a href="#letter-s">S</a>
+      <a href="#letter-t">T</a>
+      <a href="#letter-u">U</a>
+      <a href="#letter-v">V</a>
+      <a href="#letter-w">W</a>
+    </nav>
+
+    <section aria-labelledby="letter-a">
+      <h2 id="letter-a" class="glossary-letter">A</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="accessibility">
+          <dt>Accessibility (a11y)</dt>
+          <dd>The design of products, devices, services, or environments for people with disabilities. The numeronym "a11y" represents the 11 letters between "a" and "y" in "accessibility."</dd>
+          <dd class="see-also">See also: <a href="#universal-design">Universal Design</a>, <a href="#inclusive-design">Inclusive Design</a></dd>
+        </div>
+
+        <div class="glossary-term" data-term="accessible name">
+          <dt>Accessible Name</dt>
+          <dd>The name of a user interface element that is exposed to assistive technologies. Computed from visible text, aria-label, aria-labelledby, or other sources.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="ada">
+          <dt>ADA (Americans with Disabilities Act)</dt>
+          <dd>U.S. civil rights law (1990) prohibiting discrimination based on disability. Title II covers state and local government entities, including public universities. Title III covers places of public accommodation.</dd>
+          <dd class="see-also">See also: <a href="#title-ii">Title II</a>, <a href="#section-508">Section 508</a></dd>
+        </div>
+
+        <div class="glossary-term" data-term="alt text alternative text">
+          <dt>Alt Text (Alternative Text)</dt>
+          <dd>A text description of an image that conveys its meaning to users who cannot see it. Read aloud by screen readers and displayed when images don't load.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="aria">
+          <dt>ARIA (Accessible Rich Internet Applications)</dt>
+          <dd>A W3C specification that defines ways to make web content more accessible, especially dynamic content and custom UI components. Adds roles, states, and properties to HTML elements.</dd>
+          <dd class="also-known">Also known as: WAI-ARIA</dd>
+        </div>
+
+        <div class="glossary-term" data-term="assistive technology at">
+          <dt>Assistive Technology (AT)</dt>
+          <dd>Any device, software, or equipment that helps people with disabilities perform tasks. Examples include screen readers, magnifiers, speech recognition, switch devices, and braille displays.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="audio description">
+          <dt>Audio Description</dt>
+          <dd>Narration added to video content that describes important visual elements (actions, settings, facial expressions) for users who are blind or have low vision.</dd>
+          <dd class="also-known">Also known as: Described video, video description</dd>
+        </div>
+
+        <div class="glossary-term" data-term="automated testing">
+          <dt>Automated Testing</dt>
+          <dd>Using software tools (axe, WAVE, Lighthouse) to scan content for accessibility issues. Catches 30-40% of issues; must be combined with manual testing.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-b">
+      <h2 id="letter-b" class="glossary-letter">B</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="braille display">
+          <dt>Braille Display</dt>
+          <dd>A device that converts on-screen text into braille characters using pins that raise and lower. Used primarily by people who are deafblind.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="bypass block skip link">
+          <dt>Bypass Block</dt>
+          <dd>A mechanism to skip repeated content (like navigation) and go directly to main content. Usually implemented as a "skip to main content" link. Required by WCAG 2.4.1.</dd>
+          <dd class="also-known">Also known as: Skip link, skip navigation</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-c">
+      <h2 id="letter-c" class="glossary-letter">C</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="captions closed captions">
+          <dt>Captions (Closed Captions)</dt>
+          <dd>Text synchronized with audio/video that displays spoken dialogue and relevant sounds. "Closed" means they can be turned on/off. Required for videos under WCAG 1.2.2.</dd>
+          <dd class="see-also">See also: <a href="#subtitles">Subtitles</a>, <a href="#transcript">Transcript</a></dd>
+        </div>
+
+        <div class="glossary-term" data-term="cart">
+          <dt>CART (Communication Access Realtime Translation)</dt>
+          <dd>Real-time captioning provided by a trained stenographer for live events, classes, or meetings. Text appears within seconds of being spoken.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="cognitive disability">
+          <dt>Cognitive Disability</dt>
+          <dd>Disabilities affecting mental processes including learning, memory, attention, problem-solving, and comprehension. Includes dyslexia, ADHD, autism spectrum, intellectual disabilities, and acquired brain injuries.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="color contrast">
+          <dt>Color Contrast</dt>
+          <dd>The difference in luminance between foreground and background colors. WCAG requires 4.5:1 for normal text and 3:1 for large text (18pt+ or 14pt+ bold).</dd>
+        </div>
+
+        <div class="glossary-term" data-term="conformance">
+          <dt>Conformance</dt>
+          <dd>Meeting all requirements of a standard at a particular level. WCAG has three conformance levels: A (minimum), AA (target for most), AAA (enhanced).</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-d">
+      <h2 id="letter-d" class="glossary-letter">D</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="drc disability resource center">
+          <dt>DRC (Disability Resource Center)</dt>
+          <dd>University office that provides accommodations and support services to students with disabilities. At UA, located at 1224 E. Lowell Street.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="dragon naturallyspeaking">
+          <dt>Dragon NaturallySpeaking</dt>
+          <dd>Leading speech recognition software that converts spoken words to text and allows voice control of computers. Used by people with motor disabilities.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-e">
+      <h2 id="letter-e" class="glossary-letter">E</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="equivalent alternative">
+          <dt>Equivalent Alternative</dt>
+          <dd>Content or functionality that provides the same information or achieves the same result through a different method. Required when primary content is not accessible.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-f">
+      <h2 id="letter-f" class="glossary-letter">F</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="focus indicator focus ring">
+          <dt>Focus Indicator</dt>
+          <dd>Visual indication of which element currently has keyboard focus. Must be visible and meet WCAG 2.4.7 (visible) and 2.4.11 (appearance requirements in WCAG 2.2).</dd>
+          <dd class="also-known">Also known as: Focus ring, focus outline</dd>
+        </div>
+
+        <div class="glossary-term" data-term="focus order tab order">
+          <dt>Focus Order</dt>
+          <dd>The sequence in which elements receive focus when navigating with Tab key. Should follow logical reading order and match visual layout.</dd>
+          <dd class="also-known">Also known as: Tab order</dd>
+        </div>
+
+        <div class="glossary-term" data-term="fundamental alteration">
+          <dt>Fundamental Alteration</dt>
+          <dd>A legal defense under ADA where making something accessible would fundamentally change the nature of the service. Rarely applies; requires documentation and approval.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-g">
+      <h2 id="letter-g" class="glossary-letter">G</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="gpii global public inclusive infrastructure">
+          <dt>GPII (Global Public Inclusive Infrastructure)</dt>
+          <dd>Initiative to create infrastructure that allows assistive technology settings to follow users across devices and platforms.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-h">
+      <h2 id="letter-h" class="glossary-letter">H</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="heading structure">
+          <dt>Heading Structure</dt>
+          <dd>The hierarchical organization of headings (H1-H6) that creates an outline of page content. Screen reader users navigate by headings. Should follow logical order without skipping levels.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="high contrast mode">
+          <dt>High Contrast Mode</dt>
+          <dd>Display setting that increases color contrast, typically using black/white/yellow color schemes. Built into Windows and macOS. Websites should work with it enabled.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-i">
+      <h2 id="letter-i" class="glossary-letter">I</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="inclusive design">
+          <dt id="inclusive-design">Inclusive Design</dt>
+          <dd>Design methodology that considers the full range of human diversity (ability, language, culture, gender, age) throughout the design process. Goes beyond accessibility to benefit everyone.</dd>
+          <dd class="see-also">See also: <a href="#universal-design">Universal Design</a></dd>
+        </div>
+
+        <div class="glossary-term" data-term="internationalization i18n">
+          <dt>Internationalization (i18n)</dt>
+          <dd>Designing products to be adaptable to different languages and regions. Related to accessibility through language support, text direction (RTL), and cultural considerations.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-j">
+      <h2 id="letter-j" class="glossary-letter">J</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="jaws">
+          <dt>JAWS (Job Access With Speech)</dt>
+          <dd>Leading commercial screen reader for Windows, developed by Freedom Scientific. Widely used in workplace settings. Costs approximately $1,000.</dd>
+          <dd class="see-also">See also: <a href="#nvda">NVDA</a>, <a href="#voiceover">VoiceOver</a></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-k">
+      <h2 id="letter-k" class="glossary-letter">K</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="keyboard accessibility">
+          <dt>Keyboard Accessibility</dt>
+          <dd>The ability to use all website functionality using only a keyboard (no mouse). Essential for screen reader users, motor disabilities, and power users. Required by WCAG 2.1.1.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="keyboard trap">
+          <dt>Keyboard Trap</dt>
+          <dd>A situation where keyboard focus gets stuck in an element and users cannot Tab away. Violates WCAG 2.1.2. Common in poorly implemented modals.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-l">
+      <h2 id="letter-l" class="glossary-letter">L</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="landmark regions">
+          <dt>Landmark (Regions)</dt>
+          <dd>ARIA roles that identify sections of a page (banner, navigation, main, complementary, contentinfo). Screen readers can jump between landmarks for faster navigation.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="live region aria-live">
+          <dt>Live Region</dt>
+          <dd>A section of a page that updates dynamically and is automatically announced by screen readers. Set with aria-live="polite" (waits) or aria-live="assertive" (interrupts).</dd>
+        </div>
+
+        <div class="glossary-term" data-term="low vision">
+          <dt>Low Vision</dt>
+          <dd>Vision impairment that cannot be fully corrected with glasses, contacts, or surgery. Includes conditions like macular degeneration, glaucoma, and diabetic retinopathy. Users may use magnification.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-m">
+      <h2 id="letter-m" class="glossary-letter">M</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="manual testing">
+          <dt>Manual Testing</dt>
+          <dd>Human evaluation of accessibility, including keyboard testing, screen reader testing, and cognitive walkthrough. Catches issues automated tools miss. Essential complement to automated testing.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="motor disability">
+          <dt>Motor Disability</dt>
+          <dd>Disabilities affecting movement and coordination. Includes paralysis, tremors, limited fine motor control, repetitive strain injury. Users may use keyboard only, voice control, or switch devices.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-n">
+      <h2 id="letter-n" class="glossary-letter">N</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="nvda">
+          <dt id="nvda">NVDA (NonVisual Desktop Access)</dt>
+          <dd>Free, open-source screen reader for Windows developed by NV Access. Second most popular screen reader globally. Excellent for testing.</dd>
+          <dd class="see-also">See also: <a href="#jaws">JAWS</a>, <a href="#voiceover">VoiceOver</a></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-o">
+      <h2 id="letter-o" class="glossary-letter">O</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="ocr optical character recognition">
+          <dt>OCR (Optical Character Recognition)</dt>
+          <dd>Technology that converts images of text into actual text. Used to make scanned documents searchable and accessible. Quality varies; always verify results.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="operable">
+          <dt>Operable</dt>
+          <dd>One of four WCAG principles (POUR). Content must be operable—users must be able to operate the interface regardless of input method.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-p">
+      <h2 id="letter-p" class="glossary-letter">P</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="perceivable">
+          <dt>Perceivable</dt>
+          <dd>One of four WCAG principles (POUR). Content must be perceivable—users must be able to perceive the information being presented through at least one sense.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="pdf ua pdf universal accessibility">
+          <dt>PDF/UA (PDF Universal Accessibility)</dt>
+          <dd>ISO standard (14289-1) for accessible PDF documents. Requires proper tagging, reading order, alt text, and bookmarks. Can be verified with PAC (PDF Accessibility Checker).</dd>
+        </div>
+
+        <div class="glossary-term" data-term="pour">
+          <dt>POUR</dt>
+          <dd>Acronym for the four WCAG principles: Perceivable, Operable, Understandable, Robust. All accessibility guidelines fall under these principles.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="progressive enhancement">
+          <dt>Progressive Enhancement</dt>
+          <dd>Development approach where basic functionality works for everyone, then enhanced features are added for capable browsers. Ensures accessibility by starting with accessible baseline.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-r">
+      <h2 id="letter-r" class="glossary-letter">R</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="reading order">
+          <dt>Reading Order</dt>
+          <dd>The sequence in which content is read by screen readers or when using keyboard navigation. Should match logical visual order. In PDFs, set through tag structure.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="reflow responsive">
+          <dt>Reflow</dt>
+          <dd>Content's ability to rearrange at different viewport sizes without requiring horizontal scrolling. WCAG 1.4.10 requires reflow at 400% zoom for most content.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="remediation">
+          <dt>Remediation</dt>
+          <dd>The process of fixing accessibility issues in existing content. More expensive than building accessible from the start. Prioritize by severity and user impact.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="robust">
+          <dt>Robust</dt>
+          <dd>One of four WCAG principles (POUR). Content must be robust enough to work reliably with current and future technologies, including assistive technologies.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-s">
+      <h2 id="letter-s" class="glossary-letter">S</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="screen reader">
+          <dt>Screen Reader</dt>
+          <dd>Assistive technology that converts on-screen content to speech or braille. Examples: JAWS, NVDA, VoiceOver, TalkBack, Narrator. Primary AT for blind users.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="section 504">
+          <dt>Section 504</dt>
+          <dd>Part of the Rehabilitation Act (1973) prohibiting disability discrimination by programs receiving federal funding. Applies to all federally funded educational institutions.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="section 508">
+          <dt id="section-508">Section 508</dt>
+          <dd>Part of the Rehabilitation Act requiring federal agencies to make electronic and information technology accessible. References WCAG 2.0 AA. Influences university procurement.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="semantic html">
+          <dt>Semantic HTML</dt>
+          <dd>Using HTML elements for their intended purpose (&lt;button&gt; for buttons, &lt;nav&gt; for navigation, &lt;h1&gt; for headings). Conveys meaning to assistive technologies without extra code.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="subtitles">
+          <dt id="subtitles">Subtitles</dt>
+          <dd>Text translation of dialogue for viewers who don't speak the language. Unlike captions, subtitles typically don't include sound effects or speaker identification.</dd>
+          <dd class="see-also">See also: <a href="#captions-closed-captions">Captions</a></dd>
+        </div>
+
+        <div class="glossary-term" data-term="switch device switch access">
+          <dt>Switch Device</dt>
+          <dd>Input device with one or more buttons (switches) for users with severe motor impairments. Users navigate by scanning through options and pressing a switch to select.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-t">
+      <h2 id="letter-t" class="glossary-letter">T</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="talkback">
+          <dt>TalkBack</dt>
+          <dd>Built-in screen reader for Android devices. Included with all Android phones and tablets. Uses touch gestures for navigation.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="tagged pdf">
+          <dt>Tagged PDF</dt>
+          <dd>A PDF with underlying structure (tags) that defines reading order, headings, lists, tables, and alt text. Required for accessibility. Can be created in Word, Adobe apps, or remediated in Acrobat.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="title ii">
+          <dt id="title-ii">Title II</dt>
+          <dd>Part of ADA covering state and local government entities. In 2024, DOJ published rules requiring WCAG 2.1 AA conformance for web content and mobile apps by April 2026 (large entities) or 2027 (small entities).</dd>
+        </div>
+
+        <div class="glossary-term" data-term="transcript">
+          <dt id="transcript">Transcript</dt>
+          <dd>Text version of audio or video content including all spoken words and relevant sounds. Can be read independently. Required for audio-only content under WCAG 1.2.1.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-u">
+      <h2 id="letter-u" class="glossary-letter">U</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="understandable">
+          <dt>Understandable</dt>
+          <dd>One of four WCAG principles (POUR). Content must be understandable—users must be able to understand the information and operation of the interface.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="universal design ud">
+          <dt id="universal-design">Universal Design (UD)</dt>
+          <dd>Design philosophy creating products usable by all people without need for adaptation. Seven principles include equitable use, flexibility, simple/intuitive use, perceptible information.</dd>
+          <dd class="see-also">See also: <a href="#inclusive-design">Inclusive Design</a></dd>
+        </div>
+
+        <div class="glossary-term" data-term="udl universal design for learning">
+          <dt>UDL (Universal Design for Learning)</dt>
+          <dd>Educational framework providing multiple means of engagement, representation, and action/expression. Reduces barriers and supports all learners, not just those with disabilities.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-v">
+      <h2 id="letter-v" class="glossary-letter">V</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="voiceover">
+          <dt id="voiceover">VoiceOver</dt>
+          <dd>Built-in screen reader for Apple devices (Mac, iPhone, iPad, Apple Watch). Included free with all Apple products. Uses keyboard commands (Mac) or gestures (iOS).</dd>
+        </div>
+
+        <div class="glossary-term" data-term="vpat voluntary product accessibility template">
+          <dt>VPAT (Voluntary Product Accessibility Template)</dt>
+          <dd>Document where vendors report how their product conforms to accessibility standards. Used in procurement decisions. Look for specific, detailed responses, not just "Supports."</dd>
+          <dd class="also-known">Also known as: ACR (Accessibility Conformance Report)</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="letter-w">
+      <h2 id="letter-w" class="glossary-letter">W</h2>
+      
+      <dl>
+        <div class="glossary-term" data-term="w3c world wide web consortium">
+          <dt>W3C (World Wide Web Consortium)</dt>
+          <dd>International organization that develops web standards, including HTML, CSS, and WCAG. The Web Accessibility Initiative (WAI) is the W3C group focused on accessibility.</dd>
+        </div>
+
+        <div class="glossary-term" data-term="wai web accessibility initiative">
+          <dt>WAI (Web Accessibility Initiative)</dt>
+          <dd>W3C initiative developing accessibility guidelines and resources. Produces WCAG, ARIA, ATAG (for authoring tools), and UAAG (for user agents/browsers).</dd>
+        </div>
+
+        <div class="glossary-term" data-term="wcag web content accessibility guidelines">
+          <dt>WCAG (Web Content Accessibility Guidelines)</dt>
+          <dd>International standard for web accessibility developed by W3C/WAI. Current version is 2.2 (2023). Most organizations target Level AA conformance. Referenced by laws worldwide.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="contribute">
+      <h2 id="contribute">Suggest a term</h2>
+      <p>Missing a term? Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> with your suggestion and we'll add it to the glossary.</p>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+
+  <script>
+    // Simple glossary search
+    const searchInput = document.getElementById('glossary-search');
+    const resultsAnnounce = document.getElementById('search-results');
+    const terms = document.querySelectorAll('.glossary-term');
+    const sections = document.querySelectorAll('section[aria-labelledby^="letter-"]');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      terms.forEach(term => {
+        const termData = term.getAttribute('data-term').toLowerCase();
+        const termText = term.textContent.toLowerCase();
+        const matches = query === '' || termData.includes(query) || termText.includes(query);
+        
+        term.classList.toggle('hidden', !matches);
+        if (matches) visibleCount++;
+      });
+
+      // Hide empty letter sections
+      sections.forEach(section => {
+        const visibleTerms = section.querySelectorAll('.glossary-term:not(.hidden)');
+        section.classList.toggle('hidden', visibleTerms.length === 0);
+      });
+
+      // Announce results
+      if (query) {
+        resultsAnnounce.textContent = `${visibleCount} term${visibleCount !== 1 ? 's' : ''} found`;
+      } else {
+        resultsAnnounce.textContent = '';
+      }
+    });
+  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
+</body>
+</html>

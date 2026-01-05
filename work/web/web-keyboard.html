@@ -1,44 +1,316 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Keyboard Navigation Essentials | Accessibility</title>
+  <title>Keyboard Accessibility | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; Apps</a> / Keyboard Accessibility</p>
+    </nav>
+    <h1>Keyboard Accessibility</h1>
+    <p>Ensuring all functionality is available without a mouse.</p>
+    <p class="metric-chip">⌨️ WCAG 2.1.1 &amp; 2.1.2</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="keyboard-overview">
+      <h2 id="keyboard-overview">Why keyboard accessibility matters</h2>
+      <p>Many users cannot use a mouse and rely on keyboard (or keyboard-emulating devices):</p>
+      <ul>
+        <li><strong>Motor disabilities:</strong> Users with limited fine motor control</li>
+        <li><strong>Blind users:</strong> Screen reader users navigate with keyboard</li>
+        <li><strong>Repetitive strain injuries:</strong> Keyboard is often easier than mouse</li>
+        <li><strong>Switch device users:</strong> Devices emulate keyboard input</li>
+        <li><strong>Power users:</strong> Many prefer keyboard for efficiency</li>
+      </ul>
+      <p><strong>WCAG requirement:</strong> All functionality must be operable through a keyboard interface (2.1.1 Keyboard).</p>
+    </section>
+
+    <section aria-labelledby="essential-keys">
+      <h2 id="essential-keys">Essential keyboard interactions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><kbd>Tab</kbd></td>
+            <td>Move to next focusable element</td>
+          </tr>
+          <tr>
+            <td><kbd>Shift</kbd> + <kbd>Tab</kbd></td>
+            <td>Move to previous focusable element</td>
+          </tr>
+          <tr>
+            <td><kbd>Enter</kbd></td>
+            <td>Activate links, buttons, submit forms</td>
+          </tr>
+          <tr>
+            <td><kbd>Space</kbd></td>
+            <td>Activate buttons, toggle checkboxes</td>
+          </tr>
+          <tr>
+            <td><kbd>Arrow keys</kbd></td>
+            <td>Navigate within components (menus, sliders, tabs)</td>
+          </tr>
+          <tr>
+            <td><kbd>Escape</kbd></td>
+            <td>Close modals, cancel actions</td>
+          </tr>
+          <tr>
+            <td><kbd>Home</kbd> / <kbd>End</kbd></td>
+            <td>Jump to first/last item in a list</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="focus-visible">
+      <h2 id="focus-visible">Focus indicators</h2>
+      <p>WCAG 2.4.7 requires that keyboard focus is visible. Users must be able to see which element they're on.</p>
+      
+      <h3>Good focus indicators</h3>
+      <ul>
+        <li>High contrast outline (not just color change)</li>
+        <li>Visible on all backgrounds</li>
+        <li>At least 2px thick</li>
+        <li>Consistent across the site</li>
+      </ul>
+
+      <h3>CSS focus styles</h3>
+      <pre>/* Good focus style */
+:focus {
+  outline: 3px solid #0C234B;
+  outline-offset: 2px;
+}
+
+/* Or use focus-visible for keyboard-only focus */
+:focus-visible {
+  outline: 3px solid #0C234B;
+  outline-offset: 2px;
+}
+
+/* NEVER do this: */
+:focus {
+  outline: none; /* ❌ Removes focus indicator! */
+}</pre>
+
+      <h3>Focus management requirements</h3>
+      <ul>
+        <li>Never remove focus outlines without providing alternative</li>
+        <li>Ensure focus is visible on all backgrounds (light and dark)</li>
+        <li>Focus should not be obscured by sticky headers or modals (WCAG 2.4.11)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="tab-order">
+      <h2 id="tab-order">Tab order</h2>
+      <p>Tab order should follow a logical reading order (typically left-to-right, top-to-bottom in English).</p>
+      
+      <h3>Maintaining natural tab order</h3>
+      <ul>
+        <li>Use semantic HTML elements in logical order</li>
+        <li>Avoid using <code>tabindex</code> values greater than 0</li>
+        <li>Test by tabbing through the page</li>
+      </ul>
+
+      <h3>tabindex values</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Value</th>
+            <th>Effect</th>
+            <th>Use case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>tabindex="0"</code></td>
+            <td>Makes element focusable in natural order</td>
+            <td>Custom interactive elements</td>
+          </tr>
+          <tr>
+            <td><code>tabindex="-1"</code></td>
+            <td>Focusable by script only, not Tab key</td>
+            <td>Modal dialogs, error messages</td>
+          </tr>
+          <tr>
+            <td><code>tabindex="1+"</code></td>
+            <td>Overrides natural order</td>
+            <td>⚠️ Avoid — causes confusion</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="keyboard-traps">
+      <h2 id="keyboard-traps">Avoiding keyboard traps</h2>
+      <p>WCAG 2.1.2: Users must be able to navigate away from any component using standard keyboard.</p>
+      
+      <h3>Common trap scenarios</h3>
+      <ul>
+        <li>Modal dialogs that don't allow Tab to exit</li>
+        <li>Embedded content (iframes, video players) that capture keyboard</li>
+        <li>Rich text editors</li>
+        <li>Interactive maps</li>
+      </ul>
+
+      <h3>Solutions</h3>
+      <ul>
+        <li>Modal dialogs: Allow Escape to close</li>
+        <li>Embedded content: Ensure Tab moves past the embed</li>
+        <li>Provide clear instructions for exiting complex widgets</li>
+        <li>Test thoroughly by tabbing through</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="interactive-elements">
+      <h2 id="interactive-elements">Keyboard-accessible elements</h2>
+      
+      <h3>Natively keyboard accessible</h3>
+      <p>These HTML elements are keyboard accessible by default:</p>
+      <ul>
+        <li><code>&lt;a href="..."&gt;</code> — Links</li>
+        <li><code>&lt;button&gt;</code> — Buttons</li>
+        <li><code>&lt;input&gt;</code> — Form inputs</li>
+        <li><code>&lt;select&gt;</code> — Dropdown menus</li>
+        <li><code>&lt;textarea&gt;</code> — Text areas</li>
+      </ul>
+
+      <h3>Require additional work</h3>
+      <p>These need <code>tabindex</code> and keyboard event handlers:</p>
+      <ul>
+        <li><code>&lt;div onclick="..."&gt;</code> — Use <code>&lt;button&gt;</code> instead!</li>
+        <li>Custom dropdowns and menus</li>
+        <li>Drag-and-drop interfaces</li>
+        <li>Custom sliders and controls</li>
+      </ul>
+
+      <h3>Making custom elements keyboard accessible</h3>
+      <pre>&lt;!-- ❌ Bad: div used as button --&gt;
+&lt;div onclick="doAction()"&gt;Click me&lt;/div&gt;
+
+&lt;!-- ✓ Good: use actual button --&gt;
+&lt;button onclick="doAction()"&gt;Click me&lt;/button&gt;
+
+&lt;!-- If you must use div, add keyboard support --&gt;
+&lt;div role="button" tabindex="0" 
+     onclick="doAction()" 
+     onkeydown="if(event.key==='Enter'||event.key===' ')doAction()"&gt;
+  Click me
+&lt;/div&gt;</pre>
+    </section>
+
+    <section aria-labelledby="skip-links">
+      <h2 id="skip-links">Skip links</h2>
+      <p>Skip links allow keyboard users to bypass repetitive content (navigation) and jump to main content.</p>
+      
+      <h3>Implementation</h3>
+      <pre>&lt;!-- Add as first element in body --&gt;
+&lt;a href="#maincontent" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+
+&lt;!-- Add id to main content --&gt;
+&lt;main id="maincontent"&gt;
+  ...
+&lt;/main&gt;
+
+&lt;!-- CSS for skip link --&gt;
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0C234B;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}</pre>
+      <p><a href="skip-link-snippet.html">Get the full skip link code snippet</a></p>
+    </section>
+
+    <section aria-labelledby="testing">
+      <h2 id="testing">Testing keyboard accessibility</h2>
+      
+      <h3>Manual testing process</h3>
+      <ol>
+        <li><strong>Put mouse aside</strong> — Only use keyboard</li>
+        <li><strong>Tab through entire page</strong> — Can you reach everything?</li>
+        <li><strong>Check focus visibility</strong> — Can you always see where you are?</li>
+        <li><strong>Check logical order</strong> — Does tab order make sense?</li>
+        <li><strong>Test all interactions</strong> — Can you activate buttons, submit forms?</li>
+        <li><strong>Test complex widgets</strong> — Menus, modals, sliders, carousels</li>
+        <li><strong>Check for traps</strong> — Can you always Tab away?</li>
+      </ol>
+
+      <h3>Tools</h3>
+      <ul>
+        <li><strong>Accessibility Insights:</strong> Tab Stops feature visualizes tab order</li>
+        <li><strong>Browser DevTools:</strong> Focus indicator testing</li>
+        <li><strong>WAVE:</strong> Shows errors related to keyboard access</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">Keyboard accessibility checklist</h2>
+      <ul>
+        <li>☐ All interactive elements reachable by Tab</li>
+        <li>☐ Focus indicator always visible</li>
+        <li>☐ Tab order matches visual/reading order</li>
+        <li>☐ No keyboard traps</li>
+        <li>☐ Enter/Space activates buttons and links</li>
+        <li>☐ Escape closes modals and menus</li>
+        <li>☐ Skip link provided</li>
+        <li>☐ Custom widgets follow ARIA patterns</li>
+        <li>☐ Focus not obscured by sticky elements</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html">WCAG Understanding 2.1.1 Keyboard</a></li>
+        <li><a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices Guide</a> — Keyboard patterns for widgets</li>
+        <li><a href="https://webaim.org/techniques/keyboard/">WebAIM: Keyboard Accessibility</a></li>
+        <li><a href="focus-management.html">Focus Management Guide</a></li>
+        <li><a href="web-app.html">Web &amp; Apps Hub</a></li>
+      </ul>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'web-keyboard.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
 </body>
 </html>

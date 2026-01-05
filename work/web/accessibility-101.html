@@ -1,44 +1,313 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility 101 | Accessibility</title>
+  <title>Accessibility 101 | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="maincontent" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="personas.html">Personas</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html" aria-current="page">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / Accessibility 101</p>
+    </nav>
+    <h1>Accessibility 101</h1>
+    <p>Your foundational guide to understanding digital accessibility—what it means, why it matters, and how to get started.</p>
+    <p class="metric-chip">⏱️ Reading time: 10 minutes</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="what-is">
+      <h2 id="what-is">What is digital accessibility?</h2>
+      <p>Digital accessibility means designing and building websites, applications, documents, and digital content so that <strong>everyone can perceive, understand, navigate, and interact</strong> with them—regardless of ability or disability.</p>
+      <p>This includes people who:</p>
+      <ul>
+        <li><strong>Use screen readers</strong> (e.g., JAWS, NVDA, VoiceOver) due to blindness or low vision</li>
+        <li><strong>Navigate with keyboards only</strong> due to motor disabilities or preferences</li>
+        <li><strong>Rely on captions</strong> for video content due to deafness or hearing loss</li>
+        <li><strong>Benefit from clear, simple language</strong> due to cognitive differences or learning disabilities</li>
+        <li><strong>Use magnification or high contrast</strong> due to low vision</li>
+        <li><strong>Experience temporary impairments</strong> like a broken arm or situational challenges like bright sunlight</li>
+      </ul>
+      <p><strong>Key insight:</strong> Accessibility benefits everyone. Captions help non-native speakers. Keyboard navigation helps power users. Clear content helps everyone under stress.</p>
+    </section>
+
+    <section aria-labelledby="why-matters">
+      <h2 id="why-matters">Why accessibility matters</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>🎓 Educational equity</h3>
+          <p>Every student deserves equal access to course materials, learning platforms, and academic resources—without having to ask for special treatment.</p>
+        </article>
+        <article class="card">
+          <h3>⚖️ Legal compliance</h3>
+          <p>Title II of the ADA requires public universities to provide accessible digital experiences. Non-compliance results in complaints, lawsuits, and reputational damage.</p>
+        </article>
+        <article class="card">
+          <h3>💡 Better design</h3>
+          <p>Accessible design is better design. Constraints breed creativity, and inclusive products work better for everyone.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="wcag">
+      <h2 id="wcag">WCAG 2.2: The global standard</h2>
+      <p>The <strong>Web Content Accessibility Guidelines (WCAG)</strong> are the international standard for digital accessibility. Arizona aligns to <strong>WCAG 2.2 Level AA</strong>.</p>
+      <p>WCAG is organized around four principles—often called <strong>POUR</strong>:</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Principle</th>
+              <th scope="col">What it means</th>
+              <th scope="col">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Perceivable</strong></td>
+              <td>Content must be presentable in ways users can perceive</td>
+              <td>Images have alt text; videos have captions</td>
+            </tr>
+            <tr>
+              <td><strong>Operable</strong></td>
+              <td>Users must be able to operate the interface</td>
+              <td>All features work with keyboard; no time limits without controls</td>
+            </tr>
+            <tr>
+              <td><strong>Understandable</strong></td>
+              <td>Content and operation must be understandable</td>
+              <td>Clear labels; predictable navigation; error messages explain fixes</td>
+            </tr>
+            <tr>
+              <td><strong>Robust</strong></td>
+              <td>Content must work with current and future technologies</td>
+              <td>Valid HTML; proper ARIA usage; compatibility with assistive tech</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a class="cta" href="wcag22-highlights.html">Explore WCAG 2.2 highlights →</a></p>
+    </section>
+
+    <section aria-labelledby="title-ii">
+      <h2 id="title-ii">Title II and the April 2026 deadline</h2>
+      <p>In April 2024, the U.S. Department of Justice published the <strong>Title II Web and Mobile Accessibility Rule</strong>, requiring state and local government entities—including public universities—to make web content and mobile apps accessible.</p>
+      <div class="card">
+        <h3>Key deadlines for Arizona</h3>
+        <ul>
+          <li><strong>April 24, 2026:</strong> All public-facing web content and mobile apps must conform to WCAG 2.1 Level AA</li>
+          <li><strong>Internal systems:</strong> Must also meet accessibility standards</li>
+          <li><strong>Archived content:</strong> Limited exceptions with specific criteria</li>
+        </ul>
+        <p><a href="title-ii-brief.html">Read the full Title II brief →</a></p>
+      </div>
+    </section>
+
+    <section aria-labelledby="quick-wins">
+      <h2 id="quick-wins">Quick wins: Start here</h2>
+      <p>You don't need to be an expert to make a difference. These five actions address the most common accessibility issues:</p>
+      <ol>
+        <li>
+          <strong>Add alt text to images</strong><br>
+          Describe what the image conveys. If it's decorative, mark it as such. If it's complex (like a chart), provide a longer description.
+        </li>
+        <li>
+          <strong>Use real headings</strong><br>
+          Don't just make text bold and big. Use Heading 1, Heading 2, etc. This creates a navigable structure for screen reader users.
+        </li>
+        <li>
+          <strong>Write descriptive link text</strong><br>
+          Instead of "Click here," write "Download the 2026 accessibility report (PDF)." Links should make sense out of context.
+        </li>
+        <li>
+          <strong>Ensure color contrast</strong><br>
+          Text should have at least 4.5:1 contrast ratio against its background. Use the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a> to verify.
+        </li>
+        <li>
+          <strong>Add captions to videos</strong><br>
+          Auto-captions are a start, but must be reviewed and corrected. Target 99% accuracy for educational content.
+        </li>
+      </ol>
+      <p class="cta"><a href="do-dont.html">See the full Do/Don't guide →</a></p>
+    </section>
+
+    <section aria-labelledby="testing">
+      <h2 id="testing">How to test for accessibility</h2>
+      <p>Accessibility testing combines automated tools with manual review:</p>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Automated testing</h3>
+          <p>Tools like <strong>axe DevTools</strong>, <strong>WAVE</strong>, and <strong>Accessibility Insights</strong> catch about 30-40% of accessibility issues—things like missing alt text, low contrast, and missing form labels.</p>
+          <p><a href="testing-tools.html">Explore testing tools →</a></p>
+        </article>
+        <article class="card">
+          <h3>Manual testing</h3>
+          <p><strong>Keyboard testing:</strong> Can you complete all tasks using only Tab, Enter, Space, and arrow keys?</p>
+          <p><strong>Screen reader testing:</strong> Does content make sense when read aloud by NVDA, JAWS, or VoiceOver?</p>
+        </article>
+      </div>
+      <p><strong>Remember:</strong> Automated tools are necessary but not sufficient. A page can pass all automated tests and still be inaccessible.</p>
+    </section>
+
+    <section aria-labelledby="assistive-tech">
+      <h2 id="assistive-tech">Common assistive technologies</h2>
+      <p>Understanding how people use assistive technology helps you build better experiences:</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Technology</th>
+              <th scope="col">Used by</th>
+              <th scope="col">How it works</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Screen readers</strong></td>
+              <td>Blind and low vision users</td>
+              <td>Reads content aloud and announces interface elements; navigates via headings, landmarks, and links</td>
+            </tr>
+            <tr>
+              <td><strong>Screen magnifiers</strong></td>
+              <td>Low vision users</td>
+              <td>Enlarges portions of the screen; users see only part of the page at once</td>
+            </tr>
+            <tr>
+              <td><strong>Speech recognition</strong></td>
+              <td>Motor disability users</td>
+              <td>Controls computer with voice commands; requires visible, named interface elements</td>
+            </tr>
+            <tr>
+              <td><strong>Switch devices</strong></td>
+              <td>Users with severe motor disabilities</td>
+              <td>Limited buttons to navigate sequentially; requires efficient keyboard navigation</td>
+            </tr>
+            <tr>
+              <td><strong>Braille displays</strong></td>
+              <td>Deafblind users</td>
+              <td>Converts text to refreshable braille; requires properly structured content</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="assistive-tech.html">Learn more about assistive technology →</a></p>
+    </section>
+
+    <section aria-labelledby="myths">
+      <h2 id="myths">Common myths debunked</h2>
+      <details>
+        <summary><strong>Myth: "Accessibility is only for blind users"</strong></summary>
+        <p>Reality: Accessibility benefits people with many different disabilities—motor, cognitive, hearing, visual—as well as people using mobile devices, slow connections, or dealing with temporary situations like a broken arm or bright sunlight.</p>
+      </details>
+      <details>
+        <summary><strong>Myth: "Accessibility is expensive and time-consuming"</strong></summary>
+        <p>Reality: Building accessibility in from the start adds minimal cost. Retrofitting inaccessible content is expensive. The most cost-effective approach is to do it right the first time.</p>
+      </details>
+      <details>
+        <summary><strong>Myth: "No one with disabilities uses our site"</strong></summary>
+        <p>Reality: About 1 in 4 adults in the U.S. has a disability. Many disabilities are invisible. If your site is inaccessible, people with disabilities simply can't use it—so you wouldn't know they tried.</p>
+      </details>
+      <details>
+        <summary><strong>Myth: "AI/automation will solve accessibility"</strong></summary>
+        <p>Reality: AI tools help with some tasks (like generating alt text drafts), but human judgment is still essential. Automated testing catches only 30-40% of issues. Overlays and widgets that claim to "fix" accessibility often make things worse.</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="dig-deeper">
+      <h2 id="dig-deeper">Dig deeper</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Why accessibility matters</h3>
+          <p>The human, legal, and business case for digital inclusion.</p>
+          <a class="cta" href="why-accessibility-matters.html">Learn why</a>
+        </article>
+        <article class="card">
+          <h3>Myths vs. facts</h3>
+          <p>Busting common misconceptions about accessibility.</p>
+          <a class="cta" href="myths-vs-facts.html">See the truth</a>
+        </article>
+        <article class="card">
+          <h3>Disability statistics</h3>
+          <p>Data and numbers that show the scope of disability.</p>
+          <a class="cta" href="disability-statistics.html">View statistics</a>
+        </article>
+        <article class="card">
+          <h3>Quick wins</h3>
+          <p>High-impact fixes anyone can make in minutes.</p>
+          <a class="cta" href="quick-wins.html">Start now</a>
+        </article>
+        <article class="card">
+          <h3>Experience simulations</h3>
+          <p>Walk in someone else's shoes with interactive demos.</p>
+          <a class="cta" href="experience-simulations.html">Try it</a>
+        </article>
+        <article class="card">
+          <h3>Assistive technology</h3>
+          <p>Understand screen readers, magnifiers, and more.</p>
+          <a class="cta" href="assistive-tech-guide.html">Explore AT</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Learn more</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">W3C Introduction to Web Accessibility</a></li>
+        <li><a href="https://webaim.org/intro/">WebAIM Introduction to Web Accessibility</a></li>
+        <li><a href="https://www.a11yproject.com/">The A11Y Project</a> – community-driven accessibility resource</li>
+        <li><a href="https://dequeuniversity.com/">Deque University</a> – comprehensive accessibility training</li>
+        <li><a href="training-calendar.html">UA Accessibility Training Calendar</a> – upcoming workshops and sessions</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="next-steps">
+      <h2 id="next-steps">Your next steps</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Find your guide</h3>
+          <p>Select your role for tailored guidance.</p>
+          <a class="cta" href="personas.html">Browse personas</a>
+        </article>
+        <article class="card">
+          <h3>Use the wizard</h3>
+          <p>Answer a few questions to get personalized recommendations.</p>
+          <a class="cta" href="wizard.html">Start wizard</a>
+        </article>
+        <article class="card">
+          <h3>Get help</h3>
+          <p>Request a consultation or report a barrier.</p>
+          <a class="cta" href="support.html">Contact us</a>
+        </article>
+      </div>
+    </section>
   </main>
   <footer role="contentinfo">
-    <p>&copy; 2025 The University of Arizona.</p>
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+    <p>Last reviewed: 2026-01-05 · Next review: 2026-04-05</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'accessibility-101.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>
