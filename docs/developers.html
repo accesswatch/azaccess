@@ -15,7 +15,7 @@
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
+        <a href="roles.html">I Am A...</a>
         <a href="documents-media.html">Documents &amp; Media</a>
         <a href="web-app.html">Web &amp; Apps</a>
         <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -31,11 +31,12 @@
       </nav>
     </div>
     <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / <a href="personas.html">Personas</a> / Developers</p>
+      <p><a href="home.html">Accessibility Home</a> / <a href="roles.html">I Am A...</a> / Developer</p>
     </nav>
-    <h1>Web Developers</h1>
-    <p>Engineering teams ship WCAG 2.2 AA-compliant Arizona Sites, apps, and integrations.</p>
+    <h1>I am a Web Developer</h1>
+    <p>Build accessible Arizona sites, apps, and integrations that meet WCAG 2.2 AA standards.</p>
     <p class="metric-chip">Goal: 0 critical WCAG defects per release</p>
+    <p class="page-meta">We won't slow you down. Most a11y fixes are small—catch them early and ship with confidence.</p>
   </header>
   <main id="maincontent" role="main">
     <section aria-labelledby="dev-help">
@@ -171,7 +172,7 @@
             <li>Trigger your team’s DubBot crawl or add the URL to the next scheduled scan for regression tracking.</li>
             <li>Attach Microsoft Accessibility Checker or Adobe Acrobat reports for any documents or PDFs in the release.</li>
           </ol>
-          <p>These five steps align with the persona template’s optional manual review checklist so every code drop ships with consistent evidence.</p>
+          <p>These five steps align with the role template's optional manual review checklist so every code drop ships with consistent evidence.</p>
         </div>
       </details>
     </section>
@@ -384,28 +385,6 @@
       </ul>
     </section>
 
-    <section aria-labelledby="dev-deepdives">
-      <h2 id="dev-deepdives">Developer deep-dives</h2>
-      <p>In-depth guides for specific development scenarios:</p>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>ARIA patterns</h3>
-          <p>Accessible patterns for modals, tabs, menus, comboboxes, and more.</p>
-          <a class="cta" href="aria-patterns.html">ARIA pattern library</a>
-        </article>
-        <article class="card">
-          <h3>React accessibility</h3>
-          <p>Build accessible React apps with hooks, component patterns, and testing.</p>
-          <a class="cta" href="dev-react.html">React guide</a>
-        </article>
-        <article class="card">
-          <h3>CI/CD testing</h3>
-          <p>Automate accessibility testing in GitHub Actions, Azure DevOps, and more.</p>
-          <a class="cta" href="dev-cicd-testing.html">CI/CD integration</a>
-        </article>
-      </div>
-    </section>
-
     <section aria-labelledby="dev-feedback">
       <h2 id="dev-feedback">Feedback</h2>
       <p>Post questions in the Arizona Digital Teams channel or email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>. Last reviewed: 2026-01-05.</p>
@@ -420,6 +399,46 @@
       <p>Need help integrating tests? Book Accessibility office hours for a pairing session.</p>
     </section>
 
+    <section aria-labelledby="dev-sources">
+      <h2 id="dev-sources">📚 Learn from the source</h2>
+      <p>We curate guidance—these organizations write the specs and build the tools.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Standards</h3>
+          <ul>
+            <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C WCAG 2.2</a></li>
+            <li><a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices</a></li>
+            <li><a href="https://www.w3.org/WAI/tutorials/">W3C WAI Tutorials</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Testing Tools</h3>
+          <ul>
+            <li><a href="https://www.deque.com/axe/">Deque axe</a></li>
+            <li><a href="https://accessibilityinsights.io/">Accessibility Insights</a></li>
+            <li><a href="https://wave.webaim.org/">WebAIM WAVE</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Learning</h3>
+          <ul>
+            <li><a href="https://webaim.org/">WebAIM</a></li>
+            <li><a href="https://dequeuniversity.com/">Deque University</a></li>
+            <li><a href="https://web.dev/accessibility/">web.dev Accessibility</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Developer testimonial -->
+    <section aria-labelledby="dev-testimonial">
+      <h2 id="dev-testimonial">From developers like you</h2>
+      <div class="testimonial">
+        <blockquote>"Adding axe-core to our CI pipeline caught issues before they hit production. We went from 30+ a11y bugs per release to basically zero. The ROI was immediate."</blockquote>
+        <cite>— Senior Developer, Arizona Digital</cite>
+      </div>
+    </section>
+
     <section aria-labelledby="related-guides">
       <h2 id="related-guides">Related guides you may need</h2>
       <p>Your work may overlap with these roles:</p>
@@ -427,17 +446,17 @@
         <article class="card">
           <h3>Building Mobile?</h3>
           <p>VoiceOver/TalkBack testing and Title II mobile deadlines.</p>
-          <a class="cta" href="persona-mobile.html">Mobile guide</a>
+          <a class="cta" href="mobile.html">Mobile guide</a>
         </article>
         <article class="card">
           <h3>Content Authors</h3>
           <p>When content issues land in your code.</p>
-          <a class="cta" href="persona-content.html">Content creators</a>
+          <a class="cta" href="content-creators.html">Content creators</a>
         </article>
         <article class="card">
-          <h3>All Personas</h3>
+          <h3>All Roles</h3>
           <p>Browse all role-based guides.</p>
-          <a class="cta" href="personas.html">Persona hub</a>
+          <a class="cta" href="roles.html">Back to I Am A...</a>
         </article>
       </div>
     </section>
@@ -446,6 +465,5 @@
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
     <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
-  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

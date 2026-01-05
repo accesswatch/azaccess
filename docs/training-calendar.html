@@ -3,204 +3,110 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Training Calendar | Accessibility at Arizona</title>
+  <title>Training &amp; Events | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .event-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .event-filters button { padding: 0.5rem 1rem; border: 1px solid var(--ua-border); border-radius: 4px; background: white; cursor: pointer; }
+    .event-filters button:hover, .event-filters button.active { background: var(--ua-arizona-blue); color: white; }
+    .events-list { display: flex; flex-direction: column; gap: 1rem; }
+    .event-card { display: grid; grid-template-columns: 80px 1fr auto; gap: 1rem; background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; align-items: start; }
+    @media (max-width: 600px) { .event-card { grid-template-columns: 1fr; } }
+    .event-date { text-align: center; background: var(--ua-arizona-blue); color: white; border-radius: 8px; padding: 0.5rem; }
+    .event-date .month { font-size: 0.8rem; text-transform: uppercase; }
+    .event-date .day { font-size: 1.75rem; font-weight: bold; line-height: 1; }
+    .event-details h3 { margin: 0 0 0.25rem 0; font-size: 1.1rem; }
+    .event-details .meta { font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
+    .event-details p { margin: 0.5rem 0; font-size: 0.95rem; }
+    .event-tags span { background: var(--ua-chip-bg); padding: 0.125rem 0.5rem; border-radius: 3px; font-size: 0.75rem; margin-right: 0.25rem; }
+    .event-actions a { display: block; padding: 0.5rem 1rem; text-align: center; border-radius: 4px; text-decoration: none; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .event-actions .register { background: var(--ua-arizona-blue); color: white; }
+    .featured { border-left: 4px solid var(--ua-arizona-red); }
+    .self-paced { background: var(--ua-chip-bg); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .course-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; }
+    .course-card h3 { margin: 0 0 0.5rem 0; font-size: 1rem; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#maincontent">Skip to main content</a>
   <header>
     <div class="site-header">
       <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-      <nav class="site-header-nav" aria-label="Primary" role="navigation">
-        <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
+      <nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="support.html">Support</a></nav>
     </div>
-    <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / Training Calendar</p>
-    </nav>
-    <h1>Training Calendar</h1>
-    <p>Upcoming workshops, office hours, and learning opportunities across campus.</p>
-    <p class="metric-chip">Updated: 2026-01-05</p>
+    <h1>Training &amp; Events Calendar</h1>
+    <p>Workshops, webinars, and office hours to build your accessibility skills.</p>
   </header>
   <main id="maincontent" role="main">
-    <section aria-labelledby="upcoming-training">
-      <h2 id="upcoming-training">Upcoming Training Sessions</h2>
-      <p>All sessions are free for UA employees and students. Register through the links below or join drop-in sessions directly.</p>
-      
-      <div class="grid grid-2">
-        <article class="card">
-          <h3>Accessibility Office Hours</h3>
-          <p><strong>When:</strong> Tuesdays, 2–4 PM</p>
-          <p><strong>Format:</strong> Drop-in via Teams</p>
-          <p>Get quick answers about documents, websites, or accommodations. No appointment needed.</p>
-          <a class="cta" href="https://teams.microsoft.com/l/channel/accessibility-office-hours">Join on Teams</a>
+    <section class="self-paced">
+      <h2>📚 Self-Paced Training (Anytime)</h2>
+      <div class="course-grid">
+        <article class="course-card"><h3>Accessibility 101</h3><p>Introduction to digital accessibility.</p><p>⏱️ 30 min</p><a href="accessibility-101.html" class="cta">Start →</a></article>
+        <article class="course-card"><h3>Accessible Documents</h3><p>Word, PowerPoint, PDF accessibility.</p><p>⏱️ 45 min</p><a href="documents-overview.html" class="cta">Start →</a></article>
+        <article class="course-card"><h3>Web Accessibility</h3><p>WCAG fundamentals.</p><p>⏱️ 1 hour</p><a href="web-app.html" class="cta">Start →</a></article>
+        <article class="course-card"><h3>Captioning &amp; Media</h3><p>Add captions to videos.</p><p>⏱️ 30 min</p><a href="media-captioning.html" class="cta">Start →</a></article>
+      </div>
+    </section>
+    <section>
+      <h2>📅 Upcoming Live Events</h2>
+      <div class="event-filters"><button class="active" data-filter="all">All</button><button data-filter="workshop">Workshops</button><button data-filter="webinar">Webinars</button><button data-filter="office-hours">Office Hours</button></div>
+      <div class="events-list">
+        <article class="event-card featured" data-type="workshop">
+          <div class="event-date"><div class="month">Jan</div><div class="day">14</div></div>
+          <div class="event-details"><h3>🌟 Accessible Document Workshop</h3><div class="meta">🕐 10am-12pm · 📍 ILC 150 + Zoom</div><p>Hands-on workshop covering Word, PowerPoint, and PDF.</p><div class="event-tags"><span>Workshop</span><span>Beginner</span></div></div>
+          <div class="event-actions"><a href="#" class="register">Register</a></div>
         </article>
-        
-        <article class="card">
-          <h3>Document Remediation Lab</h3>
-          <p><strong>When:</strong> Thursdays, 10–11 AM</p>
-          <p><strong>Format:</strong> Hands-on via Zoom</p>
-          <p>Bring your Word, PowerPoint, or PDF files. We'll help you fix accessibility issues in real time.</p>
-          <a class="cta" href="https://arizona.zoom.us/j/remediation-lab">Join on Zoom</a>
+        <article class="event-card" data-type="office-hours">
+          <div class="event-date"><div class="month">Jan</div><div class="day">16</div></div>
+          <div class="event-details"><h3>Accessibility Office Hours</h3><div class="meta">🕐 2-3pm · 📍 Zoom (drop-in)</div><p>Drop in with any accessibility questions.</p><div class="event-tags"><span>Office Hours</span></div></div>
+          <div class="event-actions"><a href="#" class="register">Join</a></div>
         </article>
-        
-        <article class="card">
-          <h3>Developer Code Reviews</h3>
-          <p><strong>When:</strong> Fridays, 11 AM–12 PM</p>
-          <p><strong>Format:</strong> Drop-in via Teams</p>
-          <p>Review your web code, components, or mobile apps with accessibility experts.</p>
-          <a class="cta" href="https://teams.microsoft.com/l/channel/dev-code-reviews">Join on Teams</a>
+        <article class="event-card" data-type="webinar">
+          <div class="event-date"><div class="month">Jan</div><div class="day">22</div></div>
+          <div class="event-details"><h3>WCAG 2.2: What's New</h3><div class="meta">🕐 1-2pm · 📍 Zoom</div><p>New success criteria and what they mean for UA.</p><div class="event-tags"><span>Webinar</span><span>Intermediate</span></div></div>
+          <div class="event-actions"><a href="#" class="register">Register</a></div>
         </article>
-        
-        <article class="card">
-          <h3>Accessible Teaching Essentials</h3>
-          <p><strong>When:</strong> First Wednesday of each month, 1–2 PM</p>
-          <p><strong>Format:</strong> Workshop via Zoom</p>
-          <p>Learn inclusive course design, Brightspace best practices, and caption workflows.</p>
-          <a class="cta" href="https://ucatt.arizona.edu/training">Register at UCATT</a>
+        <article class="event-card" data-type="workshop">
+          <div class="event-date"><div class="month">Jan</div><div class="day">28</div></div>
+          <div class="event-details"><h3>Screen Reader Testing for Beginners</h3><div class="meta">🕐 10-11:30am · 📍 Zoom</div><p>Learn NVDA basics for testing websites.</p><div class="event-tags"><span>Workshop</span><span>Testing</span></div></div>
+          <div class="event-actions"><a href="#" class="register">Register</a></div>
+        </article>
+        <article class="event-card featured" data-type="workshop">
+          <div class="event-date"><div class="month">Feb</div><div class="day">11</div></div>
+          <div class="event-details"><h3>🌟 Accessible Brightspace Course Design</h3><div class="meta">🕐 10am-12pm · 📍 ENR2 + Zoom</div><p>Build accessible courses in Brightspace.</p><div class="event-tags"><span>Workshop</span><span>Faculty</span></div></div>
+          <div class="event-actions"><a href="#" class="register">Register</a></div>
+        </article>
+        <article class="event-card" data-type="webinar">
+          <div class="event-date"><div class="month">Feb</div><div class="day">19</div></div>
+          <div class="event-details"><h3>Social Media Accessibility</h3><div class="meta">🕐 1-2pm · 📍 Zoom</div><p>Accessible posts on Twitter, Instagram, LinkedIn, TikTok.</p><div class="event-tags"><span>Webinar</span><span>Social</span></div></div>
+          <div class="event-actions"><a href="#" class="register">Register</a></div>
+        </article>
+        <article class="event-card" data-type="workshop">
+          <div class="event-date"><div class="month">Feb</div><div class="day">25</div></div>
+          <div class="event-details"><h3>PDF Remediation Deep Dive</h3><div class="meta">🕐 10am-12pm · 📍 Zoom</div><p>Advanced PDF tagging in Acrobat Pro.</p><div class="event-tags"><span>Workshop</span><span>Advanced</span></div></div>
+          <div class="event-actions"><a href="#" class="register">Register</a></div>
         </article>
       </div>
     </section>
-
-    <section aria-labelledby="monthly-workshops">
-      <h2 id="monthly-workshops">Monthly Workshops</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Session</th>
-            <th>Frequency</th>
-            <th>Duration</th>
-            <th>Audience</th>
-            <th>Registration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Buying Accessible IT</td>
-            <td>Quarterly</td>
-            <td>90 min</td>
-            <td>Procurement, Staff</td>
-            <td><a href="https://forms.office.com/r/procurement-workshop">Register</a></td>
-          </tr>
-          <tr>
-            <td>VPAT Review Lab</td>
-            <td>Monthly</td>
-            <td>60 min</td>
-            <td>Procurement, IT</td>
-            <td><a href="https://forms.office.com/r/vpat-lab">Register</a></td>
-          </tr>
-          <tr>
-            <td>WCAG 2.2 Code Labs</td>
-            <td>Monthly</td>
-            <td>90 min</td>
-            <td>Developers</td>
-            <td><a href="https://forms.office.com/r/wcag-lab">Register</a></td>
-          </tr>
-          <tr>
-            <td>Panopto Caption Editing</td>
-            <td>Bi-weekly</td>
-            <td>45 min</td>
-            <td>Faculty, Staff</td>
-            <td><a href="https://ucatt.arizona.edu/training">UCATT Calendar</a></td>
-          </tr>
-          <tr>
-            <td>Mobile Accessibility Deep Dive</td>
-            <td>Quarterly</td>
-            <td>2 hours</td>
-            <td>Developers, QA</td>
-            <td><a href="https://forms.office.com/r/mobile-a11y">Register</a></td>
-          </tr>
-          <tr>
-            <td>Inclusive Events Planning</td>
-            <td>Monthly</td>
-            <td>60 min</td>
-            <td>Staff, Communications</td>
-            <td><a href="https://forms.office.com/r/inclusive-events">Register</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section aria-labelledby="self-paced">
-      <h2 id="self-paced">Self-Paced Learning</h2>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>LinkedIn Learning</h3>
-          <p>Accessibility courses available free to all UA employees and students.</p>
-          <ul>
-            <li>Accessibility for Web Design</li>
-            <li>Creating Accessible Documents</li>
-            <li>Inclusive Design Principles</li>
-          </ul>
-          <a class="cta" href="https://linkedinlearning.arizona.edu">Access LinkedIn Learning</a>
-        </article>
-        
-        <article class="card">
-          <h3>Deque University</h3>
-          <p>In-depth WCAG training and certifications for developers and testers.</p>
-          <ul>
-            <li>WCAG 2.2 Fundamentals</li>
-            <li>Accessible ARIA Development</li>
-            <li>Mobile Accessibility</li>
-          </ul>
-          <a class="cta" href="https://dequeuniversity.com">Visit Deque</a>
-        </article>
-        
-        <article class="card">
-          <h3>Web Accessibility Initiative</h3>
-          <p>Free W3C tutorials and resources on inclusive design.</p>
-          <ul>
-            <li>Introduction to Web Accessibility</li>
-            <li>How People with Disabilities Use the Web</li>
-            <li>WCAG Quick Reference</li>
-          </ul>
-          <a class="cta" href="https://www.w3.org/WAI/tutorials/">W3C WAI Tutorials</a>
-        </article>
-      </div>
-    </section>
-
-    <section aria-labelledby="communities">
-      <h2 id="communities">Communities of Practice</h2>
-      <ul>
-        <li><strong>Developer Guild:</strong> Bi-weekly meetings for web and app developers. Join the #a11y-developers Teams channel.</li>
-        <li><strong>Mobile App Guild:</strong> Monthly meetings for iOS/Android developers. Join the #mobile-accessibility Teams channel.</li>
-        <li><strong>Content Creators Circle:</strong> Monthly meetups for document and media producers. Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> to join.</li>
-        <li><strong>Inclusive Pedagogy Learning Community:</strong> Semester-based faculty cohort. Apply through UCATT.</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="request-training">
-      <h2 id="request-training">Request Custom Training</h2>
-      <p>Need training for your department, college, or team? We offer customized sessions on:</p>
-      <ul>
-        <li>Document accessibility (Word, PowerPoint, PDF, Google Docs)</li>
-        <li>Web and mobile development best practices</li>
-        <li>Procurement and vendor evaluation</li>
-        <li>Inclusive event planning</li>
-        <li>Title II compliance overview</li>
-      </ul>
-      <a class="cta" href="support.html">Request custom training</a>
+    <section style="margin-top:2rem;background:var(--ua-chip-bg);padding:1.5rem;border-radius:8px;">
+      <h2>🎓 Request Custom Training</h2>
+      <p>Need training for your department? We offer customized sessions.</p>
+      <p><a class="cta" href="mailto:accessibility@arizona.edu?subject=Training Request">Request Training →</a></p>
     </section>
   </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
-    <p>Last reviewed: 2026-01-05</p>
-  </footer>
+  <footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+  <script>
+    document.querySelectorAll('.event-filters button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.event-filters button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.event-card').forEach(ev => {
+          ev.style.display = (filter === 'all' || ev.dataset.type === filter) ? 'grid' : 'none';
+        });
+      });
+    });
+  </script>
 </body>
 </html>

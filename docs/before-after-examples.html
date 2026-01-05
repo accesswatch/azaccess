@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Before &amp; After Examples | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .example-section {
+      margin-bottom: 3rem;
+    }
+    .comparison-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+      .comparison-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .before-panel, .after-panel {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .before-panel {
+      border: 2px solid #dc3545;
+    }
+    .after-panel {
+      border: 2px solid #28a745;
+    }
+    .panel-header {
+      padding: 0.75rem 1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .before-panel .panel-header {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    .after-panel .panel-header {
+      background: #d4edda;
+      color: #155724;
+    }
+    .panel-content {
+      padding: 1rem;
+      background: white;
+    }
+    .panel-content img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+    }
+    .panel-content pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+    .panel-content code {
+      font-family: 'Consolas', 'Monaco', monospace;
+    }
+    .issue-list {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+    .issue-list li {
+      margin-bottom: 0.5rem;
+    }
+    .fix-list {
+      background: #e8f5e9;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    .fix-list h4 {
+      margin: 0 0 0.5rem 0;
+      color: #2e7d32;
+    }
+    .category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--ua-border);
+      padding-bottom: 1rem;
+    }
+    .category-tabs a {
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 4px 4px 0 0;
+      background: var(--ua-cool-gray);
+    }
+    .category-tabs a:hover,
+    .category-tabs a.active {
+      background: var(--ua-arizona-blue);
+      color: white;
+    }
+    .wcag-ref {
+      display: inline-block;
+      background: var(--ua-chip-bg);
+      padding: 0.125rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+    .demo-box {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      margin: 0.5rem 0;
+    }
+    .demo-box.bad-contrast {
+      background: #f0f0f0;
+      color: #999;
+    }
+    .demo-box.good-contrast {
+      background: #f0f0f0;
+      color: #333;
+    }
+    .demo-link-bad {
+      color: blue;
+    }
+    .demo-link-good {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+    .fake-heading {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .real-heading {
+      font-size: 1.2rem;
+      font-weight: bold;
+      /* But this one is actually an h3 */
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="roles.html">I Am A...</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="tools-checklists.html">Tools &amp; Checklists</a></li>
+        <li aria-current="page">Before &amp; After Examples</li>
+      </ol>
+    </nav>
+    <h1>Before &amp; After Examples</h1>
+    <p>See common accessibility issues and their fixes. Learn by example.</p>
+  </header>
+  <main id="maincontent" role="main">
+
+    <nav class="category-tabs" aria-label="Example categories">
+      <a href="#images" class="active">Images</a>
+      <a href="#headings">Headings</a>
+      <a href="#links">Links</a>
+      <a href="#color">Color</a>
+      <a href="#forms">Forms</a>
+      <a href="#tables">Tables</a>
+      <a href="#documents">Documents</a>
+    </nav>
+
+    <!-- IMAGES -->
+    <section id="images" class="example-section" aria-labelledby="images-heading">
+      <h2 id="images-heading">🖼️ Images &amp; Alt Text</h2>
+      
+      <article>
+        <h3>Missing alt text <span class="wcag-ref">WCAG 1.1.1</span></h3>
+        <p>Screen readers announce images without alt text as "image" or read the filename, which is unhelpful or confusing.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before (Inaccessible)</div>
+            <div class="panel-content">
+<pre><code>&lt;img src="IMG_2847.jpg"&gt;</code></pre>
+              <p><strong>Screen reader announces:</strong> "IMG underscore 2847 dot jpg, image"</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After (Accessible)</div>
+            <div class="panel-content">
+<pre><code>&lt;img src="IMG_2847.jpg" 
+     alt="Students studying together 
+     in the Main Library atrium"&gt;</code></pre>
+              <p><strong>Screen reader announces:</strong> "Students studying together in the Main Library atrium, image"</p>
+            </div>
+          </div>
+        </div>
+        <div class="fix-list">
+          <h4>💡 How to fix</h4>
+          <ul>
+            <li>Add <code>alt=""</code> attribute to every image</li>
+            <li>Describe the <strong>purpose</strong> or content of the image</li>
+            <li>Keep it concise (usually 1-2 sentences)</li>
+            <li>Don't start with "Image of..." or "Picture of..."</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <h3>Decorative images not marked as decorative <span class="wcag-ref">WCAG 1.1.1</span></h3>
+        <p>Decorative images (dividers, backgrounds) should have empty alt text so screen readers skip them.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+<pre><code>&lt;img src="divider-line.png" 
+     alt="decorative line divider"&gt;</code></pre>
+              <p><strong>Problem:</strong> Screen reader reads "decorative line divider" which adds no value and interrupts the flow.</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+<pre><code>&lt;img src="divider-line.png" alt=""&gt;</code></pre>
+              <p><strong>Result:</strong> Screen reader skips the image entirely, improving the reading experience.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- HEADINGS -->
+    <section id="headings" class="example-section" aria-labelledby="headings-heading">
+      <h2 id="headings-heading">📑 Headings &amp; Structure</h2>
+      
+      <article>
+        <h3>Bold text instead of real headings <span class="wcag-ref">WCAG 1.3.1</span></h3>
+        <p>Screen reader users navigate by headings. Bold text looks like a heading but isn't announced as one.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+<pre><code>&lt;p&gt;&lt;strong&gt;Course Requirements&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Students must complete...&lt;/p&gt;</code></pre>
+              <p><strong>Problem:</strong> Visually looks like a heading but screen readers don't recognize it. Users can't jump to this section.</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+<pre><code>&lt;h2&gt;Course Requirements&lt;/h2&gt;
+&lt;p&gt;Students must complete...&lt;/p&gt;</code></pre>
+              <p><strong>Result:</strong> Screen readers announce "Course Requirements, heading level 2" and users can navigate directly to it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fix-list">
+          <h4>💡 How to fix in Word</h4>
+          <ul>
+            <li>Select the text → Home tab → Styles panel → Choose "Heading 1", "Heading 2", etc.</li>
+            <li>Never use bold + larger font as a fake heading</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <h3>Skipped heading levels <span class="wcag-ref">WCAG 1.3.1</span></h3>
+        <p>Headings should follow a logical hierarchy without skipping levels.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+<pre><code>&lt;h1&gt;University Policies&lt;/h1&gt;
+&lt;h4&gt;Academic Integrity&lt;/h4&gt;  &lt;!-- Skipped h2, h3 --&gt;
+&lt;h2&gt;Attendance&lt;/h2&gt;</code></pre>
+              <p><strong>Problem:</strong> Jumping from h1 to h4 confuses screen reader users about the document structure.</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+<pre><code>&lt;h1&gt;University Policies&lt;/h1&gt;
+&lt;h2&gt;Academic Integrity&lt;/h2&gt;
+&lt;h2&gt;Attendance&lt;/h2&gt;</code></pre>
+              <p><strong>Result:</strong> Clear, logical hierarchy. Users understand Academic Integrity and Attendance are equal sections under Policies.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links" class="example-section" aria-labelledby="links-heading">
+      <h2 id="links-heading">🔗 Links</h2>
+      
+      <article>
+        <h3>Vague link text <span class="wcag-ref">WCAG 2.4.4</span></h3>
+        <p>Screen reader users often navigate by listing all links. "Click here" and "Read more" are meaningless out of context.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+<pre><code>For more information about registration, 
+&lt;a href="registration.html"&gt;click here&lt;/a&gt;.</code></pre>
+              <p><strong>Link list shows:</strong></p>
+              <ul>
+                <li>click here</li>
+                <li>click here</li>
+                <li>read more</li>
+                <li>click here</li>
+              </ul>
+              <p>Useless! Where does each link go?</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+<pre><code>&lt;a href="registration.html"&gt;Registration 
+information and deadlines&lt;/a&gt;</code></pre>
+              <p><strong>Link list shows:</strong></p>
+              <ul>
+                <li>Registration information and deadlines</li>
+                <li>Financial aid application</li>
+                <li>Academic calendar</li>
+              </ul>
+              <p>Clear and useful!</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <h3>Links that open in new windows without warning <span class="wcag-ref">WCAG 3.2.5</span></h3>
+        <p>Opening new windows unexpectedly can disorient users, especially screen reader users.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+<pre><code>&lt;a href="policy.pdf" target="_blank"&gt;
+  View policy
+&lt;/a&gt;</code></pre>
+              <p><strong>Problem:</strong> User doesn't know it will open a new tab. Back button won't work as expected.</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+<pre><code>&lt;a href="policy.pdf" target="_blank"&gt;
+  View policy (PDF, opens in new tab)
+&lt;/a&gt;</code></pre>
+              <p><strong>Result:</strong> User knows what to expect before clicking.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- COLOR -->
+    <section id="color" class="example-section" aria-labelledby="color-heading">
+      <h2 id="color-heading">🎨 Color &amp; Contrast</h2>
+      
+      <article>
+        <h3>Insufficient color contrast <span class="wcag-ref">WCAG 1.4.3</span></h3>
+        <p>Text must have at least 4.5:1 contrast ratio against its background (3:1 for large text).</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+              <div class="demo-box bad-contrast">
+                This light gray text on light background is hard to read. Contrast ratio: 2.5:1
+              </div>
+              <p><strong>Problem:</strong> Fails WCAG. Difficult for users with low vision, in bright light, or on low-quality monitors.</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+              <div class="demo-box good-contrast">
+                This darker text is easy to read. Contrast ratio: 10:1
+              </div>
+              <p><strong>Result:</strong> Passes WCAG AA. Readable in more conditions.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fix-list">
+          <h4>💡 Tool</h4>
+          <p>Use <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a> to test your colors.</p>
+        </div>
+      </article>
+
+      <article>
+        <h3>Color as the only indicator <span class="wcag-ref">WCAG 1.4.1</span></h3>
+        <p>Don't rely on color alone to convey information—some users can't perceive color differences.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+              <p>"Required fields are shown in <span style="color: red;">red</span>."</p>
+              <p><strong>Problem:</strong> Users who are colorblind can't identify required fields.</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+              <p>"Required fields are marked with <span style="color: red;">*</span> (asterisk)."</p>
+              <p><strong>Result:</strong> Color + symbol = accessible to everyone.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- FORMS -->
+    <section id="forms" class="example-section" aria-labelledby="forms-heading">
+      <h2 id="forms-heading">📝 Forms</h2>
+      
+      <article>
+        <h3>Missing form labels <span class="wcag-ref">WCAG 1.3.1, 3.3.2</span></h3>
+        <p>Every form input needs a programmatic label so screen readers can announce what to enter.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+<pre><code>Email: &lt;input type="email"&gt;</code></pre>
+              <p><strong>Screen reader announces:</strong> "Edit text" (no indication of what field this is)</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+<pre><code>&lt;label for="email"&gt;Email:&lt;/label&gt;
+&lt;input type="email" id="email"&gt;</code></pre>
+              <p><strong>Screen reader announces:</strong> "Email, edit text"</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <h3>Placeholder text as labels <span class="wcag-ref">WCAG 3.3.2</span></h3>
+        <p>Placeholder text disappears when typing, leaving users without context.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+<pre><code>&lt;input type="text" placeholder="Enter your name"&gt;</code></pre>
+              <p><strong>Problems:</strong></p>
+              <ul>
+                <li>Disappears once user starts typing</li>
+                <li>Often has poor contrast</li>
+                <li>Not reliably announced by screen readers</li>
+              </ul>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+<pre><code>&lt;label for="name"&gt;Full name&lt;/label&gt;
+&lt;input type="text" id="name" 
+       placeholder="e.g., Jane Smith"&gt;</code></pre>
+              <p><strong>Result:</strong> Permanent label + helpful example placeholder.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- TABLES -->
+    <section id="tables" class="example-section" aria-labelledby="tables-heading">
+      <h2 id="tables-heading">📊 Tables</h2>
+      
+      <article>
+        <h3>Data tables without headers <span class="wcag-ref">WCAG 1.3.1</span></h3>
+        <p>Screen readers need header cells to announce context for each data cell.</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+<pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Course&lt;/td&gt;
+    &lt;td&gt;Credits&lt;/td&gt;
+    &lt;td&gt;Grade&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;ENG 101&lt;/td&gt;
+    &lt;td&gt;3&lt;/td&gt;
+    &lt;td&gt;A&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+              <p><strong>Screen reader:</strong> "ENG 101, 3, A" (no context)</p>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After</div>
+            <div class="panel-content">
+<pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th scope="col"&gt;Course&lt;/th&gt;
+    &lt;th scope="col"&gt;Credits&lt;/th&gt;
+    &lt;th scope="col"&gt;Grade&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;ENG 101&lt;/td&gt;
+    &lt;td&gt;3&lt;/td&gt;
+    &lt;td&gt;A&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+              <p><strong>Screen reader:</strong> "Course: ENG 101, Credits: 3, Grade: A"</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section id="documents" class="example-section" aria-labelledby="documents-heading">
+      <h2 id="documents-heading">📄 Documents</h2>
+      
+      <article>
+        <h3>Scanned PDF (image-only) <span class="wcag-ref">WCAG 1.4.5</span></h3>
+        <p>Scanned documents are just images—screen readers see nothing but "image".</p>
+        <div class="comparison-container">
+          <div class="before-panel">
+            <div class="panel-header">❌ Before</div>
+            <div class="panel-content">
+              <p><strong>What happens:</strong></p>
+              <ul>
+                <li>Screen reader: "Image. Page 1 of 5."</li>
+                <li>No text to read</li>
+                <li>Can't search or copy text</li>
+                <li>Can't adjust font size</li>
+              </ul>
+            </div>
+          </div>
+          <div class="after-panel">
+            <div class="panel-header">✅ After (OCR + tagging)</div>
+            <div class="panel-content">
+              <p><strong>What happens:</strong></p>
+              <ul>
+                <li>Screen reader reads all text</li>
+                <li>Searchable and selectable</li>
+                <li>Can reflow at larger sizes</li>
+                <li>Properly tagged for structure</li>
+              </ul>
+              <p><strong>How:</strong> Use Acrobat's "Recognize Text" (OCR), then add tags.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="more-examples">
+      <h2 id="more-examples">Want more examples?</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>WebAIM Examples</h3>
+          <p>In-depth techniques with code samples.</p>
+          <a class="cta" href="https://webaim.org/techniques/">WebAIM Techniques</a>
+        </article>
+        <article class="card">
+          <h3>W3C Tutorials</h3>
+          <p>Official tutorials from the standards body.</p>
+          <a class="cta" href="https://www.w3.org/WAI/tutorials/">WAI Tutorials</a>
+        </article>
+        <article class="card">
+          <h3>Deque Patterns</h3>
+          <p>Accessible component patterns with code.</p>
+          <a class="cta" href="https://dequeuniversity.com/library/">Deque Library</a>
+        </article>
+      </div>
+    </section>
+
+    <p><a href="#maincontent">Back to top</a></p>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="glossary.html">Glossary</a> | <a href="faq.html">FAQ</a></p>
+  </footer>
+</body>
+</html>

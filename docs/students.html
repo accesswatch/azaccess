@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Student Persona Hub | Accessibility at Arizona</title>
+  <title>I Am a Student | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="../../scripts/header.js" defer></script>
 </head>
@@ -15,7 +15,7 @@
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
+        <a href="roles.html">I Am A...</a>
         <a href="documents-media.html">Documents &amp; Media</a>
         <a href="web-app.html">Web &amp; Apps</a>
         <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -31,14 +31,38 @@
       </nav>
     </div>
     <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / <a href="personas.html">Personas</a> / Students</p>
+      <p><a href="home.html">Accessibility Home</a> / <a href="roles.html">I Am A...</a> / Student</p>
     </nav>
-    <h1>Students</h1>
-    <p>Students expect frictionless accommodations, accessible course media, and transparent support pathways.</p>
+    <h1>I am a Student</h1>
+    <p>Get the accommodations, captions, and support you need—without the runaround.</p>
     <p class="metric-chip">Avg accommodation processing time: 7 days</p>
     <p class="page-meta">You will not get in trouble for asking questions or reporting barriers. It helps us improve courses, tools, and spaces for everyone.</p>
   </header>
   <main id="maincontent" role="main">
+    <section aria-labelledby="student-quick-actions">
+      <h2 id="student-quick-actions">⚡ Need something right now?</h2>
+      <div class="quick-wins-grid">
+        <article class="quick-win-card">
+          <h3>🎓 Get accommodations</h3>
+          <p>Log in to the DRC portal to request or renew academic accommodations.</p>
+          <span class="time-estimate">⏱️ 15 min</span>
+          <p><a href="https://drc.arizona.edu">DRC Portal →</a></p>
+        </article>
+        <article class="quick-win-card">
+          <h3>🚧 Report a barrier</h3>
+          <p>Found an inaccessible website, app, or classroom? Tell us—we respond in 2 business days.</p>
+          <span class="time-estimate">⏱️ 3 min</span>
+          <p><a href="https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx">Access Report →</a></p>
+        </article>
+        <article class="quick-win-card">
+          <h3>📧 Ask a question</h3>
+          <p>Not sure where to start? Email us and describe what you need in your own words.</p>
+          <span class="time-estimate">⏱️ 2 min</span>
+          <p><a href="mailto:accessibility@arizona.edu">Email us →</a></p>
+        </article>
+      </div>
+    </section>
+
     <section aria-labelledby="student-help">
       <h2 id="student-help">What this page helps you do</h2>
       <ul>
@@ -56,6 +80,7 @@
             <tr>
               <th scope="col">Task</th>
               <th scope="col">Steps</th>
+              <th scope="col">Time</th>
               <th scope="col">Primary Tools</th>
             </tr>
           </thead>
@@ -63,16 +88,19 @@
             <tr>
               <td>Request or renew accommodations</td>
               <td>Gather documentation → Submit via DRC portal → Meet Access Consultant → Share letters with instructors.</td>
+              <td>~15 min online + meeting</td>
               <td><a href="https://drc.arizona.edu">DRC Portal</a></td>
             </tr>
             <tr>
               <td>Get captioned media</td>
               <td>Check Panopto captions → Request edits via instructor or UCATT form → Escalate urgent needs.</td>
+              <td>~5 min to request</td>
               <td>Panopto, UCATT Multimedia</td>
             </tr>
             <tr>
               <td>Report a barrier</td>
               <td>Document issue (URL/location) → Submit Access Report form → Receive follow-up within 2 business days.</td>
+              <td>~3 min</td>
               <td>Access Report, accessibility@arizona.edu</td>
             </tr>
           </tbody>
@@ -299,24 +327,40 @@
       <p>Sharing barriers and questions will not get you or anyone else in trouble—it helps Arizona fix issues and improve access for more students.</p>
     </section>
 
-    <section aria-labelledby="student-resources">
-      <h2 id="student-resources">Student resources</h2>
+    <section aria-labelledby="student-sources">
+      <h2 id="student-sources">📚 Know your rights</h2>
+      <p>These organizations define the laws and best practices that protect your access to education.</p>
       <div class="grid grid-3">
         <article class="card">
-          <h3>Know your rights</h3>
-          <p>Detailed guide to student accessibility rights under ADA, Section 504, and more.</p>
-          <a class="cta" href="student-rights.html">Student rights guide</a>
+          <h3>Your Rights</h3>
+          <ul>
+            <li><a href="https://www.ada.gov/resources/students-disability-guide/">ADA.gov: Students with Disabilities</a></li>
+            <li><a href="https://www2.ed.gov/about/offices/list/ocr/504faq.html">Section 504 FAQ</a></li>
+          </ul>
         </article>
         <article class="card">
-          <h3>Assistive technology</h3>
-          <p>Learn about screen readers, magnifiers, and study tools.</p>
-          <a class="cta" href="assistive-tech-guide.html">Explore AT</a>
+          <h3>Self-Advocacy</h3>
+          <ul>
+            <li><a href="https://www.understood.org/en/articles/self-advocacy-in-college">Understood: Self-Advocacy</a></li>
+            <li><a href="https://www.ahead.org/professional-resources/information-center">AHEAD Resources</a></li>
+          </ul>
         </article>
         <article class="card">
-          <h3>Experience simulations</h3>
-          <p>Understand accessibility through interactive demos.</p>
-          <a class="cta" href="experience-simulations.html">Try simulations</a>
+          <h3>Tools You Can Use</h3>
+          <ul>
+            <li><a href="https://www.nvaccess.org/">NVDA Screen Reader</a> – Free</li>
+            <li><a href="https://wave.webaim.org/">WAVE Extension</a> – Test pages</li>
+          </ul>
         </article>
+      </div>
+    </section>
+
+    <!-- Student testimonial -->
+    <section aria-labelledby="student-testimonial">
+      <h2 id="student-testimonial">From students like you</h2>
+      <div class="testimonial">
+        <blockquote>"I was worried about asking for help, but the DRC made it easy. Within a week I had captions on my lecture videos and extra time on exams. It made a huge difference."</blockquote>
+        <cite>— Undergraduate, Eller College</cite>
       </div>
     </section>
 
@@ -327,17 +371,17 @@
         <article class="card">
           <h3>Families &amp; Visitors</h3>
           <p>If you&apos;re bringing family to campus or planning events.</p>
-          <a class="cta" href="persona-public.html">Public guide</a>
+          <a class="cta" href="visitors.html">Public guide</a>
         </article>
         <article class="card">
           <h3>Working with Faculty</h3>
           <p>Understand what faculty are asked to do when implementing accommodations.</p>
-          <a class="cta" href="persona-faculty.html">Faculty guide</a>
+          <a class="cta" href="faculty.html">Faculty guide</a>
         </article>
         <article class="card">
-          <h3>All Personas</h3>
+          <h3>All Roles</h3>
           <p>Browse all role-based guides.</p>
-          <a class="cta" href="personas.html">Persona hub</a>
+          <a class="cta" href="roles.html">Back to I Am A...</a>
         </article>
       </div>
     </section>
@@ -346,6 +390,5 @@
     <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
     <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
   </footer>
-  <script src="scripts/feedback-widget.js" defer></script>
 </body>
 </html>

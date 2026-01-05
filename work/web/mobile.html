@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile App Teams | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="roles.html">I Am A...</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="roles.html">I Am A...</a> / Mobile</p>
+    </nav>
+    <h1>Mobile App Teams</h1>
+    <p>Arizona Digital and partner units build mobile apps that must meet Title II’s WCAG 2.1/2.2 AA requirements.</p>
+    <p class="metric-chip">Title II mobile deadline: April 24, 2026</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="mobile-help">
+      <h2 id="mobile-help">What this page helps you do</h2>
+      <ul>
+        <li>Align your mobile app roadmap with Title II timelines and WCAG 2.2 AA requirements.</li>
+        <li>Coordinate patterns and testing between mobile apps and the <a href="web-app.html">Web &amp; Apps hub</a>.</li>
+        <li>Plan VoiceOver/TalkBack testing and know when to ask for help from Accessibility and Arizona Digital.</li>
+      </ul>
+    </section>
+    <section aria-labelledby="mobile-tasks">
+      <h2 id="mobile-tasks">Top tasks</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Steps</th>
+              <th scope="col">Primary Tools</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inventory apps</td>
+              <td>List platforms, owners, frameworks, usage; log in roadmap.</td>
+              <td>Mobile Roadmap tracker</td>
+            </tr>
+            <tr>
+              <td>Design accessible patterns</td>
+              <td>Map tokens to platform APIs → ensure focus order → provide large text assets.</td>
+              <td>iOS Human Interface Guidelines, Material Design</td>
+            </tr>
+            <tr>
+              <td>Audit &amp; remediate</td>
+              <td>Run VoiceOver/TalkBack tests → log defects → integrate fixes into sprints.</td>
+              <td>Xcode Accessibility Inspector, Android Accessibility Scanner</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="mobile-principles">
+      <h2 id="mobile-principles">Impactful principles &amp; tools</h2>
+      <p>Keep the mobile backlog lean by aligning with the <a href="wcag22-highlights.html">WCAG 2.2 AA highlights</a> and automating checks.</p>
+      <details class="accordion" open>
+        <summary>Focus, targets, and gestures</summary>
+        <div>
+          <ul>
+            <li>Meet SC 2.4.11 and 2.5.8 by ensuring focus indicators remain visible and touch targets hit 44x44 px (iOS) or 48x48 dp (Android).</li>
+            <li>Provide single-tap alternatives to drag gestures (SC 2.5.7) and support external keyboards.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Testing &amp; monitoring stack</summary>
+        <div>
+          <ul>
+            <li>Use Accessibility Insights for Android/iOS to scan views during development.</li>
+            <li>Validate companion web workflows with WAVE and DubBot so embedded content matches app behavior.</li>
+            <li>Document VoiceOver/TalkBack passes alongside automated linting in CI.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Docs, PDFs, and store listings</summary>
+        <div>
+          <p>Release notes, support docs, and store screenshots must follow content accessibility rules:</p>
+          <ul>
+            <li>Run Microsoft Accessibility Checker on Word/PowerPoint instructions prior to PDF export.</li>
+            <li>Use <a href="pdf-remediation.html">Adobe PDF remediation</a> for onboarding packets (reading order, labels, tags).</li>
+            <li>Provide descriptive alt text for App Store / Play Store screenshots following <a href="https://webaim.org/techniques/alttext/">WebAIM guidance</a>.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="mobile-guidance">
+      <h2 id="mobile-guidance">Guidance</h2>
+      <details class="accordion" open>
+        <summary>Roadmap alignment</summary>
+        <div>
+          <p>Follow the <a href="mobile-roadmap.html">mobile roadmap</a> to hit Title II milestones. Prioritize student services, financial aid, and campus safety apps.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Design system integration</summary>
+        <div>
+          <ul>
+            <li>Respect Dynamic Type, Bold Text, High Contrast, Reduce Motion, and system color schemes.</li>
+            <li>Ensure tappable targets ≥ 44x44 px with clear focus indicators.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Testing cadence</summary>
+        <div>
+          <ol>
+            <li>Automated lint rules for labels, contrast, and large text.</li>
+            <li>Manual screen-reader sweeps with VoiceOver (iOS) and TalkBack (Android) every sprint.</li>
+            <li>Quarterly regression with JAWS/NVDA for companion web flows.</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="mobile-tools">
+      <h2 id="mobile-tools">Tools &amp; contacts</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Mobile Accessibility Roadmap</h3>
+          <p>Timeline, milestones, testing expectations.</p>
+          <a class="cta" href="mobile-roadmap.html">View roadmap</a>
+        </article>
+        <article class="card">
+          <h3>Xcode &amp; Android tools</h3>
+          <p>VoiceOver rotor, Accessibility Inspector, Accessibility Scanner.</p>
+          <a class="cta" href="https://developer.apple.com/accessibility/">Apple docs</a>
+        </article>
+        <article class="card">
+          <h3>Accessibility consults</h3>
+          <p>Request design/code reviews, AT loaner devices, and user testing.</p>
+          <a class="cta" href="https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu">Request review</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="mobile-at">
+      <h2 id="mobile-at">Assistive technologies to test with</h2>
+      <p>Mobile releases must document test passes with:</p>
+      <ul>
+        <li><strong>VoiceOver</strong> (iOS/iPadOS) – gestures, rotor navigation, focus order.</li>
+        <li><strong>TalkBack</strong> (Android) – swipe navigation, custom actions, announcements.</li>
+        <li><strong>JAWS</strong>/ <strong>NVDA</strong> when apps embed web content or rely on companion sites.</li>
+        <li><strong>Fusion</strong> / <strong>ZoomText</strong> for Windows management consoles or kiosk mirroring.</li>
+      </ul>
+      <p>Reference <a href="assistive-tech.html">Assistive Technology Coverage</a> for expectations and training.</p>
+    </section>
+
+    <section aria-labelledby="mobile-training">
+      <h2 id="mobile-training">Training &amp; community</h2>
+      <ul>
+        <li>Mobile App Guild office hours (bi-weekly).</li>
+        <li>VoiceOver/TalkBack testing labs (monthly).</li>
+        <li>Title II readiness briefings for app owners.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="mobile-feedback">
+      <h2 id="mobile-feedback">Feedback</h2>
+      <p>Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> with app release plans or blockers. Last reviewed: 2026-01-05.</p>
+    </section>
+    <section aria-labelledby="mobile-next-steps">
+      <h2 id="mobile-next-steps">Next steps for mobile app owners</h2>
+      <ul>
+        <li><strong>This month:</strong> Complete the inventory in the <a href="mobile-roadmap.html">mobile roadmap</a> and identify your top two student- or public-facing apps.</li>
+        <li><strong>This quarter:</strong> Run VoiceOver and TalkBack tests on priority flows and log issues using the <a href="web-app.html#wcag">WCAG 2.2 checklist</a> in the Web &amp; Apps hub.</li>
+        <li><strong>Before April 2026:</strong> Ensure every supported app has an accessibility statement, documented test coverage, and a plan for exceptions or alternative access.</li>
+      </ul>
+      <p>Use the <a href="support.html">Support &amp; Consultations</a> page if you need help planning audits, user testing, or vendor coordination.</p>
+    </section>
+
+    <section aria-labelledby="related-guides">
+      <h2 id="related-guides">Related guides you may need</h2>
+      <p>Your work may overlap with these roles:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Web Development</h3>
+          <p>Shared patterns, CI/CD integration, and testing approaches.</p>
+          <a class="cta" href="developers.html">Developer guide</a>
+        </article>
+        <article class="card">
+          <h3>Web &amp; Apps Hub</h3>
+          <p>Comprehensive WCAG guidance and testing tools.</p>
+          <a class="cta" href="web-app.html">Web &amp; Apps</a>
+        </article>
+        <article class="card">
+          <h3>All Personas</h3>
+          <p>Browse all role-based guides.</p>
+          <a class="cta" href="roles.html">Persona hub</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+</body>
+</html>

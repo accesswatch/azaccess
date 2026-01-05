@@ -25,8 +25,12 @@ Then open `http://localhost:8000/home.html` in a browser.
 	- `policies-governance.html`
 	- `tools-checklists.html`
 	- `support.html`
-- Personas:
-	- `personas.html` and `persona-*.html`
+- I Am A... (Role-based guides):
+	- `roles.html` — Main role selection hub
+	- `students.html`, `faculty.html`, `staff.html`
+	- `developers.html`, `mobile.html`
+	- `content-creators.html`, `communications.html`
+	- `leadership.html`, `visitors.html`
 - Patterns and guides: HTML counterparts to `../shared/*.md` (e.g., `doc-word.html`, `media-captioning.html`, `testing-tools.html`, `skip-link-snippet.html`, `lms-brightspace.html`, `pedagogy-checklist.html`).
 
 All pages share a common header/nav and a visible skip link for accessibility.

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Templates &amp; Downloads | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .download-card {
+      background: white;
+      border: 1px solid var(--ua-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .download-card h3 {
+      margin: 0 0 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .download-card .file-icon {
+      font-size: 1.5rem;
+    }
+    .download-card p {
+      flex: 1;
+      margin: 0 0 1rem 0;
+      color: #555;
+    }
+    .download-card .meta {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 0.75rem;
+    }
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--ua-arizona-blue);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .download-button:hover {
+      background: var(--ua-midnight);
+    }
+    .download-button.secondary {
+      background: transparent;
+      color: var(--ua-arizona-blue);
+      border: 1px solid var(--ua-arizona-blue);
+    }
+    .download-button.secondary:hover {
+      background: var(--ua-cool-gray);
+    }
+    .category-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .category-filter button {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--ua-border);
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+    }
+    .category-filter button:hover,
+    .category-filter button.active {
+      background: var(--ua-arizona-blue);
+      color: white;
+      border-color: var(--ua-arizona-blue);
+    }
+    .format-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      background: var(--ua-chip-bg);
+      border-radius: 3px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .format-badge.docx { background: #2b579a; color: white; }
+    .format-badge.pptx { background: #d24726; color: white; }
+    .format-badge.pdf { background: #f40f02; color: white; }
+    .format-badge.xlsx { background: #217346; color: white; }
+    .preview-link {
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="roles.html">I Am A...</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links">
+        <a href="glossary.html">Glossary</a>
+        <a href="faq.html">FAQ</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="tools-checklists.html">Tools &amp; Checklists</a></li>
+        <li aria-current="page">Templates &amp; Downloads</li>
+      </ol>
+    </nav>
+    <h1>Templates &amp; Downloads</h1>
+    <p>Ready-to-use accessible templates and printable checklists. All templates follow UA brand guidelines and WCAG 2.2 AA.</p>
+  </header>
+  <main id="maincontent" role="main">
+
+    <section aria-labelledby="filter-heading">
+      <h2 id="filter-heading" class="visually-hidden">Filter by category</h2>
+      <div class="category-filter" role="group" aria-label="Filter templates">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="templates">Templates</button>
+        <button data-filter="checklists">Checklists</button>
+        <button data-filter="guides">Quick Guides</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="templates-heading">
+      <h2 id="templates-heading">📄 Document Templates</h2>
+      <p>Start with these pre-configured accessible templates instead of building from scratch.</p>
+      <div class="download-grid">
+        <article class="download-card" data-category="templates">
+          <h3><span class="file-icon">📝</span> Accessible Word Template</h3>
+          <p>Pre-configured with proper heading styles, accessible fonts, and color-contrast compliant themes. Includes sample structure.</p>
+          <div class="meta">
+            <span class="format-badge docx">DOCX</span>
+            Updated: Jan 2026 · 45 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download Word template">⬇️ Download</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="templates">
+          <h3><span class="file-icon">📊</span> Accessible PowerPoint Template</h3>
+          <p>UA-branded slides with proper reading order, accessible color schemes, and placeholder alt text guidance.</p>
+          <div class="meta">
+            <span class="format-badge pptx">PPTX</span>
+            Updated: Jan 2026 · 2.1 MB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download PowerPoint template">⬇️ Download</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="templates">
+          <h3><span class="file-icon">📈</span> Accessible Excel Template</h3>
+          <p>Spreadsheet with named ranges, proper header rows, and accessible chart templates. Includes data validation examples.</p>
+          <div class="meta">
+            <span class="format-badge xlsx">XLSX</span>
+            Updated: Jan 2026 · 125 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download Excel template">⬇️ Download</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="templates">
+          <h3><span class="file-icon">📧</span> Accessible Email Template</h3>
+          <p>HTML email template that works with screen readers. For Outlook, Gmail, and marketing platforms.</p>
+          <div class="meta">
+            <span class="format-badge">HTML</span>
+            Updated: Jan 2026 · 15 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download email template">⬇️ Download</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="templates">
+          <h3><span class="file-icon">📋</span> Accessible Syllabus Template</h3>
+          <p>Course syllabus with accessibility statement, DRC information, and properly structured sections. Word and Google Docs versions.</p>
+          <div class="meta">
+            <span class="format-badge docx">DOCX</span>
+            Updated: Jan 2026 · 52 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download syllabus template">⬇️ Download</a>
+            <a href="example-syllabus.html" class="preview-link">Preview →</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="templates">
+          <h3><span class="file-icon">📰</span> Accessible Newsletter Template</h3>
+          <p>Multi-column newsletter with proper heading hierarchy, accessible images, and responsive design.</p>
+          <div class="meta">
+            <span class="format-badge docx">DOCX</span>
+            Updated: Jan 2026 · 180 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download newsletter template">⬇️ Download</a>
+            <a href="example-newsletter.html" class="preview-link">Preview →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="checklists-heading">
+      <h2 id="checklists-heading">✅ Printable Checklists</h2>
+      <p>Print these and keep them at your desk. Each fits on one page.</p>
+      <div class="download-grid">
+        <article class="download-card" data-category="checklists">
+          <h3><span class="file-icon">✅</span> Document Accessibility Checklist</h3>
+          <p>One-page checklist for Word, PowerPoint, and PDF. Check off items before publishing.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            1 page · 85 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download document checklist PDF">⬇️ Download PDF</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="checklists">
+          <h3><span class="file-icon">✅</span> Web Accessibility Checklist</h3>
+          <p>WCAG 2.2 AA requirements organized by POUR principles. For developers and content authors.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            2 pages · 120 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download web checklist PDF">⬇️ Download PDF</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="checklists">
+          <h3><span class="file-icon">✅</span> Brightspace Course Checklist</h3>
+          <p>LMS-specific checklist for faculty. Covers modules, quizzes, discussions, and media.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            1 page · 90 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download Brightspace checklist PDF">⬇️ Download PDF</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="checklists">
+          <h3><span class="file-icon">✅</span> Event Accessibility Checklist</h3>
+          <p>Planning accessible in-person and virtual events. Covers venues, materials, and accommodations.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            1 page · 75 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download event checklist PDF">⬇️ Download PDF</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="checklists">
+          <h3><span class="file-icon">✅</span> Procurement Checklist</h3>
+          <p>Questions to ask vendors, VPAT evaluation criteria, and contract language requirements.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            1 page · 80 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download procurement checklist PDF">⬇️ Download PDF</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="checklists">
+          <h3><span class="file-icon">✅</span> Alt Text Decision Tree</h3>
+          <p>Flowchart: Is alt text needed? What should it say? Print and post near your desk.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            1 page · 95 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download alt text flowchart PDF">⬇️ Download PDF</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="guides-heading">
+      <h2 id="guides-heading">📚 Quick Reference Guides</h2>
+      <p>Condensed how-to guides you can print or save offline.</p>
+      <div class="download-grid">
+        <article class="download-card" data-category="guides">
+          <h3><span class="file-icon">📚</span> Microsoft Accessibility Checker Guide</h3>
+          <p>Step-by-step guide to running and interpreting the Accessibility Checker in Word, PowerPoint, and Excel.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            2 pages · 450 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download Microsoft checker guide">⬇️ Download PDF</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="guides">
+          <h3><span class="file-icon">📚</span> Screen Reader Testing Basics</h3>
+          <p>Quick-start guide to testing with NVDA (free). Covers installation, basic commands, and what to check.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            3 pages · 380 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download screen reader guide">⬇️ Download PDF</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="guides">
+          <h3><span class="file-icon">📚</span> Caption Editing Cheat Sheet</h3>
+          <p>Common caption errors and how to fix them in Panopto. Formatting standards and accuracy targets.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            1 page · 65 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download caption guide">⬇️ Download PDF</a>
+          </div>
+        </article>
+
+        <article class="download-card" data-category="guides">
+          <h3><span class="file-icon">📚</span> Color Contrast Quick Reference</h3>
+          <p>UA brand colors with their contrast ratios. Safe combinations at a glance.</p>
+          <div class="meta">
+            <span class="format-badge pdf">PDF</span>
+            1 page · 250 KB
+          </div>
+          <div>
+            <a href="#" class="download-button" aria-label="Download color guide">⬇️ Download PDF</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="request-heading">
+      <h2 id="request-heading">Need something else?</h2>
+      <p>Don't see what you need? <a href="mailto:accessibility@arizona.edu?subject=Template request">Request a template or checklist</a> and we'll create it.</p>
+    </section>
+
+    <p><a href="#maincontent">Back to top</a></p>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="glossary.html">Glossary</a> | <a href="faq.html">FAQ</a></p>
+  </footer>
+  <script>
+    // Category filter functionality
+    const filterButtons = document.querySelectorAll('.category-filter button');
+    const cards = document.querySelectorAll('.download-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        
+        filterButtons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

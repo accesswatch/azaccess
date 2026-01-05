@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick Start Guide | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .decision-tree {
+      margin: 2rem 0;
+    }
+    .decision-step {
+      background: white;
+      border: 2px solid var(--ua-arizona-blue);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .decision-step.question {
+      background: var(--ua-chip-bg);
+    }
+    .decision-step h3 {
+      margin: 0 0 1rem 0;
+      color: var(--ua-arizona-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .decision-step .question-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .answer-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .answer-option {
+      display: block;
+      padding: 1rem;
+      background: white;
+      border: 2px solid var(--ua-border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .answer-option:hover {
+      border-color: var(--ua-arizona-blue);
+      background: var(--ua-cool-gray);
+      transform: translateY(-2px);
+    }
+    .answer-option .emoji {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .answer-option .label {
+      font-weight: 600;
+    }
+    .result-card {
+      background: linear-gradient(135deg, var(--ua-arizona-blue) 0%, var(--ua-azurite) 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1rem 0;
+    }
+    .result-card h3 {
+      margin: 0 0 1rem 0;
+      color: white;
+    }
+    .result-card ul {
+      margin: 1rem 0;
+    }
+    .result-card a {
+      color: var(--ua-sky);
+    }
+    .result-card .cta {
+      background: white;
+      color: var(--ua-arizona-blue);
+    }
+    .quick-path {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .quick-path a {
+      padding: 0.5rem 1rem;
+      background: var(--ua-cool-gray);
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .quick-path a:hover {
+      background: var(--ua-arizona-blue);
+      color: white;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: var(--ua-arizona-blue);
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    .flowchart-container {
+      overflow-x: auto;
+    }
+    .mini-checklist {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .mini-checklist h4 {
+      margin: 0 0 0.5rem 0;
+    }
+    .mini-checklist label {
+      display: block;
+      padding: 0.25rem 0;
+      cursor: pointer;
+    }
+    .mini-checklist input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="roles.html">I Am A...</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="home.html">Home</a></li>
+        <li aria-current="page">Quick Start</li>
+      </ol>
+    </nav>
+    <h1>Quick Start: What Do I Need to Do?</h1>
+    <p>Answer a few questions to get personalized recommendations.</p>
+  </header>
+  <main id="maincontent" role="main">
+
+    <section aria-labelledby="quick-jump">
+      <h2 id="quick-jump" class="visually-hidden">Quick jump to common scenarios</h2>
+      <p><strong>Know what you need?</strong> Jump directly:</p>
+      <div class="quick-path">
+        <a href="#doc-result">📄 Making a document accessible</a>
+        <a href="#web-result">🌐 Testing a website</a>
+        <a href="#course-result">📚 Accessible course in Brightspace</a>
+        <a href="#video-result">🎬 Adding captions to video</a>
+        <a href="#buying-result">🛒 Buying software</a>
+        <a href="#report-result">🚧 Reporting a barrier</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="start-here">
+      <h2 id="start-here"><span class="step-number">1</span> What are you working with?</h2>
+      <div class="answer-options">
+        <a href="#documents" class="answer-option">
+          <span class="emoji">📄</span>
+          <span class="label">Document</span>
+          <span class="sublabel">Word, PowerPoint, PDF, Google Docs</span>
+        </a>
+        <a href="#web" class="answer-option">
+          <span class="emoji">🌐</span>
+          <span class="label">Website or App</span>
+          <span class="sublabel">Web pages, web apps, mobile apps</span>
+        </a>
+        <a href="#course" class="answer-option">
+          <span class="emoji">📚</span>
+          <span class="label">Course Content</span>
+          <span class="sublabel">Brightspace, Panopto, lectures</span>
+        </a>
+        <a href="#video" class="answer-option">
+          <span class="emoji">🎬</span>
+          <span class="label">Video or Audio</span>
+          <span class="sublabel">Recordings, podcasts, live events</span>
+        </a>
+        <a href="#buying" class="answer-option">
+          <span class="emoji">🛒</span>
+          <span class="label">Buying Something</span>
+          <span class="sublabel">Software, SaaS, hardware</span>
+        </a>
+        <a href="#barrier" class="answer-option">
+          <span class="emoji">🚧</span>
+          <span class="label">Report a Barrier</span>
+          <span class="sublabel">Found something inaccessible</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS FLOW -->
+    <section id="documents" class="decision-tree" aria-labelledby="doc-heading">
+      <h2 id="doc-heading"><span class="step-number">2</span> Documents: What type?</h2>
+      <div class="answer-options">
+        <a href="#doc-result" class="answer-option" data-type="word">
+          <span class="emoji">📝</span>
+          <span class="label">Word Document</span>
+        </a>
+        <a href="#doc-result" class="answer-option" data-type="ppt">
+          <span class="emoji">📊</span>
+          <span class="label">PowerPoint</span>
+        </a>
+        <a href="#doc-result" class="answer-option" data-type="pdf">
+          <span class="emoji">📑</span>
+          <span class="label">PDF</span>
+        </a>
+        <a href="#doc-result" class="answer-option" data-type="google">
+          <span class="emoji">📄</span>
+          <span class="label">Google Docs/Slides</span>
+        </a>
+        <a href="#doc-result" class="answer-option" data-type="excel">
+          <span class="emoji">📈</span>
+          <span class="label">Excel/Spreadsheet</span>
+        </a>
+      </div>
+    </section>
+
+    <div id="doc-result" class="result-card">
+      <h3>📄 Making Documents Accessible</h3>
+      <p>Here's your quick checklist:</p>
+      <div class="mini-checklist">
+        <h4>Before sharing any document:</h4>
+        <label><input type="checkbox"> Used heading styles (not just bold text)</label>
+        <label><input type="checkbox"> Added alt text to images</label>
+        <label><input type="checkbox"> Used sufficient color contrast</label>
+        <label><input type="checkbox"> Made link text descriptive (not "click here")</label>
+        <label><input type="checkbox"> Ran Accessibility Checker (Review → Check Accessibility)</label>
+      </div>
+      <p><strong>Detailed guides:</strong></p>
+      <ul>
+        <li><a href="doc-word.html">Word accessibility guide</a></li>
+        <li><a href="doc-powerpoint.html">PowerPoint accessibility guide</a></li>
+        <li><a href="pdf-remediation.html">PDF remediation guide</a></li>
+        <li><a href="doc-google.html">Google Docs accessibility guide</a></li>
+      </ul>
+      <p><a class="cta" href="templates-downloads.html">Download accessible templates →</a></p>
+    </div>
+
+    <!-- WEB FLOW -->
+    <section id="web" class="decision-tree" aria-labelledby="web-heading">
+      <h2 id="web-heading"><span class="step-number">2</span> Web/App: What's your role?</h2>
+      <div class="answer-options">
+        <a href="#web-result" class="answer-option">
+          <span class="emoji">💻</span>
+          <span class="label">Developer</span>
+          <span class="sublabel">Building or fixing</span>
+        </a>
+        <a href="#web-content-result" class="answer-option">
+          <span class="emoji">✏️</span>
+          <span class="label">Content Author</span>
+          <span class="sublabel">Adding content to CMS</span>
+        </a>
+        <a href="#web-test-result" class="answer-option">
+          <span class="emoji">🔍</span>
+          <span class="label">Tester/QA</span>
+          <span class="sublabel">Checking for issues</span>
+        </a>
+      </div>
+    </section>
+
+    <div id="web-result" class="result-card">
+      <h3>💻 Developer: Building Accessible Web</h3>
+      <div class="mini-checklist">
+        <h4>Essential developer checklist:</h4>
+        <label><input type="checkbox"> Semantic HTML (proper headings, lists, landmarks)</label>
+        <label><input type="checkbox"> All images have alt text</label>
+        <label><input type="checkbox"> Forms have labels</label>
+        <label><input type="checkbox"> Keyboard accessible (Tab, Enter, Escape work)</label>
+        <label><input type="checkbox"> Visible focus indicators</label>
+        <label><input type="checkbox"> Color contrast 4.5:1 minimum</label>
+        <label><input type="checkbox"> Tested with screen reader</label>
+      </div>
+      <p><strong>Your tools:</strong></p>
+      <ul>
+        <li><a href="https://wave.webaim.org/">WAVE</a> or <a href="https://www.deque.com/axe/">axe DevTools</a> — Browser extensions</li>
+        <li><a href="https://www.nvaccess.org/">NVDA</a> — Free screen reader for testing</li>
+        <li><a href="tools-comparison.html">Full tools comparison →</a></li>
+      </ul>
+      <p><a class="cta" href="developers.html">Complete developer guide →</a></p>
+    </div>
+
+    <div id="web-content-result" class="result-card">
+      <h3>✏️ Content Author: CMS Best Practices</h3>
+      <div class="mini-checklist">
+        <h4>When adding content:</h4>
+        <label><input type="checkbox"> Use heading styles for sections</label>
+        <label><input type="checkbox"> Add alt text to every image</label>
+        <label><input type="checkbox"> Write descriptive link text</label>
+        <label><input type="checkbox"> Add captions to videos</label>
+        <label><input type="checkbox"> Use lists for lists (not just dashes)</label>
+      </div>
+      <p><a class="cta" href="content-creators.html">Content creator guide →</a></p>
+    </div>
+
+    <div id="web-test-result" class="result-card">
+      <h3>🔍 Tester: Checking for Accessibility</h3>
+      <ol>
+        <li><strong>Automated scan:</strong> Run <a href="https://wave.webaim.org/">WAVE</a> or axe DevTools</li>
+        <li><strong>Keyboard test:</strong> Tab through the entire page</li>
+        <li><strong>Screen reader:</strong> Test with <a href="https://www.nvaccess.org/">NVDA</a></li>
+        <li><strong>Visual:</strong> Zoom to 200%, check contrast</li>
+      </ol>
+      <p><a class="cta" href="testing-tools.html">Full testing guide →</a></p>
+    </div>
+
+    <!-- COURSE FLOW -->
+    <section id="course" class="decision-tree" aria-labelledby="course-heading">
+      <h2 id="course-heading"><span class="step-number">2</span> Course Content</h2>
+    </section>
+
+    <div id="course-result" class="result-card">
+      <h3>📚 Making Courses Accessible</h3>
+      <div class="mini-checklist">
+        <h4>Brightspace course checklist:</h4>
+        <label><input type="checkbox"> Module pages use heading styles</label>
+        <label><input type="checkbox"> All images have alt text</label>
+        <label><input type="checkbox"> Videos have accurate captions</label>
+        <label><input type="checkbox"> Documents are accessible (not scanned PDFs)</label>
+        <label><input type="checkbox"> Quiz questions have sufficient time</label>
+        <label><input type="checkbox"> Accessibility statement in syllabus</label>
+      </div>
+      <p><strong>Key resources:</strong></p>
+      <ul>
+        <li><a href="lms-brightspace.html">Brightspace accessibility guide</a></li>
+        <li><a href="media-captioning.html">Captioning videos in Panopto</a></li>
+        <li><a href="pedagogy-checklist.html">Universal Design for Learning</a></li>
+      </ul>
+      <p><a class="cta" href="faculty.html">Complete faculty guide →</a></p>
+    </div>
+
+    <!-- VIDEO FLOW -->
+    <section id="video" class="decision-tree" aria-labelledby="video-heading">
+      <h2 id="video-heading"><span class="step-number">2</span> Video/Audio</h2>
+    </section>
+
+    <div id="video-result" class="result-card">
+      <h3>🎬 Making Media Accessible</h3>
+      <div class="mini-checklist">
+        <h4>Video accessibility:</h4>
+        <label><input type="checkbox"> Captions added (auto-captions edited for accuracy)</label>
+        <label><input type="checkbox"> Transcript available for audio-only content</label>
+        <label><input type="checkbox"> Audio descriptions for visual-only content (if needed)</label>
+        <label><input type="checkbox"> Good audio quality (clear speech)</label>
+      </div>
+      <p><strong>How to caption:</strong></p>
+      <ul>
+        <li><strong>Panopto:</strong> Auto-generates captions—review and edit for accuracy</li>
+        <li><strong>Zoom:</strong> Enable live captions or request CART</li>
+        <li><strong>YouTube:</strong> Use auto-captions, then edit</li>
+      </ul>
+      <p><a class="cta" href="media-captioning.html">Captioning guide →</a></p>
+    </div>
+
+    <!-- BUYING FLOW -->
+    <section id="buying" class="decision-tree" aria-labelledby="buying-heading">
+      <h2 id="buying-heading"><span class="step-number">2</span> Buying Technology</h2>
+    </section>
+
+    <div id="buying-result" class="result-card">
+      <h3>🛒 Accessible Procurement</h3>
+      <div class="mini-checklist">
+        <h4>Before purchasing:</h4>
+        <label><input type="checkbox"> Request VPAT from vendor</label>
+        <label><input type="checkbox"> Review VPAT for WCAG 2.1/2.2 AA conformance</label>
+        <label><input type="checkbox"> Ask about accessibility roadmap</label>
+        <label><input type="checkbox"> Request demo with screen reader if possible</label>
+        <label><input type="checkbox"> Include accessibility requirements in contract</label>
+      </div>
+      <p><strong>Key questions to ask vendors:</strong></p>
+      <ul>
+        <li>"Do you have a current VPAT?"</li>
+        <li>"What WCAG version and level do you conform to?"</li>
+        <li>"What's your accessibility roadmap for known issues?"</li>
+      </ul>
+      <p><a class="cta" href="procurement.html">Procurement guide →</a></p>
+    </div>
+
+    <!-- BARRIER FLOW -->
+    <section id="barrier" class="decision-tree" aria-labelledby="barrier-heading">
+      <h2 id="barrier-heading"><span class="step-number">2</span> Report a Barrier</h2>
+    </section>
+
+    <div id="report-result" class="result-card">
+      <h3>🚧 Reporting Accessibility Barriers</h3>
+      <p>Found something inaccessible? Report it and we'll follow up.</p>
+      <p><strong>Include in your report:</strong></p>
+      <ul>
+        <li>URL or location of the issue</li>
+        <li>What you were trying to do</li>
+        <li>What went wrong</li>
+        <li>Screenshots if possible</li>
+      </ul>
+      <p><strong>Report options:</strong></p>
+      <ul>
+        <li><a href="https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx">Access Report form</a> (formal tracking)</li>
+        <li>Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></li>
+        <li>Call <a href="tel:+15206213268">520-621-3268</a></li>
+      </ul>
+      <p>We respond within <strong>2 business days</strong>.</p>
+    </div>
+
+    <section aria-labelledby="still-stuck">
+      <h2 id="still-stuck">Still not sure?</h2>
+      <p>No worries! <a href="mailto:accessibility@arizona.edu">Email us</a> and describe what you're trying to do. We'll point you in the right direction.</p>
+    </section>
+
+    <p><a href="#maincontent">Back to top</a></p>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p><a href="accessibility-statement.html">Accessibility Statement</a></p>
+  </footer>
+</body>
+</html>

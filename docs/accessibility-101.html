@@ -15,7 +15,7 @@
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
+        <a href="roles.html">I Am A...</a>
         <a href="documents-media.html">Documents &amp; Media</a>
         <a href="web-app.html">Web &amp; Apps</a>
         <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -33,11 +33,41 @@
     <nav aria-label="Breadcrumb">
       <p><a href="home.html">Accessibility Home</a> / Accessibility 101</p>
     </nav>
-    <h1>Accessibility 101</h1>
+    <h1>Accessibility 101 <span class="badge badge-popular">Popular</span></h1>
     <p>Your foundational guide to understanding digital accessibility—what it means, why it matters, and how to get started.</p>
     <p class="metric-chip">⏱️ Reading time: 10 minutes</p>
   </header>
   <main id="maincontent" role="main">
+    <!-- Quick navigation tip -->
+    <div class="start-here-banner">
+      <p><strong>💡 Pro tip:</strong> Already know the basics? Jump straight to <a href="roles.html" style="color: inherit; text-decoration: underline;">I Am A...</a> to find resources for your specific role.</p>
+    </div>
+
+    <section aria-labelledby="quick-wins-101">
+      <h2 id="quick-wins-101">⚡ Start here: 3 things you can do today</h2>
+      <p>No expertise needed. Each action takes 5 minutes or less and makes a real difference.</p>
+      <div class="quick-wins-grid">
+        <article class="quick-win-card">
+          <h3>📄 Check your next document</h3>
+          <p>Before sharing any Word or PowerPoint file, go to <strong>Review → Check Accessibility</strong> and fix the top issues.</p>
+          <span class="time-estimate">⏱️ 5 min</span>
+          <p><a href="https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f">How to use the checker →</a></p>
+        </article>
+        <article class="quick-win-card">
+          <h3>⌨️ Try keyboard-only navigation</h3>
+          <p>Put your mouse aside and Tab through a webpage. Can you reach everything? Is focus visible? This is how many users navigate.</p>
+          <span class="time-estimate">⏱️ 3 min</span>
+          <p><a href="https://webaim.org/techniques/keyboard/">Why keyboard access matters →</a></p>
+        </article>
+        <article class="quick-win-card">
+          <h3>🖼️ Add alt text to an image</h3>
+          <p>Right-click any image in a document or on your website. Add a brief description of what it shows. Screen readers announce this.</p>
+          <span class="time-estimate">⏱️ 30 sec</span>
+          <p><a href="https://webaim.org/techniques/alttext/">How to write good alt text →</a></p>
+        </article>
+      </div>
+    </section>
+
     <section aria-labelledby="what-is">
       <h2 id="what-is">What is digital accessibility?</h2>
       <p>Digital accessibility means designing and building websites, applications, documents, and digital content so that <strong>everyone can perceive, understand, navigate, and interact</strong> with them—regardless of ability or disability.</p>
@@ -236,33 +266,53 @@
     </section>
 
     <section aria-labelledby="resources">
-      <h2 id="resources">Learn more</h2>
-      <ul>
-        <li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">W3C Introduction to Web Accessibility</a></li>
-        <li><a href="https://webaim.org/intro/">WebAIM Introduction to Web Accessibility</a></li>
-        <li><a href="https://www.a11yproject.com/">The A11Y Project</a> – community-driven accessibility resource</li>
-        <li><a href="https://dequeuniversity.com/">Deque University</a> – comprehensive accessibility training</li>
-        <li><a href="training-calendar.html">UA Accessibility Training Calendar</a> – upcoming workshops and sessions</li>
-      </ul>
+      <h2 id="resources">📚 Learn from the source</h2>
+      <p>We curate and simplify—these organizations set the standards. Bookmark them for deep dives.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Standards &amp; Guidelines</h3>
+          <ul>
+            <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C WCAG 2.2</a> – The global standard</li>
+            <li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">W3C: Intro to Accessibility</a></li>
+            <li><a href="https://www.ada.gov/resources/web-guidance/">ADA.gov Web Guidance</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Learning Resources</h3>
+          <ul>
+            <li><a href="https://webaim.org/intro/">WebAIM Introduction</a></li>
+            <li><a href="https://www.a11yproject.com/">The A11Y Project</a></li>
+            <li><a href="https://dequeuniversity.com/">Deque University</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>At Arizona</h3>
+          <ul>
+            <li><a href="training-calendar.html">UA Training Calendar</a></li>
+            <li><a href="policies-governance.html">UA Policies &amp; Governance</a></li>
+            <li><a href="support.html">Get Help</a></li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section aria-labelledby="next-steps">
-      <h2 id="next-steps">Your next steps</h2>
+      <h2 id="next-steps">Ready to dive in?</h2>
       <div class="grid grid-3">
         <article class="card">
-          <h3>Find your guide</h3>
-          <p>Select your role for tailored guidance.</p>
-          <a class="cta" href="personas.html">Browse personas</a>
+          <h3>I know my role</h3>
+          <p>Jump to resources tailored for students, faculty, staff, developers, and more.</p>
+          <a class="cta" href="roles.html">I am a... →</a>
         </article>
         <article class="card">
-          <h3>Use the wizard</h3>
-          <p>Answer a few questions to get personalized recommendations.</p>
-          <a class="cta" href="wizard.html">Start wizard</a>
+          <h3>I'm not sure yet</h3>
+          <p>Answer a few quick questions and we'll point you in the right direction.</p>
+          <a class="cta" href="wizard.html">Take the quiz →</a>
         </article>
         <article class="card">
-          <h3>Get help</h3>
-          <p>Request a consultation or report a barrier.</p>
-          <a class="cta" href="support.html">Contact us</a>
+          <h3>I need help now</h3>
+          <p>Have a question or hit a barrier? We're here for you.</p>
+          <a class="cta" href="support.html">Get help →</a>
         </article>
       </div>
     </section>

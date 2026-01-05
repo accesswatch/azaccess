@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Developers | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="roles.html">I Am A...</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / <a href="roles.html">I Am A...</a> / Developers</p>
+    </nav>
+    <h1>Web Developers</h1>
+    <p>Engineering teams ship WCAG 2.2 AA-compliant Arizona Sites, apps, and integrations.</p>
+    <p class="metric-chip">Goal: 0 critical WCAG defects per release</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="dev-help">
+      <h2 id="dev-help">What this page helps you do</h2>
+      <ul>
+        <li>Ship accessible web components and apps that meet WCAG 2.2 AA expectations.</li>
+        <li>Build repeatable testing into CI and manual review workflows to prevent regressions.</li>
+        <li>Document exceptions and evidence so reviewers can approve releases quickly.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="exec-summary">
+      <h2 id="exec-summary">Executive summary</h2>
+      <p>Ship inclusive code by focusing on four pillars:</p>
+      <ol>
+        <li><strong>Design-to-code parity</strong>: implement Quickstart patterns with semantic HTML and ARIA only when necessary.</li>
+        <li><strong>Predictable focus</strong>: ensure keyboard order, skip links, and roving tabindex follow <a href="focus-management.html">focus guidance</a>.</li>
+        <li><strong>Robust testing</strong>: combine CI automation with manual keyboard + JAWS/NVDA/VoiceOver/TalkBack passes before releasing.</li>
+        <li><strong>Documented exceptions</strong>: log fundamental alteration requests with remediation plans.</li>
+      </ol>
+      <p>Use this page for the executive overview, then drill down into shared specs, WebAIM checklists, and Deque University labs linked below.</p>
+    </section>
+    <section aria-labelledby="dev-tasks">
+      <h2 id="dev-tasks">Top tasks</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Steps</th>
+              <th scope="col">Primary Tools</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Implement accessible components</td>
+              <td>Reference Quickstart patterns → include skip link/focus styles → document semantics.</td>
+              <td>Quickstart, Design System</td>
+            </tr>
+            <tr>
+              <td>Test releases</td>
+              <td>Run automated scans → manual keyboard review → screen-reader pass with JAWS/NVDA + VoiceOver/TalkBack.</td>
+              <td>axe, Accessibility Insights, NVDA, VoiceOver</td>
+            </tr>
+            <tr>
+              <td>Document exceptions</td>
+              <td>Assess risk → draft alternative access plan → route for approval.</td>
+              <td>Accessibility PMO workflow</td>
+            </tr>
+            <tr>
+              <td>Build CI/CD gates</td>
+              <td>Add linting + axe scripts → fail builds on critical defects → store evidence in release notes.</td>
+              <td>GitHub Actions, Playwright, Accessibility Insights CLI</td>
+            </tr>
+            <tr>
+              <td>Support mobile & embedded flows</td>
+              <td>Apply responsive breakpoints → retest in embedded browsers → sync with native app owners.</td>
+              <td>Quickstart responsive grid, WebView test harness</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="dev-principles">
+      <h2 id="dev-principles">Impactful principles &amp; checks</h2>
+      <p>Accessibility should feel predictable—not a burden—when you follow the same playbook every sprint. Anchor your work to <a href="wcag22-highlights.html">WCAG 2.2 AA highlights</a> and verify code with Accessibility Insights, WebAIM’s WAVE, DubBot (campus license), and Microsoft Accessibility Checker for any docs you attach to releases.</p>
+      <details class="accordion" open>
+        <summary>Focus, input, and navigation</summary>
+        <div>
+          <p>Cover SC 2.1.1, 2.4.3, 2.4.11, and 2.5.7 by keeping keyboard orders logical, ensuring focus indicators meet the 4px/3:1 requirements, and offering single-pointer alternatives to drag/drop.</p>
+          <ul>
+            <li>Test with keyboard only plus Accessibility Insights’ focus order view.</li>
+            <li>Run WAVE or DubBot on staging URLs to confirm headings/landmarks remain intact after CMS edits.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Structure, status, and semantics</summary>
+        <div>
+          <p>Meet SC 1.3.1, 4.1.2, and 4.1.3 by using semantic HTML, exposing accessible names, and announcing async updates with `role="status"` or live regions.</p>
+          <ul>
+            <li>Keep DOM order synced with visual order; rely on Quickstart components before adding custom ARIA.</li>
+            <li>Log Accessibility Insights issues directly to Azure Boards or Jira for traceability.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Media, documents, and alternative text</summary>
+        <div>
+          <p>When you ship docs or media alongside features, run Microsoft Accessibility Checker, follow <a href="https://webaim.org/techniques/alttext/">WebAIM alt text guidance</a>, and ensure PDFs are tagged per <a href="pdf-remediation.html">Adobe remediation steps</a>.</p>
+          <ul>
+            <li>Confirm reading order and form field labels in Acrobat before attaching PDFs to releases.</li>
+            <li>Ask writers to provide source files plus tagged exports so DubBot can crawl links without false positives.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Developer WCAG 2.2 checklist</summary>
+        <div>
+          <ul>
+            <li>✅ Focus appearance (2.4.11) meets thickness/contrast guidance.</li>
+            <li>✅ Drag actions offer single-pointer alternatives (2.5.7) and targets meet 24×24 px (2.5.8).</li>
+            <li>✅ Authentication and MFA support copy/paste and password managers (3.3.8).</li>
+            <li>✅ Error messages identify fields, include text guidance, and set `aria-invalid` (3.3.1/3.3.3).</li>
+            <li>✅ Live updates announce status (4.1.3) without forcing focus changes.</li>
+          </ul>
+          <p>Download machine-readable checklists from <a href="../shared/checklist-index.json">checklist-index.json</a> for sprint automation.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Address WebAIM Million top findings</summary>
+        <div>
+          <p>WebAIM’s annual Million report consistently shows six failures that account for 96% of detected issues. Bake these into code reviews and linters:</p>
+          <ul>
+            <li><strong>Low contrast (SC 1.4.3/1.4.11):</strong> enforce token usage, run axe/Accessibility Insights contrast checks.</li>
+            <li><strong>Missing alternative text (SC 1.1.1):</strong> require `alt` or ARIA labels for informative media; mark decorative imagery as `alt=""`.</li>
+            <li><strong>Empty links/buttons (SC 2.4.4/4.1.2):</strong> ensure every interactive element has visible text and an accessible name.</li>
+            <li><strong>Missing form labels (SC 1.3.1):</strong> pair `<label for>` or `aria-labelledby`; include instruction text via `aria-describedby`.</li>
+            <li><strong>Missing document language (SC 3.1.1):</strong> set `lang` on every HTML root and ensure embedded documents inherit it.</li>
+            <li><strong>Link purpose (SC 2.4.4/2.4.9):</strong> write descriptive link text (“Review the procurement checklist”) instead of “click here.”</li>
+          </ul>
+          <p>When opening links in a new window, inform users via inline text (e.g., “opens in new window”) and only do so when necessary (external policies, workflows). Source: <a href="https://webaim.org/projects/million/">WebAIM Million report</a>.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Before you merge (manual review)</summary>
+        <div>
+          <ol>
+            <li>Keyboard sweep every interactive element (Tab/Shift+Tab + Escape for dialogs) to confirm focus order and visibility.</li>
+            <li>Run Accessibility Insights FastPass plus the Tab Stops overlay; save the report in your PR artifacts.</li>
+            <li>Spot-check page templates with WebAIM WAVE and note any errors/warnings not covered by automated scans.</li>
+            <li>Trigger your team’s DubBot crawl or add the URL to the next scheduled scan for regression tracking.</li>
+            <li>Attach Microsoft Accessibility Checker or Adobe Acrobat reports for any documents or PDFs in the release.</li>
+          </ol>
+          <p>These five steps align with the persona template’s optional manual review checklist so every code drop ships with consistent evidence.</p>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="dev-playbooks">
+      <h2 id="dev-playbooks">Implementation playbooks</h2>
+      <p>Use these scenario playbooks to translate the checklist into working code.</p>
+      <details class="accordion" open>
+        <summary>Navigation, menus, and tabs</summary>
+        <div>
+          <p>Adopt the Quickstart nav component with built-in skip links, `aria-expanded`, and roving tabindex.</p>
+          <ul>
+            <li>Expose a single tab stop per composite widget; move focus internally with arrow keys.</li>
+            <li>Mirror visual labels in `aria-label` / `aria-labelledby` attributes for voice control.</li>
+            <li>Keep the DOM order aligned with visual order so reading order stays predictable.</li>
+          </ul>
+          <p>Reference: <a href="web-keyboard.html">Keyboard guidance</a>, <a href="skip-link-snippet.html">Skip link snippet</a>.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Forms &amp; validation</summary>
+        <div>
+          <p>Every form field needs a visible label, programmatic name, inline help, and error messaging.</p>
+          <ul>
+            <li>Use native `<label for>` pairs when possible; add `aria-describedby` for help/error text.</li>
+            <li>Mark required fields with text and `aria-required="true"`; never rely on color alone.</li>
+            <li>Send focus to the first invalid control on submit; provide summary errors for longer forms.</li>
+          </ul>
+          <p>Reference: <a href="do-dont.html">Do/Don’t patterns</a>, <a href="web-app.html#wcag">WCAG checklist</a>, <a href="https://webaim.org/techniques/forms/">WebAIM form techniques</a>.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Media, embeds, and charts</summary>
+        <div>
+          <p>Ensure iframes, third-party widgets, and chart components provide names, controls, and fallbacks.</p>
+          <ul>
+            <li>Wrap embeds with titles and descriptions; ensure keyboard focus can enter/exit.</li>
+            <li>Provide text alternatives for charts (data tables or summary lists).</li>
+            <li>Lazy-load media without removing it from the accessibility tree.</li>
+          </ul>
+          <p>Reference: <a href="media-captioning.html">Media playbook</a>, <a href="documents-media.html">Document &amp; media hub</a>.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Dynamic content &amp; announcements</summary>
+        <div>
+          <p>When updating DOM regions, announce changes with `aria-live`, focus management, or status messages.</p>
+          <ul>
+            <li>For toasts/status, use `role="status"`; for errors, use `role="alert"` and keep messages concise.</li>
+            <li>Trap focus inside modals and restore it after close; avoid off-screen focus jumps.</li>
+            <li>Include skeleton loaders or progress indicators that expose name/role states.</li>
+          </ul>
+          <p>Reference: <a href="focus-management.html">Focus playbook</a>, <a href="testing-tools.html">Testing toolkit</a>.</p>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="dev-guidance">
+      <h2 id="dev-guidance">Guidance</h2>
+      <details class="accordion" open>
+        <summary>Engineering checklist</summary>
+        <div>
+          <ul>
+            <li>Include <a href="skip-link-snippet.html">skip links</a>, <a href="web-keyboard.html">keyboard support</a>, and <a href="focus-management.html">focus management</a> for all interactive regions.</li>
+            <li>Meet contrast via <a href="color-contrast.html">color guidance</a>.</li>
+            <li>Structure content with semantic headings and landmarks.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Testing workflow</summary>
+        <div>
+          <ol>
+            <li>Automated: axe/Accessibility Insights in CI + Storybook linting.</li>
+            <li>Manual: keyboard-only navigation, focus traps, modals.</li>
+            <li>Screen reader: JAWS or NVDA (Windows) and VoiceOver (macOS/iOS); include TalkBack for Android webviews.</li>
+          </ol>
+          <p>Deep dive: <a href="testing-tools.html">Testing Toolkit</a>, <a href="web-keyboard.html">Keyboard patterns</a>, <a href="assistive-tech.html">Assistive technology coverage</a>.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Exception process</summary>
+        <div>
+          <p>Submit fundamental alteration requests with business justification, impacted WCAG criteria, alternative access plan, and remediation timeline.</p>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="insights-guide">
+      <h2 id="insights-guide">Accessibility Insights assessment guide</h2>
+      <p>Follow this lightweight workflow each time you prep a release. It mirrors Microsoft’s <a href="https://accessibilityinsights.io/docs/web/overview/">Accessibility Insights help topics</a> so new teammates can jump in quickly.</p>
+      <details class="accordion" open>
+        <summary>1. Run FastPass (2 minutes)</summary>
+        <div>
+          <ol>
+            <li>Open the Edge/Chrome extension on the page under test.</li>
+            <li>Select <strong>FastPass</strong> to capture automated checks + tab stops; export the report and attach it to your PR.</li>
+            <li>Resolve failures immediately or log defects referencing the exact WCAG criteria surfaced in the report.</li>
+          </ol>
+          <p>Docs: <a href="https://accessibilityinsights.io/docs/web/fastpass/">FastPass overview</a></p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>2. Complete Guided Assessment (20–30 minutes)</summary>
+        <div>
+          <ol>
+            <li>Switch to the <strong>Assessment</strong> view; walk through each requirement (structure, landmarks, focus order, gestures).</li>
+            <li>Use built-in snippets (Tab stops, Landmarks, Headings) to capture evidence for reviewers.</li>
+            <li>Mark steps as pass/fail/not applicable and sync results to Azure Boards/Jira.</li>
+          </ol>
+          <p>Docs: <a href="https://accessibilityinsights.io/docs/web/assessment/overview/">Assessment overview</a></p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>3. Use Ad hoc tools &amp; Simulator</summary>
+        <div>
+          <ul>
+            <li><strong>Color picker</strong> + <strong>Contrast</strong> tools validate UA tokens on the fly.</li>
+            <li><strong>Tab stops</strong> overlay illustrates focus order; screenshot it for documentation.</li>
+            <li><strong>Issue filing</strong> pipeline pushes results straight to GitHub, Azure Boards, or export JSON for DubBot.</li>
+          </ul>
+          <p>Docs: <a href="https://accessibilityinsights.io/docs/web/reference/overview/">Ad hoc tools reference</a></p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>4. Tie back to UA workflow</summary>
+        <div>
+          <ul>
+            <li>Upload FastPass/Assessment artifacts to the release folder so auditors can trace WCAG coverage.</li>
+            <li>Link Accessibility Insights findings with WAVE/DubBot results for prioritized remediation.</li>
+            <li>Share the one-page <a href="wcag22-highlights.html">WCAG highlight sheet</a> with stakeholders so they understand the “why.”</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="dev-tools">
+      <h2 id="dev-tools">Tools &amp; contacts</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Accessibility Testing Toolkit</h3>
+          <p>Recommended automated/manual tools and scripts.</p>
+          <a class="cta" href="testing-tools.html">View toolkit</a>
+        </article>
+        <article class="card">
+          <h3>Accessibility office hours</h3>
+          <p>Pair on code reviews and complex widgets.</p>
+          <a class="cta" href="https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu">Book time</a>
+        </article>
+        <article class="card">
+          <h3>Quickstart accessibility docs</h3>
+          <p>Component guidance, code samples, design tokens.</p>
+          <a class="cta" href="https://quickstart.arizona.edu/best-practices/accessibility-guidelines">Open docs</a>
+        </article>
+        <article class="card">
+          <h3>Deque University &amp; axe</h3>
+          <p>On-demand WCAG courses plus axe DevTools for CI/CD integration.</p>
+          <a class="cta" href="https://dequeuniversity.com">Browse catalog</a>
+        </article>
+        <article class="card">
+          <h3>DubBot campus license</h3>
+          <p>Schedule weekly crawls for Quickstart and vendor sites; export prioritized WCAG 2.2 findings.</p>
+          <a class="cta" href="https://accessibility.arizona.edu/tools/dubbot">Request access</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="dev-cicd">
+      <h2 id="dev-cicd">CI/CD readiness</h2>
+      <ul>
+        <li><strong>Gate builds:</strong> Run axe or Accessibility Insights CLI in pull requests; fail on critical violations and link reports to Jira or Azure Boards.</li>
+        <li><strong>Snapshot flows:</strong> Capture screen reader transcripts or screen recordings for modals, carousels, and complex widgets.</li>
+        <li><strong>Regression guardrails:</strong> Pair Playwright or Cypress tests with `aria-role` and focus assertions.</li>
+        <li><strong>Evidence:</strong> Store results in the release checklist so leadership sees coverage rates.</li>
+      </ul>
+      <p>Need a starting point? Import the CI templates in <a href="testing-tools.html">Testing Toolkit</a> or attend the developer guild session.</p>
+    </section>
+
+    <section aria-labelledby="dev-at">
+      <h2 id="dev-at">Assistive technologies to test with</h2>
+      <p>Every release should be validated with these AT combinations:</p>
+      <ul>
+        <li><strong>JAWS</strong> + Chrome or Edge on Windows (forms, tables, ARIA widgets).</li>
+        <li><strong>NVDA</strong> + Firefox for standards-aligned testing.</li>
+        <li><strong>VoiceOver</strong> + Safari (macOS/iOS) and <strong>TalkBack</strong> + Chrome (Android) for responsive/mobile patterns.</li>
+        <li><strong>Fusion</strong> and <strong>ZoomText</strong> for magnification, focus indicator visibility, and reflow.</li>
+      </ul>
+      <p>Document results and link to <a href="assistive-tech.html">Assistive Technology Coverage</a> when filing issues.</p>
+    </section>
+
+    <section aria-labelledby="dev-training">
+      <h2 id="dev-training">Training &amp; community</h2>
+      <ul>
+        <li>Arizona Digital accessibility guild (bi-weekly).</li>
+        <li>Screen reader testing labs (monthly).</li>
+        <li>WCAG 2.2 deep dives (quarterly).</li>
+      </ul>
+      <p>On-demand: <a href="mobile-roadmap.html">Mobile roadmap</a>, <a href="title-ii-brief.html">Title II brief</a>.</p>
+    </section>
+
+    <section aria-labelledby="dev-references">
+      <h2 id="dev-references">Reference library</h2>
+      <ul>
+        <li><a href="web-app.html">Web &amp; App accessibility hub</a> — WCAG checklist, exception workflow, mobile guidance.</li>
+        <li><a href="../shared/checklist-index.json">Checklist index</a> — import into issue trackers for automation.</li>
+        <li><a href="brand-identity.html">UA brand + color guidance</a> — ensures tokens stay accessible.</li>
+        <li><a href="resource-registry.html">Resource registry</a> — authoritative sources and review dates.</li>
+        <li><a href="https://webaim.org/resources/">WebAIM resource library</a> — deep dives on forms, landmarks, ARIA, and testing.</li>
+        <li><a href="https://dequeuniversity.com/library/">Deque pattern library</a> — code samples for menus, dialogs, and widgets.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="dev-deepdives">
+      <h2 id="dev-deepdives">Developer deep-dives</h2>
+      <p>In-depth guides for specific development scenarios:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>ARIA patterns</h3>
+          <p>Accessible patterns for modals, tabs, menus, comboboxes, and more.</p>
+          <a class="cta" href="aria-patterns.html">ARIA pattern library</a>
+        </article>
+        <article class="card">
+          <h3>React accessibility</h3>
+          <p>Build accessible React apps with hooks, component patterns, and testing.</p>
+          <a class="cta" href="dev-react.html">React guide</a>
+        </article>
+        <article class="card">
+          <h3>CI/CD testing</h3>
+          <p>Automate accessibility testing in GitHub Actions, Azure DevOps, and more.</p>
+          <a class="cta" href="dev-cicd-testing.html">CI/CD integration</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="dev-feedback">
+      <h2 id="dev-feedback">Feedback</h2>
+      <p>Post questions in the Arizona Digital Teams channel or email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>. Last reviewed: 2026-01-05.</p>
+    </section>
+    <section aria-labelledby="dev-next-steps">
+      <h2 id="dev-next-steps">Next steps for developers</h2>
+      <ul>
+        <li><strong>This sprint:</strong> Add Accessibility Insights FastPass to your PR checklist and attach FastPass artifacts to the PR.</li>
+        <li><strong>This month:</strong> Gate releases with axe/Accessibility Insights in CI for critical rules; document any exceptions with remediation plans.</li>
+        <li><strong>Ongoing:</strong> Maintain a shared evidence folder with screen-reader transcripts, FastPass reports, and DubBot scan links for leadership reviews.</li>
+      </ul>
+      <p>Need help integrating tests? Book Accessibility office hours for a pairing session.</p>
+    </section>
+
+    <section aria-labelledby="related-guides">
+      <h2 id="related-guides">Related guides you may need</h2>
+      <p>Your work may overlap with these roles:</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Building Mobile?</h3>
+          <p>VoiceOver/TalkBack testing and Title II mobile deadlines.</p>
+          <a class="cta" href="mobile.html">Mobile guide</a>
+        </article>
+        <article class="card">
+          <h3>Content Authors</h3>
+          <p>When content issues land in your code.</p>
+          <a class="cta" href="content-creators.html">Content creators</a>
+        </article>
+        <article class="card">
+          <h3>All Personas</h3>
+          <p>Browse all role-based guides.</p>
+          <a class="cta" href="roles.html">Persona hub</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+  <script src="scripts/feedback-widget.js" defer></script>
+</body>
+</html>

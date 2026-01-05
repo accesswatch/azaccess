@@ -44,7 +44,7 @@
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
+        <a href="roles.html">I Am A...</a>
         <a href="documents-media.html">Documents &amp; Media</a>
         <a href="web-app.html">Web &amp; Apps</a>
         <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -60,19 +60,19 @@
       </nav>
     </div>
     <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / Guided Wizard</p>
+      <p><a href="home.html">Accessibility Home</a> / Quick Quiz</p>
     </nav>
-    <h1>Find the right accessibility resources</h1>
-    <p class="muted">Answer a few quick questions and we'll point you to the pages, forms, and contacts that best fit your situation.</p>
+    <h1>Let's find what you need</h1>
+    <p class="muted">Answer a few quick questions and we'll point you to the right pages, forms, and people. Takes about 30 seconds.</p>
   </header>
   <main id="maincontent" role="main">
     <section aria-labelledby="wizard-form-title">
-      <h2 id="wizard-form-title">Accessibility wizard</h2>
-      <p>All questions are optional. Use the <strong>Show recommendations</strong> button any time.</p>
+      <h2 id="wizard-form-title">Tell us about your situation</h2>
+      <p>Check anything that applies—you can skip questions or come back later. Hit <strong>Show my results</strong> whenever you're ready.</p>
       <form id="wizard-form">
         <fieldset>
-          <legend>1. What best describes your current situation?</legend>
-          <p class="muted">Choose as many as you need—we'll guide you to the right persona automatically.</p>
+          <legend>1. What brings you here today?</legend>
+          <p class="muted">Pick all that apply—no wrong answers!</p>
           <div class="grid grid-2">
             <label><input type="checkbox" name="scenario" value="teaching" /> I'm teaching or supporting a course.</label>
             <label><input type="checkbox" name="scenario" value="content" /> I create documents, newsletters, or presentations.</label>
@@ -106,14 +106,14 @@
           </div>
         </fieldset>
 
-        <button type="submit" class="cta">Show recommendations</button>
+        <button type="submit" class="cta">Show my results →</button>
       </form>
-      <p class="muted">Prefer to browse manually? Visit the <a href="personas.html">persona hub</a> or <a href="support.html">support page</a>.</p>
+      <p class="muted">Rather explore on your own? Check out <a href="roles.html">I Am A...</a> or <a href="support.html">get help</a>.</p>
     </section>
 
     <section aria-labelledby="results-title" id="wizard-results" aria-live="polite">
-      <h2 id="results-title">Recommended next steps</h2>
-      <p>Choose options above and click <strong>Show recommendations</strong> to see tailored links.</p>
+      <h2 id="results-title">Your results</h2>
+      <p>Check some boxes above and click <strong>Show my results</strong> to see what we recommend for you.</p>
     </section>
   </main>
   <footer role="contentinfo">
@@ -123,17 +123,17 @@
 
   <noscript>
     <div class="result-card">
-      <p>This wizard works best with JavaScript enabled. For now, explore the <a href="personas.html">persona hub</a> or <a href="support.html">contact us</a>.</p>
+      <p>This wizard works best with JavaScript enabled. For now, explore the <a href="roles.html">I Am A... page</a> or <a href="support.html">contact us</a>.</p>
     </div>
   </noscript>
 
   <script>
-    const personaResources = {
+    const roleResources = {
       students: {
         title: "Students & Families",
         summary: "Request accommodations, track captions, and report barriers.",
         links: [
-          { label: "Student persona guide", url: "persona-students.html" },
+          { label: "Student guide", url: "students.html" },
           { label: "Access Report", url: "https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx" },
           { label: "DRC ASL/CART request", url: "https://drc.arizona.edu/asl-cart" }
         ]
@@ -142,7 +142,7 @@
         title: "Faculty & Teaching",
         summary: "Create inclusive courses, documents, media, and Brightspace content.",
         links: [
-          { label: "Faculty persona guide", url: "persona-faculty.html" },
+          { label: "Faculty guide", url: "faculty.html" },
           { label: "Document & media hub", url: "documents-media.html" },
           { label: "Training calendar", url: "training-calendar.html" }
         ]
@@ -151,7 +151,7 @@
         title: "Staff & Administrative Units",
         summary: "Plan events, maintain department sites, and coordinate vendors.",
         links: [
-          { label: "Staff persona guide", url: "persona-staff.html" },
+          { label: "Staff guide", url: "staff.html" },
           { label: "Procurement hub", url: "procurement.html" },
           { label: "Accessibility consultation form", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" }
         ]
@@ -160,8 +160,8 @@
         title: "Builders (Developers, Mobile, Content, Marketing)",
         summary: "Ship inclusive code, tests, documents, and campaigns.",
         links: [
-          { label: "Developer persona guide", url: "persona-developers.html" },
-          { label: "Content persona guide", url: "persona-content.html" },
+          { label: "Developer guide", url: "developers.html" },
+          { label: "Content creator guide", url: "content-creators.html" },
           { label: "Testing toolkit", url: "testing-tools.html" }
         ]
       },
@@ -169,7 +169,7 @@
         title: "Content Creators",
         summary: "Produce accessible Word/Google docs, slides, PDFs, newsletters, and marketing content.",
         links: [
-          { label: "Content persona guide", url: "persona-content.html" },
+          { label: "Content creator guide", url: "content-creators.html" },
           { label: "Meaningful links guidance", url: "meaningful-links.html" },
           { label: "Document & media hub", url: "documents-media.html" }
         ]
@@ -178,7 +178,7 @@
         title: "Visitors & Community",
         summary: "Plan accessible events, tours, and campus interactions.",
         links: [
-          { label: "Public persona guide", url: "persona-public.html" },
+          { label: "Visitor guide", url: "visitors.html" },
           { label: "Campus accessibility map", url: "https://accessibility.arizona.edu/content/maps" },
           { label: "Contact accessibility@arizona.edu", url: "mailto:accessibility@arizona.edu" }
         ]
@@ -187,53 +187,53 @@
         title: "Leadership & Executives",
         summary: "Oversee Title II readiness, fund remediation, and track progress.",
         links: [
-          { label: "Leadership persona guide", url: "persona-leadership.html" },
+          { label: "Leadership guide", url: "leadership.html" },
           { label: "Policies & governance hub", url: "policies-governance.html" },
           { label: "Accessibility 101 overview", url: "accessibility-101.html" }
         ]
       }
     };
 
-    const scenarioPersonaMap = {
+    const scenarioRoleMap = {
       teaching: {
         label: "Teaching or supporting a course",
-        personas: ["faculty"],
+        roles: ["faculty"],
         tip: "Your course work aligns with the Faculty & Teaching guide."
       },
       content: {
         label: "Creating documents, newsletters, or presentations",
-        personas: ["content"],
+        roles: ["content"],
         tip: "Content creators rely on document & media guidance."
       },
       web: {
         label: "Building or maintaining a site/app",
-        personas: ["developer"],
+        roles: ["developer"],
         tip: "Developers and builders can follow the Web & App hub."
       },
       events: {
         label: "Planning events, visits, or outreach",
-        personas: ["staff", "visitor"],
+        roles: ["staff", "visitor"],
         tip: "Event planners often need Staff guidance plus public visitor info."
       },
       procurement: {
         label: "Buying technology or reviewing vendors",
-        personas: ["staff", "leadership"],
+        roles: ["staff", "leadership"],
         tip: "Procurement touches staff workflows and leadership approvals."
       },
       student: {
         label: "Requesting accommodations or student support",
-        personas: ["students"],
-        tip: "Students & Families persona covers accommodations, captions, and barrier reporting."
+        roles: ["students"],
+        tip: "Students & Families guide covers accommodations, captions, and barrier reporting."
       },
       visitor: {
         label: "Visiting campus or bringing guests",
-        personas: ["visitor"],
+        roles: ["visitor"],
         tip: "Use the Visitors & Community guide for maps, services, and contacts."
       },
       leadership: {
         label: "Guiding policy, budgeting, or executive updates",
-        personas: ["leadership"],
-        tip: "Leadership & Executives persona highlights governance and readiness briefs."
+        roles: ["leadership"],
+        tip: "Leadership & Executives guide highlights governance and readiness briefs."
       }
     };
 
@@ -253,7 +253,7 @@
         links: [
           { label: "Web & App hub", url: "web-app.html" },
           { label: "WCAG 2.2 highlights", url: "wcag22-highlights.html" },
-          { label: "Accessibility Insights guide", url: "persona-developers.html#insights-guide" }
+          { label: "Accessibility Insights guide", url: "developers.html#insights-guide" }
         ]
       },
       events: {
@@ -303,15 +303,15 @@
       const supports = data.getAll("support");
       const fragments = [];
 
-      const personaReasons = {};
+      const roleReasons = {};
       scenarios.forEach(scenario => {
-        const map = scenarioPersonaMap[scenario];
+        const map = scenarioRoleMap[scenario];
         if (!map) return;
-        map.personas.forEach(personaId => {
-          if (!personaReasons[personaId]) {
-            personaReasons[personaId] = new Set();
+        map.roles.forEach(roleId => {
+          if (!roleReasons[roleId]) {
+            roleReasons[roleId] = new Set();
           }
-          personaReasons[personaId].add(map.label);
+          roleReasons[roleId].add(map.label);
         });
       });
 
@@ -325,8 +325,8 @@
         return `<article class="result-card"><h3>${resource.title}</h3><p>${resource.summary}</p>${reasonText}<ul>${links}</ul></article>`;
       };
 
-      Object.entries(personaReasons).forEach(([personaId, reasonSet]) => {
-        const resource = personaResources[personaId];
+      Object.entries(roleReasons).forEach(([roleId, reasonSet]) => {
+        const resource = roleResources[roleId];
         if (resource) {
           fragments.push(buildCard(resource, reasonSet));
         }
@@ -350,8 +350,8 @@
         }
       }
 
-      resultsSection.innerHTML = '<h2 id="results-title">Recommended next steps</h2>' +
-        (fragments.length ? fragments.join("") : '<p>No selections yet. Choose one or more situations above, then press "Show recommendations".</p>');
+      resultsSection.innerHTML = '<h2 id="results-title">Your results</h2>' +
+        (fragments.length ? fragments.join("") : '<p>No selections yet. Choose one or more situations above, then press "Show my results".</p>');
     });
   </script>
 </body>

@@ -15,7 +15,7 @@
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
-        <a href="personas.html">Personas</a>
+        <a href="roles.html">I Am A...</a>
         <a href="documents-media.html">Documents &amp; Media</a>
         <a href="web-app.html" aria-current="page">Web &amp; Apps</a>
         <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -33,7 +33,7 @@
     <nav aria-label="Breadcrumb">
       <p><a href="home.html">Accessibility Home</a> / Web &amp; App Accessibility</p>
     </nav>
-    <h1>Web &amp; App Accessibility</h1>
+    <h1>Web &amp; App Accessibility <span class="badge badge-popular">Popular</span></h1>
     <p>Deliver WCAG 2.2 AA experiences for Arizona Sites, applications, and digital services.</p>
     <p class="metric-chip">Title II compliance milestone: April 24, 2026</p>
     <p class="page-meta">Owner: Arizona Digital · Last reviewed: 2026-01-05 · Next review: 2026-04-05</p>
@@ -61,13 +61,34 @@
     </section>
 
     <section aria-labelledby="web-quick-wins">
-      <h2 id="web-quick-wins">Quick wins (5–10 minutes)</h2>
-      <ul>
-        <li><strong>Navigation &amp; focus:</strong> Add a visible skip link, ensure Tab/Shift+Tab follow a logical order, and verify focus is always visible.</li>
-        <li><strong>Forms:</strong> Check that every input has a programmatic label, error messages are announced, and inline help is not color-only.</li>
-        <li><strong>Links &amp; buttons:</strong> Replace vague text like “click here” with descriptive labels, and make sure interactive elements have a clear role and name.</li>
-        <li><strong>Color &amp; motion:</strong> Use UA design tokens or Quickstart palettes for contrast, and respect prefers-reduced-motion for animations.</li>
-      </ul>
+      <h2 id="web-quick-wins">⚡ Quick wins (5–10 minutes each)</h2>
+      <p>Four high-impact checks you can do before any release. Each links to the authoritative source.</p>
+      <div class="quick-wins-grid">
+        <article class="quick-win-card">
+          <h3>⌨️ Keyboard walkthrough</h3>
+          <p>Put your mouse aside. Tab through the page—can you reach and activate every control? Is focus always visible?</p>
+          <span class="time-estimate">⏱️ 3 min</span>
+          <p><a href="https://webaim.org/techniques/keyboard/">WebAIM: Keyboard Accessibility →</a></p>
+        </article>
+        <article class="quick-win-card">
+          <h3>🏷️ Check form labels</h3>
+          <p>Every input needs a programmatic label. Run axe or WAVE to find unlabeled fields.</p>
+          <span class="time-estimate">⏱️ 2 min</span>
+          <p><a href="https://www.w3.org/WAI/tutorials/forms/labels/">W3C: Form Labels →</a></p>
+        </article>
+        <article class="quick-win-card">
+          <h3>🔗 Fix vague link text</h3>
+          <p>Replace "click here" and "read more" with descriptive text that makes sense out of context.</p>
+          <span class="time-estimate">⏱️ 5 min</span>
+          <p><a href="https://webaim.org/techniques/hypertext/link_text">WebAIM: Link Text →</a></p>
+        </article>
+        <article class="quick-win-card">
+          <h3>🎨 Verify color contrast</h3>
+          <p>Text needs 4.5:1 ratio (or 3:1 for large text). Use WebAIM's contrast checker or browser DevTools.</p>
+          <span class="time-estimate">⏱️ 2 min</span>
+          <p><a href="https://webaim.org/resources/contrastchecker/">WebAIM: Contrast Checker →</a></p>
+        </article>
+      </div>
     </section>
 
     <section aria-labelledby="web-maturity">
@@ -183,7 +204,7 @@
         <article class="card">
           <h3>Companion web flows</h3>
           <p>When apps open web views, inherit Quickstart components and retest with JAWS/NVDA.</p>
-          <a class="cta" href="persona-mobile.html">Mobile persona hub</a>
+          <a class="cta" href="mobile.html">Mobile app guide</a>
         </article>
       </div>
     </section>
@@ -208,6 +229,37 @@
       </ul>
       <p>Need help? Request a consultation.</p>
       <a class="cta" href="support.html">Request consultation</a>
+    </section>
+
+    <section aria-labelledby="web-sources">
+      <h2 id="web-sources">📚 Learn from the source</h2>
+      <p>We curate guidance—these organizations set the standards. Bookmark them for deep dives.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Standards</h3>
+          <ul>
+            <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C WCAG 2.2</a> – The global standard</li>
+            <li><a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices</a> – Component patterns</li>
+            <li><a href="https://www.ada.gov/resources/web-guidance/">ADA.gov Web Guidance</a> – Title II rules</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Testing Tools</h3>
+          <ul>
+            <li><a href="https://www.deque.com/axe/">Deque axe</a> – Automated testing</li>
+            <li><a href="https://accessibilityinsights.io/">Accessibility Insights</a> – Microsoft</li>
+            <li><a href="https://wave.webaim.org/">WAVE</a> – WebAIM browser tool</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Learning</h3>
+          <ul>
+            <li><a href="https://webaim.org/">WebAIM</a> – Articles &amp; resources</li>
+            <li><a href="https://dequeuniversity.com/">Deque University</a> – Courses</li>
+            <li><a href="https://web.dev/accessibility/">web.dev Accessibility</a> – Google</li>
+          </ul>
+        </article>
+      </div>
     </section>
     <p><a href="#maincontent">Back to top</a></p>
   </main>

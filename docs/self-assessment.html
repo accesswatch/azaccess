@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accessibility Self-Assessment | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .quiz-container { max-width: 700px; margin: 0 auto; }
+    .quiz-type-selector { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .quiz-type-btn { flex: 1; min-width: 150px; padding: 1.5rem; border: 2px solid var(--ua-border); border-radius: 8px; background: white; cursor: pointer; text-align: center; }
+    .quiz-type-btn:hover, .quiz-type-btn.active { border-color: var(--ua-arizona-blue); background: var(--ua-chip-bg); }
+    .quiz-type-btn .icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+    .question-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+    .question-card h3 { margin: 0 0 1rem 0; font-size: 1rem; }
+    .options { display: flex; flex-direction: column; gap: 0.5rem; }
+    .options label { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; border: 1px solid var(--ua-border); border-radius: 4px; cursor: pointer; }
+    .options label:hover { background: var(--ua-cool-gray); }
+    .options input:checked + span { font-weight: 600; }
+    .options input { width: 20px; height: 20px; }
+    .progress-bar { height: 8px; background: var(--ua-cool-gray); border-radius: 4px; margin-bottom: 1rem; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--ua-arizona-blue); transition: width 0.3s; }
+    .results-card { background: linear-gradient(135deg, var(--ua-arizona-blue), var(--ua-azurite)); color: white; border-radius: 12px; padding: 2rem; text-align: center; }
+    .results-card h2 { margin: 0 0 0.5rem 0; color: white; }
+    .score-circle { width: 120px; height: 120px; border-radius: 50%; background: white; color: var(--ua-arizona-blue); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; margin: 1rem auto; }
+    .score-label { font-size: 1.1rem; margin-bottom: 1rem; }
+    .results-card ul { text-align: left; background: rgba(255,255,255,0.1); padding: 1rem 1rem 1rem 2rem; border-radius: 8px; margin: 1rem 0; }
+    .btn-primary { background: white; color: var(--ua-arizona-blue); padding: 0.75rem 1.5rem; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; margin: 0.5rem; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="tools-checklists.html">Tools</a></nav>
+    </div>
+    <h1>Accessibility Self-Assessment</h1>
+    <p>Check how accessible your work is and get personalized recommendations.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <div class="quiz-container">
+      <!-- Quiz Type Selection -->
+      <section id="quiz-select" aria-labelledby="select-heading">
+        <h2 id="select-heading">What would you like to assess?</h2>
+        <div class="quiz-type-selector">
+          <button class="quiz-type-btn" data-quiz="document"><span class="icon">📄</span>Document<br><small>Word, PowerPoint, PDF</small></button>
+          <button class="quiz-type-btn" data-quiz="website"><span class="icon">🌐</span>Website<br><small>Web pages, apps</small></button>
+          <button class="quiz-type-btn" data-quiz="course"><span class="icon">📚</span>Course<br><small>Brightspace, LMS</small></button>
+        </div>
+      </section>
+
+      <!-- Quiz Questions -->
+      <section id="quiz-questions" class="hidden" aria-labelledby="quiz-heading">
+        <h2 id="quiz-heading">Assessment Questions</h2>
+        <div class="progress-bar"><div class="progress-fill" id="progress" style="width: 0%"></div></div>
+        <p id="progress-text">Question 1 of 8</p>
+        <div id="questions-container"></div>
+        <button id="submit-quiz" class="cta hidden">See My Results</button>
+      </section>
+
+      <!-- Results -->
+      <section id="quiz-results" class="hidden" aria-labelledby="results-heading">
+        <div class="results-card">
+          <h2 id="results-heading">Your Accessibility Score</h2>
+          <div class="score-circle" id="score-display">0</div>
+          <p class="score-label" id="score-label">Loading...</p>
+          <div id="recommendations"></div>
+          <button class="btn-primary" onclick="location.reload()">Take Another Assessment</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+  <script>
+    const quizData = {
+      document: [
+        { q: "Do you use Heading styles (Heading 1, Heading 2) instead of just bold text?", points: 15 },
+        { q: "Do all images have alt text that describes their content or purpose?", points: 15 },
+        { q: "Is the color contrast between text and background sufficient (dark on light)?", points: 10 },
+        { q: "Do your links have descriptive text (not 'click here')?", points: 10 },
+        { q: "Have you run the built-in Accessibility Checker?", points: 15 },
+        { q: "Are data tables using proper header rows?", points: 10 },
+        { q: "Is the reading order logical (for screen readers)?", points: 10 },
+        { q: "Is the document available in an accessible format (not scanned image)?", points: 15 }
+      ],
+      website: [
+        { q: "Can all functionality be accessed using only a keyboard (Tab, Enter, Escape)?", points: 15 },
+        { q: "Do all images have appropriate alt text?", points: 12 },
+        { q: "Is there a visible focus indicator when tabbing through the page?", points: 12 },
+        { q: "Are form inputs properly labeled?", points: 12 },
+        { q: "Does the site use proper heading hierarchy (h1, h2, h3)?", points: 12 },
+        { q: "Does text meet 4.5:1 color contrast ratio?", points: 12 },
+        { q: "Have you tested with a screen reader (NVDA, VoiceOver)?", points: 15 },
+        { q: "Does the site work at 200% zoom without horizontal scrolling?", points: 10 }
+      ],
+      course: [
+        { q: "Does your syllabus include an accessibility/accommodations statement?", points: 10 },
+        { q: "Are all videos captioned (and captions reviewed for accuracy)?", points: 15 },
+        { q: "Are documents (PDFs, Word, PPT) accessible?", points: 15 },
+        { q: "Do you provide materials in advance for students who need them?", points: 10 },
+        { q: "Are images in your course content described with alt text?", points: 12 },
+        { q: "Do quizzes have appropriate time limits with extension options?", points: 12 },
+        { q: "Are discussion forums and group activities accessible to all?", points: 12 },
+        { q: "Have you reviewed your course with Brightspace accessibility tools?", points: 14 }
+      ]
+    };
+
+    const recommendations = {
+      document: {
+        low: ["Start by using Heading styles—select text and choose Heading 1, 2, etc. from the Styles panel", "Run the Accessibility Checker: Review tab → Check Accessibility", "Add alt text to images: right-click → Edit Alt Text"],
+        medium: ["Review your link text—replace 'click here' with descriptive text", "Check color contrast using WebAIM's contrast checker", "Ensure tables have header rows defined"],
+        high: ["Great job! Consider reviewing reading order in complex documents", "Share your knowledge—help colleagues improve their documents"]
+      },
+      website: {
+        low: ["Add alt text to all meaningful images", "Ensure all form inputs have associated labels", "Add visible focus indicators (outline on :focus)"],
+        medium: ["Test keyboard navigation—can you reach everything with Tab?", "Run WAVE or axe DevTools to find issues", "Check heading hierarchy with a browser extension"],
+        high: ["Test with a screen reader (NVDA is free)", "Conduct user testing with people who use assistive technology"]
+      },
+      course: {
+        low: ["Add an accessibility statement to your syllabus", "Start captioning videos—Panopto auto-generates captions to edit", "Check that your PDFs are text-based, not scanned images"],
+        medium: ["Review caption accuracy—auto-captions need editing", "Add alt text to images in Brightspace content", "Ensure quiz time limits can be extended for accommodations"],
+        high: ["You're doing well! Consider Universal Design for Learning principles", "Share your accessible course as a model for colleagues"]
+      }
+    };
+
+    let currentQuiz = null;
+    let answers = [];
+
+    document.querySelectorAll('.quiz-type-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentQuiz = btn.dataset.quiz;
+        answers = new Array(quizData[currentQuiz].length).fill(null);
+        renderQuestions();
+        document.getElementById('quiz-select').classList.add('hidden');
+        document.getElementById('quiz-questions').classList.remove('hidden');
+      });
+    });
+
+    function renderQuestions() {
+      const questions = quizData[currentQuiz];
+      const container = document.getElementById('questions-container');
+      container.innerHTML = questions.map((q, i) => `
+        <div class="question-card">
+          <h3>${i + 1}. ${q.q}</h3>
+          <div class="options">
+            <label><input type="radio" name="q${i}" value="yes" onchange="updateAnswer(${i}, 'yes')"><span>Yes</span></label>
+            <label><input type="radio" name="q${i}" value="partial" onchange="updateAnswer(${i}, 'partial')"><span>Partially / Sometimes</span></label>
+            <label><input type="radio" name="q${i}" value="no" onchange="updateAnswer(${i}, 'no')"><span>No / Not sure</span></label>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateAnswer(index, value) {
+      answers[index] = value;
+      const answered = answers.filter(a => a !== null).length;
+      const total = answers.length;
+      document.getElementById('progress').style.width = (answered / total * 100) + '%';
+      document.getElementById('progress-text').textContent = `${answered} of ${total} answered`;
+      document.getElementById('submit-quiz').classList.toggle('hidden', answered < total);
+    }
+
+    document.getElementById('submit-quiz').addEventListener('click', showResults);
+
+    function showResults() {
+      const questions = quizData[currentQuiz];
+      let score = 0;
+      answers.forEach((ans, i) => {
+        if (ans === 'yes') score += questions[i].points;
+        else if (ans === 'partial') score += questions[i].points * 0.5;
+      });
+      score = Math.round(score);
+
+      let level, label, recs;
+      if (score >= 80) { level = 'high'; label = 'Excellent! Your work is highly accessible.'; }
+      else if (score >= 50) { level = 'medium'; label = 'Good progress! A few improvements will help.'; }
+      else { level = 'low'; label = 'Room to grow. Start with these key steps:'; }
+
+      recs = recommendations[currentQuiz][level];
+      
+      document.getElementById('quiz-questions').classList.add('hidden');
+      document.getElementById('quiz-results').classList.remove('hidden');
+      document.getElementById('score-display').textContent = score;
+      document.getElementById('score-label').textContent = label;
+      document.getElementById('recommendations').innerHTML = `<ul>${recs.map(r => `<li>${r}</li>`).join('')}</ul>`;
+    }
+  </script>
+</body>
+</html>

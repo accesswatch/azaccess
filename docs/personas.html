@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Persona Guides | Accessibility at Arizona</title>
+  <title>I Am A... | Accessibility at Arizona</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="../../scripts/header.js" defer></script>
 </head>
@@ -15,7 +15,7 @@
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
       <nav class="site-header-nav" aria-label="Primary" role="navigation">
         <a href="home.html">Home</a>
-        <a href="personas.html" aria-current="page">Personas</a>
+        <a href="personas.html" aria-current="page">I Am A...</a>
         <a href="documents-media.html">Documents &amp; Media</a>
         <a href="web-app.html">Web &amp; Apps</a>
         <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -31,79 +31,96 @@
       </nav>
     </div>
     <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / Personas</p>
+      <p><a href="home.html">Accessibility Home</a> / I Am A...</p>
     </nav>
-    <h1>Persona Guides</h1>
-    <p>Select the persona that best matches your role to see top tasks, tools, and training.</p>
+    <h1>I Am A...</h1>
+    <p>Pick your role. We'll show you exactly what you need.</p>
     <p class="metric-chip">Updated: 2026-01-05</p>
   </header>
   <main id="maincontent" role="main">
-    <section aria-labelledby="personas-intro">
-      <h2 id="personas-intro">How to use these guides</h2>
-      <p>Each persona provides an executive overview plus drill-down guidance, assistive technology expectations, and UA-specific workflows. Start with the card that matches your primary responsibilities; you can always explore others.</p>
-      <p><strong>Persona pattern:</strong> Every persona page begins with a short "What this page helps you do" section that tells you the page's purpose, and ends with a concise "Next steps" list so you know concrete actions to take this week, this month, and ongoing.</p>
-      <p>Most people identify with more than one persona over time. Pick the one that best fits the work you are doing today.</p>
-      <p>Not sure which persona to open? Try the <a href="wizard.html">Accessibility Wizard</a> for quick recommendations, or share the visitor guide with families, alumni, and guests.</p>
-      <p>Need help choosing? <a href="support.html">Request a consultation</a>.</p>
+    <section aria-labelledby="roles-intro">
+      <h2 id="roles-intro">How it works</h2>
+      <p>Choose the role that best fits what you do at Arizona. Each guide gives you the top tasks, tools, and training for your work—no guessing required.</p>
+      <p>Every guide starts with <strong>"What this helps you do"</strong> and ends with <strong>"Next steps"</strong> so you always know what to tackle first.</p>
+      <p>Wear multiple hats? No problem. Pick the one that fits your work <em>today</em>, and explore others anytime.</p>
+      <p>Not sure where to start? Try the <a href="wizard.html">quick quiz</a> or <a href="support.html">ask us</a>—we're happy to help.</p>
     </section>
 
-    <section aria-labelledby="persona-grid">
-      <h2 id="persona-grid">Persona cards</h2>
+    <section aria-labelledby="role-grid">
+      <h2 id="role-grid">I am a...</h2>
       <div class="grid grid-3">
         <article class="card">
-          <h3>Students</h3>
-          <p>Secure accommodations, captioned media, and barrier removal. Juggles D2L, email, and mobile apps between classes, work, and life.</p>
-          <a class="cta" href="persona-students.html">Open guide</a>
+          <span class="role-icon">🎓</span>
+          <h3>Student</h3>
+          <p>Get accommodations, captioned videos, and accessible course materials. Report barriers when something isn't working.</p>
+          <span class="time-estimate">⏱️ 5 min to get started</span>
+          <a class="cta" href="persona-students.html">That's me →</a>
         </article>
         <article class="card">
-          <h3>Faculty &amp; Instructors</h3>
-          <p>Implement accommodations, create inclusive Brightspace courses.</p>
-          <a class="cta" href="persona-faculty.html">Open guide</a>
+          <span class="role-icon">👩‍🏫</span>
+          <h3>Faculty Member or Instructor</h3>
+          <p>Create inclusive courses, implement accommodations, and make your Brightspace content accessible.</p>
+          <span class="time-estimate">⏱️ 10 min overview</span>
+          <a class="cta" href="persona-faculty.html">That's me →</a>
         </article>
         <article class="card">
-          <h3>Staff &amp; Administrative Units</h3>
-          <p>Run events, procure technology, maintain department sites.</p>
-          <a class="cta" href="persona-staff.html">Open guide</a>
+          <span class="role-icon">💼</span>
+          <h3>Staff Member</h3>
+          <p>Run accessible events, buy accessible tech, and keep your department's digital presence inclusive.</p>
+          <span class="time-estimate">⏱️ 10 min overview</span>
+          <a class="cta" href="persona-staff.html">That's me →</a>
         </article>
         <article class="card">
-          <h3>Web Developers</h3>
-          <p>Ship WCAG 2.2 AA code, test with AT, document exceptions. Keeps one eye on performance and the other on the a11y linter.</p>
-          <a class="cta" href="persona-developers.html">Open guide</a>
+          <span class="role-icon">💻</span>
+          <h3>Web Developer</h3>
+          <p>Build WCAG 2.2 AA compliant sites, test with assistive tech, and ship accessible code.</p>
+          <span class="time-estimate">⏱️ 15 min deep dive</span>
+          <a class="cta" href="persona-developers.html">That's me →</a>
         </article>
         <article class="card">
-          <h3>Mobile App Teams</h3>
-          <p>Meet Title II mobile deadlines with VoiceOver/TalkBack support.</p>
-          <a class="cta" href="persona-mobile.html">Open guide</a>
+          <span class="role-icon">📱</span>
+          <h3>Mobile App Developer</h3>
+          <p>Make apps work with VoiceOver and TalkBack. Meet Title II mobile deadlines.</p>
+          <span class="time-estimate">⏱️ 15 min deep dive</span>
+          <a class="cta" href="persona-mobile.html">That's me →</a>
         </article>
         <article class="card">
-          <h3>Content Creators</h3>
-          <p>Produce accessible docs, slides, PDFs, and newsletters.</p>
-          <a class="cta" href="persona-content.html">Open guide</a>
+          <span class="role-icon">✍️</span>
+          <h3>Content Creator</h3>
+          <p>Make documents, slides, PDFs, and newsletters that everyone can read and use.</p>
+          <span class="time-estimate">⏱️ 10 min overview</span>
+          <a class="cta" href="persona-content.html">That's me →</a>
         </article>
         <article class="card">
-          <h3>Communications &amp; Marketing</h3>
-          <p>Publish inclusive campaigns, social media, and storytelling.</p>
-          <a class="cta" href="persona-comms.html">Open guide</a>
+          <span class="role-icon">📢</span>
+          <h3>Communications Professional</h3>
+          <p>Publish inclusive campaigns, social media, and stories that reach everyone.</p>
+          <span class="time-estimate">⏱️ 10 min overview</span>
+          <a class="cta" href="persona-comms.html">That's me →</a>
         </article>
         <article class="card">
-          <h3>Leadership &amp; Executives</h3>
-          <p>Oversee Title II readiness, fund remediation, enforce policy.</p>
-          <a class="cta" href="persona-leadership.html">Open guide</a>
+          <span class="role-icon">👔</span>
+          <h3>Leader or Executive</h3>
+          <p>Ensure Title II compliance, fund accessibility work, and set policy for your unit.</p>
+          <span class="time-estimate">⏱️ 8 min executive summary</span>
+          <a class="cta" href="persona-leadership.html">That's me →</a>
         </article>
         <article class="card">
-          <h3>Visitors &amp; Public</h3>
-          <p>Plan inclusive campus visits, request services, report barriers.</p>
-          <a class="cta" href="persona-public.html">Open guide</a>
+          <span class="role-icon">🏠</span>
+          <h3>Visitor or Community Member</h3>
+          <p>Plan an accessible campus visit, find services, or report a barrier you've encountered.</p>
+          <span class="time-estimate">⏱️ 3 min to plan</span>
+          <a class="cta" href="persona-public.html">That's me →</a>
         </article>
       </div>
     </section>
 
-    <section aria-labelledby="shared-resources">
-      <h2 id="shared-resources">Shared resources</h2>
+    <section aria-labelledby="helpful-for-everyone">
+      <h2 id="helpful-for-everyone">Helpful for everyone</h2>
       <ul>
-        <li><a href="training-calendar.html">Training calendar</a></li>
-        <li><a href="assistive-tech.html">Assistive technology coverage</a></li>
-        <li><a href="support.html">Support &amp; consultations</a></li>
+        <li><a href="training-calendar.html">Training calendar</a> — upcoming workshops and events</li>
+        <li><a href="assistive-tech.html">Assistive technology</a> — what's supported at UA</li>
+        <li><a href="support.html">Get help</a> — consultations, office hours, and more</li>
       </ul>
     </section>
   </main>

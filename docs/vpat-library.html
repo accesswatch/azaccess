@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VPAT Library | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .vpat-search { max-width: 500px; margin-bottom: 1.5rem; }
+    .vpat-search input { width: 100%; padding: 0.75rem; font-size: 1rem; border: 2px solid var(--ua-arizona-blue); border-radius: 4px; }
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .filter-bar button { padding: 0.5rem 1rem; border: 1px solid var(--ua-border); border-radius: 4px; background: white; cursor: pointer; }
+    .filter-bar button:hover, .filter-bar button.active { background: var(--ua-arizona-blue); color: white; border-color: var(--ua-arizona-blue); }
+    .vpat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    .vpat-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; }
+    .vpat-card h3 { margin: 0 0 0.5rem 0; display: flex; justify-content: space-between; align-items: start; }
+    .vpat-card .category { font-size: 0.8rem; color: #666; }
+    .status-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+    .status-good { background: #d4edda; color: #155724; }
+    .status-partial { background: #fff3cd; color: #856404; }
+    .status-poor { background: #f8d7da; color: #721c24; }
+    .status-unknown { background: #e2e3e5; color: #383d41; }
+    .vpat-card .details { font-size: 0.9rem; margin: 0.5rem 0; }
+    .vpat-card .links { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+    .vpat-card .links a { font-size: 0.85rem; }
+    .result-count { color: #666; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <nav class="site-header-nav" aria-label="Primary">
+        <a href="home.html">Home</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol><li><a href="home.html">Home</a></li><li><a href="procurement.html">Procurement</a></li><li aria-current="page">VPAT Library</li></ol>
+    </nav>
+    <h1>VPAT Library</h1>
+    <p>Accessibility status of common software used at UA. Search before you buy.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section>
+      <div class="vpat-search">
+        <label for="vpat-filter" class="visually-hidden">Search products</label>
+        <input type="search" id="vpat-filter" placeholder="Search products (e.g., Zoom, Canvas, Adobe...)" />
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filter by category">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="lms">LMS</button>
+        <button data-filter="video">Video/Meeting</button>
+        <button data-filter="productivity">Productivity</button>
+        <button data-filter="development">Development</button>
+        <button data-filter="analytics">Analytics</button>
+      </div>
+      <p class="result-count" aria-live="polite"><span id="count">20</span> products</p>
+    </section>
+    <section id="vpat-results" class="vpat-grid">
+      <article class="vpat-card" data-category="video" data-name="zoom">
+        <h3>Zoom <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Video Conferencing</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Substantially Supports<br><strong>Updated:</strong> Oct 2025</p>
+        <div class="links"><a href="https://zoom.us/accessibility">VPAT →</a><a href="#">UA Notes</a></div>
+      </article>
+      <article class="vpat-card" data-category="lms" data-name="brightspace d2l">
+        <h3>Brightspace (D2L) <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Learning Management</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Supports<br><strong>Updated:</strong> Sep 2025</p>
+        <div class="links"><a href="https://www.d2l.com/accessibility/">VPAT →</a><a href="lms-brightspace.html">UA Guide</a></div>
+      </article>
+      <article class="vpat-card" data-category="productivity" data-name="microsoft 365 office word excel powerpoint">
+        <h3>Microsoft 365 <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Productivity Suite</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Supports<br><strong>Updated:</strong> Nov 2025</p>
+        <div class="links"><a href="https://www.microsoft.com/en-us/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="productivity" data-name="google workspace docs sheets slides">
+        <h3>Google Workspace <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">Productivity Suite</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports<br><strong>Note:</strong> Docs better than Sheets</p>
+        <div class="links"><a href="https://www.google.com/accessibility/">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="productivity" data-name="adobe acrobat creative cloud photoshop">
+        <h3>Adobe Creative Cloud <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">Creative Suite</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports<br><strong>Note:</strong> Acrobat good; others vary</p>
+        <div class="links"><a href="https://www.adobe.com/accessibility.html">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="video" data-name="panopto lecture capture">
+        <h3>Panopto <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Lecture Capture</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Supports<br><strong>Auto-captions:</strong> Yes</p>
+        <div class="links"><a href="https://www.panopto.com/accessibility/">VPAT →</a><a href="lms-panopto.html">UA Guide</a></div>
+      </article>
+      <article class="vpat-card" data-category="video" data-name="youtube">
+        <h3>YouTube <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">Video Platform</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports<br><strong>Auto-captions:</strong> Yes (edit for accuracy)</p>
+        <div class="links"><a href="https://support.google.com/youtube/answer/189278">Accessibility →</a></div>
+      </article>
+      <article class="vpat-card" data-category="video" data-name="microsoft teams">
+        <h3>Microsoft Teams <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Collaboration</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Supports<br><strong>Live captions:</strong> Yes</p>
+        <div class="links"><a href="https://www.microsoft.com/en-us/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="lms" data-name="canvas instructure">
+        <h3>Canvas <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Learning Management</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Supports<br><strong>Updated:</strong> Aug 2025</p>
+        <div class="links"><a href="https://www.instructure.com/canvas/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="analytics" data-name="qualtrics survey">
+        <h3>Qualtrics <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">Survey Tool</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports<br><strong>Note:</strong> Use accessible themes</p>
+        <div class="links"><a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/check-survey-accessibility/">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="development" data-name="github">
+        <h3>GitHub <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Development</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Substantially Supports<br><strong>Updated:</strong> 2025</p>
+        <div class="links"><a href="https://github.com/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="productivity" data-name="slack">
+        <h3>Slack <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">Messaging</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports<br><strong>Note:</strong> Desktop better than mobile</p>
+        <div class="links"><a href="https://slack.com/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="lms" data-name="turnitin">
+        <h3>Turnitin <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">Plagiarism Detection</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports<br><strong>Note:</strong> Feedback Studio improved</p>
+        <div class="links"><a href="https://www.turnitin.com/about/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="video" data-name="webex cisco">
+        <h3>Webex <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Video Conferencing</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Supports<br><strong>Live captions:</strong> Yes</p>
+        <div class="links"><a href="https://www.webex.com/accessibility.html">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="productivity" data-name="dropbox">
+        <h3>Dropbox <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">File Storage</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports</p>
+        <div class="links"><a href="https://www.dropbox.com/features/productivity/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="analytics" data-name="tableau">
+        <h3>Tableau <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">Data Visualization</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports<br><strong>Note:</strong> Dashboard accessibility varies</p>
+        <div class="links"><a href="https://www.tableau.com/solutions/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="lms" data-name="respondus lockdown browser">
+        <h3>Respondus LockDown <span class="status-badge status-poor">Issues</span></h3>
+        <p class="category">Testing Security</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Does Not Support<br><strong>Note:</strong> Accommodations available</p>
+        <div class="links"><a href="https://web.respondus.com/accessibility/">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="productivity" data-name="box">
+        <h3>Box <span class="status-badge status-good">Good</span></h3>
+        <p class="category">File Storage</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Supports</p>
+        <div class="links"><a href="https://www.box.com/security/accessibility">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="analytics" data-name="power bi microsoft">
+        <h3>Power BI <span class="status-badge status-good">Good</span></h3>
+        <p class="category">Business Intelligence</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Supports<br><strong>Note:</strong> Use accessible report design</p>
+        <div class="links"><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-overview">VPAT →</a></div>
+      </article>
+      <article class="vpat-card" data-category="development" data-name="atlassian jira confluence">
+        <h3>Atlassian (Jira/Confluence) <span class="status-badge status-partial">Partial</span></h3>
+        <p class="category">Project Management</p>
+        <p class="details"><strong>WCAG 2.1 AA:</strong> Partially Supports<br><strong>Note:</strong> Cloud better than Server</p>
+        <div class="links"><a href="https://www.atlassian.com/trust/accessibility">VPAT →</a></div>
+      </article>
+    </section>
+    <section style="margin-top: 2rem;">
+      <h2>Don't see your product?</h2>
+      <p>Request a VPAT review: <a href="mailto:accessibility@arizona.edu?subject=VPAT Review Request">accessibility@arizona.edu</a></p>
+      <p>Learn how to evaluate VPATs yourself: <a href="procurement.html">Procurement Guide →</a></p>
+    </section>
+  </main>
+  <footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+  <script>
+    const searchInput = document.getElementById('vpat-filter');
+    const filterBtns = document.querySelectorAll('.filter-bar button');
+    const cards = document.querySelectorAll('.vpat-card');
+    const countEl = document.getElementById('count');
+    let activeFilter = 'all';
+
+    function filterCards() {
+      const query = searchInput.value.toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        const name = card.dataset.name;
+        const cat = card.dataset.category;
+        const matchesSearch = name.includes(query);
+        const matchesFilter = activeFilter === 'all' || cat === activeFilter;
+        const show = matchesSearch && matchesFilter;
+        card.style.display = show ? 'block' : 'none';
+        if (show) visible++;
+      });
+      countEl.textContent = visible;
+    }
+
+    searchInput.addEventListener('input', filterCards);
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        filterCards();
+      });
+    });
+  </script>
+</body>
+</html>
