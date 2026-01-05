@@ -29,6 +29,22 @@
         <a href="blog.html">Blog</a>
         <a href="support.html">Get help</a>
       </nav>
+      <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+        <label for="role-select">I am a...</label>
+        <select id="role-select" name="role">
+          <option value="">Choose your role</option>
+          <option value="persona-students.html">Student or Family Member</option>
+          <option value="persona-faculty.html">Faculty or Instructor</option>
+          <option value="persona-staff.html">Staff Member</option>
+          <option value="persona-developers.html">Developer</option>
+          <option value="persona-mobile.html">Mobile App Team</option>
+          <option value="persona-content.html">Content Creator</option>
+          <option value="persona-comms.html">Communications / Marketing</option>
+          <option value="persona-leadership.html">Leadership / Executive</option>
+          <option value="persona-public.html">Visitor / Community</option>
+        </select>
+        <button type="submit" class="go-btn">Go</button>
+      </form>
     </div>
     <nav aria-label="Breadcrumb">
       <p><a href="home.html">Accessibility Home</a> / <a href="roles.html">I Am A...</a> / Student</p>

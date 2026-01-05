@@ -57,3 +57,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (expanded) closeNav(); else openNav();
     });
 });
+
+// Role selector: navigate to selected role guide
+function goToRole(form) {
+    var select = form.querySelector('select');
+    var value = select.value;
+    if (value && value !== '') {
+        window.location.href = value;
+        return false; // prevent form submission
+    }
+    // If no selection, go to roles.html
+    window.location.href = 'roles.html';
+    return false;
+}
