@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Assistant | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<nav class="site-header-nav" aria-label="Primary">
+<a href="home.html">Home</a>
+<a href="roles.html">I Am A...</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies &amp; Governance</a>
+<a href="support.html">Support</a>
+</nav>
+<nav class="site-header-utilities" aria-label="Quick links">
+<a href="accessibility-101.html">Accessibility 101</a>
+<a href="blog.html">Blog</a>
+<a href="support.html">Get help</a>
+</nav>
+</div>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a> / <a href="tools-checklists.html">Tools</a> / AI Assistant</p>
+</nav>
+</header>
+
+<main id="maincontent">
+<header class="page-header">
+<h1>Accessibility AI Assistant</h1>
+<p class="page-meta">Get instant answers about accessibility or generate alt text for images.</p>
+</header>
+
+<div>
+<h2>What can the assistant do?</h2>
+<div class="grid grid-2">
+<article class="card">
+<h3>💬 Answer accessibility questions</h3>
+<p>Ask about WCAG guidelines, creating accessible documents, web accessibility, captioning, and University of Arizona resources.</p>
+</article>
+<article class="card">
+<h3>🖼️ Generate alt text</h3>
+<p>Upload an image and get AI-suggested alternative text following accessibility best practices.</p>
+</article>
+</div>
+</div>
+
+<div style="margin: 2rem 0;">
+<h2>Try it now</h2>
+
+<!-- Coming Soon Banner - shown until the assistant is deployed -->
+<div id="coming-soon-banner" class="card" style="background: linear-gradient(135deg, #0c234b 0%, #1e5288 100%); color: white; padding: 2rem; text-align: center;">
+<h3 style="color: white; margin-bottom: 1rem;">🚀 Coming Soon!</h3>
+<p style="font-size: 1.1rem; margin-bottom: 1rem;">We're putting the finishing touches on the AI Accessibility Assistant.</p>
+<p style="margin-bottom: 1.5rem;">In the meantime, our team is ready to help:</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+<a href="mailto:accessibility@arizona.edu" style="background: white; color: #0c234b; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">📧 Email Us</a>
+<a href="tel:+15206213268" style="background: white; color: #0c234b; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">📞 Call 520-621-3268</a>
+<a href="faq.html" style="background: rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500; border: 1px solid rgba(255,255,255,0.3);">📖 Browse FAQ</a>
+</div>
+<p style="margin-top: 1.5rem; font-size: 0.875rem; opacity: 0.9;">Want to be notified when it's ready? <a href="https://trellis.tfaforms.net/72?tfa_4=AccessibilityNews" style="color: white; text-decoration: underline;">Subscribe to our newsletter</a></p>
+</div>
+
+<!-- Embedded assistant - hidden until deployed -->
+<div id="assistant-container" style="display: none; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; min-height: 600px;">
+<iframe 
+  id="assistant-frame"
+  src="about:blank"
+  title="Accessibility AI Assistant"
+  style="width: 100%; height: 600px; border: none;"
+  loading="lazy">
+</iframe>
+<noscript>
+<p style="padding: 2rem; text-align: center;">
+JavaScript is required to use the AI assistant. 
+<a href="mailto:accessibility@arizona.edu">Email us</a> for help instead.
+</p>
+</noscript>
+</div>
+
+<p style="margin-top: 1rem; font-size: 0.875rem; color: #666;">
+<strong>Note:</strong> This assistant uses AI and may occasionally provide incomplete information. 
+For official policies and procedures, contact <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>.
+</p>
+</div>
+
+<div>
+<h2>Example questions to try</h2>
+<ul>
+<li>"How do I add alt text to images in Word?"</li>
+<li>"What's the minimum color contrast ratio for text?"</li>
+<li>"How do I caption videos in Panopto?"</li>
+<li>"What makes a good heading structure?"</li>
+<li>"How do I make accessible links?"</li>
+<li>"What are the WCAG 2.2 requirements for focus indicators?"</li>
+</ul>
+</div>
+
+<div>
+<h2>Privacy and data</h2>
+<ul>
+<li>Questions are processed by Google's Gemini AI and are not stored after your session.</li>
+<li>Images uploaded for alt text analysis are not retained.</li>
+<li>No personal information is collected or shared.</li>
+</ul>
+</div>
+
+<div>
+<h2>Prefer human help?</h2>
+<p>The AI assistant is great for quick questions, but our team is always available:</p>
+<ul>
+<li>Email: <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></li>
+<li>Phone: <a href="tel:+15206213268">520-621-3268</a></li>
+<li>Consultation: <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu">Request a review</a></li>
+</ul>
+</div>
+</main>
+
+<footer>
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a> | <a href="ai-assistant.html">🤖 AI Assistant</a></p>
+<p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="glossary.html">Glossary</a> | <a href="faq.html">FAQ</a></p>
+</footer>
+
+<script>
+// AI Assistant loader
+// Set this to your deployed Cloudflare Worker URL when ready
+// Leave as empty string or placeholder to show "Coming Soon" banner
+const ASSISTANT_URL = '';  // e.g., 'https://a11y-assistant.your-subdomain.workers.dev'
+
+document.addEventListener('DOMContentLoaded', () => {
+  const banner = document.getElementById('coming-soon-banner');
+  const container = document.getElementById('assistant-container');
+  const frame = document.getElementById('assistant-frame');
+  
+  // If no URL configured, keep showing Coming Soon
+  if (!ASSISTANT_URL || ASSISTANT_URL.includes('your-subdomain')) {
+    return; // Keep banner visible, container hidden
+  }
+  
+  // Try to load the assistant
+  fetch(ASSISTANT_URL + '/health', { mode: 'cors' })
+    .then(response => {
+      if (response.ok) {
+        // Assistant is available - show it
+        banner.style.display = 'none';
+        container.style.display = 'block';
+        frame.src = ASSISTANT_URL;
+      }
+      // If not ok, keep banner visible
+    })
+    .catch(() => {
+      // Assistant not available - keep banner visible
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "name": "a11y-assistant",
+    "version": "1.0.0",
+    "description": "Accessibility AI Assistant powered by Gemini 2.0 Flash",
+    "main": "src/index.js",
+    "scripts": {
+        "dev": "wrangler dev",
+        "deploy": "wrangler deploy",
+        "tail": "wrangler tail"
+    },
+    "dependencies": {
+        "@google/generative-ai": "^0.21.0"
+    },
+    "devDependencies": {
+        "wrangler": "^3.0.0"
+    }
+}
