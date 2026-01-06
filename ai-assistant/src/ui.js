@@ -357,16 +357,16 @@ export function getUIHTML() {
 <body>
   <div class="container">
     <header>
-      <h1>🎓 Accessibility Assistant</h1>
+      <h1>Accessibility Assistant</h1>
       <p>Ask questions or generate alt text for images</p>
     </header>
 
     <div class="tabs" role="tablist">
       <button class="tab active" role="tab" aria-selected="true" aria-controls="chat-panel" id="chat-tab">
-        💬 Ask a Question
+        Ask a Question
       </button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="alt-panel" id="alt-tab">
-        🖼️ Generate Alt Text
+        Generate Alt Text
       </button>
     </div>
 
@@ -374,7 +374,7 @@ export function getUIHTML() {
     <div class="panel active" id="chat-panel" role="tabpanel" aria-labelledby="chat-tab">
       <div class="chat-messages" id="chat-messages" role="log" aria-live="polite">
         <div class="message assistant">
-          <p>👋 Hi! I'm here to help with accessibility questions. You can ask me about:</p>
+          <p>Hi! I'm here to help with accessibility questions. You can ask me about:</p>
           <ul>
             <li>WCAG guidelines and compliance</li>
             <li>Creating accessible documents</li>
@@ -403,7 +403,7 @@ export function getUIHTML() {
       <div class="alt-text-panel">
         <div class="drop-zone" id="drop-zone">
           <label class="drop-zone-label" for="image-input">
-            <div class="drop-zone-icon">📁</div>
+            <div class="drop-zone-icon"></div>
             <p><strong>Drop an image here</strong> or click to browse</p>
             <p style="font-size: 0.875rem; color: #666;">Supports JPEG, PNG, GIF, WebP (max 4MB)</p>
           </label>
@@ -413,7 +413,7 @@ export function getUIHTML() {
         <div class="preview-container" id="preview-container">
           <img id="preview-image" class="preview-image" alt="Preview of uploaded image">
           <button type="button" class="btn" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;" id="clear-image">
-            ✕ Clear image
+            Clear image
           </button>
         </div>
 
@@ -435,7 +435,7 @@ export function getUIHTML() {
           <h3>Recommended Alt Text</h3>
           <div class="alt-text-result" id="alt-text-result"></div>
           <button type="button" class="btn btn-primary copy-btn" id="copy-btn">
-            📋 Copy to Clipboard
+            Copy to Clipboard
           </button>
           <div id="extended-description" style="margin-top: 1rem;"></div>
         </div>
@@ -657,9 +657,9 @@ export function getUIHTML() {
       const text = altTextResult.textContent;
       try {
         await navigator.clipboard.writeText(text);
-        copyBtn.textContent = '✓ Copied!';
+        copyBtn.textContent = 'Copied!';
         setTimeout(() => {
-          copyBtn.textContent = '📋 Copy to Clipboard';
+          copyBtn.textContent = 'Copy to Clipboard';
         }, 2000);
       } catch (err) {
         // Fallback
@@ -669,9 +669,9 @@ export function getUIHTML() {
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        copyBtn.textContent = '✓ Copied!';
+        copyBtn.textContent = 'Copied!';
         setTimeout(() => {
-          copyBtn.textContent = '📋 Copy to Clipboard';
+          copyBtn.textContent = 'Copy to Clipboard';
         }, 2000);
       }
     });
