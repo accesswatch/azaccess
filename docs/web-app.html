@@ -13,7 +13,7 @@
 <div class="site-header">
 <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
 <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<nav class="site-header-nav" aria-label="Primary">
 <a href="home.html">Home</a>
 <a href="roles.html">I Am A...</a>
 <a href="documents-media.html">Documents &amp; Media</a>
@@ -24,7 +24,7 @@
 <a href="policies-governance.html">Policies &amp; Governance</a>
 <a href="support.html">Support</a>
 </nav>
-<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<nav class="site-header-utilities" aria-label="Quick links">
 <a href="accessibility-101.html">Accessibility 101</a>
 <a href="blog.html">Blog</a>
 <a href="support.html">Get help</a>
@@ -54,16 +54,16 @@
 <p class="metric-chip">Title II compliance milestone: April 24, 2026</p>
 <p class="page-meta">Owner: Arizona Digital · Last reviewed: 2026-01-05 · Next review: 2026-04-05</p>
 </header>
-<main id="maincontent" role="main">
-<section>
+<main id="maincontent">
+<div>
 <h2 id="web-help">What this page helps you do</h2>
 <ul>
 <li>Plan and build Arizona sites and applications that meet WCAG 2.2 AA and Title II expectations.</li>
 <li>Choose the right Quickstart components, patterns, and testing tools for your stack.</li>
 <li>Know when to escalate issues, request exceptions, or coordinate with Procurement and Accessibility PMO.</li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="web-exec">Executive summary</h2>
 <p>All UA digital properties, including mobile apps, must meet WCAG 2.2 AA. Align your roadmap with the Title II deadlines, implement Quickstart components as designed, and document any fundamental alteration claims with alternative access plans.</p>
 <ul>
@@ -73,8 +73,8 @@
 <li>Engage Procurement early when selecting third-party widgets or SaaS platforms.</li>
 </ul>
 <p><strong>If you only do one thing:</strong>run a keyboard-only walkthrough of your next feature before it ships.</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="web-quick-wins">Quick wins (5–10 minutes each)</h2>
 <p>Four high-impact checks you can do before any release. Each links to the authoritative source.</p>
 <div class="quick-wins-grid">
@@ -103,16 +103,16 @@
 <p><a href="https://webaim.org/resources/contrastchecker/">WebAIM: Contrast Checker</a></p>
 </article>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="web-maturity">Minimum, better, best for web &amp; apps</h2>
 <ul>
 <li><strong>Minimum:</strong>Public-facing sites and applications avoid blocking barriers (keyboard traps, missing alt text on key images, inaccessible menus, uncaptioned required media).</li>
 <li><strong>Better:</strong>Teams adopt Quickstart components and patterns, run automated and basic manual tests before releases, and address findings within planned sprints.</li>
 <li><strong>Best:</strong>Accessibility requirements are part of definition of done, CI enforces checks, design and code reviews include disabled user feedback, and exception processes are documented and rare.</li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="patterns">Quickstart &amp; component patterns</h2>
 <div class="grid grid-3">
 <article class="card">
@@ -146,8 +146,8 @@
 <a class="cta" href="heading-basics.html">Heading basics</a>
 </article>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="wcag">WCAG 2.2 AA checklist</h2>
 <div class="table-scroll">
 <table>
@@ -184,8 +184,8 @@
 </div>
 <p>Download the full checklist or import into your team’s issue tracker.</p>
 <a class="cta" href="testing-tools.html">Download checklist</a>
-</section>
-<section>
+</div>
+<div>
 <h2 id="testing">Testing toolkit</h2>
 <ul>
 <li><strong>Automated:</strong>axe DevTools, Accessibility Insights CLI, Storybook a11y add-on.</li>
@@ -195,8 +195,8 @@
 <li><strong>Reference material:</strong><a href="https://webaim.org/resources/">WebAIM checklists</a>and<a href="https://dequeuniversity.com/sv/axe/devtools">Deque axe DevTools guides</a>.</li>
 </ul>
 <p>See<a href="testing-tools.html">Testing Toolkit</a>for scripts, logging templates, and CI recipes.</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="mobile">Mobile apps</h2>
 <p>Title II now explicitly covers mobile apps. Follow the<a href="mobile-roadmap.html">mobile roadmap</a>to inventory apps, schedule audits, and remediate issues.</p>
 <div class="grid grid-3">
@@ -216,8 +216,8 @@
 <a class="cta" href="mobile.html">Mobile app guide</a>
 </article>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="exceptions">Exception &amp; equivalency process</h2>
 <ol>
 <li>Document why meeting a criterion would be a fundamental alteration or undue burden.</li>
@@ -226,8 +226,8 @@
 <li>Review annually and retire once resolved.</li>
 </ol>
 <p>Use the consultation form to start an exception review and store decisions in the governance log.</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="web-training">Training &amp; community</h2>
 <ul>
 <li>Arizona Digital developer guild (bi-weekly).</li>
@@ -236,8 +236,8 @@
 </ul>
 <p>Need help? Request a consultation.</p>
 <a class="cta" href="support.html">Request consultation</a>
-</section>
-<section>
+</div>
+<div>
 <h2 id="web-sources">Learn from the source</h2>
 <p>We curate guidance—these organizations set the standards. Bookmark them for deep dives.</p>
 <div class="grid grid-3">
@@ -266,10 +266,10 @@
 </ul>
 </article>
 </div>
-</section>
+</div>
 <p><a href="#maincontent">Back to top</a></p>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p>Questions?<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>|<a href="tel:+15206213268">520-621-3268</a></p>
 <p>Last reviewed: 2026-01-05</p>

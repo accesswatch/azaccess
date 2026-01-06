@@ -33,7 +33,7 @@
 <p><a href="home.html">Accessibility Home</a>/<a href="blog.html">Blog</a>/ Sample Post</p>
 </nav>
 </header>
-<main id="maincontent" role="main">
+<main id="maincontent">
 <article class="blog-article">
 <header>
 <h1>How to Write Effective Alt Text: A Complete Guide</h1>
@@ -61,13 +61,13 @@
 <li><a href="#tools">Tools to Help</a></li>
 </ul>
 </nav>
-<section id="what-is">
+<div id="what-is">
 <h2>What is Alt Text?</h2>
 <p>Alt text is a written description of an image that serves as an alternative when the image cannot be seen. It's stored in the HTML<code>alt</code>attribute:</p>
 <pre><code>&lt;img src="cat.jpg" alt="Orange tabby cat sleeping on a blue couch"&gt;</code></pre>
 <p>Screen readers announce alt text to users who are blind or have low vision. It also displays when images fail to load or when users have images disabled.</p>
-</section>
-<section id="why-matters">
+</div>
+<div id="why-matters">
 <h2>Why Alt Text Matters</h2>
 <ul>
 <li><strong>Accessibility:</strong>Enables blind and low-vision users to understand image content</li>
@@ -75,8 +75,8 @@
 <li><strong>SEO:</strong>Search engines use alt text to understand and index images</li>
 <li><strong>Usability:</strong>Helps all users when images don't load</li>
 </ul>
-</section>
-<section id="how-to-write">
+</div>
+<div id="how-to-write">
 <h2>How to Write Good Alt Text</h2>
 <h3>1. Be Specific and Concise</h3>
 <p>Describe what's in the image, not around it. Aim for 125 characters or less when possible.</p>
@@ -86,8 +86,8 @@
 <p>Screen readers already announce "image" or "graphic," so this is redundant.</p>
 <h3>4. Include Relevant Details</h3>
 <p>If text, colors, expressions, or actions are important to understanding the image, include them.</p>
-</section>
-<section id="examples">
+</div>
+<div id="examples">
 <h2>Examples: Good vs. Bad</h2>
 <div class="do-dont-grid">
 <div class="do-card">
@@ -108,8 +108,8 @@
 </ul>
 </div>
 </div>
-</section>
-<section id="special-cases">
+</div>
+<div id="special-cases">
 <h2>Special Cases</h2>
 <h3>Decorative Images</h3>
 <p>If an image is purely decorative (doesn't convey information), use an empty alt attribute:</p>
@@ -125,8 +125,8 @@
 <pre><code>&lt;a href="homepage.html"&gt;
  &lt;img src="logo.png" alt="University of Arizona home"&gt;
 &lt;/a&gt;</code></pre>
-</section>
-<section id="tools">
+</div>
+<div id="tools">
 <h2>Tools to Help</h2>
 <ul>
 <li><a href="https://wave.webaim.org/">WAVE</a>- Flags missing alt text</li>
@@ -134,8 +134,8 @@
 <li>Word and PowerPoint accessibility checkers</li>
 <li><a href="https://www.levelaccess.com/elearning-accessibility-alt-text/">Alt Text Decision Tree</a></li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2>Key Takeaways</h2>
 <ul>
 <li>Every meaningful image needs alt text</li>
@@ -144,7 +144,7 @@
 <li>Use empty alt (<code>alt=""</code>) for decorative images</li>
 <li>Complex images need extended descriptions</li>
 </ul>
-</section>
+</div>
 <div class="blog-tags">
 <strong>Tags:</strong>
 <a href="#">Alt Text</a>
@@ -164,7 +164,7 @@
 <a href="#" rel="prev">Previous: WCAG 2.2 Overview</a>
 <a href="#" rel="next">Next: Keyboard Navigation Basics</a>
 </nav>
-<section class="related-posts">
+<div class="related-posts">
 <h2>Related Articles</h2>
 <div class="related-grid">
 <article class="related-card">
@@ -180,10 +180,10 @@
 <p>Simple changes that make a big difference.</p>
 </article>
 </div>
-</section>
+</div>
 </article>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p><a href="accessibility-statement.html">Accessibility Statement</a>|<a href="support.html">Report an Issue</a></p>
 </footer>

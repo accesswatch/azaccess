@@ -9,7 +9,7 @@
 <body>
 <a class="skip-link" href="#maincontent">Skip to main content</a>
 <header id="page-header"><p><a href="home.html">Accessibility Home</a>/<a href="documents-media.html">Documents</a></p></header>
-<main id="maincontent" class="doc-content" role="main">
+<main id="maincontent" class="doc-content">
 <article id="content">
 <h1>Email Newsletter Accessibility</h1>
 <p class="lead">Create newsletters that reach your entire audience, including subscribers who use screen readers or have visual impairments.</p>
@@ -26,7 +26,7 @@
 <li><a href="#checklist">Pre-Send Checklist</a></li>
 </ul>
 </nav>
-<section id="why">
+<div id="why">
 <h2>Why Newsletter Accessibility Matters</h2>
 <ul>
 <li><strong>Broader reach:</strong>15% of the global population has some form of disability</li>
@@ -35,8 +35,8 @@
 <li><strong>Mobile users:</strong>Accessibility best practices improve mobile reading experience</li>
 <li><strong>Plain text fallback:</strong>Well-structured emails convert cleanly to plain text</li>
 </ul>
-</section>
-<section id="structure">
+</div>
+<div id="structure">
 <h2>Structure and Layout</h2>
 <h3>Use Semantic HTML</h3>
 <p>Email clients have limited HTML support, but semantic structure helps assistive technology.</p>
@@ -74,8 +74,8 @@
  &lt;/td&gt;
  &lt;/tr&gt;
 &lt;/table&gt;</code></pre>
-</section>
-<section id="images">
+</div>
+<div id="images">
 <h2>Images and Alt Text</h2>
 <h3>Alt Text Requirements</h3>
 <p>Every image needs appropriate alt text:</p>
@@ -130,8 +130,8 @@
 
 &lt;!-- Good: Decorative pattern, empty alt --&gt;
 &lt;img src="divider.png" alt="" width="600" height="10"&gt;</code></pre>
-</section>
-<section id="links">
+</div>
+<div id="links">
 <h2>Links and Buttons</h2>
 <h3>Descriptive Link Text</h3>
 <p>Link text must describe the destination or action.</p>
@@ -175,8 +175,8 @@
  &lt;img src="article-thumb.jpg" alt=""&gt;
  Read: How to Create Accessible Documents
 &lt;/a&gt;</code></pre>
-</section>
-<section id="color">
+</div>
+<div id="color">
 <h2>Color and Contrast</h2>
 <h3>Contrast Requirements</h3>
 <table>
@@ -224,8 +224,8 @@
 <li>Test how your colors invert in dark mode</li>
 <li>Add dark mode media queries if your platform supports them</li>
 </ul>
-</section>
-<section id="platforms">
+</div>
+<div id="platforms">
 <h2>Platform-Specific Tips</h2>
 <h3>Mailchimp</h3>
 <ul>
@@ -253,8 +253,8 @@
 <li>Test in Litmus or Email on Acid</li>
 <li>Always send both HTML and plain text versions</li>
 </ul>
-</section>
-<section id="testing">
+</div>
+<div id="testing">
 <h2>Testing Your Newsletter</h2>
 <h3>Manual Testing</h3>
 <ol>
@@ -280,8 +280,8 @@
 <li>Yahoo Mail</li>
 <li>A screen reader user if possible</li>
 </ul>
-</section>
-<section id="checklist">
+</div>
+<div id="checklist">
 <h2>Pre-Send Checklist</h2>
 <h3>Structure</h3>
 <ul class="checklist">
@@ -317,8 +317,8 @@
 <li><input type="checkbox" id="c18"><label for="c18">Plain text version is readable</label></li>
 <li><input type="checkbox" id="c19"><label for="c19">Sent test to multiple email clients</label></li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2>Related Resources</h2>
 <ul>
 <li><a href="email-outlook.html">Outlook Accessibility Guide</a></li>
@@ -327,10 +327,10 @@
 <li><a href="color-contrast.html">Color and Contrast Guide</a></li>
 <li><a href="example-newsletter.html">Accessible Newsletter Example</a></li>
 </ul>
-</section>
+</div>
 </article>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>
 </body>

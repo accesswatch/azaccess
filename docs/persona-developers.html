@@ -13,7 +13,7 @@
 <div class="site-header">
 <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
 <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<nav class="site-header-nav" aria-label="Primary">
 <a href="home.html">Home</a>
 <a href="roles.html">I Am A...</a>
 <a href="documents-media.html">Documents &amp; Media</a>
@@ -24,7 +24,7 @@
 <a href="policies-governance.html">Policies &amp; Governance</a>
 <a href="support.html">Support</a>
 </nav>
-<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<nav class="site-header-utilities" aria-label="Quick links">
 <a href="accessibility-101.html">Accessibility 101</a>
 <a href="blog.html">Blog</a>
 <a href="support.html">Get help</a>
@@ -54,16 +54,16 @@
 <p class="metric-chip">Goal: 0 critical WCAG defects per release</p>
 <p class="page-meta">We won't slow you down. Most a11y fixes are small—catch them early and ship with confidence.</p>
 </header>
-<main id="maincontent" role="main">
-<section>
+<main id="maincontent">
+<div>
 <h2 id="dev-help">What this page helps you do</h2>
 <ul>
 <li>Ship accessible web components and apps that meet WCAG 2.2 AA expectations.</li>
 <li>Build repeatable testing into CI and manual review workflows to prevent regressions.</li>
 <li>Document exceptions and evidence so reviewers can approve releases quickly.</li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="exec-summary">Executive summary</h2>
 <p>Ship inclusive code by focusing on four pillars:</p>
 <ol>
@@ -73,8 +73,8 @@
 <li><strong>Documented exceptions</strong>: log fundamental alteration requests with remediation plans.</li>
 </ol>
 <p>Use this page for the executive overview, then drill down into shared specs, WebAIM checklists, and Deque University labs linked below.</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-tasks">Top tasks</h2>
 <div class="table-scroll">
 <table>
@@ -114,8 +114,8 @@
 </tbody>
 </table>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-principles">Impactful principles &amp; checks</h2>
 <p>Accessibility should feel predictable—not a burden—when you follow the same playbook every sprint. Anchor your work to<a href="wcag22-highlights.html">WCAG 2.2 AA highlights</a>and verify code with Accessibility Insights, WebAIM’s WAVE, DubBot (campus license), and Microsoft Accessibility Checker for any docs you attach to releases.</p>
 <details class="accordion" open>
@@ -189,8 +189,8 @@
 <p>These five steps align with the role guide's optional manual review checklist so every code drop ships with consistent evidence.</p>
 </div>
 </details>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-playbooks">Implementation playbooks</h2>
 <p>Use these scenario playbooks to translate the checklist into working code.</p>
 <details class="accordion" open>
@@ -241,8 +241,8 @@
 <p>Reference:<a href="focus-management.html">Focus playbook</a>,<a href="testing-tools.html">Testing toolkit</a>.</p>
 </div>
 </details>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-guidance">Guidance</h2>
 <details class="accordion" open>
 <summary>Engineering checklist</summary>
@@ -271,8 +271,8 @@
 <p>Submit fundamental alteration requests with business justification, impacted WCAG criteria, alternative access plan, and remediation timeline.</p>
 </div>
 </details>
-</section>
-<section>
+</div>
+<div>
 <h2 id="insights-guide">Accessibility Insights assessment guide</h2>
 <p>Follow this lightweight workflow each time you prep a release. It mirrors Microsoft’s<a href="https://accessibilityinsights.io/docs/web/overview/">Accessibility Insights help topics</a>so new teammates can jump in quickly.</p>
 <details class="accordion" open>
@@ -318,8 +318,8 @@
 </ul>
 </div>
 </details>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-tools">Tools &amp; contacts</h2>
 <div class="grid grid-3">
 <article class="card">
@@ -348,8 +348,8 @@
 <a class="cta" href="https://accessibility.arizona.edu/tools/dubbot">Request access</a>
 </article>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-cicd">CI/CD readiness</h2>
 <ul>
 <li><strong>Gate builds:</strong>Run axe or Accessibility Insights CLI in pull requests; fail on critical violations and link reports to Jira or Azure Boards.</li>
@@ -358,8 +358,8 @@
 <li><strong>Evidence:</strong>Store results in the release checklist so leadership sees coverage rates.</li>
 </ul>
 <p>Need a starting point? Import the CI templates in<a href="testing-tools.html">Testing Toolkit</a>or attend the developer guild session.</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-at">Assistive technologies to test with</h2>
 <p>Every release should be validated with these AT combinations:</p>
 <ul>
@@ -369,8 +369,8 @@
 <li><strong>Fusion</strong>and<strong>ZoomText</strong>for magnification, focus indicator visibility, and reflow.</li>
 </ul>
 <p>Document results and link to<a href="assistive-tech.html">Assistive Technology Coverage</a>when filing issues.</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-training">Training &amp; community</h2>
 <ul>
 <li>Arizona Digital accessibility guild (bi-weekly).</li>
@@ -378,8 +378,8 @@
 <li>WCAG 2.2 deep dives (quarterly).</li>
 </ul>
 <p>On-demand:<a href="mobile-roadmap.html">Mobile roadmap</a>,<a href="title-ii-brief.html">Title II brief</a>.</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-references">Reference library</h2>
 <ul>
 <li><a href="web-app.html">Web &amp; App accessibility hub</a>— WCAG checklist, exception workflow, mobile guidance.</li>
@@ -389,12 +389,12 @@
 <li><a href="https://webaim.org/resources/">WebAIM resource library</a>— deep dives on forms, landmarks, ARIA, and testing.</li>
 <li><a href="https://dequeuniversity.com/library/">Deque pattern library</a>— code samples for menus, dialogs, and widgets.</li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-feedback">Feedback</h2>
 <p>Post questions in the Arizona Digital Teams channel or email<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>. Last reviewed: 2026-01-05.</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dev-next-steps">Next steps for developers</h2>
 <ul>
 <li><strong>This sprint:</strong>Add Accessibility Insights FastPass to your PR checklist and attach FastPass artifacts to the PR.</li>
@@ -402,16 +402,16 @@
 <li><strong>Ongoing:</strong>Maintain a shared evidence folder with screen-reader transcripts, FastPass reports, and DubBot scan links for leadership reviews.</li>
 </ul>
 <p>Need help integrating tests? Book Accessibility office hours for a pairing session.</p>
-</section>
+</div>
 <!-- Developer testimonial -->
-<section>
+<div>
 <h2 id="dev-testimonial">From developers like you</h2>
 <div class="testimonial">
 <blockquote>"Adding axe-core to our CI pipeline caught issues before they hit production. We went from 30+ a11y bugs per release to basically zero. The ROI was immediate."</blockquote>
 <cite>— Senior Developer, Arizona Digital</cite>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="related-guides">Related guides you may need</h2>
 <p>Your work may overlap with these roles:</p>
 <div class="grid grid-3">
@@ -431,9 +431,9 @@
 <a class="cta" href="roles.html">Back to I Am A...</a>
 </article>
 </div>
-</section>
+</div>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p>Questions?<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>|<a href="tel:+15206213268">520-621-3268</a></p>
 </footer>

@@ -17,8 +17,8 @@
 <p>When users navigate with keyboards or assistive technology, focus must move logically and be clearly visible.</p>
 <p class="metric-chip">Reading time: 10 minutes</p>
 </header>
-<main id="maincontent" role="main">
-<section>
+<main id="maincontent">
+<div>
 <h2 id="fundamentals">Focus Fundamentals</h2>
 <ul>
 <li><strong>Focus</strong>indicates which element currently receives keyboard input</li>
@@ -31,8 +31,8 @@
 <h3>Common Mistake</h3>
 <p>Never remove focus outlines without providing an alternative.<code>outline: none</code>without a replacement makes your site unusable for keyboard users.</p>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="visible-focus">Visible Focus Indicators</h2>
 <p>Users must always be able to see where focus is. WCAG 2.4.13 (Level AAA) requires focus indicators with:</p>
 <ul>
@@ -92,8 +92,8 @@
 }</code></pre>
 </div>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="tab-order">Tab Order</h2>
 <p>Focus order should match the visual reading order (left-to-right, top-to-bottom in English).</p>
 <h3>Natural Tab Order</h3>
@@ -142,8 +142,8 @@
 <h3>CSS Order Property</h3>
 <p>CSS<code>order</code>in Flexbox/Grid changes visual order but<strong>not tab order</strong>. This can create a confusing disconnect.</p>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="dynamic-content">Managing Focus in Dynamic Content</h2>
 <h3>Modal Dialogs</h3>
 <p>When opening a modal:</p>
@@ -239,8 +239,8 @@ button.addEventListener('click', () =>{
  listHeading?.focus();
  }
 }</code></pre>
-</section>
-<section>
+</div>
+<div>
 <h2 id="testing">Testing Focus Management</h2>
 <ol>
 <li><strong>Unplug your mouse</strong>(or move it aside)</li>
@@ -258,8 +258,8 @@ button.addEventListener('click', () =>{
 <li>Run:<code>document.addEventListener('focusin', e =>console.log(e.target))</code></li>
 <li>Tab through the page to see focus logged</li>
 </ol>
-</section>
-<section>
+</div>
+<div>
 <h2 id="checklist">Focus Management Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="f1"><label for="f1">All interactive elements have visible focus indicators</label></li>
@@ -273,8 +273,8 @@ button.addEventListener('click', () =>{
 <li><input type="checkbox" id="f9"><label for="f9">Skip link allows bypassing navigation</label></li>
 <li><input type="checkbox" id="f10"><label for="f10">Tested entire page with keyboard only</label></li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="web-keyboard.html">Keyboard Accessibility Guide</a></li>
@@ -282,9 +282,9 @@ button.addEventListener('click', () =>{
 <li><a href="persona-developers.html">Developer Accessibility Guide</a></li>
 <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">WCAG: Understanding Focus Visible</a></li>
 </ul>
-</section>
+</div>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>
 </body>

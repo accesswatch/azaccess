@@ -39,27 +39,27 @@
 <h1>Accessibility Self-Assessment</h1>
 <p>Check how accessible your work is and get personalized recommendations.</p>
 </header>
-<main id="maincontent" role="main">
+<main id="maincontent">
 <div class="quiz-container">
 <!-- Quiz Type Selection -->
-<section>
+<div>
 <h2 id="select-heading">What would you like to assess?</h2>
 <div class="quiz-type-selector">
 <button class="quiz-type-btn" data-quiz="document"><span class="icon"></span>Document<br><small>Word, PowerPoint, PDF</small></button>
 <button class="quiz-type-btn" data-quiz="website"><span class="icon"></span>Website<br><small>Web pages, apps</small></button>
 <button class="quiz-type-btn" data-quiz="course"><span class="icon"></span>Course<br><small>Brightspace, LMS</small></button>
 </div>
-</section>
+</div>
 <!-- Quiz Questions -->
-<section class="hidden">
+<div class="hidden">
 <h2 id="quiz-heading">Assessment Questions</h2>
 <div class="progress-bar"><div class="progress-fill" id="progress" style="width: 0%"></div></div>
 <p id="progress-text">Question 1 of 8</p>
 <div id="questions-container"></div>
 <button id="submit-quiz" class="cta hidden">See My Results</button>
-</section>
+</div>
 <!-- Results -->
-<section class="hidden">
+<div class="hidden">
 <div class="results-card">
 <h2>Your Accessibility Score</h2>
 <div class="score-circle" id="score-display">0</div>
@@ -67,10 +67,10 @@
 <div id="recommendations"></div>
 <button class="btn-primary" onclick="location.reload()">Take Another Assessment</button>
 </div>
-</section>
+</div>
 </div>
 </main>
-<footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+<footer><p>&copy; 2026 University of Arizona</p></footer>
 <script>
  const quizData = {
  document: [

@@ -13,7 +13,7 @@
 <div class="site-header">
 <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
 <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<nav class="site-header-nav" aria-label="Primary">
 <a href="home.html">Home</a>
 <a href="roles.html">I Am A...</a>
 <a href="documents-media.html">Documents &amp; Media</a>
@@ -24,7 +24,7 @@
 <a href="policies-governance.html">Policies &amp; Governance</a>
 <a href="support.html">Support</a>
 </nav>
-<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<nav class="site-header-utilities" aria-label="Quick links">
 <a href="accessibility-101.html">Accessibility 101</a>
 <a href="blog.html">Blog</a>
 <a href="support.html">Get help</a>
@@ -54,13 +54,13 @@
 <p class="metric-chip">Last audit: 2026-01-05</p>
 <p class="page-meta">Owner: Accessibility Program Office · Last reviewed: 2026-01-05 · Next review: 2026-04-05</p>
 </header>
-<main id="maincontent" role="main">
-<section>
+<main id="maincontent">
+<div>
 <h2 id="tools-exec">Executive summary</h2>
 <p>Use these vetted resources to accelerate compliance. Each entry is tagged by role, format, and tool. Download the JSON registry for automation.</p>
 <p><a class="cta" href="../shared/checklist-index.json">Download checklist index</a></p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="featured-tools">Featured tools</h2>
 <div class="grid grid-3">
 <article class="card">
@@ -82,8 +82,8 @@
 <a class="cta" href="https://wave.webaim.org/">Open tool</a>
 </article>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="checklist-table">Checklist catalog</h2>
 <div class="table-scroll">
 <table>
@@ -135,8 +135,8 @@
 </tbody>
 </table>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="automation">Automation hooks</h2>
 <p>Integrate the checklist index with Power Automate or GitHub Actions to enforce review cadences and surface stale guidance.</p>
 <ul>
@@ -144,9 +144,9 @@
 <li>Use manifest data to trigger notifications in Teams or ServiceNow.</li>
 <li>Log updates in `shared/changelog.md` for transparency.</li>
 </ul>
-</section>
+</div>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p>Questions?<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>|<a href="tel:+15206213268">520-621-3268</a></p>
 <p>Last reviewed: 2026-01-05</p>

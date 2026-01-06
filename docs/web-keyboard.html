@@ -17,8 +17,8 @@
 <p>All functionality must work for users who can't use a mouse. Learn how to build fully keyboard-accessible interfaces.</p>
 <p class="metric-chip">Reading time: 10 minutes</p>
 </header>
-<main id="maincontent" role="main">
-<section>
+<main id="maincontent">
+<div>
 <h2 id="why-keyboard">Why Keyboard Accessibility Matters</h2>
 <p>Many people don't use a mouse:</p>
 <ul>
@@ -29,8 +29,8 @@
 <li><strong>Device limitations</strong>— Some devices don't have pointer input</li>
 </ul>
 <p><strong>WCAG 2.1.1 (Keyboard):</strong>"All functionality of the content is operable through a keyboard interface."</p>
-</section>
-<section>
+</div>
+<div>
 <h2 id="essential-keys">Essential Keyboard Controls</h2>
 <div class="table-scroll">
 <table>
@@ -73,8 +73,8 @@
 </tbody>
 </table>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="native-elements">Use Native HTML Elements</h2>
 <p>Native HTML elements have built-in keyboard support. Use them instead of custom widgets when possible.</p>
 <div class="table-scroll">
@@ -129,8 +129,8 @@
 &lt;!-- Focusable, works with Enter/Space --&gt;</code></pre>
 </div>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="custom-widgets">Making Custom Widgets Keyboard Accessible</h2>
 <p>If you must create custom interactive elements, add keyboard support manually.</p>
 <h3>Step 1: Make It Focusable</h3>
@@ -151,8 +151,8 @@
 <h4>Prefer Native Elements</h4>
 <p>This is a lot of work to replicate what<code>&lt;button&gt;</code>gives you for free. Only create custom widgets when absolutely necessary.</p>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="patterns">Common Keyboard Patterns</h2>
 <h3>Navigation Menus</h3>
 <ul>
@@ -190,8 +190,8 @@
  &lt;summary&gt;Section Title&lt;/summary&gt;
  &lt;p&gt;Content that can be expanded/collapsed.&lt;/p&gt;
 &lt;/details&gt;</code></pre>
-</section>
-<section>
+</div>
+<div>
 <h2 id="skip-links">Skip Links</h2>
 <p>Allow keyboard users to bypass repetitive navigation:</p>
 <pre><code>&lt;!-- First element in body --&gt;
@@ -215,8 +215,8 @@
 
 &lt;!-- Target element --&gt;
 &lt;main id="maincontent"&gt;...&lt;/main&gt;</code></pre>
-</section>
-<section>
+</div>
+<div>
 <h2 id="common-failures">Common Keyboard Accessibility Failures</h2>
 <div class="table-scroll">
 <table>
@@ -262,8 +262,8 @@
 </tbody>
 </table>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="testing">Testing Keyboard Accessibility</h2>
 <ol>
 <li><strong>Put your mouse away</strong>— Literally move it out of reach</li>
@@ -294,8 +294,8 @@
 document.addEventListener('focusin', (e) =>{
  console.log('Focus:', e.target);
 });</code></pre>
-</section>
-<section>
+</div>
+<div>
 <h2 id="checklist">Keyboard Accessibility Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="k1"><label for="k1">All interactive elements are reachable with Tab</label></li>
@@ -309,8 +309,8 @@ document.addEventListener('focusin', (e) =>{
 <li><input type="checkbox" id="k9"><label for="k9">Hover-triggered content is also available on focus</label></li>
 <li><input type="checkbox" id="k10"><label for="k10">No positive tabindex values used</label></li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="focus-management.html">Focus Management Patterns</a></li>
@@ -318,9 +318,9 @@ document.addEventListener('focusin', (e) =>{
 <li><a href="persona-developers.html">Developer Accessibility Guide</a></li>
 <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/">ARIA Authoring Practices Guide (APG)</a></li>
 </ul>
-</section>
+</div>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>
 </body>

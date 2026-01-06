@@ -31,8 +31,8 @@
 <p>How to create accessible notification and alert banners for your website.</p>
 <p class="metric-chip">Reading time: 8 minutes</p>
 </header>
-<main id="maincontent" role="main">
-<section>
+<main id="maincontent">
+<div>
 <h2 id="overview-heading">Alert Accessibility Overview</h2>
 <p>Alerts communicate important information to users. Making them accessible ensures everyone receives critical updates.</p>
 <h3>Key Requirements</h3>
@@ -43,8 +43,8 @@
 <li><strong>Focus management:</strong>Critical alerts may need to receive focus</li>
 <li><strong>Dismissible:</strong>Allow users to close non-critical alerts</li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="examples-heading">Alert Examples</h2>
 <h3>Static Alerts</h3>
 <p>Alerts that are present when the page loads:</p>
@@ -74,8 +74,8 @@
 <button class="alert-dismiss" aria-label="Dismiss alert">&times;</button>
 </div>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="code-heading">Code Patterns</h2>
 <h3>Basic Static Alert</h3>
 <p>For alerts present on page load, no ARIA role is needed:</p>
@@ -141,8 +141,8 @@ function announceStatus(message) {
 announceStatus('3 items added to cart');
 &lt;/script&gt;</pre>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="css-heading">Accessible CSS</h2>
 <div class="code-block">
 <pre>/* Base alert styles */
@@ -209,8 +209,8 @@ announceStatus('3 items added to cart');
  outline-offset: 2px;
 }</pre>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2 id="best-practices-heading">Best Practices</h2>
 <h3>Do</h3>
 <ul>
@@ -229,8 +229,8 @@ announceStatus('3 items added to cart');
 <li>Don't trap focus inside alert banners</li>
 <li>Don't use alerts for decorative purposes</li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="testing-heading">Testing Alerts</h2>
 <ol>
 <li><strong>Visual check:</strong>Can you understand the alert type without color?</li>
@@ -239,8 +239,8 @@ announceStatus('3 items added to cart');
 <li><strong>Screen reader:</strong>Is alert announced when it appears?</li>
 <li><strong>Focus:</strong>After dismissing, does focus go to a logical location?</li>
 </ol>
-</section>
-<section>
+</div>
+<div>
 <h2 id="resources-heading">Related Resources</h2>
 <ul>
 <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/">W3C APG: Alert Pattern</a></li>
@@ -248,9 +248,9 @@ announceStatus('3 items added to cart');
 <li><a href="focus-management.html">Focus Management</a></li>
 <li><a href="developers.html">Developer Guide</a></li>
 </ul>
-</section>
+</div>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p><a href="accessibility-statement.html">Accessibility Statement</a>|<a href="support.html">Report an Issue</a></p>
 </footer>

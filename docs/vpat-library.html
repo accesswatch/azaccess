@@ -44,8 +44,8 @@
 <h1>VPAT Library</h1>
 <p>Accessibility status of common software used at UA. Search before you buy.</p>
 </header>
-<main id="maincontent" role="main">
-<section>
+<main id="maincontent">
+<div>
 <div class="vpat-search">
 <label for="vpat-filter" class="visually-hidden">Search products</label>
 <input type="search" id="vpat-filter" placeholder="Search products (e.g., Zoom, Canvas, Adobe...)" />
@@ -59,8 +59,8 @@
 <button data-filter="analytics">Analytics</button>
 </div>
 <p class="result-count" aria-live="polite"><span id="count">20</span>products</p>
-</section>
-<section class="vpat-grid">
+</div>
+<div class="vpat-grid">
 <article class="vpat-card" data-category="video" data-name="zoom">
 <h3>Zoom<span class="status-badge status-good">Good</span></h3>
 <p class="category">Video Conferencing</p>
@@ -181,14 +181,14 @@
 <p class="details"><strong>WCAG 2.1 AA:</strong>Partially Supports<br><strong>Note:</strong>Cloud better than Server</p>
 <div class="links"><a href="https://www.atlassian.com/trust/accessibility">VPAT</a></div>
 </article>
-</section>
-<section style="margin-top: 2rem;">
+</div>
+<div style="margin-top: 2rem;">
 <h2>Don't see your product?</h2>
 <p>Request a VPAT review:<a href="mailto:accessibility@arizona.edu?subject=VPAT Review Request">accessibility@arizona.edu</a></p>
 <p>Learn how to evaluate VPATs yourself:<a href="procurement.html">Procurement Guide</a></p>
-</section>
+</div>
 </main>
-<footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+<footer><p>&copy; 2026 University of Arizona</p></footer>
 <script>
  const searchInput = document.getElementById('vpat-filter');
  const filterBtns = document.querySelectorAll('.filter-bar button');

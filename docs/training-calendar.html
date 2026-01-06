@@ -38,8 +38,8 @@
 <h1>Training &amp; Events Calendar</h1>
 <p>Workshops, webinars, and office hours to build your accessibility skills.</p>
 </header>
-<main id="maincontent" role="main">
-<section class="self-paced">
+<main id="maincontent">
+<div class="self-paced">
 <h2>Self-Paced Training (Anytime)</h2>
 <div class="course-grid">
 <article class="course-card"><h3>Accessibility 101</h3><p>Introduction to digital accessibility.</p><p>30 min</p><a href="accessibility-101.html" class="cta">Start</a></article>
@@ -47,8 +47,8 @@
 <article class="course-card"><h3>Web Accessibility</h3><p>WCAG fundamentals.</p><p>1 hour</p><a href="web-app.html" class="cta">Start</a></article>
 <article class="course-card"><h3>Captioning &amp; Media</h3><p>Add captions to videos.</p><p>30 min</p><a href="media-captioning.html" class="cta">Start</a></article>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2>Upcoming Live Events</h2>
 <div class="event-filters"><button class="active" data-filter="all">All</button><button data-filter="workshop">Workshops</button><button data-filter="webinar">Webinars</button><button data-filter="office-hours">Office Hours</button></div>
 <div class="events-list">
@@ -88,14 +88,14 @@
 <div class="event-actions"><a href="#" class="register">Register</a></div>
 </article>
 </div>
-</section>
-<section style="margin-top:2rem;background:var(--ua-chip-bg);padding:1.5rem;border-radius:8px;">
+</div>
+<div style="margin-top:2rem;background:var(--ua-chip-bg);padding:1.5rem;border-radius:8px;">
 <h2>Request Custom Training</h2>
 <p>Need training for your department? We offer customized sessions.</p>
 <p><a class="cta" href="mailto:accessibility@arizona.edu?subject=Training Request">Request Training</a></p>
-</section>
+</div>
 </main>
-<footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+<footer><p>&copy; 2026 University of Arizona</p></footer>
 <script>
  document.querySelectorAll('.event-filters button').forEach(btn =>{
  btn.addEventListener('click', () =>{

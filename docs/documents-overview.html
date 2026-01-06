@@ -9,7 +9,7 @@
 <body>
 <a class="skip-link" href="#maincontent">Skip to main content</a>
 <header id="page-header"><p><a href="home.html">Accessibility Home</a>/<a href="documents-media.html">Documents</a></p></header>
-<main id="maincontent" class="doc-content" role="main">
+<main id="maincontent" class="doc-content">
 <article id="content">
 <h1>Accessible Documents Overview</h1>
 <p class="lead">Learn the fundamentals of document accessibility that apply across Microsoft Office, Google Workspace, Adobe, and other tools.</p>
@@ -27,7 +27,7 @@
 <li><a href="#choosing">Choosing the Right Format</a></li>
 </ul>
 </nav>
-<section id="why">
+<div id="why">
 <h2>Why Document Accessibility Matters</h2>
 <p>Documents are how we share information, policies, reports, and educational content. When documents aren't accessible:</p>
 <ul>
@@ -44,8 +44,8 @@
 <li>Public communications (newsletters, reports)</li>
 <li>Web-published documents</li>
 </ul>
-</section>
-<section id="principles">
+</div>
+<div id="principles">
 <h2>Core Principles</h2>
 <p>These principles apply to all document types:</p>
 <div class="card-grid">
@@ -74,8 +74,8 @@
 <p>Link text should describe the destination. Avoid "click here" or raw URLs.</p>
 </div>
 </div>
-</section>
-<section id="guides">
+</div>
+<div id="guides">
 <h2>Application-Specific Guides</h2>
 <p>Each application has its own tools and techniques. Choose your guide:</p>
 <div class="card-grid">
@@ -109,8 +109,8 @@
 </ul>
 </div>
 </div>
-</section>
-<section id="headings">
+</div>
+<div id="headings">
 <h2>Headings and Structure</h2>
 <p>Headings are the most important accessibility feature in documents. They:</p>
 <ul>
@@ -140,8 +140,8 @@
 <div class="warning">
 <p><strong>Common mistake:</strong>Using headings for visual styling (making something look important) rather than structure. Only use headings for actual section titles.</p>
 </div>
-</section>
-<section id="images">
+</div>
+<div id="images">
 <h2>Images and Alt Text</h2>
 <p>Alternative text (alt text) describes images for users who can't see them.</p>
 <h3>Types of Images</h3>
@@ -191,8 +191,8 @@
 <li>Include the data in an accessible table nearby</li>
 <li>Or provide a text description of key data points</li>
 </ol>
-</section>
-<section id="tables">
+</div>
+<div id="tables">
 <h2>Tables</h2>
 <p>Tables should be used for tabular data only—never for layout.</p>
 <h3>Table Requirements</h3>
@@ -228,8 +228,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="links">
+</div>
+<div id="links">
 <h2>Links</h2>
 <p>Link text should make sense out of context—screen reader users often navigate by links alone.</p>
 <div class="do-dont">
@@ -257,8 +257,8 @@
 <li>Indicate file type and size for downloads</li>
 <li>Don't open links in new windows unexpectedly</li>
 </ul>
-</section>
-<section id="color">
+</div>
+<div id="color">
 <h2>Color and Contrast</h2>
 <h3>Color Should Not Be the Only Indicator</h3>
 <p>If you use color to convey meaning, also use:</p>
@@ -275,8 +275,8 @@
 <li><strong>Tip:</strong>Stick to dark text on light backgrounds for body content</li>
 </ul>
 <p><a href="color-contrast.html">Read more about color and contrast</a></p>
-</section>
-<section id="choosing">
+</div>
+<div id="choosing">
 <h2>Choosing the Right Format</h2>
 <p>Different formats have different accessibility strengths:</p>
 <table>
@@ -318,8 +318,8 @@
 <div class="tip">
 <p><strong>Tip:</strong>When in doubt, publish content as a web page. HTML is the most accessible format and works best across devices and assistive technologies.</p>
 </div>
-</section>
-<section>
+</div>
+<div>
 <h2>Quick Document Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="c1"><label for="c1">Used heading styles for all section titles</label></li>
@@ -332,8 +332,8 @@
 <li><input type="checkbox" id="c8"><label for="c8">Text has sufficient contrast</label></li>
 <li><input type="checkbox" id="c9"><label for="c9">Ran the built-in accessibility checker</label></li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2>Related Resources</h2>
 <ul>
 <li><a href="heading-basics.html">Heading Basics</a></li>
@@ -341,10 +341,10 @@
 <li><a href="color-contrast.html">Color and Contrast</a></li>
 <li><a href="pdf-remediation.html">PDF Remediation</a></li>
 </ul>
-</section>
+</div>
 </article>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>
 </body>

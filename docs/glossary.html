@@ -74,7 +74,7 @@
 <div class="site-header">
 <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
 <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<nav class="site-header-nav" aria-label="Primary">
 <a href="home.html">Home</a>
 <a href="roles.html">I Am A...</a>
 <a href="documents-media.html">Documents &amp; Media</a>
@@ -85,7 +85,7 @@
 <a href="policies-governance.html">Policies &amp; Governance</a>
 <a href="support.html">Support</a>
 </nav>
-<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<nav class="site-header-utilities" aria-label="Quick links">
 <a href="accessibility-101.html">Accessibility 101</a>
 <a href="glossary.html" aria-current="page">Glossary</a>
 <a href="faq.html">FAQ</a>
@@ -118,12 +118,12 @@
 <h1>Accessibility Glossary</h1>
 <p>Plain-language definitions for accessibility terms. Search or browse alphabetically.</p>
 </header>
-<main id="maincontent" role="main">
-<section>
+<main id="maincontent">
+<div>
 <h2 id="search-heading" class="visually-hidden">Search glossary</h2>
 <label for="glossary-filter" class="visually-hidden">Filter glossary terms</label>
 <input type="search" id="glossary-filter" class="glossary-search" placeholder=" Type to filter terms (e.g., WCAG, screen reader, alt text)..." />
-</section>
+</div>
 <nav class="alpha-nav" aria-label="Alphabetical navigation">
 <a href="#section-a">A</a>
 <a href="#section-c">C</a>
@@ -142,7 +142,7 @@
 <a href="#section-v">V</a>
 <a href="#section-w">W</a>
 </nav>
-<section id="section-a">
+<div id="section-a">
 <h2 id="heading-a">A</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="ableism discrimination bias">
@@ -175,8 +175,8 @@
 <p class="glossary-see-also">See also:<a href="#section-j">JAWS</a>,<a href="#section-n">NVDA</a>,<a href="#section-v">VoiceOver</a></p>
 </li>
 </ul>
-</section>
-<section id="section-c">
+</div>
+<div id="section-c">
 <h2 id="heading-c">C</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="captions subtitles closed captions cc">
@@ -194,8 +194,8 @@
 <p class="glossary-see-also">Tool:<a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section id="section-d">
+</div>
+<div id="section-d">
 <h2 id="heading-d">D</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="drc disability resource center">
@@ -204,8 +204,8 @@
 <p class="glossary-see-also">Visit:<a href="https://drc.arizona.edu">DRC Website<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section id="section-f">
+</div>
+<div id="section-f">
 <h2 id="heading-f">F</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="focus focus indicator focus ring keyboard focus">
@@ -217,8 +217,8 @@
 <p class="glossary-def">A legal defense where making content accessible would fundamentally change the nature of a program or service. Requires formal documentation and approval; rarely applies.</p>
 </li>
 </ul>
-</section>
-<section id="section-i">
+</div>
+<div id="section-i">
 <h2 id="heading-i">I</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="identity-first person-first language">
@@ -237,8 +237,8 @@
 <p class="glossary-see-also">Learn more:<a href="https://doit.uw.edu/collections/invisible-disabilities/">UW DO-IT: Invisible Disabilities<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section id="section-j">
+</div>
+<div id="section-j">
 <h2 id="heading-j">J</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="jaws screen reader freedom scientific">
@@ -246,8 +246,8 @@
 <p class="glossary-def">A commercial screen reader for Windows made by Freedom Scientific. One of the most widely used screen readers, especially in enterprise and education settings.</p>
 </li>
 </ul>
-</section>
-<section id="section-k">
+</div>
+<div id="section-k">
 <h2 id="heading-k">K</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="keyboard accessibility keyboard navigation tab">
@@ -256,8 +256,8 @@
 <p class="glossary-see-also">Learn more:<a href="https://webaim.org/techniques/keyboard/">WebAIM Keyboard Guide<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section id="section-l">
+</div>
+<div id="section-l">
 <h2 id="heading-l">L</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="landmark aria landmark region navigation main">
@@ -269,8 +269,8 @@
 <p class="glossary-def">A page area that announces changes to screen reader users automatically, without requiring them to navigate there. Used for alerts, status updates, and chat messages.</p>
 </li>
 </ul>
-</section>
-<section id="section-m">
+</div>
+<div id="section-m">
 <h2 id="heading-m">M</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="medical model disability deficit">
@@ -284,8 +284,8 @@
 <p class="glossary-see-also">Source:<a href="https://doit.uw.edu/knowledge-base/what-are-different-models-of-disability/">UW DO-IT<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section id="section-n">
+</div>
+<div id="section-n">
 <h2 id="heading-n">N</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="neurodiversity neurodiverse">
@@ -307,8 +307,8 @@
 <p class="glossary-see-also">Download:<a href="https://www.nvaccess.org/">NV Access<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section id="section-p">
+</div>
+<div id="section-p">
 <h2 id="heading-p">P</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="pdf portable document format tagged pdf">
@@ -326,8 +326,8 @@
 <p class="glossary-def">The four principles of WCAG:<strong>P</strong>erceivable,<strong>O</strong>perable,<strong>U</strong>nderstandable,<strong>R</strong>obust. All accessibility requirements fall under one of these principles.</p>
 </li>
 </ul>
-</section>
-<section id="section-s">
+</div>
+<div id="section-s">
 <h2 id="heading-s">S</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="screen reader sr jaws nvda voiceover talkback">
@@ -353,10 +353,10 @@
 <p class="glossary-see-also">See also: Medical Model of Disability, Models of Disability</p>
 </li>
 </ul>
-</section>
+</div>
 </ul>
 </section>
-<section id="section-t">
+<div id="section-t">
 <h2 id="heading-t">T</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="talkback android screen reader google">
@@ -373,8 +373,8 @@
 <p class="glossary-def">A text version of audio or video content. Includes all spoken words and describes important sounds. Can be read or searched, unlike captions which are time-synced.</p>
 </li>
 </ul>
-</section>
-<section id="section-u">
+</div>
+<div id="section-u">
 <h2 id="heading-u">U</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="ud universal design ron mace">
@@ -393,8 +393,8 @@
 <p class="glossary-see-also">Learn more:<a href="https://udlguidelines.cast.org/">CAST UDL Guidelines<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section id="section-v">
+</div>
+<div id="section-v">
 <h2 id="heading-v">V</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="voiceover apple macos ios screen reader">
@@ -407,8 +407,8 @@
 <p class="glossary-see-also">Learn more:<a href="https://www.itic.org/policy/accessibility/vpat">ITI VPAT Overview<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section id="section-w">
+</div>
+<div id="section-w">
 <h2 id="heading-w">W</h2>
 <ul class="glossary-list">
 <li class="glossary-item" data-terms="wcag web content accessibility guidelines w3c wai 2.0 2.1 2.2 aa">
@@ -422,14 +422,14 @@
 <p class="glossary-see-also">Tool:<a href="https://wave.webaim.org/">WAVE Web Accessibility Evaluator<span class="external-indicator" aria-label="external link"></span></a></p>
 </li>
 </ul>
-</section>
-<section>
+</div>
+<div>
 <h2 id="suggest-term">Suggest a term</h2>
 <p>Missing a term? Email<a href="mailto:accessibility@arizona.edu?subject=Glossary suggestion">accessibility@arizona.edu</a>with the term and we'll add it.</p>
-</section>
+</div>
 <p><a href="#maincontent">Back to top</a></p>
 </main>
-<footer role="contentinfo">
+<footer>
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p>Questions?<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>|<a href="tel:+15206213268">520-621-3268</a></p>
 <p>Last reviewed: 2026-01-05</p>
