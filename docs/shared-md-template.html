@@ -1,51 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page Template | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      // determine md path by replacing .html with .md
-      let path = location.pathname;
-      // when served, filename ends with .html; replace with .md
-      let mdPath = path.replace(/\.html$/, '.md');
-      // For file:// paths, location.pathname may include drive letters; use relative fetch
-      const parts = mdPath.split('/');
-      const mdFile = parts[parts.length-1];
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        // extract simple YAML front matter title
-        let title = '';
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<a href="home.html">Home</a>
+<a href="roles.html">I Am A...</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies &amp; Governance</a>
+<a href="support.html">Support</a>
+</nav>
+<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<a href="accessibility-101.html">Accessibility 101</a>
+<a href="blog.html">Blog</a>
+<a href="support.html">Get help</a>
+</nav>
+<form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+<label for="role-select">I am a...</label>
+<select id="role-select" name="role">
+<option value="">Choose your role</option>
+<option value="persona-students.html">Student or Family Member</option>
+<option value="persona-faculty.html">Faculty or Instructor</option>
+<option value="persona-staff.html">Staff Member</option>
+<option value="persona-developers.html">Developer</option>
+<option value="persona-mobile.html">Mobile App Team</option>
+<option value="persona-content.html">Content Creator</option>
+<option value="persona-comms.html">Communications / Marketing</option>
+<option value="persona-leadership.html">Leadership / Executive</option>
+<option value="persona-public.html">Visitor / Community</option>
+</select>
+<button type="submit" class="go-btn">Go</button>
+</form>
+</div>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a> / Template</p>
+</nav>
+</header>
+
+<main id="maincontent" role="main">
+<header class="page-header">
+<h1>Page Template</h1>
+<p class="page-meta">This is a template file for creating new pages. Copy this file and customize the content.</p>
+</header>
+
+<section aria-labelledby="section1">
+<h2 id="section1">First section heading</h2>
+<p>Replace this with your content. Use semantic HTML and proper heading hierarchy.</p>
+</section>
+
+<section aria-labelledby="section2">
+<h2 id="section2">Second section heading</h2>
+<p>Add more sections as needed. Each section should have a descriptive heading.</p>
+<ul>
+<li>Use lists for related items</li>
+<li>Keep content scannable</li>
+<li>Link to related pages where helpful</li>
+</ul>
+</section>
+
+<section aria-labelledby="resources">
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="accessibility-101.html">Accessibility 101</a></li>
+<li><a href="support.html">Get help</a></li>
+</ul>
+</section>
+</main>
+
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+</footer>
 </body>
+</html>
 </html>

@@ -1,44 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Assistive Technology Coverage | Accessibility</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Assistive Technology | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'assistive-tech.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<a href="home.html">Home</a>
+<a href="roles.html">I Am A...</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies &amp; Governance</a>
+<a href="support.html">Support</a>
+</nav>
+<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<a href="accessibility-101.html">Accessibility 101</a>
+<a href="blog.html">Blog</a>
+<a href="support.html">Get help</a>
+</nav>
+<form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+<label for="role-select">I am a...</label>
+<select id="role-select" name="role">
+<option value="">Choose your role</option>
+<option value="persona-students.html">Student or Family Member</option>
+<option value="persona-faculty.html">Faculty or Instructor</option>
+<option value="persona-staff.html">Staff Member</option>
+<option value="persona-developers.html">Developer</option>
+<option value="persona-mobile.html">Mobile App Team</option>
+<option value="persona-content.html">Content Creator</option>
+<option value="persona-comms.html">Communications / Marketing</option>
+<option value="persona-leadership.html">Leadership / Executive</option>
+<option value="persona-public.html">Visitor / Community</option>
+</select>
+<button type="submit" class="go-btn">Go</button>
+</form>
+</div>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a> / Assistive Technology</p>
+</nav>
+</header>
+
+<main id="maincontent" role="main">
+<header class="page-header">
+<h1>Assistive Technology</h1>
+<p class="page-meta">Software and hardware that help people with disabilities use computers, phones, and digital content.</p>
+</header>
+
+<section aria-labelledby="what-is-at">
+<h2 id="what-is-at">What is assistive technology?</h2>
+<p>Assistive technology (AT) includes any device, software, or equipment that helps people with disabilities perform tasks that might otherwise be difficult or impossible. In the digital context, AT enables users to perceive, understand, navigate, and interact with websites, applications, and documents.</p>
+<p>When you create accessible content, you're ensuring it works well with these technologies.</p>
+</section>
+
+<section aria-labelledby="common-at">
+<h2 id="common-at">Common assistive technologies</h2>
+
+<h3>Screen readers</h3>
+<p>Software that reads digital content aloud for users who are blind or have low vision.</p>
+<ul>
+<li><strong>JAWS</strong> (Job Access With Speech) – Windows, widely used in enterprise and education</li>
+<li><strong>NVDA</strong> (NonVisual Desktop Access) – Windows, free and open source</li>
+<li><strong>VoiceOver</strong> – Built into macOS, iOS, and iPadOS</li>
+<li><strong>TalkBack</strong> – Built into Android devices</li>
+<li><strong>Narrator</strong> – Built into Windows</li>
+</ul>
+
+<h3>Screen magnifiers</h3>
+<p>Software that enlarges portions of the screen for users with low vision.</p>
+<ul>
+<li><strong>ZoomText</strong> – Windows magnification with speech</li>
+<li><strong>macOS Zoom</strong> – Built-in magnification on Mac</li>
+<li><strong>Windows Magnifier</strong> – Built-in magnification on Windows</li>
+</ul>
+
+<h3>Alternative input devices</h3>
+<p>Hardware and software for users who cannot use a standard mouse or keyboard.</p>
+<ul>
+<li><strong>Switch devices</strong> – Single or multiple switches for users with limited mobility</li>
+<li><strong>Eye-tracking systems</strong> – Control computers using eye movement</li>
+<li><strong>Voice recognition</strong> – Dragon NaturallySpeaking, Windows Speech Recognition, Voice Control (macOS)</li>
+<li><strong>Head pointers and mouth sticks</strong> – Physical aids for keyboard/touchscreen use</li>
+<li><strong>Adaptive keyboards</strong> – Large-key, one-handed, or on-screen keyboards</li>
+</ul>
+
+<h3>Refreshable braille displays</h3>
+<p>Hardware devices that convert on-screen text to braille, allowing deafblind users or braille readers to access digital content tactilely.</p>
+</section>
+
+<section aria-labelledby="why-matters">
+<h2 id="why-matters">Why this matters for your work</h2>
+<p>When you create accessible content, you're not just following rules—you're ensuring real people can use your work:</p>
+<ul>
+<li><strong>Proper headings</strong> let screen reader users navigate by section</li>
+<li><strong>Alt text on images</strong> is spoken aloud by screen readers</li>
+<li><strong>Keyboard accessibility</strong> ensures switch and voice control users can interact</li>
+<li><strong>Color contrast</strong> helps screen magnifier users see content clearly</li>
+<li><strong>Captions and transcripts</strong> benefit users who are deaf or hard of hearing</li>
+</ul>
+</section>
+
+<section aria-labelledby="at-campus">
+<h2 id="at-campus">Assistive technology at Arizona</h2>
+<p>The University of Arizona provides assistive technology support through several offices:</p>
+<ul>
+<li><strong>Disability Resource Center (DRC)</strong> – Coordinates student accommodations including AT needs. <a href="https://drc.arizona.edu">drc.arizona.edu</a></li>
+<li><strong>Strategic Alternative Format (SAF)</strong> – Converts course materials to accessible formats. <a href="https://drc.arizona.edu/instructors/saf">DRC: SAF</a></li>
+<li><strong>UITS Accessibility</strong> – Provides guidance on accessible technology procurement and development. <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a></li>
+</ul>
+</section>
+
+<section aria-labelledby="try-it">
+<h2 id="try-it">Try it yourself</h2>
+<p>The best way to understand assistive technology is to use it. Here are free options to explore:</p>
+<ul>
+<li><strong>NVDA</strong> – Download free for Windows: <a href="https://www.nvaccess.org/download/">nvaccess.org/download</a></li>
+<li><strong>VoiceOver</strong> – Already on your Mac (Cmd + F5) or iPhone (Settings &gt; Accessibility &gt; VoiceOver)</li>
+<li><strong>Narrator</strong> – Already on Windows (Windows key + Ctrl + Enter)</li>
+</ul>
+<p>Spend 10 minutes navigating a website with a screen reader. It will change how you think about accessibility.</p>
+</section>
+
+<section aria-labelledby="resources">
+<h2 id="resources">Learn more</h2>
+<ul>
+<li><a href="https://webaim.org/articles/screenreader_testing/">WebAIM: Testing with Screen Readers</a></li>
+<li><a href="https://www.w3.org/WAI/people-use-web/tools-techniques/">W3C: Tools and Techniques</a></li>
+<li><a href="https://www.afb.org/blindness-and-low-vision/using-technology">American Foundation for the Blind: Using Technology</a></li>
+<li><a href="accessibility-101.html">Accessibility 101</a> – Start with the basics</li>
+</ul>
+</section>
+</main>
+
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+</footer>
 </body>
 </html>

@@ -1,44 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mobile App Accessibility Roadmap | Accessibility</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mobile App Accessibility Roadmap | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / Docs</p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">Loading…</article>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    (async function(){
-      const mdFile = 'mobile-roadmap.html';
-      try {
-        const res = await fetch(mdFile);
-        const text = await res.text();
-        const fm = text.match(/^---\n([\s\S]*?)\n---/);
-        let title = '';
-        let body = text;
-        if (fm) {
-          const yaml = fm[1];
-          const m = yaml.match(/^title:\s*(.*)$/m);
-          if (m) title = m[1].replace(/^\s+|\s+$/g,'').replace(/"/g,'');
-          body = text.slice(fm[0].length);
-        }
-        const html = marked.parse(body);
-        if (title) document.title = title + ' | Accessibility';
-        const header = title ? ('<h1>'+title+'</h1>') : '';
-        document.getElementById('content').innerHTML = header + html;
-      } catch (e) {
-        document.getElementById('content').textContent = 'Error loading document: ' + e;
-      }
-    })();
-  </script>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<a href="home.html">Home</a>
+<a href="roles.html">I Am A...</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies &amp; Governance</a>
+<a href="support.html">Support</a>
+</nav>
+<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<a href="accessibility-101.html">Accessibility 101</a>
+<a href="blog.html">Blog</a>
+<a href="support.html">Get help</a>
+</nav>
+<form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+<label for="role-select">I am a...</label>
+<select id="role-select" name="role">
+<option value="">Choose your role</option>
+<option value="persona-students.html">Student or Family Member</option>
+<option value="persona-faculty.html">Faculty or Instructor</option>
+<option value="persona-staff.html">Staff Member</option>
+<option value="persona-developers.html">Developer</option>
+<option value="persona-mobile.html">Mobile App Team</option>
+<option value="persona-content.html">Content Creator</option>
+<option value="persona-comms.html">Communications / Marketing</option>
+<option value="persona-leadership.html">Leadership / Executive</option>
+<option value="persona-public.html">Visitor / Community</option>
+</select>
+<button type="submit" class="go-btn">Go</button>
+</form>
+</div>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a> / <a href="mobile.html">Mobile</a> / Roadmap</p>
+</nav>
+</header>
+
+<main id="maincontent" role="main">
+<header class="page-header">
+<h1>Mobile App Accessibility Roadmap</h1>
+<p class="page-meta">A phased approach to making University of Arizona mobile applications accessible to all users.</p>
+</header>
+
+<section aria-labelledby="overview">
+<h2 id="overview">Overview</h2>
+<p>This roadmap outlines how mobile app teams at Arizona can systematically improve accessibility. Whether you're building a new app or improving an existing one, follow these phases to ensure your app works for everyone.</p>
+</section>
+
+<section aria-labelledby="phase1">
+<h2 id="phase1">Phase 1: Foundation (Weeks 1-4)</h2>
+<h3>Goals</h3>
+<ul>
+<li>Establish baseline accessibility audit</li>
+<li>Fix critical blockers that prevent access entirely</li>
+<li>Set up automated testing in CI/CD pipeline</li>
+</ul>
+<h3>Key actions</h3>
+<ul>
+<li><strong>Run accessibility scanner</strong> – Use Accessibility Inspector (iOS) or Accessibility Scanner (Android)</li>
+<li><strong>Test with screen readers</strong> – VoiceOver (iOS) and TalkBack (Android)</li>
+<li><strong>Fix missing labels</strong> – Ensure all interactive elements have accessible names</li>
+<li><strong>Check touch targets</strong> – Minimum 44x44 points (iOS) or 48x48 dp (Android)</li>
+<li><strong>Document current state</strong> – Create accessibility backlog with prioritized issues</li>
+</ul>
+</section>
+
+<section aria-labelledby="phase2">
+<h2 id="phase2">Phase 2: Core compliance (Weeks 5-12)</h2>
+<h3>Goals</h3>
+<ul>
+<li>Achieve WCAG 2.1 Level AA for all core user flows</li>
+<li>Implement proper focus management</li>
+<li>Support Dynamic Type and display accommodations</li>
+</ul>
+<h3>Key actions</h3>
+<ul>
+<li><strong>Semantic structure</strong> – Use native components with proper roles and traits</li>
+<li><strong>Color contrast</strong> – Minimum 4.5:1 for text, 3:1 for large text and UI components</li>
+<li><strong>Dynamic Type support</strong> – Text scales from 100% to 235% without loss of functionality</li>
+<li><strong>Focus order</strong> – Logical reading order that matches visual layout</li>
+<li><strong>Error handling</strong> – Accessible error messages that identify the problem and solution</li>
+<li><strong>Motion</strong> – Respect "Reduce Motion" system setting</li>
+</ul>
+</section>
+
+<section aria-labelledby="phase3">
+<h2 id="phase3">Phase 3: Enhanced experience (Weeks 13-20)</h2>
+<h3>Goals</h3>
+<ul>
+<li>Go beyond compliance to create an excellent accessible experience</li>
+<li>Optimize for assistive technology power users</li>
+<li>Ensure feature parity for all users</li>
+</ul>
+<h3>Key actions</h3>
+<ul>
+<li><strong>Custom actions</strong> – Add rotor actions (iOS) or custom accessibility actions (Android) for complex interactions</li>
+<li><strong>Live regions</strong> – Announce dynamic content changes appropriately</li>
+<li><strong>Haptic feedback</strong> – Provide tactile confirmation for important actions</li>
+<li><strong>Voice Control support</strong> – Ensure app works with voice commands</li>
+<li><strong>Switch Control</strong> – Test and optimize for switch access users</li>
+</ul>
+</section>
+
+<section aria-labelledby="phase4">
+<h2 id="phase4">Phase 4: Maintenance &amp; culture (Ongoing)</h2>
+<h3>Goals</h3>
+<ul>
+<li>Prevent accessibility regressions</li>
+<li>Build accessibility into team culture</li>
+<li>Establish feedback channels with users</li>
+</ul>
+<h3>Key actions</h3>
+<ul>
+<li><strong>Automated testing</strong> – Run accessibility checks on every PR</li>
+<li><strong>Manual testing sprints</strong> – Quarterly deep-dive testing with assistive technologies</li>
+<li><strong>User testing</strong> – Include people with disabilities in usability studies</li>
+<li><strong>Team training</strong> – Annual accessibility training for all developers</li>
+<li><strong>Documentation</strong> – Maintain accessibility guidelines in your design system</li>
+</ul>
+</section>
+
+<section aria-labelledby="resources">
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="mobile.html">Mobile Accessibility Guide</a> – Overview of mobile accessibility</li>
+<li><a href="https://developer.apple.com/accessibility/">Apple Accessibility Developer Documentation</a></li>
+<li><a href="https://developer.android.com/guide/topics/ui/accessibility">Android Accessibility Developer Guide</a></li>
+<li><a href="https://www.w3.org/WAI/standards-guidelines/mobile/">W3C Mobile Accessibility</a></li>
+<li><a href="testing-tools.html">Testing Tools</a> – Tools for accessibility testing</li>
+</ul>
+</section>
+
+<section aria-labelledby="support">
+<h2 id="support">Need help?</h2>
+<p>Contact <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> for guidance on mobile app accessibility, audit support, or questions about this roadmap.</p>
+</section>
+</main>
+
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+</footer>
 </body>
 </html>
