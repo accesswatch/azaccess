@@ -19,7 +19,7 @@ sources:
    - **Academic/course media** → Contact UCATT Multimedia or use Panopto caption request within instructor tools.
    - **Events/meetings** → Submit the DRC [ASL/CART request form](https://drc.arizona.edu/asl-cart) at least 5 business days in advance.
 3. **Student accommodations or barrier removal?**
-   - **New/renewal accommodations** → Log in to the DRC student portal to submit documentation and request appointments.
+   - **New/renewal accommodations** → For official accommodations and registration, visit the DRC: https://drc.arizona.edu/students/connect-drc
    - **Report a campus access barrier (physical or digital)** → Use the [Access Report form](https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx) and notify accessibility@arizona.edu for digital blockers.
 4. **Instructor-specific questions?**
    - Visit the [DRC Instructor portal](https://drc.arizona.edu/instructors) for accommodation letters, syllabus statements, and direct contacts.

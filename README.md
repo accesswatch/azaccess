@@ -11,6 +11,8 @@ Visit the live prototype: [https://accesswatch.github.io/azaccess/work/web/home.
 This site provides comprehensive accessibility guidance for students, faculty, staff, and visitors at the University of Arizona. It includes:
 
 - **Role-based guidance** for different roles (students, faculty, staff, developers, etc.)
+
+Note: The Disability Resource Center (DRC) is the official system of record for student disability services, accommodations, and related policies. For official requests or policies, refer students and families to https://drc.arizona.edu/
 - **Hub pages** for documents, media, web/apps, teaching, and governance
 - **Tools and checklists** for accessibility testing and compliance
 - **Support resources** and contact information
