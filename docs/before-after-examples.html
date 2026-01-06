@@ -167,7 +167,6 @@
 <p>See common accessibility issues and their fixes. Learn by example.</p>
 </header>
 <main id="maincontent" role="main">
-
 <nav class="category-tabs" aria-label="Example categories">
 <a href="#images" class="active">Images</a>
 <a href="#headings">Headings</a>
@@ -177,11 +176,9 @@
 <a href="#tables">Tables</a>
 <a href="#documents">Documents</a>
 </nav>
-
 <!-- IMAGES -->
-<section id="images" class="example-section" aria-labelledby="images-heading">
+<section id="images" class="example-section">
 <h2 id="images-heading">Images &amp; Alt Text</h2>
- 
 <article>
 <h3>Missing alt text<span class="wcag-ref">WCAG 1.1.1</span></h3>
 <p>Screen readers announce images without alt text as "image" or read the filename, which is unhelpful or confusing.</p>
@@ -213,7 +210,6 @@
 </ul>
 </div>
 </article>
-
 <article>
 <h3>Decorative images not marked as decorative<span class="wcag-ref">WCAG 1.1.1</span></h3>
 <p>Decorative images (dividers, backgrounds) should have empty alt text so screen readers skip them.</p>
@@ -236,11 +232,9 @@
 </div>
 </article>
 </section>
-
 <!-- HEADINGS -->
-<section id="headings" class="example-section" aria-labelledby="headings-heading">
+<section id="headings" class="example-section">
 <h2 id="headings-heading">Headings &amp; Structure</h2>
- 
 <article>
 <h3>Bold text instead of real headings<span class="wcag-ref">WCAG 1.3.1</span></h3>
 <p>Screen reader users navigate by headings. Bold text looks like a heading but isn't announced as one.</p>
@@ -270,7 +264,6 @@
 </ul>
 </div>
 </article>
-
 <article>
 <h3>Skipped heading levels<span class="wcag-ref">WCAG 1.3.1</span></h3>
 <p>Headings should follow a logical hierarchy without skipping levels.</p>
@@ -296,11 +289,9 @@
 </div>
 </article>
 </section>
-
 <!-- LINKS -->
-<section id="links" class="example-section" aria-labelledby="links-heading">
+<section id="links" class="example-section">
 <h2 id="links-heading">Links</h2>
- 
 <article>
 <h3>Vague link text<span class="wcag-ref">WCAG 2.4.4</span></h3>
 <p>Screen reader users often navigate by listing all links. "Click here" and "Read more" are meaningless out of context.</p>
@@ -336,7 +327,6 @@ information and deadlines&lt;/a&gt;</code></pre>
 </div>
 </div>
 </article>
-
 <article>
 <h3>Links that open in new windows without warning<span class="wcag-ref">WCAG 3.2.5</span></h3>
 <p>Opening new windows unexpectedly can disorient users, especially screen reader users.</p>
@@ -362,11 +352,9 @@ information and deadlines&lt;/a&gt;</code></pre>
 </div>
 </article>
 </section>
-
 <!-- COLOR -->
-<section id="color" class="example-section" aria-labelledby="color-heading">
+<section id="color" class="example-section">
 <h2 id="color-heading">Color &amp; Contrast</h2>
- 
 <article>
 <h3>Insufficient color contrast<span class="wcag-ref">WCAG 1.4.3</span></h3>
 <p>Text must have at least 4.5:1 contrast ratio against its background (3:1 for large text).</p>
@@ -395,7 +383,6 @@ information and deadlines&lt;/a&gt;</code></pre>
 <p>Use<a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>to test your colors.</p>
 </div>
 </article>
-
 <article>
 <h3>Color as the only indicator<span class="wcag-ref">WCAG 1.4.1</span></h3>
 <p>Don't rely on color alone to convey information—some users can't perceive color differences.</p>
@@ -417,11 +404,9 @@ information and deadlines&lt;/a&gt;</code></pre>
 </div>
 </article>
 </section>
-
 <!-- FORMS -->
-<section id="forms" class="example-section" aria-labelledby="forms-heading">
+<section id="forms" class="example-section">
 <h2 id="forms-heading">Forms</h2>
- 
 <article>
 <h3>Missing form labels<span class="wcag-ref">WCAG 1.3.1, 3.3.2</span></h3>
 <p>Every form input needs a programmatic label so screen readers can announce what to enter.</p>
@@ -443,7 +428,6 @@ information and deadlines&lt;/a&gt;</code></pre>
 </div>
 </div>
 </article>
-
 <article>
 <h3>Placeholder text as labels<span class="wcag-ref">WCAG 3.3.2</span></h3>
 <p>Placeholder text disappears when typing, leaving users without context.</p>
@@ -472,11 +456,9 @@ information and deadlines&lt;/a&gt;</code></pre>
 </div>
 </article>
 </section>
-
 <!-- TABLES -->
-<section id="tables" class="example-section" aria-labelledby="tables-heading">
+<section id="tables" class="example-section">
 <h2 id="tables-heading">Tables</h2>
- 
 <article>
 <h3>Data tables without headers<span class="wcag-ref">WCAG 1.3.1</span></h3>
 <p>Screen readers need header cells to announce context for each data cell.</p>
@@ -520,11 +502,9 @@ information and deadlines&lt;/a&gt;</code></pre>
 </div>
 </article>
 </section>
-
 <!-- DOCUMENTS -->
-<section id="documents" class="example-section" aria-labelledby="documents-heading">
+<section id="documents" class="example-section">
 <h2 id="documents-heading">Documents</h2>
- 
 <article>
 <h3>Scanned PDF (image-only)<span class="wcag-ref">WCAG 1.4.5</span></h3>
 <p>Scanned documents are just images—screen readers see nothing but "image".</p>
@@ -557,8 +537,7 @@ information and deadlines&lt;/a&gt;</code></pre>
 </div>
 </article>
 </section>
-
-<section aria-labelledby="more-examples">
+<section>
 <h2 id="more-examples">Want more examples?</h2>
 <div class="grid grid-3">
 <article class="card">
@@ -578,7 +557,6 @@ information and deadlines&lt;/a&gt;</code></pre>
 </article>
 </div>
 </section>
-
 <p><a href="#maincontent">Back to top</a></p>
 </main>
 <footer role="contentinfo">

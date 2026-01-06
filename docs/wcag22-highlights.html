@@ -1,353 +1,306 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WCAG 2.2 Highlights | Accessibility</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WCAG 2.2 Highlights | Accessibility</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header id="page-header"><p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policy</a></p></header>
-  <main id="maincontent" class="doc-content" role="main">
-    <article id="content">
-      <h1>WCAG 2.2 Highlights</h1>
-      <p class="lead">Understanding the new success criteria in WCAG 2.2 and preparing for adoption.</p>
-
-      <div class="alert alert-info">
-        <p><strong>Status:</strong> WCAG 2.2 became a W3C Recommendation on October 5, 2023.</p>
-        <p><strong>Note:</strong> ADA Title II currently references WCAG 2.1 AA, but institutions should prepare for eventual adoption of 2.2.</p>
-      </div>
-
-      <nav class="toc" aria-label="Table of contents">
-        <h2>On This Page</h2>
-        <ul>
-          <li><a href="#overview">What's New in WCAG 2.2</a></li>
-          <li><a href="#new-criteria">New Success Criteria</a></li>
-          <li><a href="#removed">Removed Criterion</a></li>
-          <li><a href="#impact">Impact Assessment</a></li>
-          <li><a href="#timeline">Adoption Timeline</a></li>
-        </ul>
-      </nav>
-
-      <section id="overview">
-        <h2>What's New in WCAG 2.2</h2>
-        <p>WCAG 2.2 extends WCAG 2.1 with 9 new success criteria focused on:</p>
-        <ul>
-          <li><strong>Cognitive accessibility:</strong> Helping users with cognitive and learning disabilities</li>
-          <li><strong>Mobile accessibility:</strong> Better support for touch interfaces</li>
-          <li><strong>Low vision:</strong> Improved focus and target visibility</li>
-          <li><strong>Authentication:</strong> Reducing barriers in login processes</li>
-        </ul>
-
-        <h3>Version Comparison</h3>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Version</th>
-              <th scope="col">Year</th>
-              <th scope="col">Total Criteria</th>
-              <th scope="col">New in Version</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>WCAG 2.0</td>
-              <td>2008</td>
-              <td>61</td>
-              <td>61</td>
-            </tr>
-            <tr>
-              <td>WCAG 2.1</td>
-              <td>2018</td>
-              <td>78</td>
-              <td>17</td>
-            </tr>
-            <tr>
-              <td>WCAG 2.2</td>
-              <td>2023</td>
-              <td>86</td>
-              <td>9 new, 1 removed</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="new-criteria">
-        <h2>New Success Criteria</h2>
-
-        <article class="criterion">
-          <h3>2.4.11 Focus Not Obscured (Minimum) — Level AA</h3>
-          <p><strong>Requirement:</strong> When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.</p>
-          
-          <h4>What This Means</h4>
-          <p>When users tab through a page, they must be able to see what's focused. Sticky headers, cookie banners, and chat widgets shouldn't completely cover focused elements.</p>
-          
-          <h4>How to Comply</h4>
-          <ul>
-            <li>Ensure sticky elements don't cover focused content</li>
-            <li>Use scroll-padding or scroll-margin in CSS</li>
-            <li>Test by tabbing through pages with sticky elements</li>
-          </ul>
-        </article>
-
-        <article class="criterion">
-          <h3>2.4.12 Focus Not Obscured (Enhanced) — Level AAA</h3>
-          <p><strong>Requirement:</strong> No part of the focused component is hidden by author-created content.</p>
-          
-          <h4>What This Means</h4>
-          <p>The stricter version requires the entire focused element to be visible, not just part of it.</p>
-        </article>
-
-        <article class="criterion">
-          <h3>2.4.13 Focus Appearance — Level AAA</h3>
-          <p><strong>Requirement:</strong> Focus indicators must have sufficient size and contrast.</p>
-          
-          <h4>What This Means</h4>
-          <p>Focus indicators should have an area at least the size of a 2px thick perimeter and a 3:1 contrast ratio against adjacent colors.</p>
-          
-          <h4>How to Comply</h4>
-          <ul>
-            <li>Use visible, high-contrast focus indicators</li>
-            <li>Avoid thin, subtle focus outlines</li>
-            <li>Test with keyboard navigation</li>
-          </ul>
-        </article>
-
-        <article class="criterion">
-          <h3>2.5.7 Dragging Movements — Level AA</h3>
-          <p><strong>Requirement:</strong> Functionality that uses dragging can be operated with single pointer without dragging.</p>
-          
-          <h4>What This Means</h4>
-          <p>If users can drag items (like reordering a list or moving a slider), they must also be able to do so with clicks/taps alone.</p>
-          
-          <h4>How to Comply</h4>
-          <ul>
-            <li>Provide click/tap alternatives for drag operations</li>
-            <li>Add up/down buttons for reorderable lists</li>
-            <li>Allow clicking to set slider values</li>
-          </ul>
-          
-          <h4>Example</h4>
-          <p>A sortable list should have "Move Up" and "Move Down" buttons in addition to drag-and-drop.</p>
-        </article>
-
-        <article class="criterion">
-          <h3>2.5.8 Target Size (Minimum) — Level AA</h3>
-          <p><strong>Requirement:</strong> Targets for pointer inputs are at least 24×24 CSS pixels, with some exceptions.</p>
-          
-          <h4>What This Means</h4>
-          <p>Buttons, links, and interactive controls should be large enough to tap or click without difficulty.</p>
-          
-          <h4>Exceptions</h4>
-          <ul>
-            <li><strong>Spacing:</strong> Smaller targets are okay if there's enough space between them</li>
-            <li><strong>Equivalent:</strong> Same function available via larger target</li>
-            <li><strong>Inline:</strong> Links within text paragraphs</li>
-            <li><strong>User agent:</strong> Size determined by browser, not author</li>
-            <li><strong>Essential:</strong> Specific size is legally required or essential</li>
-          </ul>
-          
-          <h4>How to Comply</h4>
-          <ul>
-            <li>Make buttons at least 44×44 pixels (recommended)</li>
-            <li>Add padding to small interactive elements</li>
-            <li>Ensure adequate spacing between targets</li>
-          </ul>
-        </article>
-
-        <article class="criterion">
-          <h3>3.2.6 Consistent Help — Level A</h3>
-          <p><strong>Requirement:</strong> Help mechanisms appear in the same relative order across pages.</p>
-          
-          <h4>What This Means</h4>
-          <p>If a website has help features (contact info, chat, FAQ links), they should appear in consistent locations throughout the site.</p>
-          
-          <h4>Help Mechanisms Include</h4>
-          <ul>
-            <li>Human contact details</li>
-            <li>Human contact mechanisms (chat, forms)</li>
-            <li>Self-help options (FAQ, help pages)</li>
-            <li>Automated contact mechanisms (chatbots)</li>
-          </ul>
-          
-          <h4>How to Comply</h4>
-          <ul>
-            <li>Place help links in consistent locations (e.g., always in footer)</li>
-            <li>Keep help navigation order consistent</li>
-            <li>Use consistent visual presentation</li>
-          </ul>
-        </article>
-
-        <article class="criterion">
-          <h3>3.3.7 Redundant Entry — Level A</h3>
-          <p><strong>Requirement:</strong> Information previously entered doesn't have to be re-entered in the same process.</p>
-          
-          <h4>What This Means</h4>
-          <p>In multi-step forms, if a user enters information like their name or address, they shouldn't have to enter it again on a later step.</p>
-          
-          <h4>Exceptions</h4>
-          <ul>
-            <li>Re-entering is essential (security)</li>
-            <li>Information is no longer valid</li>
-          </ul>
-          
-          <h4>How to Comply</h4>
-          <ul>
-            <li>Auto-populate fields with previously entered data</li>
-            <li>Allow users to select from previous entries</li>
-            <li>Store form progress across steps</li>
-          </ul>
-        </article>
-
-        <article class="criterion">
-          <h3>3.3.8 Accessible Authentication (Minimum) — Level AA</h3>
-          <p><strong>Requirement:</strong> Cognitive function tests aren't required for authentication unless alternatives exist.</p>
-          
-          <h4>What This Means</h4>
-          <p>Login processes shouldn't require users to solve puzzles, remember passwords, or transcribe CAPTCHAs unless there's an alternative method.</p>
-          
-          <h4>Cognitive Function Tests Include</h4>
-          <ul>
-            <li>Remembering passwords (without password manager support)</li>
-            <li>Solving puzzles</li>
-            <li>Performing calculations</li>
-            <li>Recognizing images (CAPTCHAs)</li>
-          </ul>
-          
-          <h4>Acceptable Alternatives</h4>
-          <ul>
-            <li>Allow password managers to work</li>
-            <li>Provide copy/paste for verification codes</li>
-            <li>Support email/SMS links</li>
-            <li>Enable passkeys or biometric authentication</li>
-            <li>Offer object recognition CAPTCHA alternative</li>
-          </ul>
-        </article>
-
-        <article class="criterion">
-          <h3>3.3.9 Accessible Authentication (Enhanced) — Level AAA</h3>
-          <p><strong>Requirement:</strong> No cognitive function tests for authentication, even object recognition.</p>
-          
-          <h4>What This Means</h4>
-          <p>The stricter version eliminates even object recognition (like "click all the traffic lights") as a required step.</p>
-        </article>
-      </section>
-
-      <section id="removed">
-        <h2>Removed Criterion</h2>
-
-        <h3>4.1.1 Parsing — Removed</h3>
-        <p><strong>Previous requirement:</strong> Markup must be well-formed with complete start/end tags, nested according to specification, no duplicate attributes, and unique IDs.</p>
-        
-        <h4>Why Removed</h4>
-        <p>Modern browsers and assistive technologies handle parsing errors gracefully. The issues this criterion addressed are now covered by:</p>
-        <ul>
-          <li>1.3.1 Info and Relationships</li>
-          <li>4.1.2 Name, Role, Value</li>
-        </ul>
-        
-        <div class="tip">
-          <p><strong>Note:</strong> Valid HTML is still a best practice, but minor parsing errors won't fail WCAG 2.2 audits.</p>
-        </div>
-      </section>
-
-      <section id="impact">
-        <h2>Impact Assessment</h2>
-
-        <h3>Most Impactful Changes</h3>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Criterion</th>
-              <th scope="col">Level</th>
-              <th scope="col">Effort</th>
-              <th scope="col">Impact</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Target Size (Minimum)</td>
-              <td>AA</td>
-              <td>Medium</td>
-              <td>High (mobile users)</td>
-            </tr>
-            <tr>
-              <td>Focus Not Obscured</td>
-              <td>AA</td>
-              <td>Low</td>
-              <td>High (keyboard users)</td>
-            </tr>
-            <tr>
-              <td>Accessible Authentication</td>
-              <td>AA</td>
-              <td>Medium</td>
-              <td>High (cognitive)</td>
-            </tr>
-            <tr>
-              <td>Dragging Movements</td>
-              <td>AA</td>
-              <td>Medium</td>
-              <td>Medium</td>
-            </tr>
-            <tr>
-              <td>Redundant Entry</td>
-              <td>A</td>
-              <td>Low-Medium</td>
-              <td>Medium (forms)</td>
-            </tr>
-            <tr>
-              <td>Consistent Help</td>
-              <td>A</td>
-              <td>Low</td>
-              <td>Low-Medium</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Actions to Take Now</h3>
-        <ol>
-          <li><strong>Audit sticky elements:</strong> Check if they obscure focused content</li>
-          <li><strong>Review target sizes:</strong> Ensure interactive elements are large enough</li>
-          <li><strong>Test authentication:</strong> Ensure login works with password managers</li>
-          <li><strong>Check drag functionality:</strong> Add click/tap alternatives</li>
-          <li><strong>Audit multi-step forms:</strong> Avoid redundant data entry</li>
-        </ol>
-      </section>
-
-      <section id="timeline">
-        <h2>Adoption Timeline</h2>
-
-        <h3>Current Status</h3>
-        <ul>
-          <li><strong>ADA Title II:</strong> References WCAG 2.1 AA (as of 2024 rule)</li>
-          <li><strong>Section 508:</strong> References WCAG 2.0 AA (refresh expected)</li>
-          <li><strong>Our standard:</strong> WCAG 2.1 AA with 2.2 recommended</li>
-        </ul>
-
-        <h3>Recommended Approach</h3>
-        <ol>
-          <li>Meet WCAG 2.1 AA (required for Title II compliance)</li>
-          <li>Implement WCAG 2.2 AA for new projects</li>
-          <li>Prioritize 2.2 criteria that provide highest user benefit</li>
-          <li>Plan full 2.2 adoption when regulations update</li>
-        </ol>
-      </section>
-
-      <section id="resources">
-        <h2>Resources</h2>
-        <ul>
-          <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/" target="_blank" rel="noopener">What's New in WCAG 2.2 (W3C)</a></li>
-          <li><a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">WCAG 2.2 Specification</a></li>
-          <li><a href="title-ii-brief.html">ADA Title II Rule Brief</a></li>
-          <li><a href="testing-tools.html">Testing Tools</a></li>
-        </ul>
-      </section>
-
-    </article>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-  </footer>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header id="page-header"><p><a href="home.html">Accessibility Home</a> / <a href="policies-governance.html">Policy</a></p></header>
+<main id="maincontent" class="doc-content" role="main">
+<article id="content">
+<h1>WCAG 2.2 Highlights</h1>
+<p class="lead">Understanding the new success criteria in WCAG 2.2 and preparing for adoption.</p>
+<div class="alert alert-info">
+<p><strong>Status:</strong> WCAG 2.2 became a W3C Recommendation on October 5, 2023.</p>
+<p><strong>Note:</strong> ADA Title II currently references WCAG 2.1 AA, but institutions should prepare for eventual adoption of 2.2.</p>
+</div>
+<nav class="toc" aria-label="Table of contents">
+<h2>On This Page</h2>
+<ul>
+<li><a href="#overview">What's New in WCAG 2.2</a></li>
+<li><a href="#new-criteria">New Success Criteria</a></li>
+<li><a href="#removed">Removed Criterion</a></li>
+<li><a href="#impact">Impact Assessment</a></li>
+<li><a href="#timeline">Adoption Timeline</a></li>
+</ul>
+</nav>
+<section id="overview">
+<h2>What's New in WCAG 2.2</h2>
+<p>WCAG 2.2 extends WCAG 2.1 with 9 new success criteria focused on:</p>
+<ul>
+<li><strong>Cognitive accessibility:</strong> Helping users with cognitive and learning disabilities</li>
+<li><strong>Mobile accessibility:</strong> Better support for touch interfaces</li>
+<li><strong>Low vision:</strong> Improved focus and target visibility</li>
+<li><strong>Authentication:</strong> Reducing barriers in login processes</li>
+</ul>
+<h3>Version Comparison</h3>
+<table>
+<thead>
+<tr>
+<th scope="col">Version</th>
+<th scope="col">Year</th>
+<th scope="col">Total Criteria</th>
+<th scope="col">New in Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WCAG 2.0</td>
+<td>2008</td>
+<td>61</td>
+<td>61</td>
+</tr>
+<tr>
+<td>WCAG 2.1</td>
+<td>2018</td>
+<td>78</td>
+<td>17</td>
+</tr>
+<tr>
+<td>WCAG 2.2</td>
+<td>2023</td>
+<td>86</td>
+<td>9 new, 1 removed</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="new-criteria">
+<h2>New Success Criteria</h2>
+<article class="criterion">
+<h3>2.4.11 Focus Not Obscured (Minimum) — Level AA</h3>
+<p><strong>Requirement:</strong> When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.</p>
+<h4>What This Means</h4>
+<p>When users tab through a page, they must be able to see what's focused. Sticky headers, cookie banners, and chat widgets shouldn't completely cover focused elements.</p>
+<h4>How to Comply</h4>
+<ul>
+<li>Ensure sticky elements don't cover focused content</li>
+<li>Use scroll-padding or scroll-margin in CSS</li>
+<li>Test by tabbing through pages with sticky elements</li>
+</ul>
+</article>
+<article class="criterion">
+<h3>2.4.12 Focus Not Obscured (Enhanced) — Level AAA</h3>
+<p><strong>Requirement:</strong> No part of the focused component is hidden by author-created content.</p>
+<h4>What This Means</h4>
+<p>The stricter version requires the entire focused element to be visible, not just part of it.</p>
+</article>
+<article class="criterion">
+<h3>2.4.13 Focus Appearance — Level AAA</h3>
+<p><strong>Requirement:</strong> Focus indicators must have sufficient size and contrast.</p>
+<h4>What This Means</h4>
+<p>Focus indicators should have an area at least the size of a 2px thick perimeter and a 3:1 contrast ratio against adjacent colors.</p>
+<h4>How to Comply</h4>
+<ul>
+<li>Use visible, high-contrast focus indicators</li>
+<li>Avoid thin, subtle focus outlines</li>
+<li>Test with keyboard navigation</li>
+</ul>
+</article>
+<article class="criterion">
+<h3>2.5.7 Dragging Movements — Level AA</h3>
+<p><strong>Requirement:</strong> Functionality that uses dragging can be operated with single pointer without dragging.</p>
+<h4>What This Means</h4>
+<p>If users can drag items (like reordering a list or moving a slider), they must also be able to do so with clicks/taps alone.</p>
+<h4>How to Comply</h4>
+<ul>
+<li>Provide click/tap alternatives for drag operations</li>
+<li>Add up/down buttons for reorderable lists</li>
+<li>Allow clicking to set slider values</li>
+</ul>
+<h4>Example</h4>
+<p>A sortable list should have "Move Up" and "Move Down" buttons in addition to drag-and-drop.</p>
+</article>
+<article class="criterion">
+<h3>2.5.8 Target Size (Minimum) — Level AA</h3>
+<p><strong>Requirement:</strong> Targets for pointer inputs are at least 24×24 CSS pixels, with some exceptions.</p>
+<h4>What This Means</h4>
+<p>Buttons, links, and interactive controls should be large enough to tap or click without difficulty.</p>
+<h4>Exceptions</h4>
+<ul>
+<li><strong>Spacing:</strong> Smaller targets are okay if there's enough space between them</li>
+<li><strong>Equivalent:</strong> Same function available via larger target</li>
+<li><strong>Inline:</strong> Links within text paragraphs</li>
+<li><strong>User agent:</strong> Size determined by browser, not author</li>
+<li><strong>Essential:</strong> Specific size is legally required or essential</li>
+</ul>
+<h4>How to Comply</h4>
+<ul>
+<li>Make buttons at least 44×44 pixels (recommended)</li>
+<li>Add padding to small interactive elements</li>
+<li>Ensure adequate spacing between targets</li>
+</ul>
+</article>
+<article class="criterion">
+<h3>3.2.6 Consistent Help — Level A</h3>
+<p><strong>Requirement:</strong> Help mechanisms appear in the same relative order across pages.</p>
+<h4>What This Means</h4>
+<p>If a website has help features (contact info, chat, FAQ links), they should appear in consistent locations throughout the site.</p>
+<h4>Help Mechanisms Include</h4>
+<ul>
+<li>Human contact details</li>
+<li>Human contact mechanisms (chat, forms)</li>
+<li>Self-help options (FAQ, help pages)</li>
+<li>Automated contact mechanisms (chatbots)</li>
+</ul>
+<h4>How to Comply</h4>
+<ul>
+<li>Place help links in consistent locations (e.g., always in footer)</li>
+<li>Keep help navigation order consistent</li>
+<li>Use consistent visual presentation</li>
+</ul>
+</article>
+<article class="criterion">
+<h3>3.3.7 Redundant Entry — Level A</h3>
+<p><strong>Requirement:</strong> Information previously entered doesn't have to be re-entered in the same process.</p>
+<h4>What This Means</h4>
+<p>In multi-step forms, if a user enters information like their name or address, they shouldn't have to enter it again on a later step.</p>
+<h4>Exceptions</h4>
+<ul>
+<li>Re-entering is essential (security)</li>
+<li>Information is no longer valid</li>
+</ul>
+<h4>How to Comply</h4>
+<ul>
+<li>Auto-populate fields with previously entered data</li>
+<li>Allow users to select from previous entries</li>
+<li>Store form progress across steps</li>
+</ul>
+</article>
+<article class="criterion">
+<h3>3.3.8 Accessible Authentication (Minimum) — Level AA</h3>
+<p><strong>Requirement:</strong> Cognitive function tests aren't required for authentication unless alternatives exist.</p>
+<h4>What This Means</h4>
+<p>Login processes shouldn't require users to solve puzzles, remember passwords, or transcribe CAPTCHAs unless there's an alternative method.</p>
+<h4>Cognitive Function Tests Include</h4>
+<ul>
+<li>Remembering passwords (without password manager support)</li>
+<li>Solving puzzles</li>
+<li>Performing calculations</li>
+<li>Recognizing images (CAPTCHAs)</li>
+</ul>
+<h4>Acceptable Alternatives</h4>
+<ul>
+<li>Allow password managers to work</li>
+<li>Provide copy/paste for verification codes</li>
+<li>Support email/SMS links</li>
+<li>Enable passkeys or biometric authentication</li>
+<li>Offer object recognition CAPTCHA alternative</li>
+</ul>
+</article>
+<article class="criterion">
+<h3>3.3.9 Accessible Authentication (Enhanced) — Level AAA</h3>
+<p><strong>Requirement:</strong> No cognitive function tests for authentication, even object recognition.</p>
+<h4>What This Means</h4>
+<p>The stricter version eliminates even object recognition (like "click all the traffic lights") as a required step.</p>
+</article>
+</section>
+<section id="removed">
+<h2>Removed Criterion</h2>
+<h3>4.1.1 Parsing — Removed</h3>
+<p><strong>Previous requirement:</strong> Markup must be well-formed with complete start/end tags, nested according to specification, no duplicate attributes, and unique IDs.</p>
+<h4>Why Removed</h4>
+<p>Modern browsers and assistive technologies handle parsing errors gracefully. The issues this criterion addressed are now covered by:</p>
+<ul>
+<li>1.3.1 Info and Relationships</li>
+<li>4.1.2 Name, Role, Value</li>
+</ul>
+<div class="tip">
+<p><strong>Note:</strong> Valid HTML is still a best practice, but minor parsing errors won't fail WCAG 2.2 audits.</p>
+</div>
+</section>
+<section id="impact">
+<h2>Impact Assessment</h2>
+<h3>Most Impactful Changes</h3>
+<table>
+<thead>
+<tr>
+<th scope="col">Criterion</th>
+<th scope="col">Level</th>
+<th scope="col">Effort</th>
+<th scope="col">Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target Size (Minimum)</td>
+<td>AA</td>
+<td>Medium</td>
+<td>High (mobile users)</td>
+</tr>
+<tr>
+<td>Focus Not Obscured</td>
+<td>AA</td>
+<td>Low</td>
+<td>High (keyboard users)</td>
+</tr>
+<tr>
+<td>Accessible Authentication</td>
+<td>AA</td>
+<td>Medium</td>
+<td>High (cognitive)</td>
+</tr>
+<tr>
+<td>Dragging Movements</td>
+<td>AA</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Redundant Entry</td>
+<td>A</td>
+<td>Low-Medium</td>
+<td>Medium (forms)</td>
+</tr>
+<tr>
+<td>Consistent Help</td>
+<td>A</td>
+<td>Low</td>
+<td>Low-Medium</td>
+</tr>
+</tbody>
+</table>
+<h3>Actions to Take Now</h3>
+<ol>
+<li><strong>Audit sticky elements:</strong> Check if they obscure focused content</li>
+<li><strong>Review target sizes:</strong> Ensure interactive elements are large enough</li>
+<li><strong>Test authentication:</strong> Ensure login works with password managers</li>
+<li><strong>Check drag functionality:</strong> Add click/tap alternatives</li>
+<li><strong>Audit multi-step forms:</strong> Avoid redundant data entry</li>
+</ol>
+</section>
+<section id="timeline">
+<h2>Adoption Timeline</h2>
+<h3>Current Status</h3>
+<ul>
+<li><strong>ADA Title II:</strong> References WCAG 2.1 AA (as of 2024 rule)</li>
+<li><strong>Section 508:</strong> References WCAG 2.0 AA (refresh expected)</li>
+<li><strong>Our standard:</strong> WCAG 2.1 AA with 2.2 recommended</li>
+</ul>
+<h3>Recommended Approach</h3>
+<ol>
+<li>Meet WCAG 2.1 AA (required for Title II compliance)</li>
+<li>Implement WCAG 2.2 AA for new projects</li>
+<li>Prioritize 2.2 criteria that provide highest user benefit</li>
+<li>Plan full 2.2 adoption when regulations update</li>
+</ol>
+</section>
+<section>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/" target="_blank" rel="noopener">What's New in WCAG 2.2 (W3C)</a></li>
+<li><a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">WCAG 2.2 Specification</a></li>
+<li><a href="title-ii-brief.html">ADA Title II Rule Brief</a></li>
+<li><a href="testing-tools.html">Testing Tools</a></li>
+</ul>
+</section>
+</article>
+</main>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+</footer>
 </body>
 </html>

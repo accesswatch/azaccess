@@ -17,12 +17,10 @@
 <p>Learn when to remediate PDFs, step-by-step workflows in Adobe Acrobat, and how to test for accessibility.</p>
 <p class="metric-chip">Reading time: 12 minutes</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="decision">
+<section>
 <h2 id="decision">Remediate, Recreate, or Provide Alternative?</h2>
 <p>Before spending hours fixing a PDF, decide the best approach:</p>
- 
 <div class="table-scroll">
 <table>
 <thead>
@@ -56,14 +54,12 @@
 </tbody>
 </table>
 </div>
-
 <div class="callout callout-tip">
 <h3>Pro Tip</h3>
 <p>If you have the source Word document, it's almost always faster to fix accessibility there and re-export than to remediate the PDF directly.</p>
 </div>
 </section>
-
-<section aria-labelledby="requirements">
+<section>
 <h2 id="requirements">PDF Accessibility Requirements</h2>
 <p>Accessible PDFs must have:</p>
 <ul>
@@ -77,10 +73,8 @@
 <li><strong>Accessible forms</strong>with labeled fields</li>
 </ul>
 </section>
-
-<section aria-labelledby="acrobat-workflow">
+<section>
 <h2 id="acrobat-workflow">Adobe Acrobat Pro Workflow</h2>
- 
 <h3>Step 1: Run the Accessibility Check</h3>
 <ol>
 <li>Open your PDF in Adobe Acrobat Pro</li>
@@ -90,7 +84,6 @@
 <li>Click<strong>Start Checking</strong></li>
 <li>Review the report—it shows pass/fail/manual check for each item</li>
 </ol>
-
 <h3>Step 2: Set Document Properties</h3>
 <ol>
 <li>Go to<strong>File Properties</strong></li>
@@ -111,7 +104,6 @@
 </ul>
 </li>
 </ol>
-
 <h3>Step 3: Add or Fix Tags</h3>
 <p>Tags define the document structure (headings, paragraphs, lists, tables).</p>
 <ol>
@@ -120,7 +112,6 @@
 <li>Review auto-generated tags—they're often wrong</li>
 <li>Right-click tags to change type (e.g., change &lt;P&gt; to &lt;H1&gt;)</li>
 </ol>
-
 <h3>Step 4: Fix Reading Order</h3>
 <ol>
 <li>Go to<strong>Tools Accessibility Reading Order</strong></li>
@@ -129,7 +120,6 @@
 <li>Drag items to reorder if needed</li>
 <li>Select content and click buttons to tag as Figure, Table, Heading, etc.</li>
 </ol>
-
 <h3>Step 5: Add Alt Text to Images</h3>
 <ol>
 <li>In the Tags panel, find<strong>&lt;Figure&gt;</strong>tags</li>
@@ -137,7 +127,6 @@
 <li>In the<strong>Tag</strong>tab, add<strong>Alternate Text</strong></li>
 <li>For decorative images, check<strong>Decorative Figure</strong>(or change tag to Artifact)</li>
 </ol>
-
 <div class="callout callout-info">
 <h4>Writing Good Alt Text</h4>
 <ul>
@@ -147,7 +136,6 @@
 <li>For charts/graphs, summarize the key data or trend</li>
 </ul>
 </div>
-
 <h3>Step 6: Fix Tables</h3>
 <ol>
 <li>In the Tags panel, find the<strong>&lt;Table&gt;</strong>tag</li>
@@ -156,7 +144,6 @@
 <li>Set the<strong>Scope</strong>(Column or Row) for each header</li>
 <li>Ensure data cells are marked as<strong>Data Cell (TD)</strong></li>
 </ol>
-
 <h3>Step 7: Fix Forms</h3>
 <ol>
 <li>Go to<strong>Tools Prepare Form</strong></li>
@@ -165,7 +152,6 @@
 <li>Add a<strong>Tooltip</strong>for additional context</li>
 <li>Set<strong>Tab Order</strong>: Right-click form Order Panels by Row/Column</li>
 </ol>
-
 <h3>Step 8: Final Accessibility Check</h3>
 <ol>
 <li>Run<strong>Full Check</strong>again</li>
@@ -173,11 +159,9 @@
 <li>Test with a screen reader if possible</li>
 </ol>
 </section>
-
-<section aria-labelledby="from-word">
+<section>
 <h2 id="from-word">Creating Accessible PDFs from Word</h2>
 <p>Start with an accessible Word document, then export correctly.</p>
-
 <h3>Before Exporting</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="w1"><label for="w1">Use Styles for headings (Heading 1, Heading 2, etc.)</label></li>
@@ -188,7 +172,6 @@
 <li><input type="checkbox" id="w6"><label for="w6">Add meaningful hyperlink text (not "click here")</label></li>
 <li><input type="checkbox" id="w7"><label for="w7">Run the Accessibility Checker (Review Check Accessibility)</label></li>
 </ul>
-
 <h3>Export Settings</h3>
 <ol>
 <li>Go to<strong>File Save As</strong>(or Export)</li>
@@ -199,8 +182,7 @@
 <li>Save the PDF</li>
 </ol>
 </section>
-
-<section aria-labelledby="common-issues">
+<section>
 <h2 id="common-issues">Common Issues &amp; Fixes</h2>
 <div class="table-scroll">
 <table>
@@ -247,10 +229,8 @@
 </table>
 </div>
 </section>
-
-<section aria-labelledby="testing-pdfs">
+<section>
 <h2 id="testing-pdfs">Testing PDF Accessibility</h2>
- 
 <h3>Automated Tools</h3>
 <ul>
 <li><strong>Adobe Acrobat Accessibility Checker</strong>— Built-in, catches most issues</li>
@@ -258,7 +238,6 @@
 <br><a href="https://pac.pdf-accessibility.org/">Download PAC 2024</a></li>
 <li><strong>CommonLook PDF Validator</strong>— Free online validator</li>
 </ul>
-
 <h3>Manual Testing</h3>
 <ul>
 <li><strong>Screen reader test</strong>— Use NVDA (free) or built-in Narrator/VoiceOver</li>
@@ -267,8 +246,7 @@
 <li><strong>Read Out Loud</strong>— View Read Out Loud Read This Page Only</li>
 </ul>
 </section>
-
-<section aria-labelledby="outsourcing">
+<section>
 <h2 id="outsourcing">When to Outsource</h2>
 <p>Consider professional remediation services for:</p>
 <ul>
@@ -280,8 +258,7 @@
 </ul>
 <p>Contact the<a href="support.html">Accessibility Office</a>for vendor recommendations.</p>
 </section>
-
-<section aria-labelledby="checklist">
+<section>
 <h2 id="checklist">PDF Accessibility Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="p1"><label for="p1">Document has a title (not just filename)</label></li>
@@ -298,8 +275,7 @@
 <li><input type="checkbox" id="p12"><label for="p12">Tested with screen reader</label></li>
 </ul>
 </section>
-
-<section aria-labelledby="related">
+<section>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="doc-word.html">Microsoft Word Accessibility</a></li>
@@ -309,7 +285,6 @@
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>

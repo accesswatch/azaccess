@@ -82,8 +82,8 @@
 <p class="muted">Answer a few quick questions and we'll point you to the right pages, forms, and people. Takes about 30 seconds.</p>
 </header>
 <main id="maincontent" role="main">
-<section aria-labelledby="wizard-form-title">
-<h2 id="wizard-form-title">Tell us about your situation</h2>
+<section>
+<h2>Tell us about your situation</h2>
 <p>Check anything that applies—you can skip questions or come back later. Hit<strong>Show my results</strong>whenever you're ready.</p>
 <form id="wizard-form">
 <fieldset>
@@ -100,7 +100,6 @@
 <label><input type="checkbox" name="scenario" value="leadership" />I guide policy, budgeting, or executive updates.</label>
 </div>
 </fieldset>
-
 <fieldset>
 <legend>2. What are you working on today?</legend>
 <div class="grid grid-2">
@@ -111,7 +110,6 @@
 <label><input type="checkbox" name="need" value="training" />Training, office hours, or community</label>
 </div>
 </fieldset>
-
 <fieldset>
 <legend>3. How can we support you right now?</legend>
 <div class="grid grid-2">
@@ -121,14 +119,12 @@
 <label><input type="checkbox" name="support" value="contact" />I need someone to talk to</label>
 </div>
 </fieldset>
-
 <button type="submit" class="cta">Show my results</button>
 </form>
 <p class="muted">Rather explore on your own? Check out<a href="roles.html">I Am A...</a>or<a href="support.html">get help</a>.</p>
 </section>
-
-<section aria-labelledby="results-title" id="wizard-results" aria-live="polite">
-<h2 id="results-title">Your results</h2>
+<section aria-live="polite">
+<h2>Your results</h2>
 <p>Check some boxes above and click<strong>Show my results</strong>to see what we recommend for you.</p>
 </section>
 </main>
@@ -136,13 +132,11 @@
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p>Questions?<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>|<a href="tel:+15206213268">520-621-3268</a></p>
 </footer>
-
 <noscript>
 <div class="result-card">
 <p>This wizard works best with JavaScript enabled. For now, explore the<a href="roles.html">I Am A... page</a>or<a href="support.html">contact us</a>.</p>
 </div>
 </noscript>
-
 <script>
  const roleResources = {
  students: {
@@ -366,7 +360,7 @@
  }
  }
 
- resultsSection.innerHTML = '<h2 id="results-title">Your results</h2>' +
+ resultsSection.innerHTML = '<h2>Your results</h2>' +
  (fragments.length ? fragments.join("") : '<p>No selections yet. Choose one or more situations above, then press "Show my results".</p>');
  });
 </script>

@@ -31,9 +31,8 @@
 <h1>Skip Link Code Snippet</h1>
 <p>Ready-to-use skip navigation link code for your websites.</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="why-heading">
+<section>
 <h2 id="why-heading">Why Skip Links?</h2>
 <p>Skip links allow keyboard and screen reader users to bypass repetitive navigation and jump directly to main content. They are:</p>
 <ul>
@@ -43,8 +42,7 @@
 <li><strong>Usually hidden</strong>until focused, so they don't affect visual design</li>
 </ul>
 </section>
-
-<section aria-labelledby="demo-heading">
+<section>
 <h2 id="demo-heading">Live Demo</h2>
 <p>Press<kbd>Tab</kbd>in this demo area to see the skip link appear:</p>
 <div class="demo-area">
@@ -58,18 +56,14 @@
 </main>
 </div>
 </section>
-
-<section aria-labelledby="html-heading">
+<section>
 <h2 id="html-heading">HTML Code</h2>
 <p>Add this as the<strong>first element</strong>inside your<code>&lt;body&gt;</code>tag:</p>
- 
 <div class="code-example">
 <pre><span class="comment">&lt;!-- Skip link - place as first element in body --&gt;</span>
 <span class="tag">&lt;a</span><span class="attr">class</span>=<span class="string">"skip-link"</span><span class="attr">href</span>=<span class="string">"#maincontent"</span><span class="tag">&gt;</span>Skip to main content<span class="tag">&lt;/a&gt;</span>
-
 <span class="comment">&lt;!-- Your header/navigation here --&gt;</span>
 <span class="tag">&lt;header&gt;</span>...<span class="tag">&lt;/header&gt;</span>
-
 <span class="comment">&lt;!-- Main content with matching ID --&gt;</span>
 <span class="tag">&lt;main</span><span class="attr">id</span>=<span class="string">"maincontent"</span><span class="tag">&gt;</span>
  ...
@@ -77,11 +71,9 @@
 </div>
 <button class="copy-button" onclick="copyHTML()">Copy HTML</button>
 </section>
-
-<section aria-labelledby="css-heading">
+<section>
 <h2 id="css-heading">CSS Code</h2>
 <p>Add this CSS to hide the skip link until it receives keyboard focus:</p>
- 
 <div class="code-example">
 <pre><span class="comment">/* Skip link - hidden until focused */</span>
 <span class="property">.skip-link</span>{
@@ -93,7 +85,6 @@
 <span class="property">overflow</span>:<span class="value">hidden</span>;
 <span class="property">z-index</span>:<span class="value">100</span>;
 }
-
 <span class="comment">/* Visible when focused */</span>
 <span class="property">.skip-link:focus</span>{
 <span class="property">position</span>:<span class="value">fixed</span>;
@@ -114,10 +105,8 @@
 </div>
 <button class="copy-button" onclick="copyCSS()">Copy CSS</button>
 </section>
-
-<section aria-labelledby="variations-heading">
+<section>
 <h2 id="variations-heading">Variations</h2>
- 
 <h3>Multiple Skip Links</h3>
 <p>For complex pages, you can offer multiple targets:</p>
 <div class="code-example">
@@ -127,14 +116,12 @@
 <span class="tag">&lt;a</span><span class="attr">href</span>=<span class="string">"#footer"</span><span class="tag">&gt;</span>Skip to footer<span class="tag">&lt;/a&gt;</span>
 <span class="tag">&lt;/nav&gt;</span></pre>
 </div>
-
 <h3>With Smooth Scroll</h3>
 <p>Add smooth scrolling (but ensure it respects reduced motion preferences):</p>
 <div class="code-example">
 <pre><span class="property">html</span>{
 <span class="property">scroll-behavior</span>:<span class="value">smooth</span>;
 }
-
 <span class="property">@media</span>(prefers-reduced-motion: reduce) {
 <span class="property">html</span>{
 <span class="property">scroll-behavior</span>:<span class="value">auto</span>;
@@ -142,8 +129,7 @@
 }</pre>
 </div>
 </section>
-
-<section aria-labelledby="testing-heading">
+<section>
 <h2 id="testing-heading">Testing Your Skip Link</h2>
 <ol>
 <li>Load your page and press<kbd>Tab</kbd>— skip link should be the first thing focused</li>
@@ -152,7 +138,6 @@
 <li>Test with a screen reader — link should be announced</li>
 <li>Verify focus indicator is clearly visible (3:1 contrast minimum)</li>
 </ol>
-
 <div class="callout callout-warning">
 <h3>Common Mistakes</h3>
 <ul>
@@ -163,8 +148,7 @@
 </ul>
 </div>
 </section>
-
-<section aria-labelledby="resources-heading">
+<section>
 <h2 id="resources-heading">Related Resources</h2>
 <ul>
 <li><a href="focus-management.html">Focus Management</a></li>
@@ -174,12 +158,10 @@
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p><a href="accessibility-statement.html">Accessibility Statement</a>|<a href="support.html">Report an Issue</a></p>
 </footer>
-
 <script>
  function copyHTML() {
  const html = `<a class="skip-link" href="#maincontent">Skip to main content</a>`;

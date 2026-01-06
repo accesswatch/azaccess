@@ -17,9 +17,8 @@
 <p>Learn how to choose colors that everyone can see, including people with low vision and color blindness.</p>
 <p class="metric-chip">Reading time: 8 minutes</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="why-contrast">
+<section>
 <h2 id="why-contrast">Why Contrast Matters</h2>
 <p>Color contrast affects<strong>everyone's</strong>ability to read and interact with content:</p>
 <ul>
@@ -30,11 +29,9 @@
 </ul>
 <p>Good contrast isn't just accessible—it's better design for everyone.</p>
 </section>
-
-<section aria-labelledby="wcag-requirements">
+<section>
 <h2 id="wcag-requirements">WCAG Contrast Requirements</h2>
 <p>The Web Content Accessibility Guidelines specify minimum contrast ratios:</p>
- 
 <div class="table-scroll">
 <table>
 <caption>Minimum Contrast Ratios by Element Type</caption>
@@ -69,13 +66,11 @@
 </tbody>
 </table>
 </div>
-
 <h3>What Counts as "Large Text"?</h3>
 <ul>
 <li><strong>18pt (24px)</strong>at regular weight, OR</li>
 <li><strong>14pt (18.5px)</strong>at bold weight</li>
 </ul>
-
 <h3>What Needs Contrast?</h3>
 <ul>
 <li>Body text, headings, and labels</li>
@@ -86,8 +81,7 @@
 <li>Links (must be distinguishable from surrounding text)</li>
 </ul>
 </section>
-
-<section aria-labelledby="testing-tools">
+<section>
 <h2 id="testing-tools">Testing Your Colors</h2>
 <h3>Recommended Tools</h3>
 <div class="grid grid-2">
@@ -112,7 +106,6 @@
 <p><a href="https://www.figma.com/community/plugin/748533339900865323">Stark for Figma</a></p>
 </article>
 </div>
-
 <h3>How to Test</h3>
 <ol>
 <li>Identify the<strong>foreground color</strong>(text or icon)</li>
@@ -122,10 +115,8 @@
 <li>For gradients: test the<em>darkest</em>foreground on the<em>lightest</em>background</li>
 </ol>
 </section>
-
-<section aria-labelledby="common-problems">
+<section>
 <h2 id="common-problems">Common Problems &amp; Fixes</h2>
- 
 <h3>Problem 1: Light Gray Text</h3>
 <p>Gray text on white backgrounds is the most common failure.</p>
 <div class="do-dont-grid">
@@ -142,7 +133,6 @@ background: #ffffff;</code></pre>
 <p style="color: #767676; background: #ffffff; padding: 0.5rem;">This gray text passes for normal text.</p>
 </div>
 </div>
-
 <h3>Problem 2: Placeholder Text</h3>
 <p>Most browser defaults for placeholder text fail contrast.</p>
 <div class="do-dont-grid">
@@ -159,7 +149,6 @@ background: #ffffff;</code></pre>
 }</code></pre>
 </div>
 </div>
-
 <h3>Problem 3: Brand Colors That Fail</h3>
 <p>When your brand colors don't meet contrast requirements:</p>
 <ul>
@@ -168,7 +157,6 @@ background: #ffffff;</code></pre>
 <li><strong>Option C:</strong>Reserve the color for large text or decorative elements only</li>
 <li><strong>Option D:</strong>Use as an accent with accessible text alongside</li>
 </ul>
-
 <h3>Problem 4: Focus Indicators</h3>
 <p>Custom focus styles must have 3:1 contrast against adjacent colors.</p>
 <pre><code>/* Good focus indicator */
@@ -183,8 +171,7 @@ background: #ffffff;</code></pre>
  box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px #000000;
 }</code></pre>
 </section>
-
-<section aria-labelledby="color-blindness">
+<section>
 <h2 id="color-blindness">Color Blindness Considerations</h2>
 <p>Contrast ratios help with<em>lightness</em>perception, but don't solve color blindness. Additional steps:</p>
 <ul>
@@ -192,21 +179,18 @@ background: #ffffff;</code></pre>
 <li><strong>Red/green combinations</strong>are problematic for 8% of men</li>
 <li><strong>Test with simulators</strong>to see how your design appears to color blind users</li>
 </ul>
-
 <h3>Color Blindness Simulation Tools</h3>
 <ul>
 <li><strong>Sim Daltonism</strong>(Mac) — Free app that overlays your screen</li>
 <li><strong>Color Oracle</strong>(Windows/Mac/Linux) — Free desktop simulator</li>
 <li><strong>Chrome DevTools</strong>Rendering Emulate vision deficiencies</li>
 </ul>
-
 <div class="callout callout-tip">
 <h4>Quick Test</h4>
 <p>Print your design in grayscale. Can you still understand all the information? If not, you're relying too heavily on color.</p>
 </div>
 </section>
-
-<section aria-labelledby="checklist">
+<section>
 <h2 id="checklist">Color &amp; Contrast Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="c1"><label for="c1">Body text has at least 4.5:1 contrast</label></li>
@@ -220,8 +204,7 @@ background: #ffffff;</code></pre>
 <li><input type="checkbox" id="c9"><label for="c9">Placeholder text meets contrast requirements</label></li>
 </ul>
 </section>
-
-<section aria-labelledby="related">
+<section>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="brand-identity.html">Brand Identity &amp; Accessible Colors</a></li>
@@ -231,7 +214,6 @@ background: #ffffff;</code></pre>
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>

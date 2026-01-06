@@ -17,9 +17,8 @@
 <p>Create accessible spreadsheets that work with screen readers and are usable by everyone.</p>
 <p class="metric-chip">Reading time: 8 minutes</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="overview">
+<section>
 <h2 id="overview">Excel Accessibility Basics</h2>
 <p>Spreadsheets can be challenging for screen reader users, but these practices help:</p>
 <ul>
@@ -29,13 +28,10 @@
 <li>Name worksheets descriptively</li>
 </ul>
 </section>
-
-<section aria-labelledby="structure">
+<section>
 <h2 id="structure">Spreadsheet Structure</h2>
- 
 <h3>Start Data in Cell A1</h3>
 <p>Begin your data in cell A1 when possible. Screen reader users start there and blank cells can be confusing.</p>
-
 <h3>Use Meaningful Headers</h3>
 <ol>
 <li>Put headers in Row 1</li>
@@ -43,14 +39,12 @@
 <li>Don't use merged cells for headers</li>
 <li>Keep headers on a single row</li>
 </ol>
-
 <h3>Avoid Blank Rows and Columns</h3>
 <ul>
 <li>Blank rows/columns can make screen readers think data has ended</li>
 <li>Use cell formatting (borders, shading) for visual separation instead</li>
 <li>If you must separate data, use named ranges</li>
 </ul>
-
 <h3>Avoid Merged Cells</h3>
 <p>Merged cells cause navigation problems for screen reader users. Instead:</p>
 <ul>
@@ -59,11 +53,9 @@
 <li>Use borders and shading</li>
 </ul>
 </section>
-
-<section aria-labelledby="tables">
+<section>
 <h2 id="tables">Format as Table</h2>
 <p>Excel tables provide built-in accessibility features.</p>
-
 <h3>Create a Table</h3>
 <ol>
 <li>Select your data range (including headers)</li>
@@ -72,7 +64,6 @@
 <li>Ensure "My table has headers" is checked</li>
 <li>Click OK</li>
 </ol>
-
 <h3>Benefits of Tables</h3>
 <ul>
 <li>Headers automatically repeat when scrolling</li>
@@ -81,10 +72,8 @@
 <li>New data automatically includes in table range</li>
 </ul>
 </section>
-
-<section aria-labelledby="names">
+<section>
 <h2 id="names">Sheet &amp; Cell Names</h2>
- 
 <h3>Name Your Sheets</h3>
 <ul>
 <li>Double-click sheet tabs to rename</li>
@@ -92,7 +81,6 @@
 <li>Keep names short but meaningful</li>
 <li>Delete unused sheets</li>
 </ul>
-
 <h3>Name Important Cells</h3>
 <p>Name cells or ranges that users need to find:</p>
 <ol>
@@ -102,17 +90,14 @@
 </ol>
 <p>Screen reader users can jump to named ranges using<kbd>Ctrl</kbd>+<kbd>G</kbd>(Go To).</p>
 </section>
-
-<section aria-labelledby="charts">
+<section>
 <h2 id="charts">Accessible Charts</h2>
- 
 <h3>Add Alt Text to Charts</h3>
 <ol>
 <li>Right-click the chart</li>
 <li>Select<strong>Edit Alt Text</strong></li>
 <li>Describe the chart's key message</li>
 </ol>
-
 <h3>Chart Alt Text Tips</h3>
 <p>Include in your description:</p>
 <ul>
@@ -122,7 +107,6 @@
 <li>Important data points</li>
 </ul>
 <p><strong>Example:</strong>"Line chart showing monthly website traffic. Visits increased from 10,000 in January to 25,000 in December, with a spike to 30,000 in October during the campaign."</p>
-
 <h3>Chart Design Tips</h3>
 <ul>
 <li>Use distinct colors with good contrast</li>
@@ -131,8 +115,7 @@
 <li>Include the data table below complex charts</li>
 </ul>
 </section>
-
-<section aria-labelledby="images">
+<section>
 <h2 id="images">Images &amp; Objects</h2>
 <h3>Add Alt Text</h3>
 <ol>
@@ -142,10 +125,8 @@
 </ol>
 <p>Avoid using images of text—use actual text in cells instead.</p>
 </section>
-
-<section aria-labelledby="color">
+<section>
 <h2 id="color">Color &amp; Formatting</h2>
- 
 <h3>Don't Rely on Color Alone</h3>
 <p>If you use color to convey meaning, add another indicator:</p>
 <ul>
@@ -153,7 +134,6 @@
 <li>Use symbols or icons with alt text</li>
 <li>Add conditional formatting with icon sets that have patterns</li>
 </ul>
-
 <h3>Contrast</h3>
 <ul>
 <li>Ensure text has good contrast with cell background</li>
@@ -161,10 +141,8 @@
 <li>Test with high contrast mode</li>
 </ul>
 </section>
-
-<section aria-labelledby="formulas">
+<section>
 <h2 id="formulas">Formulas &amp; Data Validation</h2>
- 
 <h3>Input Messages</h3>
 <p>Add input messages to guide users:</p>
 <ol>
@@ -173,7 +151,6 @@
 <li>Click<strong>Input Message</strong>tab</li>
 <li>Add title and message explaining what to enter</li>
 </ol>
-
 <h3>Error Alerts</h3>
 <ul>
 <li>Use clear error messages</li>
@@ -181,15 +158,13 @@
 <li>Provide guidance on correct input</li>
 </ul>
 </section>
-
-<section aria-labelledby="checker">
+<section>
 <h2 id="checker">Run Accessibility Checker</h2>
 <ol>
 <li>Go to<strong>Review</strong>tab</li>
 <li>Click<strong>Check Accessibility</strong></li>
 <li>Review and fix each issue</li>
 </ol>
-
 <h3>Common Issues</h3>
 <ul>
 <li>Default sheet names (Sheet1, Sheet2)</li>
@@ -199,13 +174,10 @@
 <li>Missing table headers</li>
 </ul>
 </section>
-
-<section aria-labelledby="sharing">
+<section>
 <h2 id="sharing">Sharing Excel Files</h2>
- 
 <h3>As Excel (.xlsx)</h3>
 <p>Best option for accessibility—preserves all features.</p>
-
 <h3>As PDF</h3>
 <ol>
 <li>File Save As PDF</li>
@@ -213,7 +185,6 @@
 <li>Check "Document structure tags for accessibility"</li>
 <li>Note: Complex spreadsheets may not convert well</li>
 </ol>
-
 <h3>Providing Alternatives</h3>
 <p>For complex spreadsheets, consider providing:</p>
 <ul>
@@ -222,8 +193,7 @@
 <li>HTML version for web</li>
 </ul>
 </section>
-
-<section aria-labelledby="checklist">
+<section>
 <h2 id="checklist">Excel Accessibility Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="e1"><label for="e1">Data starts in cell A1</label></li>
@@ -237,8 +207,7 @@
 <li><input type="checkbox" id="e9"><label for="e9">Accessibility Checker run with no errors</label></li>
 </ul>
 </section>
-
-<section aria-labelledby="related">
+<section>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="doc-word.html">Microsoft Word Accessibility Guide</a></li>
@@ -248,7 +217,6 @@
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>

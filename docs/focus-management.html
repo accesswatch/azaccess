@@ -17,9 +17,8 @@
 <p>When users navigate with keyboards or assistive technology, focus must move logically and be clearly visible.</p>
 <p class="metric-chip">Reading time: 10 minutes</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="fundamentals">
+<section>
 <h2 id="fundamentals">Focus Fundamentals</h2>
 <ul>
 <li><strong>Focus</strong>indicates which element currently receives keyboard input</li>
@@ -28,14 +27,12 @@
 <li>Focus indicator<strong>must be visible</strong>(WCAG 2.4.7 Focus Visible)</li>
 <li>Focus order must be<strong>logical and intuitive</strong>(WCAG 2.4.3 Focus Order)</li>
 </ul>
- 
 <div class="callout callout-warning">
 <h3>Common Mistake</h3>
 <p>Never remove focus outlines without providing an alternative.<code>outline: none</code>without a replacement makes your site unusable for keyboard users.</p>
 </div>
 </section>
-
-<section aria-labelledby="visible-focus">
+<section>
 <h2 id="visible-focus">Visible Focus Indicators</h2>
 <p>Users must always be able to see where focus is. WCAG 2.4.13 (Level AAA) requires focus indicators with:</p>
 <ul>
@@ -43,14 +40,12 @@
 <li>3:1 contrast against adjacent colors</li>
 <li>Minimum area of the element's perimeter</li>
 </ul>
-
 <h3>Default Browser Focus</h3>
 <pre><code>/* Browsers provide default focus styles */
 :focus {
  outline: auto; /* Usually a blue ring */
 }</code></pre>
 <p>The default is accessible—only override it if you provide something<em>better</em>.</p>
-
 <h3>Custom Focus Styles</h3>
 <pre><code>/* Clear, visible custom focus */
 :focus {
@@ -69,7 +64,6 @@
  outline: 3px solid #ffffff;
  outline-offset: 2px;
 }</code></pre>
-
 <h3>Using :focus-visible</h3>
 <p>The<code>:focus-visible</code>pseudo-class shows focus only for keyboard navigation, hiding it for mouse clicks:</p>
 <pre><code>/* Hide focus for mouse users, show for keyboard */
@@ -81,7 +75,6 @@
  outline: 3px solid #005EA2;
  outline-offset: 2px;
 }</code></pre>
-
 <div class="do-dont-grid">
 <div class="dont-card">
 <h4>Never Do This</h4>
@@ -100,11 +93,9 @@
 </div>
 </div>
 </section>
-
-<section aria-labelledby="tab-order">
+<section>
 <h2 id="tab-order">Tab Order</h2>
 <p>Focus order should match the visual reading order (left-to-right, top-to-bottom in English).</p>
-
 <h3>Natural Tab Order</h3>
 <ul>
 <li>Tab order follows<strong>DOM order</strong>, not visual order</li>
@@ -112,7 +103,6 @@
 <li>Use<code>tabindex="-1"</code>for programmatic focus only (not in tab order)</li>
 <li><strong>Never use positive tabindex</strong>(tabindex="1", "2", etc.)—it creates maintenance nightmares</li>
 </ul>
-
 <h3>Tabindex Values</h3>
 <div class="table-scroll">
 <table>
@@ -142,23 +132,19 @@
 </tbody>
 </table>
 </div>
-
 <h3>Fixing Tab Order Issues</h3>
 <ol>
 <li>Reorder your HTML to match the visual layout</li>
 <li>Use CSS Grid/Flexbox for visual positioning (doesn't affect tab order)</li>
 <li>Test by tabbing through your entire page</li>
 </ol>
-
 <div class="callout callout-warning">
 <h3>CSS Order Property</h3>
 <p>CSS<code>order</code>in Flexbox/Grid changes visual order but<strong>not tab order</strong>. This can create a confusing disconnect.</p>
 </div>
 </section>
-
-<section aria-labelledby="dynamic-content">
+<section>
 <h2 id="dynamic-content">Managing Focus in Dynamic Content</h2>
- 
 <h3>Modal Dialogs</h3>
 <p>When opening a modal:</p>
 <ol>
@@ -167,7 +153,6 @@
 <li>Trap focus inside (can't Tab out)</li>
 <li>On close, return focus to the trigger</li>
 </ol>
-
 <pre><code>// Native dialog (recommended)
 const dialog = document.querySelector('dialog');
 dialog.showModal(); // Handles focus automatically!
@@ -192,7 +177,6 @@ function closeModal(modal) {
  modal.removeAttribute('aria-modal');
  previousFocus?.focus(); // Return focus
 }</code></pre>
-
 <h3>Focus Trapping</h3>
 <p>Modal dialogs must trap focus—pressing Tab at the last element wraps to the first:</p>
 <pre><code>function trapFocus(container) {
@@ -220,7 +204,6 @@ function closeModal(modal) {
  }
  });
 }</code></pre>
-
 <h3>Single-Page App Navigation</h3>
 <p>When the route changes in a SPA, focus should move to the new content:</p>
 <pre><code>// After route change
@@ -232,7 +215,6 @@ function onRouteChange() {
  // Or announce via live region
  announcer.textContent = `Navigated to ${document.title}`;
 }</code></pre>
-
 <h3>Accordion/Disclosure Widgets</h3>
 <pre><code>// Focus stays on the trigger button
 button.addEventListener('click', () =>{
@@ -241,7 +223,6 @@ button.addEventListener('click', () =>{
  panel.hidden = expanded;
  // Focus stays on button—don't move it
 });</code></pre>
-
 <h3>Deleted Items in Lists</h3>
 <p>When removing an item, move focus to a logical location:</p>
 <pre><code>function deleteItem(item) {
@@ -259,8 +240,7 @@ button.addEventListener('click', () =>{
  }
 }</code></pre>
 </section>
-
-<section aria-labelledby="testing">
+<section>
 <h2 id="testing">Testing Focus Management</h2>
 <ol>
 <li><strong>Unplug your mouse</strong>(or move it aside)</li>
@@ -270,7 +250,6 @@ button.addEventListener('click', () =>{
 <li><strong>Test route changes</strong>—does focus move appropriately?</li>
 <li><strong>Test with a screen reader</strong>—NVDA, VoiceOver, or JAWS</li>
 </ol>
-
 <h3>Browser DevTools</h3>
 <p>Chrome DevTools can track focus:</p>
 <ol>
@@ -280,8 +259,7 @@ button.addEventListener('click', () =>{
 <li>Tab through the page to see focus logged</li>
 </ol>
 </section>
-
-<section aria-labelledby="checklist">
+<section>
 <h2 id="checklist">Focus Management Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="f1"><label for="f1">All interactive elements have visible focus indicators</label></li>
@@ -296,8 +274,7 @@ button.addEventListener('click', () =>{
 <li><input type="checkbox" id="f10"><label for="f10">Tested entire page with keyboard only</label></li>
 </ul>
 </section>
-
-<section aria-labelledby="related">
+<section>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="web-keyboard.html">Keyboard Accessibility Guide</a></li>
@@ -307,7 +284,6 @@ button.addEventListener('click', () =>{
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>

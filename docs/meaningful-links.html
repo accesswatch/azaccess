@@ -17,9 +17,8 @@
 <p>Link text should describe where the link goes. Screen reader users often navigate by links alone.</p>
 <p class="metric-chip">Reading time: 5 minutes</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="why">
+<section>
 <h2 id="why">Why Link Text Matters</h2>
 <p>Screen reader users can:</p>
 <ul>
@@ -28,7 +27,6 @@
 <li>Hear links read out of context from surrounding text</li>
 </ul>
 <p>When every link says "click here" or "read more," users can't tell where they lead.</p>
-
 <div class="callout callout-info">
 <h3>Screen Reader Link List Example</h3>
 <p>Imagine hearing this list of links:</p>
@@ -42,10 +40,8 @@
 <p>Not helpful! Now compare to: "Accessibility 101 guide," "Spring 2026 schedule," "Contact the help desk"</p>
 </div>
 </section>
-
-<section aria-labelledby="guidelines">
+<section>
 <h2 id="guidelines">Link Text Guidelines</h2>
- 
 <h3>1. Be Descriptive</h3>
 <p>Link text should describe the destination or purpose.</p>
 <div class="do-dont-grid">
@@ -62,7 +58,6 @@
 <p><a href="#">Register for the accessibility workshop</a></p>
 </div>
 </div>
-
 <h3>2. Be Unique</h3>
 <p>Different links should have different text (unless they go to the same place).</p>
 <div class="do-dont-grid">
@@ -83,7 +78,6 @@
 </ul>
 </div>
 </div>
-
 <h3>3. Be Concise</h3>
 <p>Keep link text to a few words—enough to be clear, not so long it's tedious.</p>
 <div class="do-dont-grid">
@@ -96,7 +90,6 @@
 <p><a href="#">University accessibility policy</a></p>
 </div>
 </div>
-
 <h3>4. Don't Use URLs as Link Text</h3>
 <p>URLs are hard to read and understand, especially for screen reader users.</p>
 <div class="do-dont-grid">
@@ -110,7 +103,6 @@
 </div>
 </div>
 <p><em>Exception:</em>If the URL is short and memorable, and you expect users to type it, showing it may be appropriate.</p>
-
 <h3>5. Indicate File Types and New Windows</h3>
 <p>Let users know what to expect:</p>
 <ul>
@@ -119,24 +111,20 @@
 <li><a href="#">Registration form (Excel)</a>— indicates file format</li>
 </ul>
 </section>
-
-<section aria-labelledby="patterns">
+<section>
 <h2 id="patterns">Common Patterns</h2>
- 
 <h3>Card-Style Components</h3>
 <p>When linking an entire card, the heading should be the link:</p>
 <pre><code>&lt;article class="card"&gt;
  &lt;h3&gt;&lt;a href="event.html"&gt;Accessibility Workshop&lt;/a&gt;&lt;/h3&gt;
  &lt;p&gt;Learn the basics of digital accessibility.&lt;/p&gt;
 &lt;/article&gt;</code></pre>
-
 <h3>"Read More" That Works</h3>
 <p>If you must use "Read more," make it descriptive for screen readers:</p>
 <pre><code>&lt;a href="article.html"&gt;
  Read more&lt;span class="visually-hidden"&gt; about color contrast guidelines&lt;/span&gt;
 &lt;/a&gt;</code></pre>
 <p>The hidden text is announced by screen readers but not visible on screen.</p>
-
 <h3>Icon-Only Links</h3>
 <p>Links with only icons need accessible names:</p>
 <pre><code>&lt;!-- Social media icon link --&gt;
@@ -144,8 +132,7 @@
  &lt;svg aria-hidden="true"&gt;...&lt;/svg&gt;
 &lt;/a&gt;</code></pre>
 </section>
-
-<section aria-labelledby="links-vs-buttons">
+<section>
 <h2 id="links-vs-buttons">Links vs. Buttons</h2>
 <p>Use the right element for the action:</p>
 <div class="table-scroll">
@@ -172,7 +159,6 @@
 </tbody>
 </table>
 </div>
-
 <div class="do-dont-grid">
 <div class="dont-card">
 <h4>Wrong element</h4>
@@ -186,8 +172,7 @@
 </div>
 </div>
 </section>
-
-<section aria-labelledby="testing">
+<section>
 <h2 id="testing">Testing Your Links</h2>
 <ol>
 <li><strong>List test:</strong>Read all link text out of context. Does each link clearly indicate its destination?</li>
@@ -196,8 +181,7 @@
 <li><strong>Uniqueness:</strong>Search your page for duplicate link text going to different destinations</li>
 </ol>
 </section>
-
-<section aria-labelledby="checklist">
+<section>
 <h2 id="checklist">Link Text Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="l1"><label for="l1">Link text describes the destination</label></li>
@@ -211,8 +195,7 @@
 <li><input type="checkbox" id="l9"><label for="l9">Links vs. buttons used correctly</label></li>
 </ul>
 </section>
-
-<section aria-labelledby="related">
+<section>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="heading-basics.html">Heading Structure Best Practices</a></li>
@@ -222,7 +205,6 @@
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>

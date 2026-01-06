@@ -17,9 +17,8 @@
 <p>Headings create the outline of your document. Screen reader users rely on them to navigate and understand content structure.</p>
 <p class="metric-chip">Reading time: 5 minutes</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="why-headings">
+<section>
 <h2 id="why-headings">Why Headings Matter</h2>
 <ul>
 <li><strong>Screen reader navigation:</strong>Users can press H to jump between headings, or pull up a headings list to navigate</li>
@@ -27,16 +26,13 @@
 <li><strong>SEO:</strong>Search engines use headings to understand page content</li>
 <li><strong>WCAG 1.3.1:</strong>Information and relationships must be programmatically determinable</li>
 </ul>
-
 <div class="callout callout-info">
 <h3>Did You Know?</h3>
 <p>67% of screen reader users say they navigate by headings when looking for information on a page (WebAIM Survey).</p>
 </div>
 </section>
-
-<section aria-labelledby="rules">
+<section>
 <h2 id="rules">The Rules of Headings</h2>
- 
 <h3>Rule 1: One H1 Per Page</h3>
 <p>Every page should have exactly one &lt;h1&gt; that describes the page's main topic.</p>
 <ul>
@@ -44,10 +40,8 @@
 <li>It should be unique to that page</li>
 <li>In CMSs like Brightspace, the system often adds the H1 automatically</li>
 </ul>
-
 <h3>Rule 2: Don't Skip Levels</h3>
 <p>Headings must nest logically. Don't jump from H2 to H4.</p>
- 
 <div class="do-dont-grid">
 <div class="dont-card">
 <h4>Wrong</h4>
@@ -64,7 +58,6 @@
 &lt;h2&gt;Section B&lt;/h2&gt;</code></pre>
 </div>
 </div>
-
 <h3>Rule 3: Headings Reflect Structure, Not Style</h3>
 <p>Use headings to create an outline—not to make text big or bold.</p>
 <ul>
@@ -72,7 +65,6 @@
 <li>Don't use H4 just because you want smaller text than H3</li>
 <li>Every heading should introduce a new section of content</li>
 </ul>
-
 <h3>Rule 4: Use Real Heading Elements</h3>
 <div class="do-dont-grid">
 <div class="dont-card">
@@ -91,11 +83,9 @@
 </div>
 </div>
 </section>
-
-<section aria-labelledby="example">
+<section>
 <h2 id="example">Example: Proper Heading Outline</h2>
 <p>A well-structured page creates a logical outline:</p>
- 
 <pre><code>h1: Introduction to Accessibility
  h2: What is Digital Accessibility?
  h3: Key Principles
@@ -106,13 +96,10 @@
  h2: Getting Started
  h3: Quick Wins
  h3: Next Steps</code></pre>
-
 <p>This outline makes sense even without the content between headings. That's the test of good structure.</p>
 </section>
-
-<section aria-labelledby="applications">
+<section>
 <h2 id="applications">Headings in Different Applications</h2>
- 
 <h3>Microsoft Word</h3>
 <ol>
 <li>Select your heading text</li>
@@ -120,7 +107,6 @@
 <li>In the<strong>Styles</strong>gallery, click<strong>Heading 1</strong>,<strong>Heading 2</strong>, etc.</li>
 <li>Use the Navigation Pane (View Navigation Pane) to see your document outline</li>
 </ol>
-
 <h3>Google Docs</h3>
 <ol>
 <li>Select your heading text</li>
@@ -128,21 +114,18 @@
 <li>Or use the styles dropdown in the toolbar (shows "Normal text")</li>
 <li>View outline: View Show document outline</li>
 </ol>
-
 <h3>PowerPoint</h3>
 <ul>
 <li>Each slide should have a unique title</li>
 <li>Use the built-in slide layouts—the title placeholder becomes the heading</li>
 <li>Don't create titles by adding text boxes—use the title placeholder</li>
 </ul>
-
 <h3>Web/HTML</h3>
 <pre><code>&lt;h1&gt;Page Title&lt;/h1&gt;
 &lt;h2&gt;Main Section&lt;/h2&gt;
 &lt;p&gt;Content...&lt;/p&gt;
 &lt;h3&gt;Subsection&lt;/h3&gt;
 &lt;p&gt;More content...&lt;/p&gt;</code></pre>
-
 <h3>Brightspace HTML Editor</h3>
 <ol>
 <li>Select your text</li>
@@ -151,24 +134,20 @@
 <li>Note: Don't use Heading 1—Brightspace adds that automatically from the page title</li>
 </ol>
 </section>
-
-<section aria-labelledby="testing">
+<section>
 <h2 id="testing">Testing Heading Structure</h2>
- 
 <h3>Web Pages</h3>
 <ul>
 <li><strong>WAVE extension:</strong>Shows heading outline in the sidebar</li>
 <li><strong>HeadingsMap extension:</strong>Chrome/Firefox extension for heading outlines</li>
 <li><strong>Screen reader:</strong>Press H to navigate headings, or open headings list</li>
 </ul>
-
 <h3>Documents</h3>
 <ul>
 <li><strong>Word:</strong>View Navigation Pane shows heading structure</li>
 <li><strong>Google Docs:</strong>View Show document outline</li>
 <li><strong>Acrobat:</strong>View Show/Hide Navigation Panes Tags</li>
 </ul>
-
 <h3>What to Look For</h3>
 <ol>
 <li>Is there exactly one H1?</li>
@@ -177,8 +156,7 @@
 <li>Are all visual headings using proper heading elements?</li>
 </ol>
 </section>
-
-<section aria-labelledby="checklist">
+<section>
 <h2 id="checklist">Heading Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="h1"><label for="h1">Page has exactly one H1</label></li>
@@ -190,8 +168,7 @@
 <li><input type="checkbox" id="h7"><label for="h7">Navigation Pane/outline tool shows correct structure</label></li>
 </ul>
 </section>
-
-<section aria-labelledby="related">
+<section>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="doc-word.html">Microsoft Word Accessibility</a></li>
@@ -201,7 +178,6 @@
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>

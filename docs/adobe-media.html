@@ -13,7 +13,6 @@
 <article id="content">
 <h1>Adobe Creative Suite Accessibility</h1>
 <p class="lead">Create accessible content in InDesign, Photoshop, Illustrator, and other Adobe applications.</p>
-
 <nav class="toc" aria-label="Table of contents">
 <h2>On This Page</h2>
 <ul>
@@ -26,18 +25,15 @@
 <li><a href="#checklist">Checklist</a></li>
 </ul>
 </nav>
-
 <section id="indesign">
 <h2>Adobe InDesign</h2>
 <p>InDesign is excellent for creating accessible PDFs when used correctly.</p>
-
 <h3>Structure with Paragraph Styles</h3>
 <ul>
 <li><strong>Create styles:</strong>Define paragraph styles for Heading 1, Heading 2, Body Text, etc.</li>
 <li><strong>Apply consistently:</strong>Use styles instead of manual formatting</li>
 <li><strong>Map to PDF tags:</strong>Edit Export Tagging Map styles to PDF tags</li>
 </ul>
-
 <h3>Setting Up Tag Export</h3>
 <ol>
 <li>Open<strong>Window Styles Paragraph Styles</strong></li>
@@ -46,7 +42,6 @@
 <li>Set PDF Tag (e.g., "H1" for Heading 1)</li>
 <li>Repeat for all styles</li>
 </ol>
-
 <h3>Adding Alt Text</h3>
 <ol>
 <li>Select the image</li>
@@ -55,7 +50,6 @@
 <li>Enter your description</li>
 <li>For decorative images, check "Apply Tag: Artifact"</li>
 </ol>
-
 <h3>Articles Panel for Reading Order</h3>
 <ol>
 <li>Open<strong>Window Articles</strong></li>
@@ -63,14 +57,12 @@
 <li>Drag content into the article in reading order</li>
 <li>InDesign will use this order when exporting to PDF</li>
 </ol>
-
 <h3>Tables in InDesign</h3>
 <ul>
 <li>Create tables using<strong>Table Insert Table</strong></li>
 <li>Select header row(s), then<strong>Table Convert Rows To Header</strong></li>
 <li>Headers will be properly tagged in the exported PDF</li>
 </ul>
-
 <h3>Exporting Accessible PDFs</h3>
 <ol>
 <li><strong>File Export</strong>(or Ctrl+E)</li>
@@ -85,18 +77,15 @@
 <li>Verify the PDF in Acrobat Pro</li>
 </ol>
 </section>
-
 <section id="photoshop">
 <h2>Adobe Photoshop</h2>
 <p>Photoshop creates raster images that need alt text when placed in documents.</p>
-
 <h3>Color and Contrast</h3>
 <ul>
 <li><strong>Check contrast:</strong>Use the Info panel to compare color values</li>
 <li><strong>Simulate color blindness:</strong>View Proof Setup Color Blindness (Protanopia/Deuteranopia)</li>
 <li><strong>Don't use color alone:</strong>Add patterns, labels, or icons to distinguish elements</li>
 </ul>
-
 <h3>Text in Images</h3>
 <div class="warning">
 <p><strong>Avoid text in images when possible.</strong>If you must include text:</p>
@@ -107,7 +96,6 @@
 <li>Consider providing the text content separately</li>
 </ul>
 </div>
-
 <h3>Exporting for Web</h3>
 <ul>
 <li><strong>File Export Export As</strong>(or File Save for Web)</li>
@@ -115,7 +103,6 @@
 <li>Optimize file size without sacrificing readability</li>
 <li>Remember: alt text is added where the image is placed, not in Photoshop</li>
 </ul>
-
 <h3>Creating Accessible Social Media Graphics</h3>
 <ol>
 <li>Keep text minimal and large</li>
@@ -125,11 +112,9 @@
 <li>Leave space for platform UI elements</li>
 </ol>
 </section>
-
 <section id="illustrator">
 <h2>Adobe Illustrator</h2>
 <p>Illustrator creates vector graphics that can be made more accessible.</p>
-
 <h3>SVG Accessibility</h3>
 <p>SVG files can include accessibility information:</p>
 <pre><code>&lt;svg role="img" aria-labelledby="title desc"&gt;
@@ -137,14 +122,12 @@
  &lt;desc id="desc"&gt;Description of the chart...&lt;/desc&gt;
  &lt;!-- graphic content --&gt;
 &lt;/svg&gt;</code></pre>
-
 <h3>Adding Metadata in Illustrator</h3>
 <ol>
 <li><strong>File File Info</strong></li>
 <li>Add Title and Description</li>
 <li>This metadata can be referenced for alt text</li>
 </ol>
-
 <h3>Exporting Accessible SVGs</h3>
 <ol>
 <li><strong>File Export Export As</strong></li>
@@ -156,7 +139,6 @@
 </ul>
 </li>
 </ol>
-
 <h3>Creating Accessible Infographics</h3>
 <ul>
 <li>Use clear visual hierarchy</li>
@@ -166,11 +148,9 @@
 <li>Export at appropriate resolution</li>
 </ul>
 </section>
-
 <section id="premiere">
 <h2>Adobe Premiere Pro</h2>
 <p>Create accessible video content with captions and audio descriptions.</p>
-
 <h3>Adding Captions</h3>
 <ol>
 <li><strong>Window Text</strong>to open captions panel</li>
@@ -184,7 +164,6 @@
 </ul>
 </li>
 </ol>
-
 <h3>Caption Best Practices</h3>
 <ul>
 <li><strong>Speaker identification:</strong>[John] or JOHN: for multiple speakers</li>
@@ -193,7 +172,6 @@
 <li><strong>Reading speed:</strong>150-160 words per minute maximum</li>
 <li><strong>Timing:</strong>Sync with speech, leave on screen 1-6 seconds</li>
 </ul>
-
 <h3>Transcription Workflow</h3>
 <ol>
 <li><strong>Window Text Transcribe Sequence</strong></li>
@@ -202,7 +180,6 @@
 <li>Click "Create Captions" to generate from transcript</li>
 <li>Adjust timing as needed</li>
 </ol>
-
 <h3>Exporting Captions</h3>
 <ul>
 <li><strong>Open captions (burned in):</strong>Export with "Burn Captions Into Video" enabled</li>
@@ -210,11 +187,9 @@
 <li>Provide both when possible</li>
 </ul>
 </section>
-
 <section id="aftereffects">
 <h2>Adobe After Effects</h2>
 <p>Motion graphics and animations need accessibility considerations.</p>
-
 <h3>Reducing Motion Risks</h3>
 <ul>
 <li><strong>Avoid flashing:</strong>No more than 3 flashes per second</li>
@@ -222,7 +197,6 @@
 <li><strong>Warn users:</strong>Add content warnings for intense motion</li>
 <li><strong>Consider prefers-reduced-motion:</strong>Create alternative animations for web</li>
 </ul>
-
 <h3>Text in Animations</h3>
 <ul>
 <li>Keep text on screen long enough to read</li>
@@ -230,7 +204,6 @@
 <li>Avoid text that moves too quickly</li>
 <li>Provide transcripts for text-heavy animations</li>
 </ul>
-
 <h3>Color Considerations</h3>
 <ul>
 <li>Don't rely on color transitions alone to convey meaning</li>
@@ -238,11 +211,9 @@
 <li>Ensure sufficient contrast throughout animations</li>
 </ul>
 </section>
-
 <section id="acrobat">
 <h2>Adobe Acrobat Pro</h2>
 <p>Acrobat Pro is essential for checking and remediating PDF accessibility.</p>
-
 <h3>Accessibility Check</h3>
 <ol>
 <li><strong>Tools Accessibility Accessibility Check</strong></li>
@@ -250,7 +221,6 @@
 <li>Click "Start Checking"</li>
 <li>Review the report and fix issues</li>
 </ol>
-
 <h3>Common Issues and Fixes</h3>
 <table>
 <thead>
@@ -282,7 +252,6 @@
 </tr>
 </tbody>
 </table>
-
 <h3>Reading Order Tool</h3>
 <ol>
 <li><strong>Tools Accessibility Reading Order</strong></li>
@@ -290,13 +259,10 @@
 <li>Click buttons to tag as Text, Figure, Table, etc.</li>
 <li>Use "Show Order Panel" to verify sequence</li>
 </ol>
-
 <p><a href="pdf-remediation.html">Full PDF Remediation Guide</a></p>
 </section>
-
 <section id="checklist">
 <h2>Adobe Accessibility Checklist</h2>
-
 <h3>InDesign</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c1"><label for="c1">Used paragraph styles for all text</label></li>
@@ -306,7 +272,6 @@
 <li><input type="checkbox" id="c5"><label for="c5">Table headers defined</label></li>
 <li><input type="checkbox" id="c6"><label for="c6">Exported with "Create Tagged PDF"</label></li>
 </ul>
-
 <h3>Images (Photoshop/Illustrator)</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c7"><label for="c7">Sufficient color contrast</label></li>
@@ -314,7 +279,6 @@
 <li><input type="checkbox" id="c9"><label for="c9">Text in images documented for alt text</label></li>
 <li><input type="checkbox" id="c10"><label for="c10">Color not the only indicator of meaning</label></li>
 </ul>
-
 <h3>Video (Premiere Pro/After Effects)</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c11"><label for="c11">Captions added and timed correctly</label></li>
@@ -323,7 +287,6 @@
 <li><input type="checkbox" id="c14"><label for="c14">No flashing content (or warning provided)</label></li>
 <li><input type="checkbox" id="c15"><label for="c15">Transcript available</label></li>
 </ul>
-
 <h3>PDFs (Acrobat)</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c16"><label for="c16">Ran accessibility checker</label></li>
@@ -333,8 +296,7 @@
 <li><input type="checkbox" id="c20"><label for="c20">Reading order verified</label></li>
 </ul>
 </section>
-
-<section id="resources">
+<section>
 <h2>Related Resources</h2>
 <ul>
 <li><a href="pdf-remediation.html">PDF Remediation Guide</a></li>
@@ -344,7 +306,6 @@
 <li><a href="https://helpx.adobe.com/indesign/using/creating-accessible-pdfs.html" target="_blank" rel="noopener">Adobe: Creating Accessible PDFs</a></li>
 </ul>
 </section>
-
 </article>
 </main>
 <footer role="contentinfo">

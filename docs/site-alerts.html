@@ -31,12 +31,10 @@
 <p>How to create accessible notification and alert banners for your website.</p>
 <p class="metric-chip">Reading time: 8 minutes</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="overview-heading">
+<section>
 <h2 id="overview-heading">Alert Accessibility Overview</h2>
 <p>Alerts communicate important information to users. Making them accessible ensures everyone receives critical updates.</p>
- 
 <h3>Key Requirements</h3>
 <ul>
 <li><strong>ARIA roles:</strong>Use<code>role="alert"</code>or<code>role="status"</code>for dynamic announcements</li>
@@ -46,35 +44,28 @@
 <li><strong>Dismissible:</strong>Allow users to close non-critical alerts</li>
 </ul>
 </section>
-
-<section aria-labelledby="examples-heading">
+<section>
 <h2 id="examples-heading">Alert Examples</h2>
- 
 <h3>Static Alerts</h3>
 <p>Alerts that are present when the page loads:</p>
- 
 <div class="alert-demo">
 <div class="alert alert-info">
 <div class="alert-title">Information</div>
 <p>Registration opens on January 15.<a href="#">View schedule</a></p>
 </div>
-
 <div class="alert alert-success">
 <div class="alert-title">Success</div>
 <p>Your document has been saved successfully.</p>
 </div>
-
 <div class="alert alert-warning">
 <div class="alert-title">Warning</div>
 <p>Your session will expire in 5 minutes.<a href="#">Extend session</a></p>
 </div>
-
 <div class="alert alert-danger">
 <div class="alert-title">Error</div>
 <p>Unable to connect to the server. Please try again later.</p>
 </div>
 </div>
-
 <h3>Dismissible Alert</h3>
 <div class="alert-demo">
 <div class="alert alert-info alert-dismissible" role="alert">
@@ -84,10 +75,8 @@
 </div>
 </div>
 </section>
-
-<section aria-labelledby="code-heading">
+<section>
 <h2 id="code-heading">Code Patterns</h2>
- 
 <h3>Basic Static Alert</h3>
 <p>For alerts present on page load, no ARIA role is needed:</p>
 <div class="code-block">
@@ -96,7 +85,6 @@
  Registration opens on January 15.
 &lt;/div&gt;</pre>
 </div>
-
 <h3>Dynamic Alert (Appears After Action)</h3>
 <p>Use<code>role="alert"</code>for urgent messages that appear dynamically:</p>
 <div class="code-block">
@@ -105,7 +93,6 @@
  Form submission failed. Please check required fields.
 &lt;/div&gt;</pre>
 </div>
- 
 <div class="callout callout-info">
 <h4>role="alert" vs role="status"</h4>
 <ul>
@@ -113,7 +100,6 @@
 <li><strong>role="status":</strong>Announced at next pause, less intrusive</li>
 </ul>
 </div>
-
 <h3>Dismissible Alert with ARIA</h3>
 <div class="code-block">
 <pre>&lt;div class="alert alert-warning alert-dismissible" role="alert"&gt;
@@ -135,7 +121,6 @@ document.querySelector('.alert-dismiss').addEventListener('click', function() {
 });
 &lt;/script&gt;</pre>
 </div>
-
 <h3>Live Region for Updates</h3>
 <p>For status updates that don't require immediate attention:</p>
 <div class="code-block">
@@ -157,10 +142,8 @@ announceStatus('3 items added to cart');
 &lt;/script&gt;</pre>
 </div>
 </section>
-
-<section aria-labelledby="css-heading">
+<section>
 <h2 id="css-heading">Accessible CSS</h2>
- 
 <div class="code-block">
 <pre>/* Base alert styles */
 .alert {
@@ -227,10 +210,8 @@ announceStatus('3 items added to cart');
 }</pre>
 </div>
 </section>
-
-<section aria-labelledby="best-practices-heading">
+<section>
 <h2 id="best-practices-heading">Best Practices</h2>
- 
 <h3>Do</h3>
 <ul>
 <li>Use icons AND text labels (not just color)</li>
@@ -240,7 +221,6 @@ announceStatus('3 items added to cart');
 <li>Use<code>role="alert"</code>sparingly—only for truly urgent messages</li>
 <li>Return focus appropriately after dismissing an alert</li>
 </ul>
-
 <h3>Don't</h3>
 <ul>
 <li>Don't rely on color alone to convey alert type</li>
@@ -250,8 +230,7 @@ announceStatus('3 items added to cart');
 <li>Don't use alerts for decorative purposes</li>
 </ul>
 </section>
-
-<section aria-labelledby="testing-heading">
+<section>
 <h2 id="testing-heading">Testing Alerts</h2>
 <ol>
 <li><strong>Visual check:</strong>Can you understand the alert type without color?</li>
@@ -261,8 +240,7 @@ announceStatus('3 items added to cart');
 <li><strong>Focus:</strong>After dismissing, does focus go to a logical location?</li>
 </ol>
 </section>
-
-<section aria-labelledby="resources-heading">
+<section>
 <h2 id="resources-heading">Related Resources</h2>
 <ul>
 <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/">W3C APG: Alert Pattern</a></li>
@@ -272,12 +250,10 @@ announceStatus('3 items added to cart');
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 <p><a href="accessibility-statement.html">Accessibility Statement</a>|<a href="support.html">Report an Issue</a></p>
 </footer>
-
 <script>
  document.querySelectorAll('.alert-dismiss').forEach(btn =>{
  btn.addEventListener('click', function() {

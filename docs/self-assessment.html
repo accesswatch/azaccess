@@ -42,7 +42,7 @@
 <main id="maincontent" role="main">
 <div class="quiz-container">
 <!-- Quiz Type Selection -->
-<section id="quiz-select" aria-labelledby="select-heading">
+<section>
 <h2 id="select-heading">What would you like to assess?</h2>
 <div class="quiz-type-selector">
 <button class="quiz-type-btn" data-quiz="document"><span class="icon"></span>Document<br><small>Word, PowerPoint, PDF</small></button>
@@ -50,20 +50,18 @@
 <button class="quiz-type-btn" data-quiz="course"><span class="icon"></span>Course<br><small>Brightspace, LMS</small></button>
 </div>
 </section>
-
 <!-- Quiz Questions -->
-<section id="quiz-questions" class="hidden" aria-labelledby="quiz-heading">
+<section class="hidden">
 <h2 id="quiz-heading">Assessment Questions</h2>
 <div class="progress-bar"><div class="progress-fill" id="progress" style="width: 0%"></div></div>
 <p id="progress-text">Question 1 of 8</p>
 <div id="questions-container"></div>
 <button id="submit-quiz" class="cta hidden">See My Results</button>
 </section>
-
 <!-- Results -->
-<section id="quiz-results" class="hidden" aria-labelledby="results-heading">
+<section class="hidden">
 <div class="results-card">
-<h2 id="results-heading">Your Accessibility Score</h2>
+<h2>Your Accessibility Score</h2>
 <div class="score-circle" id="score-display">0</div>
 <p class="score-label" id="score-label">Loading...</p>
 <div id="recommendations"></div>

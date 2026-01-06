@@ -13,7 +13,6 @@
 <article id="content">
 <h1>Email Newsletter Accessibility</h1>
 <p class="lead">Create newsletters that reach your entire audience, including subscribers who use screen readers or have visual impairments.</p>
-
 <nav class="toc" aria-label="Table of contents">
 <h2>On This Page</h2>
 <ul>
@@ -27,7 +26,6 @@
 <li><a href="#checklist">Pre-Send Checklist</a></li>
 </ul>
 </nav>
-
 <section id="why">
 <h2>Why Newsletter Accessibility Matters</h2>
 <ul>
@@ -38,10 +36,8 @@
 <li><strong>Plain text fallback:</strong>Well-structured emails convert cleanly to plain text</li>
 </ul>
 </section>
-
 <section id="structure">
 <h2>Structure and Layout</h2>
-
 <h3>Use Semantic HTML</h3>
 <p>Email clients have limited HTML support, but semantic structure helps assistive technology.</p>
 <ul>
@@ -50,7 +46,6 @@
 <li>Use<code>&lt;ul&gt;</code>and<code>&lt;ol&gt;</code>for lists</li>
 <li>Add<code>role="presentation"</code>to layout tables</li>
 </ul>
-
 <h3>Single-Column Layouts</h3>
 <p>Single-column designs are most accessible because:</p>
 <ul>
@@ -58,14 +53,11 @@
 <li>Content reflows well on mobile</li>
 <li>Screen readers navigate linearly</li>
 </ul>
-
 <h3>Reading Order</h3>
 <p>Ensure the HTML source order matches the visual reading order. Screen readers follow the code, not the visual layout.</p>
-
 <div class="tip">
 <p><strong>Tip:</strong>View your newsletter with CSS disabled to check the reading order.</p>
 </div>
-
 <h3>Code Example: Basic Structure</h3>
 <pre><code>&lt;!-- Layout table with role="presentation" --&gt;
 &lt;table role="presentation" width="100%"&gt;
@@ -83,13 +75,10 @@
  &lt;/tr&gt;
 &lt;/table&gt;</code></pre>
 </section>
-
 <section id="images">
 <h2>Images and Alt Text</h2>
-
 <h3>Alt Text Requirements</h3>
 <p>Every image needs appropriate alt text:</p>
-
 <table>
 <thead>
 <tr>
@@ -126,7 +115,6 @@
 </tr>
 </tbody>
 </table>
-
 <h3>Image Best Practices</h3>
 <ul>
 <li><strong>Don't rely on images alone:</strong>Include text content for critical information</li>
@@ -134,7 +122,6 @@
 <li><strong>Keep file sizes reasonable:</strong>Large images slow loading and may be blocked</li>
 <li><strong>Use background colors:</strong>Add background color to image containers so buttons remain visible if images are blocked</li>
 </ul>
-
 <h3>Hero Image Example</h3>
 <pre><code>&lt;!-- Good: Informative alt text --&gt;
 &lt;img src="hero.jpg" 
@@ -144,13 +131,10 @@
 &lt;!-- Good: Decorative pattern, empty alt --&gt;
 &lt;img src="divider.png" alt="" width="600" height="10"&gt;</code></pre>
 </section>
-
 <section id="links">
 <h2>Links and Buttons</h2>
-
 <h3>Descriptive Link Text</h3>
 <p>Link text must describe the destination or action.</p>
-
 <div class="do-dont">
 <div class="do">
 <h4>Do</h4>
@@ -171,7 +155,6 @@
 </ul>
 </div>
 </div>
-
 <h3>Button Design</h3>
 <p>Create accessible buttons that work when images are blocked:</p>
 <pre><code>&lt;!-- Bulletproof button using VML for Outlook --&gt;
@@ -185,7 +168,6 @@
  &lt;/td&gt;
  &lt;/tr&gt;
 &lt;/table&gt;</code></pre>
-
 <h3>Multiple Links to Same Destination</h3>
 <p>If an image and text both link to the same place, combine them in one link to avoid redundancy:</p>
 <pre><code>&lt;!-- Good: One link with image and text --&gt;
@@ -194,10 +176,8 @@
  Read: How to Create Accessible Documents
 &lt;/a&gt;</code></pre>
 </section>
-
 <section id="color">
 <h2>Color and Contrast</h2>
-
 <h3>Contrast Requirements</h3>
 <table>
 <thead>
@@ -230,7 +210,6 @@
 </tr>
 </tbody>
 </table>
-
 <h3>Don't Use Color Alone</h3>
 <p>Never rely solely on color to convey meaning:</p>
 <ul>
@@ -238,7 +217,6 @@
 <li><strong>Status indicators:</strong>Add icons or text labels</li>
 <li><strong>Highlights:</strong>Use bold or borders along with color</li>
 </ul>
-
 <h3>Dark Mode Considerations</h3>
 <p>Many email clients have dark mode. To ensure readability:</p>
 <ul>
@@ -247,10 +225,8 @@
 <li>Add dark mode media queries if your platform supports them</li>
 </ul>
 </section>
-
 <section id="platforms">
 <h2>Platform-Specific Tips</h2>
-
 <h3>Mailchimp</h3>
 <ul>
 <li>Use the alt text field for every image block</li>
@@ -258,21 +234,18 @@
 <li>Use the built-in accessibility checker</li>
 <li>Choose responsive templates</li>
 </ul>
-
 <h3>Constant Contact</h3>
 <ul>
 <li>Click on images to add alt text</li>
 <li>Use "Text" blocks for headings rather than image headers</li>
 <li>Preview on mobile before sending</li>
 </ul>
-
 <h3>Emma</h3>
 <ul>
 <li>Edit image properties to add alt text</li>
 <li>Use the "Plain text" editor for the text version</li>
 <li>Avoid multi-column layouts</li>
 </ul>
-
 <h3>Custom HTML</h3>
 <ul>
 <li>Use<code>role="presentation"</code>on layout tables</li>
@@ -281,10 +254,8 @@
 <li>Always send both HTML and plain text versions</li>
 </ul>
 </section>
-
 <section id="testing">
 <h2>Testing Your Newsletter</h2>
-
 <h3>Manual Testing</h3>
 <ol>
 <li><strong>View with images disabled:</strong>Does the message still make sense?</li>
@@ -293,7 +264,6 @@
 <li><strong>Test on mobile:</strong>Does it reflow properly?</li>
 <li><strong>Screen reader test:</strong>Use NVDA or VoiceOver to read through</li>
 </ol>
-
 <h3>Automated Tools</h3>
 <ul>
 <li><strong>Litmus:</strong>Includes accessibility checking</li>
@@ -301,7 +271,6 @@
 <li><strong>Accessible Email:</strong>Dedicated accessibility scanner</li>
 <li><strong>WAVE:</strong>Check the web version of your email</li>
 </ul>
-
 <h3>Test Recipients</h3>
 <p>Send test emails to:</p>
 <ul>
@@ -312,10 +281,8 @@
 <li>A screen reader user if possible</li>
 </ul>
 </section>
-
 <section id="checklist">
 <h2>Pre-Send Checklist</h2>
-
 <h3>Structure</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c1"><label for="c1">Single-column or simple layout</label></li>
@@ -323,7 +290,6 @@
 <li><input type="checkbox" id="c3"><label for="c3">Layout tables have role="presentation"</label></li>
 <li><input type="checkbox" id="c4"><label for="c4">Reading order matches visual order</label></li>
 </ul>
-
 <h3>Images</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c5"><label for="c5">All informative images have alt text</label></li>
@@ -331,7 +297,6 @@
 <li><input type="checkbox" id="c7"><label for="c7">No text conveyed only through images</label></li>
 <li><input type="checkbox" id="c8"><label for="c8">Message works with images disabled</label></li>
 </ul>
-
 <h3>Links and Buttons</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c9"><label for="c9">All links have descriptive text</label></li>
@@ -339,7 +304,6 @@
 <li><input type="checkbox" id="c11"><label for="c11">Buttons visible without images</label></li>
 <li><input type="checkbox" id="c12"><label for="c12">Links are underlined or otherwise distinguishable</label></li>
 </ul>
-
 <h3>Color and Text</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c13"><label for="c13">Text contrast is at least 4.5:1</label></li>
@@ -347,7 +311,6 @@
 <li><input type="checkbox" id="c15"><label for="c15">Font size is at least 14px</label></li>
 <li><input type="checkbox" id="c16"><label for="c16">Line height is at least 1.5</label></li>
 </ul>
-
 <h3>Testing</h3>
 <ul class="checklist">
 <li><input type="checkbox" id="c17"><label for="c17">Tested on mobile device</label></li>
@@ -355,8 +318,7 @@
 <li><input type="checkbox" id="c19"><label for="c19">Sent test to multiple email clients</label></li>
 </ul>
 </section>
-
-<section id="resources">
+<section>
 <h2>Related Resources</h2>
 <ul>
 <li><a href="email-outlook.html">Outlook Accessibility Guide</a></li>
@@ -366,7 +328,6 @@
 <li><a href="example-newsletter.html">Accessible Newsletter Example</a></li>
 </ul>
 </section>
-
 </article>
 </main>
 <footer role="contentinfo">

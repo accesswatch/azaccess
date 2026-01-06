@@ -17,12 +17,10 @@
 <p>A comprehensive directory of tools for testing web, document, and mobile accessibility.</p>
 <p class="metric-chip">Reading time: 8 minutes</p>
 </header>
-
 <main id="maincontent" role="main">
-<section aria-labelledby="testing-overview">
+<section>
 <h2 id="testing-overview">Testing Overview</h2>
 <p>Accessibility testing requires<strong>both automated and manual testing</strong>. Automated tools catch about 30-40% of issues; the rest require human judgment.</p>
- 
 <div class="grid grid-2">
 <article class="card">
 <h3>Automated Testing</h3>
@@ -34,11 +32,9 @@
 </article>
 </div>
 </section>
-
-<section aria-labelledby="browser-extensions">
+<section>
 <h2 id="browser-extensions">Browser Extensions</h2>
 <p>Install these in Chrome, Firefox, or Edge for quick testing.</p>
-
 <div class="table-scroll">
 <table>
 <thead>
@@ -77,17 +73,14 @@
 </tbody>
 </table>
 </div>
-
 <div class="callout callout-tip">
 <h3>Recommended Setup</h3>
 <p>Install<strong>axe DevTools</strong>for automated testing and<strong>Accessibility Insights</strong>for guided manual testing. Together they cover most needs.</p>
 </div>
 </section>
-
-<section aria-labelledby="screen-readers">
+<section>
 <h2 id="screen-readers">Screen Readers</h2>
 <p>Test with real screen readers to understand the user experience.</p>
-
 <div class="table-scroll">
 <table>
 <thead>
@@ -132,7 +125,6 @@
 </tbody>
 </table>
 </div>
-
 <h3>Quick Screen Reader Test</h3>
 <ol>
 <li>Turn on the screen reader</li>
@@ -141,8 +133,7 @@
 <li>Can you understand the content? Complete tasks?</li>
 </ol>
 </section>
-
-<section aria-labelledby="color-tools">
+<section>
 <h2 id="color-tools">Color &amp; Contrast Tools</h2>
 <div class="table-scroll">
 <table>
@@ -173,8 +164,7 @@
 </table>
 </div>
 </section>
-
-<section aria-labelledby="document-tools">
+<section>
 <h2 id="document-tools">Document Testing Tools</h2>
 <div class="table-scroll">
 <table>
@@ -210,11 +200,9 @@
 </table>
 </div>
 </section>
-
-<section aria-labelledby="automated-ci">
+<section>
 <h2 id="automated-ci">Automated Testing in CI/CD</h2>
 <p>Integrate accessibility testing into your development pipeline.</p>
-
 <div class="table-scroll">
 <table>
 <thead>
@@ -243,7 +231,6 @@
 </tbody>
 </table>
 </div>
-
 <h3>Example: axe-core with Jest</h3>
 <pre><code>import { axe, toHaveNoViolations } from 'jest-axe';
 
@@ -254,7 +241,6 @@ test('page has no accessibility violations', async () =>{
  const results = await axe(container);
  expect(results).toHaveNoViolations();
 });</code></pre>
-
 <h3>Example: Pa11y CLI</h3>
 <pre><code># Test a single URL
 pa11y https://example.com
@@ -265,8 +251,7 @@ pa11y --standard WCAG2AA https://example.com
 # Output as JSON for CI
 pa11y --reporter json https://example.com</code></pre>
 </section>
-
-<section aria-labelledby="mobile-tools">
+<section>
 <h2 id="mobile-tools">Mobile Testing Tools</h2>
 <div class="table-scroll">
 <table>
@@ -302,8 +287,7 @@ pa11y --reporter json https://example.com</code></pre>
 </table>
 </div>
 </section>
-
-<section aria-labelledby="testing-process">
+<section>
 <h2 id="testing-process">Recommended Testing Process</h2>
 <ol>
 <li><strong>Automated scan</strong>— Run axe DevTools or WAVE first</li>
@@ -315,8 +299,7 @@ pa11y --reporter json https://example.com</code></pre>
 <li><strong>Content review</strong>— Check alt text quality, link text, headings</li>
 </ol>
 </section>
-
-<section aria-labelledby="checklist">
+<section>
 <h2 id="checklist">Testing Tools Checklist</h2>
 <ul class="checklist">
 <li><input type="checkbox" id="t1"><label for="t1">Installed browser extension (axe or WAVE)</label></li>
@@ -326,8 +309,7 @@ pa11y --reporter json https://example.com</code></pre>
 <li><input type="checkbox" id="t5"><label for="t5">Team trained on manual testing procedures</label></li>
 </ul>
 </section>
-
-<section aria-labelledby="related">
+<section>
 <h2 id="related">Related Resources</h2>
 <ul>
 <li><a href="web-keyboard.html">Keyboard Accessibility Guide</a></li>
@@ -337,7 +319,6 @@ pa11y --reporter json https://example.com</code></pre>
 </ul>
 </section>
 </main>
-
 <footer role="contentinfo">
 <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
 </footer>
