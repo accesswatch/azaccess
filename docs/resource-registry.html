@@ -1,275 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>External Resource Registry | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
-  <style>
-    .resource-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .resource-filters button { padding: 0.5rem 1rem; border: 1px solid var(--ua-border); border-radius: 4px; background: white; cursor: pointer; }
-    .resource-filters button:hover, .resource-filters button.active { background: var(--ua-arizona-blue); color: white; }
-    .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
-    .resource-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.25rem; }
-    .resource-card h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
-    .resource-card .category { font-size: 0.8rem; color: #666; margin-bottom: 0.5rem; }
-    .resource-card p { margin: 0.5rem 0; font-size: 0.95rem; color: #444; }
-    .resource-card .meta { font-size: 0.85rem; color: #666; margin-top: 0.75rem; }
-    .resource-card .tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem; }
-    .resource-card .tags span { background: var(--ua-chip-bg); padding: 0.125rem 0.5rem; border-radius: 3px; font-size: 0.75rem; }
-    .badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-left: 0.5rem; }
-    .badge-free { background: #d4edda; color: #155724; }
-    .badge-paid { background: #fff3cd; color: #856404; }
-    .badge-ua { background: var(--ua-arizona-red); color: white; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>External Resource Registry | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
+<style>
+ .resource-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+ .resource-filters button { padding: 0.5rem 1rem; border: 1px solid var(--ua-border); border-radius: 4px; background: white; cursor: pointer; }
+ .resource-filters button:hover, .resource-filters button.active { background: var(--ua-arizona-blue); color: white; }
+ .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
+ .resource-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.25rem; }
+ .resource-card h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+ .resource-card .category { font-size: 0.8rem; color: #666; margin-bottom: 0.5rem; }
+ .resource-card p { margin: 0.5rem 0; font-size: 0.95rem; color: #444; }
+ .resource-card .meta { font-size: 0.85rem; color: #666; margin-top: 0.75rem; }
+ .resource-card .tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem; }
+ .resource-card .tags span { background: var(--ua-chip-bg); padding: 0.125rem 0.5rem; border-radius: 3px; font-size: 0.75rem; }
+ .badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-left: 0.5rem; }
+ .badge-free { background: #d4edda; color: #155724; }
+ .badge-paid { background: #fff3cd; color: #856404; }
+ .badge-ua { background: var(--ua-arizona-red); color: white; }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / <a href="tools-checklists.html">Tools</a> / Resource Registry</p>
-    </nav>
-    <h1>External Resource Registry</h1>
-    <p>Curated collection of accessibility tools, services, and learning resources from external providers.</p>
-  </header>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a>/<a href="tools-checklists.html">Tools</a>/ Resource Registry</p>
+</nav>
+<h1>External Resource Registry</h1>
+<p>Curated collection of accessibility tools, services, and learning resources from external providers.</p>
+</header>
 
-  <main id="maincontent" role="main">
-    <div class="resource-filters" role="group" aria-label="Filter resources">
-      <button class="active" data-filter="all">All Resources</button>
-      <button data-filter="testing">Testing Tools</button>
-      <button data-filter="learning">Learning</button>
-      <button data-filter="services">Services</button>
-      <button data-filter="assistive">Assistive Tech</button>
-      <button data-filter="community">Community</button>
-    </div>
+<main id="maincontent" role="main">
+<div class="resource-filters" role="group" aria-label="Filter resources">
+<button class="active" data-filter="all">All Resources</button>
+<button data-filter="testing">Testing Tools</button>
+<button data-filter="learning">Learning</button>
+<button data-filter="services">Services</button>
+<button data-filter="assistive">Assistive Tech</button>
+<button data-filter="community">Community</button>
+</div>
 
-    <section aria-labelledby="testing-heading">
-      <h2 id="testing-heading">🔍 Testing Tools</h2>
-      <div class="resource-grid">
-        <article class="resource-card" data-category="testing">
-          <h3>axe DevTools <span class="badge badge-free">Free</span></h3>
-          <p class="category">Browser Extension</p>
-          <p>Industry-leading automated accessibility testing. Integrates with Chrome and Firefox DevTools.</p>
-          <div class="tags"><span>Automated</span><span>WCAG</span><span>Browser</span></div>
-          <p class="meta"><a href="https://www.deque.com/axe/devtools/">deque.com/axe →</a></p>
-        </article>
+<section aria-labelledby="testing-heading">
+<h2 id="testing-heading">Testing Tools</h2>
+<div class="resource-grid">
+<article class="resource-card" data-category="testing">
+<h3>axe DevTools<span class="badge badge-free">Free</span></h3>
+<p class="category">Browser Extension</p>
+<p>Industry-leading automated accessibility testing. Integrates with Chrome and Firefox DevTools.</p>
+<div class="tags"><span>Automated</span><span>WCAG</span><span>Browser</span></div>
+<p class="meta"><a href="https://www.deque.com/axe/devtools/">deque.com/axe</a></p>
+</article>
 
-        <article class="resource-card" data-category="testing">
-          <h3>WAVE <span class="badge badge-free">Free</span></h3>
-          <p class="category">Browser Extension / Web Service</p>
-          <p>Visual accessibility evaluation tool. Shows errors and alerts directly on the page.</p>
-          <div class="tags"><span>Visual</span><span>Beginner-friendly</span></div>
-          <p class="meta"><a href="https://wave.webaim.org/">wave.webaim.org →</a></p>
-        </article>
+<article class="resource-card" data-category="testing">
+<h3>WAVE<span class="badge badge-free">Free</span></h3>
+<p class="category">Browser Extension / Web Service</p>
+<p>Visual accessibility evaluation tool. Shows errors and alerts directly on the page.</p>
+<div class="tags"><span>Visual</span><span>Beginner-friendly</span></div>
+<p class="meta"><a href="https://wave.webaim.org/">wave.webaim.org</a></p>
+</article>
 
-        <article class="resource-card" data-category="testing">
-          <h3>Accessibility Insights <span class="badge badge-free">Free</span></h3>
-          <p class="category">Browser Extension / Desktop App</p>
-          <p>Microsoft's accessibility testing tools for web, Windows, and Android.</p>
-          <div class="tags"><span>Web</span><span>Windows</span><span>Android</span></div>
-          <p class="meta"><a href="https://accessibilityinsights.io/">accessibilityinsights.io →</a></p>
-        </article>
+<article class="resource-card" data-category="testing">
+<h3>Accessibility Insights<span class="badge badge-free">Free</span></h3>
+<p class="category">Browser Extension / Desktop App</p>
+<p>Microsoft's accessibility testing tools for web, Windows, and Android.</p>
+<div class="tags"><span>Web</span><span>Windows</span><span>Android</span></div>
+<p class="meta"><a href="https://accessibilityinsights.io/">accessibilityinsights.io</a></p>
+</article>
 
-        <article class="resource-card" data-category="testing">
-          <h3>Colour Contrast Analyser <span class="badge badge-free">Free</span></h3>
-          <p class="category">Desktop Application</p>
-          <p>Desktop app with eyedropper to check color contrast ratios against WCAG requirements.</p>
-          <div class="tags"><span>Color</span><span>Contrast</span><span>Desktop</span></div>
-          <p class="meta"><a href="https://www.tpgi.com/color-contrast-checker/">tpgi.com →</a></p>
-        </article>
+<article class="resource-card" data-category="testing">
+<h3>Colour Contrast Analyser<span class="badge badge-free">Free</span></h3>
+<p class="category">Desktop Application</p>
+<p>Desktop app with eyedropper to check color contrast ratios against WCAG requirements.</p>
+<div class="tags"><span>Color</span><span>Contrast</span><span>Desktop</span></div>
+<p class="meta"><a href="https://www.tpgi.com/color-contrast-checker/">tpgi.com</a></p>
+</article>
 
-        <article class="resource-card" data-category="testing">
-          <h3>Pa11y <span class="badge badge-free">Free</span></h3>
-          <p class="category">Command Line / CI Integration</p>
-          <p>Automated accessibility testing for developers. Great for CI/CD pipelines.</p>
-          <div class="tags"><span>CLI</span><span>CI/CD</span><span>Developers</span></div>
-          <p class="meta"><a href="https://pa11y.org/">pa11y.org →</a></p>
-        </article>
+<article class="resource-card" data-category="testing">
+<h3>Pa11y<span class="badge badge-free">Free</span></h3>
+<p class="category">Command Line / CI Integration</p>
+<p>Automated accessibility testing for developers. Great for CI/CD pipelines.</p>
+<div class="tags"><span>CLI</span><span>CI/CD</span><span>Developers</span></div>
+<p class="meta"><a href="https://pa11y.org/">pa11y.org</a></p>
+</article>
 
-        <article class="resource-card" data-category="testing">
-          <h3>PAVE PDF Checker <span class="badge badge-free">Free</span></h3>
-          <p class="category">Web Service</p>
-          <p>Free online PDF/UA validator. Tests PDF accessibility and provides detailed reports.</p>
-          <div class="tags"><span>PDF</span><span>Documents</span></div>
-          <p class="meta"><a href="https://pave.pdfua.foundation/">pave.pdfua.foundation →</a></p>
-        </article>
-      </div>
-    </section>
+<article class="resource-card" data-category="testing">
+<h3>PAVE PDF Checker<span class="badge badge-free">Free</span></h3>
+<p class="category">Web Service</p>
+<p>Free online PDF/UA validator. Tests PDF accessibility and provides detailed reports.</p>
+<div class="tags"><span>PDF</span><span>Documents</span></div>
+<p class="meta"><a href="https://pave.pdfua.foundation/">pave.pdfua.foundation</a></p>
+</article>
+</div>
+</section>
 
-    <section aria-labelledby="learning-heading">
-      <h2 id="learning-heading">📚 Learning Resources</h2>
-      <div class="resource-grid">
-        <article class="resource-card" data-category="learning">
-          <h3>W3C Digital Accessibility Foundations <span class="badge badge-free">Free</span></h3>
-          <p class="category">Online Course</p>
-          <p>Comprehensive introduction to web accessibility from the standards body itself.</p>
-          <div class="tags"><span>Beginner</span><span>Certificate</span></div>
-          <p class="meta"><a href="https://www.w3.org/WAI/courses/foundations-course/">w3.org/WAI →</a></p>
-        </article>
+<section aria-labelledby="learning-heading">
+<h2 id="learning-heading">Learning Resources</h2>
+<div class="resource-grid">
+<article class="resource-card" data-category="learning">
+<h3>W3C Digital Accessibility Foundations<span class="badge badge-free">Free</span></h3>
+<p class="category">Online Course</p>
+<p>Comprehensive introduction to web accessibility from the standards body itself.</p>
+<div class="tags"><span>Beginner</span><span>Certificate</span></div>
+<p class="meta"><a href="https://www.w3.org/WAI/courses/foundations-course/">w3.org/WAI</a></p>
+</article>
 
-        <article class="resource-card" data-category="learning">
-          <h3>WebAIM Resources <span class="badge badge-free">Free</span></h3>
-          <p class="category">Articles &amp; Tutorials</p>
-          <p>Extensive library of accessibility articles, tutorials, and best practices.</p>
-          <div class="tags"><span>Articles</span><span>Tutorials</span><span>Reference</span></div>
-          <p class="meta"><a href="https://webaim.org/resources/">webaim.org/resources →</a></p>
-        </article>
+<article class="resource-card" data-category="learning">
+<h3>WebAIM Resources<span class="badge badge-free">Free</span></h3>
+<p class="category">Articles &amp; Tutorials</p>
+<p>Extensive library of accessibility articles, tutorials, and best practices.</p>
+<div class="tags"><span>Articles</span><span>Tutorials</span><span>Reference</span></div>
+<p class="meta"><a href="https://webaim.org/resources/">webaim.org/resources</a></p>
+</article>
 
-        <article class="resource-card" data-category="learning">
-          <h3>web.dev Learn Accessibility <span class="badge badge-free">Free</span></h3>
-          <p class="category">Online Course</p>
-          <p>Google's comprehensive accessibility curriculum with hands-on exercises.</p>
-          <div class="tags"><span>Developers</span><span>Interactive</span></div>
-          <p class="meta"><a href="https://web.dev/learn/accessibility/">web.dev →</a></p>
-        </article>
+<article class="resource-card" data-category="learning">
+<h3>web.dev Learn Accessibility<span class="badge badge-free">Free</span></h3>
+<p class="category">Online Course</p>
+<p>Google's comprehensive accessibility curriculum with hands-on exercises.</p>
+<div class="tags"><span>Developers</span><span>Interactive</span></div>
+<p class="meta"><a href="https://web.dev/learn/accessibility/">web.dev</a></p>
+</article>
 
-        <article class="resource-card" data-category="learning">
-          <h3>Deque University <span class="badge badge-paid">Paid</span></h3>
-          <p class="category">Online Training Platform</p>
-          <p>Comprehensive accessibility training with certification paths for different roles.</p>
-          <div class="tags"><span>Certification</span><span>Professional</span></div>
-          <p class="meta"><a href="https://dequeuniversity.com/">dequeuniversity.com →</a></p>
-        </article>
+<article class="resource-card" data-category="learning">
+<h3>Deque University<span class="badge badge-paid">Paid</span></h3>
+<p class="category">Online Training Platform</p>
+<p>Comprehensive accessibility training with certification paths for different roles.</p>
+<div class="tags"><span>Certification</span><span>Professional</span></div>
+<p class="meta"><a href="https://dequeuniversity.com/">dequeuniversity.com</a></p>
+</article>
 
-        <article class="resource-card" data-category="learning">
-          <h3>A11y Style Guide <span class="badge badge-free">Free</span></h3>
-          <p class="category">Reference Guide</p>
-          <p>Living style guide showcasing accessible web component patterns.</p>
-          <div class="tags"><span>Components</span><span>Code Examples</span></div>
-          <p class="meta"><a href="https://a11y-style-guide.com/style-guide/">a11y-style-guide.com →</a></p>
-        </article>
+<article class="resource-card" data-category="learning">
+<h3>A11y Style Guide<span class="badge badge-free">Free</span></h3>
+<p class="category">Reference Guide</p>
+<p>Living style guide showcasing accessible web component patterns.</p>
+<div class="tags"><span>Components</span><span>Code Examples</span></div>
+<p class="meta"><a href="https://a11y-style-guide.com/style-guide/">a11y-style-guide.com</a></p>
+</article>
 
-        <article class="resource-card" data-category="learning">
-          <h3>Inclusive Components <span class="badge badge-free">Free</span></h3>
-          <p class="category">Book / Website</p>
-          <p>Heydon Pickering's deep dives into building accessible web components.</p>
-          <div class="tags"><span>Components</span><span>Advanced</span></div>
-          <p class="meta"><a href="https://inclusive-components.design/">inclusive-components.design →</a></p>
-        </article>
-      </div>
-    </section>
+<article class="resource-card" data-category="learning">
+<h3>Inclusive Components<span class="badge badge-free">Free</span></h3>
+<p class="category">Book / Website</p>
+<p>Heydon Pickering's deep dives into building accessible web components.</p>
+<div class="tags"><span>Components</span><span>Advanced</span></div>
+<p class="meta"><a href="https://inclusive-components.design/">inclusive-components.design</a></p>
+</article>
+</div>
+</section>
 
-    <section aria-labelledby="services-heading">
-      <h2 id="services-heading">🏢 Services &amp; Consultants</h2>
-      <div class="resource-grid">
-        <article class="resource-card" data-category="services">
-          <h3>Deque Systems</h3>
-          <p class="category">Consulting &amp; Training</p>
-          <p>Enterprise accessibility consulting, testing services, and training.</p>
-          <div class="tags"><span>Audits</span><span>Training</span><span>Enterprise</span></div>
-          <p class="meta"><a href="https://www.deque.com/">deque.com →</a></p>
-        </article>
+<section aria-labelledby="services-heading">
+<h2 id="services-heading">Services &amp; Consultants</h2>
+<div class="resource-grid">
+<article class="resource-card" data-category="services">
+<h3>Deque Systems</h3>
+<p class="category">Consulting &amp; Training</p>
+<p>Enterprise accessibility consulting, testing services, and training.</p>
+<div class="tags"><span>Audits</span><span>Training</span><span>Enterprise</span></div>
+<p class="meta"><a href="https://www.deque.com/">deque.com</a></p>
+</article>
 
-        <article class="resource-card" data-category="services">
-          <h3>Level Access</h3>
-          <p class="category">Consulting &amp; Platform</p>
-          <p>Accessibility management platform and professional services.</p>
-          <div class="tags"><span>Platform</span><span>Audits</span><span>Monitoring</span></div>
-          <p class="meta"><a href="https://www.levelaccess.com/">levelaccess.com →</a></p>
-        </article>
+<article class="resource-card" data-category="services">
+<h3>Level Access</h3>
+<p class="category">Consulting &amp; Platform</p>
+<p>Accessibility management platform and professional services.</p>
+<div class="tags"><span>Platform</span><span>Audits</span><span>Monitoring</span></div>
+<p class="meta"><a href="https://www.levelaccess.com/">levelaccess.com</a></p>
+</article>
 
-        <article class="resource-card" data-category="services">
-          <h3>TPGi</h3>
-          <p class="category">Consulting &amp; Testing</p>
-          <p>The Paciello Group - accessibility audits, training, and consulting.</p>
-          <div class="tags"><span>Audits</span><span>Training</span></div>
-          <p class="meta"><a href="https://www.tpgi.com/">tpgi.com →</a></p>
-        </article>
+<article class="resource-card" data-category="services">
+<h3>TPGi</h3>
+<p class="category">Consulting &amp; Testing</p>
+<p>The Paciello Group - accessibility audits, training, and consulting.</p>
+<div class="tags"><span>Audits</span><span>Training</span></div>
+<p class="meta"><a href="https://www.tpgi.com/">tpgi.com</a></p>
+</article>
 
-        <article class="resource-card" data-category="services">
-          <h3>Knowbility</h3>
-          <p class="category">Training &amp; Certification</p>
-          <p>Nonprofit providing accessibility training and the AIR certification program.</p>
-          <div class="tags"><span>Nonprofit</span><span>Training</span><span>AIR</span></div>
-          <p class="meta"><a href="https://knowbility.org/">knowbility.org →</a></p>
-        </article>
-      </div>
-    </section>
+<article class="resource-card" data-category="services">
+<h3>Knowbility</h3>
+<p class="category">Training &amp; Certification</p>
+<p>Nonprofit providing accessibility training and the AIR certification program.</p>
+<div class="tags"><span>Nonprofit</span><span>Training</span><span>AIR</span></div>
+<p class="meta"><a href="https://knowbility.org/">knowbility.org</a></p>
+</article>
+</div>
+</section>
 
-    <section aria-labelledby="assistive-heading">
-      <h2 id="assistive-heading">♿ Assistive Technologies</h2>
-      <div class="resource-grid">
-        <article class="resource-card" data-category="assistive">
-          <h3>NVDA <span class="badge badge-free">Free</span></h3>
-          <p class="category">Screen Reader (Windows)</p>
-          <p>Free, open-source screen reader for Windows. Essential for testing.</p>
-          <div class="tags"><span>Windows</span><span>Free</span><span>Testing</span></div>
-          <p class="meta"><a href="https://www.nvaccess.org/">nvaccess.org →</a></p>
-        </article>
+<section aria-labelledby="assistive-heading">
+<h2 id="assistive-heading">Assistive Technologies</h2>
+<div class="resource-grid">
+<article class="resource-card" data-category="assistive">
+<h3>NVDA<span class="badge badge-free">Free</span></h3>
+<p class="category">Screen Reader (Windows)</p>
+<p>Free, open-source screen reader for Windows. Essential for testing.</p>
+<div class="tags"><span>Windows</span><span>Free</span><span>Testing</span></div>
+<p class="meta"><a href="https://www.nvaccess.org/">nvaccess.org</a></p>
+</article>
 
-        <article class="resource-card" data-category="assistive">
-          <h3>JAWS <span class="badge badge-paid">Paid</span></h3>
-          <p class="category">Screen Reader (Windows)</p>
-          <p>Industry-standard commercial screen reader used in many enterprises.</p>
-          <div class="tags"><span>Windows</span><span>Enterprise</span></div>
-          <p class="meta"><a href="https://www.freedomscientific.com/products/software/jaws/">freedomscientific.com →</a></p>
-        </article>
+<article class="resource-card" data-category="assistive">
+<h3>JAWS<span class="badge badge-paid">Paid</span></h3>
+<p class="category">Screen Reader (Windows)</p>
+<p>Industry-standard commercial screen reader used in many enterprises.</p>
+<div class="tags"><span>Windows</span><span>Enterprise</span></div>
+<p class="meta"><a href="https://www.freedomscientific.com/products/software/jaws/">freedomscientific.com</a></p>
+</article>
 
-        <article class="resource-card" data-category="assistive">
-          <h3>VoiceOver <span class="badge badge-free">Built-in</span></h3>
-          <p class="category">Screen Reader (Apple)</p>
-          <p>Apple's built-in screen reader for macOS and iOS devices.</p>
-          <div class="tags"><span>macOS</span><span>iOS</span><span>Built-in</span></div>
-          <p class="meta"><a href="https://support.apple.com/voiceover">apple.com/voiceover →</a></p>
-        </article>
+<article class="resource-card" data-category="assistive">
+<h3>VoiceOver<span class="badge badge-free">Built-in</span></h3>
+<p class="category">Screen Reader (Apple)</p>
+<p>Apple's built-in screen reader for macOS and iOS devices.</p>
+<div class="tags"><span>macOS</span><span>iOS</span><span>Built-in</span></div>
+<p class="meta"><a href="https://support.apple.com/voiceover">apple.com/voiceover</a></p>
+</article>
 
-        <article class="resource-card" data-category="assistive">
-          <h3>Dragon NaturallySpeaking <span class="badge badge-paid">Paid</span></h3>
-          <p class="category">Voice Recognition</p>
-          <p>Voice control and dictation software for hands-free computer use.</p>
-          <div class="tags"><span>Voice</span><span>Dictation</span></div>
-          <p class="meta"><a href="https://www.nuance.com/dragon.html">nuance.com/dragon →</a></p>
-        </article>
-      </div>
-    </section>
+<article class="resource-card" data-category="assistive">
+<h3>Dragon NaturallySpeaking<span class="badge badge-paid">Paid</span></h3>
+<p class="category">Voice Recognition</p>
+<p>Voice control and dictation software for hands-free computer use.</p>
+<div class="tags"><span>Voice</span><span>Dictation</span></div>
+<p class="meta"><a href="https://www.nuance.com/dragon.html">nuance.com/dragon</a></p>
+</article>
+</div>
+</section>
 
-    <section aria-labelledby="community-heading">
-      <h2 id="community-heading">🌐 Community &amp; News</h2>
-      <div class="resource-grid">
-        <article class="resource-card" data-category="community">
-          <h3>A11y Weekly Newsletter <span class="badge badge-free">Free</span></h3>
-          <p class="category">Newsletter</p>
-          <p>Weekly roundup of accessibility news, articles, and resources.</p>
-          <div class="tags"><span>Newsletter</span><span>Weekly</span></div>
-          <p class="meta"><a href="https://a11yweekly.com/">a11yweekly.com →</a></p>
-        </article>
+<section aria-labelledby="community-heading">
+<h2 id="community-heading">Community &amp; News</h2>
+<div class="resource-grid">
+<article class="resource-card" data-category="community">
+<h3>A11y Weekly Newsletter<span class="badge badge-free">Free</span></h3>
+<p class="category">Newsletter</p>
+<p>Weekly roundup of accessibility news, articles, and resources.</p>
+<div class="tags"><span>Newsletter</span><span>Weekly</span></div>
+<p class="meta"><a href="https://a11yweekly.com/">a11yweekly.com</a></p>
+</article>
 
-        <article class="resource-card" data-category="community">
-          <h3>axe-con <span class="badge badge-free">Free</span></h3>
-          <p class="category">Conference</p>
-          <p>Free annual accessibility conference with talks from industry experts.</p>
-          <div class="tags"><span>Conference</span><span>Virtual</span><span>Free</span></div>
-          <p class="meta"><a href="https://www.deque.com/axe-con/">deque.com/axe-con →</a></p>
-        </article>
+<article class="resource-card" data-category="community">
+<h3>axe-con<span class="badge badge-free">Free</span></h3>
+<p class="category">Conference</p>
+<p>Free annual accessibility conference with talks from industry experts.</p>
+<div class="tags"><span>Conference</span><span>Virtual</span><span>Free</span></div>
+<p class="meta"><a href="https://www.deque.com/axe-con/">deque.com/axe-con</a></p>
+</article>
 
-        <article class="resource-card" data-category="community">
-          <h3>WebAIM Discussion List <span class="badge badge-free">Free</span></h3>
-          <p class="category">Mailing List</p>
-          <p>Active community discussion list for accessibility practitioners.</p>
-          <div class="tags"><span>Community</span><span>Discussion</span></div>
-          <p class="meta"><a href="https://webaim.org/discussion/">webaim.org/discussion →</a></p>
-        </article>
+<article class="resource-card" data-category="community">
+<h3>WebAIM Discussion List<span class="badge badge-free">Free</span></h3>
+<p class="category">Mailing List</p>
+<p>Active community discussion list for accessibility practitioners.</p>
+<div class="tags"><span>Community</span><span>Discussion</span></div>
+<p class="meta"><a href="https://webaim.org/discussion/">webaim.org/discussion</a></p>
+</article>
 
-        <article class="resource-card" data-category="community">
-          <h3>The A11Y Project <span class="badge badge-free">Free</span></h3>
-          <p class="category">Community Resource</p>
-          <p>Community-driven effort to make digital accessibility easier.</p>
-          <div class="tags"><span>Community</span><span>Open Source</span></div>
-          <p class="meta"><a href="https://www.a11yproject.com/">a11yproject.com →</a></p>
-        </article>
-      </div>
-    </section>
+<article class="resource-card" data-category="community">
+<h3>The A11Y Project<span class="badge badge-free">Free</span></h3>
+<p class="category">Community Resource</p>
+<p>Community-driven effort to make digital accessibility easier.</p>
+<div class="tags"><span>Community</span><span>Open Source</span></div>
+<p class="meta"><a href="https://www.a11yproject.com/">a11yproject.com</a></p>
+</article>
+</div>
+</section>
 
-    <aside class="callout callout-info">
-      <h2>Suggest a Resource</h2>
-      <p>Know of a great accessibility resource that should be listed here? <a href="support.html">Contact us</a> with your suggestion.</p>
-    </aside>
-  </main>
+<aside class="callout callout-info">
+<h2>Suggest a Resource</h2>
+<p>Know of a great accessibility resource that should be listed here?<a href="support.html">Contact us</a>with your suggestion.</p>
+</aside>
+</main>
 
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
-  </footer>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p><a href="accessibility-statement.html">Accessibility Statement</a>|<a href="support.html">Report an Issue</a></p>
+</footer>
 </body>
 </html>

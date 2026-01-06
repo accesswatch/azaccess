@@ -1,112 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Training &amp; Events | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .event-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .event-filters button { padding: 0.5rem 1rem; border: 1px solid var(--ua-border); border-radius: 4px; background: white; cursor: pointer; }
-    .event-filters button:hover, .event-filters button.active { background: var(--ua-arizona-blue); color: white; }
-    .events-list { display: flex; flex-direction: column; gap: 1rem; }
-    .event-card { display: grid; grid-template-columns: 80px 1fr auto; gap: 1rem; background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; align-items: start; }
-    @media (max-width: 600px) { .event-card { grid-template-columns: 1fr; } }
-    .event-date { text-align: center; background: var(--ua-arizona-blue); color: white; border-radius: 8px; padding: 0.5rem; }
-    .event-date .month { font-size: 0.8rem; text-transform: uppercase; }
-    .event-date .day { font-size: 1.75rem; font-weight: bold; line-height: 1; }
-    .event-details h3 { margin: 0 0 0.25rem 0; font-size: 1.1rem; }
-    .event-details .meta { font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
-    .event-details p { margin: 0.5rem 0; font-size: 0.95rem; }
-    .event-tags span { background: var(--ua-chip-bg); padding: 0.125rem 0.5rem; border-radius: 3px; font-size: 0.75rem; margin-right: 0.25rem; }
-    .event-actions a { display: block; padding: 0.5rem 1rem; text-align: center; border-radius: 4px; text-decoration: none; font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .event-actions .register { background: var(--ua-arizona-blue); color: white; }
-    .featured { border-left: 4px solid var(--ua-arizona-red); }
-    .self-paced { background: var(--ua-chip-bg); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
-    .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
-    .course-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; }
-    .course-card h3 { margin: 0 0 0.5rem 0; font-size: 1rem; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Training &amp; Events | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+ .event-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+ .event-filters button { padding: 0.5rem 1rem; border: 1px solid var(--ua-border); border-radius: 4px; background: white; cursor: pointer; }
+ .event-filters button:hover, .event-filters button.active { background: var(--ua-arizona-blue); color: white; }
+ .events-list { display: flex; flex-direction: column; gap: 1rem; }
+ .event-card { display: grid; grid-template-columns: 80px 1fr auto; gap: 1rem; background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; align-items: start; }
+ @media (max-width: 600px) { .event-card { grid-template-columns: 1fr; } }
+ .event-date { text-align: center; background: var(--ua-arizona-blue); color: white; border-radius: 8px; padding: 0.5rem; }
+ .event-date .month { font-size: 0.8rem; text-transform: uppercase; }
+ .event-date .day { font-size: 1.75rem; font-weight: bold; line-height: 1; }
+ .event-details h3 { margin: 0 0 0.25rem 0; font-size: 1.1rem; }
+ .event-details .meta { font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
+ .event-details p { margin: 0.5rem 0; font-size: 0.95rem; }
+ .event-tags span { background: var(--ua-chip-bg); padding: 0.125rem 0.5rem; border-radius: 3px; font-size: 0.75rem; margin-right: 0.25rem; }
+ .event-actions a { display: block; padding: 0.5rem 1rem; text-align: center; border-radius: 4px; text-decoration: none; font-size: 0.9rem; margin-bottom: 0.5rem; }
+ .event-actions .register { background: var(--ua-arizona-blue); color: white; }
+ .featured { border-left: 4px solid var(--ua-arizona-red); }
+ .self-paced { background: var(--ua-chip-bg); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+ .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+ .course-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; }
+ .course-card h3 { margin: 0 0 0.5rem 0; font-size: 1rem; }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="support.html">Support</a></nav>
-    </div>
-    <h1>Training &amp; Events Calendar</h1>
-    <p>Workshops, webinars, and office hours to build your accessibility skills.</p>
-  </header>
-  <main id="maincontent" role="main">
-    <section class="self-paced">
-      <h2>📚 Self-Paced Training (Anytime)</h2>
-      <div class="course-grid">
-        <article class="course-card"><h3>Accessibility 101</h3><p>Introduction to digital accessibility.</p><p>⏱️ 30 min</p><a href="accessibility-101.html" class="cta">Start →</a></article>
-        <article class="course-card"><h3>Accessible Documents</h3><p>Word, PowerPoint, PDF accessibility.</p><p>⏱️ 45 min</p><a href="documents-overview.html" class="cta">Start →</a></article>
-        <article class="course-card"><h3>Web Accessibility</h3><p>WCAG fundamentals.</p><p>⏱️ 1 hour</p><a href="web-app.html" class="cta">Start →</a></article>
-        <article class="course-card"><h3>Captioning &amp; Media</h3><p>Add captions to videos.</p><p>⏱️ 30 min</p><a href="media-captioning.html" class="cta">Start →</a></article>
-      </div>
-    </section>
-    <section>
-      <h2>📅 Upcoming Live Events</h2>
-      <div class="event-filters"><button class="active" data-filter="all">All</button><button data-filter="workshop">Workshops</button><button data-filter="webinar">Webinars</button><button data-filter="office-hours">Office Hours</button></div>
-      <div class="events-list">
-        <article class="event-card featured" data-type="workshop">
-          <div class="event-date"><div class="month">Jan</div><div class="day">14</div></div>
-          <div class="event-details"><h3>🌟 Accessible Document Workshop</h3><div class="meta">🕐 10am-12pm · 📍 ILC 150 + Zoom</div><p>Hands-on workshop covering Word, PowerPoint, and PDF.</p><div class="event-tags"><span>Workshop</span><span>Beginner</span></div></div>
-          <div class="event-actions"><a href="#" class="register">Register</a></div>
-        </article>
-        <article class="event-card" data-type="office-hours">
-          <div class="event-date"><div class="month">Jan</div><div class="day">16</div></div>
-          <div class="event-details"><h3>Accessibility Office Hours</h3><div class="meta">🕐 2-3pm · 📍 Zoom (drop-in)</div><p>Drop in with any accessibility questions.</p><div class="event-tags"><span>Office Hours</span></div></div>
-          <div class="event-actions"><a href="#" class="register">Join</a></div>
-        </article>
-        <article class="event-card" data-type="webinar">
-          <div class="event-date"><div class="month">Jan</div><div class="day">22</div></div>
-          <div class="event-details"><h3>WCAG 2.2: What's New</h3><div class="meta">🕐 1-2pm · 📍 Zoom</div><p>New success criteria and what they mean for UA.</p><div class="event-tags"><span>Webinar</span><span>Intermediate</span></div></div>
-          <div class="event-actions"><a href="#" class="register">Register</a></div>
-        </article>
-        <article class="event-card" data-type="workshop">
-          <div class="event-date"><div class="month">Jan</div><div class="day">28</div></div>
-          <div class="event-details"><h3>Screen Reader Testing for Beginners</h3><div class="meta">🕐 10-11:30am · 📍 Zoom</div><p>Learn NVDA basics for testing websites.</p><div class="event-tags"><span>Workshop</span><span>Testing</span></div></div>
-          <div class="event-actions"><a href="#" class="register">Register</a></div>
-        </article>
-        <article class="event-card featured" data-type="workshop">
-          <div class="event-date"><div class="month">Feb</div><div class="day">11</div></div>
-          <div class="event-details"><h3>🌟 Accessible Brightspace Course Design</h3><div class="meta">🕐 10am-12pm · 📍 ENR2 + Zoom</div><p>Build accessible courses in Brightspace.</p><div class="event-tags"><span>Workshop</span><span>Faculty</span></div></div>
-          <div class="event-actions"><a href="#" class="register">Register</a></div>
-        </article>
-        <article class="event-card" data-type="webinar">
-          <div class="event-date"><div class="month">Feb</div><div class="day">19</div></div>
-          <div class="event-details"><h3>Social Media Accessibility</h3><div class="meta">🕐 1-2pm · 📍 Zoom</div><p>Accessible posts on Twitter, Instagram, LinkedIn, TikTok.</p><div class="event-tags"><span>Webinar</span><span>Social</span></div></div>
-          <div class="event-actions"><a href="#" class="register">Register</a></div>
-        </article>
-        <article class="event-card" data-type="workshop">
-          <div class="event-date"><div class="month">Feb</div><div class="day">25</div></div>
-          <div class="event-details"><h3>PDF Remediation Deep Dive</h3><div class="meta">🕐 10am-12pm · 📍 Zoom</div><p>Advanced PDF tagging in Acrobat Pro.</p><div class="event-tags"><span>Workshop</span><span>Advanced</span></div></div>
-          <div class="event-actions"><a href="#" class="register">Register</a></div>
-        </article>
-      </div>
-    </section>
-    <section style="margin-top:2rem;background:var(--ua-chip-bg);padding:1.5rem;border-radius:8px;">
-      <h2>🎓 Request Custom Training</h2>
-      <p>Need training for your department? We offer customized sessions.</p>
-      <p><a class="cta" href="mailto:accessibility@arizona.edu?subject=Training Request">Request Training →</a></p>
-    </section>
-  </main>
-  <footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
-  <script>
-    document.querySelectorAll('.event-filters button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.event-filters button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.event-card').forEach(ev => {
-          ev.style.display = (filter === 'all' || ev.dataset.type === filter) ? 'grid' : 'none';
-        });
-      });
-    });
-  </script>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="support.html">Support</a></nav>
+</div>
+<h1>Training &amp; Events Calendar</h1>
+<p>Workshops, webinars, and office hours to build your accessibility skills.</p>
+</header>
+<main id="maincontent" role="main">
+<section class="self-paced">
+<h2>Self-Paced Training (Anytime)</h2>
+<div class="course-grid">
+<article class="course-card"><h3>Accessibility 101</h3><p>Introduction to digital accessibility.</p><p>30 min</p><a href="accessibility-101.html" class="cta">Start</a></article>
+<article class="course-card"><h3>Accessible Documents</h3><p>Word, PowerPoint, PDF accessibility.</p><p>45 min</p><a href="documents-overview.html" class="cta">Start</a></article>
+<article class="course-card"><h3>Web Accessibility</h3><p>WCAG fundamentals.</p><p>1 hour</p><a href="web-app.html" class="cta">Start</a></article>
+<article class="course-card"><h3>Captioning &amp; Media</h3><p>Add captions to videos.</p><p>30 min</p><a href="media-captioning.html" class="cta">Start</a></article>
+</div>
+</section>
+<section>
+<h2>Upcoming Live Events</h2>
+<div class="event-filters"><button class="active" data-filter="all">All</button><button data-filter="workshop">Workshops</button><button data-filter="webinar">Webinars</button><button data-filter="office-hours">Office Hours</button></div>
+<div class="events-list">
+<article class="event-card featured" data-type="workshop">
+<div class="event-date"><div class="month">Jan</div><div class="day">14</div></div>
+<div class="event-details"><h3>Accessible Document Workshop</h3><div class="meta">10am-12pm · ILC 150 + Zoom</div><p>Hands-on workshop covering Word, PowerPoint, and PDF.</p><div class="event-tags"><span>Workshop</span><span>Beginner</span></div></div>
+<div class="event-actions"><a href="#" class="register">Register</a></div>
+</article>
+<article class="event-card" data-type="office-hours">
+<div class="event-date"><div class="month">Jan</div><div class="day">16</div></div>
+<div class="event-details"><h3>Accessibility Office Hours</h3><div class="meta">2-3pm · Zoom (drop-in)</div><p>Drop in with any accessibility questions.</p><div class="event-tags"><span>Office Hours</span></div></div>
+<div class="event-actions"><a href="#" class="register">Join</a></div>
+</article>
+<article class="event-card" data-type="webinar">
+<div class="event-date"><div class="month">Jan</div><div class="day">22</div></div>
+<div class="event-details"><h3>WCAG 2.2: What's New</h3><div class="meta">1-2pm · Zoom</div><p>New success criteria and what they mean for UA.</p><div class="event-tags"><span>Webinar</span><span>Intermediate</span></div></div>
+<div class="event-actions"><a href="#" class="register">Register</a></div>
+</article>
+<article class="event-card" data-type="workshop">
+<div class="event-date"><div class="month">Jan</div><div class="day">28</div></div>
+<div class="event-details"><h3>Screen Reader Testing for Beginners</h3><div class="meta">10-11:30am · Zoom</div><p>Learn NVDA basics for testing websites.</p><div class="event-tags"><span>Workshop</span><span>Testing</span></div></div>
+<div class="event-actions"><a href="#" class="register">Register</a></div>
+</article>
+<article class="event-card featured" data-type="workshop">
+<div class="event-date"><div class="month">Feb</div><div class="day">11</div></div>
+<div class="event-details"><h3>Accessible Brightspace Course Design</h3><div class="meta">10am-12pm · ENR2 + Zoom</div><p>Build accessible courses in Brightspace.</p><div class="event-tags"><span>Workshop</span><span>Faculty</span></div></div>
+<div class="event-actions"><a href="#" class="register">Register</a></div>
+</article>
+<article class="event-card" data-type="webinar">
+<div class="event-date"><div class="month">Feb</div><div class="day">19</div></div>
+<div class="event-details"><h3>Social Media Accessibility</h3><div class="meta">1-2pm · Zoom</div><p>Accessible posts on Twitter, Instagram, LinkedIn, TikTok.</p><div class="event-tags"><span>Webinar</span><span>Social</span></div></div>
+<div class="event-actions"><a href="#" class="register">Register</a></div>
+</article>
+<article class="event-card" data-type="workshop">
+<div class="event-date"><div class="month">Feb</div><div class="day">25</div></div>
+<div class="event-details"><h3>PDF Remediation Deep Dive</h3><div class="meta">10am-12pm · Zoom</div><p>Advanced PDF tagging in Acrobat Pro.</p><div class="event-tags"><span>Workshop</span><span>Advanced</span></div></div>
+<div class="event-actions"><a href="#" class="register">Register</a></div>
+</article>
+</div>
+</section>
+<section style="margin-top:2rem;background:var(--ua-chip-bg);padding:1.5rem;border-radius:8px;">
+<h2>Request Custom Training</h2>
+<p>Need training for your department? We offer customized sessions.</p>
+<p><a class="cta" href="mailto:accessibility@arizona.edu?subject=Training Request">Request Training</a></p>
+</section>
+</main>
+<footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+<script>
+ document.querySelectorAll('.event-filters button').forEach(btn =>{
+ btn.addEventListener('click', () =>{
+ document.querySelectorAll('.event-filters button').forEach(b =>b.classList.remove('active'));
+ btn.classList.add('active');
+ const filter = btn.dataset.filter;
+ document.querySelectorAll('.event-card').forEach(ev =>{
+ ev.style.display = (filter === 'all' || ev.dataset.type === filter) ? 'grid' : 'none';
+ });
+ });
+ });
+</script>
 </body>
 </html>

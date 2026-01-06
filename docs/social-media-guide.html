@@ -1,252 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessible Social Media Guide | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .platform-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--ua-border); padding-bottom: 1rem; }
-    .platform-tabs button { padding: 0.75rem 1.25rem; border: none; background: var(--ua-cool-gray); border-radius: 4px 4px 0 0; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-    .platform-tabs button:hover, .platform-tabs button.active { background: var(--ua-arizona-blue); color: white; }
-    .platform-content { display: none; }
-    .platform-content.active { display: block; }
-    .tip-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
-    .tip-card h3 { margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
-    .tip-card .good, .tip-card .bad { padding: 0.75rem; border-radius: 4px; margin: 0.5rem 0; font-family: monospace; font-size: 0.9rem; }
-    .tip-card .good { background: #d4edda; border-left: 4px solid #28a745; }
-    .tip-card .bad { background: #f8d7da; border-left: 4px solid #dc3545; }
-    .quick-ref { background: var(--ua-chip-bg); padding: 1rem; border-radius: 8px; margin: 1rem 0; }
-    .quick-ref h4 { margin: 0 0 0.5rem 0; }
-    .hashtag { color: #1da1f2; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Accessible Social Media Guide | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+ .platform-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--ua-border); padding-bottom: 1rem; }
+ .platform-tabs button { padding: 0.75rem 1.25rem; border: none; background: var(--ua-cool-gray); border-radius: 4px 4px 0 0; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+ .platform-tabs button:hover, .platform-tabs button.active { background: var(--ua-arizona-blue); color: white; }
+ .platform-content { display: none; }
+ .platform-content.active { display: block; }
+ .tip-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+ .tip-card h3 { margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
+ .tip-card .good, .tip-card .bad { padding: 0.75rem; border-radius: 4px; margin: 0.5rem 0; font-family: monospace; font-size: 0.9rem; }
+ .tip-card .good { background: #d4edda; border-left: 4px solid #28a745; }
+ .tip-card .bad { background: #f8d7da; border-left: 4px solid #dc3545; }
+ .quick-ref { background: var(--ua-chip-bg); padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+ .quick-ref h4 { margin: 0 0 0.5rem 0; }
+ .hashtag { color: #1da1f2; }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="documents-media.html">Documents & Media</a></nav>
-    </div>
-    <h1>Accessible Social Media Guide</h1>
-    <p>Make your social posts accessible to everyone—including people using screen readers.</p>
-  </header>
-  <main id="maincontent" role="main">
-    
-    <section aria-labelledby="universal-heading">
-      <h2 id="universal-heading">✨ Universal Tips (All Platforms)</h2>
-      <div class="grid grid-2">
-        <div class="tip-card">
-          <h3>📝 Write Alt Text for Images</h3>
-          <p>Describe what's IN the image, not just "photo" or "graphic".</p>
-          <div class="bad">❌ "Event flyer"</div>
-          <div class="good">✅ "Flyer for Spring Career Fair, March 15, 10am-2pm at Student Union. Features UA Wildcat logo."</div>
-        </div>
-        <div class="tip-card">
-          <h3>🔤 Use CamelCase for Hashtags</h3>
-          <p>Capitalize each word so screen readers pronounce them correctly.</p>
-          <div class="bad">❌ <span class="hashtag">#accessibilitymatters</span> (reads as one long word)</div>
-          <div class="good">✅ <span class="hashtag">#AccessibilityMatters</span> (reads as "Accessibility Matters")</div>
-        </div>
-        <div class="tip-card">
-          <h3>😊 Limit Emoji Use</h3>
-          <p>Screen readers read each emoji aloud. 5 clapping emojis = "clapping hands clapping hands clapping hands..."</p>
-          <div class="bad">❌ "Great job! 👏👏👏👏👏"</div>
-          <div class="good">✅ "Great job! 👏"</div>
-        </div>
-        <div class="tip-card">
-          <h3>🎬 Caption All Videos</h3>
-          <p>Auto-captions are a start but need editing. 85% of social video is watched without sound!</p>
-        </div>
-      </div>
-    </section>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="documents-media.html">Documents & Media</a></nav>
+</div>
+<h1>Accessible Social Media Guide</h1>
+<p>Make your social posts accessible to everyone—including people using screen readers.</p>
+</header>
+<main id="maincontent" role="main">
+ 
+<section aria-labelledby="universal-heading">
+<h2 id="universal-heading">Universal Tips (All Platforms)</h2>
+<div class="grid grid-2">
+<div class="tip-card">
+<h3>Write Alt Text for Images</h3>
+<p>Describe what's IN the image, not just "photo" or "graphic".</p>
+<div class="bad">"Event flyer"</div>
+<div class="good">"Flyer for Spring Career Fair, March 15, 10am-2pm at Student Union. Features UA Wildcat logo."</div>
+</div>
+<div class="tip-card">
+<h3>Use CamelCase for Hashtags</h3>
+<p>Capitalize each word so screen readers pronounce them correctly.</p>
+<div class="bad"><span class="hashtag">#accessibilitymatters</span>(reads as one long word)</div>
+<div class="good"><span class="hashtag">#AccessibilityMatters</span>(reads as "Accessibility Matters")</div>
+</div>
+<div class="tip-card">
+<h3>Limit Emoji Use</h3>
+<p>Screen readers read each emoji aloud. 5 clapping emojis = "clapping hands clapping hands clapping hands..."</p>
+<div class="bad">"Great job! "</div>
+<div class="good">"Great job! "</div>
+</div>
+<div class="tip-card">
+<h3>Caption All Videos</h3>
+<p>Auto-captions are a start but need editing. 85% of social video is watched without sound!</p>
+</div>
+</div>
+</section>
 
-    <section aria-labelledby="platforms-heading">
-      <h2 id="platforms-heading">Platform-Specific Guides</h2>
-      <div class="platform-tabs" role="tablist">
-        <button role="tab" class="active" data-platform="twitter" aria-selected="true">𝕏 / Twitter</button>
-        <button role="tab" data-platform="instagram" aria-selected="false">📷 Instagram</button>
-        <button role="tab" data-platform="facebook" aria-selected="false">👤 Facebook</button>
-        <button role="tab" data-platform="linkedin" aria-selected="false">💼 LinkedIn</button>
-        <button role="tab" data-platform="tiktok" aria-selected="false">🎵 TikTok</button>
-      </div>
+<section aria-labelledby="platforms-heading">
+<h2 id="platforms-heading">Platform-Specific Guides</h2>
+<div class="platform-tabs" role="tablist">
+<button role="tab" class="active" data-platform="twitter" aria-selected="true">𝕏 / Twitter</button>
+<button role="tab" data-platform="instagram" aria-selected="false">Instagram</button>
+<button role="tab" data-platform="facebook" aria-selected="false">Facebook</button>
+<button role="tab" data-platform="linkedin" aria-selected="false">LinkedIn</button>
+<button role="tab" data-platform="tiktok" aria-selected="false">TikTok</button>
+</div>
 
-      <!-- Twitter/X -->
-      <div id="twitter" class="platform-content active" role="tabpanel">
-        <h3>𝕏 / Twitter Accessibility</h3>
-        <div class="quick-ref">
-          <h4>Quick Reference</h4>
-          <ul>
-            <li><strong>Add alt text:</strong> When composing, click image → "Add description" (or ALT button)</li>
-            <li><strong>Character limit:</strong> Alt text up to 1,000 characters</li>
-            <li><strong>Auto-captions:</strong> Available for videos</li>
-          </ul>
-        </div>
-        <div class="tip-card">
-          <h3>Adding Alt Text to Images</h3>
-          <ol>
-            <li>Compose your tweet and add an image</li>
-            <li>Click the image thumbnail</li>
-            <li>Click "Add description" or the "ALT" badge</li>
-            <li>Write your description (up to 1,000 characters)</li>
-            <li>Click "Save"</li>
-          </ol>
-          <p><strong>Pro tip:</strong> Enable "Image descriptions reminder" in Settings → Accessibility to get prompted.</p>
-        </div>
-        <div class="tip-card">
-          <h3>Thread Accessibility</h3>
-          <ul>
-            <li>Number your tweets: "1/5", "2/5" etc.</li>
-            <li>Start with context—don't assume people saw tweet #1</li>
-            <li>Put alt text on every image in the thread</li>
-          </ul>
-        </div>
-      </div>
+<!-- Twitter/X -->
+<div id="twitter" class="platform-content active" role="tabpanel">
+<h3>𝕏 / Twitter Accessibility</h3>
+<div class="quick-ref">
+<h4>Quick Reference</h4>
+<ul>
+<li><strong>Add alt text:</strong>When composing, click image "Add description" (or ALT button)</li>
+<li><strong>Character limit:</strong>Alt text up to 1,000 characters</li>
+<li><strong>Auto-captions:</strong>Available for videos</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>Adding Alt Text to Images</h3>
+<ol>
+<li>Compose your tweet and add an image</li>
+<li>Click the image thumbnail</li>
+<li>Click "Add description" or the "ALT" badge</li>
+<li>Write your description (up to 1,000 characters)</li>
+<li>Click "Save"</li>
+</ol>
+<p><strong>Pro tip:</strong>Enable "Image descriptions reminder" in Settings Accessibility to get prompted.</p>
+</div>
+<div class="tip-card">
+<h3>Thread Accessibility</h3>
+<ul>
+<li>Number your tweets: "1/5", "2/5" etc.</li>
+<li>Start with context—don't assume people saw tweet #1</li>
+<li>Put alt text on every image in the thread</li>
+</ul>
+</div>
+</div>
 
-      <!-- Instagram -->
-      <div id="instagram" class="platform-content" role="tabpanel">
-        <h3>📷 Instagram Accessibility</h3>
-        <div class="quick-ref">
-          <h4>Quick Reference</h4>
-          <ul>
-            <li><strong>Add alt text:</strong> Before posting → Advanced Settings → Write Alt Text</li>
-            <li><strong>Edit existing:</strong> ••• menu → Edit → Alt text</li>
-            <li><strong>Stories:</strong> No native alt text—describe in caption or use voiceover</li>
-            <li><strong>Reels:</strong> Add captions via the captions sticker or auto-captions</li>
-          </ul>
-        </div>
-        <div class="tip-card">
-          <h3>Adding Alt Text to Posts</h3>
-          <ol>
-            <li>Create your post as usual</li>
-            <li>On the caption screen, tap "Advanced Settings" at the bottom</li>
-            <li>Tap "Write Alt Text"</li>
-            <li>Describe each image (swipe for multiple)</li>
-            <li>Tap "Done" then share</li>
-          </ol>
-          <p><strong>Note:</strong> Instagram auto-generates alt text, but it's generic ("may contain: 2 people, outdoor"). Custom is better.</p>
-        </div>
-        <div class="tip-card">
-          <h3>Stories & Reels</h3>
-          <ul>
-            <li><strong>Stories:</strong> Use the Captions sticker for any speaking</li>
-            <li><strong>Reels:</strong> Tap "Captions" to auto-generate, then review</li>
-            <li>If showing text on screen, read it aloud too</li>
-            <li>Avoid flashing content (seizure risk)</li>
-          </ul>
-        </div>
-      </div>
+<!-- Instagram -->
+<div id="instagram" class="platform-content" role="tabpanel">
+<h3>Instagram Accessibility</h3>
+<div class="quick-ref">
+<h4>Quick Reference</h4>
+<ul>
+<li><strong>Add alt text:</strong>Before posting Advanced Settings Write Alt Text</li>
+<li><strong>Edit existing:</strong>••• menu Edit Alt text</li>
+<li><strong>Stories:</strong>No native alt text—describe in caption or use voiceover</li>
+<li><strong>Reels:</strong>Add captions via the captions sticker or auto-captions</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>Adding Alt Text to Posts</h3>
+<ol>
+<li>Create your post as usual</li>
+<li>On the caption screen, tap "Advanced Settings" at the bottom</li>
+<li>Tap "Write Alt Text"</li>
+<li>Describe each image (swipe for multiple)</li>
+<li>Tap "Done" then share</li>
+</ol>
+<p><strong>Note:</strong>Instagram auto-generates alt text, but it's generic ("may contain: 2 people, outdoor"). Custom is better.</p>
+</div>
+<div class="tip-card">
+<h3>Stories & Reels</h3>
+<ul>
+<li><strong>Stories:</strong>Use the Captions sticker for any speaking</li>
+<li><strong>Reels:</strong>Tap "Captions" to auto-generate, then review</li>
+<li>If showing text on screen, read it aloud too</li>
+<li>Avoid flashing content (seizure risk)</li>
+</ul>
+</div>
+</div>
 
-      <!-- Facebook -->
-      <div id="facebook" class="platform-content" role="tabpanel">
-        <h3>👤 Facebook Accessibility</h3>
-        <div class="quick-ref">
-          <h4>Quick Reference</h4>
-          <ul>
-            <li><strong>Add alt text:</strong> Click photo → Edit → Alt Text → Override generated</li>
-            <li><strong>Auto-captions:</strong> Available for videos</li>
-            <li><strong>Live captions:</strong> Enable in Live Producer</li>
-          </ul>
-        </div>
-        <div class="tip-card">
-          <h3>Adding Alt Text to Photos</h3>
-          <ol>
-            <li>Upload your photo</li>
-            <li>Click "Edit" on the photo</li>
-            <li>Click "Alt Text" in the left panel</li>
-            <li>Select "Override generated alt text"</li>
-            <li>Write your description</li>
-            <li>Click "Save"</li>
-          </ol>
-        </div>
-        <div class="tip-card">
-          <h3>Facebook Live Accessibility</h3>
-          <ul>
-            <li>Enable auto-captions in Live Producer before going live</li>
-            <li>Speak clearly and at a moderate pace</li>
-            <li>Describe any visuals you're showing</li>
-            <li>Repeat questions from comments before answering</li>
-          </ul>
-        </div>
-      </div>
+<!-- Facebook -->
+<div id="facebook" class="platform-content" role="tabpanel">
+<h3>Facebook Accessibility</h3>
+<div class="quick-ref">
+<h4>Quick Reference</h4>
+<ul>
+<li><strong>Add alt text:</strong>Click photo Edit Alt Text Override generated</li>
+<li><strong>Auto-captions:</strong>Available for videos</li>
+<li><strong>Live captions:</strong>Enable in Live Producer</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>Adding Alt Text to Photos</h3>
+<ol>
+<li>Upload your photo</li>
+<li>Click "Edit" on the photo</li>
+<li>Click "Alt Text" in the left panel</li>
+<li>Select "Override generated alt text"</li>
+<li>Write your description</li>
+<li>Click "Save"</li>
+</ol>
+</div>
+<div class="tip-card">
+<h3>Facebook Live Accessibility</h3>
+<ul>
+<li>Enable auto-captions in Live Producer before going live</li>
+<li>Speak clearly and at a moderate pace</li>
+<li>Describe any visuals you're showing</li>
+<li>Repeat questions from comments before answering</li>
+</ul>
+</div>
+</div>
 
-      <!-- LinkedIn -->
-      <div id="linkedin" class="platform-content" role="tabpanel">
-        <h3>💼 LinkedIn Accessibility</h3>
-        <div class="quick-ref">
-          <h4>Quick Reference</h4>
-          <ul>
-            <li><strong>Add alt text:</strong> Click image after upload → "Add alt text"</li>
-            <li><strong>Character limit:</strong> 300 characters for alt text</li>
-            <li><strong>Documents:</strong> Upload accessible PDFs, not image-only</li>
-          </ul>
-        </div>
-        <div class="tip-card">
-          <h3>Adding Alt Text</h3>
-          <ol>
-            <li>Start a post and add an image</li>
-            <li>Click "Alt text" below the image</li>
-            <li>Write your description (300 char limit)</li>
-            <li>Click "Save"</li>
-          </ol>
-        </div>
-        <div class="tip-card">
-          <h3>Document Posts</h3>
-          <ul>
-            <li>If sharing slides/documents, ensure the source file is accessible</li>
-            <li>Add a text summary in the post for key points</li>
-            <li>Don't rely solely on infographics—explain the data in text</li>
-          </ul>
-        </div>
-      </div>
+<!-- LinkedIn -->
+<div id="linkedin" class="platform-content" role="tabpanel">
+<h3>LinkedIn Accessibility</h3>
+<div class="quick-ref">
+<h4>Quick Reference</h4>
+<ul>
+<li><strong>Add alt text:</strong>Click image after upload "Add alt text"</li>
+<li><strong>Character limit:</strong>300 characters for alt text</li>
+<li><strong>Documents:</strong>Upload accessible PDFs, not image-only</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>Adding Alt Text</h3>
+<ol>
+<li>Start a post and add an image</li>
+<li>Click "Alt text" below the image</li>
+<li>Write your description (300 char limit)</li>
+<li>Click "Save"</li>
+</ol>
+</div>
+<div class="tip-card">
+<h3>Document Posts</h3>
+<ul>
+<li>If sharing slides/documents, ensure the source file is accessible</li>
+<li>Add a text summary in the post for key points</li>
+<li>Don't rely solely on infographics—explain the data in text</li>
+</ul>
+</div>
+</div>
 
-      <!-- TikTok -->
-      <div id="tiktok" class="platform-content" role="tabpanel">
-        <h3>🎵 TikTok Accessibility</h3>
-        <div class="quick-ref">
-          <h4>Quick Reference</h4>
-          <ul>
-            <li><strong>Auto-captions:</strong> Available—tap "Captions" when editing</li>
-            <li><strong>Text-to-speech:</strong> Can read on-screen text aloud</li>
-            <li><strong>Photosensitivity:</strong> TikTok can warn for flashing content</li>
-          </ul>
-        </div>
-        <div class="tip-card">
-          <h3>Adding Captions</h3>
-          <ol>
-            <li>Record or upload your video</li>
-            <li>Tap "Captions" on the editing screen</li>
-            <li>Wait for auto-generation</li>
-            <li>Tap captions to edit any errors</li>
-            <li>Position captions so they don't cover important content</li>
-          </ol>
-        </div>
-        <div class="tip-card">
-          <h3>Best Practices</h3>
-          <ul>
-            <li>Add captions even if using trending audio—viewers watch muted</li>
-            <li>If using text-to-speech, review the pronunciation</li>
-            <li>Describe visual gags or reactions verbally</li>
-            <li>Avoid rapid flashing or strobing effects</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<!-- TikTok -->
+<div id="tiktok" class="platform-content" role="tabpanel">
+<h3>TikTok Accessibility</h3>
+<div class="quick-ref">
+<h4>Quick Reference</h4>
+<ul>
+<li><strong>Auto-captions:</strong>Available—tap "Captions" when editing</li>
+<li><strong>Text-to-speech:</strong>Can read on-screen text aloud</li>
+<li><strong>Photosensitivity:</strong>TikTok can warn for flashing content</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>Adding Captions</h3>
+<ol>
+<li>Record or upload your video</li>
+<li>Tap "Captions" on the editing screen</li>
+<li>Wait for auto-generation</li>
+<li>Tap captions to edit any errors</li>
+<li>Position captions so they don't cover important content</li>
+</ol>
+</div>
+<div class="tip-card">
+<h3>Best Practices</h3>
+<ul>
+<li>Add captions even if using trending audio—viewers watch muted</li>
+<li>If using text-to-speech, review the pronunciation</li>
+<li>Describe visual gags or reactions verbally</li>
+<li>Avoid rapid flashing or strobing effects</li>
+</ul>
+</div>
+</div>
+</section>
 
-    <section aria-labelledby="copy-heading">
-      <h2 id="copy-heading">📋 Copy-Paste Templates</h2>
-      <div class="tip-card">
-        <h3>Alt Text Template</h3>
-        <p>Use this structure: <strong>[What] + [Who] + [Where] + [Action/Context]</strong></p>
-        <div class="good">"Students in UA red shirts studying together at Main Library tables, with laptops open and textbooks spread out."</div>
-      </div>
-      <div class="tip-card">
-        <h3>Event Post Template</h3>
-        <div class="good">
-🗓️ [Event Name]<br>
-📅 Date: [Day, Month Date, Year]<br>
-⏰ Time: [Start] - [End] [Timezone]<br>
-📍 Location: [Place + Address or Virtual link]<br>
+<section aria-labelledby="copy-heading">
+<h2 id="copy-heading">Copy-Paste Templates</h2>
+<div class="tip-card">
+<h3>Alt Text Template</h3>
+<p>Use this structure:<strong>[What] + [Who] + [Where] + [Action/Context]</strong></p>
+<div class="good">"Students in UA red shirts studying together at Main Library tables, with laptops open and textbooks spread out."</div>
+</div>
+<div class="tip-card">
+<h3>Event Post Template</h3>
+<div class="good">
+ [Event Name]<br>
+ Date: [Day, Month Date, Year]<br>
+ Time: [Start] - [End] [Timezone]<br>
+ Location: [Place + Address or Virtual link]<br>
 <br>
 [Brief description]<br>
 <br>
@@ -254,21 +254,21 @@ Accessibility: [Captioning available / ASL interpretation / Wheelchair accessibl
 Questions? Contact [email]<br>
 <br>
 #AccessibleEvents #BearDown
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
-  <script>
-    document.querySelectorAll('.platform-tabs button').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.platform-tabs button').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-        document.querySelectorAll('.platform-content').forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        document.getElementById(tab.dataset.platform).classList.add('active');
-      });
-    });
-  </script>
+</div>
+</div>
+</section>
+</main>
+<footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+<script>
+ document.querySelectorAll('.platform-tabs button').forEach(tab =>{
+ tab.addEventListener('click', () =>{
+ document.querySelectorAll('.platform-tabs button').forEach(t =>{ t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+ document.querySelectorAll('.platform-content').forEach(c =>c.classList.remove('active'));
+ tab.classList.add('active');
+ tab.setAttribute('aria-selected', 'true');
+ document.getElementById(tab.dataset.platform).classList.add('active');
+ });
+ });
+</script>
 </body>
 </html>

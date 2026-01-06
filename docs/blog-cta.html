@@ -1,163 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Subscribe to Accessibility Updates | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .subscribe-hero { background: linear-gradient(135deg, var(--ua-arizona-blue), var(--ua-azurite)); color: white; padding: 3rem 2rem; border-radius: 12px; text-align: center; margin-bottom: 2rem; }
-    .subscribe-hero h1 { color: white; margin-bottom: 0.5rem; }
-    .subscribe-hero p { font-size: 1.15rem; margin-bottom: 1.5rem; }
-    .subscribe-form { max-width: 500px; margin: 0 auto; }
-    .form-group { margin-bottom: 1rem; text-align: left; }
-    .form-group label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
-    .form-group input, .form-group select { width: 100%; padding: 0.75rem; font-size: 1rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; background: rgba(255,255,255,0.95); }
-    .form-group input:focus, .form-group select:focus { outline: 3px solid white; outline-offset: 2px; }
-    .checkbox-group { display: flex; align-items: start; gap: 0.75rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; text-align: left; }
-    .checkbox-group input { width: 20px; height: 20px; margin-top: 2px; }
-    .subscribe-btn { background: white; color: var(--ua-arizona-blue); border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 1rem; }
-    .subscribe-btn:hover { background: var(--ua-cool-gray); }
-    .benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-    .benefit-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.5rem; text-align: center; }
-    .benefit-card .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-    .benefit-card h3 { margin: 0 0 0.5rem 0; }
-    .past-issues { margin-top: 2rem; }
-    .issue-list { list-style: none; padding: 0; }
-    .issue-list li { padding: 1rem; border-bottom: 1px solid var(--ua-border); }
-    .issue-list li:last-child { border-bottom: none; }
-    .issue-list a { text-decoration: none; display: flex; justify-content: space-between; align-items: center; }
-    .issue-list time { color: #666; font-size: 0.9rem; }
-    .frequency-info { background: var(--ua-chip-bg); padding: 1rem 1.5rem; border-radius: 8px; margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem; }
-    .frequency-info .icon { font-size: 1.5rem; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Subscribe to Accessibility Updates | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+ .subscribe-hero { background: linear-gradient(135deg, var(--ua-arizona-blue), var(--ua-azurite)); color: white; padding: 3rem 2rem; border-radius: 12px; text-align: center; margin-bottom: 2rem; }
+ .subscribe-hero h1 { color: white; margin-bottom: 0.5rem; }
+ .subscribe-hero p { font-size: 1.15rem; margin-bottom: 1.5rem; }
+ .subscribe-form { max-width: 500px; margin: 0 auto; }
+ .form-group { margin-bottom: 1rem; text-align: left; }
+ .form-group label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+ .form-group input, .form-group select { width: 100%; padding: 0.75rem; font-size: 1rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; background: rgba(255,255,255,0.95); }
+ .form-group input:focus, .form-group select:focus { outline: 3px solid white; outline-offset: 2px; }
+ .checkbox-group { display: flex; align-items: start; gap: 0.75rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; text-align: left; }
+ .checkbox-group input { width: 20px; height: 20px; margin-top: 2px; }
+ .subscribe-btn { background: white; color: var(--ua-arizona-blue); border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 1rem; }
+ .subscribe-btn:hover { background: var(--ua-cool-gray); }
+ .benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+ .benefit-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.5rem; text-align: center; }
+ .benefit-card .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+ .benefit-card h3 { margin: 0 0 0.5rem 0; }
+ .past-issues { margin-top: 2rem; }
+ .issue-list { list-style: none; padding: 0; }
+ .issue-list li { padding: 1rem; border-bottom: 1px solid var(--ua-border); }
+ .issue-list li:last-child { border-bottom: none; }
+ .issue-list a { text-decoration: none; display: flex; justify-content: space-between; align-items: center; }
+ .issue-list time { color: #666; font-size: 0.9rem; }
+ .frequency-info { background: var(--ua-chip-bg); padding: 1rem 1.5rem; border-radius: 8px; margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem; }
+ .frequency-info .icon { font-size: 1.5rem; }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / <a href="blog.html">Blog</a> / Subscribe</p>
-    </nav>
-  </header>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a>/<a href="blog.html">Blog</a>/ Subscribe</p>
+</nav>
+</header>
 
-  <main id="maincontent" role="main">
-    <div class="subscribe-hero">
-      <h1>📬 Stay Updated on Accessibility</h1>
-      <p>Get the latest news, tips, and resources delivered to your inbox.</p>
-      
-      <form class="subscribe-form" action="#" method="post">
-        <div class="form-group">
-          <label for="email">Email Address *</label>
-          <input type="email" id="email" name="email" required placeholder="you@arizona.edu" autocomplete="email">
-        </div>
-        
-        <div class="form-group">
-          <label for="name">Name (Optional)</label>
-          <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name">
-        </div>
-        
-        <div class="form-group">
-          <label for="role">Your Role (Optional)</label>
-          <select id="role" name="role">
-            <option value="">Select your role...</option>
-            <option value="faculty">Faculty</option>
-            <option value="staff">Staff</option>
-            <option value="student">Student</option>
-            <option value="developer">Developer</option>
-            <option value="designer">Designer</option>
-            <option value="content">Content Creator</option>
-            <option value="leadership">Leadership</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+<main id="maincontent" role="main">
+<div class="subscribe-hero">
+<h1>Stay Updated on Accessibility</h1>
+<p>Get the latest news, tips, and resources delivered to your inbox.</p>
+ 
+<form class="subscribe-form" action="#" method="post">
+<div class="form-group">
+<label for="email">Email Address *</label>
+<input type="email" id="email" name="email" required placeholder="you@arizona.edu" autocomplete="email">
+</div>
+ 
+<div class="form-group">
+<label for="name">Name (Optional)</label>
+<input type="text" id="name" name="name" placeholder="Your name" autocomplete="name">
+</div>
+ 
+<div class="form-group">
+<label for="role">Your Role (Optional)</label>
+<select id="role" name="role">
+<option value="">Select your role...</option>
+<option value="faculty">Faculty</option>
+<option value="staff">Staff</option>
+<option value="student">Student</option>
+<option value="developer">Developer</option>
+<option value="designer">Designer</option>
+<option value="content">Content Creator</option>
+<option value="leadership">Leadership</option>
+<option value="other">Other</option>
+</select>
+</div>
 
-        <div class="checkbox-group">
-          <input type="checkbox" id="consent" name="consent" required>
-          <label for="consent">I agree to receive accessibility updates from UA. I can unsubscribe at any time.</label>
-        </div>
-        
-        <button type="submit" class="subscribe-btn">Subscribe to Updates</button>
-      </form>
-    </div>
+<div class="checkbox-group">
+<input type="checkbox" id="consent" name="consent" required>
+<label for="consent">I agree to receive accessibility updates from UA. I can unsubscribe at any time.</label>
+</div>
+ 
+<button type="submit" class="subscribe-btn">Subscribe to Updates</button>
+</form>
+</div>
 
-    <div class="frequency-info">
-      <span class="icon">📅</span>
-      <div>
-        <strong>Newsletter frequency:</strong> Monthly digest + occasional announcements for important updates like policy changes or deadlines.
-      </div>
-    </div>
+<div class="frequency-info">
+<span class="icon"></span>
+<div>
+<strong>Newsletter frequency:</strong>Monthly digest + occasional announcements for important updates like policy changes or deadlines.
+</div>
+</div>
 
-    <section aria-labelledby="benefits-heading">
-      <h2 id="benefits-heading">What You'll Get</h2>
-      <div class="benefits">
-        <div class="benefit-card">
-          <div class="icon">📰</div>
-          <h3>Monthly Digest</h3>
-          <p>Curated accessibility news, tips, and campus updates in one convenient email.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">🎓</div>
-          <h3>Training Announcements</h3>
-          <p>Be the first to know about workshops, webinars, and learning opportunities.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">📋</div>
-          <h3>Policy Updates</h3>
-          <p>Stay informed about accessibility policy changes and compliance deadlines.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">💡</div>
-          <h3>Practical Tips</h3>
-          <p>Quick, actionable accessibility tips you can apply right away.</p>
-        </div>
-      </div>
-    </section>
+<section aria-labelledby="benefits-heading">
+<h2 id="benefits-heading">What You'll Get</h2>
+<div class="benefits">
+<div class="benefit-card">
+<div class="icon"></div>
+<h3>Monthly Digest</h3>
+<p>Curated accessibility news, tips, and campus updates in one convenient email.</p>
+</div>
+<div class="benefit-card">
+<div class="icon"></div>
+<h3>Training Announcements</h3>
+<p>Be the first to know about workshops, webinars, and learning opportunities.</p>
+</div>
+<div class="benefit-card">
+<div class="icon"></div>
+<h3>Policy Updates</h3>
+<p>Stay informed about accessibility policy changes and compliance deadlines.</p>
+</div>
+<div class="benefit-card">
+<div class="icon"></div>
+<h3>Practical Tips</h3>
+<p>Quick, actionable accessibility tips you can apply right away.</p>
+</div>
+</div>
+</section>
 
-    <section class="past-issues" aria-labelledby="past-heading">
-      <h2 id="past-heading">Recent Newsletter Issues</h2>
-      <p>See what you've been missing:</p>
-      <ul class="issue-list">
-        <li>
-          <a href="#">
-            <span>December 2025: Year in Review + WCAG 2.2 Recap</span>
-            <time datetime="2025-12-01">Dec 2025</time>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span>November 2025: ADA Title II Deadlines &amp; Preparation Guide</span>
-            <time datetime="2025-11-01">Nov 2025</time>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span>October 2025: National Disability Employment Awareness Month</span>
-            <time datetime="2025-10-01">Oct 2025</time>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span>September 2025: Back to School Accessibility Checklist</span>
-            <time datetime="2025-09-01">Sep 2025</time>
-          </a>
-        </li>
-      </ul>
-      <p><a href="blog.html">View all blog posts →</a></p>
-    </section>
+<section class="past-issues" aria-labelledby="past-heading">
+<h2 id="past-heading">Recent Newsletter Issues</h2>
+<p>See what you've been missing:</p>
+<ul class="issue-list">
+<li>
+<a href="#">
+<span>December 2025: Year in Review + WCAG 2.2 Recap</span>
+<time datetime="2025-12-01">Dec 2025</time>
+</a>
+</li>
+<li>
+<a href="#">
+<span>November 2025: ADA Title II Deadlines &amp; Preparation Guide</span>
+<time datetime="2025-11-01">Nov 2025</time>
+</a>
+</li>
+<li>
+<a href="#">
+<span>October 2025: National Disability Employment Awareness Month</span>
+<time datetime="2025-10-01">Oct 2025</time>
+</a>
+</li>
+<li>
+<a href="#">
+<span>September 2025: Back to School Accessibility Checklist</span>
+<time datetime="2025-09-01">Sep 2025</time>
+</a>
+</li>
+</ul>
+<p><a href="blog.html">View all blog posts</a></p>
+</section>
 
-    <aside class="callout callout-info">
-      <h2>Alternative Ways to Stay Updated</h2>
-      <ul>
-        <li><strong>RSS Feed:</strong> <a href="#">Subscribe via RSS</a></li>
-        <li><strong>Training Calendar:</strong> <a href="training-calendar.html">View upcoming events</a></li>
-        <li><strong>Office Hours:</strong> Join our weekly drop-in sessions</li>
-      </ul>
-    </aside>
-  </main>
+<aside class="callout callout-info">
+<h2>Alternative Ways to Stay Updated</h2>
+<ul>
+<li><strong>RSS Feed:</strong><a href="#">Subscribe via RSS</a></li>
+<li><strong>Training Calendar:</strong><a href="training-calendar.html">View upcoming events</a></li>
+<li><strong>Office Hours:</strong>Join our weekly drop-in sessions</li>
+</ul>
+</aside>
+</main>
 
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
-  </footer>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p><a href="accessibility-statement.html">Accessibility Statement</a>|<a href="support.html">Report an Issue</a></p>
+</footer>
 </body>
 </html>

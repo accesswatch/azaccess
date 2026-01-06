@@ -1,209 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Heading Structure Best Practices | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Heading Structure Best Practices | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / <a href="documents-media.html">Documents &amp; Media</a> / Headings</p>
-    </nav>
-    <h1>Heading Structure Best Practices</h1>
-    <p>Headings create the outline of your document. Screen reader users rely on them to navigate and understand content structure.</p>
-    <p class="metric-chip">⏱️ Reading time: 5 minutes</p>
-  </header>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a>/<a href="documents-media.html">Documents &amp; Media</a>/ Headings</p>
+</nav>
+<h1>Heading Structure Best Practices</h1>
+<p>Headings create the outline of your document. Screen reader users rely on them to navigate and understand content structure.</p>
+<p class="metric-chip">Reading time: 5 minutes</p>
+</header>
 
-  <main id="maincontent" role="main">
-    <section aria-labelledby="why-headings">
-      <h2 id="why-headings">Why Headings Matter</h2>
-      <ul>
-        <li><strong>Screen reader navigation:</strong> Users can press H to jump between headings, or pull up a headings list to navigate</li>
-        <li><strong>Cognitive accessibility:</strong> Clear structure helps everyone scan and understand content</li>
-        <li><strong>SEO:</strong> Search engines use headings to understand page content</li>
-        <li><strong>WCAG 1.3.1:</strong> Information and relationships must be programmatically determinable</li>
-      </ul>
+<main id="maincontent" role="main">
+<section aria-labelledby="why-headings">
+<h2 id="why-headings">Why Headings Matter</h2>
+<ul>
+<li><strong>Screen reader navigation:</strong>Users can press H to jump between headings, or pull up a headings list to navigate</li>
+<li><strong>Cognitive accessibility:</strong>Clear structure helps everyone scan and understand content</li>
+<li><strong>SEO:</strong>Search engines use headings to understand page content</li>
+<li><strong>WCAG 1.3.1:</strong>Information and relationships must be programmatically determinable</li>
+</ul>
 
-      <div class="callout callout-info">
-        <h3>Did You Know?</h3>
-        <p>67% of screen reader users say they navigate by headings when looking for information on a page (WebAIM Survey).</p>
-      </div>
-    </section>
+<div class="callout callout-info">
+<h3>Did You Know?</h3>
+<p>67% of screen reader users say they navigate by headings when looking for information on a page (WebAIM Survey).</p>
+</div>
+</section>
 
-    <section aria-labelledby="rules">
-      <h2 id="rules">The Rules of Headings</h2>
-      
-      <h3>Rule 1: One H1 Per Page</h3>
-      <p>Every page should have exactly one &lt;h1&gt; that describes the page's main topic.</p>
-      <ul>
-        <li>This is typically the page title</li>
-        <li>It should be unique to that page</li>
-        <li>In CMSs like Brightspace, the system often adds the H1 automatically</li>
-      </ul>
+<section aria-labelledby="rules">
+<h2 id="rules">The Rules of Headings</h2>
+ 
+<h3>Rule 1: One H1 Per Page</h3>
+<p>Every page should have exactly one &lt;h1&gt; that describes the page's main topic.</p>
+<ul>
+<li>This is typically the page title</li>
+<li>It should be unique to that page</li>
+<li>In CMSs like Brightspace, the system often adds the H1 automatically</li>
+</ul>
 
-      <h3>Rule 2: Don't Skip Levels</h3>
-      <p>Headings must nest logically. Don't jump from H2 to H4.</p>
-      
-      <div class="do-dont-grid">
-        <div class="dont-card">
-          <h4>❌ Wrong</h4>
-          <pre><code>&lt;h1&gt;Page Title&lt;/h1&gt;
+<h3>Rule 2: Don't Skip Levels</h3>
+<p>Headings must nest logically. Don't jump from H2 to H4.</p>
+ 
+<div class="do-dont-grid">
+<div class="dont-card">
+<h4>Wrong</h4>
+<pre><code>&lt;h1&gt;Page Title&lt;/h1&gt;
 &lt;h2&gt;Section A&lt;/h2&gt;
-&lt;h4&gt;Subsection&lt;/h4&gt;  ← Skipped H3!
+&lt;h4&gt;Subsection&lt;/h4&gt; Skipped H3!
 &lt;h2&gt;Section B&lt;/h2&gt;</code></pre>
-        </div>
-        <div class="do-card">
-          <h4>✅ Correct</h4>
-          <pre><code>&lt;h1&gt;Page Title&lt;/h1&gt;
+</div>
+<div class="do-card">
+<h4>Correct</h4>
+<pre><code>&lt;h1&gt;Page Title&lt;/h1&gt;
 &lt;h2&gt;Section A&lt;/h2&gt;
-&lt;h3&gt;Subsection&lt;/h3&gt;  ← Proper nesting
+&lt;h3&gt;Subsection&lt;/h3&gt; Proper nesting
 &lt;h2&gt;Section B&lt;/h2&gt;</code></pre>
-        </div>
-      </div>
+</div>
+</div>
 
-      <h3>Rule 3: Headings Reflect Structure, Not Style</h3>
-      <p>Use headings to create an outline—not to make text big or bold.</p>
-      <ul>
-        <li>If you want big bold text that isn't a section title, use CSS instead</li>
-        <li>Don't use H4 just because you want smaller text than H3</li>
-        <li>Every heading should introduce a new section of content</li>
-      </ul>
+<h3>Rule 3: Headings Reflect Structure, Not Style</h3>
+<p>Use headings to create an outline—not to make text big or bold.</p>
+<ul>
+<li>If you want big bold text that isn't a section title, use CSS instead</li>
+<li>Don't use H4 just because you want smaller text than H3</li>
+<li>Every heading should introduce a new section of content</li>
+</ul>
 
-      <h3>Rule 4: Use Real Heading Elements</h3>
-      <div class="do-dont-grid">
-        <div class="dont-card">
-          <h4>❌ Fake Headings</h4>
-          <pre><code>&lt;p&gt;&lt;strong&gt;Important Section&lt;/strong&gt;&lt;/p&gt;
+<h3>Rule 4: Use Real Heading Elements</h3>
+<div class="do-dont-grid">
+<div class="dont-card">
+<h4>Fake Headings</h4>
+<pre><code>&lt;p&gt;&lt;strong&gt;Important Section&lt;/strong&gt;&lt;/p&gt;
 &lt;p class="heading"&gt;Another Section&lt;/p&gt;
 &lt;div style="font-size:24px"&gt;Big Text&lt;/div&gt;</code></pre>
-          <p>Screen readers can't identify these as headings.</p>
-        </div>
-        <div class="do-card">
-          <h4>✅ Real Headings</h4>
-          <pre><code>&lt;h2&gt;Important Section&lt;/h2&gt;
+<p>Screen readers can't identify these as headings.</p>
+</div>
+<div class="do-card">
+<h4>Real Headings</h4>
+<pre><code>&lt;h2&gt;Important Section&lt;/h2&gt;
 &lt;h2&gt;Another Section&lt;/h2&gt;
 &lt;h3&gt;Subsection&lt;/h3&gt;</code></pre>
-          <p>Screen readers announce heading level.</p>
-        </div>
-      </div>
-    </section>
+<p>Screen readers announce heading level.</p>
+</div>
+</div>
+</section>
 
-    <section aria-labelledby="example">
-      <h2 id="example">Example: Proper Heading Outline</h2>
-      <p>A well-structured page creates a logical outline:</p>
-      
-      <pre><code>h1: Introduction to Accessibility
-  h2: What is Digital Accessibility?
-    h3: Key Principles
-    h3: Who Benefits
-  h2: Legal Requirements
-    h3: Section 508
-    h3: ADA Title II
-  h2: Getting Started
-    h3: Quick Wins
-    h3: Next Steps</code></pre>
+<section aria-labelledby="example">
+<h2 id="example">Example: Proper Heading Outline</h2>
+<p>A well-structured page creates a logical outline:</p>
+ 
+<pre><code>h1: Introduction to Accessibility
+ h2: What is Digital Accessibility?
+ h3: Key Principles
+ h3: Who Benefits
+ h2: Legal Requirements
+ h3: Section 508
+ h3: ADA Title II
+ h2: Getting Started
+ h3: Quick Wins
+ h3: Next Steps</code></pre>
 
-      <p>This outline makes sense even without the content between headings. That's the test of good structure.</p>
-    </section>
+<p>This outline makes sense even without the content between headings. That's the test of good structure.</p>
+</section>
 
-    <section aria-labelledby="applications">
-      <h2 id="applications">Headings in Different Applications</h2>
-      
-      <h3>Microsoft Word</h3>
-      <ol>
-        <li>Select your heading text</li>
-        <li>Go to the <strong>Home</strong> tab</li>
-        <li>In the <strong>Styles</strong> gallery, click <strong>Heading 1</strong>, <strong>Heading 2</strong>, etc.</li>
-        <li>Use the Navigation Pane (View → Navigation Pane) to see your document outline</li>
-      </ol>
+<section aria-labelledby="applications">
+<h2 id="applications">Headings in Different Applications</h2>
+ 
+<h3>Microsoft Word</h3>
+<ol>
+<li>Select your heading text</li>
+<li>Go to the<strong>Home</strong>tab</li>
+<li>In the<strong>Styles</strong>gallery, click<strong>Heading 1</strong>,<strong>Heading 2</strong>, etc.</li>
+<li>Use the Navigation Pane (View Navigation Pane) to see your document outline</li>
+</ol>
 
-      <h3>Google Docs</h3>
-      <ol>
-        <li>Select your heading text</li>
-        <li>Click <strong>Format → Paragraph styles → Heading 1/2/3</strong></li>
-        <li>Or use the styles dropdown in the toolbar (shows "Normal text")</li>
-        <li>View outline: View → Show document outline</li>
-      </ol>
+<h3>Google Docs</h3>
+<ol>
+<li>Select your heading text</li>
+<li>Click<strong>Format Paragraph styles Heading 1/2/3</strong></li>
+<li>Or use the styles dropdown in the toolbar (shows "Normal text")</li>
+<li>View outline: View Show document outline</li>
+</ol>
 
-      <h3>PowerPoint</h3>
-      <ul>
-        <li>Each slide should have a unique title</li>
-        <li>Use the built-in slide layouts—the title placeholder becomes the heading</li>
-        <li>Don't create titles by adding text boxes—use the title placeholder</li>
-      </ul>
+<h3>PowerPoint</h3>
+<ul>
+<li>Each slide should have a unique title</li>
+<li>Use the built-in slide layouts—the title placeholder becomes the heading</li>
+<li>Don't create titles by adding text boxes—use the title placeholder</li>
+</ul>
 
-      <h3>Web/HTML</h3>
-      <pre><code>&lt;h1&gt;Page Title&lt;/h1&gt;
+<h3>Web/HTML</h3>
+<pre><code>&lt;h1&gt;Page Title&lt;/h1&gt;
 &lt;h2&gt;Main Section&lt;/h2&gt;
 &lt;p&gt;Content...&lt;/p&gt;
 &lt;h3&gt;Subsection&lt;/h3&gt;
 &lt;p&gt;More content...&lt;/p&gt;</code></pre>
 
-      <h3>Brightspace HTML Editor</h3>
-      <ol>
-        <li>Select your text</li>
-        <li>Click the <strong>Format</strong> dropdown</li>
-        <li>Choose <strong>Heading 2</strong>, <strong>Heading 3</strong>, etc.</li>
-        <li>Note: Don't use Heading 1—Brightspace adds that automatically from the page title</li>
-      </ol>
-    </section>
+<h3>Brightspace HTML Editor</h3>
+<ol>
+<li>Select your text</li>
+<li>Click the<strong>Format</strong>dropdown</li>
+<li>Choose<strong>Heading 2</strong>,<strong>Heading 3</strong>, etc.</li>
+<li>Note: Don't use Heading 1—Brightspace adds that automatically from the page title</li>
+</ol>
+</section>
 
-    <section aria-labelledby="testing">
-      <h2 id="testing">Testing Heading Structure</h2>
-      
-      <h3>Web Pages</h3>
-      <ul>
-        <li><strong>WAVE extension:</strong> Shows heading outline in the sidebar</li>
-        <li><strong>HeadingsMap extension:</strong> Chrome/Firefox extension for heading outlines</li>
-        <li><strong>Screen reader:</strong> Press H to navigate headings, or open headings list</li>
-      </ul>
+<section aria-labelledby="testing">
+<h2 id="testing">Testing Heading Structure</h2>
+ 
+<h3>Web Pages</h3>
+<ul>
+<li><strong>WAVE extension:</strong>Shows heading outline in the sidebar</li>
+<li><strong>HeadingsMap extension:</strong>Chrome/Firefox extension for heading outlines</li>
+<li><strong>Screen reader:</strong>Press H to navigate headings, or open headings list</li>
+</ul>
 
-      <h3>Documents</h3>
-      <ul>
-        <li><strong>Word:</strong> View → Navigation Pane shows heading structure</li>
-        <li><strong>Google Docs:</strong> View → Show document outline</li>
-        <li><strong>Acrobat:</strong> View → Show/Hide → Navigation Panes → Tags</li>
-      </ul>
+<h3>Documents</h3>
+<ul>
+<li><strong>Word:</strong>View Navigation Pane shows heading structure</li>
+<li><strong>Google Docs:</strong>View Show document outline</li>
+<li><strong>Acrobat:</strong>View Show/Hide Navigation Panes Tags</li>
+</ul>
 
-      <h3>What to Look For</h3>
-      <ol>
-        <li>Is there exactly one H1?</li>
-        <li>Are headings in logical order (no skipped levels)?</li>
-        <li>Does the outline make sense on its own?</li>
-        <li>Are all visual headings using proper heading elements?</li>
-      </ol>
-    </section>
+<h3>What to Look For</h3>
+<ol>
+<li>Is there exactly one H1?</li>
+<li>Are headings in logical order (no skipped levels)?</li>
+<li>Does the outline make sense on its own?</li>
+<li>Are all visual headings using proper heading elements?</li>
+</ol>
+</section>
 
-    <section aria-labelledby="checklist">
-      <h2 id="checklist">✅ Heading Checklist</h2>
-      <ul class="checklist">
-        <li><input type="checkbox" id="h1"> <label for="h1">Page has exactly one H1</label></li>
-        <li><input type="checkbox" id="h2"> <label for="h2">Headings don't skip levels (H2 → H3, not H2 → H4)</label></li>
-        <li><input type="checkbox" id="h3"> <label for="h3">All section titles use real heading elements</label></li>
-        <li><input type="checkbox" id="h4"> <label for="h4">Heading text is descriptive and unique</label></li>
-        <li><input type="checkbox" id="h5"> <label for="h5">Heading outline makes sense without surrounding content</label></li>
-        <li><input type="checkbox" id="h6"> <label for="h6">Headings aren't used just for visual styling</label></li>
-        <li><input type="checkbox" id="h7"> <label for="h7">Navigation Pane/outline tool shows correct structure</label></li>
-      </ul>
-    </section>
+<section aria-labelledby="checklist">
+<h2 id="checklist">Heading Checklist</h2>
+<ul class="checklist">
+<li><input type="checkbox" id="h1"><label for="h1">Page has exactly one H1</label></li>
+<li><input type="checkbox" id="h2"><label for="h2">Headings don't skip levels (H2 H3, not H2 H4)</label></li>
+<li><input type="checkbox" id="h3"><label for="h3">All section titles use real heading elements</label></li>
+<li><input type="checkbox" id="h4"><label for="h4">Heading text is descriptive and unique</label></li>
+<li><input type="checkbox" id="h5"><label for="h5">Heading outline makes sense without surrounding content</label></li>
+<li><input type="checkbox" id="h6"><label for="h6">Headings aren't used just for visual styling</label></li>
+<li><input type="checkbox" id="h7"><label for="h7">Navigation Pane/outline tool shows correct structure</label></li>
+</ul>
+</section>
 
-    <section aria-labelledby="related">
-      <h2 id="related">Related Resources</h2>
-      <ul>
-        <li><a href="doc-word.html">Microsoft Word Accessibility</a></li>
-        <li><a href="doc-google.html">Google Docs Accessibility</a></li>
-        <li><a href="meaningful-links.html">Writing Meaningful Link Text</a></li>
-        <li><a href="persona-content.html">Content Creator Guide</a></li>
-      </ul>
-    </section>
-  </main>
+<section aria-labelledby="related">
+<h2 id="related">Related Resources</h2>
+<ul>
+<li><a href="doc-word.html">Microsoft Word Accessibility</a></li>
+<li><a href="doc-google.html">Google Docs Accessibility</a></li>
+<li><a href="meaningful-links.html">Writing Meaningful Link Text</a></li>
+<li><a href="persona-content.html">Content Creator Guide</a></li>
+</ul>
+</section>
+</main>
 
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-  </footer>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+</footer>
 </body>
 </html>

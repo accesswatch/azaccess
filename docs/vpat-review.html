@@ -1,519 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VPAT / ACR Review Guide | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VPAT / ACR Review Guide | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / <a href="procurement.html">Procurement</a> / VPAT Review</p>
-    </nav>
-    <h1>VPAT / ACR Review Guide</h1>
-    <p>How to read and evaluate Voluntary Product Accessibility Templates and Accessibility Conformance Reports.</p>
-    <p class="metric-chip">⏱️ Reading time: 15 minutes</p>
-    <p class="page-meta">Owner: Procurement + Accessibility PMO · Last reviewed: 2026-01-05 · Next review: 2026-04-05</p>
-  </header>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a>/<a href="procurement.html">Procurement</a>/ VPAT Review</p>
+</nav>
+<h1>VPAT / ACR Review Guide</h1>
+<p>How to read and evaluate Voluntary Product Accessibility Templates and Accessibility Conformance Reports.</p>
+<p class="metric-chip">Reading time: 15 minutes</p>
+<p class="page-meta">Owner: Procurement + Accessibility PMO · Last reviewed: 2026-01-05 · Next review: 2026-04-05</p>
+</header>
 
-  <main id="maincontent" role="main">
-    <nav class="toc" aria-label="Table of contents">
-      <h2>On This Page</h2>
-      <ul>
-        <li><a href="#what-is">What is a VPAT/ACR?</a></li>
-        <li><a href="#structure">Document Structure</a></li>
-        <li><a href="#conformance">Understanding Conformance Levels</a></li>
-        <li><a href="#red-flags">Red Flags to Watch For</a></li>
-        <li><a href="#evaluation">Evaluation Checklist</a></li>
-        <li><a href="#questions">Questions to Ask Vendors</a></li>
-        <li><a href="#step-by-step">Step-by-Step Evaluation Process</a></li>
-        <li><a href="#live-demo">Supplementing with Live Evaluation</a></li>
-        <li><a href="#scoring">VPAT Scoring Matrix</a></li>
-        <li><a href="#resources-heading">Authoritative Sources</a></li>
-      </ul>
-    </nav>
+<main id="maincontent" role="main">
+<nav class="toc" aria-label="Table of contents">
+<h2>On This Page</h2>
+<ul>
+<li><a href="#what-is">What is a VPAT/ACR?</a></li>
+<li><a href="#structure">Document Structure</a></li>
+<li><a href="#conformance">Understanding Conformance Levels</a></li>
+<li><a href="#red-flags">Red Flags to Watch For</a></li>
+<li><a href="#evaluation">Evaluation Checklist</a></li>
+<li><a href="#questions">Questions to Ask Vendors</a></li>
+<li><a href="#step-by-step">Step-by-Step Evaluation Process</a></li>
+<li><a href="#live-demo">Supplementing with Live Evaluation</a></li>
+<li><a href="#scoring">VPAT Scoring Matrix</a></li>
+<li><a href="#resources-heading">Authoritative Sources</a></li>
+</ul>
+</nav>
 
-    <section id="what-is" aria-labelledby="what-is-heading">
-      <h2 id="what-is-heading">What is a VPAT/ACR?</h2>
-      
-      <dl>
-        <dt><strong>VPAT</strong> (Voluntary Product Accessibility Template)</dt>
-        <dd>A standardized template for documenting how a product conforms to accessibility standards. Created by ITIC.</dd>
-        
-        <dt><strong>ACR</strong> (Accessibility Conformance Report)</dt>
-        <dd>A completed VPAT—the actual report documenting a product's accessibility status.</dd>
-      </dl>
+<section id="what-is" aria-labelledby="what-is-heading">
+<h2 id="what-is-heading">What is a VPAT/ACR?</h2>
+ 
+<dl>
+<dt><strong>VPAT</strong>(Voluntary Product Accessibility Template)</dt>
+<dd>A standardized template for documenting how a product conforms to accessibility standards. Created by ITIC.</dd>
+ 
+<dt><strong>ACR</strong>(Accessibility Conformance Report)</dt>
+<dd>A completed VPAT—the actual report documenting a product's accessibility status.</dd>
+</dl>
 
-      <div class="callout callout-info">
-        <h3>Why Request VPATs?</h3>
-        <ul>
-          <li>Required for federal Section 508 compliance</li>
-          <li>Documents vendor commitment to accessibility</li>
-          <li>Helps identify potential barriers before purchase</li>
-          <li>Creates accountability for remediation</li>
-        </ul>
-      </div>
+<div class="callout callout-info">
+<h3>Why Request VPATs?</h3>
+<ul>
+<li>Required for federal Section 508 compliance</li>
+<li>Documents vendor commitment to accessibility</li>
+<li>Helps identify potential barriers before purchase</li>
+<li>Creates accountability for remediation</li>
+</ul>
+</div>
 
-      <h3>VPAT Versions</h3>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Version</th>
-            <th scope="col">Standards Covered</th>
-            <th scope="col">Best For</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>VPAT 2.5</strong> (Current)</td>
-            <td>WCAG 2.2, Revised Section 508, EN 301 549</td>
-            <td>All new purchases</td>
-          </tr>
-          <tr>
-            <td>VPAT 2.4</td>
-            <td>WCAG 2.1, Revised Section 508, EN 301 549</td>
-            <td>Acceptable</td>
-          </tr>
-          <tr>
-            <td>VPAT 2.0–2.3</td>
-            <td>WCAG 2.0, Original Section 508</td>
-            <td>Outdated—request update</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+<h3>VPAT Versions</h3>
+<table>
+<thead>
+<tr>
+<th scope="col">Version</th>
+<th scope="col">Standards Covered</th>
+<th scope="col">Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VPAT 2.5</strong>(Current)</td>
+<td>WCAG 2.2, Revised Section 508, EN 301 549</td>
+<td>All new purchases</td>
+</tr>
+<tr>
+<td>VPAT 2.4</td>
+<td>WCAG 2.1, Revised Section 508, EN 301 549</td>
+<td>Acceptable</td>
+</tr>
+<tr>
+<td>VPAT 2.0–2.3</td>
+<td>WCAG 2.0, Original Section 508</td>
+<td>Outdated—request update</td>
+</tr>
+</tbody>
+</table>
+</section>
 
-    <section id="structure" aria-labelledby="structure-heading">
-      <h2 id="structure-heading">Document Structure</h2>
-      <p>A complete VPAT/ACR includes these sections:</p>
+<section id="structure" aria-labelledby="structure-heading">
+<h2 id="structure-heading">Document Structure</h2>
+<p>A complete VPAT/ACR includes these sections:</p>
 
-      <h3>1. Product Information</h3>
-      <ul>
-        <li><strong>Product name and version</strong> - Should match what you're purchasing</li>
-        <li><strong>Report date</strong> - Should be recent (within 12-18 months)</li>
-        <li><strong>Contact information</strong> - For accessibility questions</li>
-        <li><strong>Evaluation methods</strong> - How testing was conducted</li>
-      </ul>
+<h3>1. Product Information</h3>
+<ul>
+<li><strong>Product name and version</strong>- Should match what you're purchasing</li>
+<li><strong>Report date</strong>- Should be recent (within 12-18 months)</li>
+<li><strong>Contact information</strong>- For accessibility questions</li>
+<li><strong>Evaluation methods</strong>- How testing was conducted</li>
+</ul>
 
-      <h3>2. WCAG Conformance Tables</h3>
-      <p>The main content—tables showing conformance to each WCAG success criterion:</p>
-      <ul>
-        <li>Level A criteria (must have)</li>
-        <li>Level AA criteria (required for compliance)</li>
-        <li>Level AAA criteria (optional/enhanced)</li>
-      </ul>
+<h3>2. WCAG Conformance Tables</h3>
+<p>The main content—tables showing conformance to each WCAG success criterion:</p>
+<ul>
+<li>Level A criteria (must have)</li>
+<li>Level AA criteria (required for compliance)</li>
+<li>Level AAA criteria (optional/enhanced)</li>
+</ul>
 
-      <h3>3. Section 508 Tables</h3>
-      <p>For federal purchases—functional performance criteria:</p>
-      <ul>
-        <li>Without vision</li>
-        <li>With limited vision</li>
-        <li>Without color perception</li>
-        <li>Without hearing</li>
-        <li>With limited hearing</li>
-        <li>Without speech</li>
-        <li>With limited manipulation</li>
-        <li>With limited reach and strength</li>
-        <li>With limited language/cognitive ability</li>
-      </ul>
+<h3>3. Section 508 Tables</h3>
+<p>For federal purchases—functional performance criteria:</p>
+<ul>
+<li>Without vision</li>
+<li>With limited vision</li>
+<li>Without color perception</li>
+<li>Without hearing</li>
+<li>With limited hearing</li>
+<li>Without speech</li>
+<li>With limited manipulation</li>
+<li>With limited reach and strength</li>
+<li>With limited language/cognitive ability</li>
+</ul>
 
-      <h3>4. Remarks and Explanations</h3>
-      <p>The most important section—look for:</p>
-      <ul>
-        <li>Specific details on partial conformance</li>
-        <li>Known issues and workarounds</li>
-        <li>Remediation plans and timelines</li>
-        <li>Accessibility features</li>
-      </ul>
-    </section>
+<h3>4. Remarks and Explanations</h3>
+<p>The most important section—look for:</p>
+<ul>
+<li>Specific details on partial conformance</li>
+<li>Known issues and workarounds</li>
+<li>Remediation plans and timelines</li>
+<li>Accessibility features</li>
+</ul>
+</section>
 
-    <section id="conformance" aria-labelledby="conformance-heading">
-      <h2 id="conformance-heading">Understanding Conformance Levels</h2>
-      
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Level</th>
-            <th scope="col">Meaning</th>
-            <th scope="col">Evaluation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="badge" style="background:#d4edda;color:#155724">Supports</span></td>
-            <td>Functionality fully meets criterion</td>
-            <td>✅ Ideal</td>
-          </tr>
-          <tr>
-            <td><span class="badge" style="background:#fff3cd;color:#856404">Partially Supports</span></td>
-            <td>Some functionality meets criterion</td>
-            <td>⚠️ Review remarks carefully</td>
-          </tr>
-          <tr>
-            <td><span class="badge" style="background:#f8d7da;color:#721c24">Does Not Support</span></td>
-            <td>Majority of functionality fails criterion</td>
-            <td>🔴 Significant concern</td>
-          </tr>
-          <tr>
-            <td><span class="badge" style="background:#e2e3e5;color:#383d41">Not Applicable</span></td>
-            <td>Criterion not relevant to product</td>
-            <td>❓ Verify legitimacy</td>
-          </tr>
-          <tr>
-            <td><span class="badge" style="background:#cce5ff;color:#004085">Not Evaluated</span></td>
-            <td>Has not been tested</td>
-            <td>⚠️ Request testing</td>
-          </tr>
-        </tbody>
-      </table>
+<section id="conformance" aria-labelledby="conformance-heading">
+<h2 id="conformance-heading">Understanding Conformance Levels</h2>
+ 
+<table>
+<thead>
+<tr>
+<th scope="col">Level</th>
+<th scope="col">Meaning</th>
+<th scope="col">Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="badge" style="background:#d4edda;color:#155724">Supports</span></td>
+<td>Functionality fully meets criterion</td>
+<td>Ideal</td>
+</tr>
+<tr>
+<td><span class="badge" style="background:#fff3cd;color:#856404">Partially Supports</span></td>
+<td>Some functionality meets criterion</td>
+<td>Review remarks carefully</td>
+</tr>
+<tr>
+<td><span class="badge" style="background:#f8d7da;color:#721c24">Does Not Support</span></td>
+<td>Majority of functionality fails criterion</td>
+<td>Significant concern</td>
+</tr>
+<tr>
+<td><span class="badge" style="background:#e2e3e5;color:#383d41">Not Applicable</span></td>
+<td>Criterion not relevant to product</td>
+<td>Verify legitimacy</td>
+</tr>
+<tr>
+<td><span class="badge" style="background:#cce5ff;color:#004085">Not Evaluated</span></td>
+<td>Has not been tested</td>
+<td>Request testing</td>
+</tr>
+</tbody>
+</table>
 
-      <div class="callout callout-warning">
-        <h3>⚠️ "Partially Supports" Warning</h3>
-        <p>This is the most ambiguous level. Always read the remarks—"Partially Supports" could mean 90% works or only 10% works. Ask vendors for specifics.</p>
-      </div>
-    </section>
+<div class="callout callout-warning">
+<h3>"Partially Supports" Warning</h3>
+<p>This is the most ambiguous level. Always read the remarks—"Partially Supports" could mean 90% works or only 10% works. Ask vendors for specifics.</p>
+</div>
+</section>
 
-    <section id="red-flags" aria-labelledby="redflags-heading">
-      <h2 id="redflags-heading">Red Flags to Watch For</h2>
-      
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>🚩 Document Issues</h3>
-          <ul>
-            <li><strong>Outdated report</strong> - More than 18 months old</li>
-            <li><strong>Wrong version</strong> - Report doesn't match product version</li>
-            <li><strong>Missing sections</strong> - Incomplete tables</li>
-            <li><strong>No contact info</strong> - Can't ask questions</li>
-            <li><strong>Self-reported only</strong> - No third-party testing</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>🚩 Content Issues</h3>
-          <ul>
-            <li><strong>Too many "N/A"</strong> - May be avoiding issues</li>
-            <li><strong>Vague remarks</strong> - "Some issues may exist"</li>
-            <li><strong>No workarounds</strong> - For known issues</li>
-            <li><strong>No roadmap</strong> - For fixing issues</li>
-            <li><strong>"Perfect" report</strong> - 100% Supports is rare</li>
-          </ul>
-        </div>
-      </div>
+<section id="red-flags" aria-labelledby="redflags-heading">
+<h2 id="redflags-heading">Red Flags to Watch For</h2>
+ 
+<div class="grid grid-2">
+<div class="card">
+<h3>Document Issues</h3>
+<ul>
+<li><strong>Outdated report</strong>- More than 18 months old</li>
+<li><strong>Wrong version</strong>- Report doesn't match product version</li>
+<li><strong>Missing sections</strong>- Incomplete tables</li>
+<li><strong>No contact info</strong>- Can't ask questions</li>
+<li><strong>Self-reported only</strong>- No third-party testing</li>
+</ul>
+</div>
+<div class="card">
+<h3>Content Issues</h3>
+<ul>
+<li><strong>Too many "N/A"</strong>- May be avoiding issues</li>
+<li><strong>Vague remarks</strong>- "Some issues may exist"</li>
+<li><strong>No workarounds</strong>- For known issues</li>
+<li><strong>No roadmap</strong>- For fixing issues</li>
+<li><strong>"Perfect" report</strong>- 100% Supports is rare</li>
+</ul>
+</div>
+</div>
 
-      <h3>Critical Failures</h3>
-      <p>These "Does Not Support" entries are deal-breakers:</p>
-      <ul>
-        <li><strong>1.1.1 Non-text Content</strong> - No alt text support</li>
-        <li><strong>1.3.1 Info and Relationships</strong> - Broken semantic structure</li>
-        <li><strong>2.1.1 Keyboard</strong> - Can't use without mouse</li>
-        <li><strong>2.1.2 No Keyboard Trap</strong> - Users get stuck</li>
-        <li><strong>4.1.2 Name, Role, Value</strong> - Screen readers can't read controls</li>
-      </ul>
-    </section>
+<h3>Critical Failures</h3>
+<p>These "Does Not Support" entries are deal-breakers:</p>
+<ul>
+<li><strong>1.1.1 Non-text Content</strong>- No alt text support</li>
+<li><strong>1.3.1 Info and Relationships</strong>- Broken semantic structure</li>
+<li><strong>2.1.1 Keyboard</strong>- Can't use without mouse</li>
+<li><strong>2.1.2 No Keyboard Trap</strong>- Users get stuck</li>
+<li><strong>4.1.2 Name, Role, Value</strong>- Screen readers can't read controls</li>
+</ul>
+</section>
 
-    <section id="evaluation" aria-labelledby="eval-heading">
-      <h2 id="eval-heading">Evaluation Checklist</h2>
-      
-      <form class="checklist-form">
-        <fieldset>
-          <legend><h3>Document Quality</h3></legend>
-          <label><input type="checkbox"> Report date within last 18 months</label>
-          <label><input type="checkbox"> Product version matches what we're buying</label>
-          <label><input type="checkbox"> Uses VPAT 2.4 or 2.5 template</label>
-          <label><input type="checkbox"> Includes contact information</label>
-          <label><input type="checkbox"> Evaluation methods described</label>
-        </fieldset>
+<section id="evaluation" aria-labelledby="eval-heading">
+<h2 id="eval-heading">Evaluation Checklist</h2>
+ 
+<form class="checklist-form">
+<fieldset>
+<legend><h3>Document Quality</h3></legend>
+<label><input type="checkbox">Report date within last 18 months</label>
+<label><input type="checkbox">Product version matches what we're buying</label>
+<label><input type="checkbox">Uses VPAT 2.4 or 2.5 template</label>
+<label><input type="checkbox">Includes contact information</label>
+<label><input type="checkbox">Evaluation methods described</label>
+</fieldset>
 
-        <fieldset>
-          <legend><h3>WCAG Level A (Must Have)</h3></legend>
-          <label><input type="checkbox"> All Level A criteria evaluated (not just "N/A")</label>
-          <label><input type="checkbox"> Keyboard accessibility supported (2.1.1, 2.1.2)</label>
-          <label><input type="checkbox"> Non-text content addressed (1.1.1)</label>
-          <label><input type="checkbox"> No "Does Not Support" for critical criteria</label>
-        </fieldset>
+<fieldset>
+<legend><h3>WCAG Level A (Must Have)</h3></legend>
+<label><input type="checkbox">All Level A criteria evaluated (not just "N/A")</label>
+<label><input type="checkbox">Keyboard accessibility supported (2.1.1, 2.1.2)</label>
+<label><input type="checkbox">Non-text content addressed (1.1.1)</label>
+<label><input type="checkbox">No "Does Not Support" for critical criteria</label>
+</fieldset>
 
-        <fieldset>
-          <legend><h3>WCAG Level AA (Required)</h3></legend>
-          <label><input type="checkbox"> Color contrast requirements met (1.4.3, 1.4.11)</label>
-          <label><input type="checkbox"> Resize/reflow supported (1.4.4, 1.4.10)</label>
-          <label><input type="checkbox"> Focus visibility supported (2.4.7)</label>
-          <label><input type="checkbox"> Error identification supported (3.3.1, 3.3.3)</label>
-        </fieldset>
+<fieldset>
+<legend><h3>WCAG Level AA (Required)</h3></legend>
+<label><input type="checkbox">Color contrast requirements met (1.4.3, 1.4.11)</label>
+<label><input type="checkbox">Resize/reflow supported (1.4.4, 1.4.10)</label>
+<label><input type="checkbox">Focus visibility supported (2.4.7)</label>
+<label><input type="checkbox">Error identification supported (3.3.1, 3.3.3)</label>
+</fieldset>
 
-        <fieldset>
-          <legend><h3>Remarks Quality</h3></legend>
-          <label><input type="checkbox"> "Partially Supports" includes specific details</label>
-          <label><input type="checkbox"> Workarounds provided for known issues</label>
-          <label><input type="checkbox"> Roadmap/timeline for remediation included</label>
-          <label><input type="checkbox"> Remarks are detailed, not vague</label>
-        </fieldset>
-      </form>
-    </section>
+<fieldset>
+<legend><h3>Remarks Quality</h3></legend>
+<label><input type="checkbox">"Partially Supports" includes specific details</label>
+<label><input type="checkbox">Workarounds provided for known issues</label>
+<label><input type="checkbox">Roadmap/timeline for remediation included</label>
+<label><input type="checkbox">Remarks are detailed, not vague</label>
+</fieldset>
+</form>
+</section>
 
-    <section id="questions" aria-labelledby="questions-heading">
-      <h2 id="questions-heading">Questions to Ask Vendors</h2>
-      
-      <h3>About the Report</h3>
-      <ol>
-        <li>Who conducted the accessibility evaluation—internal team or third party?</li>
-        <li>What version of the product does this VPAT cover? Is it current?</li>
-        <li>How often is the VPAT updated?</li>
-        <li>Can you provide testing results or detailed audit findings?</li>
-      </ol>
+<section id="questions" aria-labelledby="questions-heading">
+<h2 id="questions-heading">Questions to Ask Vendors</h2>
+ 
+<h3>About the Report</h3>
+<ol>
+<li>Who conducted the accessibility evaluation—internal team or third party?</li>
+<li>What version of the product does this VPAT cover? Is it current?</li>
+<li>How often is the VPAT updated?</li>
+<li>Can you provide testing results or detailed audit findings?</li>
+</ol>
 
-      <h3>About Issues</h3>
-      <ol>
-        <li>For "Partially Supports" items—what specifically doesn't work?</li>
-        <li>What is your remediation roadmap and timeline?</li>
-        <li>Are there workarounds for current accessibility issues?</li>
-        <li>Will you provide an updated VPAT after fixes are released?</li>
-      </ol>
+<h3>About Issues</h3>
+<ol>
+<li>For "Partially Supports" items—what specifically doesn't work?</li>
+<li>What is your remediation roadmap and timeline?</li>
+<li>Are there workarounds for current accessibility issues?</li>
+<li>Will you provide an updated VPAT after fixes are released?</li>
+</ol>
 
-      <h3>About Commitment</h3>
-      <ol>
-        <li>Do you have a dedicated accessibility team?</li>
-        <li>Is accessibility included in your development lifecycle?</li>
-        <li>Do you conduct regular accessibility testing?</li>
-        <li>What is your process for responding to accessibility complaints?</li>
-        <li>Will you include accessibility requirements in our contract?</li>
-      </ol>
+<h3>About Commitment</h3>
+<ol>
+<li>Do you have a dedicated accessibility team?</li>
+<li>Is accessibility included in your development lifecycle?</li>
+<li>Do you conduct regular accessibility testing?</li>
+<li>What is your process for responding to accessibility complaints?</li>
+<li>Will you include accessibility requirements in our contract?</li>
+</ol>
 
-      <div class="callout callout-success">
-        <h3>💡 Contract Language</h3>
-        <p>Request that accessibility commitments be included in contracts:</p>
-        <ul>
-          <li>Maintain WCAG 2.2 AA conformance</li>
-          <li>Remediate reported issues within specified timeframe</li>
-          <li>Provide updated VPAT with each major release</li>
-          <li>Notify UA of accessibility regressions</li>
-        </ul>
-      </div>
-    </section>
+<div class="callout callout-success">
+<h3>Contract Language</h3>
+<p>Request that accessibility commitments be included in contracts:</p>
+<ul>
+<li>Maintain WCAG 2.2 AA conformance</li>
+<li>Remediate reported issues within specified timeframe</li>
+<li>Provide updated VPAT with each major release</li>
+<li>Notify UA of accessibility regressions</li>
+</ul>
+</div>
+</section>
 
-    <section id="step-by-step" aria-labelledby="step-by-step-heading">
-      <h2 id="step-by-step-heading">Step-by-Step VPAT Evaluation Process</h2>
-      <p>Follow this systematic approach when reviewing a VPAT/ACR. Allow 30–60 minutes for a thorough evaluation.</p>
+<section id="step-by-step" aria-labelledby="step-by-step-heading">
+<h2 id="step-by-step-heading">Step-by-Step VPAT Evaluation Process</h2>
+<p>Follow this systematic approach when reviewing a VPAT/ACR. Allow 30–60 minutes for a thorough evaluation.</p>
 
-      <h3>Step 1: Verify Document Authenticity (5 minutes)</h3>
-      <ol>
-        <li><strong>Check the source</strong> — Request VPATs directly from the vendor or from their official accessibility page. Third-party repositories may have outdated versions.</li>
-        <li><strong>Confirm product alignment</strong> — Verify the product name and version exactly match what you intend to purchase. A VPAT for "ProductX Web App 3.0" doesn't cover "ProductX Desktop 3.0" or "ProductX Web App 4.0."</li>
-        <li><strong>Check the date</strong> — Reports older than 18 months should be treated as outdated. WCAG standards and products evolve; older reports may not reflect current accessibility status.</li>
-        <li><strong>Identify the evaluator</strong> — Note whether testing was conducted by the vendor's internal team, an independent third party, or a combination. Third-party evaluations from recognized firms (Deque, Level Access, WebAIM, TPGi) carry more weight.</li>
-      </ol>
+<h3>Step 1: Verify Document Authenticity (5 minutes)</h3>
+<ol>
+<li><strong>Check the source</strong>— Request VPATs directly from the vendor or from their official accessibility page. Third-party repositories may have outdated versions.</li>
+<li><strong>Confirm product alignment</strong>— Verify the product name and version exactly match what you intend to purchase. A VPAT for "ProductX Web App 3.0" doesn't cover "ProductX Desktop 3.0" or "ProductX Web App 4.0."</li>
+<li><strong>Check the date</strong>— Reports older than 18 months should be treated as outdated. WCAG standards and products evolve; older reports may not reflect current accessibility status.</li>
+<li><strong>Identify the evaluator</strong>— Note whether testing was conducted by the vendor's internal team, an independent third party, or a combination. Third-party evaluations from recognized firms (Deque, Level Access, WebAIM, TPGi) carry more weight.</li>
+</ol>
 
-      <h3>Step 2: Review the Executive Summary (5 minutes)</h3>
-      <ol>
-        <li><strong>Read the product description</strong> — Understand what functionality is covered. Some VPATs only cover core features, not add-ons, integrations, or mobile apps.</li>
-        <li><strong>Note evaluation methods</strong> — Look for mentions of automated testing (axe, WAVE), manual testing, and assistive technology testing (screen readers, magnifiers). A robust VPAT describes multiple testing methods.</li>
-        <li><strong>Check scope limitations</strong> — Vendors may explicitly exclude certain modules, third-party integrations, or user-generated content areas.</li>
-      </ol>
+<h3>Step 2: Review the Executive Summary (5 minutes)</h3>
+<ol>
+<li><strong>Read the product description</strong>— Understand what functionality is covered. Some VPATs only cover core features, not add-ons, integrations, or mobile apps.</li>
+<li><strong>Note evaluation methods</strong>— Look for mentions of automated testing (axe, WAVE), manual testing, and assistive technology testing (screen readers, magnifiers). A robust VPAT describes multiple testing methods.</li>
+<li><strong>Check scope limitations</strong>— Vendors may explicitly exclude certain modules, third-party integrations, or user-generated content areas.</li>
+</ol>
 
-      <h3>Step 3: Analyze WCAG Level A Criteria (10 minutes)</h3>
-      <p>Level A represents the absolute minimum accessibility requirements. Failures here create fundamental barriers.</p>
-      <ol>
-        <li><strong>Count the conformance levels</strong> — Tally how many criteria are marked "Supports," "Partially Supports," "Does Not Support," and "Not Applicable."</li>
-        <li><strong>Scrutinize "Does Not Support"</strong> — Any Level A failures are serious. Prioritize reviewing:
-          <ul>
-            <li><strong>1.1.1 Non-text Content</strong> — Can users with screen readers understand images?</li>
-            <li><strong>1.3.1 Info and Relationships</strong> — Is content structure programmatically determinable?</li>
-            <li><strong>2.1.1 Keyboard</strong> — Can all functionality be operated via keyboard?</li>
-            <li><strong>2.1.2 No Keyboard Trap</strong> — Can users navigate away from any component?</li>
-            <li><strong>4.1.2 Name, Role, Value</strong> — Do interactive elements expose proper accessibility information?</li>
-          </ul>
-        </li>
-        <li><strong>Read remarks for "Partially Supports"</strong> — Determine whether 80% works or 20% works. Vague remarks like "some issues may exist" are unacceptable.</li>
-      </ol>
+<h3>Step 3: Analyze WCAG Level A Criteria (10 minutes)</h3>
+<p>Level A represents the absolute minimum accessibility requirements. Failures here create fundamental barriers.</p>
+<ol>
+<li><strong>Count the conformance levels</strong>— Tally how many criteria are marked "Supports," "Partially Supports," "Does Not Support," and "Not Applicable."</li>
+<li><strong>Scrutinize "Does Not Support"</strong>— Any Level A failures are serious. Prioritize reviewing:
+<ul>
+<li><strong>1.1.1 Non-text Content</strong>— Can users with screen readers understand images?</li>
+<li><strong>1.3.1 Info and Relationships</strong>— Is content structure programmatically determinable?</li>
+<li><strong>2.1.1 Keyboard</strong>— Can all functionality be operated via keyboard?</li>
+<li><strong>2.1.2 No Keyboard Trap</strong>— Can users navigate away from any component?</li>
+<li><strong>4.1.2 Name, Role, Value</strong>— Do interactive elements expose proper accessibility information?</li>
+</ul>
+</li>
+<li><strong>Read remarks for "Partially Supports"</strong>— Determine whether 80% works or 20% works. Vague remarks like "some issues may exist" are unacceptable.</li>
+</ol>
 
-      <h3>Step 4: Analyze WCAG Level AA Criteria (10 minutes)</h3>
-      <p>Level AA is required for Title II compliance and most institutional policies. Focus on criteria that affect daily use.</p>
-      <ol>
-        <li><strong>Check color contrast (1.4.3, 1.4.11)</strong> — Text and UI components must meet minimum contrast ratios. Failures affect users with low vision.</li>
-        <li><strong>Verify text resizing (1.4.4, 1.4.10)</strong> — Content must work when zoomed to 200% and reflow at 320px viewport width.</li>
-        <li><strong>Review focus indicators (2.4.7)</strong> — Keyboard users must see where they are on the page.</li>
-        <li><strong>Examine form handling (3.3.1, 3.3.2, 3.3.3)</strong> — Errors must be identified, labels provided, and suggestions offered.</li>
-        <li><strong>Check heading structure (2.4.6)</strong> — Headings and labels must describe topic or purpose.</li>
-      </ol>
+<h3>Step 4: Analyze WCAG Level AA Criteria (10 minutes)</h3>
+<p>Level AA is required for Title II compliance and most institutional policies. Focus on criteria that affect daily use.</p>
+<ol>
+<li><strong>Check color contrast (1.4.3, 1.4.11)</strong>— Text and UI components must meet minimum contrast ratios. Failures affect users with low vision.</li>
+<li><strong>Verify text resizing (1.4.4, 1.4.10)</strong>— Content must work when zoomed to 200% and reflow at 320px viewport width.</li>
+<li><strong>Review focus indicators (2.4.7)</strong>— Keyboard users must see where they are on the page.</li>
+<li><strong>Examine form handling (3.3.1, 3.3.2, 3.3.3)</strong>— Errors must be identified, labels provided, and suggestions offered.</li>
+<li><strong>Check heading structure (2.4.6)</strong>— Headings and labels must describe topic or purpose.</li>
+</ol>
 
-      <h3>Step 5: Evaluate Remarks Quality (10 minutes)</h3>
-      <p>The remarks column reveals vendor transparency and commitment to accessibility.</p>
-      
-      <div class="do-dont-grid">
-        <div class="do-card">
-          <h4>✅ Good Remarks</h4>
-          <ul>
-            <li>"Partially Supports: Alt text is provided for all images except user-uploaded content in the Comments module. Users can add alt text manually. Fix planned for v4.2 (Q2 2026)."</li>
-            <li>"Does Not Support: Data visualization charts do not expose values to screen readers. Workaround: Data tables with equivalent information are provided below each chart."</li>
-          </ul>
-        </div>
-        <div class="dont-card">
-          <h4>❌ Poor Remarks</h4>
-          <ul>
-            <li>"Partially Supports: Some issues may exist."</li>
-            <li>"Does Not Support" (with no explanation)</li>
-            <li>"N/A" (for criteria that clearly apply)</li>
-          </ul>
-        </div>
-      </div>
+<h3>Step 5: Evaluate Remarks Quality (10 minutes)</h3>
+<p>The remarks column reveals vendor transparency and commitment to accessibility.</p>
+ 
+<div class="do-dont-grid">
+<div class="do-card">
+<h4>Good Remarks</h4>
+<ul>
+<li>"Partially Supports: Alt text is provided for all images except user-uploaded content in the Comments module. Users can add alt text manually. Fix planned for v4.2 (Q2 2026)."</li>
+<li>"Does Not Support: Data visualization charts do not expose values to screen readers. Workaround: Data tables with equivalent information are provided below each chart."</li>
+</ul>
+</div>
+<div class="dont-card">
+<h4>Poor Remarks</h4>
+<ul>
+<li>"Partially Supports: Some issues may exist."</li>
+<li>"Does Not Support" (with no explanation)</li>
+<li>"N/A" (for criteria that clearly apply)</li>
+</ul>
+</div>
+</div>
 
-      <h3>Step 6: Assess Overall Risk (5 minutes)</h3>
-      <p>Assign a risk rating based on your analysis:</p>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Rating</th>
-            <th scope="col">Criteria</th>
-            <th scope="col">Recommendation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong style="color:#155724">Low Risk</strong></td>
-            <td>Mostly "Supports" at Level A and AA; detailed remarks; clear remediation plans; recent evaluation</td>
-            <td>Proceed with standard contract language</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#856404">Medium Risk</strong></td>
-            <td>Several "Partially Supports" with acceptable workarounds; some gaps in remarks; older report</td>
-            <td>Request vendor demo; add remediation milestones to contract</td>
-          </tr>
-          <tr>
-            <td><strong style="color:#721c24">High Risk</strong></td>
-            <td>Multiple "Does Not Support" at Level A; vague or missing remarks; no roadmap; critical criteria failures</td>
-            <td>Escalate to Accessibility PMO; consider alternatives; require remediation before deployment</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+<h3>Step 6: Assess Overall Risk (5 minutes)</h3>
+<p>Assign a risk rating based on your analysis:</p>
+<table>
+<thead>
+<tr>
+<th scope="col">Rating</th>
+<th scope="col">Criteria</th>
+<th scope="col">Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong style="color:#155724">Low Risk</strong></td>
+<td>Mostly "Supports" at Level A and AA; detailed remarks; clear remediation plans; recent evaluation</td>
+<td>Proceed with standard contract language</td>
+</tr>
+<tr>
+<td><strong style="color:#856404">Medium Risk</strong></td>
+<td>Several "Partially Supports" with acceptable workarounds; some gaps in remarks; older report</td>
+<td>Request vendor demo; add remediation milestones to contract</td>
+</tr>
+<tr>
+<td><strong style="color:#721c24">High Risk</strong></td>
+<td>Multiple "Does Not Support" at Level A; vague or missing remarks; no roadmap; critical criteria failures</td>
+<td>Escalate to Accessibility PMO; consider alternatives; require remediation before deployment</td>
+</tr>
+</tbody>
+</table>
+</section>
 
-    <section id="live-demo" aria-labelledby="live-demo-heading">
-      <h2 id="live-demo-heading">Supplementing VPATs with Live Evaluation</h2>
-      <p>A VPAT is a vendor's self-reported claim. Always verify with hands-on testing before major purchases.</p>
+<section id="live-demo" aria-labelledby="live-demo-heading">
+<h2 id="live-demo-heading">Supplementing VPATs with Live Evaluation</h2>
+<p>A VPAT is a vendor's self-reported claim. Always verify with hands-on testing before major purchases.</p>
 
-      <h3>Request an Accessibility Demo</h3>
-      <p>Ask vendors to demonstrate their product using assistive technology:</p>
-      <ul>
-        <li><strong>Keyboard-only navigation</strong> — Can all features be accessed without a mouse? Is focus visible?</li>
-        <li><strong>Screen reader demonstration</strong> — Request a demo using JAWS, NVDA, or VoiceOver. Listen for proper announcements of buttons, links, and form fields.</li>
-        <li><strong>Zoom/magnification</strong> — Does the interface remain usable at 200% zoom?</li>
-        <li><strong>Mobile accessibility</strong> — If applicable, demonstrate VoiceOver (iOS) or TalkBack (Android) support.</li>
-      </ul>
+<h3>Request an Accessibility Demo</h3>
+<p>Ask vendors to demonstrate their product using assistive technology:</p>
+<ul>
+<li><strong>Keyboard-only navigation</strong>— Can all features be accessed without a mouse? Is focus visible?</li>
+<li><strong>Screen reader demonstration</strong>— Request a demo using JAWS, NVDA, or VoiceOver. Listen for proper announcements of buttons, links, and form fields.</li>
+<li><strong>Zoom/magnification</strong>— Does the interface remain usable at 200% zoom?</li>
+<li><strong>Mobile accessibility</strong>— If applicable, demonstrate VoiceOver (iOS) or TalkBack (Android) support.</li>
+</ul>
 
-      <h3>Conduct Your Own Quick Test</h3>
-      <p>If you have trial access, spend 15 minutes checking:</p>
-      <ol>
-        <li><strong>Tab through the main interface</strong> — Can you reach all interactive elements? Does focus order make sense?</li>
-        <li><strong>Check color contrast</strong> — Use a browser extension like axe DevTools or WAVE to identify contrast failures.</li>
-        <li><strong>Test a key workflow</strong> — Complete the most common task (e.g., creating a document, submitting a form) using only keyboard.</li>
-        <li><strong>Listen with a screen reader</strong> — Even 5 minutes with NVDA or VoiceOver reveals major issues.</li>
-      </ol>
-    </section>
+<h3>Conduct Your Own Quick Test</h3>
+<p>If you have trial access, spend 15 minutes checking:</p>
+<ol>
+<li><strong>Tab through the main interface</strong>— Can you reach all interactive elements? Does focus order make sense?</li>
+<li><strong>Check color contrast</strong>— Use a browser extension like axe DevTools or WAVE to identify contrast failures.</li>
+<li><strong>Test a key workflow</strong>— Complete the most common task (e.g., creating a document, submitting a form) using only keyboard.</li>
+<li><strong>Listen with a screen reader</strong>— Even 5 minutes with NVDA or VoiceOver reveals major issues.</li>
+</ol>
+</section>
 
-    <section id="scoring" aria-labelledby="scoring-heading">
-      <h2 id="scoring-heading">VPAT Scoring Matrix</h2>
-      <p>Use this scoring approach to compare multiple products objectively. Assign points based on conformance level and criterion importance.</p>
+<section id="scoring" aria-labelledby="scoring-heading">
+<h2 id="scoring-heading">VPAT Scoring Matrix</h2>
+<p>Use this scoring approach to compare multiple products objectively. Assign points based on conformance level and criterion importance.</p>
 
-      <h3>Weighting by WCAG Level</h3>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Conformance Level</th>
-            <th scope="col">Level A Criteria</th>
-            <th scope="col">Level AA Criteria</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Supports</td>
-            <td>3 points</td>
-            <td>2 points</td>
-          </tr>
-          <tr>
-            <td>Partially Supports</td>
-            <td>1 point</td>
-            <td>1 point</td>
-          </tr>
-          <tr>
-            <td>Does Not Support</td>
-            <td>0 points</td>
-            <td>0 points</td>
-          </tr>
-          <tr>
-            <td>Not Applicable</td>
-            <td>Exclude from calculation</td>
-            <td>Exclude from calculation</td>
-          </tr>
-        </tbody>
-      </table>
+<h3>Weighting by WCAG Level</h3>
+<table>
+<thead>
+<tr>
+<th scope="col">Conformance Level</th>
+<th scope="col">Level A Criteria</th>
+<th scope="col">Level AA Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supports</td>
+<td>3 points</td>
+<td>2 points</td>
+</tr>
+<tr>
+<td>Partially Supports</td>
+<td>1 point</td>
+<td>1 point</td>
+</tr>
+<tr>
+<td>Does Not Support</td>
+<td>0 points</td>
+<td>0 points</td>
+</tr>
+<tr>
+<td>Not Applicable</td>
+<td>Exclude from calculation</td>
+<td>Exclude from calculation</td>
+</tr>
+</tbody>
+</table>
 
-      <h3>Critical Criteria Multiplier (2×)</h3>
-      <p>Apply a 2× multiplier to these criteria due to their impact on fundamental access:</p>
-      <ul>
-        <li>1.1.1 Non-text Content</li>
-        <li>1.3.1 Info and Relationships</li>
-        <li>2.1.1 Keyboard</li>
-        <li>2.1.2 No Keyboard Trap</li>
-        <li>2.4.7 Focus Visible</li>
-        <li>4.1.2 Name, Role, Value</li>
-      </ul>
+<h3>Critical Criteria Multiplier (2×)</h3>
+<p>Apply a 2× multiplier to these criteria due to their impact on fundamental access:</p>
+<ul>
+<li>1.1.1 Non-text Content</li>
+<li>1.3.1 Info and Relationships</li>
+<li>2.1.1 Keyboard</li>
+<li>2.1.2 No Keyboard Trap</li>
+<li>2.4.7 Focus Visible</li>
+<li>4.1.2 Name, Role, Value</li>
+</ul>
 
-      <h3>Calculate Overall Score</h3>
-      <p>Sum all points and divide by maximum possible points to get a percentage. Compare products using this normalized score.</p>
-      <p><strong>Example:</strong> Product A scores 85/100 (85%), Product B scores 72/100 (72%). Product A demonstrates stronger accessibility conformance.</p>
-    </section>
+<h3>Calculate Overall Score</h3>
+<p>Sum all points and divide by maximum possible points to get a percentage. Compare products using this normalized score.</p>
+<p><strong>Example:</strong>Product A scores 85/100 (85%), Product B scores 72/100 (72%). Product A demonstrates stronger accessibility conformance.</p>
+</section>
 
-    <section aria-labelledby="resources-heading">
-      <h2 id="resources-heading">📚 Authoritative Sources</h2>
-      <p>This guide draws from established accessibility procurement frameworks and standards organizations.</p>
+<section aria-labelledby="resources-heading">
+<h2 id="resources-heading">Authoritative Sources</h2>
+<p>This guide draws from established accessibility procurement frameworks and standards organizations.</p>
 
-      <h3>Official Standards &amp; Templates</h3>
-      <ul>
-        <li><a href="https://www.itic.org/policy/accessibility/vpat">ITI VPAT® Templates</a> — The Information Technology Industry Council (ITI) maintains the official VPAT template. Always reference the current version (2.5 as of 2024).</li>
-        <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C WCAG 2.2</a> — The Web Content Accessibility Guidelines define the technical requirements VPATs evaluate against.</li>
-        <li><a href="https://www.access-board.gov/ict/">U.S. Access Board ICT Standards</a> — Section 508 standards that inform federal procurement requirements.</li>
-        <li><a href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/">EN 301 549</a> — European ICT accessibility standard, increasingly used in international VPATs.</li>
-      </ul>
+<h3>Official Standards &amp; Templates</h3>
+<ul>
+<li><a href="https://www.itic.org/policy/accessibility/vpat">ITI VPAT® Templates</a>— The Information Technology Industry Council (ITI) maintains the official VPAT template. Always reference the current version (2.5 as of 2024).</li>
+<li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C WCAG 2.2</a>— The Web Content Accessibility Guidelines define the technical requirements VPATs evaluate against.</li>
+<li><a href="https://www.access-board.gov/ict/">U.S. Access Board ICT Standards</a>— Section 508 standards that inform federal procurement requirements.</li>
+<li><a href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/">EN 301 549</a>— European ICT accessibility standard, increasingly used in international VPATs.</li>
+</ul>
 
-      <h3>Procurement Guidance</h3>
-      <ul>
-        <li><a href="https://www.section508.gov/buy/">Section508.gov: Buy Accessible</a> — Federal guidance on accessible IT procurement, including VPAT evaluation tips.</li>
-        <li><a href="https://www.section508.gov/buy/request-accessibility-information/">Section508.gov: Requesting Accessibility Information</a> — How to request and evaluate accessibility documentation from vendors.</li>
-        <li><a href="https://mn.gov/mnit/about-mnit/accessibility/procurement/">Minnesota IT Services: Accessible IT Procurement</a> — Comprehensive state-level procurement framework with VPAT review guidance.</li>
-        <li><a href="https://www.washington.edu/accessibility/procurement/">University of Washington: IT Accessibility Procurement</a> — Higher education procurement model widely referenced by institutions.</li>
-      </ul>
+<h3>Procurement Guidance</h3>
+<ul>
+<li><a href="https://www.section508.gov/buy/">Section508.gov: Buy Accessible</a>— Federal guidance on accessible IT procurement, including VPAT evaluation tips.</li>
+<li><a href="https://www.section508.gov/buy/request-accessibility-information/">Section508.gov: Requesting Accessibility Information</a>— How to request and evaluate accessibility documentation from vendors.</li>
+<li><a href="https://mn.gov/mnit/about-mnit/accessibility/procurement/">Minnesota IT Services: Accessible IT Procurement</a>— Comprehensive state-level procurement framework with VPAT review guidance.</li>
+<li><a href="https://www.washington.edu/accessibility/procurement/">University of Washington: IT Accessibility Procurement</a>— Higher education procurement model widely referenced by institutions.</li>
+</ul>
 
-      <h3>Evaluation Methodology</h3>
-      <ul>
-        <li><a href="https://webaim.org/services/certification/">WebAIM: Accessibility Certification</a> — Explains third-party evaluation methodologies and what makes a credible accessibility report.</li>
-        <li><a href="https://www.deque.com/blog/how-to-read-a-vpat/">Deque: How to Read a VPAT</a> — Practical guidance from accessibility testing experts on interpreting VPAT content.</li>
-        <li><a href="https://www.levelaccess.com/blog/understanding-your-vendors-vpat/">Level Access: Understanding Your Vendor's VPAT</a> — Industry perspective on VPAT evaluation and common issues.</li>
-        <li><a href="https://www.tpgi.com/do-you-know-how-to-read-a-vpat/">TPGi: Do You Know How to Read a VPAT?</a> — Expert guidance on what to look for and what to question.</li>
-      </ul>
+<h3>Evaluation Methodology</h3>
+<ul>
+<li><a href="https://webaim.org/services/certification/">WebAIM: Accessibility Certification</a>— Explains third-party evaluation methodologies and what makes a credible accessibility report.</li>
+<li><a href="https://www.deque.com/blog/how-to-read-a-vpat/">Deque: How to Read a VPAT</a>— Practical guidance from accessibility testing experts on interpreting VPAT content.</li>
+<li><a href="https://www.levelaccess.com/blog/understanding-your-vendors-vpat/">Level Access: Understanding Your Vendor's VPAT</a>— Industry perspective on VPAT evaluation and common issues.</li>
+<li><a href="https://www.tpgi.com/do-you-know-how-to-read-a-vpat/">TPGi: Do You Know How to Read a VPAT?</a>— Expert guidance on what to look for and what to question.</li>
+</ul>
 
-      <h3>Higher Education Resources</h3>
-      <ul>
-        <li><a href="https://www.educause.edu/focus-areas-and-initiatives/policy-and-security/accessibility-and-inclusive-design">EDUCAUSE: Accessibility Resources</a> — Higher education IT accessibility guidance including procurement.</li>
-        <li><a href="https://www.ahead.org/">AHEAD (Association on Higher Education and Disability)</a> — Professional organization resources for institutional accessibility.</li>
-        <li><a href="https://www.higheredaccessibility.org/">Higher Education Accessibility Network</a> — Shared resources from accessibility professionals across institutions.</li>
-      </ul>
-    </section>
+<h3>Higher Education Resources</h3>
+<ul>
+<li><a href="https://www.educause.edu/focus-areas-and-initiatives/policy-and-security/accessibility-and-inclusive-design">EDUCAUSE: Accessibility Resources</a>— Higher education IT accessibility guidance including procurement.</li>
+<li><a href="https://www.ahead.org/">AHEAD (Association on Higher Education and Disability)</a>— Professional organization resources for institutional accessibility.</li>
+<li><a href="https://www.higheredaccessibility.org/">Higher Education Accessibility Network</a>— Shared resources from accessibility professionals across institutions.</li>
+</ul>
+</section>
 
-    <section aria-labelledby="related-heading">
-      <h2 id="related-heading">Related UA Resources</h2>
-      <ul>
-        <li><a href="vpat-library.html">UA VPAT Library</a> — Pre-reviewed VPATs for common campus software</li>
-        <li><a href="procurement-steps.html">Procurement Process</a> — Full accessible procurement workflow</li>
-        <li><a href="vendor-faq.html">Vendor FAQ</a> — Common vendor questions about UA requirements</li>
-        <li><a href="procurement.html">Procurement Hub</a> — Overview of accessibility in procurement</li>
-      </ul>
-    </section>
-  </main>
+<section aria-labelledby="related-heading">
+<h2 id="related-heading">Related UA Resources</h2>
+<ul>
+<li><a href="vpat-library.html">UA VPAT Library</a>— Pre-reviewed VPATs for common campus software</li>
+<li><a href="procurement-steps.html">Procurement Process</a>— Full accessible procurement workflow</li>
+<li><a href="vendor-faq.html">Vendor FAQ</a>— Common vendor questions about UA requirements</li>
+<li><a href="procurement.html">Procurement Hub</a>— Overview of accessibility in procurement</li>
+</ul>
+</section>
+</main>
 
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="support.html">Report an Issue</a></p>
-  </footer>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p><a href="accessibility-statement.html">Accessibility Statement</a>|<a href="support.html">Report an Issue</a></p>
+</footer>
 </body>
 </html>

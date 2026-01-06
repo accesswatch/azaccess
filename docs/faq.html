@@ -1,460 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Frequently Asked Questions | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
-  <style>
-    .faq-search {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-      border: 2px solid var(--arizona-blue);
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-    }
-    .faq-category {
-      margin-bottom: 2rem;
-    }
-    .faq-item {
-      border: 1px solid #e0e0e0;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-    }
-    .faq-item summary {
-      padding: 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      background: #f9f9f9;
-    }
-    .faq-item summary:hover {
-      background: #f0f0f0;
-    }
-    .faq-item[open] summary {
-      border-bottom: 1px solid #e0e0e0;
-    }
-    .faq-answer {
-      padding: 1rem;
-    }
-    .faq-answer p:first-child {
-      margin-top: 0;
-    }
-    .hidden {
-      display: none !important;
-    }
-    .helpful-buttons {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #e0e0e0;
-    }
-    .helpful-buttons button {
-      padding: 0.5rem 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background: white;
-      cursor: pointer;
-    }
-    .helpful-buttons button:hover {
-      background: #f0f0f0;
-    }
-    .category-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .category-nav a {
-      padding: 0.5rem 1rem;
-      background: var(--arizona-blue);
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 0.9rem;
-    }
-    .category-nav a:hover {
-      background: #001c48;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Frequently Asked Questions | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
+<style>
+ .faq-search {
+ width: 100%;
+ padding: 0.75rem 1rem;
+ font-size: 1rem;
+ border: 2px solid var(--arizona-blue);
+ border-radius: 4px;
+ margin-bottom: 1.5rem;
+ }
+ .faq-category {
+ margin-bottom: 2rem;
+ }
+ .faq-item {
+ border: 1px solid #e0e0e0;
+ border-radius: 4px;
+ margin-bottom: 0.5rem;
+ }
+ .faq-item summary {
+ padding: 1rem;
+ cursor: pointer;
+ font-weight: 600;
+ background: #f9f9f9;
+ }
+ .faq-item summary:hover {
+ background: #f0f0f0;
+ }
+ .faq-item[open] summary {
+ border-bottom: 1px solid #e0e0e0;
+ }
+ .faq-answer {
+ padding: 1rem;
+ }
+ .faq-answer p:first-child {
+ margin-top: 0;
+ }
+ .hidden {
+ display: none !important;
+ }
+ .helpful-buttons {
+ display: flex;
+ gap: 0.5rem;
+ margin-top: 1rem;
+ padding-top: 1rem;
+ border-top: 1px solid #e0e0e0;
+ }
+ .helpful-buttons button {
+ padding: 0.5rem 1rem;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ background: white;
+ cursor: pointer;
+ }
+ .helpful-buttons button:hover {
+ background: #f0f0f0;
+ }
+ .category-nav {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.5rem;
+ margin-bottom: 1.5rem;
+ }
+ .category-nav a {
+ padding: 0.5rem 1rem;
+ background: var(--arizona-blue);
+ color: white;
+ text-decoration: none;
+ border-radius: 4px;
+ font-size: 0.9rem;
+ }
+ .category-nav a:hover {
+ background: #001c48;
+ }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-      <nav class="site-header-nav" aria-label="Primary" role="navigation">
-        <a href="home.html">Home</a>
-        <a href="roles.html">I Am A...</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="glossary.html">Glossary</a>
-        <a href="faq.html" aria-current="page">FAQ</a>
-        <a href="support.html">Get help</a>
-      </nav>
-      <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
-        <label for="role-select">I am a...</label>
-        <select id="role-select" name="role">
-          <option value="">Choose your role</option>
-          <option value="persona-students.html">Student or Family Member</option>
-          <option value="persona-faculty.html">Faculty or Instructor</option>
-          <option value="persona-staff.html">Staff Member</option>
-          <option value="persona-developers.html">Developer</option>
-          <option value="persona-mobile.html">Mobile App Team</option>
-          <option value="persona-content.html">Content Creator</option>
-          <option value="persona-comms.html">Communications / Marketing</option>
-          <option value="persona-leadership.html">Leadership / Executive</option>
-          <option value="persona-public.html">Visitor / Community</option>
-        </select>
-        <button type="submit" class="go-btn">Go</button>
-      </form>
-    </div>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="home.html">Home</a></li>
-        <li aria-current="page">FAQ</li>
-      </ol>
-    </nav>
-    <h1>Frequently Asked Questions</h1>
-    <p>Quick answers to common accessibility questions. Can't find what you need? <a href="support.html">Contact us</a>.</p>
-  </header>
-  <main id="maincontent" role="main">
-    <section aria-labelledby="search-heading">
-      <h2 id="search-heading" class="visually-hidden">Search FAQ</h2>
-      <label for="faq-filter" class="visually-hidden">Filter questions</label>
-      <input type="search" id="faq-filter" class="faq-search" placeholder="🔍 Type to search questions..." />
-    </section>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<a href="home.html">Home</a>
+<a href="roles.html">I Am A...</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies &amp; Governance</a>
+<a href="support.html">Support</a>
+</nav>
+<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<a href="accessibility-101.html">Accessibility 101</a>
+<a href="glossary.html">Glossary</a>
+<a href="faq.html" aria-current="page">FAQ</a>
+<a href="support.html">Get help</a>
+</nav>
+<form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+<label for="role-select">I am a...</label>
+<select id="role-select" name="role">
+<option value="">Choose your role</option>
+<option value="persona-students.html">Student or Family Member</option>
+<option value="persona-faculty.html">Faculty or Instructor</option>
+<option value="persona-staff.html">Staff Member</option>
+<option value="persona-developers.html">Developer</option>
+<option value="persona-mobile.html">Mobile App Team</option>
+<option value="persona-content.html">Content Creator</option>
+<option value="persona-comms.html">Communications / Marketing</option>
+<option value="persona-leadership.html">Leadership / Executive</option>
+<option value="persona-public.html">Visitor / Community</option>
+</select>
+<button type="submit" class="go-btn">Go</button>
+</form>
+</div>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<ol>
+<li><a href="home.html">Home</a></li>
+<li aria-current="page">FAQ</li>
+</ol>
+</nav>
+<h1>Frequently Asked Questions</h1>
+<p>Quick answers to common accessibility questions. Can't find what you need?<a href="support.html">Contact us</a>.</p>
+</header>
+<main id="maincontent" role="main">
+<section aria-labelledby="search-heading">
+<h2 id="search-heading" class="visually-hidden">Search FAQ</h2>
+<label for="faq-filter" class="visually-hidden">Filter questions</label>
+<input type="search" id="faq-filter" class="faq-search" placeholder=" Type to search questions..." />
+</section>
 
-    <nav class="category-nav" aria-label="FAQ categories">
-      <a href="#general">General</a>
-      <a href="#students">Students</a>
-      <a href="#faculty">Faculty</a>
-      <a href="#documents">Documents</a>
-      <a href="#web">Web &amp; Apps</a>
-      <a href="#procurement">Procurement</a>
-      <a href="#legal">Legal &amp; Compliance</a>
-    </nav>
+<nav class="category-nav" aria-label="FAQ categories">
+<a href="#general">General</a>
+<a href="#students">Students</a>
+<a href="#faculty">Faculty</a>
+<a href="#documents">Documents</a>
+<a href="#web">Web &amp; Apps</a>
+<a href="#procurement">Procurement</a>
+<a href="#legal">Legal &amp; Compliance</a>
+</nav>
 
-    <section id="general" class="faq-category" aria-labelledby="general-heading">
-      <h2 id="general-heading">General</h2>
-      
-      <details class="faq-item" data-keywords="what is accessibility definition">
-        <summary>What is digital accessibility?</summary>
-        <div class="faq-answer">
-          <p>Digital accessibility means designing websites, applications, documents, and content so that everyone can use them—including people with visual, hearing, motor, or cognitive disabilities.</p>
-          <p>This includes making sure content works with screen readers, can be navigated by keyboard, has captions for videos, and uses clear language.</p>
-          <p><a href="accessibility-101.html">Learn more in Accessibility 101 →</a></p>
-        </div>
-      </details>
+<section id="general" class="faq-category" aria-labelledby="general-heading">
+<h2 id="general-heading">General</h2>
+ 
+<details class="faq-item" data-keywords="what is accessibility definition">
+<summary>What is digital accessibility?</summary>
+<div class="faq-answer">
+<p>Digital accessibility means designing websites, applications, documents, and content so that everyone can use them—including people with visual, hearing, motor, or cognitive disabilities.</p>
+<p>This includes making sure content works with screen readers, can be navigated by keyboard, has captions for videos, and uses clear language.</p>
+<p><a href="accessibility-101.html">Learn more in Accessibility 101</a></p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="why important benefits">
-        <summary>Why does accessibility matter?</summary>
-        <div class="faq-answer">
-          <p><strong>Equity:</strong> About 1 in 4 adults has a disability. Everyone deserves equal access to education and information.</p>
-          <p><strong>Legal:</strong> Title II of the ADA requires public universities to provide accessible digital experiences.</p>
-          <p><strong>Better design:</strong> Accessible design benefits everyone—captions help non-native speakers, keyboard navigation helps power users, clear content helps everyone under stress.</p>
-        </div>
-      </details>
+<details class="faq-item" data-keywords="why important benefits">
+<summary>Why does accessibility matter?</summary>
+<div class="faq-answer">
+<p><strong>Equity:</strong>About 1 in 4 adults has a disability. Everyone deserves equal access to education and information.</p>
+<p><strong>Legal:</strong>Title II of the ADA requires public universities to provide accessible digital experiences.</p>
+<p><strong>Better design:</strong>Accessible design benefits everyone—captions help non-native speakers, keyboard navigation helps power users, clear content helps everyone under stress.</p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="wcag standard level aa aaa">
-        <summary>What accessibility standard does Arizona follow?</summary>
-        <div class="faq-answer">
-          <p>Arizona aligns to <strong>WCAG 2.2 Level AA</strong>—the Web Content Accessibility Guidelines published by the W3C (World Wide Web Consortium).</p>
-          <p>This is the most widely adopted international standard and is referenced by ADA Title II regulations.</p>
-          <p><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Learn more about WCAG →<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </div>
-      </details>
+<details class="faq-item" data-keywords="wcag standard level aa aaa">
+<summary>What accessibility standard does Arizona follow?</summary>
+<div class="faq-answer">
+<p>Arizona aligns to<strong>WCAG 2.2 Level AA</strong>—the Web Content Accessibility Guidelines published by the W3C (World Wide Web Consortium).</p>
+<p>This is the most widely adopted international standard and is referenced by ADA Title II regulations.</p>
+<p><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Learn more about WCAG<span class="external-indicator" aria-label="external link"></span></a></p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="help support contact">
-        <summary>Who do I contact for help?</summary>
-        <div class="faq-answer">
-          <p>Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> or call <a href="tel:+15206213268">520-621-3268</a>.</p>
-          <p>You can also:</p>
-          <ul>
-            <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu">Request a consultation</a></li>
-            <li><a href="https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx">Report a barrier</a></li>
-            <li>Visit <a href="support.html">the Support page</a> for all options</li>
-          </ul>
-        </div>
-      </details>
-    </section>
+<details class="faq-item" data-keywords="help support contact">
+<summary>Who do I contact for help?</summary>
+<div class="faq-answer">
+<p>Email<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>or call<a href="tel:+15206213268">520-621-3268</a>.</p>
+<p>You can also:</p>
+<ul>
+<li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu">Request a consultation</a></li>
+<li><a href="https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx">Report a barrier</a></li>
+<li>Visit<a href="support.html">the Support page</a>for all options</li>
+</ul>
+</div>
+</details>
+</section>
 
-    <section id="students" class="faq-category" aria-labelledby="students-heading">
-      <h2 id="students-heading">Students</h2>
-      
-      <details class="faq-item" data-keywords="accommodations drc register">
-        <summary>How do I get accommodations?</summary>
-        <div class="faq-answer">
-          <p>Register with the <a href="https://drc.arizona.edu">Disability Resource Center (DRC)</a>. You'll submit documentation, meet with an Access Consultant, and receive accommodation letters to share with your instructors.</p>
-          <p>The process takes about 15 minutes online plus a meeting. Start early in the semester!</p>
-        </div>
-      </details>
+<section id="students" class="faq-category" aria-labelledby="students-heading">
+<h2 id="students-heading">Students</h2>
+ 
+<details class="faq-item" data-keywords="accommodations drc register">
+<summary>How do I get accommodations?</summary>
+<div class="faq-answer">
+<p>Register with the<a href="https://drc.arizona.edu">Disability Resource Center (DRC)</a>. You'll submit documentation, meet with an Access Consultant, and receive accommodation letters to share with your instructors.</p>
+<p>The process takes about 15 minutes online plus a meeting. Start early in the semester!</p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="captions video panopto">
-        <summary>How do I request captions for a video?</summary>
-        <div class="faq-answer">
-          <p>Most Panopto videos have auto-generated captions. If they're inaccurate or missing:</p>
-          <ol>
-            <li>Ask your instructor to request caption edits</li>
-            <li>Or contact <a href="mailto:ucatt@arizona.edu">UCATT Multimedia</a> directly for urgent needs</li>
-          </ol>
-          <p>For live events, request CART or ASL interpreters through the <a href="https://drc.arizona.edu/asl-cart">DRC ASL/CART form</a>.</p>
-        </div>
-      </details>
+<details class="faq-item" data-keywords="captions video panopto">
+<summary>How do I request captions for a video?</summary>
+<div class="faq-answer">
+<p>Most Panopto videos have auto-generated captions. If they're inaccurate or missing:</p>
+<ol>
+<li>Ask your instructor to request caption edits</li>
+<li>Or contact<a href="mailto:ucatt@arizona.edu">UCATT Multimedia</a>directly for urgent needs</li>
+</ol>
+<p>For live events, request CART or ASL interpreters through the<a href="https://drc.arizona.edu/asl-cart">DRC ASL/CART form</a>.</p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="report barrier problem inaccessible">
-        <summary>How do I report an accessibility barrier?</summary>
-        <div class="faq-answer">
-          <p>Use the <a href="https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx">Access Report</a> form. Include:</p>
-          <ul>
-            <li>The URL or location of the problem</li>
-            <li>What you were trying to do</li>
-            <li>What went wrong</li>
-            <li>Screenshots if possible</li>
-          </ul>
-          <p>You'll receive a response within 2 business days. Reporting helps Arizona fix issues for everyone.</p>
-        </div>
-      </details>
-    </section>
+<details class="faq-item" data-keywords="report barrier problem inaccessible">
+<summary>How do I report an accessibility barrier?</summary>
+<div class="faq-answer">
+<p>Use the<a href="https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx">Access Report</a>form. Include:</p>
+<ul>
+<li>The URL or location of the problem</li>
+<li>What you were trying to do</li>
+<li>What went wrong</li>
+<li>Screenshots if possible</li>
+</ul>
+<p>You'll receive a response within 2 business days. Reporting helps Arizona fix issues for everyone.</p>
+</div>
+</details>
+</section>
 
-    <section id="faculty" class="faq-category" aria-labelledby="faculty-heading">
-      <h2 id="faculty-heading">Faculty</h2>
-      
-      <details class="faq-item" data-keywords="accommodation letter respond drc instructor">
-        <summary>How do I respond to an accommodation letter?</summary>
-        <div class="faq-answer">
-          <p>Reply within <strong>2 business days</strong>:</p>
-          <ol>
-            <li>Read the letter carefully—note specific accommodations</li>
-            <li>Contact the student to confirm logistics</li>
-            <li>Document agreements in Brightspace or email</li>
-            <li>Reach out to the DRC if you have questions</li>
-          </ol>
-          <p>Never deny accommodations or require students to justify their needs beyond the letter.</p>
-        </div>
-      </details>
+<section id="faculty" class="faq-category" aria-labelledby="faculty-heading">
+<h2 id="faculty-heading">Faculty</h2>
+ 
+<details class="faq-item" data-keywords="accommodation letter respond drc instructor">
+<summary>How do I respond to an accommodation letter?</summary>
+<div class="faq-answer">
+<p>Reply within<strong>2 business days</strong>:</p>
+<ol>
+<li>Read the letter carefully—note specific accommodations</li>
+<li>Contact the student to confirm logistics</li>
+<li>Document agreements in Brightspace or email</li>
+<li>Reach out to the DRC if you have questions</li>
+</ol>
+<p>Never deny accommodations or require students to justify their needs beyond the letter.</p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="brightspace accessible course lms">
-        <summary>How do I make my Brightspace course accessible?</summary>
-        <div class="faq-answer">
-          <p>Start with our <a href="lms-brightspace.html">Brightspace Accessibility Checklist</a>. Key steps:</p>
-          <ul>
-            <li>Use heading styles for structure</li>
-            <li>Add alt text to images</li>
-            <li>Check color contrast</li>
-            <li>Caption videos in Panopto</li>
-            <li>Run the built-in accessibility checker</li>
-          </ul>
-          <p>UCATT offers consultations and can review your course shell.</p>
-        </div>
-      </details>
+<details class="faq-item" data-keywords="brightspace accessible course lms">
+<summary>How do I make my Brightspace course accessible?</summary>
+<div class="faq-answer">
+<p>Start with our<a href="lms-brightspace.html">Brightspace Accessibility Checklist</a>. Key steps:</p>
+<ul>
+<li>Use heading styles for structure</li>
+<li>Add alt text to images</li>
+<li>Check color contrast</li>
+<li>Caption videos in Panopto</li>
+<li>Run the built-in accessibility checker</li>
+</ul>
+<p>UCATT offers consultations and can review your course shell.</p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="caption video lecture panopto">
-        <summary>How do I caption my lecture videos?</summary>
-        <div class="faq-answer">
-          <p>Upload to Panopto, which generates automatic captions. Then:</p>
-          <ol>
-            <li>Review and edit the captions for accuracy</li>
-            <li>Focus on names, technical terms, and numbers</li>
-            <li>For high-stakes content, request professional captions from UCATT</li>
-          </ol>
-          <p>Aim for 99% accuracy on instructional content. <a href="media-captioning.html">See the full captioning guide →</a></p>
-        </div>
-      </details>
-    </section>
+<details class="faq-item" data-keywords="caption video lecture panopto">
+<summary>How do I caption my lecture videos?</summary>
+<div class="faq-answer">
+<p>Upload to Panopto, which generates automatic captions. Then:</p>
+<ol>
+<li>Review and edit the captions for accuracy</li>
+<li>Focus on names, technical terms, and numbers</li>
+<li>For high-stakes content, request professional captions from UCATT</li>
+</ol>
+<p>Aim for 99% accuracy on instructional content.<a href="media-captioning.html">See the full captioning guide</a></p>
+</div>
+</details>
+</section>
 
-    <section id="documents" class="faq-category" aria-labelledby="documents-heading">
-      <h2 id="documents-heading">Documents</h2>
-      
-      <details class="faq-item" data-keywords="word powerpoint accessible check">
-        <summary>How do I check if my Word/PowerPoint is accessible?</summary>
-        <div class="faq-answer">
-          <p>Use the built-in Accessibility Checker:</p>
-          <ol>
-            <li>Go to <strong>Review → Check Accessibility</strong></li>
-            <li>Fix all errors (red) and review warnings (yellow)</li>
-            <li>Pay special attention to missing alt text and heading structure</li>
-          </ol>
-          <p><a href="https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f">Microsoft's guide to the checker →<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </div>
-      </details>
+<section id="documents" class="faq-category" aria-labelledby="documents-heading">
+<h2 id="documents-heading">Documents</h2>
+ 
+<details class="faq-item" data-keywords="word powerpoint accessible check">
+<summary>How do I check if my Word/PowerPoint is accessible?</summary>
+<div class="faq-answer">
+<p>Use the built-in Accessibility Checker:</p>
+<ol>
+<li>Go to<strong>Review Check Accessibility</strong></li>
+<li>Fix all errors (red) and review warnings (yellow)</li>
+<li>Pay special attention to missing alt text and heading structure</li>
+</ol>
+<p><a href="https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f">Microsoft's guide to the checker<span class="external-indicator" aria-label="external link"></span></a></p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="pdf accessible remediate tag">
-        <summary>How do I make a PDF accessible?</summary>
-        <div class="faq-answer">
-          <p><strong>Best approach:</strong> Create an accessible source document (Word) first, then export to PDF.</p>
-          <p><strong>For existing PDFs:</strong></p>
-          <ol>
-            <li>Open in Adobe Acrobat Pro</li>
-            <li>Run Accessibility Check (Tools → Accessibility)</li>
-            <li>Add tags, set reading order, add alt text</li>
-          </ol>
-          <p>For complex remediation, <a href="support.html">request help</a> from the Digital Accessibility team.</p>
-          <p><a href="pdf-remediation.html">See the full PDF remediation guide →</a></p>
-        </div>
-      </details>
+<details class="faq-item" data-keywords="pdf accessible remediate tag">
+<summary>How do I make a PDF accessible?</summary>
+<div class="faq-answer">
+<p><strong>Best approach:</strong>Create an accessible source document (Word) first, then export to PDF.</p>
+<p><strong>For existing PDFs:</strong></p>
+<ol>
+<li>Open in Adobe Acrobat Pro</li>
+<li>Run Accessibility Check (Tools Accessibility)</li>
+<li>Add tags, set reading order, add alt text</li>
+</ol>
+<p>For complex remediation,<a href="support.html">request help</a>from the Digital Accessibility team.</p>
+<p><a href="pdf-remediation.html">See the full PDF remediation guide</a></p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="alt text image description write">
-        <summary>How do I write good alt text?</summary>
-        <div class="faq-answer">
-          <p>Alt text should convey the <strong>purpose</strong> of the image in context. Ask: "Why is this image here?"</p>
-          <ul>
-            <li>Be concise (usually 1-2 sentences)</li>
-            <li>Don't start with "Image of..." or "Picture of..."</li>
-            <li>For decorative images, use empty alt text (alt="")</li>
-            <li>For charts/graphs, describe the key takeaway</li>
-          </ul>
-          <p><a href="https://webaim.org/techniques/alttext/">WebAIM's complete alt text guide →<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </div>
-      </details>
-    </section>
+<details class="faq-item" data-keywords="alt text image description write">
+<summary>How do I write good alt text?</summary>
+<div class="faq-answer">
+<p>Alt text should convey the<strong>purpose</strong>of the image in context. Ask: "Why is this image here?"</p>
+<ul>
+<li>Be concise (usually 1-2 sentences)</li>
+<li>Don't start with "Image of..." or "Picture of..."</li>
+<li>For decorative images, use empty alt text (alt="")</li>
+<li>For charts/graphs, describe the key takeaway</li>
+</ul>
+<p><a href="https://webaim.org/techniques/alttext/">WebAIM's complete alt text guide<span class="external-indicator" aria-label="external link"></span></a></p>
+</div>
+</details>
+</section>
 
-    <section id="web" class="faq-category" aria-labelledby="web-heading">
-      <h2 id="web-heading">Web &amp; Apps</h2>
-      
-      <details class="faq-item" data-keywords="test website check accessible">
-        <summary>How do I test if my website is accessible?</summary>
-        <div class="faq-answer">
-          <p>Combine automated and manual testing:</p>
-          <p><strong>Automated (catches ~30-40% of issues):</strong></p>
-          <ul>
-            <li><a href="https://wave.webaim.org/">WAVE browser extension</a></li>
-            <li><a href="https://accessibilityinsights.io/">Accessibility Insights</a></li>
-            <li><a href="https://www.deque.com/axe/">axe DevTools</a></li>
-          </ul>
-          <p><strong>Manual (essential):</strong></p>
-          <ul>
-            <li>Keyboard-only navigation</li>
-            <li>Screen reader testing (NVDA, VoiceOver)</li>
-            <li>Zoom to 200% and check layout</li>
-          </ul>
-        </div>
-      </details>
+<section id="web" class="faq-category" aria-labelledby="web-heading">
+<h2 id="web-heading">Web &amp; Apps</h2>
+ 
+<details class="faq-item" data-keywords="test website check accessible">
+<summary>How do I test if my website is accessible?</summary>
+<div class="faq-answer">
+<p>Combine automated and manual testing:</p>
+<p><strong>Automated (catches ~30-40% of issues):</strong></p>
+<ul>
+<li><a href="https://wave.webaim.org/">WAVE browser extension</a></li>
+<li><a href="https://accessibilityinsights.io/">Accessibility Insights</a></li>
+<li><a href="https://www.deque.com/axe/">axe DevTools</a></li>
+</ul>
+<p><strong>Manual (essential):</strong></p>
+<ul>
+<li>Keyboard-only navigation</li>
+<li>Screen reader testing (NVDA, VoiceOver)</li>
+<li>Zoom to 200% and check layout</li>
+</ul>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="keyboard navigation tab focus">
-        <summary>What is keyboard accessibility?</summary>
-        <div class="faq-answer">
-          <p>Users must be able to use your site with keyboard alone (no mouse). Test by:</p>
-          <ol>
-            <li><strong>Tab</strong> through the page—can you reach everything?</li>
-            <li>Is focus always visible (outline or highlight)?</li>
-            <li>Can you <strong>Enter</strong> to activate buttons and links?</li>
-            <li>Can you <strong>Escape</strong> to close dialogs?</li>
-          </ol>
-          <p><a href="https://webaim.org/techniques/keyboard/">WebAIM keyboard guide →<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </div>
-      </details>
-    </section>
+<details class="faq-item" data-keywords="keyboard navigation tab focus">
+<summary>What is keyboard accessibility?</summary>
+<div class="faq-answer">
+<p>Users must be able to use your site with keyboard alone (no mouse). Test by:</p>
+<ol>
+<li><strong>Tab</strong>through the page—can you reach everything?</li>
+<li>Is focus always visible (outline or highlight)?</li>
+<li>Can you<strong>Enter</strong>to activate buttons and links?</li>
+<li>Can you<strong>Escape</strong>to close dialogs?</li>
+</ol>
+<p><a href="https://webaim.org/techniques/keyboard/">WebAIM keyboard guide<span class="external-indicator" aria-label="external link"></span></a></p>
+</div>
+</details>
+</section>
 
-    <section id="procurement" class="faq-category" aria-labelledby="procurement-heading">
-      <h2 id="procurement-heading">Procurement</h2>
-      
-      <details class="faq-item" data-keywords="vpat vendor accessibility">
-        <summary>What is a VPAT and how do I read it?</summary>
-        <div class="faq-answer">
-          <p>A <strong>VPAT</strong> (Voluntary Product Accessibility Template) is a document vendors create to describe how their product meets accessibility standards.</p>
-          <p>Look for:</p>
-          <ul>
-            <li><strong>"Supports"</strong> – meets the criteria</li>
-            <li><strong>"Partially Supports"</strong> – some gaps (read the remarks)</li>
-            <li><strong>"Does Not Support"</strong> – fails the criteria</li>
-          </ul>
-          <p>VPATs vary widely in quality. Request a demo with assistive technology for critical purchases.</p>
-          <p><a href="vpat-review.html">VPAT review guide →</a></p>
-        </div>
-      </details>
+<section id="procurement" class="faq-category" aria-labelledby="procurement-heading">
+<h2 id="procurement-heading">Procurement</h2>
+ 
+<details class="faq-item" data-keywords="vpat vendor accessibility">
+<summary>What is a VPAT and how do I read it?</summary>
+<div class="faq-answer">
+<p>A<strong>VPAT</strong>(Voluntary Product Accessibility Template) is a document vendors create to describe how their product meets accessibility standards.</p>
+<p>Look for:</p>
+<ul>
+<li><strong>"Supports"</strong>– meets the criteria</li>
+<li><strong>"Partially Supports"</strong>– some gaps (read the remarks)</li>
+<li><strong>"Does Not Support"</strong>– fails the criteria</li>
+</ul>
+<p>VPATs vary widely in quality. Request a demo with assistive technology for critical purchases.</p>
+<p><a href="vpat-review.html">VPAT review guide</a></p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="buy software vendor accessible">
-        <summary>How do I know if software I want to buy is accessible?</summary>
-        <div class="faq-answer">
-          <p>Before purchasing:</p>
-          <ol>
-            <li>Ask the vendor for a VPAT (current version, ideally WCAG 2.2)</li>
-            <li>Request their accessibility roadmap</li>
-            <li>Ask for a demo using screen reader or keyboard-only</li>
-            <li>Involve the Digital Accessibility team for major purchases</li>
-          </ol>
-          <p><a href="procurement.html">See the full procurement guide →</a></p>
-        </div>
-      </details>
-    </section>
+<details class="faq-item" data-keywords="buy software vendor accessible">
+<summary>How do I know if software I want to buy is accessible?</summary>
+<div class="faq-answer">
+<p>Before purchasing:</p>
+<ol>
+<li>Ask the vendor for a VPAT (current version, ideally WCAG 2.2)</li>
+<li>Request their accessibility roadmap</li>
+<li>Ask for a demo using screen reader or keyboard-only</li>
+<li>Involve the Digital Accessibility team for major purchases</li>
+</ol>
+<p><a href="procurement.html">See the full procurement guide</a></p>
+</div>
+</details>
+</section>
 
-    <section id="legal" class="faq-category" aria-labelledby="legal-heading">
-      <h2 id="legal-heading">Legal &amp; Compliance</h2>
-      
-      <details class="faq-item" data-keywords="title ii ada deadline">
-        <summary>What is Title II and when do we need to comply?</summary>
-        <div class="faq-answer">
-          <p><strong>Title II of the ADA</strong> requires state and local governments (including public universities) to make their programs, services, and activities accessible—including digital ones.</p>
-          <p>The DOJ published updated web accessibility regulations in 2024 with specific deadlines for compliance. Large public entities like Arizona must meet WCAG 2.1 AA by April 2026.</p>
-          <p><a href="https://www.ada.gov/resources/web-guidance/">ADA.gov web accessibility guidance →<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </div>
-      </details>
+<section id="legal" class="faq-category" aria-labelledby="legal-heading">
+<h2 id="legal-heading">Legal &amp; Compliance</h2>
+ 
+<details class="faq-item" data-keywords="title ii ada deadline">
+<summary>What is Title II and when do we need to comply?</summary>
+<div class="faq-answer">
+<p><strong>Title II of the ADA</strong>requires state and local governments (including public universities) to make their programs, services, and activities accessible—including digital ones.</p>
+<p>The DOJ published updated web accessibility regulations in 2024 with specific deadlines for compliance. Large public entities like Arizona must meet WCAG 2.1 AA by April 2026.</p>
+<p><a href="https://www.ada.gov/resources/web-guidance/">ADA.gov web accessibility guidance<span class="external-indicator" aria-label="external link"></span></a></p>
+</div>
+</details>
 
-      <details class="faq-item" data-keywords="exception fundamental alteration waiver">
-        <summary>Can we get an exception for something that can't be made accessible?</summary>
-        <div class="faq-answer">
-          <p>Exceptions are rare and require formal documentation. Two legal defenses exist:</p>
-          <ul>
-            <li><strong>Fundamental alteration:</strong> Making it accessible would fundamentally change the nature of the program</li>
-            <li><strong>Undue burden:</strong> The cost/effort would be excessive relative to resources</li>
-          </ul>
-          <p>Both require documented alternative access plans and approval from Accessibility PMO, Legal, and executive sponsors. Contact <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> to discuss.</p>
-        </div>
-      </details>
-    </section>
+<details class="faq-item" data-keywords="exception fundamental alteration waiver">
+<summary>Can we get an exception for something that can't be made accessible?</summary>
+<div class="faq-answer">
+<p>Exceptions are rare and require formal documentation. Two legal defenses exist:</p>
+<ul>
+<li><strong>Fundamental alteration:</strong>Making it accessible would fundamentally change the nature of the program</li>
+<li><strong>Undue burden:</strong>The cost/effort would be excessive relative to resources</li>
+</ul>
+<p>Both require documented alternative access plans and approval from Accessibility PMO, Legal, and executive sponsors. Contact<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>to discuss.</p>
+</div>
+</details>
+</section>
 
-    <section aria-labelledby="more-questions">
-      <h2 id="more-questions">Still have questions?</h2>
-      <p>Email <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> or <a href="support.html">request a consultation</a>. We respond within 2 business days.</p>
-    </section>
+<section aria-labelledby="more-questions">
+<h2 id="more-questions">Still have questions?</h2>
+<p>Email<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>or<a href="support.html">request a consultation</a>. We respond within 2 business days.</p>
+</section>
 
-    <p><a href="#maincontent">Back to top</a></p>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
-    <p>Last reviewed: 2026-01-05</p>
-  </footer>
-  <script>
-    // FAQ filter functionality
-    const filterInput = document.getElementById('faq-filter');
-    const faqItems = document.querySelectorAll('.faq-item');
-    const categories = document.querySelectorAll('.faq-category');
+<p><a href="#maincontent">Back to top</a></p>
+</main>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p>Questions?<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>|<a href="tel:+15206213268">520-621-3268</a></p>
+<p>Last reviewed: 2026-01-05</p>
+</footer>
+<script>
+ // FAQ filter functionality
+ const filterInput = document.getElementById('faq-filter');
+ const faqItems = document.querySelectorAll('.faq-item');
+ const categories = document.querySelectorAll('.faq-category');
 
-    filterInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase().trim();
-      
-      faqItems.forEach(item => {
-        const keywords = item.dataset.keywords || '';
-        const question = item.querySelector('summary').textContent.toLowerCase();
-        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-        
-        const matches = searchTerm === '' || 
-          keywords.includes(searchTerm) || 
-          question.includes(searchTerm) || 
-          answer.includes(searchTerm);
-        
-        item.classList.toggle('hidden', !matches);
-      });
+ filterInput.addEventListener('input', function() {
+ const searchTerm = this.value.toLowerCase().trim();
+ 
+ faqItems.forEach(item =>{
+ const keywords = item.dataset.keywords || '';
+ const question = item.querySelector('summary').textContent.toLowerCase();
+ const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+ 
+ const matches = searchTerm === '' || 
+ keywords.includes(searchTerm) || 
+ question.includes(searchTerm) || 
+ answer.includes(searchTerm);
+ 
+ item.classList.toggle('hidden', !matches);
+ });
 
-      // Hide empty categories
-      categories.forEach(category => {
-        const visibleItems = category.querySelectorAll('.faq-item:not(.hidden)');
-        category.classList.toggle('hidden', visibleItems.length === 0);
-      });
-    });
-  </script>
+ // Hide empty categories
+ categories.forEach(category =>{
+ const visibleItems = category.querySelectorAll('.faq-item:not(.hidden)');
+ category.classList.toggle('hidden', visibleItems.length === 0);
+ });
+ });
+</script>
 </body>
 </html>

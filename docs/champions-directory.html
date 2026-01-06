@@ -1,238 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Champions | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .search-filter { max-width: 400px; margin-bottom: 1.5rem; }
-    .search-filter input { width: 100%; padding: 0.75rem; border: 2px solid var(--ua-arizona-blue); border-radius: 4px; font-size: 1rem; }
-    .directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
-    .champion-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.25rem; }
-    .champion-card h3 { margin: 0 0 0.25rem 0; font-size: 1.1rem; }
-    .champion-card .unit { color: var(--ua-arizona-blue); font-weight: 500; margin-bottom: 0.5rem; }
-    .champion-card .role { font-size: 0.9rem; color: #666; margin-bottom: 0.75rem; }
-    .champion-card .contact { font-size: 0.9rem; }
-    .champion-card .contact a { display: block; margin: 0.25rem 0; }
-    .champion-card .expertise { margin-top: 0.75rem; }
-    .champion-card .expertise span { display: inline-block; background: var(--ua-chip-bg); padding: 0.125rem 0.5rem; border-radius: 3px; font-size: 0.8rem; margin: 0.125rem; }
-    .unit-group { margin-bottom: 2rem; }
-    .unit-group h2 { border-bottom: 2px solid var(--ua-arizona-blue); padding-bottom: 0.5rem; }
-    .no-results { padding: 2rem; text-align: center; color: #666; }
-    .become-champion { background: var(--ua-chip-bg); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Accessibility Champions | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+ .search-filter { max-width: 400px; margin-bottom: 1.5rem; }
+ .search-filter input { width: 100%; padding: 0.75rem; border: 2px solid var(--ua-arizona-blue); border-radius: 4px; font-size: 1rem; }
+ .directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
+ .champion-card { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1.25rem; }
+ .champion-card h3 { margin: 0 0 0.25rem 0; font-size: 1.1rem; }
+ .champion-card .unit { color: var(--ua-arizona-blue); font-weight: 500; margin-bottom: 0.5rem; }
+ .champion-card .role { font-size: 0.9rem; color: #666; margin-bottom: 0.75rem; }
+ .champion-card .contact { font-size: 0.9rem; }
+ .champion-card .contact a { display: block; margin: 0.25rem 0; }
+ .champion-card .expertise { margin-top: 0.75rem; }
+ .champion-card .expertise span { display: inline-block; background: var(--ua-chip-bg); padding: 0.125rem 0.5rem; border-radius: 3px; font-size: 0.8rem; margin: 0.125rem; }
+ .unit-group { margin-bottom: 2rem; }
+ .unit-group h2 { border-bottom: 2px solid var(--ua-arizona-blue); padding-bottom: 0.5rem; }
+ .no-results { padding: 2rem; text-align: center; color: #666; }
+ .become-champion { background: var(--ua-chip-bg); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="support.html">Support</a></nav>
-    </div>
-    <h1>Accessibility Champions Directory</h1>
-    <p>Find your local accessibility contact by college, department, or unit.</p>
-  </header>
-  <main id="maincontent" role="main">
-    
-    <div class="search-filter">
-      <label for="champion-search" class="visually-hidden">Search by name, unit, or expertise</label>
-      <input type="search" id="champion-search" placeholder="Search by name, unit, or expertise..." />
-    </div>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="support.html">Support</a></nav>
+</div>
+<h1>Accessibility Champions Directory</h1>
+<p>Find your local accessibility contact by college, department, or unit.</p>
+</header>
+<main id="maincontent" role="main">
+ 
+<div class="search-filter">
+<label for="champion-search" class="visually-hidden">Search by name, unit, or expertise</label>
+<input type="search" id="champion-search" placeholder="Search by name, unit, or expertise..." />
+</div>
 
-    <div id="directory">
-      <!-- Academic Colleges -->
-      <div class="unit-group" data-group="colleges">
-        <h2>🎓 Academic Colleges</h2>
-        <div class="directory-grid">
-          <article class="champion-card" data-search="eller college management business maria santos web content">
-            <h3>Maria Santos</h3>
-            <div class="unit">Eller College of Management</div>
-            <div class="role">Instructional Designer</div>
-            <div class="contact">
-              <a href="mailto:msantos@arizona.edu">msantos@arizona.edu</a>
-              <a href="tel:+15206211234">520-621-1234</a>
-            </div>
-            <div class="expertise"><span>Course Design</span><span>Documents</span><span>Brightspace</span></div>
-          </article>
-          <article class="champion-card" data-search="college science james chen web developer">
-            <h3>James Chen</h3>
-            <div class="unit">College of Science</div>
-            <div class="role">Web Developer</div>
-            <div class="contact">
-              <a href="mailto:jchen@arizona.edu">jchen@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>Web</span><span>ARIA</span><span>Testing</span></div>
-          </article>
-          <article class="champion-card" data-search="college education sarah johnson instructional">
-            <h3>Sarah Johnson</h3>
-            <div class="unit">College of Education</div>
-            <div class="role">Educational Technologist</div>
-            <div class="contact">
-              <a href="mailto:sjohnson@arizona.edu">sjohnson@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>UDL</span><span>Course Design</span><span>Faculty Training</span></div>
-          </article>
-          <article class="champion-card" data-search="college engineering michael rodriguez">
-            <h3>Michael Rodriguez</h3>
-            <div class="unit">College of Engineering</div>
-            <div class="role">IT Analyst</div>
-            <div class="contact">
-              <a href="mailto:mrodriguez@arizona.edu">mrodriguez@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>Web Apps</span><span>Procurement</span></div>
-          </article>
-          <article class="champion-card" data-search="college medicine phoenix health">
-            <h3>Dr. Priya Patel</h3>
-            <div class="unit">College of Medicine – Phoenix</div>
-            <div class="role">Accessibility Coordinator</div>
-            <div class="contact">
-              <a href="mailto:ppatel@arizona.edu">ppatel@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>Clinical Systems</span><span>HIPAA</span><span>Documents</span></div>
-          </article>
-          <article class="champion-card" data-search="college law library legal">
-            <h3>David Kim</h3>
-            <div class="unit">James E. Rogers College of Law</div>
-            <div class="role">Law Librarian</div>
-            <div class="contact">
-              <a href="mailto:dkim@arizona.edu">dkim@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>Documents</span><span>Research Tools</span></div>
-          </article>
-        </div>
-      </div>
+<div id="directory">
+<!-- Academic Colleges -->
+<div class="unit-group" data-group="colleges">
+<h2>Academic Colleges</h2>
+<div class="directory-grid">
+<article class="champion-card" data-search="eller college management business maria santos web content">
+<h3>Maria Santos</h3>
+<div class="unit">Eller College of Management</div>
+<div class="role">Instructional Designer</div>
+<div class="contact">
+<a href="mailto:msantos@arizona.edu">msantos@arizona.edu</a>
+<a href="tel:+15206211234">520-621-1234</a>
+</div>
+<div class="expertise"><span>Course Design</span><span>Documents</span><span>Brightspace</span></div>
+</article>
+<article class="champion-card" data-search="college science james chen web developer">
+<h3>James Chen</h3>
+<div class="unit">College of Science</div>
+<div class="role">Web Developer</div>
+<div class="contact">
+<a href="mailto:jchen@arizona.edu">jchen@arizona.edu</a>
+</div>
+<div class="expertise"><span>Web</span><span>ARIA</span><span>Testing</span></div>
+</article>
+<article class="champion-card" data-search="college education sarah johnson instructional">
+<h3>Sarah Johnson</h3>
+<div class="unit">College of Education</div>
+<div class="role">Educational Technologist</div>
+<div class="contact">
+<a href="mailto:sjohnson@arizona.edu">sjohnson@arizona.edu</a>
+</div>
+<div class="expertise"><span>UDL</span><span>Course Design</span><span>Faculty Training</span></div>
+</article>
+<article class="champion-card" data-search="college engineering michael rodriguez">
+<h3>Michael Rodriguez</h3>
+<div class="unit">College of Engineering</div>
+<div class="role">IT Analyst</div>
+<div class="contact">
+<a href="mailto:mrodriguez@arizona.edu">mrodriguez@arizona.edu</a>
+</div>
+<div class="expertise"><span>Web Apps</span><span>Procurement</span></div>
+</article>
+<article class="champion-card" data-search="college medicine phoenix health">
+<h3>Dr. Priya Patel</h3>
+<div class="unit">College of Medicine – Phoenix</div>
+<div class="role">Accessibility Coordinator</div>
+<div class="contact">
+<a href="mailto:ppatel@arizona.edu">ppatel@arizona.edu</a>
+</div>
+<div class="expertise"><span>Clinical Systems</span><span>HIPAA</span><span>Documents</span></div>
+</article>
+<article class="champion-card" data-search="college law library legal">
+<h3>David Kim</h3>
+<div class="unit">James E. Rogers College of Law</div>
+<div class="role">Law Librarian</div>
+<div class="contact">
+<a href="mailto:dkim@arizona.edu">dkim@arizona.edu</a>
+</div>
+<div class="expertise"><span>Documents</span><span>Research Tools</span></div>
+</article>
+</div>
+</div>
 
-      <!-- Administrative Units -->
-      <div class="unit-group" data-group="admin">
-        <h2>🏛️ Administrative Units</h2>
-        <div class="directory-grid">
-          <article class="champion-card" data-search="uits information technology services central">
-            <h3>Central Accessibility Team</h3>
-            <div class="unit">UITS – IT Accessibility Services</div>
-            <div class="role">University-wide Support</div>
-            <div class="contact">
-              <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>
-              <a href="tel:+15206213268">520-621-3268</a>
-            </div>
-            <div class="expertise"><span>Policy</span><span>Training</span><span>Consulting</span><span>Remediation</span></div>
-          </article>
-          <article class="champion-card" data-search="human resources hr">
-            <h3>Jennifer Adams</h3>
-            <div class="unit">Human Resources</div>
-            <div class="role">Employee Accommodations Specialist</div>
-            <div class="contact">
-              <a href="mailto:jadams@arizona.edu">jadams@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>Workplace Accommodations</span><span>Assistive Tech</span></div>
-          </article>
-          <article class="champion-card" data-search="uacomm communications marketing">
-            <h3>Amanda Torres</h3>
-            <div class="unit">University Communications</div>
-            <div class="role">Digital Content Manager</div>
-            <div class="contact">
-              <a href="mailto:atorres@arizona.edu">atorres@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>Social Media</span><span>Web Content</span><span>Brand</span></div>
-          </article>
-          <article class="champion-card" data-search="procurement purchasing contracts">
-            <h3>Robert Martinez</h3>
-            <div class="unit">Procurement & Contracting</div>
-            <div class="role">IT Procurement Specialist</div>
-            <div class="contact">
-              <a href="mailto:rmartinez@arizona.edu">rmartinez@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>VPATs</span><span>Contracts</span><span>Vendor Review</span></div>
-          </article>
-          <article class="champion-card" data-search="drc disability resource center student">
-            <h3>Disability Resource Center</h3>
-            <div class="unit">Student Affairs</div>
-            <div class="role">Student Accommodations</div>
-            <div class="contact">
-              <a href="mailto:drc@arizona.edu">drc@arizona.edu</a>
-              <a href="tel:+15206211234">520-621-3268</a>
-            </div>
-            <div class="expertise"><span>Student Services</span><span>Testing</span><span>Accommodations</span></div>
-          </article>
-          <article class="champion-card" data-search="library university libraries">
-            <h3>Lisa Wong</h3>
-            <div class="unit">University Libraries</div>
-            <div class="role">Accessibility Librarian</div>
-            <div class="contact">
-              <a href="mailto:lwong@arizona.edu">lwong@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>Alt Formats</span><span>Research Tools</span><span>Databases</span></div>
-          </article>
-        </div>
-      </div>
+<!-- Administrative Units -->
+<div class="unit-group" data-group="admin">
+<h2>Administrative Units</h2>
+<div class="directory-grid">
+<article class="champion-card" data-search="uits information technology services central">
+<h3>Central Accessibility Team</h3>
+<div class="unit">UITS – IT Accessibility Services</div>
+<div class="role">University-wide Support</div>
+<div class="contact">
+<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>
+<a href="tel:+15206213268">520-621-3268</a>
+</div>
+<div class="expertise"><span>Policy</span><span>Training</span><span>Consulting</span><span>Remediation</span></div>
+</article>
+<article class="champion-card" data-search="human resources hr">
+<h3>Jennifer Adams</h3>
+<div class="unit">Human Resources</div>
+<div class="role">Employee Accommodations Specialist</div>
+<div class="contact">
+<a href="mailto:jadams@arizona.edu">jadams@arizona.edu</a>
+</div>
+<div class="expertise"><span>Workplace Accommodations</span><span>Assistive Tech</span></div>
+</article>
+<article class="champion-card" data-search="uacomm communications marketing">
+<h3>Amanda Torres</h3>
+<div class="unit">University Communications</div>
+<div class="role">Digital Content Manager</div>
+<div class="contact">
+<a href="mailto:atorres@arizona.edu">atorres@arizona.edu</a>
+</div>
+<div class="expertise"><span>Social Media</span><span>Web Content</span><span>Brand</span></div>
+</article>
+<article class="champion-card" data-search="procurement purchasing contracts">
+<h3>Robert Martinez</h3>
+<div class="unit">Procurement & Contracting</div>
+<div class="role">IT Procurement Specialist</div>
+<div class="contact">
+<a href="mailto:rmartinez@arizona.edu">rmartinez@arizona.edu</a>
+</div>
+<div class="expertise"><span>VPATs</span><span>Contracts</span><span>Vendor Review</span></div>
+</article>
+<article class="champion-card" data-search="drc disability resource center student">
+<h3>Disability Resource Center</h3>
+<div class="unit">Student Affairs</div>
+<div class="role">Student Accommodations</div>
+<div class="contact">
+<a href="mailto:drc@arizona.edu">drc@arizona.edu</a>
+<a href="tel:+15206211234">520-621-3268</a>
+</div>
+<div class="expertise"><span>Student Services</span><span>Testing</span><span>Accommodations</span></div>
+</article>
+<article class="champion-card" data-search="library university libraries">
+<h3>Lisa Wong</h3>
+<div class="unit">University Libraries</div>
+<div class="role">Accessibility Librarian</div>
+<div class="contact">
+<a href="mailto:lwong@arizona.edu">lwong@arizona.edu</a>
+</div>
+<div class="expertise"><span>Alt Formats</span><span>Research Tools</span><span>Databases</span></div>
+</article>
+</div>
+</div>
 
-      <!-- Research & Other -->
-      <div class="unit-group" data-group="research">
-        <h2>🔬 Research & Other Units</h2>
-        <div class="directory-grid">
-          <article class="champion-card" data-search="research computing hpc">
-            <h3>Kevin O'Brien</h3>
-            <div class="unit">Research Computing</div>
-            <div class="role">Systems Administrator</div>
-            <div class="contact">
-              <a href="mailto:kobrien@arizona.edu">kobrien@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>HPC Systems</span><span>Research Tools</span></div>
-          </article>
-          <article class="champion-card" data-search="athletics sports">
-            <h3>Carlos Mendez</h3>
-            <div class="unit">Arizona Athletics</div>
-            <div class="role">Digital Media Coordinator</div>
-            <div class="contact">
-              <a href="mailto:cmendez@arizona.edu">cmendez@arizona.edu</a>
-            </div>
-            <div class="expertise"><span>Video</span><span>Live Events</span><span>Social Media</span></div>
-          </article>
-        </div>
-      </div>
-    </div>
+<!-- Research & Other -->
+<div class="unit-group" data-group="research">
+<h2>Research & Other Units</h2>
+<div class="directory-grid">
+<article class="champion-card" data-search="research computing hpc">
+<h3>Kevin O'Brien</h3>
+<div class="unit">Research Computing</div>
+<div class="role">Systems Administrator</div>
+<div class="contact">
+<a href="mailto:kobrien@arizona.edu">kobrien@arizona.edu</a>
+</div>
+<div class="expertise"><span>HPC Systems</span><span>Research Tools</span></div>
+</article>
+<article class="champion-card" data-search="athletics sports">
+<h3>Carlos Mendez</h3>
+<div class="unit">Arizona Athletics</div>
+<div class="role">Digital Media Coordinator</div>
+<div class="contact">
+<a href="mailto:cmendez@arizona.edu">cmendez@arizona.edu</a>
+</div>
+<div class="expertise"><span>Video</span><span>Live Events</span><span>Social Media</span></div>
+</article>
+</div>
+</div>
+</div>
 
-    <p id="no-results" class="no-results" style="display:none;">No champions found matching your search. <a href="mailto:accessibility@arizona.edu">Contact the central team</a> for help.</p>
+<p id="no-results" class="no-results" style="display:none;">No champions found matching your search.<a href="mailto:accessibility@arizona.edu">Contact the central team</a>for help.</p>
 
-    <div class="become-champion">
-      <h2>🌟 Become a Champion</h2>
-      <p>Accessibility Champions are volunteers who help their colleagues create accessible content. Benefits include:</p>
-      <ul>
-        <li>Free training and certification</li>
-        <li>Monthly office hours with the central team</li>
-        <li>Access to enterprise testing tools</li>
-        <li>Recognition in annual accessibility awards</li>
-      </ul>
-      <p><a class="cta" href="mailto:accessibility@arizona.edu?subject=Accessibility Champion Interest">Express Interest →</a></p>
-    </div>
-  </main>
-  <footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
-  <script>
-    const searchInput = document.getElementById('champion-search');
-    const cards = document.querySelectorAll('.champion-card');
-    const groups = document.querySelectorAll('.unit-group');
-    const noResults = document.getElementById('no-results');
+<div class="become-champion">
+<h2>Become a Champion</h2>
+<p>Accessibility Champions are volunteers who help their colleagues create accessible content. Benefits include:</p>
+<ul>
+<li>Free training and certification</li>
+<li>Monthly office hours with the central team</li>
+<li>Access to enterprise testing tools</li>
+<li>Recognition in annual accessibility awards</li>
+</ul>
+<p><a class="cta" href="mailto:accessibility@arizona.edu?subject=Accessibility Champion Interest">Express Interest</a></p>
+</div>
+</main>
+<footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+<script>
+ const searchInput = document.getElementById('champion-search');
+ const cards = document.querySelectorAll('.champion-card');
+ const groups = document.querySelectorAll('.unit-group');
+ const noResults = document.getElementById('no-results');
 
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.toLowerCase();
-      let anyVisible = false;
-      
-      cards.forEach(card => {
-        const searchText = card.dataset.search + ' ' + card.textContent.toLowerCase();
-        const match = searchText.includes(query);
-        card.style.display = match ? 'block' : 'none';
-        if (match) anyVisible = true;
-      });
+ searchInput.addEventListener('input', () =>{
+ const query = searchInput.value.toLowerCase();
+ let anyVisible = false;
+ 
+ cards.forEach(card =>{
+ const searchText = card.dataset.search + ' ' + card.textContent.toLowerCase();
+ const match = searchText.includes(query);
+ card.style.display = match ? 'block' : 'none';
+ if (match) anyVisible = true;
+ });
 
-      groups.forEach(group => {
-        const visibleCards = group.querySelectorAll('.champion-card[style="display: block"], .champion-card:not([style])');
-        let hasVisible = false;
-        visibleCards.forEach(c => { if (c.style.display !== 'none') hasVisible = true; });
-        group.style.display = (query === '' || hasVisible) ? 'block' : 'none';
-      });
+ groups.forEach(group =>{
+ const visibleCards = group.querySelectorAll('.champion-card[style="display: block"], .champion-card:not([style])');
+ let hasVisible = false;
+ visibleCards.forEach(c =>{ if (c.style.display !== 'none') hasVisible = true; });
+ group.style.display = (query === '' || hasVisible) ? 'block' : 'none';
+ });
 
-      noResults.style.display = anyVisible ? 'none' : 'block';
-    });
-  </script>
+ noResults.style.display = anyVisible ? 'none' : 'block';
+ });
+</script>
 </body>
 </html>

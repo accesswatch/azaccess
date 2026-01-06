@@ -1,422 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tools Comparison | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
-    }
-    .comparison-table th,
-    .comparison-table td {
-      padding: 0.75rem;
-      border: 1px solid var(--ua-border);
-      vertical-align: top;
-    }
-    .comparison-table th {
-      background: var(--ua-arizona-blue);
-      color: white;
-      text-align: left;
-    }
-    .comparison-table tbody tr:nth-child(even) {
-      background: var(--ua-cool-gray);
-    }
-    .comparison-table tbody tr:hover {
-      background: var(--ua-chip-bg);
-    }
-    .tool-name {
-      font-weight: bold;
-      white-space: nowrap;
-    }
-    .badge {
-      display: inline-block;
-      padding: 0.125rem 0.5rem;
-      border-radius: 3px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .badge-free { background: #d4edda; color: #155724; }
-    .badge-paid { background: #fff3cd; color: #856404; }
-    .badge-enterprise { background: #cce5ff; color: #004085; }
-    .badge-ua { background: var(--ua-arizona-red); color: white; }
-    .check { color: #28a745; font-weight: bold; }
-    .cross { color: #dc3545; }
-    .partial { color: #ffc107; font-weight: bold; }
-    .recommendation-box {
-      background: var(--ua-chip-bg);
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      border-left: 4px solid var(--ua-arizona-blue);
-      margin: 1rem 0;
-    }
-    .recommendation-box h4 {
-      margin: 0 0 0.5rem 0;
-      color: var(--ua-arizona-blue);
-    }
-    .quick-pick {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .quick-pick-card {
-      background: white;
-      border: 2px solid var(--ua-border);
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .quick-pick-card:hover {
-      border-color: var(--ua-arizona-blue);
-    }
-    .quick-pick-card h4 {
-      margin: 0 0 0.5rem 0;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .quick-pick-card .pick {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--ua-arizona-blue);
-    }
-    .quick-pick-card p {
-      margin: 0.5rem 0 0 0;
-      font-size: 0.85rem;
-      color: #666;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tools Comparison | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+ .comparison-table {
+ width: 100%;
+ border-collapse: collapse;
+ margin: 1.5rem 0;
+ font-size: 0.95rem;
+ }
+ .comparison-table th,
+ .comparison-table td {
+ padding: 0.75rem;
+ border: 1px solid var(--ua-border);
+ vertical-align: top;
+ }
+ .comparison-table th {
+ background: var(--ua-arizona-blue);
+ color: white;
+ text-align: left;
+ }
+ .comparison-table tbody tr:nth-child(even) {
+ background: var(--ua-cool-gray);
+ }
+ .comparison-table tbody tr:hover {
+ background: var(--ua-chip-bg);
+ }
+ .tool-name {
+ font-weight: bold;
+ white-space: nowrap;
+ }
+ .badge {
+ display: inline-block;
+ padding: 0.125rem 0.5rem;
+ border-radius: 3px;
+ font-size: 0.75rem;
+ font-weight: 600;
+ white-space: nowrap;
+ }
+ .badge-free { background: #d4edda; color: #155724; }
+ .badge-paid { background: #fff3cd; color: #856404; }
+ .badge-enterprise { background: #cce5ff; color: #004085; }
+ .badge-ua { background: var(--ua-arizona-red); color: white; }
+ .check { color: #28a745; font-weight: bold; }
+ .cross { color: #dc3545; }
+ .partial { color: #ffc107; font-weight: bold; }
+ .recommendation-box {
+ background: var(--ua-chip-bg);
+ padding: 1rem 1.5rem;
+ border-radius: 8px;
+ border-left: 4px solid var(--ua-arizona-blue);
+ margin: 1rem 0;
+ }
+ .recommendation-box h4 {
+ margin: 0 0 0.5rem 0;
+ color: var(--ua-arizona-blue);
+ }
+ .quick-pick {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 1rem;
+ margin: 1.5rem 0;
+ }
+ .quick-pick-card {
+ background: white;
+ border: 2px solid var(--ua-border);
+ border-radius: 8px;
+ padding: 1rem;
+ text-align: center;
+ }
+ .quick-pick-card:hover {
+ border-color: var(--ua-arizona-blue);
+ }
+ .quick-pick-card h4 {
+ margin: 0 0 0.5rem 0;
+ font-size: 0.9rem;
+ color: #666;
+ }
+ .quick-pick-card .pick {
+ font-size: 1.1rem;
+ font-weight: bold;
+ color: var(--ua-arizona-blue);
+ }
+ .quick-pick-card p {
+ margin: 0.5rem 0 0 0;
+ font-size: 0.85rem;
+ color: #666;
+ }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary">
-        <a href="home.html">Home</a>
-        <a href="roles.html">I Am A...</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies</a>
-        <a href="support.html">Support</a>
-      </nav>
-    </div>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="tools-checklists.html">Tools &amp; Checklists</a></li>
-        <li aria-current="page">Tools Comparison</li>
-      </ol>
-    </nav>
-    <h1>Tools Comparison</h1>
-    <p>Side-by-side comparison of accessibility testing tools to help you choose the right one.</p>
-  </header>
-  <main id="maincontent" role="main">
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<nav class="site-header-nav" aria-label="Primary">
+<a href="home.html">Home</a>
+<a href="roles.html">I Am A...</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies</a>
+<a href="support.html">Support</a>
+</nav>
+</div>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<ol>
+<li><a href="home.html">Home</a></li>
+<li><a href="tools-checklists.html">Tools &amp; Checklists</a></li>
+<li aria-current="page">Tools Comparison</li>
+</ol>
+</nav>
+<h1>Tools Comparison</h1>
+<p>Side-by-side comparison of accessibility testing tools to help you choose the right one.</p>
+</header>
+<main id="maincontent" role="main">
 
-    <section aria-labelledby="quick-picks">
-      <h2 id="quick-picks">⚡ Quick picks</h2>
-      <p>Don't want to read the whole comparison? Here are our recommendations:</p>
-      <div class="quick-pick">
-        <div class="quick-pick-card">
-          <h4>Best Free Browser Extension</h4>
-          <div class="pick">WAVE</div>
-          <p>Visual, beginner-friendly</p>
-        </div>
-        <div class="quick-pick-card">
-          <h4>Best for Developers</h4>
-          <div class="pick">axe DevTools</div>
-          <p>Integrates with dev workflow</p>
-        </div>
-        <div class="quick-pick-card">
-          <h4>Best for Manual Testing</h4>
-          <div class="pick">Accessibility Insights</div>
-          <p>Guided assessments</p>
-        </div>
-        <div class="quick-pick-card">
-          <h4>Best Free Screen Reader</h4>
-          <div class="pick">NVDA</div>
-          <p>Full-featured, Windows</p>
-        </div>
-        <div class="quick-pick-card">
-          <h4>UA Enterprise Tool</h4>
-          <div class="pick">DubBot / SiteImprove</div>
-          <p>Site-wide monitoring</p>
-        </div>
-      </div>
-    </section>
+<section aria-labelledby="quick-picks">
+<h2 id="quick-picks">Quick picks</h2>
+<p>Don't want to read the whole comparison? Here are our recommendations:</p>
+<div class="quick-pick">
+<div class="quick-pick-card">
+<h4>Best Free Browser Extension</h4>
+<div class="pick">WAVE</div>
+<p>Visual, beginner-friendly</p>
+</div>
+<div class="quick-pick-card">
+<h4>Best for Developers</h4>
+<div class="pick">axe DevTools</div>
+<p>Integrates with dev workflow</p>
+</div>
+<div class="quick-pick-card">
+<h4>Best for Manual Testing</h4>
+<div class="pick">Accessibility Insights</div>
+<p>Guided assessments</p>
+</div>
+<div class="quick-pick-card">
+<h4>Best Free Screen Reader</h4>
+<div class="pick">NVDA</div>
+<p>Full-featured, Windows</p>
+</div>
+<div class="quick-pick-card">
+<h4>UA Enterprise Tool</h4>
+<div class="pick">DubBot / SiteImprove</div>
+<p>Site-wide monitoring</p>
+</div>
+</div>
+</section>
 
-    <section aria-labelledby="browser-extensions">
-      <h2 id="browser-extensions">🔍 Browser Extensions (Automated Testing)</h2>
-      <p>Quick scans that catch 30-40% of accessibility issues. Essential first step, but not comprehensive.</p>
-      
-      <div class="table-scroll">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th scope="col">Tool</th>
-              <th scope="col">Price</th>
-              <th scope="col">Best For</th>
-              <th scope="col">Pros</th>
-              <th scope="col">Cons</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="tool-name">WAVE</span><br><a href="https://wave.webaim.org/">wave.webaim.org</a></td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Beginners, content authors</td>
-              <td>Visual overlay shows issues in context; explains errors clearly; works offline</td>
-              <td>Can be overwhelming on complex pages; no CI/CD integration</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">axe DevTools</span><br><a href="https://www.deque.com/axe/">deque.com/axe</a></td>
-              <td><span class="badge badge-free">Free</span> (Pro version paid)</td>
-              <td>Developers, QA</td>
-              <td>Industry standard engine; integrates with CI/CD; detailed remediation guidance</td>
-              <td>Pro features cost money; less visual than WAVE</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Accessibility Insights</span><br><a href="https://accessibilityinsights.io/">accessibilityinsights.io</a></td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Manual + automated testing</td>
-              <td>Guided assessments; FastPass for quick checks; Tab stops visualizer</td>
-              <td>Chrome/Edge only; more complex UI</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Lighthouse</span><br>Built into Chrome</td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Developers (quick check)</td>
-              <td>Built into Chrome DevTools; includes performance + SEO; CI/CD friendly</td>
-              <td>Less comprehensive than axe; fewer explanations</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">ANDI</span><br><a href="https://www.ssa.gov/accessibility/andi/">ssa.gov/accessibility/andi</a></td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Government/508 testing</td>
-              <td>Bookmarklet works anywhere; focuses on 508; shows accessible name calculation</td>
-              <td>Dated interface; less intuitive</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<section aria-labelledby="browser-extensions">
+<h2 id="browser-extensions">Browser Extensions (Automated Testing)</h2>
+<p>Quick scans that catch 30-40% of accessibility issues. Essential first step, but not comprehensive.</p>
+ 
+<div class="table-scroll">
+<table class="comparison-table">
+<thead>
+<tr>
+<th scope="col">Tool</th>
+<th scope="col">Price</th>
+<th scope="col">Best For</th>
+<th scope="col">Pros</th>
+<th scope="col">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="tool-name">WAVE</span><br><a href="https://wave.webaim.org/">wave.webaim.org</a></td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Beginners, content authors</td>
+<td>Visual overlay shows issues in context; explains errors clearly; works offline</td>
+<td>Can be overwhelming on complex pages; no CI/CD integration</td>
+</tr>
+<tr>
+<td><span class="tool-name">axe DevTools</span><br><a href="https://www.deque.com/axe/">deque.com/axe</a></td>
+<td><span class="badge badge-free">Free</span>(Pro version paid)</td>
+<td>Developers, QA</td>
+<td>Industry standard engine; integrates with CI/CD; detailed remediation guidance</td>
+<td>Pro features cost money; less visual than WAVE</td>
+</tr>
+<tr>
+<td><span class="tool-name">Accessibility Insights</span><br><a href="https://accessibilityinsights.io/">accessibilityinsights.io</a></td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Manual + automated testing</td>
+<td>Guided assessments; FastPass for quick checks; Tab stops visualizer</td>
+<td>Chrome/Edge only; more complex UI</td>
+</tr>
+<tr>
+<td><span class="tool-name">Lighthouse</span><br>Built into Chrome</td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Developers (quick check)</td>
+<td>Built into Chrome DevTools; includes performance + SEO; CI/CD friendly</td>
+<td>Less comprehensive than axe; fewer explanations</td>
+</tr>
+<tr>
+<td><span class="tool-name">ANDI</span><br><a href="https://www.ssa.gov/accessibility/andi/">ssa.gov/accessibility/andi</a></td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Government/508 testing</td>
+<td>Bookmarklet works anywhere; focuses on 508; shows accessible name calculation</td>
+<td>Dated interface; less intuitive</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-      <div class="recommendation-box">
-        <h4>🎯 Our recommendation</h4>
-        <p><strong>Start with WAVE</strong> for visual feedback and learning. <strong>Add axe DevTools</strong> if you're a developer integrating into your workflow. Use <strong>Accessibility Insights</strong> when you need guided manual testing.</p>
-      </div>
-    </section>
+<div class="recommendation-box">
+<h4>Our recommendation</h4>
+<p><strong>Start with WAVE</strong>for visual feedback and learning.<strong>Add axe DevTools</strong>if you're a developer integrating into your workflow. Use<strong>Accessibility Insights</strong>when you need guided manual testing.</p>
+</div>
+</section>
 
-    <section aria-labelledby="screen-readers">
-      <h2 id="screen-readers">🔊 Screen Readers</h2>
-      <p>Manual testing with screen readers catches issues automation misses. Test with at least one.</p>
-      
-      <div class="table-scroll">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th scope="col">Tool</th>
-              <th scope="col">Platform</th>
-              <th scope="col">Price</th>
-              <th scope="col">Best Paired With</th>
-              <th scope="col">Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="tool-name">NVDA</span><br><a href="https://www.nvaccess.org/">nvaccess.org</a></td>
-              <td>Windows</td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Firefox, Chrome</td>
-              <td>Most popular free screen reader. Excellent for testing. Our primary recommendation.</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">JAWS</span><br><a href="https://www.freedomscientific.com/products/software/jaws/">freedomscientific.com</a></td>
-              <td>Windows</td>
-              <td><span class="badge badge-paid">$1,000+</span> <span class="badge badge-ua">UA Licensed</span></td>
-              <td>Chrome, IE/Edge</td>
-              <td>Industry standard in enterprise. More features than NVDA. UA has licenses available.</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">VoiceOver</span><br>Built into macOS/iOS</td>
-              <td>Mac, iPhone, iPad</td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Safari</td>
-              <td>Built into all Apple devices. Essential for iOS testing. Use with Safari only.</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">TalkBack</span><br>Built into Android</td>
-              <td>Android</td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Chrome</td>
-              <td>Built into Android. Essential for Android app testing.</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Narrator</span><br>Built into Windows</td>
-              <td>Windows</td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Edge</td>
-              <td>Improving rapidly. Good for quick tests, but NVDA/JAWS more representative.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<section aria-labelledby="screen-readers">
+<h2 id="screen-readers">Screen Readers</h2>
+<p>Manual testing with screen readers catches issues automation misses. Test with at least one.</p>
+ 
+<div class="table-scroll">
+<table class="comparison-table">
+<thead>
+<tr>
+<th scope="col">Tool</th>
+<th scope="col">Platform</th>
+<th scope="col">Price</th>
+<th scope="col">Best Paired With</th>
+<th scope="col">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="tool-name">NVDA</span><br><a href="https://www.nvaccess.org/">nvaccess.org</a></td>
+<td>Windows</td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Firefox, Chrome</td>
+<td>Most popular free screen reader. Excellent for testing. Our primary recommendation.</td>
+</tr>
+<tr>
+<td><span class="tool-name">JAWS</span><br><a href="https://www.freedomscientific.com/products/software/jaws/">freedomscientific.com</a></td>
+<td>Windows</td>
+<td><span class="badge badge-paid">$1,000+</span><span class="badge badge-ua">UA Licensed</span></td>
+<td>Chrome, IE/Edge</td>
+<td>Industry standard in enterprise. More features than NVDA. UA has licenses available.</td>
+</tr>
+<tr>
+<td><span class="tool-name">VoiceOver</span><br>Built into macOS/iOS</td>
+<td>Mac, iPhone, iPad</td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Safari</td>
+<td>Built into all Apple devices. Essential for iOS testing. Use with Safari only.</td>
+</tr>
+<tr>
+<td><span class="tool-name">TalkBack</span><br>Built into Android</td>
+<td>Android</td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Chrome</td>
+<td>Built into Android. Essential for Android app testing.</td>
+</tr>
+<tr>
+<td><span class="tool-name">Narrator</span><br>Built into Windows</td>
+<td>Windows</td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Edge</td>
+<td>Improving rapidly. Good for quick tests, but NVDA/JAWS more representative.</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-      <div class="recommendation-box">
-        <h4>🎯 Our recommendation</h4>
-        <p><strong>Windows:</strong> Install NVDA (free) and test with Firefox or Chrome. <strong>Mac:</strong> Use built-in VoiceOver with Safari. <strong>Mobile:</strong> Use VoiceOver (iOS) or TalkBack (Android) with the default browser.</p>
-      </div>
-    </section>
+<div class="recommendation-box">
+<h4>Our recommendation</h4>
+<p><strong>Windows:</strong>Install NVDA (free) and test with Firefox or Chrome.<strong>Mac:</strong>Use built-in VoiceOver with Safari.<strong>Mobile:</strong>Use VoiceOver (iOS) or TalkBack (Android) with the default browser.</p>
+</div>
+</section>
 
-    <section aria-labelledby="enterprise-tools">
-      <h2 id="enterprise-tools">🏢 Enterprise / Site-Wide Monitoring</h2>
-      <p>Scan entire websites and track accessibility over time. Used by central IT and communications teams.</p>
-      
-      <div class="table-scroll">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th scope="col">Tool</th>
-              <th scope="col">Price</th>
-              <th scope="col">Key Features</th>
-              <th scope="col">UA Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="tool-name">SiteImprove</span><br><a href="https://www.siteimprove.com/">siteimprove.com</a></td>
-              <td><span class="badge badge-enterprise">Enterprise</span></td>
-              <td>Full site scanning, content quality, SEO, analytics integration, CMS plugins</td>
-              <td><span class="badge badge-ua">UA Licensed</span> — Contact accessibility@arizona.edu for access</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">DubBot</span><br><a href="https://dubbot.com/">dubbot.com</a></td>
-              <td><span class="badge badge-enterprise">Enterprise</span></td>
-              <td>WCAG testing, broken links, spelling, site-wide dashboards, higher-ed focused</td>
-              <td><span class="badge badge-ua">UA Licensed</span> — Contact accessibility@arizona.edu for access</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Deque axe Monitor</span><br><a href="https://www.deque.com/axe/monitor/">deque.com/axe/monitor</a></td>
-              <td><span class="badge badge-enterprise">Enterprise</span></td>
-              <td>Continuous monitoring, trend tracking, same engine as axe DevTools</td>
-              <td>Not currently licensed; contact accessibility team if interested</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Pope Tech</span><br><a href="https://pope.tech/">pope.tech</a></td>
-              <td><span class="badge badge-enterprise">Enterprise</span></td>
-              <td>WAVE-based scanning, higher-ed pricing, LMS integration</td>
-              <td>Not currently licensed</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<section aria-labelledby="enterprise-tools">
+<h2 id="enterprise-tools">Enterprise / Site-Wide Monitoring</h2>
+<p>Scan entire websites and track accessibility over time. Used by central IT and communications teams.</p>
+ 
+<div class="table-scroll">
+<table class="comparison-table">
+<thead>
+<tr>
+<th scope="col">Tool</th>
+<th scope="col">Price</th>
+<th scope="col">Key Features</th>
+<th scope="col">UA Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="tool-name">SiteImprove</span><br><a href="https://www.siteimprove.com/">siteimprove.com</a></td>
+<td><span class="badge badge-enterprise">Enterprise</span></td>
+<td>Full site scanning, content quality, SEO, analytics integration, CMS plugins</td>
+<td><span class="badge badge-ua">UA Licensed</span>— Contact accessibility@arizona.edu for access</td>
+</tr>
+<tr>
+<td><span class="tool-name">DubBot</span><br><a href="https://dubbot.com/">dubbot.com</a></td>
+<td><span class="badge badge-enterprise">Enterprise</span></td>
+<td>WCAG testing, broken links, spelling, site-wide dashboards, higher-ed focused</td>
+<td><span class="badge badge-ua">UA Licensed</span>— Contact accessibility@arizona.edu for access</td>
+</tr>
+<tr>
+<td><span class="tool-name">Deque axe Monitor</span><br><a href="https://www.deque.com/axe/monitor/">deque.com/axe/monitor</a></td>
+<td><span class="badge badge-enterprise">Enterprise</span></td>
+<td>Continuous monitoring, trend tracking, same engine as axe DevTools</td>
+<td>Not currently licensed; contact accessibility team if interested</td>
+</tr>
+<tr>
+<td><span class="tool-name">Pope Tech</span><br><a href="https://pope.tech/">pope.tech</a></td>
+<td><span class="badge badge-enterprise">Enterprise</span></td>
+<td>WAVE-based scanning, higher-ed pricing, LMS integration</td>
+<td>Not currently licensed</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-      <div class="recommendation-box">
-        <h4>🎯 Access at UA</h4>
-        <p>UA has enterprise licenses for <strong>SiteImprove</strong> and <strong>DubBot</strong>. Contact <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> to get access for your department or college.</p>
-      </div>
-    </section>
+<div class="recommendation-box">
+<h4>Access at UA</h4>
+<p>UA has enterprise licenses for<strong>SiteImprove</strong>and<strong>DubBot</strong>. Contact<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>to get access for your department or college.</p>
+</div>
+</section>
 
-    <section aria-labelledby="color-tools">
-      <h2 id="color-tools">🎨 Color &amp; Contrast Tools</h2>
-      
-      <div class="table-scroll">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th scope="col">Tool</th>
-              <th scope="col">Type</th>
-              <th scope="col">Best For</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="tool-name">WebAIM Contrast Checker</span><br><a href="https://webaim.org/resources/contrastchecker/">webaim.org/resources/contrastchecker</a></td>
-              <td>Web app</td>
-              <td>Quick checks, paste hex codes</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Colour Contrast Analyser</span><br><a href="https://www.tpgi.com/color-contrast-checker/">tpgi.com/color-contrast-checker</a></td>
-              <td>Desktop app</td>
-              <td>Pick colors from anywhere on screen</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Stark</span><br><a href="https://www.getstark.co/">getstark.co</a></td>
-              <td>Figma/Sketch plugin</td>
-              <td>Designers working in design tools</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Colorblindly</span><br>Chrome extension</td>
-              <td>Browser extension</td>
-              <td>Simulate colorblindness on any page</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<section aria-labelledby="color-tools">
+<h2 id="color-tools">Color &amp; Contrast Tools</h2>
+ 
+<div class="table-scroll">
+<table class="comparison-table">
+<thead>
+<tr>
+<th scope="col">Tool</th>
+<th scope="col">Type</th>
+<th scope="col">Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="tool-name">WebAIM Contrast Checker</span><br><a href="https://webaim.org/resources/contrastchecker/">webaim.org/resources/contrastchecker</a></td>
+<td>Web app</td>
+<td>Quick checks, paste hex codes</td>
+</tr>
+<tr>
+<td><span class="tool-name">Colour Contrast Analyser</span><br><a href="https://www.tpgi.com/color-contrast-checker/">tpgi.com/color-contrast-checker</a></td>
+<td>Desktop app</td>
+<td>Pick colors from anywhere on screen</td>
+</tr>
+<tr>
+<td><span class="tool-name">Stark</span><br><a href="https://www.getstark.co/">getstark.co</a></td>
+<td>Figma/Sketch plugin</td>
+<td>Designers working in design tools</td>
+</tr>
+<tr>
+<td><span class="tool-name">Colorblindly</span><br>Chrome extension</td>
+<td>Browser extension</td>
+<td>Simulate colorblindness on any page</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 
-    <section aria-labelledby="pdf-tools">
-      <h2 id="pdf-tools">📄 PDF &amp; Document Tools</h2>
-      
-      <div class="table-scroll">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th scope="col">Tool</th>
-              <th scope="col">Price</th>
-              <th scope="col">Best For</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="tool-name">Adobe Acrobat Pro</span></td>
-              <td><span class="badge badge-paid">Subscription</span> <span class="badge badge-ua">UA Licensed</span></td>
-              <td>Full PDF remediation—tagging, reading order, OCR</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">PAC 2024 (PDF Accessibility Checker)</span><br><a href="https://pdfua.foundation/en/pac-download">pdfua.foundation</a></td>
-              <td><span class="badge badge-free">Free</span></td>
-              <td>Checking PDF/UA compliance; detailed reports</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Microsoft Accessibility Checker</span></td>
-              <td><span class="badge badge-free">Free</span> (built-in)</td>
-              <td>Checking Word, PowerPoint, Excel before export</td>
-            </tr>
-            <tr>
-              <td><span class="tool-name">Grackle Docs</span><br><a href="https://www.grackledocs.com/">grackledocs.com</a></td>
-              <td><span class="badge badge-paid">Freemium</span></td>
-              <td>Google Docs/Slides accessibility checker</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<section aria-labelledby="pdf-tools">
+<h2 id="pdf-tools">PDF &amp; Document Tools</h2>
+ 
+<div class="table-scroll">
+<table class="comparison-table">
+<thead>
+<tr>
+<th scope="col">Tool</th>
+<th scope="col">Price</th>
+<th scope="col">Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="tool-name">Adobe Acrobat Pro</span></td>
+<td><span class="badge badge-paid">Subscription</span><span class="badge badge-ua">UA Licensed</span></td>
+<td>Full PDF remediation—tagging, reading order, OCR</td>
+</tr>
+<tr>
+<td><span class="tool-name">PAC 2024 (PDF Accessibility Checker)</span><br><a href="https://pdfua.foundation/en/pac-download">pdfua.foundation</a></td>
+<td><span class="badge badge-free">Free</span></td>
+<td>Checking PDF/UA compliance; detailed reports</td>
+</tr>
+<tr>
+<td><span class="tool-name">Microsoft Accessibility Checker</span></td>
+<td><span class="badge badge-free">Free</span>(built-in)</td>
+<td>Checking Word, PowerPoint, Excel before export</td>
+</tr>
+<tr>
+<td><span class="tool-name">Grackle Docs</span><br><a href="https://www.grackledocs.com/">grackledocs.com</a></td>
+<td><span class="badge badge-paid">Freemium</span></td>
+<td>Google Docs/Slides accessibility checker</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 
-    <section aria-labelledby="testing-matrix">
-      <h2 id="testing-matrix">✅ Recommended Testing Approach</h2>
-      <p>No single tool catches everything. Use this combination:</p>
-      <ol>
-        <li><strong>Automated scan:</strong> WAVE or axe DevTools (catches ~30-40% of issues)</li>
-        <li><strong>Keyboard testing:</strong> Tab through the page manually</li>
-        <li><strong>Screen reader:</strong> NVDA or VoiceOver (catches semantic issues)</li>
-        <li><strong>Visual check:</strong> Zoom to 200%, check contrast, color-only indicators</li>
-        <li><strong>Enterprise scan:</strong> SiteImprove/DubBot for ongoing monitoring</li>
-      </ol>
-    </section>
+<section aria-labelledby="testing-matrix">
+<h2 id="testing-matrix">Recommended Testing Approach</h2>
+<p>No single tool catches everything. Use this combination:</p>
+<ol>
+<li><strong>Automated scan:</strong>WAVE or axe DevTools (catches ~30-40% of issues)</li>
+<li><strong>Keyboard testing:</strong>Tab through the page manually</li>
+<li><strong>Screen reader:</strong>NVDA or VoiceOver (catches semantic issues)</li>
+<li><strong>Visual check:</strong>Zoom to 200%, check contrast, color-only indicators</li>
+<li><strong>Enterprise scan:</strong>SiteImprove/DubBot for ongoing monitoring</li>
+</ol>
+</section>
 
-    <p><a href="#maincontent">Back to top</a></p>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p><a href="accessibility-statement.html">Accessibility Statement</a></p>
-  </footer>
+<p><a href="#maincontent">Back to top</a></p>
+</main>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p><a href="accessibility-statement.html">Accessibility Statement</a></p>
+</footer>
 </body>
 </html>

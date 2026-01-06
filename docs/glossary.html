@@ -1,486 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Glossary | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
-  <style>
-    .glossary-search {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-      border: 2px solid var(--arizona-blue);
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-    }
-    .glossary-search:focus {
-      outline: 3px solid var(--arizona-red);
-      outline-offset: 2px;
-    }
-    .glossary-list {
-      list-style: none;
-      padding: 0;
-    }
-    .glossary-item {
-      border-bottom: 1px solid #e0e0e0;
-      padding: 1rem 0;
-    }
-    .glossary-item:last-child {
-      border-bottom: none;
-    }
-    .glossary-term {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: var(--arizona-blue);
-    }
-    .glossary-abbr {
-      font-weight: normal;
-      color: #666;
-      font-size: 0.9rem;
-    }
-    .glossary-def {
-      margin-top: 0.5rem;
-      line-height: 1.6;
-    }
-    .glossary-see-also {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .alpha-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      background: #f5f5f5;
-      border-radius: 4px;
-    }
-    .alpha-nav a {
-      padding: 0.25rem 0.5rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hidden {
-      display: none !important;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Accessibility Glossary | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
+<style>
+ .glossary-search {
+ width: 100%;
+ padding: 0.75rem 1rem;
+ font-size: 1rem;
+ border: 2px solid var(--arizona-blue);
+ border-radius: 4px;
+ margin-bottom: 1.5rem;
+ }
+ .glossary-search:focus {
+ outline: 3px solid var(--arizona-red);
+ outline-offset: 2px;
+ }
+ .glossary-list {
+ list-style: none;
+ padding: 0;
+ }
+ .glossary-item {
+ border-bottom: 1px solid #e0e0e0;
+ padding: 1rem 0;
+ }
+ .glossary-item:last-child {
+ border-bottom: none;
+ }
+ .glossary-term {
+ font-weight: bold;
+ font-size: 1.1rem;
+ color: var(--arizona-blue);
+ }
+ .glossary-abbr {
+ font-weight: normal;
+ color: #666;
+ font-size: 0.9rem;
+ }
+ .glossary-def {
+ margin-top: 0.5rem;
+ line-height: 1.6;
+ }
+ .glossary-see-also {
+ margin-top: 0.5rem;
+ font-size: 0.9rem;
+ color: #666;
+ }
+ .alpha-nav {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.5rem;
+ margin-bottom: 1.5rem;
+ padding: 1rem;
+ background: #f5f5f5;
+ border-radius: 4px;
+ }
+ .alpha-nav a {
+ padding: 0.25rem 0.5rem;
+ text-decoration: none;
+ font-weight: bold;
+ }
+ .hidden {
+ display: none !important;
+ }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-      <nav class="site-header-nav" aria-label="Primary" role="navigation">
-        <a href="home.html">Home</a>
-        <a href="roles.html">I Am A...</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="glossary.html" aria-current="page">Glossary</a>
-        <a href="faq.html">FAQ</a>
-        <a href="support.html">Get help</a>
-      </nav>
-      <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
-        <label for="role-select">I am a...</label>
-        <select id="role-select" name="role">
-          <option value="">Choose your role</option>
-          <option value="persona-students.html">Student or Family Member</option>
-          <option value="persona-faculty.html">Faculty or Instructor</option>
-          <option value="persona-staff.html">Staff Member</option>
-          <option value="persona-developers.html">Developer</option>
-          <option value="persona-mobile.html">Mobile App Team</option>
-          <option value="persona-content.html">Content Creator</option>
-          <option value="persona-comms.html">Communications / Marketing</option>
-          <option value="persona-leadership.html">Leadership / Executive</option>
-          <option value="persona-public.html">Visitor / Community</option>
-        </select>
-        <button type="submit" class="go-btn">Go</button>
-      </form>
-    </div>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="accessibility-101.html">Accessibility 101</a></li>
-        <li aria-current="page">Glossary</li>
-      </ol>
-    </nav>
-    <h1>Accessibility Glossary</h1>
-    <p>Plain-language definitions for accessibility terms. Search or browse alphabetically.</p>
-  </header>
-  <main id="maincontent" role="main">
-    <section aria-labelledby="search-heading">
-      <h2 id="search-heading" class="visually-hidden">Search glossary</h2>
-      <label for="glossary-filter" class="visually-hidden">Filter glossary terms</label>
-      <input type="search" id="glossary-filter" class="glossary-search" placeholder="🔍 Type to filter terms (e.g., WCAG, screen reader, alt text)..." />
-    </section>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<a href="home.html">Home</a>
+<a href="roles.html">I Am A...</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies &amp; Governance</a>
+<a href="support.html">Support</a>
+</nav>
+<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<a href="accessibility-101.html">Accessibility 101</a>
+<a href="glossary.html" aria-current="page">Glossary</a>
+<a href="faq.html">FAQ</a>
+<a href="support.html">Get help</a>
+</nav>
+<form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+<label for="role-select">I am a...</label>
+<select id="role-select" name="role">
+<option value="">Choose your role</option>
+<option value="persona-students.html">Student or Family Member</option>
+<option value="persona-faculty.html">Faculty or Instructor</option>
+<option value="persona-staff.html">Staff Member</option>
+<option value="persona-developers.html">Developer</option>
+<option value="persona-mobile.html">Mobile App Team</option>
+<option value="persona-content.html">Content Creator</option>
+<option value="persona-comms.html">Communications / Marketing</option>
+<option value="persona-leadership.html">Leadership / Executive</option>
+<option value="persona-public.html">Visitor / Community</option>
+</select>
+<button type="submit" class="go-btn">Go</button>
+</form>
+</div>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<ol>
+<li><a href="home.html">Home</a></li>
+<li><a href="accessibility-101.html">Accessibility 101</a></li>
+<li aria-current="page">Glossary</li>
+</ol>
+</nav>
+<h1>Accessibility Glossary</h1>
+<p>Plain-language definitions for accessibility terms. Search or browse alphabetically.</p>
+</header>
+<main id="maincontent" role="main">
+<section aria-labelledby="search-heading">
+<h2 id="search-heading" class="visually-hidden">Search glossary</h2>
+<label for="glossary-filter" class="visually-hidden">Filter glossary terms</label>
+<input type="search" id="glossary-filter" class="glossary-search" placeholder=" Type to filter terms (e.g., WCAG, screen reader, alt text)..." />
+</section>
 
-    <nav class="alpha-nav" aria-label="Alphabetical navigation">
-      <a href="#section-a">A</a>
-      <a href="#section-c">C</a>
-      <a href="#section-d">D</a>
-      <a href="#section-f">F</a>
-      <a href="#section-i">I</a>
-      <a href="#section-j">J</a>
-      <a href="#section-k">K</a>
-      <a href="#section-l">L</a>
-      <a href="#section-m">M</a>
-      <a href="#section-n">N</a>
-      <a href="#section-p">P</a>
-      <a href="#section-s">S</a>
-      <a href="#section-t">T</a>
-      <a href="#section-u">U</a>
-      <a href="#section-v">V</a>
-      <a href="#section-w">W</a>
-    </nav>
+<nav class="alpha-nav" aria-label="Alphabetical navigation">
+<a href="#section-a">A</a>
+<a href="#section-c">C</a>
+<a href="#section-d">D</a>
+<a href="#section-f">F</a>
+<a href="#section-i">I</a>
+<a href="#section-j">J</a>
+<a href="#section-k">K</a>
+<a href="#section-l">L</a>
+<a href="#section-m">M</a>
+<a href="#section-n">N</a>
+<a href="#section-p">P</a>
+<a href="#section-s">S</a>
+<a href="#section-t">T</a>
+<a href="#section-u">U</a>
+<a href="#section-v">V</a>
+<a href="#section-w">W</a>
+</nav>
 
-    <section id="section-a" aria-labelledby="heading-a">
-      <h2 id="heading-a">A</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="ableism discrimination bias">
-          <span class="glossary-term">Ableism</span>
-          <p class="glossary-def">A pervasive system of discrimination that privileges people without disabilities and disadvantages people with disabilities. Like other forms of oppression, ableism operates on individual, institutional, and cultural levels. It includes attitudes, actions, and circumstances that devalue people because of disability.</p>
-          <p class="glossary-see-also">Source: <a href="https://doit.uw.edu/knowledge-base/what-is-ableism/">UW DO-IT<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="accessibility a11y">
-          <span class="glossary-term">Accessibility (a11y)</span>
-          <p class="glossary-def">The practice of making digital content usable by people with disabilities. The abbreviation "a11y" comes from the word "accessibility" (a + 11 letters + y).</p>
-        </li>
-        <li class="glossary-item" data-terms="ada americans with disabilities act">
-          <span class="glossary-term">ADA</span> <span class="glossary-abbr">(Americans with Disabilities Act)</span>
-          <p class="glossary-def">A U.S. civil rights law that prohibits discrimination against individuals with disabilities. Title II applies to public entities like universities.</p>
-          <p class="glossary-see-also">See also: <a href="#section-t">Title II</a>, <a href="#section-s">Section 508</a></p>
-        </li>
-        <li class="glossary-item" data-terms="alternative text alt text image description">
-          <span class="glossary-term">Alt text (Alternative text)</span>
-          <p class="glossary-def">A text description of an image that screen readers announce to users who cannot see the image. Should convey the purpose or content of the image, not just describe it literally.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://webaim.org/techniques/alttext/">WebAIM Alt Text Guide<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="aria accessible rich internet applications wai-aria">
-          <span class="glossary-term">ARIA</span> <span class="glossary-abbr">(Accessible Rich Internet Applications)</span>
-          <p class="glossary-def">A set of HTML attributes that define ways to make web content more accessible. ARIA provides extra information to assistive technologies about widgets, structures, and behaviors.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="assistive technology at">
-          <span class="glossary-term">Assistive Technology (AT)</span>
-          <p class="glossary-def">Hardware or software that helps people with disabilities use computers and digital content. Examples include screen readers, screen magnifiers, alternative keyboards, and switch devices.</p>
-          <p class="glossary-see-also">See also: <a href="#section-j">JAWS</a>, <a href="#section-n">NVDA</a>, <a href="#section-v">VoiceOver</a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-a" aria-labelledby="heading-a">
+<h2 id="heading-a">A</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="ableism discrimination bias">
+<span class="glossary-term">Ableism</span>
+<p class="glossary-def">A pervasive system of discrimination that privileges people without disabilities and disadvantages people with disabilities. Like other forms of oppression, ableism operates on individual, institutional, and cultural levels. It includes attitudes, actions, and circumstances that devalue people because of disability.</p>
+<p class="glossary-see-also">Source:<a href="https://doit.uw.edu/knowledge-base/what-is-ableism/">UW DO-IT<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="accessibility a11y">
+<span class="glossary-term">Accessibility (a11y)</span>
+<p class="glossary-def">The practice of making digital content usable by people with disabilities. The abbreviation "a11y" comes from the word "accessibility" (a + 11 letters + y).</p>
+</li>
+<li class="glossary-item" data-terms="ada americans with disabilities act">
+<span class="glossary-term">ADA</span><span class="glossary-abbr">(Americans with Disabilities Act)</span>
+<p class="glossary-def">A U.S. civil rights law that prohibits discrimination against individuals with disabilities. Title II applies to public entities like universities.</p>
+<p class="glossary-see-also">See also:<a href="#section-t">Title II</a>,<a href="#section-s">Section 508</a></p>
+</li>
+<li class="glossary-item" data-terms="alternative text alt text image description">
+<span class="glossary-term">Alt text (Alternative text)</span>
+<p class="glossary-def">A text description of an image that screen readers announce to users who cannot see the image. Should convey the purpose or content of the image, not just describe it literally.</p>
+<p class="glossary-see-also">Learn more:<a href="https://webaim.org/techniques/alttext/">WebAIM Alt Text Guide<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="aria accessible rich internet applications wai-aria">
+<span class="glossary-term">ARIA</span><span class="glossary-abbr">(Accessible Rich Internet Applications)</span>
+<p class="glossary-def">A set of HTML attributes that define ways to make web content more accessible. ARIA provides extra information to assistive technologies about widgets, structures, and behaviors.</p>
+<p class="glossary-see-also">Learn more:<a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="assistive technology at">
+<span class="glossary-term">Assistive Technology (AT)</span>
+<p class="glossary-def">Hardware or software that helps people with disabilities use computers and digital content. Examples include screen readers, screen magnifiers, alternative keyboards, and switch devices.</p>
+<p class="glossary-see-also">See also:<a href="#section-j">JAWS</a>,<a href="#section-n">NVDA</a>,<a href="#section-v">VoiceOver</a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-c" aria-labelledby="heading-c">
-      <h2 id="heading-c">C</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="captions subtitles closed captions cc">
-          <span class="glossary-term">Captions (Closed Captions)</span>
-          <p class="glossary-def">Text displayed on video that represents the audio content, including dialogue and important sounds. "Closed" means they can be turned on/off; "open" means they're burned into the video.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://www.w3.org/WAI/media/av/captions/">W3C Captions Guide<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="cart communication access realtime translation">
-          <span class="glossary-term">CART</span> <span class="glossary-abbr">(Communication Access Realtime Translation)</span>
-          <p class="glossary-def">Real-time captioning provided by a trained stenographer who types what's being said during a live event. More accurate than automated captions.</p>
-        </li>
-        <li class="glossary-item" data-terms="color contrast ratio">
-          <span class="glossary-term">Color Contrast</span>
-          <p class="glossary-def">The difference in brightness between text and its background. WCAG requires a minimum ratio of 4.5:1 for normal text and 3:1 for large text to ensure readability.</p>
-          <p class="glossary-see-also">Tool: <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-c" aria-labelledby="heading-c">
+<h2 id="heading-c">C</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="captions subtitles closed captions cc">
+<span class="glossary-term">Captions (Closed Captions)</span>
+<p class="glossary-def">Text displayed on video that represents the audio content, including dialogue and important sounds. "Closed" means they can be turned on/off; "open" means they're burned into the video.</p>
+<p class="glossary-see-also">Learn more:<a href="https://www.w3.org/WAI/media/av/captions/">W3C Captions Guide<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="cart communication access realtime translation">
+<span class="glossary-term">CART</span><span class="glossary-abbr">(Communication Access Realtime Translation)</span>
+<p class="glossary-def">Real-time captioning provided by a trained stenographer who types what's being said during a live event. More accurate than automated captions.</p>
+</li>
+<li class="glossary-item" data-terms="color contrast ratio">
+<span class="glossary-term">Color Contrast</span>
+<p class="glossary-def">The difference in brightness between text and its background. WCAG requires a minimum ratio of 4.5:1 for normal text and 3:1 for large text to ensure readability.</p>
+<p class="glossary-see-also">Tool:<a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-d" aria-labelledby="heading-d">
-      <h2 id="heading-d">D</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="drc disability resource center">
-          <span class="glossary-term">DRC</span> <span class="glossary-abbr">(Disability Resource Center)</span>
-          <p class="glossary-def">The UA office that provides accommodations and support services for students with disabilities. Faculty receive accommodation letters from the DRC.</p>
-          <p class="glossary-see-also">Visit: <a href="https://drc.arizona.edu">DRC Website<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-d" aria-labelledby="heading-d">
+<h2 id="heading-d">D</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="drc disability resource center">
+<span class="glossary-term">DRC</span><span class="glossary-abbr">(Disability Resource Center)</span>
+<p class="glossary-def">The UA office that provides accommodations and support services for students with disabilities. Faculty receive accommodation letters from the DRC.</p>
+<p class="glossary-see-also">Visit:<a href="https://drc.arizona.edu">DRC Website<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-f" aria-labelledby="heading-f">
-      <h2 id="heading-f">F</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="focus focus indicator focus ring keyboard focus">
-          <span class="glossary-term">Focus Indicator</span>
-          <p class="glossary-def">A visible outline or highlight that shows which element on a page currently has keyboard focus. Essential for keyboard users to know where they are on a page.</p>
-        </li>
-        <li class="glossary-item" data-terms="fundamental alteration undue burden">
-          <span class="glossary-term">Fundamental Alteration</span>
-          <p class="glossary-def">A legal defense where making content accessible would fundamentally change the nature of a program or service. Requires formal documentation and approval; rarely applies.</p>
-        </li>
-      </ul>
-    </section>
+<section id="section-f" aria-labelledby="heading-f">
+<h2 id="heading-f">F</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="focus focus indicator focus ring keyboard focus">
+<span class="glossary-term">Focus Indicator</span>
+<p class="glossary-def">A visible outline or highlight that shows which element on a page currently has keyboard focus. Essential for keyboard users to know where they are on a page.</p>
+</li>
+<li class="glossary-item" data-terms="fundamental alteration undue burden">
+<span class="glossary-term">Fundamental Alteration</span>
+<p class="glossary-def">A legal defense where making content accessible would fundamentally change the nature of a program or service. Requires formal documentation and approval; rarely applies.</p>
+</li>
+</ul>
+</section>
 
-    <section id="section-i" aria-labelledby="heading-i">
-      <h2 id="heading-i">I</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="identity-first person-first language">
-          <span class="glossary-term">Identity-First Language</span>
-          <p class="glossary-def">Language that leads with the disability (e.g., "disabled person," "autistic person"). Preferred by many in the disability community who view their disability as an integral part of their identity, not something separate from who they are. Contrasts with person-first language. When in doubt, follow the individual's preference.</p>
-          <p class="glossary-see-also">See also: Person-First Language</p>
-        </li>
-        <li class="glossary-item" data-terms="intersectionality multiple identities">
-          <span class="glossary-term">Intersectionality</span>
-          <p class="glossary-def">The concept that individuals hold multiple social identities (such as race, gender, disability, socioeconomic status) that interact and create unique experiences of privilege and oppression. A Black woman with a disability, for example, may face barriers that are distinct from those faced by white disabled people or Black people without disabilities.</p>
-          <p class="glossary-see-also">Source: <a href="https://doit.uw.edu/knowledge-base/what-is-intersectionality-in-the-context-of-working-with-students-who-have-disabilities/">UW DO-IT<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="invisible disability hidden disability non-apparent">
-          <span class="glossary-term">Invisible Disability</span>
-          <p class="glossary-def">A disability that is not immediately apparent to others. Examples include learning disabilities, attention deficits, autism spectrum disorders, psychiatric impairments, chronic pain, diabetes, and many others. People with invisible disabilities often face unique challenges, including disbelief or having their needs questioned.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://doit.uw.edu/collections/invisible-disabilities/">UW DO-IT: Invisible Disabilities<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-i" aria-labelledby="heading-i">
+<h2 id="heading-i">I</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="identity-first person-first language">
+<span class="glossary-term">Identity-First Language</span>
+<p class="glossary-def">Language that leads with the disability (e.g., "disabled person," "autistic person"). Preferred by many in the disability community who view their disability as an integral part of their identity, not something separate from who they are. Contrasts with person-first language. When in doubt, follow the individual's preference.</p>
+<p class="glossary-see-also">See also: Person-First Language</p>
+</li>
+<li class="glossary-item" data-terms="intersectionality multiple identities">
+<span class="glossary-term">Intersectionality</span>
+<p class="glossary-def">The concept that individuals hold multiple social identities (such as race, gender, disability, socioeconomic status) that interact and create unique experiences of privilege and oppression. A Black woman with a disability, for example, may face barriers that are distinct from those faced by white disabled people or Black people without disabilities.</p>
+<p class="glossary-see-also">Source:<a href="https://doit.uw.edu/knowledge-base/what-is-intersectionality-in-the-context-of-working-with-students-who-have-disabilities/">UW DO-IT<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="invisible disability hidden disability non-apparent">
+<span class="glossary-term">Invisible Disability</span>
+<p class="glossary-def">A disability that is not immediately apparent to others. Examples include learning disabilities, attention deficits, autism spectrum disorders, psychiatric impairments, chronic pain, diabetes, and many others. People with invisible disabilities often face unique challenges, including disbelief or having their needs questioned.</p>
+<p class="glossary-see-also">Learn more:<a href="https://doit.uw.edu/collections/invisible-disabilities/">UW DO-IT: Invisible Disabilities<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-j" aria-labelledby="heading-j">
-      <h2 id="heading-j">J</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="jaws screen reader freedom scientific">
-          <span class="glossary-term">JAWS</span> <span class="glossary-abbr">(Job Access With Speech)</span>
-          <p class="glossary-def">A commercial screen reader for Windows made by Freedom Scientific. One of the most widely used screen readers, especially in enterprise and education settings.</p>
-        </li>
-      </ul>
-    </section>
+<section id="section-j" aria-labelledby="heading-j">
+<h2 id="heading-j">J</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="jaws screen reader freedom scientific">
+<span class="glossary-term">JAWS</span><span class="glossary-abbr">(Job Access With Speech)</span>
+<p class="glossary-def">A commercial screen reader for Windows made by Freedom Scientific. One of the most widely used screen readers, especially in enterprise and education settings.</p>
+</li>
+</ul>
+</section>
 
-    <section id="section-k" aria-labelledby="heading-k">
-      <h2 id="heading-k">K</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="keyboard accessibility keyboard navigation tab">
-          <span class="glossary-term">Keyboard Accessibility</span>
-          <p class="glossary-def">The ability to use a website or application using only the keyboard (Tab, Enter, Arrow keys, Escape). Critical for users who cannot use a mouse.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://webaim.org/techniques/keyboard/">WebAIM Keyboard Guide<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-k" aria-labelledby="heading-k">
+<h2 id="heading-k">K</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="keyboard accessibility keyboard navigation tab">
+<span class="glossary-term">Keyboard Accessibility</span>
+<p class="glossary-def">The ability to use a website or application using only the keyboard (Tab, Enter, Arrow keys, Escape). Critical for users who cannot use a mouse.</p>
+<p class="glossary-see-also">Learn more:<a href="https://webaim.org/techniques/keyboard/">WebAIM Keyboard Guide<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-l" aria-labelledby="heading-l">
-      <h2 id="heading-l">L</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="landmark aria landmark region navigation main">
-          <span class="glossary-term">Landmarks</span>
-          <p class="glossary-def">Regions of a page that screen readers can jump to directly, like navigation, main content, and footer. Defined using HTML5 elements (nav, main, footer) or ARIA roles.</p>
-        </li>
-        <li class="glossary-item" data-terms="live region aria-live announcements">
-          <span class="glossary-term">Live Region</span>
-          <p class="glossary-def">A page area that announces changes to screen reader users automatically, without requiring them to navigate there. Used for alerts, status updates, and chat messages.</p>
-        </li>
-      </ul>
-    </section>
+<section id="section-l" aria-labelledby="heading-l">
+<h2 id="heading-l">L</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="landmark aria landmark region navigation main">
+<span class="glossary-term">Landmarks</span>
+<p class="glossary-def">Regions of a page that screen readers can jump to directly, like navigation, main content, and footer. Defined using HTML5 elements (nav, main, footer) or ARIA roles.</p>
+</li>
+<li class="glossary-item" data-terms="live region aria-live announcements">
+<span class="glossary-term">Live Region</span>
+<p class="glossary-def">A page area that announces changes to screen reader users automatically, without requiring them to navigate there. Used for alerts, status updates, and chat messages.</p>
+</li>
+</ul>
+</section>
 
-    <section id="section-m" aria-labelledby="heading-m">
-      <h2 id="heading-m">M</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="medical model disability deficit">
-          <span class="glossary-term">Medical Model of Disability</span>
-          <p class="glossary-def">A framework that views disability as a deficit or problem located within the individual that needs to be "fixed" or cured through medical intervention. Often contrasted with the social model.</p>
-          <p class="glossary-see-also">See also: Social Model of Disability</p>
-        </li>
-        <li class="glossary-item" data-terms="models of disability social medical charity">
-          <span class="glossary-term">Models of Disability</span>
-          <p class="glossary-def">Different conceptual frameworks for understanding disability. Major models include: (1) <strong>Medical model</strong> – views disability as a defect to be cured; (2) <strong>Social model</strong> – views disability as created by societal barriers; (3) <strong>Charity model</strong> – views disabled people as objects of pity needing help; (4) <strong>Rights-based model</strong> – views disability through a civil rights lens. Most accessibility professionals align with the social or rights-based model.</p>
-          <p class="glossary-see-also">Source: <a href="https://doit.uw.edu/knowledge-base/what-are-different-models-of-disability/">UW DO-IT<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-m" aria-labelledby="heading-m">
+<h2 id="heading-m">M</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="medical model disability deficit">
+<span class="glossary-term">Medical Model of Disability</span>
+<p class="glossary-def">A framework that views disability as a deficit or problem located within the individual that needs to be "fixed" or cured through medical intervention. Often contrasted with the social model.</p>
+<p class="glossary-see-also">See also: Social Model of Disability</p>
+</li>
+<li class="glossary-item" data-terms="models of disability social medical charity">
+<span class="glossary-term">Models of Disability</span>
+<p class="glossary-def">Different conceptual frameworks for understanding disability. Major models include: (1)<strong>Medical model</strong>– views disability as a defect to be cured; (2)<strong>Social model</strong>– views disability as created by societal barriers; (3)<strong>Charity model</strong>– views disabled people as objects of pity needing help; (4)<strong>Rights-based model</strong>– views disability through a civil rights lens. Most accessibility professionals align with the social or rights-based model.</p>
+<p class="glossary-see-also">Source:<a href="https://doit.uw.edu/knowledge-base/what-are-different-models-of-disability/">UW DO-IT<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-n" aria-labelledby="heading-n">
-      <h2 id="heading-n">N</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="neurodiversity neurodiverse">
-          <span class="glossary-term">Neurodiversity</span>
-          <p class="glossary-def">The concept that neurological differences (such as autism, ADHD, dyslexia, and other conditions) are natural variations in the human genome, not deficits to be cured. Introduced in the 1990s by autistic sociologist Judy Singer. The term emphasizes that diverse ways of thinking and processing information have value.</p>
-          <p class="glossary-see-also">Source: <a href="https://doit.uw.edu/knowledge-base/what-do-neurodiverse-and-neurodivergent-mean/">UW DO-IT<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="neurodivergent nd">
-          <span class="glossary-term">Neurodivergent</span>
-          <p class="glossary-def">Describes an individual whose brain functions differently from what is considered "typical" or "neurotypical." Includes people with autism, ADHD, dyslexia, dyscalculia, Tourette syndrome, and other neurological differences. The term is often used as an identity term by those in the neurodiversity movement.</p>
-        </li>
-        <li class="glossary-item" data-terms="neurotypical nt">
-          <span class="glossary-term">Neurotypical</span>
-          <p class="glossary-def">Describes an individual whose neurological development and functioning are considered typical or standard. Used in contrast to "neurodivergent."</p>
-        </li>
-        <li class="glossary-item" data-terms="nvda nonvisual desktop access screen reader">
-          <span class="glossary-term">NVDA</span> <span class="glossary-abbr">(NonVisual Desktop Access)</span>
-          <p class="glossary-def">A free, open-source screen reader for Windows. Widely used and an excellent choice for testing. Made by NV Access.</p>
-          <p class="glossary-see-also">Download: <a href="https://www.nvaccess.org/">NV Access<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-n" aria-labelledby="heading-n">
+<h2 id="heading-n">N</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="neurodiversity neurodiverse">
+<span class="glossary-term">Neurodiversity</span>
+<p class="glossary-def">The concept that neurological differences (such as autism, ADHD, dyslexia, and other conditions) are natural variations in the human genome, not deficits to be cured. Introduced in the 1990s by autistic sociologist Judy Singer. The term emphasizes that diverse ways of thinking and processing information have value.</p>
+<p class="glossary-see-also">Source:<a href="https://doit.uw.edu/knowledge-base/what-do-neurodiverse-and-neurodivergent-mean/">UW DO-IT<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="neurodivergent nd">
+<span class="glossary-term">Neurodivergent</span>
+<p class="glossary-def">Describes an individual whose brain functions differently from what is considered "typical" or "neurotypical." Includes people with autism, ADHD, dyslexia, dyscalculia, Tourette syndrome, and other neurological differences. The term is often used as an identity term by those in the neurodiversity movement.</p>
+</li>
+<li class="glossary-item" data-terms="neurotypical nt">
+<span class="glossary-term">Neurotypical</span>
+<p class="glossary-def">Describes an individual whose neurological development and functioning are considered typical or standard. Used in contrast to "neurodivergent."</p>
+</li>
+<li class="glossary-item" data-terms="nvda nonvisual desktop access screen reader">
+<span class="glossary-term">NVDA</span><span class="glossary-abbr">(NonVisual Desktop Access)</span>
+<p class="glossary-def">A free, open-source screen reader for Windows. Widely used and an excellent choice for testing. Made by NV Access.</p>
+<p class="glossary-see-also">Download:<a href="https://www.nvaccess.org/">NV Access<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-p" aria-labelledby="heading-p">
-      <h2 id="heading-p">P</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="pdf portable document format tagged pdf">
-          <span class="glossary-term">PDF (Tagged PDF)</span>
-          <p class="glossary-def">A PDF file that includes structural information (tags) that define reading order, headings, lists, and alternative text. Required for screen readers to interpret the document correctly.</p>
-          <p class="glossary-see-also">Learn more: <a href="pdf-remediation.html">PDF Remediation Guide</a></p>
-        </li>
-        <li class="glossary-item" data-terms="person-first language people with disabilities">
-          <span class="glossary-term">Person-First Language</span>
-          <p class="glossary-def">Language that puts the person before the disability (e.g., "person with a disability," "student who is blind"). Emphasizes that the person is not defined by their disability. Preferred by some, though others prefer identity-first language. When in doubt, ask the individual.</p>
-          <p class="glossary-see-also">See also: Identity-First Language</p>
-        </li>
-        <li class="glossary-item" data-terms="pour perceivable operable understandable robust">
-          <span class="glossary-term">POUR</span>
-          <p class="glossary-def">The four principles of WCAG: <strong>P</strong>erceivable, <strong>O</strong>perable, <strong>U</strong>nderstandable, <strong>R</strong>obust. All accessibility requirements fall under one of these principles.</p>
-        </li>
-      </ul>
-    </section>
+<section id="section-p" aria-labelledby="heading-p">
+<h2 id="heading-p">P</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="pdf portable document format tagged pdf">
+<span class="glossary-term">PDF (Tagged PDF)</span>
+<p class="glossary-def">A PDF file that includes structural information (tags) that define reading order, headings, lists, and alternative text. Required for screen readers to interpret the document correctly.</p>
+<p class="glossary-see-also">Learn more:<a href="pdf-remediation.html">PDF Remediation Guide</a></p>
+</li>
+<li class="glossary-item" data-terms="person-first language people with disabilities">
+<span class="glossary-term">Person-First Language</span>
+<p class="glossary-def">Language that puts the person before the disability (e.g., "person with a disability," "student who is blind"). Emphasizes that the person is not defined by their disability. Preferred by some, though others prefer identity-first language. When in doubt, ask the individual.</p>
+<p class="glossary-see-also">See also: Identity-First Language</p>
+</li>
+<li class="glossary-item" data-terms="pour perceivable operable understandable robust">
+<span class="glossary-term">POUR</span>
+<p class="glossary-def">The four principles of WCAG:<strong>P</strong>erceivable,<strong>O</strong>perable,<strong>U</strong>nderstandable,<strong>R</strong>obust. All accessibility requirements fall under one of these principles.</p>
+</li>
+</ul>
+</section>
 
-    <section id="section-s" aria-labelledby="heading-s">
-      <h2 id="heading-s">S</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="screen reader sr jaws nvda voiceover talkback">
-          <span class="glossary-term">Screen Reader</span>
-          <p class="glossary-def">Software that reads digital content aloud or sends it to a braille display. Used primarily by people who are blind or have low vision. Common examples: JAWS, NVDA, VoiceOver, TalkBack.</p>
-        </li>
-        <li class="glossary-item" data-terms="section 508 rehabilitation act federal">
-          <span class="glossary-term">Section 508</span>
-          <p class="glossary-def">Part of the U.S. Rehabilitation Act requiring federal agencies to make their electronic and information technology accessible. Often used as a procurement standard.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://www.section508.gov/">Section508.gov<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="semantic html structure heading">
-          <span class="glossary-term">Semantic HTML</span>
-          <p class="glossary-def">Using HTML elements for their intended purpose (headings for headings, lists for lists, buttons for buttons). Provides structure that assistive technologies understand.</p>
-        </li>
-        <li class="glossary-item" data-terms="skip link bypass navigation">
-          <span class="glossary-term">Skip Link</span>
-          <p class="glossary-def">A link at the top of a page that lets keyboard users skip past repetitive navigation and jump directly to the main content. Usually visible only when focused.</p>
-        </li>
-        <li class="glossary-item" data-terms="social model disability barriers society">
-          <span class="glossary-term">Social Model of Disability</span>
-          <p class="glossary-def">A framework that views disability as created by barriers in society—physical, attitudinal, and systemic—rather than by an individual's impairment. Under this model, a wheelchair user is disabled not by their inability to walk, but by buildings without ramps. This model drives most modern accessibility work.</p>
-          <p class="glossary-see-also">See also: Medical Model of Disability, Models of Disability</p>
-        </li>
-      </ul>
-    </section>
-      </ul>
-    </section>
+<section id="section-s" aria-labelledby="heading-s">
+<h2 id="heading-s">S</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="screen reader sr jaws nvda voiceover talkback">
+<span class="glossary-term">Screen Reader</span>
+<p class="glossary-def">Software that reads digital content aloud or sends it to a braille display. Used primarily by people who are blind or have low vision. Common examples: JAWS, NVDA, VoiceOver, TalkBack.</p>
+</li>
+<li class="glossary-item" data-terms="section 508 rehabilitation act federal">
+<span class="glossary-term">Section 508</span>
+<p class="glossary-def">Part of the U.S. Rehabilitation Act requiring federal agencies to make their electronic and information technology accessible. Often used as a procurement standard.</p>
+<p class="glossary-see-also">Learn more:<a href="https://www.section508.gov/">Section508.gov<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="semantic html structure heading">
+<span class="glossary-term">Semantic HTML</span>
+<p class="glossary-def">Using HTML elements for their intended purpose (headings for headings, lists for lists, buttons for buttons). Provides structure that assistive technologies understand.</p>
+</li>
+<li class="glossary-item" data-terms="skip link bypass navigation">
+<span class="glossary-term">Skip Link</span>
+<p class="glossary-def">A link at the top of a page that lets keyboard users skip past repetitive navigation and jump directly to the main content. Usually visible only when focused.</p>
+</li>
+<li class="glossary-item" data-terms="social model disability barriers society">
+<span class="glossary-term">Social Model of Disability</span>
+<p class="glossary-def">A framework that views disability as created by barriers in society—physical, attitudinal, and systemic—rather than by an individual's impairment. Under this model, a wheelchair user is disabled not by their inability to walk, but by buildings without ramps. This model drives most modern accessibility work.</p>
+<p class="glossary-see-also">See also: Medical Model of Disability, Models of Disability</p>
+</li>
+</ul>
+</section>
+</ul>
+</section>
 
-    <section id="section-t" aria-labelledby="heading-t">
-      <h2 id="heading-t">T</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="talkback android screen reader google">
-          <span class="glossary-term">TalkBack</span>
-          <p class="glossary-def">The built-in screen reader for Android devices. Uses gestures for navigation and speaks content aloud.</p>
-        </li>
-        <li class="glossary-item" data-terms="title ii ada public entity">
-          <span class="glossary-term">Title II (ADA)</span>
-          <p class="glossary-def">The section of the ADA that applies to state and local governments, including public universities. Requires accessible programs, services, and activities—including digital ones.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://www.ada.gov/resources/web-guidance/">ADA Web Guidance<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="transcript text alternative audio">
-          <span class="glossary-term">Transcript</span>
-          <p class="glossary-def">A text version of audio or video content. Includes all spoken words and describes important sounds. Can be read or searched, unlike captions which are time-synced.</p>
-        </li>
-      </ul>
-    </section>
+<section id="section-t" aria-labelledby="heading-t">
+<h2 id="heading-t">T</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="talkback android screen reader google">
+<span class="glossary-term">TalkBack</span>
+<p class="glossary-def">The built-in screen reader for Android devices. Uses gestures for navigation and speaks content aloud.</p>
+</li>
+<li class="glossary-item" data-terms="title ii ada public entity">
+<span class="glossary-term">Title II (ADA)</span>
+<p class="glossary-def">The section of the ADA that applies to state and local governments, including public universities. Requires accessible programs, services, and activities—including digital ones.</p>
+<p class="glossary-see-also">Learn more:<a href="https://www.ada.gov/resources/web-guidance/">ADA Web Guidance<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="transcript text alternative audio">
+<span class="glossary-term">Transcript</span>
+<p class="glossary-def">A text version of audio or video content. Includes all spoken words and describes important sounds. Can be read or searched, unlike captions which are time-synced.</p>
+</li>
+</ul>
+</section>
 
-    <section id="section-u" aria-labelledby="heading-u">
-      <h2 id="heading-u">U</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="ud universal design ron mace">
-          <span class="glossary-term">Universal Design (UD)</span>
-          <p class="glossary-def">"The design of products and environments to be usable by all people, to the greatest extent possible, without the need for adaptation or specialized design." Coined by architect Ron Mace. The foundation for accessibility in built environments, technology, and education.</p>
-          <p class="glossary-see-also">See also: UDL, UDI</p>
-        </li>
-        <li class="glossary-item" data-terms="udi universal design of instruction teaching">
-          <span class="glossary-term">UDI</span> <span class="glossary-abbr">(Universal Design of Instruction)</span>
-          <p class="glossary-def">The application of universal design principles to teaching. Addresses class climate, interaction, physical spaces, delivery methods, information resources, feedback, assessment, and accommodations. Developed extensively by Dr. Sheryl Burgstahler at UW DO-IT.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://doit.uw.edu/brief/equal-access-universal-design-of-instruction/">UW DO-IT: UDI<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="udl universal design for learning cast">
-          <span class="glossary-term">UDL</span> <span class="glossary-abbr">(Universal Design for Learning)</span>
-          <p class="glossary-def">An educational framework that provides multiple means of engagement, representation, and action/expression. Benefits all learners, not just those with disabilities. Developed by CAST.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://udlguidelines.cast.org/">CAST UDL Guidelines<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-u" aria-labelledby="heading-u">
+<h2 id="heading-u">U</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="ud universal design ron mace">
+<span class="glossary-term">Universal Design (UD)</span>
+<p class="glossary-def">"The design of products and environments to be usable by all people, to the greatest extent possible, without the need for adaptation or specialized design." Coined by architect Ron Mace. The foundation for accessibility in built environments, technology, and education.</p>
+<p class="glossary-see-also">See also: UDL, UDI</p>
+</li>
+<li class="glossary-item" data-terms="udi universal design of instruction teaching">
+<span class="glossary-term">UDI</span><span class="glossary-abbr">(Universal Design of Instruction)</span>
+<p class="glossary-def">The application of universal design principles to teaching. Addresses class climate, interaction, physical spaces, delivery methods, information resources, feedback, assessment, and accommodations. Developed extensively by Dr. Sheryl Burgstahler at UW DO-IT.</p>
+<p class="glossary-see-also">Learn more:<a href="https://doit.uw.edu/brief/equal-access-universal-design-of-instruction/">UW DO-IT: UDI<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="udl universal design for learning cast">
+<span class="glossary-term">UDL</span><span class="glossary-abbr">(Universal Design for Learning)</span>
+<p class="glossary-def">An educational framework that provides multiple means of engagement, representation, and action/expression. Benefits all learners, not just those with disabilities. Developed by CAST.</p>
+<p class="glossary-see-also">Learn more:<a href="https://udlguidelines.cast.org/">CAST UDL Guidelines<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-v" aria-labelledby="heading-v">
-      <h2 id="heading-v">V</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="voiceover apple macos ios screen reader">
-          <span class="glossary-term">VoiceOver</span>
-          <p class="glossary-def">Apple's built-in screen reader for macOS, iOS, iPadOS, watchOS, and tvOS. Included free with all Apple devices.</p>
-        </li>
-        <li class="glossary-item" data-terms="vpat voluntary product accessibility template">
-          <span class="glossary-term">VPAT</span> <span class="glossary-abbr">(Voluntary Product Accessibility Template)</span>
-          <p class="glossary-def">A document that vendors create to describe how their product meets accessibility standards. Used during procurement to evaluate products. Quality varies widely.</p>
-          <p class="glossary-see-also">Learn more: <a href="https://www.itic.org/policy/accessibility/vpat">ITI VPAT Overview<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-v" aria-labelledby="heading-v">
+<h2 id="heading-v">V</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="voiceover apple macos ios screen reader">
+<span class="glossary-term">VoiceOver</span>
+<p class="glossary-def">Apple's built-in screen reader for macOS, iOS, iPadOS, watchOS, and tvOS. Included free with all Apple devices.</p>
+</li>
+<li class="glossary-item" data-terms="vpat voluntary product accessibility template">
+<span class="glossary-term">VPAT</span><span class="glossary-abbr">(Voluntary Product Accessibility Template)</span>
+<p class="glossary-def">A document that vendors create to describe how their product meets accessibility standards. Used during procurement to evaluate products. Quality varies widely.</p>
+<p class="glossary-see-also">Learn more:<a href="https://www.itic.org/policy/accessibility/vpat">ITI VPAT Overview<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section id="section-w" aria-labelledby="heading-w">
-      <h2 id="heading-w">W</h2>
-      <ul class="glossary-list">
-        <li class="glossary-item" data-terms="wcag web content accessibility guidelines w3c wai 2.0 2.1 2.2 aa">
-          <span class="glossary-term">WCAG</span> <span class="glossary-abbr">(Web Content Accessibility Guidelines)</span>
-          <p class="glossary-def">The international standard for web accessibility, published by W3C. Arizona aligns to WCAG 2.2 Level AA. Organized around the POUR principles with three conformance levels (A, AA, AAA).</p>
-          <p class="glossary-see-also">Learn more: <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C WCAG Overview<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-        <li class="glossary-item" data-terms="wave webaim accessibility evaluation tool">
-          <span class="glossary-term">WAVE</span>
-          <p class="glossary-def">A free web accessibility evaluation tool from WebAIM. Available as a browser extension or online checker. Shows errors, alerts, and structural elements visually on a page.</p>
-          <p class="glossary-see-also">Tool: <a href="https://wave.webaim.org/">WAVE Web Accessibility Evaluator<span class="external-indicator" aria-label="external link">↗</span></a></p>
-        </li>
-      </ul>
-    </section>
+<section id="section-w" aria-labelledby="heading-w">
+<h2 id="heading-w">W</h2>
+<ul class="glossary-list">
+<li class="glossary-item" data-terms="wcag web content accessibility guidelines w3c wai 2.0 2.1 2.2 aa">
+<span class="glossary-term">WCAG</span><span class="glossary-abbr">(Web Content Accessibility Guidelines)</span>
+<p class="glossary-def">The international standard for web accessibility, published by W3C. Arizona aligns to WCAG 2.2 Level AA. Organized around the POUR principles with three conformance levels (A, AA, AAA).</p>
+<p class="glossary-see-also">Learn more:<a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C WCAG Overview<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+<li class="glossary-item" data-terms="wave webaim accessibility evaluation tool">
+<span class="glossary-term">WAVE</span>
+<p class="glossary-def">A free web accessibility evaluation tool from WebAIM. Available as a browser extension or online checker. Shows errors, alerts, and structural elements visually on a page.</p>
+<p class="glossary-see-also">Tool:<a href="https://wave.webaim.org/">WAVE Web Accessibility Evaluator<span class="external-indicator" aria-label="external link"></span></a></p>
+</li>
+</ul>
+</section>
 
-    <section aria-labelledby="suggest-term">
-      <h2 id="suggest-term">Suggest a term</h2>
-      <p>Missing a term? Email <a href="mailto:accessibility@arizona.edu?subject=Glossary suggestion">accessibility@arizona.edu</a> with the term and we'll add it.</p>
-    </section>
+<section aria-labelledby="suggest-term">
+<h2 id="suggest-term">Suggest a term</h2>
+<p>Missing a term? Email<a href="mailto:accessibility@arizona.edu?subject=Glossary suggestion">accessibility@arizona.edu</a>with the term and we'll add it.</p>
+</section>
 
-    <p><a href="#maincontent">Back to top</a></p>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
-    <p>Last reviewed: 2026-01-05</p>
-  </footer>
-  <script>
-    // Glossary filter functionality
-    const filterInput = document.getElementById('glossary-filter');
-    const glossaryItems = document.querySelectorAll('.glossary-item');
-    const sections = document.querySelectorAll('section[id^="section-"]');
+<p><a href="#maincontent">Back to top</a></p>
+</main>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p>Questions?<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>|<a href="tel:+15206213268">520-621-3268</a></p>
+<p>Last reviewed: 2026-01-05</p>
+</footer>
+<script>
+ // Glossary filter functionality
+ const filterInput = document.getElementById('glossary-filter');
+ const glossaryItems = document.querySelectorAll('.glossary-item');
+ const sections = document.querySelectorAll('section[id^="section-"]');
 
-    filterInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase().trim();
-      
-      glossaryItems.forEach(item => {
-        const terms = item.dataset.terms || '';
-        const termText = item.querySelector('.glossary-term').textContent.toLowerCase();
-        const defText = item.querySelector('.glossary-def').textContent.toLowerCase();
-        
-        const matches = searchTerm === '' || 
-          terms.includes(searchTerm) || 
-          termText.includes(searchTerm) || 
-          defText.includes(searchTerm);
-        
-        item.classList.toggle('hidden', !matches);
-      });
+ filterInput.addEventListener('input', function() {
+ const searchTerm = this.value.toLowerCase().trim();
+ 
+ glossaryItems.forEach(item =>{
+ const terms = item.dataset.terms || '';
+ const termText = item.querySelector('.glossary-term').textContent.toLowerCase();
+ const defText = item.querySelector('.glossary-def').textContent.toLowerCase();
+ 
+ const matches = searchTerm === '' || 
+ terms.includes(searchTerm) || 
+ termText.includes(searchTerm) || 
+ defText.includes(searchTerm);
+ 
+ item.classList.toggle('hidden', !matches);
+ });
 
-      // Hide empty sections
-      sections.forEach(section => {
-        const visibleItems = section.querySelectorAll('.glossary-item:not(.hidden)');
-        section.classList.toggle('hidden', visibleItems.length === 0);
-      });
-    });
-  </script>
+ // Hide empty sections
+ sections.forEach(section =>{
+ const visibleItems = section.querySelectorAll('.glossary-item:not(.hidden)');
+ section.classList.toggle('hidden', visibleItems.length === 0);
+ });
+ });
+</script>
 </body>
 </html>

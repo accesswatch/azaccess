@@ -1,217 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Compliance Timeline | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .timeline { position: relative; padding-left: 2rem; margin: 2rem 0; }
-    .timeline::before { content: ''; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 4px; background: var(--ua-arizona-blue); border-radius: 2px; }
-    .timeline-item { position: relative; padding-bottom: 2rem; }
-    .timeline-item::before { content: ''; position: absolute; left: -1.75rem; top: 0.25rem; width: 16px; height: 16px; background: white; border: 4px solid var(--ua-arizona-blue); border-radius: 50%; }
-    .timeline-item.completed::before { background: var(--ua-arizona-blue); }
-    .timeline-item.current::before { background: #ffc107; border-color: #ffc107; box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.3); }
-    .timeline-item.upcoming::before { background: white; }
-    .timeline-date { font-weight: bold; color: var(--ua-arizona-blue); margin-bottom: 0.25rem; }
-    .timeline-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .timeline-content { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; }
-    .timeline-content p { margin: 0.5rem 0; }
-    .badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-left: 0.5rem; }
-    .badge-federal { background: #cce5ff; color: #004085; }
-    .badge-state { background: #d4edda; color: #155724; }
-    .badge-ua { background: var(--ua-arizona-red); color: white; }
-    .badge-deadline { background: #f8d7da; color: #721c24; }
-    .legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; padding: 1rem; background: var(--ua-cool-gray); border-radius: 8px; }
-    .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
-    .legend-dot { width: 16px; height: 16px; border-radius: 50%; border: 3px solid; }
-    .legend-dot.completed { background: var(--ua-arizona-blue); border-color: var(--ua-arizona-blue); }
-    .legend-dot.current { background: #ffc107; border-color: #ffc107; }
-    .legend-dot.upcoming { background: white; border-color: var(--ua-arizona-blue); }
-    .action-required { background: #fff3cd; padding: 1rem; border-radius: 4px; margin-top: 0.5rem; }
-    .action-required strong { color: #856404; }
-    .filter-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .filter-buttons button { padding: 0.5rem 1rem; border: 1px solid var(--ua-border); border-radius: 4px; background: white; cursor: pointer; }
-    .filter-buttons button:hover, .filter-buttons button.active { background: var(--ua-arizona-blue); color: white; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Compliance Timeline | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+ .timeline { position: relative; padding-left: 2rem; margin: 2rem 0; }
+ .timeline::before { content: ''; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 4px; background: var(--ua-arizona-blue); border-radius: 2px; }
+ .timeline-item { position: relative; padding-bottom: 2rem; }
+ .timeline-item::before { content: ''; position: absolute; left: -1.75rem; top: 0.25rem; width: 16px; height: 16px; background: white; border: 4px solid var(--ua-arizona-blue); border-radius: 50%; }
+ .timeline-item.completed::before { background: var(--ua-arizona-blue); }
+ .timeline-item.current::before { background: #ffc107; border-color: #ffc107; box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.3); }
+ .timeline-item.upcoming::before { background: white; }
+ .timeline-date { font-weight: bold; color: var(--ua-arizona-blue); margin-bottom: 0.25rem; }
+ .timeline-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+ .timeline-content { background: white; border: 1px solid var(--ua-border); border-radius: 8px; padding: 1rem; }
+ .timeline-content p { margin: 0.5rem 0; }
+ .badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-left: 0.5rem; }
+ .badge-federal { background: #cce5ff; color: #004085; }
+ .badge-state { background: #d4edda; color: #155724; }
+ .badge-ua { background: var(--ua-arizona-red); color: white; }
+ .badge-deadline { background: #f8d7da; color: #721c24; }
+ .legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; padding: 1rem; background: var(--ua-cool-gray); border-radius: 8px; }
+ .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+ .legend-dot { width: 16px; height: 16px; border-radius: 50%; border: 3px solid; }
+ .legend-dot.completed { background: var(--ua-arizona-blue); border-color: var(--ua-arizona-blue); }
+ .legend-dot.current { background: #ffc107; border-color: #ffc107; }
+ .legend-dot.upcoming { background: white; border-color: var(--ua-arizona-blue); }
+ .action-required { background: #fff3cd; padding: 1rem; border-radius: 4px; margin-top: 0.5rem; }
+ .action-required strong { color: #856404; }
+ .filter-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+ .filter-buttons button { padding: 0.5rem 1rem; border: 1px solid var(--ua-border); border-radius: 4px; background: white; cursor: pointer; }
+ .filter-buttons button:hover, .filter-buttons button.active { background: var(--ua-arizona-blue); color: white; }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="policies-governance.html">Policies</a></nav>
-    </div>
-    <h1>Accessibility Compliance Timeline</h1>
-    <p>Key dates, deadlines, and milestones for digital accessibility at UA.</p>
-  </header>
-  <main id="maincontent" role="main">
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<nav class="site-header-nav" aria-label="Primary"><a href="home.html">Home</a><a href="policies-governance.html">Policies</a></nav>
+</div>
+<h1>Accessibility Compliance Timeline</h1>
+<p>Key dates, deadlines, and milestones for digital accessibility at UA.</p>
+</header>
+<main id="maincontent" role="main">
 
-    <div class="legend">
-      <div class="legend-item"><span class="legend-dot completed"></span> Completed</div>
-      <div class="legend-item"><span class="legend-dot current"></span> Current/In Progress</div>
-      <div class="legend-item"><span class="legend-dot upcoming"></span> Upcoming</div>
-      <div class="legend-item"><span class="badge badge-federal">Federal</span></div>
-      <div class="legend-item"><span class="badge badge-state">State</span></div>
-      <div class="legend-item"><span class="badge badge-ua">UA Policy</span></div>
-    </div>
+<div class="legend">
+<div class="legend-item"><span class="legend-dot completed"></span>Completed</div>
+<div class="legend-item"><span class="legend-dot current"></span>Current/In Progress</div>
+<div class="legend-item"><span class="legend-dot upcoming"></span>Upcoming</div>
+<div class="legend-item"><span class="badge badge-federal">Federal</span></div>
+<div class="legend-item"><span class="badge badge-state">State</span></div>
+<div class="legend-item"><span class="badge badge-ua">UA Policy</span></div>
+</div>
 
-    <div class="filter-buttons" role="group" aria-label="Filter timeline">
-      <button class="active" data-filter="all">All</button>
-      <button data-filter="federal">Federal</button>
-      <button data-filter="ua">UA Policy</button>
-      <button data-filter="deadline">Deadlines Only</button>
-    </div>
+<div class="filter-buttons" role="group" aria-label="Filter timeline">
+<button class="active" data-filter="all">All</button>
+<button data-filter="federal">Federal</button>
+<button data-filter="ua">UA Policy</button>
+<button data-filter="deadline">Deadlines Only</button>
+</div>
 
-    <div class="timeline">
-      <!-- Past/Completed -->
-      <div class="timeline-item completed" data-type="federal">
-        <div class="timeline-date">1990</div>
-        <div class="timeline-content">
-          <div class="timeline-title">Americans with Disabilities Act (ADA) <span class="badge badge-federal">Federal</span></div>
-          <p>Prohibits discrimination against individuals with disabilities in all areas of public life.</p>
-        </div>
-      </div>
+<div class="timeline">
+<!-- Past/Completed -->
+<div class="timeline-item completed" data-type="federal">
+<div class="timeline-date">1990</div>
+<div class="timeline-content">
+<div class="timeline-title">Americans with Disabilities Act (ADA)<span class="badge badge-federal">Federal</span></div>
+<p>Prohibits discrimination against individuals with disabilities in all areas of public life.</p>
+</div>
+</div>
 
-      <div class="timeline-item completed" data-type="federal">
-        <div class="timeline-date">1998 (Updated 2017)</div>
-        <div class="timeline-content">
-          <div class="timeline-title">Section 508 Refresh <span class="badge badge-federal">Federal</span></div>
-          <p>Section 508 updated to align with WCAG 2.0 AA. Applies to federal agencies and recipients of federal funding.</p>
-        </div>
-      </div>
+<div class="timeline-item completed" data-type="federal">
+<div class="timeline-date">1998 (Updated 2017)</div>
+<div class="timeline-content">
+<div class="timeline-title">Section 508 Refresh<span class="badge badge-federal">Federal</span></div>
+<p>Section 508 updated to align with WCAG 2.0 AA. Applies to federal agencies and recipients of federal funding.</p>
+</div>
+</div>
 
-      <div class="timeline-item completed" data-type="ua">
-        <div class="timeline-date">2019</div>
-        <div class="timeline-content">
-          <div class="timeline-title">UA Digital Accessibility Policy Adopted <span class="badge badge-ua">UA Policy</span></div>
-          <p>University adopts formal policy requiring WCAG 2.0 AA compliance for all digital content.</p>
-        </div>
-      </div>
+<div class="timeline-item completed" data-type="ua">
+<div class="timeline-date">2019</div>
+<div class="timeline-content">
+<div class="timeline-title">UA Digital Accessibility Policy Adopted<span class="badge badge-ua">UA Policy</span></div>
+<p>University adopts formal policy requiring WCAG 2.0 AA compliance for all digital content.</p>
+</div>
+</div>
 
-      <div class="timeline-item completed" data-type="federal">
-        <div class="timeline-date">June 2023</div>
-        <div class="timeline-content">
-          <div class="timeline-title">WCAG 2.1 Published as ISO Standard <span class="badge badge-federal">Federal</span></div>
-          <p>WCAG 2.1 becomes international standard. Section 508 references updated guidelines.</p>
-        </div>
-      </div>
+<div class="timeline-item completed" data-type="federal">
+<div class="timeline-date">June 2023</div>
+<div class="timeline-content">
+<div class="timeline-title">WCAG 2.1 Published as ISO Standard<span class="badge badge-federal">Federal</span></div>
+<p>WCAG 2.1 becomes international standard. Section 508 references updated guidelines.</p>
+</div>
+</div>
 
-      <div class="timeline-item completed" data-type="ua">
-        <div class="timeline-date">January 2024</div>
-        <div class="timeline-content">
-          <div class="timeline-title">Procurement Accessibility Review Required <span class="badge badge-ua">UA Policy</span></div>
-          <p>All IT purchases over $5,000 require VPAT review and accessibility evaluation.</p>
-        </div>
-      </div>
+<div class="timeline-item completed" data-type="ua">
+<div class="timeline-date">January 2024</div>
+<div class="timeline-content">
+<div class="timeline-title">Procurement Accessibility Review Required<span class="badge badge-ua">UA Policy</span></div>
+<p>All IT purchases over $5,000 require VPAT review and accessibility evaluation.</p>
+</div>
+</div>
 
-      <div class="timeline-item completed" data-type="federal">
-        <div class="timeline-date">April 2024</div>
-        <div class="timeline-content">
-          <div class="timeline-title">DOJ Title II Web Rule Published <span class="badge badge-federal">Federal</span></div>
-          <p>Department of Justice issues final rule requiring WCAG 2.1 AA for state/local government web content and mobile apps.</p>
-        </div>
-      </div>
+<div class="timeline-item completed" data-type="federal">
+<div class="timeline-date">April 2024</div>
+<div class="timeline-content">
+<div class="timeline-title">DOJ Title II Web Rule Published<span class="badge badge-federal">Federal</span></div>
+<p>Department of Justice issues final rule requiring WCAG 2.1 AA for state/local government web content and mobile apps.</p>
+</div>
+</div>
 
-      <!-- Current -->
-      <div class="timeline-item current" data-type="ua deadline">
-        <div class="timeline-date">January 2026 (NOW)</div>
-        <div class="timeline-content">
-          <div class="timeline-title">UA WCAG 2.1 Transition <span class="badge badge-ua">UA Policy</span> <span class="badge badge-deadline">Active</span></div>
-          <p>University transitions from WCAG 2.0 AA to WCAG 2.1 AA as the compliance standard.</p>
-          <div class="action-required">
-            <strong>⚠️ Action Required:</strong> Review your web content against WCAG 2.1 new success criteria (orientation, text spacing, etc.)
-          </div>
-        </div>
-      </div>
+<!-- Current -->
+<div class="timeline-item current" data-type="ua deadline">
+<div class="timeline-date">January 2026 (NOW)</div>
+<div class="timeline-content">
+<div class="timeline-title">UA WCAG 2.1 Transition<span class="badge badge-ua">UA Policy</span><span class="badge badge-deadline">Active</span></div>
+<p>University transitions from WCAG 2.0 AA to WCAG 2.1 AA as the compliance standard.</p>
+<div class="action-required">
+<strong>Action Required:</strong>Review your web content against WCAG 2.1 new success criteria (orientation, text spacing, etc.)
+</div>
+</div>
+</div>
 
-      <!-- Upcoming -->
-      <div class="timeline-item upcoming" data-type="federal deadline">
-        <div class="timeline-date">April 2026</div>
-        <div class="timeline-content">
-          <div class="timeline-title">DOJ Title II – Large Entities Deadline <span class="badge badge-federal">Federal</span> <span class="badge badge-deadline">Deadline</span></div>
-          <p>Compliance deadline for state/local governments with 50,000+ population. All web content and mobile apps must meet WCAG 2.1 AA.</p>
-          <div class="action-required">
-            <strong>⚠️ Action Required:</strong> Complete accessibility audits of all public-facing websites. Remediate critical issues.
-          </div>
-        </div>
-      </div>
+<!-- Upcoming -->
+<div class="timeline-item upcoming" data-type="federal deadline">
+<div class="timeline-date">April 2026</div>
+<div class="timeline-content">
+<div class="timeline-title">DOJ Title II – Large Entities Deadline<span class="badge badge-federal">Federal</span><span class="badge badge-deadline">Deadline</span></div>
+<p>Compliance deadline for state/local governments with 50,000+ population. All web content and mobile apps must meet WCAG 2.1 AA.</p>
+<div class="action-required">
+<strong>Action Required:</strong>Complete accessibility audits of all public-facing websites. Remediate critical issues.
+</div>
+</div>
+</div>
 
-      <div class="timeline-item upcoming" data-type="ua">
-        <div class="timeline-date">July 2026</div>
-        <div class="timeline-content">
-          <div class="timeline-title">UA Course Accessibility Baseline <span class="badge badge-ua">UA Policy</span></div>
-          <p>All new and substantially revised courses must meet accessibility baseline checklist before deployment.</p>
-        </div>
-      </div>
+<div class="timeline-item upcoming" data-type="ua">
+<div class="timeline-date">July 2026</div>
+<div class="timeline-content">
+<div class="timeline-title">UA Course Accessibility Baseline<span class="badge badge-ua">UA Policy</span></div>
+<p>All new and substantially revised courses must meet accessibility baseline checklist before deployment.</p>
+</div>
+</div>
 
-      <div class="timeline-item upcoming" data-type="ua deadline">
-        <div class="timeline-date">January 2027</div>
-        <div class="timeline-content">
-          <div class="timeline-title">High-Traffic Website Compliance <span class="badge badge-ua">UA Policy</span> <span class="badge badge-deadline">Deadline</span></div>
-          <p>Top 100 UA websites must demonstrate full WCAG 2.1 AA compliance through third-party audit.</p>
-        </div>
-      </div>
+<div class="timeline-item upcoming" data-type="ua deadline">
+<div class="timeline-date">January 2027</div>
+<div class="timeline-content">
+<div class="timeline-title">High-Traffic Website Compliance<span class="badge badge-ua">UA Policy</span><span class="badge badge-deadline">Deadline</span></div>
+<p>Top 100 UA websites must demonstrate full WCAG 2.1 AA compliance through third-party audit.</p>
+</div>
+</div>
 
-      <div class="timeline-item upcoming" data-type="federal deadline">
-        <div class="timeline-date">April 2027</div>
-        <div class="timeline-content">
-          <div class="timeline-title">DOJ Title II – Small Entities Deadline <span class="badge badge-federal">Federal</span> <span class="badge badge-deadline">Deadline</span></div>
-          <p>Compliance deadline for state/local governments with under 50,000 population.</p>
-        </div>
-      </div>
+<div class="timeline-item upcoming" data-type="federal deadline">
+<div class="timeline-date">April 2027</div>
+<div class="timeline-content">
+<div class="timeline-title">DOJ Title II – Small Entities Deadline<span class="badge badge-federal">Federal</span><span class="badge badge-deadline">Deadline</span></div>
+<p>Compliance deadline for state/local governments with under 50,000 population.</p>
+</div>
+</div>
 
-      <div class="timeline-item upcoming" data-type="federal">
-        <div class="timeline-date">2027-2028</div>
-        <div class="timeline-content">
-          <div class="timeline-title">WCAG 2.2 Expected Adoption <span class="badge badge-federal">Federal</span></div>
-          <p>Section 508 and DOJ rules expected to incorporate WCAG 2.2. New success criteria include focus appearance, dragging movements, accessible authentication.</p>
-        </div>
-      </div>
+<div class="timeline-item upcoming" data-type="federal">
+<div class="timeline-date">2027-2028</div>
+<div class="timeline-content">
+<div class="timeline-title">WCAG 2.2 Expected Adoption<span class="badge badge-federal">Federal</span></div>
+<p>Section 508 and DOJ rules expected to incorporate WCAG 2.2. New success criteria include focus appearance, dragging movements, accessible authentication.</p>
+</div>
+</div>
 
-      <div class="timeline-item upcoming" data-type="ua">
-        <div class="timeline-date">January 2028</div>
-        <div class="timeline-content">
-          <div class="timeline-title">Full Digital Portfolio Compliance <span class="badge badge-ua">UA Policy</span></div>
-          <p>UA goal: All university digital content (websites, applications, documents, multimedia) meets WCAG 2.1 AA.</p>
-        </div>
-      </div>
-    </div>
+<div class="timeline-item upcoming" data-type="ua">
+<div class="timeline-date">January 2028</div>
+<div class="timeline-content">
+<div class="timeline-title">Full Digital Portfolio Compliance<span class="badge badge-ua">UA Policy</span></div>
+<p>UA goal: All university digital content (websites, applications, documents, multimedia) meets WCAG 2.1 AA.</p>
+</div>
+</div>
+</div>
 
-    <section>
-      <h2>📅 Add to Calendar</h2>
-      <p>Subscribe to our accessibility calendar for deadline reminders:</p>
-      <ul>
-        <li><a href="#">Google Calendar (subscribe)</a></li>
-        <li><a href="#">Outlook/iCal (.ics download)</a></li>
-      </ul>
-    </section>
+<section>
+<h2>Add to Calendar</h2>
+<p>Subscribe to our accessibility calendar for deadline reminders:</p>
+<ul>
+<li><a href="#">Google Calendar (subscribe)</a></li>
+<li><a href="#">Outlook/iCal (.ics download)</a></li>
+</ul>
+</section>
 
-    <section>
-      <h2>📚 Related Resources</h2>
-      <ul>
-        <li><a href="policies-governance.html">UA Accessibility Policies</a></li>
-        <li><a href="https://www.ada.gov/resources/web-guidance/">DOJ Web Accessibility Guidance</a></li>
-        <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG Guidelines (W3C)</a></li>
-      </ul>
-    </section>
-  </main>
-  <footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
-  <script>
-    const filterBtns = document.querySelectorAll('.filter-buttons button');
-    const items = document.querySelectorAll('.timeline-item');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        items.forEach(item => {
-          const types = item.dataset.type || '';
-          if (filter === 'all') item.style.display = 'block';
-          else item.style.display = types.includes(filter) ? 'block' : 'none';
-        });
-      });
-    });
-  </script>
+<section>
+<h2>Related Resources</h2>
+<ul>
+<li><a href="policies-governance.html">UA Accessibility Policies</a></li>
+<li><a href="https://www.ada.gov/resources/web-guidance/">DOJ Web Accessibility Guidance</a></li>
+<li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG Guidelines (W3C)</a></li>
+</ul>
+</section>
+</main>
+<footer role="contentinfo"><p>&copy; 2026 University of Arizona</p></footer>
+<script>
+ const filterBtns = document.querySelectorAll('.filter-buttons button');
+ const items = document.querySelectorAll('.timeline-item');
+ filterBtns.forEach(btn =>{
+ btn.addEventListener('click', () =>{
+ filterBtns.forEach(b =>b.classList.remove('active'));
+ btn.classList.add('active');
+ const filter = btn.dataset.filter;
+ items.forEach(item =>{
+ const types = item.dataset.type || '';
+ if (filter === 'all') item.style.display = 'block';
+ else item.style.display = types.includes(filter) ? 'block' : 'none';
+ });
+ });
+ });
+</script>
 </body>
 </html>

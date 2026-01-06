@@ -1,374 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Guide Wizard | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
-  <style>
-    .wizard-steps {
-      counter-reset: step;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .wizard-steps li {
-      counter-increment: step;
-      margin-bottom: 0.5rem;
-    }
-    .wizard-steps li::before {
-      content: counter(step) ".";
-      font-weight: bold;
-      margin-right: 0.5rem;
-    }
-    .result-card {
-      border: 1px solid var(--border-color, #d0d5dd);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background: #fff;
-    }
-    .muted {
-      color: var(--text-muted, #555);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Accessibility Guide Wizard | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
+<style>
+ .wizard-steps {
+ counter-reset: step;
+ margin: 0;
+ padding: 0;
+ list-style: none;
+ }
+ .wizard-steps li {
+ counter-increment: step;
+ margin-bottom: 0.5rem;
+ }
+ .wizard-steps li::before {
+ content: counter(step) ".";
+ font-weight: bold;
+ margin-right: 0.5rem;
+ }
+ .result-card {
+ border: 1px solid var(--border-color, #d0d5dd);
+ border-radius: 0.5rem;
+ padding: 1rem;
+ margin-bottom: 1rem;
+ background: #fff;
+ }
+ .muted {
+ color: var(--text-muted, #555);
+ font-size: 0.95rem;
+ margin-bottom: 1.5rem;
+ }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-      <nav class="site-header-nav" aria-label="Primary" role="navigation">
-        <a href="home.html">Home</a>
-        <a href="roles.html">I Am A...</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
-      </nav>
-      <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
-        <label for="role-select">I am a...</label>
-        <select id="role-select" name="role">
-          <option value="">Choose your role</option>
-          <option value="persona-students.html">Student or Family Member</option>
-          <option value="persona-faculty.html">Faculty or Instructor</option>
-          <option value="persona-staff.html">Staff Member</option>
-          <option value="persona-developers.html">Developer</option>
-          <option value="persona-mobile.html">Mobile App Team</option>
-          <option value="persona-content.html">Content Creator</option>
-          <option value="persona-comms.html">Communications / Marketing</option>
-          <option value="persona-leadership.html">Leadership / Executive</option>
-          <option value="persona-public.html">Visitor / Community</option>
-        </select>
-        <button type="submit" class="go-btn">Go</button>
-      </form>
-    </div>
-    <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / Quick Quiz</p>
-    </nav>
-    <h1>Let's find what you need</h1>
-    <p class="muted">Answer a few quick questions and we'll point you to the right pages, forms, and people. Takes about 30 seconds.</p>
-  </header>
-  <main id="maincontent" role="main">
-    <section aria-labelledby="wizard-form-title">
-      <h2 id="wizard-form-title">Tell us about your situation</h2>
-      <p>Check anything that applies—you can skip questions or come back later. Hit <strong>Show my results</strong> whenever you're ready.</p>
-      <form id="wizard-form">
-        <fieldset>
-          <legend>1. What brings you here today?</legend>
-          <p class="muted">Pick all that apply—no wrong answers!</p>
-          <div class="grid grid-2">
-            <label><input type="checkbox" name="scenario" value="teaching" /> I'm teaching or supporting a course.</label>
-            <label><input type="checkbox" name="scenario" value="content" /> I create documents, newsletters, or presentations.</label>
-            <label><input type="checkbox" name="scenario" value="web" /> I build or maintain websites, apps, or code.</label>
-            <label><input type="checkbox" name="scenario" value="events" /> I'm planning events, visits, or outreach.</label>
-            <label><input type="checkbox" name="scenario" value="procurement" /> I buy technology or review vendor products.</label>
-            <label><input type="checkbox" name="scenario" value="student" /> I need student accommodations or support.</label>
-            <label><input type="checkbox" name="scenario" value="visitor" /> I'm visiting campus or bringing guests.</label>
-            <label><input type="checkbox" name="scenario" value="leadership" /> I guide policy, budgeting, or executive updates.</label>
-          </div>
-        </fieldset>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<nav class="site-header-nav" aria-label="Primary" role="navigation">
+<a href="home.html">Home</a>
+<a href="roles.html">I Am A...</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies &amp; Governance</a>
+<a href="support.html">Support</a>
+</nav>
+<nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+<a href="accessibility-101.html">Accessibility 101</a>
+<a href="blog.html">Blog</a>
+<a href="support.html">Get help</a>
+</nav>
+<form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+<label for="role-select">I am a...</label>
+<select id="role-select" name="role">
+<option value="">Choose your role</option>
+<option value="persona-students.html">Student or Family Member</option>
+<option value="persona-faculty.html">Faculty or Instructor</option>
+<option value="persona-staff.html">Staff Member</option>
+<option value="persona-developers.html">Developer</option>
+<option value="persona-mobile.html">Mobile App Team</option>
+<option value="persona-content.html">Content Creator</option>
+<option value="persona-comms.html">Communications / Marketing</option>
+<option value="persona-leadership.html">Leadership / Executive</option>
+<option value="persona-public.html">Visitor / Community</option>
+</select>
+<button type="submit" class="go-btn">Go</button>
+</form>
+</div>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a>/ Quick Quiz</p>
+</nav>
+<h1>Let's find what you need</h1>
+<p class="muted">Answer a few quick questions and we'll point you to the right pages, forms, and people. Takes about 30 seconds.</p>
+</header>
+<main id="maincontent" role="main">
+<section aria-labelledby="wizard-form-title">
+<h2 id="wizard-form-title">Tell us about your situation</h2>
+<p>Check anything that applies—you can skip questions or come back later. Hit<strong>Show my results</strong>whenever you're ready.</p>
+<form id="wizard-form">
+<fieldset>
+<legend>1. What brings you here today?</legend>
+<p class="muted">Pick all that apply—no wrong answers!</p>
+<div class="grid grid-2">
+<label><input type="checkbox" name="scenario" value="teaching" />I'm teaching or supporting a course.</label>
+<label><input type="checkbox" name="scenario" value="content" />I create documents, newsletters, or presentations.</label>
+<label><input type="checkbox" name="scenario" value="web" />I build or maintain websites, apps, or code.</label>
+<label><input type="checkbox" name="scenario" value="events" />I'm planning events, visits, or outreach.</label>
+<label><input type="checkbox" name="scenario" value="procurement" />I buy technology or review vendor products.</label>
+<label><input type="checkbox" name="scenario" value="student" />I need student accommodations or support.</label>
+<label><input type="checkbox" name="scenario" value="visitor" />I'm visiting campus or bringing guests.</label>
+<label><input type="checkbox" name="scenario" value="leadership" />I guide policy, budgeting, or executive updates.</label>
+</div>
+</fieldset>
 
-        <fieldset>
-          <legend>2. What are you working on today?</legend>
-          <div class="grid grid-2">
-            <label><input type="checkbox" name="need" value="documents" /> Documents, slides, PDFs, or media</label>
-            <label><input type="checkbox" name="need" value="web" /> Websites, apps, or code</label>
-            <label><input type="checkbox" name="need" value="events" /> Events, visits, or accommodations</label>
-            <label><input type="checkbox" name="need" value="procurement" /> Buying technology or working with vendors</label>
-            <label><input type="checkbox" name="need" value="training" /> Training, office hours, or community</label>
-          </div>
-        </fieldset>
+<fieldset>
+<legend>2. What are you working on today?</legend>
+<div class="grid grid-2">
+<label><input type="checkbox" name="need" value="documents" />Documents, slides, PDFs, or media</label>
+<label><input type="checkbox" name="need" value="web" />Websites, apps, or code</label>
+<label><input type="checkbox" name="need" value="events" />Events, visits, or accommodations</label>
+<label><input type="checkbox" name="need" value="procurement" />Buying technology or working with vendors</label>
+<label><input type="checkbox" name="need" value="training" />Training, office hours, or community</label>
+</div>
+</fieldset>
 
-        <fieldset>
-          <legend>3. How can we support you right now?</legend>
-          <div class="grid grid-2">
-            <label><input type="checkbox" name="support" value="consult" /> I'd like a consultation or review</label>
-            <label><input type="checkbox" name="support" value="forms" /> I need a specific form or template</label>
-            <label><input type="checkbox" name="support" value="policy" /> I'm looking for policy or requirements</label>
-            <label><input type="checkbox" name="support" value="contact" /> I need someone to talk to</label>
-          </div>
-        </fieldset>
+<fieldset>
+<legend>3. How can we support you right now?</legend>
+<div class="grid grid-2">
+<label><input type="checkbox" name="support" value="consult" />I'd like a consultation or review</label>
+<label><input type="checkbox" name="support" value="forms" />I need a specific form or template</label>
+<label><input type="checkbox" name="support" value="policy" />I'm looking for policy or requirements</label>
+<label><input type="checkbox" name="support" value="contact" />I need someone to talk to</label>
+</div>
+</fieldset>
 
-        <button type="submit" class="cta">Show my results →</button>
-      </form>
-      <p class="muted">Rather explore on your own? Check out <a href="roles.html">I Am A...</a> or <a href="support.html">get help</a>.</p>
-    </section>
+<button type="submit" class="cta">Show my results</button>
+</form>
+<p class="muted">Rather explore on your own? Check out<a href="roles.html">I Am A...</a>or<a href="support.html">get help</a>.</p>
+</section>
 
-    <section aria-labelledby="results-title" id="wizard-results" aria-live="polite">
-      <h2 id="results-title">Your results</h2>
-      <p>Check some boxes above and click <strong>Show my results</strong> to see what we recommend for you.</p>
-    </section>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
-  </footer>
+<section aria-labelledby="results-title" id="wizard-results" aria-live="polite">
+<h2 id="results-title">Your results</h2>
+<p>Check some boxes above and click<strong>Show my results</strong>to see what we recommend for you.</p>
+</section>
+</main>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p>Questions?<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>|<a href="tel:+15206213268">520-621-3268</a></p>
+</footer>
 
-  <noscript>
-    <div class="result-card">
-      <p>This wizard works best with JavaScript enabled. For now, explore the <a href="roles.html">I Am A... page</a> or <a href="support.html">contact us</a>.</p>
-    </div>
-  </noscript>
+<noscript>
+<div class="result-card">
+<p>This wizard works best with JavaScript enabled. For now, explore the<a href="roles.html">I Am A... page</a>or<a href="support.html">contact us</a>.</p>
+</div>
+</noscript>
 
-  <script>
-    const roleResources = {
-      students: {
-        title: "Students & Families",
-        summary: "Request accommodations, track captions, and report barriers.",
-        links: [
-          { label: "Student guide", url: "students.html" },
-          { label: "Access Report", url: "https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx" },
-          { label: "DRC ASL/CART request", url: "https://drc.arizona.edu/asl-cart" }
-        ]
-      },
-      faculty: {
-        title: "Faculty & Teaching",
-        summary: "Create inclusive courses, documents, media, and Brightspace content.",
-        links: [
-          { label: "Faculty guide", url: "faculty.html" },
-          { label: "Document & media hub", url: "documents-media.html" },
-          { label: "Training calendar", url: "training-calendar.html" }
-        ]
-      },
-      staff: {
-        title: "Staff & Administrative Units",
-        summary: "Plan events, maintain department sites, and coordinate vendors.",
-        links: [
-          { label: "Staff guide", url: "staff.html" },
-          { label: "Procurement hub", url: "procurement.html" },
-          { label: "Accessibility consultation form", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" }
-        ]
-      },
-      developer: {
-        title: "Builders (Developers, Mobile, Content, Marketing)",
-        summary: "Ship inclusive code, tests, documents, and campaigns.",
-        links: [
-          { label: "Developer guide", url: "developers.html" },
-          { label: "Content creator guide", url: "content-creators.html" },
-          { label: "Testing toolkit", url: "testing-tools.html" }
-        ]
-      },
-      content: {
-        title: "Content Creators",
-        summary: "Produce accessible Word/Google docs, slides, PDFs, newsletters, and marketing content.",
-        links: [
-          { label: "Content creator guide", url: "content-creators.html" },
-          { label: "Meaningful links guidance", url: "meaningful-links.html" },
-          { label: "Document & media hub", url: "documents-media.html" }
-        ]
-      },
-      visitor: {
-        title: "Visitors & Community",
-        summary: "Plan accessible events, tours, and campus interactions.",
-        links: [
-          { label: "Visitor guide", url: "visitors.html" },
-          { label: "Campus accessibility map", url: "https://accessibility.arizona.edu/content/maps" },
-          { label: "Contact accessibility@arizona.edu", url: "mailto:accessibility@arizona.edu" }
-        ]
-      },
-      leadership: {
-        title: "Leadership & Executives",
-        summary: "Oversee Title II readiness, fund remediation, and track progress.",
-        links: [
-          { label: "Leadership guide", url: "leadership.html" },
-          { label: "Policies & governance hub", url: "policies-governance.html" },
-          { label: "Accessibility 101 overview", url: "accessibility-101.html" }
-        ]
-      }
-    };
+<script>
+ const roleResources = {
+ students: {
+ title: "Students & Families",
+ summary: "Request accommodations, track captions, and report barriers.",
+ links: [
+ { label: "Student guide", url: "students.html" },
+ { label: "Access Report", url: "https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx" },
+ { label: "DRC ASL/CART request", url: "https://drc.arizona.edu/asl-cart" }
+ ]
+ },
+ faculty: {
+ title: "Faculty & Teaching",
+ summary: "Create inclusive courses, documents, media, and Brightspace content.",
+ links: [
+ { label: "Faculty guide", url: "faculty.html" },
+ { label: "Document & media hub", url: "documents-media.html" },
+ { label: "Training calendar", url: "training-calendar.html" }
+ ]
+ },
+ staff: {
+ title: "Staff & Administrative Units",
+ summary: "Plan events, maintain department sites, and coordinate vendors.",
+ links: [
+ { label: "Staff guide", url: "staff.html" },
+ { label: "Procurement hub", url: "procurement.html" },
+ { label: "Accessibility consultation form", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" }
+ ]
+ },
+ developer: {
+ title: "Builders (Developers, Mobile, Content, Marketing)",
+ summary: "Ship inclusive code, tests, documents, and campaigns.",
+ links: [
+ { label: "Developer guide", url: "developers.html" },
+ { label: "Content creator guide", url: "content-creators.html" },
+ { label: "Testing toolkit", url: "testing-tools.html" }
+ ]
+ },
+ content: {
+ title: "Content Creators",
+ summary: "Produce accessible Word/Google docs, slides, PDFs, newsletters, and marketing content.",
+ links: [
+ { label: "Content creator guide", url: "content-creators.html" },
+ { label: "Meaningful links guidance", url: "meaningful-links.html" },
+ { label: "Document & media hub", url: "documents-media.html" }
+ ]
+ },
+ visitor: {
+ title: "Visitors & Community",
+ summary: "Plan accessible events, tours, and campus interactions.",
+ links: [
+ { label: "Visitor guide", url: "visitors.html" },
+ { label: "Campus accessibility map", url: "https://accessibility.arizona.edu/content/maps" },
+ { label: "Contact accessibility@arizona.edu", url: "mailto:accessibility@arizona.edu" }
+ ]
+ },
+ leadership: {
+ title: "Leadership & Executives",
+ summary: "Oversee Title II readiness, fund remediation, and track progress.",
+ links: [
+ { label: "Leadership guide", url: "leadership.html" },
+ { label: "Policies & governance hub", url: "policies-governance.html" },
+ { label: "Accessibility 101 overview", url: "accessibility-101.html" }
+ ]
+ }
+ };
 
-    const scenarioRoleMap = {
-      teaching: {
-        label: "Teaching or supporting a course",
-        roles: ["faculty"],
-        tip: "Your course work aligns with the Faculty & Teaching guide."
-      },
-      content: {
-        label: "Creating documents, newsletters, or presentations",
-        roles: ["content"],
-        tip: "Content creators rely on document & media guidance."
-      },
-      web: {
-        label: "Building or maintaining a site/app",
-        roles: ["developer"],
-        tip: "Developers and builders can follow the Web & App hub."
-      },
-      events: {
-        label: "Planning events, visits, or outreach",
-        roles: ["staff", "visitor"],
-        tip: "Event planners often need Staff guidance plus public visitor info."
-      },
-      procurement: {
-        label: "Buying technology or reviewing vendors",
-        roles: ["staff", "leadership"],
-        tip: "Procurement touches staff workflows and leadership approvals."
-      },
-      student: {
-        label: "Requesting accommodations or student support",
-        roles: ["students"],
-        tip: "Students & Families guide covers accommodations, captions, and barrier reporting."
-      },
-      visitor: {
-        label: "Visiting campus or bringing guests",
-        roles: ["visitor"],
-        tip: "Use the Visitors & Community guide for maps, services, and contacts."
-      },
-      leadership: {
-        label: "Guiding policy, budgeting, or executive updates",
-        roles: ["leadership"],
-        tip: "Leadership & Executives guide highlights governance and readiness briefs."
-      }
-    };
+ const scenarioRoleMap = {
+ teaching: {
+ label: "Teaching or supporting a course",
+ roles: ["faculty"],
+ tip: "Your course work aligns with the Faculty & Teaching guide."
+ },
+ content: {
+ label: "Creating documents, newsletters, or presentations",
+ roles: ["content"],
+ tip: "Content creators rely on document & media guidance."
+ },
+ web: {
+ label: "Building or maintaining a site/app",
+ roles: ["developer"],
+ tip: "Developers and builders can follow the Web & App hub."
+ },
+ events: {
+ label: "Planning events, visits, or outreach",
+ roles: ["staff", "visitor"],
+ tip: "Event planners often need Staff guidance plus public visitor info."
+ },
+ procurement: {
+ label: "Buying technology or reviewing vendors",
+ roles: ["staff", "leadership"],
+ tip: "Procurement touches staff workflows and leadership approvals."
+ },
+ student: {
+ label: "Requesting accommodations or student support",
+ roles: ["students"],
+ tip: "Students & Families guide covers accommodations, captions, and barrier reporting."
+ },
+ visitor: {
+ label: "Visiting campus or bringing guests",
+ roles: ["visitor"],
+ tip: "Use the Visitors & Community guide for maps, services, and contacts."
+ },
+ leadership: {
+ label: "Guiding policy, budgeting, or executive updates",
+ roles: ["leadership"],
+ tip: "Leadership & Executives guide highlights governance and readiness briefs."
+ }
+ };
 
-    const needResources = {
-      documents: {
-        title: "Documents & Media",
-        summary: "Use the document & media hub plus Microsoft/Adobe checkers.",
-        links: [
-          { label: "Document & media hub", url: "documents-media.html" },
-          { label: "Meaningful links guidance", url: "meaningful-links.html" },
-          { label: "Adobe PDF remediation", url: "pdf-remediation.html" }
-        ]
-      },
-      web: {
-        title: "Websites & Apps",
-        summary: "Focus on Quickstart components, testing toolkit, and WCAG highlights.",
-        links: [
-          { label: "Web & App hub", url: "web-app.html" },
-          { label: "WCAG 2.2 highlights", url: "wcag22-highlights.html" },
-          { label: "Accessibility Insights guide", url: "developers.html#insights-guide" }
-        ]
-      },
-      events: {
-        title: "Events & Accommodations",
-        summary: "Request services early and share routes with attendees.",
-        links: [
-          { label: "Inclusive events guide", url: "events-inclusive.html" },
-          { label: "DRC ASL/CART request", url: "https://drc.arizona.edu/asl-cart" },
-          { label: "Campus accessibility map", url: "https://accessibility.arizona.edu/content/maps" }
-        ]
-      },
-      procurement: {
-        title: "Procurement & Vendors",
-        summary: "Use the procurement hub, VPAT review, and consultation form.",
-        links: [
-          { label: "Procurement hub", url: "procurement.html" },
-          { label: "VPAT review checklist", url: "vpat-review.html" },
-          { label: "Accessibility consultation form", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" }
-        ]
-      },
-      training: {
-        title: "Training & Community",
-        summary: "Stay connected through calendar events, office hours, and guilds.",
-        links: [
-          { label: "Training calendar", url: "training-calendar.html" },
-          { label: "Accessibility office hours", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" },
-          { label: "Accessibility blog", url: "blog.html" }
-        ]
-      }
-    };
+ const needResources = {
+ documents: {
+ title: "Documents & Media",
+ summary: "Use the document & media hub plus Microsoft/Adobe checkers.",
+ links: [
+ { label: "Document & media hub", url: "documents-media.html" },
+ { label: "Meaningful links guidance", url: "meaningful-links.html" },
+ { label: "Adobe PDF remediation", url: "pdf-remediation.html" }
+ ]
+ },
+ web: {
+ title: "Websites & Apps",
+ summary: "Focus on Quickstart components, testing toolkit, and WCAG highlights.",
+ links: [
+ { label: "Web & App hub", url: "web-app.html" },
+ { label: "WCAG 2.2 highlights", url: "wcag22-highlights.html" },
+ { label: "Accessibility Insights guide", url: "developers.html#insights-guide" }
+ ]
+ },
+ events: {
+ title: "Events & Accommodations",
+ summary: "Request services early and share routes with attendees.",
+ links: [
+ { label: "Inclusive events guide", url: "events-inclusive.html" },
+ { label: "DRC ASL/CART request", url: "https://drc.arizona.edu/asl-cart" },
+ { label: "Campus accessibility map", url: "https://accessibility.arizona.edu/content/maps" }
+ ]
+ },
+ procurement: {
+ title: "Procurement & Vendors",
+ summary: "Use the procurement hub, VPAT review, and consultation form.",
+ links: [
+ { label: "Procurement hub", url: "procurement.html" },
+ { label: "VPAT review checklist", url: "vpat-review.html" },
+ { label: "Accessibility consultation form", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" }
+ ]
+ },
+ training: {
+ title: "Training & Community",
+ summary: "Stay connected through calendar events, office hours, and guilds.",
+ links: [
+ { label: "Training calendar", url: "training-calendar.html" },
+ { label: "Accessibility office hours", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" },
+ { label: "Accessibility blog", url: "blog.html" }
+ ]
+ }
+ };
 
-    const supportResources = {
-      consult: { label: "Request a consultation", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" },
-      forms: { label: "Download shared templates", url: "../shared/manifest.json" },
-      policy: { label: "Review governance & Title II plan", url: "policies-governance.html" },
-      contact: { label: "Email accessibility@arizona.edu", url: "mailto:accessibility@arizona.edu" }
-    };
+ const supportResources = {
+ consult: { label: "Request a consultation", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" },
+ forms: { label: "Download shared templates", url: "../shared/manifest.json" },
+ policy: { label: "Review governance & Title II plan", url: "policies-governance.html" },
+ contact: { label: "Email accessibility@arizona.edu", url: "mailto:accessibility@arizona.edu" }
+ };
 
-    const form = document.getElementById("wizard-form");
-    const resultsSection = document.getElementById("wizard-results");
+ const form = document.getElementById("wizard-form");
+ const resultsSection = document.getElementById("wizard-results");
 
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      const data = new FormData(form);
-      const scenarios = data.getAll("scenario");
-      const needs = [...new Set(data.getAll("need"))];
-      const supports = data.getAll("support");
-      const fragments = [];
+ form.addEventListener("submit", event =>{
+ event.preventDefault();
+ const data = new FormData(form);
+ const scenarios = data.getAll("scenario");
+ const needs = [...new Set(data.getAll("need"))];
+ const supports = data.getAll("support");
+ const fragments = [];
 
-      const roleReasons = {};
-      scenarios.forEach(scenario => {
-        const map = scenarioRoleMap[scenario];
-        if (!map) return;
-        map.roles.forEach(roleId => {
-          if (!roleReasons[roleId]) {
-            roleReasons[roleId] = new Set();
-          }
-          roleReasons[roleId].add(map.label);
-        });
-      });
+ const roleReasons = {};
+ scenarios.forEach(scenario =>{
+ const map = scenarioRoleMap[scenario];
+ if (!map) return;
+ map.roles.forEach(roleId =>{
+ if (!roleReasons[roleId]) {
+ roleReasons[roleId] = new Set();
+ }
+ roleReasons[roleId].add(map.label);
+ });
+ });
 
-      const buildCard = (resource, reasonSet) => {
-        const links = resource.links
-          .map(link => `<li><a href="${link.url}">${link.label}</a></li>`)
-          .join("");
-        const reasonText = reasonSet && reasonSet.size
-          ? `<p class="muted">Because you selected: ${Array.from(reasonSet).join(", ")}</p>`
-          : "";
-        return `<article class="result-card"><h3>${resource.title}</h3><p>${resource.summary}</p>${reasonText}<ul>${links}</ul></article>`;
-      };
+ const buildCard = (resource, reasonSet) =>{
+ const links = resource.links
+ .map(link =>`<li><a href="${link.url}">${link.label}</a></li>`)
+ .join("");
+ const reasonText = reasonSet && reasonSet.size
+ ? `<p class="muted">Because you selected: ${Array.from(reasonSet).join(", ")}</p>`
+ : "";
+ return `<article class="result-card"><h3>${resource.title}</h3><p>${resource.summary}</p>${reasonText}<ul>${links}</ul></article>`;
+ };
 
-      Object.entries(roleReasons).forEach(([roleId, reasonSet]) => {
-        const resource = roleResources[roleId];
-        if (resource) {
-          fragments.push(buildCard(resource, reasonSet));
-        }
-      });
+ Object.entries(roleReasons).forEach(([roleId, reasonSet]) =>{
+ const resource = roleResources[roleId];
+ if (resource) {
+ fragments.push(buildCard(resource, reasonSet));
+ }
+ });
 
-      needs.forEach(need => {
-        const resource = needResources[need];
-        if (resource) {
-          fragments.push(buildCard(resource));
-        }
-      });
+ needs.forEach(need =>{
+ const resource = needResources[need];
+ if (resource) {
+ fragments.push(buildCard(resource));
+ }
+ });
 
-      if (supports.length) {
-        const supportLinks = supports
-          .map(id => supportResources[id])
-          .filter(Boolean)
-          .map(link => `<li><a href="${link.url}">${link.label}</a></li>`)
-          .join("");
-        if (supportLinks) {
-          fragments.push(`<article class="result-card"><h3>Support actions</h3><p>Based on what you selected, these links can help right away:</p><ul>${supportLinks}</ul></article>`);
-        }
-      }
+ if (supports.length) {
+ const supportLinks = supports
+ .map(id =>supportResources[id])
+ .filter(Boolean)
+ .map(link =>`<li><a href="${link.url}">${link.label}</a></li>`)
+ .join("");
+ if (supportLinks) {
+ fragments.push(`<article class="result-card"><h3>Support actions</h3><p>Based on what you selected, these links can help right away:</p><ul>${supportLinks}</ul></article>`);
+ }
+ }
 
-      resultsSection.innerHTML = '<h2 id="results-title">Your results</h2>' +
-        (fragments.length ? fragments.join("") : '<p>No selections yet. Choose one or more situations above, then press "Show my results".</p>');
-    });
-  </script>
+ resultsSection.innerHTML = '<h2 id="results-title">Your results</h2>' +
+ (fragments.length ? fragments.join("") : '<p>No selections yet. Choose one or more situations above, then press "Show my results".</p>');
+ });
+</script>
 </body>
 </html>

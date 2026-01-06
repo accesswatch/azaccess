@@ -1,174 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Focus Management Patterns | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Focus Management Patterns | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / <a href="web-app.html">Web &amp; Apps</a> / Focus Management</p>
-    </nav>
-    <h1>Focus Management for Web Developers</h1>
-    <p>When users navigate with keyboards or assistive technology, focus must move logically and be clearly visible.</p>
-    <p class="metric-chip">⏱️ Reading time: 10 minutes</p>
-  </header>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a>/<a href="web-app.html">Web &amp; Apps</a>/ Focus Management</p>
+</nav>
+<h1>Focus Management for Web Developers</h1>
+<p>When users navigate with keyboards or assistive technology, focus must move logically and be clearly visible.</p>
+<p class="metric-chip">Reading time: 10 minutes</p>
+</header>
 
-  <main id="maincontent" role="main">
-    <section aria-labelledby="fundamentals">
-      <h2 id="fundamentals">Focus Fundamentals</h2>
-      <ul>
-        <li><strong>Focus</strong> indicates which element currently receives keyboard input</li>
-        <li><strong>Tab</strong> moves focus forward; <strong>Shift+Tab</strong> moves backward</li>
-        <li>Only <strong>interactive elements</strong> receive focus by default (links, buttons, form fields)</li>
-        <li>Focus indicator <strong>must be visible</strong> (WCAG 2.4.7 Focus Visible)</li>
-        <li>Focus order must be <strong>logical and intuitive</strong> (WCAG 2.4.3 Focus Order)</li>
-      </ul>
-      
-      <div class="callout callout-warning">
-        <h3>⚠️ Common Mistake</h3>
-        <p>Never remove focus outlines without providing an alternative. <code>outline: none</code> without a replacement makes your site unusable for keyboard users.</p>
-      </div>
-    </section>
+<main id="maincontent" role="main">
+<section aria-labelledby="fundamentals">
+<h2 id="fundamentals">Focus Fundamentals</h2>
+<ul>
+<li><strong>Focus</strong>indicates which element currently receives keyboard input</li>
+<li><strong>Tab</strong>moves focus forward;<strong>Shift+Tab</strong>moves backward</li>
+<li>Only<strong>interactive elements</strong>receive focus by default (links, buttons, form fields)</li>
+<li>Focus indicator<strong>must be visible</strong>(WCAG 2.4.7 Focus Visible)</li>
+<li>Focus order must be<strong>logical and intuitive</strong>(WCAG 2.4.3 Focus Order)</li>
+</ul>
+ 
+<div class="callout callout-warning">
+<h3>Common Mistake</h3>
+<p>Never remove focus outlines without providing an alternative.<code>outline: none</code>without a replacement makes your site unusable for keyboard users.</p>
+</div>
+</section>
 
-    <section aria-labelledby="visible-focus">
-      <h2 id="visible-focus">Visible Focus Indicators</h2>
-      <p>Users must always be able to see where focus is. WCAG 2.4.13 (Level AAA) requires focus indicators with:</p>
-      <ul>
-        <li>At least 2px thickness</li>
-        <li>3:1 contrast against adjacent colors</li>
-        <li>Minimum area of the element's perimeter</li>
-      </ul>
+<section aria-labelledby="visible-focus">
+<h2 id="visible-focus">Visible Focus Indicators</h2>
+<p>Users must always be able to see where focus is. WCAG 2.4.13 (Level AAA) requires focus indicators with:</p>
+<ul>
+<li>At least 2px thickness</li>
+<li>3:1 contrast against adjacent colors</li>
+<li>Minimum area of the element's perimeter</li>
+</ul>
 
-      <h3>Default Browser Focus</h3>
-      <pre><code>/* Browsers provide default focus styles */
+<h3>Default Browser Focus</h3>
+<pre><code>/* Browsers provide default focus styles */
 :focus {
-  outline: auto; /* Usually a blue ring */
+ outline: auto; /* Usually a blue ring */
 }</code></pre>
-      <p>The default is accessible—only override it if you provide something <em>better</em>.</p>
+<p>The default is accessible—only override it if you provide something<em>better</em>.</p>
 
-      <h3>Custom Focus Styles</h3>
-      <pre><code>/* Clear, visible custom focus */
+<h3>Custom Focus Styles</h3>
+<pre><code>/* Clear, visible custom focus */
 :focus {
-  outline: 3px solid #005EA2;
-  outline-offset: 2px;
+ outline: 3px solid #005EA2;
+ outline-offset: 2px;
 }
 
 /* High contrast double ring */
 :focus-visible {
-  outline: 2px solid #000000;
-  box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px #000000;
+ outline: 2px solid #000000;
+ box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px #000000;
 }
 
 /* For dark backgrounds */
 .dark-section :focus {
-  outline: 3px solid #ffffff;
-  outline-offset: 2px;
+ outline: 3px solid #ffffff;
+ outline-offset: 2px;
 }</code></pre>
 
-      <h3>Using :focus-visible</h3>
-      <p>The <code>:focus-visible</code> pseudo-class shows focus only for keyboard navigation, hiding it for mouse clicks:</p>
-      <pre><code>/* Hide focus for mouse users, show for keyboard */
+<h3>Using :focus-visible</h3>
+<p>The<code>:focus-visible</code>pseudo-class shows focus only for keyboard navigation, hiding it for mouse clicks:</p>
+<pre><code>/* Hide focus for mouse users, show for keyboard */
 :focus {
-  outline: none;
+ outline: none;
 }
 
 :focus-visible {
-  outline: 3px solid #005EA2;
-  outline-offset: 2px;
+ outline: 3px solid #005EA2;
+ outline-offset: 2px;
 }</code></pre>
 
-      <div class="do-dont-grid">
-        <div class="dont-card">
-          <h4>❌ Never Do This</h4>
-          <pre><code>/* Removes focus for everyone! */
+<div class="do-dont-grid">
+<div class="dont-card">
+<h4>Never Do This</h4>
+<pre><code>/* Removes focus for everyone! */
 :focus {
-  outline: none;
+ outline: none;
 }
 /* No :focus-visible fallback */</code></pre>
-        </div>
-        <div class="do-card">
-          <h4>✅ Do This Instead</h4>
-          <pre><code>:focus-visible {
-  outline: 3px solid #005EA2;
-  outline-offset: 2px;
+</div>
+<div class="do-card">
+<h4>Do This Instead</h4>
+<pre><code>:focus-visible {
+ outline: 3px solid #005EA2;
+ outline-offset: 2px;
 }</code></pre>
-        </div>
-      </div>
-    </section>
+</div>
+</div>
+</section>
 
-    <section aria-labelledby="tab-order">
-      <h2 id="tab-order">Tab Order</h2>
-      <p>Focus order should match the visual reading order (left-to-right, top-to-bottom in English).</p>
+<section aria-labelledby="tab-order">
+<h2 id="tab-order">Tab Order</h2>
+<p>Focus order should match the visual reading order (left-to-right, top-to-bottom in English).</p>
 
-      <h3>Natural Tab Order</h3>
-      <ul>
-        <li>Tab order follows <strong>DOM order</strong>, not visual order</li>
-        <li>Use <code>tabindex="0"</code> to add non-interactive elements to tab order</li>
-        <li>Use <code>tabindex="-1"</code> for programmatic focus only (not in tab order)</li>
-        <li><strong>Never use positive tabindex</strong> (tabindex="1", "2", etc.)—it creates maintenance nightmares</li>
-      </ul>
+<h3>Natural Tab Order</h3>
+<ul>
+<li>Tab order follows<strong>DOM order</strong>, not visual order</li>
+<li>Use<code>tabindex="0"</code>to add non-interactive elements to tab order</li>
+<li>Use<code>tabindex="-1"</code>for programmatic focus only (not in tab order)</li>
+<li><strong>Never use positive tabindex</strong>(tabindex="1", "2", etc.)—it creates maintenance nightmares</li>
+</ul>
 
-      <h3>Tabindex Values</h3>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Value</th>
-              <th scope="col">Behavior</th>
-              <th scope="col">Use Case</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>tabindex="0"</code></td>
-              <td>Added to natural tab order</td>
-              <td>Custom interactive widgets</td>
-            </tr>
-            <tr>
-              <td><code>tabindex="-1"</code></td>
-              <td>Focusable via JavaScript only</td>
-              <td>Modal containers, error messages</td>
-            </tr>
-            <tr>
-              <td><code>tabindex="1+"</code></td>
-              <td>⚠️ Jumps ahead in order</td>
-              <td>Avoid—causes confusion</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<h3>Tabindex Values</h3>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th scope="col">Value</th>
+<th scope="col">Behavior</th>
+<th scope="col">Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tabindex="0"</code></td>
+<td>Added to natural tab order</td>
+<td>Custom interactive widgets</td>
+</tr>
+<tr>
+<td><code>tabindex="-1"</code></td>
+<td>Focusable via JavaScript only</td>
+<td>Modal containers, error messages</td>
+</tr>
+<tr>
+<td><code>tabindex="1+"</code></td>
+<td>Jumps ahead in order</td>
+<td>Avoid—causes confusion</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-      <h3>Fixing Tab Order Issues</h3>
-      <ol>
-        <li>Reorder your HTML to match the visual layout</li>
-        <li>Use CSS Grid/Flexbox for visual positioning (doesn't affect tab order)</li>
-        <li>Test by tabbing through your entire page</li>
-      </ol>
+<h3>Fixing Tab Order Issues</h3>
+<ol>
+<li>Reorder your HTML to match the visual layout</li>
+<li>Use CSS Grid/Flexbox for visual positioning (doesn't affect tab order)</li>
+<li>Test by tabbing through your entire page</li>
+</ol>
 
-      <div class="callout callout-warning">
-        <h3>⚠️ CSS Order Property</h3>
-        <p>CSS <code>order</code> in Flexbox/Grid changes visual order but <strong>not tab order</strong>. This can create a confusing disconnect.</p>
-      </div>
-    </section>
+<div class="callout callout-warning">
+<h3>CSS Order Property</h3>
+<p>CSS<code>order</code>in Flexbox/Grid changes visual order but<strong>not tab order</strong>. This can create a confusing disconnect.</p>
+</div>
+</section>
 
-    <section aria-labelledby="dynamic-content">
-      <h2 id="dynamic-content">Managing Focus in Dynamic Content</h2>
-      
-      <h3>Modal Dialogs</h3>
-      <p>When opening a modal:</p>
-      <ol>
-        <li>Store the element that triggered it</li>
-        <li>Move focus into the modal</li>
-        <li>Trap focus inside (can't Tab out)</li>
-        <li>On close, return focus to the trigger</li>
-      </ol>
+<section aria-labelledby="dynamic-content">
+<h2 id="dynamic-content">Managing Focus in Dynamic Content</h2>
+ 
+<h3>Modal Dialogs</h3>
+<p>When opening a modal:</p>
+<ol>
+<li>Store the element that triggered it</li>
+<li>Move focus into the modal</li>
+<li>Trap focus inside (can't Tab out)</li>
+<li>On close, return focus to the trigger</li>
+</ol>
 
-      <pre><code>// Native dialog (recommended)
+<pre><code>// Native dialog (recommended)
 const dialog = document.querySelector('dialog');
 dialog.showModal(); // Handles focus automatically!
 
@@ -176,140 +176,140 @@ dialog.showModal(); // Handles focus automatically!
 let previousFocus;
 
 function openModal(modal) {
-  previousFocus = document.activeElement;
-  modal.hidden = false;
-  modal.setAttribute('aria-modal', 'true');
-  
-  // Focus first focusable element or the modal itself
-  const focusable = modal.querySelector(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-  );
-  (focusable || modal).focus();
+ previousFocus = document.activeElement;
+ modal.hidden = false;
+ modal.setAttribute('aria-modal', 'true');
+ 
+ // Focus first focusable element or the modal itself
+ const focusable = modal.querySelector(
+ 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+ );
+ (focusable || modal).focus();
 }
 
 function closeModal(modal) {
-  modal.hidden = true;
-  modal.removeAttribute('aria-modal');
-  previousFocus?.focus(); // Return focus
+ modal.hidden = true;
+ modal.removeAttribute('aria-modal');
+ previousFocus?.focus(); // Return focus
 }</code></pre>
 
-      <h3>Focus Trapping</h3>
-      <p>Modal dialogs must trap focus—pressing Tab at the last element wraps to the first:</p>
-      <pre><code>function trapFocus(container) {
-  const focusableSelector = 
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  const focusable = [...container.querySelectorAll(focusableSelector)];
-  const firstFocusable = focusable[0];
-  const lastFocusable = focusable[focusable.length - 1];
+<h3>Focus Trapping</h3>
+<p>Modal dialogs must trap focus—pressing Tab at the last element wraps to the first:</p>
+<pre><code>function trapFocus(container) {
+ const focusableSelector = 
+ 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+ const focusable = [...container.querySelectorAll(focusableSelector)];
+ const firstFocusable = focusable[0];
+ const lastFocusable = focusable[focusable.length - 1];
 
-  container.addEventListener('keydown', (e) => {
-    if (e.key !== 'Tab') return;
+ container.addEventListener('keydown', (e) =>{
+ if (e.key !== 'Tab') return;
 
-    if (e.shiftKey) {
-      // Shift+Tab on first element → go to last
-      if (document.activeElement === firstFocusable) {
-        e.preventDefault();
-        lastFocusable.focus();
-      }
-    } else {
-      // Tab on last element → go to first
-      if (document.activeElement === lastFocusable) {
-        e.preventDefault();
-        firstFocusable.focus();
-      }
-    }
-  });
+ if (e.shiftKey) {
+ // Shift+Tab on first element go to last
+ if (document.activeElement === firstFocusable) {
+ e.preventDefault();
+ lastFocusable.focus();
+ }
+ } else {
+ // Tab on last element go to first
+ if (document.activeElement === lastFocusable) {
+ e.preventDefault();
+ firstFocusable.focus();
+ }
+ }
+ });
 }</code></pre>
 
-      <h3>Single-Page App Navigation</h3>
-      <p>When the route changes in a SPA, focus should move to the new content:</p>
-      <pre><code>// After route change
+<h3>Single-Page App Navigation</h3>
+<p>When the route changes in a SPA, focus should move to the new content:</p>
+<pre><code>// After route change
 function onRouteChange() {
-  const main = document.getElementById('main-content');
-  main.setAttribute('tabindex', '-1');
-  main.focus();
-  
-  // Or announce via live region
-  announcer.textContent = `Navigated to ${document.title}`;
+ const main = document.getElementById('main-content');
+ main.setAttribute('tabindex', '-1');
+ main.focus();
+ 
+ // Or announce via live region
+ announcer.textContent = `Navigated to ${document.title}`;
 }</code></pre>
 
-      <h3>Accordion/Disclosure Widgets</h3>
-      <pre><code>// Focus stays on the trigger button
-button.addEventListener('click', () => {
-  const expanded = button.getAttribute('aria-expanded') === 'true';
-  button.setAttribute('aria-expanded', !expanded);
-  panel.hidden = expanded;
-  // Focus stays on button—don't move it
+<h3>Accordion/Disclosure Widgets</h3>
+<pre><code>// Focus stays on the trigger button
+button.addEventListener('click', () =>{
+ const expanded = button.getAttribute('aria-expanded') === 'true';
+ button.setAttribute('aria-expanded', !expanded);
+ panel.hidden = expanded;
+ // Focus stays on button—don't move it
 });</code></pre>
 
-      <h3>Deleted Items in Lists</h3>
-      <p>When removing an item, move focus to a logical location:</p>
-      <pre><code>function deleteItem(item) {
-  const nextItem = item.nextElementSibling || item.previousElementSibling;
-  const listHeading = item.closest('section')?.querySelector('h2');
-  
-  item.remove();
-  
-  // Focus next item, or the section heading if list is empty
-  if (nextItem) {
-    nextItem.querySelector('button')?.focus();
-  } else {
-    listHeading?.setAttribute('tabindex', '-1');
-    listHeading?.focus();
-  }
+<h3>Deleted Items in Lists</h3>
+<p>When removing an item, move focus to a logical location:</p>
+<pre><code>function deleteItem(item) {
+ const nextItem = item.nextElementSibling || item.previousElementSibling;
+ const listHeading = item.closest('section')?.querySelector('h2');
+ 
+ item.remove();
+ 
+ // Focus next item, or the section heading if list is empty
+ if (nextItem) {
+ nextItem.querySelector('button')?.focus();
+ } else {
+ listHeading?.setAttribute('tabindex', '-1');
+ listHeading?.focus();
+ }
 }</code></pre>
-    </section>
+</section>
 
-    <section aria-labelledby="testing">
-      <h2 id="testing">Testing Focus Management</h2>
-      <ol>
-        <li><strong>Unplug your mouse</strong> (or move it aside)</li>
-        <li><strong>Tab through the entire page</strong>—can you reach everything interactive?</li>
-        <li><strong>Watch the focus indicator</strong>—is it always visible?</li>
-        <li><strong>Test modals</strong>—does focus trap? Does it return on close?</li>
-        <li><strong>Test route changes</strong>—does focus move appropriately?</li>
-        <li><strong>Test with a screen reader</strong>—NVDA, VoiceOver, or JAWS</li>
-      </ol>
+<section aria-labelledby="testing">
+<h2 id="testing">Testing Focus Management</h2>
+<ol>
+<li><strong>Unplug your mouse</strong>(or move it aside)</li>
+<li><strong>Tab through the entire page</strong>—can you reach everything interactive?</li>
+<li><strong>Watch the focus indicator</strong>—is it always visible?</li>
+<li><strong>Test modals</strong>—does focus trap? Does it return on close?</li>
+<li><strong>Test route changes</strong>—does focus move appropriately?</li>
+<li><strong>Test with a screen reader</strong>—NVDA, VoiceOver, or JAWS</li>
+</ol>
 
-      <h3>Browser DevTools</h3>
-      <p>Chrome DevTools can track focus:</p>
-      <ol>
-        <li>Open DevTools (F12)</li>
-        <li>Go to Console</li>
-        <li>Run: <code>document.addEventListener('focusin', e => console.log(e.target))</code></li>
-        <li>Tab through the page to see focus logged</li>
-      </ol>
-    </section>
+<h3>Browser DevTools</h3>
+<p>Chrome DevTools can track focus:</p>
+<ol>
+<li>Open DevTools (F12)</li>
+<li>Go to Console</li>
+<li>Run:<code>document.addEventListener('focusin', e =>console.log(e.target))</code></li>
+<li>Tab through the page to see focus logged</li>
+</ol>
+</section>
 
-    <section aria-labelledby="checklist">
-      <h2 id="checklist">✅ Focus Management Checklist</h2>
-      <ul class="checklist">
-        <li><input type="checkbox" id="f1"> <label for="f1">All interactive elements have visible focus indicators</label></li>
-        <li><input type="checkbox" id="f2"> <label for="f2">Focus indicators have 3:1 contrast against adjacent colors</label></li>
-        <li><input type="checkbox" id="f3"> <label for="f3">Tab order matches visual reading order</label></li>
-        <li><input type="checkbox" id="f4"> <label for="f4">No positive tabindex values used</label></li>
-        <li><input type="checkbox" id="f5"> <label for="f5">Modals trap focus when open</label></li>
-        <li><input type="checkbox" id="f6"> <label for="f6">Modals return focus to trigger on close</label></li>
-        <li><input type="checkbox" id="f7"> <label for="f7">Route changes announce or move focus to new content</label></li>
-        <li><input type="checkbox" id="f8"> <label for="f8">Deleted content moves focus appropriately</label></li>
-        <li><input type="checkbox" id="f9"> <label for="f9">Skip link allows bypassing navigation</label></li>
-        <li><input type="checkbox" id="f10"> <label for="f10">Tested entire page with keyboard only</label></li>
-      </ul>
-    </section>
+<section aria-labelledby="checklist">
+<h2 id="checklist">Focus Management Checklist</h2>
+<ul class="checklist">
+<li><input type="checkbox" id="f1"><label for="f1">All interactive elements have visible focus indicators</label></li>
+<li><input type="checkbox" id="f2"><label for="f2">Focus indicators have 3:1 contrast against adjacent colors</label></li>
+<li><input type="checkbox" id="f3"><label for="f3">Tab order matches visual reading order</label></li>
+<li><input type="checkbox" id="f4"><label for="f4">No positive tabindex values used</label></li>
+<li><input type="checkbox" id="f5"><label for="f5">Modals trap focus when open</label></li>
+<li><input type="checkbox" id="f6"><label for="f6">Modals return focus to trigger on close</label></li>
+<li><input type="checkbox" id="f7"><label for="f7">Route changes announce or move focus to new content</label></li>
+<li><input type="checkbox" id="f8"><label for="f8">Deleted content moves focus appropriately</label></li>
+<li><input type="checkbox" id="f9"><label for="f9">Skip link allows bypassing navigation</label></li>
+<li><input type="checkbox" id="f10"><label for="f10">Tested entire page with keyboard only</label></li>
+</ul>
+</section>
 
-    <section aria-labelledby="related">
-      <h2 id="related">Related Resources</h2>
-      <ul>
-        <li><a href="web-keyboard.html">Keyboard Accessibility Guide</a></li>
-        <li><a href="skip-link-snippet.html">Skip Link Code Snippet</a></li>
-        <li><a href="persona-developers.html">Developer Accessibility Guide</a></li>
-        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">WCAG: Understanding Focus Visible</a></li>
-      </ul>
-    </section>
-  </main>
+<section aria-labelledby="related">
+<h2 id="related">Related Resources</h2>
+<ul>
+<li><a href="web-keyboard.html">Keyboard Accessibility Guide</a></li>
+<li><a href="skip-link-snippet.html">Skip Link Code Snippet</a></li>
+<li><a href="persona-developers.html">Developer Accessibility Guide</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">WCAG: Understanding Focus Visible</a></li>
+</ul>
+</section>
+</main>
 
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-  </footer>
+<footer role="contentinfo">
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+</footer>
 </body>
 </html>
