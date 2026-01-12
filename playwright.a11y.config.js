@@ -4,6 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 
 export default defineConfig({
   testDir: './tests/accessibility',
+  testMatch: '**/*.spec.js',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
