@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Replace the base URL below with your published site URL -->
+  <!-- Example base: https://accessibility.arizona.edu -->
+
+  <url>
+    <loc>https://example.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://example.com/index.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Root-level pages -->
+  <url><loc>https://example.com/DEPLOY.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/ACCESSIBILITY-DEVELOPMENT-GUIDE.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/ACCESSIBILITY-CI-PROPOSAL.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- docs/ folder -->
+  <url><loc>https://example.com/docs/ua-accessibility-articulate-resources.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/Digital_Accessibility_Framework_Course_Mapping.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/tools-comparison.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/focus-management.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/docs/persona-students.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/persona-staff.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/ua-accessibility-framework-full.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/tools-checklists.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/persona-public.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/persona-mobile.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/ua-accessibility-framework-accordion-full.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/persona-leadership.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/metrics-kpis.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/persona-faculty.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/persona-developers.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/documents-media.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/persona-content.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/service-levels.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/persona-comms.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/vpat-review.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/pedagogy-checklist.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/resource-registry.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/pdf-remediation.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/panorama-students.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/changelog.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/mobile-roadmap.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/title-ii-brief.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/policies-governance.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/testing-tools.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/meaningful-links.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/media-captioning.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/templates-downloads.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/lms-panopto.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/teaching-learning.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/lms-brightspace.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/blog.html</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/heading-basics.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/governance-charter.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/learning.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/blog-cta.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/example-syllabus.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/example-slides.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/wizard.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/example-newsletter.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/events-inclusive.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/email-outlook.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/email-newsletters.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/email-gmail.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/documents-overview.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/web-app.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/doc-powerpoint.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/visitors.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/vendor-faq.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/course_integration_plan.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/support.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/content-creators.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/consultation-map.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/students.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/staff.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/compliance-timeline.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/communications.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/communication-etiquette.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/color-contrast.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/champions-directory.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/brand-identity.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/search.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/blog-template.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://example.com/docs/roles.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/before-after-examples.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/assistive-tech.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/ai-assistant.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/adobe-media.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/accessibility-statement.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/legacy-redirects.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://example.com/docs/accessibility-101.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/docs/web-keyboard.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/wcag22-highlights.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/personas.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/panorama.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/vpat-library.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/not-found.html</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
+  <url><loc>https://example.com/docs/training-calendar.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/mobile.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/leadership.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/home.html</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://example.com/docs/social-media-guide.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://example.com/docs/skip-link-snippet.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://example.com/docs/site-alerts.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/shared-md-template.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://example.com/docs/glossary.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/role-template.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://example.com/docs/faq.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/faculty.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/quick-start.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.com/docs/procurement.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/procurement-steps.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/references.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.com/docs/doc-word.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/doc-google.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/doc-excel.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/docs/do-dont.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://example.com/docs/developers.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- _includes and add/ and work/ pages (snippets and integration HTML) -->
+  <url><loc>https://example.com/_includes/drc-notice.html</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
+  <url><loc>https://example.com/_includes/ua-framework.html</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
+  <url><loc>https://example.com/add/Digital_Accessibility_Framework_Course_Mapping.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://example.com/add/course_integration_plan.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://example.com/work/web/home.html</loc><changefreq>monthly</changefreq><priority>0.1</priority></url>
+  <url><loc>https://example.com/work/web/accessibility-101.html</loc><changefreq>monthly</changefreq><priority>0.1</priority></url>
+
+  <!-- add/site-integration partials -->
+  <url><loc>https://example.com/add/site-integration/nav-snippet.html</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
+
+  <!-- Work shared fragments (lower priority) -->
+  <url><loc>https://example.com/work/shared/wcag22-highlights.html</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
+
+  <!-- If you want every HTML page included, extend this list with any other file paths under the repository. -->
+
+</urlset>
