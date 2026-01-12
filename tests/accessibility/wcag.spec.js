@@ -62,7 +62,7 @@ test.describe("Keyboard Navigation", () => {
       await expect(skipLink).toBeFocused({ timeout: 2000 });
     } catch {
       // Fallback: focus programmatically if keyboard focus didn't land on it
-      await skipLink.evaluate((el) => (el as HTMLElement).focus());
+      await skipLink.evaluate((el) => { if (el && typeof el.focus === 'function') el.focus(); });
     }
 
     // Activate skip link and ensure main receives focus; fallback to programmatic focus
@@ -72,8 +72,9 @@ test.describe("Keyboard Navigation", () => {
       await expect(main).toBeFocused({ timeout: 2000 });
     } catch {
       await main.evaluate((el) => {
-        if (el && el.setAttribute) el.setAttribute('tabindex', '-1');
-        (el as HTMLElement).focus();
+        if (!el) return;
+        if (el.setAttribute) el.setAttribute('tabindex', '-1');
+        if (typeof el.focus === 'function') el.focus();
       });
     }
   });
