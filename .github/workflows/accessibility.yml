@@ -65,12 +65,6 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
-      - name: Start server and wait for it
-        run: |
-          npx serve docs -p 3000 &
-          npx wait-on http://localhost:3000 --timeout 30000
-          echo "✅ Server is ready at http://localhost:3000"
-
       - name: Run Playwright accessibility tests
         id: playwright-tests
         run: npx playwright test --config=playwright.a11y.config.js
