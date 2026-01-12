@@ -1,0 +1,554 @@
+{
+  "config": {
+    "configFile": "/home/runner/work/azaccess/azaccess/playwright.a11y.config.js",
+    "rootDir": "/home/runner/work/azaccess/azaccess/tests/accessibility",
+    "forbidOnly": true,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-report/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/azaccess/azaccess/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/azaccess/azaccess/tests/accessibility",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npx serve docs -p 3000",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "wcag.spec.js",
+      "file": "wcag.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "WCAG 2.2 AA Compliance",
+          "file": "wcag.spec.js",
+          "line": 20,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Home should pass axe accessibility checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-fd6da9867a05d7ea9440",
+              "file": "wcag.spec.js",
+              "line": 22,
+              "column": 9
+            },
+            {
+              "title": "Roles should pass axe accessibility checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-630dc4e41c8cdf38d056",
+              "file": "wcag.spec.js",
+              "line": 22,
+              "column": 9
+            },
+            {
+              "title": "Accessibility 101 should pass axe accessibility checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-30c64cecd427ccd57d74",
+              "file": "wcag.spec.js",
+              "line": 22,
+              "column": 9
+            },
+            {
+              "title": "Students should pass axe accessibility checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-6ff38b561a44d4e255f3",
+              "file": "wcag.spec.js",
+              "line": 22,
+              "column": 9
+            },
+            {
+              "title": "Faculty should pass axe accessibility checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-20eb7dd9e6d2927d69ce",
+              "file": "wcag.spec.js",
+              "line": 22,
+              "column": 9
+            },
+            {
+              "title": "Developers should pass axe accessibility checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-6500c5e2667fd80a3eb1",
+              "file": "wcag.spec.js",
+              "line": 22,
+              "column": 9
+            },
+            {
+              "title": "Content Creators should pass axe accessibility checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-ba4d196246dbb780d5e3",
+              "file": "wcag.spec.js",
+              "line": 22,
+              "column": 9
+            },
+            {
+              "title": "Support should pass axe accessibility checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-b326def91bb8d0992b59",
+              "file": "wcag.spec.js",
+              "line": 22,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "Keyboard Navigation",
+          "file": "wcag.spec.js",
+          "line": 44,
+          "column": 6,
+          "specs": [
+            {
+              "title": "can navigate home page with keyboard only",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-6029bf915f87cd3f57bb",
+              "file": "wcag.spec.js",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "hamburger menu is keyboard accessible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-39256f129e14462540e7",
+              "file": "wcag.spec.js",
+              "line": 59,
+              "column": 7
+            },
+            {
+              "title": "all interactive elements are focusable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-6fdf43e04af009df0ba3",
+              "file": "wcag.spec.js",
+              "line": 82,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Focus Indicators",
+          "file": "wcag.spec.js",
+          "line": 101,
+          "column": 6,
+          "specs": [
+            {
+              "title": "focus indicators are visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-0416db95b5353def41de",
+              "file": "wcag.spec.js",
+              "line": 102,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Color Contrast",
+          "file": "wcag.spec.js",
+          "line": 125,
+          "column": 6,
+          "specs": [
+            {
+              "title": "text has sufficient contrast",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-14e3b5ceb38acc50e8dd",
+              "file": "wcag.spec.js",
+              "line": 126,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Headings",
+          "file": "wcag.spec.js",
+          "line": 138,
+          "column": 6,
+          "specs": [
+            {
+              "title": "heading hierarchy is correct",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-4b70ff1c8fa33497e8a5",
+              "file": "wcag.spec.js",
+              "line": 139,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Images",
+          "file": "wcag.spec.js",
+          "line": 166,
+          "column": 6,
+          "specs": [
+            {
+              "title": "all images have alt attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-9beb48c0a748c31c6590",
+              "file": "wcag.spec.js",
+              "line": 167,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Forms",
+          "file": "wcag.spec.js",
+          "line": 183,
+          "column": 6,
+          "specs": [
+            {
+              "title": "form inputs have associated labels",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-38013862466b9e6f1c8b",
+              "file": "wcag.spec.js",
+              "line": 184,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "ARIA",
+          "file": "wcag.spec.js",
+          "line": 195,
+          "column": 6,
+          "specs": [
+            {
+              "title": "ARIA attributes are valid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-7e469fa42d375c3926c9",
+              "file": "wcag.spec.js",
+              "line": 196,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Responsive",
+          "file": "wcag.spec.js",
+          "line": 207,
+          "column": 6,
+          "specs": [
+            {
+              "title": "accessibility passes at Mobile (320px)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-cfdbc9bf0489b790ef0d",
+              "file": "wcag.spec.js",
+              "line": 215,
+              "column": 9
+            },
+            {
+              "title": "accessibility passes at Tablet (768px)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-03dfa9468f969eeab8e4",
+              "file": "wcag.spec.js",
+              "line": 215,
+              "column": 9
+            },
+            {
+              "title": "accessibility passes at Desktop (1280px)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "22977889a911f599e3b9-bec1df0a750f46fe35a8",
+              "file": "wcag.spec.js",
+              "line": 215,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-12T20:18:34.334Z",
+    "duration": 92.97300000000007,
+    "expected": 0,
+    "skipped": 20,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
