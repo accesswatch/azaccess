@@ -1,0 +1,1719 @@
+<h1 id="accessibility-development-guide">Accessibility Development
+Guide</h1>
+<p>Complete step-by-step instructions for using all accessibility tools,
+configurations, and agents in this project.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol type="1">
+<li><a href="#1-initial-setup">Initial Setup</a></li>
+<li><a href="#2-vs-code-extensions">VS Code Extensions</a></li>
+<li><a href="#3-axe-core-linting">Axe-Core Linting</a></li>
+<li><a href="#4-automated-testing">Automated Testing</a></li>
+<li><a href="#5-mcp-servers">MCP Servers</a></li>
+<li><a href="#6-claude-agents">Claude Agents</a></li>
+<li><a href="#7-github-workflow">GitHub Workflow</a></li>
+<li><a href="#8-github-actions-cicd">GitHub Actions CI/CD</a></li>
+<li><a href="#9-manual-testing-checklist">Manual Testing
+Checklist</a></li>
+<li><a href="#10-npm-scripts-reference">NPM Scripts Reference</a></li>
+<li><a href="#11-troubleshooting">Troubleshooting</a></li>
+</ol>
+<hr />
+<h2 id="initial-setup">1. Initial Setup</h2>
+<h3 id="step-1.1-clone-and-install">Step 1.1: Clone and Install</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone the repository</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/accesswatch/azaccess.git</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> azaccess</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Node.js dependencies</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Playwright browser (required for testing)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> playwright install chromium</span></code></pre></div>
+<h3 id="step-1.2-verify-installation">Step 1.2: Verify Installation</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check axe-core is installed</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> list axe-core</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Should show: axe-core@4.11.0</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check Playwright is installed</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> playwright <span class="at">--version</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Should show: Version 1.57.0 or higher</span></span></code></pre></div>
+<h3 id="step-1.3-start-local-server">Step 1.3: Start Local Server</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start the development server</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># You should see:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Serving! http://localhost:3000</span></span></code></pre></div>
+<p>Keep this terminal open. Open a new terminal for running tests.</p>
+<h3 id="step-1.4-verify-server-is-running">Step 1.4: Verify Server is
+Running</h3>
+<p>Open http://localhost:3000/home.html in your browser. You should see
+the Accessibility at Arizona home page.</p>
+<hr />
+<h2 id="vs-code-extensions">2. VS Code Extensions</h2>
+<h3 id="step-2.1-open-the-project-in-vs-code">Step 2.1: Open the Project
+in VS Code</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code></pre></div>
+<h3 id="step-2.2-install-recommended-extensions">Step 2.2: Install
+Recommended Extensions</h3>
+<ol type="1">
+<li>VS Code will show a popup: <strong>“This workspace has extension
+recommendations”</strong></li>
+<li>Click <strong>“Install All”</strong></li>
+</ol>
+<p><strong>Or install manually:</strong></p>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 45%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Extension</th>
+<th>ID</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Axe Accessibility Linter</td>
+<td><code>deque-systems.vscode-axe-linter</code></td>
+<td>Real-time WCAG checking</td>
+</tr>
+<tr>
+<td>Playwright Test</td>
+<td><code>ms-playwright.playwright</code></td>
+<td>Run accessibility tests</td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td><code>github.copilot</code></td>
+<td>AI assistance</td>
+</tr>
+<tr>
+<td>GitHub Copilot Chat</td>
+<td><code>github.copilot-chat</code></td>
+<td>Chat with agents</td>
+</tr>
+<tr>
+<td>Prettier</td>
+<td><code>esbenp.prettier-vscode</code></td>
+<td>Code formatting</td>
+</tr>
+<tr>
+<td>Code Spell Checker</td>
+<td><code>streetsidesoftware.code-spell-checker</code></td>
+<td>Catch typos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>To install manually:</strong></p>
+<ol type="1">
+<li>Press <code>Ctrl+Shift+X</code> (Windows) or
+<code>Cmd+Shift+X</code> (Mac)</li>
+<li>Search for the extension name</li>
+<li>Click <strong>Install</strong></li>
+</ol>
+<h3 id="step-2.3-verify-settings-are-applied">Step 2.3: Verify Settings
+Are Applied</h3>
+<ol type="1">
+<li>Press <code>Ctrl+,</code> (Windows) or <code>Cmd+,</code> (Mac) to
+open Settings</li>
+<li>Click the <strong>Workspace</strong> tab</li>
+<li>Search for “axe-linter”</li>
+<li>You should see rules configured for WCAG 2.2</li>
+</ol>
+<p>The project’s <code>.vscode/settings.json</code> automatically
+configures:</p>
+<ul>
+<li>✅ Axe-linter WCAG 2.2 AA rules</li>
+<li>✅ Format on save</li>
+<li>✅ Accessibility spell check terms</li>
+<li>✅ HTML validation</li>
+</ul>
+<h3 id="step-2.4-reload-vs-code">Step 2.4: Reload VS Code</h3>
+<p>Press <code>Ctrl+Shift+P</code> → type “Reload Window” → press
+Enter</p>
+<hr />
+<h2 id="axe-core-linting">3. Axe-Core Linting</h2>
+<h3 id="how-it-works">How It Works</h3>
+<p>The axe-linter extension scans your HTML in real-time and highlights
+WCAG violations.</p>
+<h3 id="step-3.1-see-linting-in-action">Step 3.1: See Linting in
+Action</h3>
+<ol type="1">
+<li>Open <code>docs/home.html</code></li>
+<li>Look for yellow/red squiggly underlines</li>
+<li>Hover over a squiggle to see the issue</li>
+</ol>
+<p><strong>Example issue:</strong></p>
+<pre><code>[axe-linter] Images must have alternate text (image-alt)
+WCAG 1.1.1 Level A</code></pre>
+<h3 id="step-3.2-fix-an-issue">Step 3.2: Fix an Issue</h3>
+<ol type="1">
+<li>Hover over the squiggle</li>
+<li>Click <strong>Quick Fix</strong> (lightbulb icon)</li>
+<li>Select the suggested fix</li>
+<li>Or manually edit the code</li>
+</ol>
+<h3 id="step-3.3-view-all-problems">Step 3.3: View All Problems</h3>
+<ol type="1">
+<li>Press <code>Ctrl+Shift+M</code> (Windows) or
+<code>Cmd+Shift+M</code> (Mac)</li>
+<li>The <strong>Problems</strong> panel shows all accessibility
+issues</li>
+<li>Click an issue to jump to it</li>
+</ol>
+<h3 id="step-3.4-run-command-line-audit">Step 3.4: Run Command-Line
+Audit</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure server is running first (npm start)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit key pages (10 most important)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run audit</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit ALL HTML files</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run audit:all</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit specific files</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> scripts/axe-audit.js docs/home.html docs/faculty.html</span></code></pre></div>
+<h3 id="step-3.5-view-audit-report">Step 3.5: View Audit Report</h3>
+<p>After running an audit:</p>
+<ol type="1">
+<li>Open <code>reports/axe-report-latest.html</code> in a browser</li>
+<li>Report shows:
+<ul>
+<li>Summary of all violations by severity</li>
+<li>Each page’s issues</li>
+<li>Affected HTML elements</li>
+<li>Links to “How to fix” documentation</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="automated-testing">4. Automated Testing</h2>
+<h3 id="step-4.1-run-all-accessibility-tests">Step 4.1: Run All
+Accessibility Tests</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure server is running (npm start in another terminal)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the full test suite</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run test:a11y</span></code></pre></div>
+<p><strong>What gets tested:</strong></p>
+<ul>
+<li>WCAG 2.2 AA compliance on all key pages</li>
+<li>Keyboard navigation (Tab, Enter, Escape)</li>
+<li>Focus indicators visibility</li>
+<li>Color contrast ratios</li>
+<li>Heading hierarchy</li>
+<li>Image alt text</li>
+<li>Form label associations</li>
+<li>ARIA attribute validity</li>
+<li>Responsive layouts (320px, 768px, 1280px)</li>
+</ul>
+<h3 id="step-4.2-run-tests-with-interactive-ui">Step 4.2: Run Tests with
+Interactive UI</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run test:a11y:ui</span></code></pre></div>
+<p>This opens Playwright’s UI where you can:</p>
+<ul>
+<li>See all tests organized by category</li>
+<li>Run individual tests</li>
+<li>Watch tests execute in the browser</li>
+<li>Debug failing tests step-by-step</li>
+</ul>
+<h3 id="step-4.3-view-test-report">Step 4.3: View Test Report</h3>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run test:a11y:report</span></code></pre></div>
+<p>Opens an HTML report showing:</p>
+<ul>
+<li>Pass/fail status for each test</li>
+<li>Screenshots of failures</li>
+<li>Detailed error messages</li>
+</ul>
+<h3 id="step-4.4-run-lighthouse-audit">Step 4.4: Run Lighthouse
+Audit</h3>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Server must be running</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run lighthouse</span></code></pre></div>
+<p>Opens <code>reports/lighthouse.html</code> with:</p>
+<ul>
+<li>Accessibility score (target: 90+)</li>
+<li>Specific issues found</li>
+<li>Opportunities for improvement</li>
+</ul>
+<hr />
+<h2 id="mcp-servers">5. MCP Servers</h2>
+<p>MCP (Model Context Protocol) servers extend Copilot Chat’s
+capabilities with specialized tools.</p>
+<h3 id="step-5.1-enable-mcp-in-vs-code">Step 5.1: Enable MCP in VS
+Code</h3>
+<ol type="1">
+<li>Press <code>Ctrl+,</code> (Windows) or <code>Cmd+,</code> (Mac) to
+open Settings</li>
+<li>Search for <strong>“mcp”</strong></li>
+<li>Find <strong>“Chat: Mcp Enabled”</strong></li>
+<li>Check the box to <strong>enable</strong></li>
+<li><strong>Restart VS Code</strong> (not just reload - fully quit and
+reopen)</li>
+</ol>
+<h3 id="step-5.2-verify-mcp-servers-are-configured">Step 5.2: Verify MCP
+Servers Are Configured</h3>
+<ol type="1">
+<li>Open <code>.vscode/mcp-servers.json</code></li>
+<li>You should see 5 servers configured:
+<ul>
+<li><code>playwright-a11y</code> - Browser automation</li>
+<li><code>github</code> - GitHub integration</li>
+<li><code>firecrawl</code> - Web scraping</li>
+<li><code>memory</code> - Knowledge storage</li>
+<li><code>context7</code> - Documentation lookup</li>
+</ul></li>
+</ol>
+<h3
+id="step-5.3-set-environment-variables-required-for-some-servers">Step
+5.3: Set Environment Variables (Required for Some Servers)</h3>
+<p><strong>For GitHub server:</strong></p>
+<ol type="1">
+<li><p>Create a GitHub Personal Access Token:</p>
+<ul>
+<li>Go to https://github.com/settings/tokens</li>
+<li>Click “Generate new token (classic)”</li>
+<li>Select scopes: <code>repo</code>, <code>read:org</code></li>
+<li>Copy the token</li>
+</ul></li>
+<li><p>Set the environment variable:</p></li>
+</ol>
+<p><strong>Windows (PowerShell - run as Admin):</strong></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>System<span class="op">.</span><span class="fu">Environment</span><span class="op">]::</span>SetEnvironmentVariable<span class="op">(</span><span class="st">&#39;GITHUB_TOKEN&#39;</span><span class="op">,</span> <span class="st">&#39;your-token-here&#39;</span><span class="op">,</span> <span class="st">&#39;User&#39;</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Windows (Command Prompt):</strong></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>setx GITHUB_TOKEN <span class="st">&quot;your-token-here&quot;</span></span></code></pre></div>
+<p><strong>Mac/Linux:</strong></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;export GITHUB_TOKEN=&quot;your-token-here&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span></code></pre></div>
+<ol start="3" type="1">
+<li>Restart VS Code</li>
+</ol>
+<p><strong>For Firecrawl server (optional):</strong></p>
+<ul>
+<li>Sign up at https://firecrawl.dev</li>
+<li>Get your API key</li>
+<li>Set <code>FIRECRAWL_API_KEY</code> the same way</li>
+</ul>
+<h3 id="step-5.4-using-mcp-servers-in-copilot-chat">Step 5.4: Using MCP
+Servers in Copilot Chat</h3>
+<p>Open Copilot Chat: <code>Ctrl+Shift+I</code> (Windows) or
+<code>Cmd+Shift+I</code> (Mac)</p>
+<h4 id="playwright-server---browser-automation">Playwright Server -
+Browser Automation</h4>
+<p><strong>Test keyboard navigation:</strong></p>
+<pre><code>Use Playwright to test if the skip link on home.html works.
+Tab to it and press Enter, then verify focus moves to main content.</code></pre>
+<p><strong>Check focus indicators:</strong></p>
+<pre><code>Navigate to roles.html with Playwright and tab through all interactive elements.
+Take a screenshot of each focused element to verify focus indicators are visible.</code></pre>
+<p><strong>Test form accessibility:</strong></p>
+<pre><code>Go to support.html, find the contact form, and verify each input has an associated label.</code></pre>
+<h4 id="github-server---issues-prs">GitHub Server - Issues &amp;
+PRs</h4>
+<p><strong>Create an issue:</strong></p>
+<pre><code>Create an accessibility issue in this repo titled &quot;Missing alt text on faculty page&quot;
+with severity &quot;serious&quot; and WCAG criterion &quot;1.1.1&quot;.</code></pre>
+<p><strong>Search code:</strong></p>
+<pre><code>Search this repository for all uses of tabindex.</code></pre>
+<p><strong>List issues:</strong></p>
+<pre><code>Show me all open issues with the &quot;accessibility&quot; label.</code></pre>
+<h4 id="memory-server---store-patterns">Memory Server - Store
+Patterns</h4>
+<p><strong>Remember a decision:</strong></p>
+<pre><code>Remember: Our project standard for focus indicators is
+outline: 3px solid var(--ua-maroon) with outline-offset: 2px</code></pre>
+<p><strong>Recall later:</strong></p>
+<pre><code>What&#39;s our standard for focus indicators?</code></pre>
+<h4 id="context7-server---documentation">Context7 Server -
+Documentation</h4>
+<p><strong>Get ARIA docs:</strong></p>
+<pre><code>Get documentation for how to properly use aria-live regions for dynamic content.</code></pre>
+<p><strong>Look up patterns:</strong></p>
+<pre><code>Show me the WAI-ARIA Authoring Practices for accessible modal dialogs.</code></pre>
+<hr />
+<h2 id="claude-agents">6. Claude Agents</h2>
+<p>The project includes specialized Claude agents that are automatically
+available in VS Code. These agents have deep expertise in accessibility
+and follow project-specific standards.</p>
+<h3 id="how-agents-work-in-vs-code">How Agents Work in VS Code</h3>
+<p>The agent definitions in <code>.github/agents/</code> are
+automatically loaded by Claude. When you ask accessibility-related
+questions, Claude uses this expertise. You can also explicitly invoke
+agents using <code>@workspace</code> with context.</p>
+<h3 id="step-6.1-accessibility-auditor-agent">Step 6.1: Accessibility
+Auditor Agent</h3>
+<p><strong>Purpose:</strong> Comprehensive WCAG 2.2 AA audits</p>
+<p><strong>How to use - Open Copilot Chat and type:</strong></p>
+<pre><code>Audit this component for WCAG 2.2 AA accessibility:
+
+&lt;div class=&quot;card&quot; onclick=&quot;showDetails()&quot;&gt;
+  &lt;img src=&quot;product.jpg&quot;&gt;
+  &lt;span style=&quot;color: #999&quot;&gt;Product Name&lt;/span&gt;
+  &lt;div class=&quot;price&quot;&gt;$49.99&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p><strong>What you’ll get:</strong></p>
+<ul>
+<li>❌ <strong>1.1.1 Non-text Content</strong> - Image missing alt
+text</li>
+<li>❌ <strong>1.4.3 Contrast</strong> - #999 text has 2.8:1 ratio
+(needs 4.5:1)</li>
+<li>❌ <strong>2.1.1 Keyboard</strong> - onclick on div not keyboard
+accessible</li>
+<li>❌ <strong>4.1.2 Name, Role, Value</strong> - Interactive element
+lacks proper role</li>
+</ul>
+<p>Each issue includes severity, who’s affected, and how to fix.</p>
+<h3 id="step-6.2-accessibility-remediation-agent">Step 6.2:
+Accessibility Remediation Agent</h3>
+<p><strong>Purpose:</strong> Fix specific accessibility issues with
+working code</p>
+<p><strong>How to use:</strong></p>
+<pre><code>Fix these accessibility issues in my navigation:
+
+Current code:
+&lt;div class=&quot;hamburger&quot; onclick=&quot;toggle()&quot;&gt;☰&lt;/div&gt;
+&lt;div class=&quot;menu&quot; style=&quot;display:none&quot;&gt;
+  &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
+  &lt;a href=&quot;/about&quot;&gt;About&lt;/a&gt;
+&lt;/div&gt;
+
+Issues:
+1. Hamburger is not a button
+2. No keyboard support
+3. No ARIA attributes
+4. No focus trap when open</code></pre>
+<p><strong>What you’ll get:</strong></p>
+<ul>
+<li>Complete fixed code</li>
+<li>Explanation of each change</li>
+<li>Testing instructions</li>
+</ul>
+<h3 id="step-6.3-content-accessibility-agent">Step 6.3: Content
+Accessibility Agent</h3>
+<p><strong>Purpose:</strong> Review content for plain language and
+readability</p>
+<p><strong>How to use:</strong></p>
+<pre><code>Review this content for the students page:
+
+&quot;The Office of Digital Accessibility is responsible for ensuring
+that all university digital resources conform to applicable
+accessibility standards and regulations. Students who experience
+barriers accessing university digital content should utilize the
+established remediation request workflow to effectuate resolution
+of identified accessibility deficiencies.&quot;</code></pre>
+<p><strong>What you’ll get:</strong></p>
+<ul>
+<li>Readability score (this is grade 16+ - too complex!)</li>
+<li>Plain language rewrite at grade 8 level</li>
+<li>Structure improvements</li>
+<li>Simpler word choices</li>
+</ul>
+<h3 id="step-6.4-quick-prompts-for-common-tasks">Step 6.4: Quick Prompts
+for Common Tasks</h3>
+<p><strong>Audit a specific file:</strong></p>
+<pre><code>@workspace Audit docs/faculty.html for WCAG 2.2 AA. List all issues by severity.</code></pre>
+<p><strong>Fix a component:</strong></p>
+<pre><code>@workspace Make this accordion keyboard accessible with proper ARIA:
+[paste your code]</code></pre>
+<p><strong>Generate accessible component:</strong></p>
+<pre><code>@workspace Create an accessible dropdown menu that:
+- Opens with Enter/Space
+- Navigates with arrow keys
+- Closes with Escape
+- Traps focus when open
+- Has proper ARIA</code></pre>
+<p><strong>Check color contrast:</strong></p>
+<pre><code>@workspace Check if these color combinations meet WCAG AA:
+- Text #595959 on background #ffffff
+- Link #AB0520 on background #f5f5f5</code></pre>
+<p><strong>Review PR for accessibility:</strong></p>
+<pre><code>@workspace Review the changes in this PR for accessibility issues.
+Focus on keyboard navigation and screen reader compatibility.</code></pre>
+<hr />
+<h2 id="github-workflow">7. GitHub Workflow</h2>
+<h3 id="step-7.1-before-creating-a-pr">Step 7.1: Before Creating a
+PR</h3>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Start the server</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. In another terminal, run accessibility audit</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run audit</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Run automated tests</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run test:a11y</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Fix any issues found</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Commit your changes</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;a11y: description of your accessibility improvements&quot;</span></span></code></pre></div>
+<h3 id="step-7.2-create-a-pull-request">Step 7.2: Create a Pull
+Request</h3>
+<ol type="1">
+<li><p>Push your branch:</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin your-branch-name</span></code></pre></div></li>
+<li><p>Go to GitHub and click <strong>“Create Pull
+Request”</strong></p></li>
+<li><p>The PR template automatically fills with:</p>
+<ul>
+<li>Accessibility checklist</li>
+<li>Testing requirements</li>
+<li>WCAG criteria section</li>
+</ul></li>
+<li><p><strong>Complete all checklist items</strong> before requesting
+review</p></li>
+</ol>
+<h3 id="step-7.3-automated-ci-checks">Step 7.3: Automated CI Checks</h3>
+<p>When you create a PR, GitHub Actions automatically runs:</p>
+<ol type="1">
+<li><strong>axe-core tests</strong> on all key pages</li>
+<li><strong>Lighthouse accessibility audit</strong></li>
+<li>Posts results as a <strong>comment on your PR</strong></li>
+</ol>
+<p>If checks fail, click “Details” to see which tests failed.</p>
+<h3 id="step-7.4-report-an-accessibility-issue">Step 7.4: Report an
+Accessibility Issue</h3>
+<ol type="1">
+<li>Go to repository <strong>Issues</strong> tab</li>
+<li>Click <strong>“New Issue”</strong></li>
+<li>Select <strong>“Accessibility Issue”</strong> template</li>
+<li>Fill in:
+<ul>
+<li><strong>WCAG Criterion</strong> (e.g., “1.4.3 Contrast”)</li>
+<li><strong>Severity</strong> (Critical/Serious/Moderate/Minor)</li>
+<li><strong>Who is affected</strong> (Screen reader users, keyboard
+users, etc.)</li>
+<li><strong>Steps to reproduce</strong></li>
+<li><strong>Expected vs actual behavior</strong></li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="github-actions-cicd">8. GitHub Actions CI/CD</h2>
+<p>This section explains how to deploy the accessibility testing
+framework as a GitHub Action so tests run automatically in the cloud
+whenever code changes.</p>
+<h3 id="why-use-github-actions-for-accessibility-testing">Why Use GitHub
+Actions for Accessibility Testing?</h3>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr>
+<th>Benefit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Automated Gating</strong></td>
+<td>Block merges if accessibility tests fail</td>
+</tr>
+<tr>
+<td><strong>Consistent Environment</strong></td>
+<td>Same tests run on every PR, every time</td>
+</tr>
+<tr>
+<td><strong>No Local Setup Needed</strong></td>
+<td>Reviewers don’t need local tools installed</td>
+</tr>
+<tr>
+<td><strong>Historical Records</strong></td>
+<td>All test results are archived</td>
+</tr>
+<tr>
+<td><strong>Team Visibility</strong></td>
+<td>Everyone sees accessibility status on PRs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="understanding-the-workflow-file">Understanding the Workflow
+File</h3>
+<p>GitHub Actions use YAML files in <code>.github/workflows/</code>. Our
+accessibility workflow is at
+<code>.github/workflows/accessibility.yml</code>.</p>
+<h3 id="step-8.1-view-the-existing-workflow">Step 8.1: View the Existing
+Workflow</h3>
+<p>Open <a
+href=".github/workflows/accessibility.yml">.github/workflows/accessibility.yml</a>
+to see the current configuration:</p>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Accessibility Testing</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;docs/**&quot;</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;scripts/**&quot;</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;tests/**&quot;</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;*.html&quot;</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;package.json&quot;</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;playwright.a11y.config.js&quot;</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;0 6 * * 1&quot;</span><span class="co"> # Weekly on Monday at 6 AM UTC</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span><span class="co"> # Manual trigger from Actions tab</span></span></code></pre></div>
+<p><strong>What this means:</strong></p>
+<ul>
+<li><strong><code>name:</code></strong> - The workflow name that appears
+in GitHub’s Actions tab</li>
+<li><strong><code>on:</code></strong> - Triggers that start the
+workflow</li>
+<li><strong><code>push:</code></strong> - Runs when code is pushed to
+main branch</li>
+<li><strong><code>pull_request:</code></strong> - Runs when a PR targets
+main branch (always runs, not just on path changes)</li>
+<li><strong><code>paths:</code></strong> - Only triggers push events
+when these files change (saves CI minutes)</li>
+<li><strong><code>schedule:</code></strong> - Runs weekly to catch any
+regressions</li>
+<li><strong><code>workflow_dispatch:</code></strong> - Allows manual
+triggering from the Actions tab</li>
+</ul>
+<h3 id="step-8.2-understanding-the-jobs">Step 8.2: Understanding the
+Jobs</h3>
+<p>The workflow has one job called <code>accessibility-audit</code> with
+concurrency controls:</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cancel redundant runs when a new commit is pushed</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">concurrency</span><span class="kw">:</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">group</span><span class="kw">:</span><span class="at"> accessibility-${{ github.ref }}</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cancel-in-progress</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimum required permissions for security</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> read</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull-requests</span><span class="kw">:</span><span class="at"> write</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span><span class="at"> read</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">accessibility-audit</span><span class="kw">:</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">timeout-minutes</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Accessibility Audit</span></span></code></pre></div>
+<p><strong>What this means:</strong></p>
+<ul>
+<li><strong><code>runs-on: ubuntu-latest</code></strong> - Uses GitHub’s
+free Ubuntu Linux runners</li>
+<li><strong><code>timeout-minutes: 20</code></strong> - Prevents runaway
+jobs from consuming CI minutes</li>
+<li><strong><code>concurrency</code></strong> - Cancels redundant runs
+when you push new commits quickly</li>
+<li><strong><code>permissions</code></strong> - Limits what the workflow
+can access (security best practice)</li>
+<li>Each job runs in a fresh, isolated virtual machine</li>
+</ul>
+<h3 id="step-8.3-understanding-each-step">Step 8.3: Understanding Each
+Step</h3>
+<h4 id="step-1-checkout-code">Step 1: Checkout Code</h4>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span></code></pre></div>
+<p>Downloads your repository code into the runner. Required for any
+workflow.</p>
+<h4 id="step-2-setup-node.js">Step 2: Setup Node.js</h4>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Setup Node.js</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-node@v4</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">node-version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;20&quot;</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;npm&quot;</span></span></code></pre></div>
+<ul>
+<li>Installs Node.js version 20</li>
+<li><strong><code>cache: 'npm'</code></strong> - Caches
+<code>node_modules</code> for faster future runs</li>
+</ul>
+<h4 id="step-3-install-dependencies">Step 3: Install Dependencies</h4>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npm ci</span></span></code></pre></div>
+<p><strong><code>npm ci</code></strong> (clean install) is faster and
+more reliable than <code>npm install</code> for CI:</p>
+<ul>
+<li>Installs exact versions from <code>package-lock.json</code></li>
+<li>Deletes <code>node_modules</code> first for clean slate</li>
+</ul>
+<h4 id="step-4-install-playwright-browsers">Step 4: Install Playwright
+Browsers</h4>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Playwright browsers</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> playwright-cache</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> ~/.cache/ms-playwright</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> playwright-${{ runner.os }}-${{ hashFiles(&#39;package-lock.json&#39;) }}</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Playwright browsers</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> steps.playwright-cache.outputs.cache-hit != &#39;true&#39;</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright install --with-deps chromium</span></span></code></pre></div>
+<ul>
+<li><strong>Caches Playwright browsers</strong> to speed up future runs
+(saves ~1-2 minutes)</li>
+<li>Downloads Chromium browser for testing only if not already
+cached</li>
+<li><strong><code>--with-deps</code></strong> - Also installs system
+dependencies (required on Linux)</li>
+</ul>
+<h4 id="step-5-start-local-server">Step 5: Start Local Server</h4>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Start server and wait for it</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">  run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    npx serve docs -p 3000 &amp;</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    npx wait-on http://localhost:3000 --timeout 30000</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    echo &quot;✅ Server is ready at http://localhost:3000&quot;</span></code></pre></div>
+<ul>
+<li><strong><code>&amp;</code></strong> - Runs server in background so
+workflow continues</li>
+<li><strong><code>wait-on</code></strong> - Waits until server responds
+(more reliable than <code>sleep</code>)</li>
+<li><strong><code>--timeout 30000</code></strong> - Fails after 30
+seconds if server doesn’t start</li>
+</ul>
+<h4 id="step-6-run-playwright-tests">Step 6: Run Playwright Tests</h4>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run Playwright accessibility tests</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> playwright-tests</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright test --config=playwright.a11y.config.js</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">continue-on-error</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+<ul>
+<li>Runs all accessibility tests using axe-core</li>
+<li><strong><code>id: playwright-tests</code></strong> - Allows
+referencing this step’s outcome later</li>
+<li><strong><code>continue-on-error: true</code></strong> - Workflow
+continues even if tests fail (so we can upload reports and post
+comments)</li>
+</ul>
+<h4 id="step-7-run-lighthouse">Step 7: Run Lighthouse</h4>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run Lighthouse accessibility audit</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> lighthouse</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> treosh/lighthouse-ci-action@v11</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">    urls</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/home.html</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/roles.html</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/accessibility-101.html</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/students.html</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/faculty.html</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/developers.html</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/content-creators.html</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/support.html</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">configPath</span><span class="kw">:</span><span class="at"> .github/lighthouse-config.json</span></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">uploadArtifacts</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">continue-on-error</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+<ul>
+<li>Runs Google Lighthouse accessibility audits on all key pages</li>
+<li>Uses configuration from <code>.github/lighthouse-config.json</code>
+(requires 90% score)</li>
+<li>Uploads detailed reports as artifacts</li>
+</ul>
+<h4 id="step-8-upload-reports">Step 8: Upload Reports</h4>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload Playwright report</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> always()</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> playwright-report-${{ github.run_number }}</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> playwright-report/</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">retention-days</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload Lighthouse report</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> always()</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> lighthouse-report-${{ github.run_number }}</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> .lighthouseci/</span></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">retention-days</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span></code></pre></div>
+<ul>
+<li><strong><code>if: always()</code></strong> - Uploads even if tests
+failed</li>
+<li><strong><code>retention-days: 30</code></strong> - Keeps reports for
+30 days before auto-deletion</li>
+<li><strong>Unique names</strong> with run number prevent artifact
+conflicts</li>
+</ul>
+<h4 id="step-9-comment-on-pr">Step 9: Comment on PR</h4>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Comment on PR with detailed results</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> github.event_name == &#39;pull_request&#39; &amp;&amp; always()</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/github-script@v7</span></span></code></pre></div>
+<ul>
+<li>Only runs for pull requests</li>
+<li>Posts a detailed comment with:
+<ul>
+<li>Pass/fail status table for each test suite</li>
+<li>Links to view the full workflow run</li>
+<li>Manual testing checklist with checkboxes</li>
+</ul></li>
+<li><strong>Updates existing comment</strong> instead of creating
+duplicates on each push</li>
+</ul>
+<h3 id="step-8.4-how-to-trigger-the-workflow">Step 8.4: How to Trigger
+the Workflow</h3>
+<p>The workflow runs automatically when you:</p>
+<ol type="1">
+<li><p><strong>Push to main:</strong></p>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div></li>
+<li><p><strong>Create or update a PR:</strong></p>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin your-feature-branch</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Then create PR on GitHub</span></span></code></pre></div></li>
+<li><p><strong>Manually from GitHub:</strong></p>
+<ul>
+<li>Go to <strong>Actions</strong> tab</li>
+<li>Select <strong>“Accessibility Testing”</strong> workflow</li>
+<li>Click <strong>“Run workflow”</strong> button (if enabled)</li>
+</ul></li>
+</ol>
+<h3 id="step-8.5-viewing-workflow-results">Step 8.5: Viewing Workflow
+Results</h3>
+<h4 id="in-the-actions-tab">In the Actions Tab</h4>
+<ol type="1">
+<li>Go to your repository on GitHub</li>
+<li>Click the <strong>“Actions”</strong> tab</li>
+<li>You’ll see a list of all workflow runs</li>
+<li>Click a run to see details</li>
+</ol>
+<h4 id="understanding-status-icons">Understanding Status Icons</h4>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟢 Green check</td>
+<td>All tests passed</td>
+</tr>
+<tr>
+<td>🔴 Red X</td>
+<td>Some tests failed</td>
+</tr>
+<tr>
+<td>🟡 Yellow dot</td>
+<td>Workflow is running</td>
+</tr>
+<tr>
+<td>⚪ Gray circle</td>
+<td>Workflow was skipped</td>
+</tr>
+</tbody>
+</table>
+<h4 id="viewing-detailed-results">Viewing Detailed Results</h4>
+<ol type="1">
+<li>Click on a workflow run</li>
+<li>Click on the <strong>“accessibility-audit”</strong> job</li>
+<li>Expand each step to see output</li>
+<li>Look for failed steps highlighted in red</li>
+</ol>
+<h3 id="step-8.6-downloading-test-reports">Step 8.6: Downloading Test
+Reports</h3>
+<p>After a workflow completes:</p>
+<ol type="1">
+<li>Go to the workflow run page</li>
+<li>Scroll to <strong>“Artifacts”</strong> section at the bottom</li>
+<li>Click <strong>“accessibility-report”</strong> to download</li>
+<li>Extract the ZIP file</li>
+<li>Open <code>playwright-report/index.html</code> in a browser</li>
+</ol>
+<h3 id="step-8.7-understanding-pr-check-status">Step 8.7: Understanding
+PR Check Status</h3>
+<p>When a workflow runs on a PR:</p>
+<ol type="1">
+<li>You’ll see a <strong>“Checks”</strong> section on the PR page</li>
+<li>Shows status: ✅ Passing, ❌ Failing, or 🟡 Pending</li>
+<li>Click <strong>“Details”</strong> to see the full workflow</li>
+</ol>
+<p><strong>Requiring checks to pass before merge:</strong></p>
+<ol type="1">
+<li>Go to <strong>Settings</strong> → <strong>Branches</strong></li>
+<li>Click <strong>“Add rule”</strong> (or edit existing rule)</li>
+<li>Check <strong>“Require status checks to pass before
+merging”</strong></li>
+<li>Select <strong>“Accessibility Audit”</strong> from the list</li>
+<li>Click <strong>“Save changes”</strong></li>
+</ol>
+<p>Now PRs cannot be merged until accessibility tests pass.</p>
+<h3 id="step-8.8-customizing-the-workflow">Step 8.8: Customizing the
+Workflow</h3>
+<h4 id="adding-more-pages-to-test">Adding More Pages to Test</h4>
+<p>Edit <code>.github/workflows/accessibility.yml</code>:</p>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run Lighthouse accessibility audit</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> treosh/lighthouse-ci-action@v11</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">    urls</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/home.html</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/roles.html</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/accessibility-101.html</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/faculty.html        # Add more URLs</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/students.html       # Add more URLs</span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>      http://localhost:3000/developers.html     # Add more URLs</span></code></pre></div>
+<h4 id="setting-accessibility-score-thresholds">Setting Accessibility
+Score Thresholds</h4>
+<p>Edit <code>.github/lighthouse-config.json</code>:</p>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;ci&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;assert&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;assertions&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;categories:accessibility&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;error&quot;</span><span class="ot">,</span> <span class="fu">{</span> <span class="dt">&quot;minScore&quot;</span><span class="fu">:</span> <span class="fl">0.9</span> <span class="fu">}</span><span class="ot">]</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>This fails the build if accessibility score drops below 90%.</p>
+<h4 id="adding-scheduled-runs">Adding Scheduled Runs</h4>
+<p>Add a schedule trigger to run tests automatically (e.g.,
+nightly):</p>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;0 6 * * *&quot;</span><span class="co"> # Runs daily at 6 AM UTC</span></span></code></pre></div>
+<p>Cron syntax:
+<code>minute hour day-of-month month day-of-week</code></p>
+<h4 id="running-on-multiple-browsers">Running on Multiple Browsers</h4>
+<p>Edit <code>playwright.a11y.config.js</code> to test on multiple
+browsers:</p>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>projects<span class="op">:</span> [</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;chromium&#39;</span><span class="op">,</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">use</span><span class="op">:</span> { <span class="op">...</span>devices[<span class="st">&#39;Desktop Chrome&#39;</span>] }<span class="op">,</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;firefox&#39;</span><span class="op">,</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">use</span><span class="op">:</span> { <span class="op">...</span>devices[<span class="st">&#39;Desktop Firefox&#39;</span>] }<span class="op">,</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;webkit&#39;</span><span class="op">,</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">use</span><span class="op">:</span> { <span class="op">...</span>devices[<span class="st">&#39;Desktop Safari&#39;</span>] }<span class="op">,</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>]<span class="op">,</span></span></code></pre></div>
+<p>And update the workflow to install all browsers:</p>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Playwright browsers</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright install --with-deps</span></span></code></pre></div>
+<h3 id="step-8.9-creating-a-new-workflow-from-scratch">Step 8.9:
+Creating a New Workflow from Scratch</h3>
+<p>If you need to create a brand new accessibility workflow:</p>
+<p><strong>Step 1: Create the file</strong></p>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> .github/workflows</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .github/workflows/my-a11y-tests.yml</span></code></pre></div>
+<p><strong>Step 2: Add basic structure</strong></p>
+<div class="sourceCode" id="cb53"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> My Accessibility Tests</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">test</span><span class="kw">:</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-node@v4</span></span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">node-version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;20&quot;</span></span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;npm&quot;</span></span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npm ci</span></span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright install --with-deps chromium</span></span>
+<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Start server</span></span>
+<span id="cb53-25"><a href="#cb53-25" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx serve docs -p 3000 &amp;</span></span>
+<span id="cb53-26"><a href="#cb53-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-27"><a href="#cb53-27" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Wait for server</span></span>
+<span id="cb53-28"><a href="#cb53-28" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx wait-on http://localhost:3000 --timeout 30000</span></span>
+<span id="cb53-29"><a href="#cb53-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-30"><a href="#cb53-30" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run accessibility tests</span></span>
+<span id="cb53-31"><a href="#cb53-31" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright test</span></span>
+<span id="cb53-32"><a href="#cb53-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-33"><a href="#cb53-33" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb53-34"><a href="#cb53-34" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">if</span><span class="kw">:</span><span class="at"> always()</span></span>
+<span id="cb53-35"><a href="#cb53-35" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb53-36"><a href="#cb53-36" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">name</span><span class="kw">:</span><span class="at"> test-results</span></span>
+<span id="cb53-37"><a href="#cb53-37" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> playwright-report/</span></span></code></pre></div>
+<p><strong>Step 3: Commit and push</strong></p>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .github/workflows/my-a11y-tests.yml</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;ci: Add accessibility testing workflow&quot;</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div>
+<h3 id="step-8.10-debugging-failed-workflows">Step 8.10: Debugging
+Failed Workflows</h3>
+<h4 id="view-full-logs">View Full Logs</h4>
+<ol type="1">
+<li>Go to the failed workflow run</li>
+<li>Click the failed job</li>
+<li>Click on the failed step</li>
+<li>Read the error message carefully</li>
+</ol>
+<h4 id="common-errors-and-fixes">Common Errors and Fixes</h4>
+<p><strong>Error: “Can’t find package.json”</strong></p>
+<pre><code>npm ERR! Could not read package.json</code></pre>
+<p><strong>Fix:</strong> Ensure <code>actions/checkout@v4</code> is the
+first step.</p>
+<hr />
+<p><strong>Error: “npx: command not found”</strong></p>
+<pre><code>/bin/bash: npx: command not found</code></pre>
+<p><strong>Fix:</strong> Add the Node.js setup step before any npm/npx
+commands:</p>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-node@v4</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">node-version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;20&quot;</span></span></code></pre></div>
+<hr />
+<p><strong>Error: “Cannot connect to server”</strong></p>
+<pre><code>Error: connect ECONNREFUSED 127.0.0.1:3000</code></pre>
+<p><strong>Fix:</strong> Ensure server starts before tests run:</p>
+<div class="sourceCode" id="cb59"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Start server</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx serve docs -p 3000 &amp;</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Wait for server</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx wait-on http://localhost:3000 --timeout 30000</span></span></code></pre></div>
+<p>Install <code>wait-on</code> if needed:
+<code>npm install -D wait-on</code></p>
+<hr />
+<p><strong>Error: “Browser executable not found”</strong></p>
+<pre><code>Error: Executable doesn&#39;t exist at /home/runner/.cache/ms-playwright/chromium-XXX</code></pre>
+<p><strong>Fix:</strong> Install Playwright browsers with system
+dependencies:</p>
+<div class="sourceCode" id="cb61"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright install --with-deps chromium</span></span></code></pre></div>
+<hr />
+<p><strong>Error: “Permission denied”</strong></p>
+<pre><code>Error: EACCES: permission denied</code></pre>
+<p><strong>Fix:</strong> Ensure you have write access to the repository.
+Check your <code>GITHUB_TOKEN</code> permissions if using custom
+actions.</p>
+<h3 id="step-8.11-advanced-adding-slackemail-notifications">Step 8.11:
+Advanced: Adding Slack/Email Notifications</h3>
+<p>Get notified when accessibility tests fail:</p>
+<h4 id="slack-notification">Slack Notification</h4>
+<div class="sourceCode" id="cb63"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Notify Slack on failure</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> failure()</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> slackapi/slack-github-action@v1.24.0</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">channel-id</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;YOUR-CHANNEL-ID&quot;</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">    slack-message</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>      🚨 Accessibility tests failed!</span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>      Repository: ${{ github.repository }}</span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>      Branch: ${{ github.ref_name }}</span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a>      Commit: ${{ github.sha }}</span>
+<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a>      View: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</span>
+<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb63-13"><a href="#cb63-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">SLACK_BOT_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.SLACK_BOT_TOKEN }}</span></span></code></pre></div>
+<p><strong>Setup:</strong></p>
+<ol type="1">
+<li>Create a Slack App at https://api.slack.com/apps</li>
+<li>Add OAuth scope: <code>chat:write</code></li>
+<li>Install app to your workspace</li>
+<li>Copy Bot User OAuth Token</li>
+<li>In GitHub repo: <strong>Settings</strong> → <strong>Secrets</strong>
+→ <strong>Actions</strong> → <strong>New secret</strong></li>
+<li>Name: <code>SLACK_BOT_TOKEN</code>, Value: your token</li>
+</ol>
+<h4 id="email-notification-via-github">Email Notification (via
+GitHub)</h4>
+<p>GitHub can email you automatically:</p>
+<ol type="1">
+<li>Go to your GitHub <strong>Settings</strong> (profile, not repo)</li>
+<li>Click <strong>Notifications</strong></li>
+<li>Under “Actions”, check <strong>“Send notifications for failed
+workflows only”</strong></li>
+</ol>
+<h3 id="step-8.12-advanced-matrix-testing">Step 8.12: Advanced: Matrix
+Testing</h3>
+<p>Test across multiple configurations simultaneously:</p>
+<div class="sourceCode" id="cb64"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">accessibility-test</span><span class="kw">:</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">browser</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">chromium</span><span class="kw">,</span><span class="at"> firefox</span><span class="kw">,</span><span class="at"> webkit</span><span class="kw">]</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">viewport</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">desktop</span><span class="kw">,</span><span class="at"> mobile</span><span class="kw">]</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">include</span><span class="kw">:</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">viewport</span><span class="kw">:</span><span class="at"> desktop</span></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="dv">1280</span></span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">height</span><span class="kw">:</span><span class="at"> </span><span class="dv">720</span></span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">viewport</span><span class="kw">:</span><span class="at"> mobile</span></span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="dv">375</span></span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">height</span><span class="kw">:</span><span class="at"> </span><span class="dv">667</span></span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb64-18"><a href="#cb64-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-19"><a href="#cb64-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-node@v4</span></span>
+<span id="cb64-20"><a href="#cb64-20" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb64-21"><a href="#cb64-21" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">node-version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;20&quot;</span></span>
+<span id="cb64-22"><a href="#cb64-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-23"><a href="#cb64-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npm ci</span></span>
+<span id="cb64-24"><a href="#cb64-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-25"><a href="#cb64-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright install --with-deps ${{ matrix.browser }}</span></span>
+<span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run tests</span></span>
+<span id="cb64-28"><a href="#cb64-28" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb64-29"><a href="#cb64-29" aria-hidden="true" tabindex="-1"></a>          npx playwright test \</span>
+<span id="cb64-30"><a href="#cb64-30" aria-hidden="true" tabindex="-1"></a>            --project=${{ matrix.browser }} \</span>
+<span id="cb64-31"><a href="#cb64-31" aria-hidden="true" tabindex="-1"></a>            --viewport-size=${{ matrix.width }},${{ matrix.height }}</span></code></pre></div>
+<p>This creates 6 parallel test runs (3 browsers × 2 viewports).</p>
+<h3 id="step-8.13-advanced-caching-for-faster-builds">Step 8.13:
+Advanced: Caching for Faster Builds</h3>
+<p>Speed up workflows by caching dependencies:</p>
+<div class="sourceCode" id="cb65"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Playwright browsers</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> ~/.cache/ms-playwright</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> playwright-${{ runner.os }}-${{ hashFiles(&#39;package-lock.json&#39;) }}</span></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="fu">    restore-keys</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>      playwright-${{ runner.os }}-</span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Playwright (if not cached)</span></span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright install --with-deps chromium</span></span></code></pre></div>
+<h3 id="step-8.14-security-best-practices">Step 8.14: Security Best
+Practices</h3>
+<h4 id="dont-expose-secrets">Don’t Expose Secrets</h4>
+<p>❌ <strong>Never do this:</strong></p>
+<div class="sourceCode" id="cb66"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> echo &quot;Token is ${{ secrets.GITHUB_TOKEN }}&quot;</span></span></code></pre></div>
+<p>✅ <strong>Do this instead:</strong></p>
+<div class="sourceCode" id="cb67"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npm test</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">API_KEY</span><span class="kw">:</span><span class="at"> ${{ secrets.API_KEY }}</span></span></code></pre></div>
+<h4 id="limit-token-permissions">Limit Token Permissions</h4>
+<p>Add permissions block to restrict what the workflow can do:</p>
+<div class="sourceCode" id="cb68"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> read</span><span class="co"> # Read repository code</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull-requests</span><span class="kw">:</span><span class="at"> write</span><span class="co"> # Comment on PRs</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">issues</span><span class="kw">:</span><span class="at"> write</span><span class="co"> # Create issues</span></span></code></pre></div>
+<h4 id="pin-action-versions">Pin Action Versions</h4>
+<p>Use specific versions instead of <code>@main</code>:</p>
+<div class="sourceCode" id="cb69"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good - pinned version</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4.1.1</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Risky - could change unexpectedly</span></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@main</span></span></code></pre></div>
+<h3 id="step-8.15-cost-considerations">Step 8.15: Cost
+Considerations</h3>
+<p>GitHub Actions provides free minutes:</p>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Free Minutes/Month</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free</td>
+<td>2,000 minutes</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>3,000 minutes</td>
+</tr>
+<tr>
+<td>Team</td>
+<td>3,000 minutes</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>50,000 minutes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tips to reduce usage:</strong></p>
+<ol type="1">
+<li><p><strong>Use path filters</strong> - Only run on relevant file
+changes</p></li>
+<li><p><strong>Cache dependencies</strong> - Faster builds = fewer
+minutes</p></li>
+<li><p><strong>Cancel redundant runs</strong> - Add this to your
+workflow:</p>
+<div class="sourceCode" id="cb70"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">concurrency</span><span class="kw">:</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">group</span><span class="kw">:</span><span class="at"> ${{ github.workflow }}-${{ github.ref }}</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cancel-in-progress</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></li>
+<li><p><strong>Run expensive tests only on PRs</strong> - Not on every
+push</p></li>
+</ol>
+<h3 id="step-8.16-complete-enhanced-workflow-example">Step 8.16:
+Complete Enhanced Workflow Example</h3>
+<p>Here’s a production-ready workflow with all best practices:</p>
+<div class="sourceCode" id="cb71"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Accessibility Testing</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;docs/**&quot;</span></span>
+<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;scripts/**&quot;</span></span>
+<span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;*.html&quot;</span></span>
+<span id="cb71-10"><a href="#cb71-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;tests/**&quot;</span></span>
+<span id="cb71-11"><a href="#cb71-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb71-12"><a href="#cb71-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb71-13"><a href="#cb71-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span></span>
+<span id="cb71-14"><a href="#cb71-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;0 6 * * 1&quot;</span><span class="co"> # Weekly on Monday at 6 AM UTC</span></span>
+<span id="cb71-15"><a href="#cb71-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-16"><a href="#cb71-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Cancel redundant runs</span></span>
+<span id="cb71-17"><a href="#cb71-17" aria-hidden="true" tabindex="-1"></a><span class="fu">concurrency</span><span class="kw">:</span></span>
+<span id="cb71-18"><a href="#cb71-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">group</span><span class="kw">:</span><span class="at"> a11y-${{ github.ref }}</span></span>
+<span id="cb71-19"><a href="#cb71-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cancel-in-progress</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb71-20"><a href="#cb71-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-21"><a href="#cb71-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimum required permissions</span></span>
+<span id="cb71-22"><a href="#cb71-22" aria-hidden="true" tabindex="-1"></a><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb71-23"><a href="#cb71-23" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> read</span></span>
+<span id="cb71-24"><a href="#cb71-24" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull-requests</span><span class="kw">:</span><span class="at"> write</span></span>
+<span id="cb71-25"><a href="#cb71-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-26"><a href="#cb71-26" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb71-27"><a href="#cb71-27" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">accessibility-audit</span><span class="kw">:</span></span>
+<span id="cb71-28"><a href="#cb71-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb71-29"><a href="#cb71-29" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">timeout-minutes</span><span class="kw">:</span><span class="at"> </span><span class="dv">15</span></span>
+<span id="cb71-30"><a href="#cb71-30" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Accessibility Audit</span></span>
+<span id="cb71-31"><a href="#cb71-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-32"><a href="#cb71-32" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb71-33"><a href="#cb71-33" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
+<span id="cb71-34"><a href="#cb71-34" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb71-35"><a href="#cb71-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-36"><a href="#cb71-36" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Setup Node.js</span></span>
+<span id="cb71-37"><a href="#cb71-37" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-node@v4</span></span>
+<span id="cb71-38"><a href="#cb71-38" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb71-39"><a href="#cb71-39" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">node-version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;20&quot;</span></span>
+<span id="cb71-40"><a href="#cb71-40" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;npm&quot;</span></span>
+<span id="cb71-41"><a href="#cb71-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-42"><a href="#cb71-42" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Playwright browsers</span></span>
+<span id="cb71-43"><a href="#cb71-43" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">id</span><span class="kw">:</span><span class="at"> playwright-cache</span></span>
+<span id="cb71-44"><a href="#cb71-44" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
+<span id="cb71-45"><a href="#cb71-45" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb71-46"><a href="#cb71-46" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> ~/.cache/ms-playwright</span></span>
+<span id="cb71-47"><a href="#cb71-47" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">key</span><span class="kw">:</span><span class="at"> playwright-${{ runner.os }}-${{ hashFiles(&#39;package-lock.json&#39;) }}</span></span>
+<span id="cb71-48"><a href="#cb71-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-49"><a href="#cb71-49" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
+<span id="cb71-50"><a href="#cb71-50" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npm ci</span></span>
+<span id="cb71-51"><a href="#cb71-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-52"><a href="#cb71-52" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Playwright browsers</span></span>
+<span id="cb71-53"><a href="#cb71-53" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">if</span><span class="kw">:</span><span class="at"> steps.playwright-cache.outputs.cache-hit != &#39;true&#39;</span></span>
+<span id="cb71-54"><a href="#cb71-54" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright install --with-deps chromium</span></span>
+<span id="cb71-55"><a href="#cb71-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-56"><a href="#cb71-56" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Start server and wait</span></span>
+<span id="cb71-57"><a href="#cb71-57" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb71-58"><a href="#cb71-58" aria-hidden="true" tabindex="-1"></a>          npx serve docs -p 3000 &amp;</span>
+<span id="cb71-59"><a href="#cb71-59" aria-hidden="true" tabindex="-1"></a>          npx wait-on http://localhost:3000 --timeout 30000</span>
+<span id="cb71-60"><a href="#cb71-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-61"><a href="#cb71-61" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run Playwright accessibility tests</span></span>
+<span id="cb71-62"><a href="#cb71-62" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> npx playwright test --config=playwright.a11y.config.js</span></span>
+<span id="cb71-63"><a href="#cb71-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-64"><a href="#cb71-64" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run Lighthouse audits</span></span>
+<span id="cb71-65"><a href="#cb71-65" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> treosh/lighthouse-ci-action@v11</span></span>
+<span id="cb71-66"><a href="#cb71-66" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb71-67"><a href="#cb71-67" aria-hidden="true" tabindex="-1"></a><span class="fu">          urls</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb71-68"><a href="#cb71-68" aria-hidden="true" tabindex="-1"></a>            http://localhost:3000/home.html</span>
+<span id="cb71-69"><a href="#cb71-69" aria-hidden="true" tabindex="-1"></a>            http://localhost:3000/roles.html</span>
+<span id="cb71-70"><a href="#cb71-70" aria-hidden="true" tabindex="-1"></a>            http://localhost:3000/accessibility-101.html</span>
+<span id="cb71-71"><a href="#cb71-71" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">configPath</span><span class="kw">:</span><span class="at"> .github/lighthouse-config.json</span></span>
+<span id="cb71-72"><a href="#cb71-72" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">uploadArtifacts</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb71-73"><a href="#cb71-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-74"><a href="#cb71-74" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload test report</span></span>
+<span id="cb71-75"><a href="#cb71-75" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb71-76"><a href="#cb71-76" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">if</span><span class="kw">:</span><span class="at"> always()</span></span>
+<span id="cb71-77"><a href="#cb71-77" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb71-78"><a href="#cb71-78" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">name</span><span class="kw">:</span><span class="at"> accessibility-report-${{ github.run_number }}</span></span>
+<span id="cb71-79"><a href="#cb71-79" aria-hidden="true" tabindex="-1"></a><span class="fu">          path</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb71-80"><a href="#cb71-80" aria-hidden="true" tabindex="-1"></a>            playwright-report/</span>
+<span id="cb71-81"><a href="#cb71-81" aria-hidden="true" tabindex="-1"></a>            .lighthouseci/</span>
+<span id="cb71-82"><a href="#cb71-82" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">retention-days</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span>
+<span id="cb71-83"><a href="#cb71-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-84"><a href="#cb71-84" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Post PR comment</span></span>
+<span id="cb71-85"><a href="#cb71-85" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">if</span><span class="kw">:</span><span class="at"> github.event_name == &#39;pull_request&#39; &amp;&amp; always()</span></span>
+<span id="cb71-86"><a href="#cb71-86" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/github-script@v7</span></span>
+<span id="cb71-87"><a href="#cb71-87" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb71-88"><a href="#cb71-88" aria-hidden="true" tabindex="-1"></a><span class="fu">          script</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb71-89"><a href="#cb71-89" aria-hidden="true" tabindex="-1"></a>            const fs = require(&#39;fs&#39;);</span>
+<span id="cb71-90"><a href="#cb71-90" aria-hidden="true" tabindex="-1"></a>            let status = &#39;${{ job.status }}&#39; === &#39;success&#39; ? &#39;✅&#39; : &#39;❌&#39;;</span>
+<span id="cb71-91"><a href="#cb71-91" aria-hidden="true" tabindex="-1"></a>            let comment = `## ${status} Accessibility Audit Results\n\n`;</span>
+<span id="cb71-92"><a href="#cb71-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-93"><a href="#cb71-93" aria-hidden="true" tabindex="-1"></a>            if (&#39;${{ job.status }}&#39; === &#39;success&#39;) {</span>
+<span id="cb71-94"><a href="#cb71-94" aria-hidden="true" tabindex="-1"></a>              comment += &#39;🎉 All automated accessibility tests passed!\n\n&#39;;</span>
+<span id="cb71-95"><a href="#cb71-95" aria-hidden="true" tabindex="-1"></a>            } else {</span>
+<span id="cb71-96"><a href="#cb71-96" aria-hidden="true" tabindex="-1"></a>              comment += &#39;⚠️ Some accessibility tests failed. Please review.\n\n&#39;;</span>
+<span id="cb71-97"><a href="#cb71-97" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb71-98"><a href="#cb71-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-99"><a href="#cb71-99" aria-hidden="true" tabindex="-1"></a>            comment += &#39;### Artifacts\n&#39;;</span>
+<span id="cb71-100"><a href="#cb71-100" aria-hidden="true" tabindex="-1"></a>            comment += `- [View Full Report](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})\n\n`;</span>
+<span id="cb71-101"><a href="#cb71-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-102"><a href="#cb71-102" aria-hidden="true" tabindex="-1"></a>            comment += &#39;### Manual Testing Checklist\n&#39;;</span>
+<span id="cb71-103"><a href="#cb71-103" aria-hidden="true" tabindex="-1"></a>            comment += &#39;Please verify before merge:\n&#39;;</span>
+<span id="cb71-104"><a href="#cb71-104" aria-hidden="true" tabindex="-1"></a>            comment += &#39;- [ ] Keyboard navigation works\n&#39;;</span>
+<span id="cb71-105"><a href="#cb71-105" aria-hidden="true" tabindex="-1"></a>            comment += &#39;- [ ] Screen reader announces content correctly\n&#39;;</span>
+<span id="cb71-106"><a href="#cb71-106" aria-hidden="true" tabindex="-1"></a>            comment += &#39;- [ ] Focus indicators are visible\n&#39;;</span>
+<span id="cb71-107"><a href="#cb71-107" aria-hidden="true" tabindex="-1"></a>            comment += &#39;- [ ] Color contrast meets requirements\n&#39;;</span>
+<span id="cb71-108"><a href="#cb71-108" aria-hidden="true" tabindex="-1"></a>            comment += &#39;- [ ] Content is readable at 200% zoom\n&#39;;</span>
+<span id="cb71-109"><a href="#cb71-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-110"><a href="#cb71-110" aria-hidden="true" tabindex="-1"></a>            github.rest.issues.createComment({</span>
+<span id="cb71-111"><a href="#cb71-111" aria-hidden="true" tabindex="-1"></a>              issue_number: context.issue.number,</span>
+<span id="cb71-112"><a href="#cb71-112" aria-hidden="true" tabindex="-1"></a>              owner: context.repo.owner,</span>
+<span id="cb71-113"><a href="#cb71-113" aria-hidden="true" tabindex="-1"></a>              repo: context.repo.repo,</span>
+<span id="cb71-114"><a href="#cb71-114" aria-hidden="true" tabindex="-1"></a>              body: comment</span>
+<span id="cb71-115"><a href="#cb71-115" aria-hidden="true" tabindex="-1"></a>            });</span></code></pre></div>
+<h3 id="step-8.17-verifying-your-workflow-works">Step 8.17: Verifying
+Your Workflow Works</h3>
+<p>After setting up or modifying your workflow:</p>
+<ol type="1">
+<li><p><strong>Make a small change</strong> to an HTML file</p></li>
+<li><p><strong>Create a branch:</strong></p>
+<div class="sourceCode" id="cb72"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> test-workflow</span></code></pre></div></li>
+<li><p><strong>Commit and push:</strong></p>
+<div class="sourceCode" id="cb73"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;test: Verify accessibility workflow&quot;</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin test-workflow</span></code></pre></div></li>
+<li><p><strong>Create a PR</strong> on GitHub</p></li>
+<li><p><strong>Watch the Actions tab</strong> - you should see the
+workflow start</p></li>
+<li><p><strong>Review the results</strong> when it completes</p></li>
+</ol>
+<h3 id="step-8.18-quick-reference---workflow-commands">Step 8.18: Quick
+Reference - Workflow Commands</h3>
+<div class="sourceCode" id="cb74"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View all workflow runs from CLI (requires GitHub CLI)</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run list</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Watch a running workflow</span></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run watch</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View specific run details</span></span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run view <span class="op">&lt;</span>run-id<span class="op">&gt;</span></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Download artifacts from a run</span></span>
+<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run download <span class="op">&lt;</span>run-id<span class="op">&gt;</span></span>
+<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-13"><a href="#cb74-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Manually trigger a workflow</span></span>
+<span id="cb74-14"><a href="#cb74-14" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow run accessibility.yml</span></code></pre></div>
+<p>Install GitHub CLI: https://cli.github.com/</p>
+<hr />
+<h2 id="manual-testing-checklist">9. Manual Testing Checklist</h2>
+<p>Automated tools catch 30-40% of issues. Always perform manual
+testing.</p>
+<h3 id="step-9.1-keyboard-testing">Step 9.1: Keyboard Testing</h3>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 25%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th>Test</th>
+<th>Keys</th>
+<th>Expected Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navigate forward</td>
+<td><code>Tab</code></td>
+<td>Focus moves to next interactive element</td>
+</tr>
+<tr>
+<td>Navigate backward</td>
+<td><code>Shift + Tab</code></td>
+<td>Focus moves to previous element</td>
+</tr>
+<tr>
+<td>Activate button</td>
+<td><code>Enter</code> or <code>Space</code></td>
+<td>Button action triggers</td>
+</tr>
+<tr>
+<td>Follow link</td>
+<td><code>Enter</code></td>
+<td>Page navigates</td>
+</tr>
+<tr>
+<td>Skip link</td>
+<td><code>Tab</code> (first press)</td>
+<td>Skip link appears, is focused</td>
+</tr>
+<tr>
+<td>Use skip link</td>
+<td><code>Enter</code></td>
+<td>Focus jumps to main content</td>
+</tr>
+<tr>
+<td>Close modal</td>
+<td><code>Escape</code></td>
+<td>Modal closes, focus returns</td>
+</tr>
+<tr>
+<td>Menu items</td>
+<td><code>Arrow keys</code></td>
+<td>Navigate within menu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Test procedure:</strong></p>
+<ol type="1">
+<li>Put your mouse aside</li>
+<li>Press Tab from the URL bar</li>
+<li>Tab through the entire page</li>
+<li>Verify you can reach and use everything</li>
+</ol>
+<h3 id="step-9.2-screen-reader-testing">Step 9.2: Screen Reader
+Testing</h3>
+<p><strong>NVDA on Windows (Free):</strong></p>
+<ol type="1">
+<li>Download: https://www.nvaccess.org/download/</li>
+<li>Install and start NVDA</li>
+<li>Open the site in Chrome or Firefox</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Insert + Down</code></td>
+<td>Read page from current position</td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>Next focusable element</td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>Next heading</td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>Next landmark region</td>
+</tr>
+<tr>
+<td><code>B</code></td>
+<td>Next button</td>
+</tr>
+<tr>
+<td><code>K</code></td>
+<td>Next link</td>
+</tr>
+<tr>
+<td><code>Insert + F7</code></td>
+<td>Show all links</td>
+</tr>
+</tbody>
+</table>
+<p><strong>VoiceOver on Mac (Built-in):</strong></p>
+<ol type="1">
+<li>Enable: <code>Cmd + F5</code></li>
+<li>Open the site in Safari</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VO + A</code></td>
+<td>Read all from current position</td>
+</tr>
+<tr>
+<td><code>VO + →</code></td>
+<td>Next element</td>
+</tr>
+<tr>
+<td><code>VO + Cmd + H</code></td>
+<td>Next heading</td>
+</tr>
+<tr>
+<td><code>VO + Cmd + L</code></td>
+<td>Next link</td>
+</tr>
+<tr>
+<td><code>VO + U</code></td>
+<td>Open rotor (element lists)</td>
+</tr>
+</tbody>
+</table>
+<p><em>VO = Control + Option</em></p>
+<h3 id="step-9.3-visual-testing">Step 9.3: Visual Testing</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 38%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr>
+<th>Test</th>
+<th>How</th>
+<th>Pass Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Focus indicators</td>
+<td>Tab through page</td>
+<td>Clear visible focus on every element</td>
+</tr>
+<tr>
+<td>Contrast</td>
+<td>Browser DevTools</td>
+<td>4.5:1 for text, 3:1 for UI</td>
+</tr>
+<tr>
+<td>Zoom 200%</td>
+<td><code>Ctrl/Cmd + +</code> twice</td>
+<td>No horizontal scroll, content reflows</td>
+</tr>
+<tr>
+<td>Zoom 400%</td>
+<td>Keep zooming</td>
+<td>Still readable and usable</td>
+</tr>
+<tr>
+<td>High contrast</td>
+<td>Windows: Settings → High Contrast</td>
+<td>All content visible</td>
+</tr>
+<tr>
+<td>Dark mode</td>
+<td>OS dark mode setting</td>
+<td>All text readable</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="npm-scripts-reference">10. NPM Scripts Reference</h2>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm start</code></td>
+<td>Start local server at http://localhost:3000</td>
+</tr>
+<tr>
+<td><code>npm test</code></td>
+<td>Run all tests (alias for test:a11y)</td>
+</tr>
+<tr>
+<td><code>npm run test:a11y</code></td>
+<td>Run Playwright accessibility tests</td>
+</tr>
+<tr>
+<td><code>npm run test:a11y:ui</code></td>
+<td>Run tests with interactive UI</td>
+</tr>
+<tr>
+<td><code>npm run test:a11y:report</code></td>
+<td>Open HTML test report in browser</td>
+</tr>
+<tr>
+<td><code>npm run audit</code></td>
+<td>Audit key pages with axe-core</td>
+</tr>
+<tr>
+<td><code>npm run audit:all</code></td>
+<td>Audit ALL HTML files</td>
+</tr>
+<tr>
+<td><code>npm run lighthouse</code></td>
+<td>Run Lighthouse accessibility audit</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="troubleshooting">11. Troubleshooting</h2>
+<h3 id="problem-cannot-connect-to-server">Problem: “Cannot connect to
+server”</h3>
+<p><strong>Solution:</strong></p>
+<div class="sourceCode" id="cb75"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Terminal 1: Start server</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Terminal 2: Run tests</span></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run test:a11y</span></code></pre></div>
+<h3 id="problem-axe-linter-extension-not-highlighting-issues">Problem:
+Axe-linter extension not highlighting issues</h3>
+<p><strong>Solution:</strong></p>
+<ol type="1">
+<li><p>Check extension is installed:</p>
+<ul>
+<li><code>Ctrl+Shift+X</code> → Search “axe accessibility linter”</li>
+<li>Should say “Installed”</li>
+</ul></li>
+<li><p>Reload VS Code:</p>
+<ul>
+<li><code>Ctrl+Shift+P</code> → “Reload Window”</li>
+</ul></li>
+<li><p>Check workspace settings loaded:</p>
+<ul>
+<li>Open <code>.vscode/settings.json</code></li>
+<li>Should contain <code>"axe-linter.rules"</code></li>
+</ul></li>
+</ol>
+<h3 id="problem-playwright-tests-failing-immediately">Problem:
+Playwright tests failing immediately</h3>
+<p><strong>Solution:</strong></p>
+<div class="sourceCode" id="cb76"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reinstall Playwright browsers</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> playwright install chromium</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify installation</span></span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> playwright <span class="at">--version</span></span></code></pre></div>
+<h3 id="problem-mcp-servers-not-available-in-chat">Problem: MCP servers
+not available in chat</h3>
+<p><strong>Solution:</strong></p>
+<ol type="1">
+<li>Open Settings (<code>Ctrl+,</code>)</li>
+<li>Search “mcp”</li>
+<li>Ensure “Chat: Mcp Enabled” is checked</li>
+<li><strong>Fully restart VS Code</strong> (Quit → Reopen)</li>
+<li>Wait 10-15 seconds for servers to initialize</li>
+</ol>
+<h3 id="problem-github-mcp-server-returns-errors">Problem: GitHub MCP
+server returns errors</h3>
+<p><strong>Solution:</strong></p>
+<ol type="1">
+<li><p>Verify token is set:</p>
+<div class="sourceCode" id="cb77"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$GITHUB_TOKEN</span></span></code></pre></div></li>
+<li><p>Token needs these scopes: <code>repo</code>,
+<code>read:org</code></p></li>
+<li><p>Regenerate token if expired</p></li>
+</ol>
+<h3 id="problem-claude-not-using-accessibility-expertise">Problem:
+Claude not using accessibility expertise</h3>
+<p><strong>Solution:</strong> Be explicit in your prompt:</p>
+<pre><code>Following WCAG 2.2 AA and this project&#39;s accessibility standards,
+audit this code for accessibility issues:
+[your code]</code></pre>
+<hr />
+<h2 id="quick-reference-card">Quick Reference Card</h2>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                  ACCESSIBILITY QUICK REFERENCE                   │
+├─────────────────────────────────────────────────────────────────┤
+│ SERVER                                                          │
+│   npm start                 Start server at localhost:3000      │
+├─────────────────────────────────────────────────────────────────┤
+│ TESTING                                                         │
+│   npm run audit             Audit key pages                     │
+│   npm run audit:all         Audit all HTML files                │
+│   npm run test:a11y         Run Playwright tests                │
+│   npm run test:a11y:ui      Interactive test UI                 │
+│   npm run lighthouse        Lighthouse audit                    │
+├─────────────────────────────────────────────────────────────────┤
+│ VS CODE SHORTCUTS                                               │
+│   Ctrl+Shift+M              Problems panel (all issues)         │
+│   Ctrl+Shift+I              Open Copilot Chat                   │
+│   Ctrl+.                    Quick Fix                           │
+│   Ctrl+Shift+P              Command palette                     │
+├─────────────────────────────────────────────────────────────────┤
+│ WCAG CONTRAST MINIMUMS                                          │
+│   Normal text (&lt;18px)       4.5:1 ratio                         │
+│   Large text (≥18px bold)   3:1 ratio                           │
+│   UI components             3:1 ratio                           │
+├─────────────────────────────────────────────────────────────────┤
+│ PROJECT COLOR VARIABLES                                         │
+│   --ua-text                 #0C234B (body text)                 │
+│   --ua-muted-text           #595959 (secondary text)            │
+│   --ua-maroon               #AB0520 (links, focus)              │
+│   --ua-background           #f5f5f5 (page background)           │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<hr />
+<h2 id="resources">Resources</h2>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr>
+<th>Resource</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WCAG 2.2 Quick Reference</td>
+<td>https://www.w3.org/WAI/WCAG22/quickref/</td>
+</tr>
+<tr>
+<td>axe-core Rules</td>
+<td>https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md</td>
+</tr>
+<tr>
+<td>Playwright A11y Testing</td>
+<td>https://playwright.dev/docs/accessibility-testing</td>
+</tr>
+<tr>
+<td>WAI-ARIA Practices</td>
+<td>https://www.w3.org/WAI/ARIA/apg/</td>
+</tr>
+<tr>
+<td>WebAIM</td>
+<td>https://webaim.org/</td>
+</tr>
+<tr>
+<td>Deque University</td>
+<td>https://dequeuniversity.com/</td>
+</tr>
+<tr>
+<td>Color Contrast Checker</td>
+<td>https://webaim.org/resources/contrastchecker/</td>
+</tr>
+</tbody>
+</table>

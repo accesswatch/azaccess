@@ -13,10 +13,21 @@ This site provides comprehensive accessibility guidance for students, faculty, s
 - **Role-based guidance** for different roles (students, faculty, staff, developers, etc.)
 
 Note: The Disability Resource Center (DRC) is the official system of record for student disability services, accommodations, and related policies. For official requests or policies, refer students and families to https://drc.arizona.edu/
+
 - **Hub pages** for documents, media, web/apps, teaching, and governance
 - **Tools and checklists** for accessibility testing and compliance
 - **Support resources** and contact information
 - **Blog** with updates on accessibility initiatives
+
+## 📖 Key Documentation
+
+| Document                                                                 | Purpose                                                                    |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| [ACCESSIBILITY-DEVELOPMENT-GUIDE.md](ACCESSIBILITY-DEVELOPMENT-GUIDE.md) | ⭐ Comprehensive guide for MCP servers, agents, and testing workflows      |
+| [ACCESSIBILITY-CI-PROPOSAL.md](ACCESSIBILITY-CI-PROPOSAL.md)             | 📝 Proposal for GitHub Actions accessibility CI/CD for Arizona Quick Start |
+| [vscode-terminal-accessibility.md](vscode-terminal-accessibility.md)     | VS Code terminal accessibility configuration                               |
+| [MANUAL-A11Y-REVIEW-CHECKLIST.md](MANUAL-A11Y-REVIEW-CHECKLIST.md)       | Human testing checklist for accessibility validation                       |
+| [PROJECT-FILES.md](PROJECT-FILES.md)                                     | Complete file reference and project structure                              |
 
 ## 🏗️ Structure
 
@@ -38,6 +49,7 @@ Note: The Disability Resource Center (DRC) is the official system of record for 
 ```
 
 This script automatically:
+
 - ✅ Initializes git repository
 - ✅ Creates GitHub repository
 - ✅ Pushes your code
@@ -45,6 +57,7 @@ This script automatically:
 - ✅ Provides your live URL
 
 **Requirements:**
+
 - GitHub CLI installed: `winget install --id GitHub.cli`
 - Authenticated: `gh auth login`
 
@@ -57,6 +70,7 @@ This script automatically:
 If you prefer to do it manually or don't have GitHub CLI:
 
 1. **Initialize git** (run from `c:\code\azaccess`):
+
    ```powershell
    git init
    git add .
@@ -65,12 +79,14 @@ If you prefer to do it manually or don't have GitHub CLI:
    ```
 
 2. **Create GitHub repository**:
+
    - Go to https://github.com/new
    - Name: `azaccess`
    - Public repository
    - Don't initialize with README
 
 3. **Push to GitHub**:
+
    ```powershell
    git remote add origin https://github.com/accesswatch/azaccess.git
    git push -u origin main
@@ -103,6 +119,7 @@ GitHub Pages automatically rebuilds your site (1-2 minutes).
 To test locally, run a simple HTTP server from the root directory:
 
 ### Using Python:
+
 ```bash
 python -m http.server 8000
 ```
@@ -110,6 +127,7 @@ python -m http.server 8000
 Then visit: `http://localhost:8000/work/web/home.html`
 
 ### Using Node.js:
+
 ```bash
 npx http-server -p 8000
 ```
@@ -126,6 +144,7 @@ npx http-server -p 8000
 ## 📞 Contact
 
 For questions about accessibility at the University of Arizona:
+
 - Email: accessibility@arizona.edu
 - Phone: 520-621-3268
 

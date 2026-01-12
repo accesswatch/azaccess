@@ -7,14 +7,27 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx serve docs -p 3000",
+    "test": "npm run test:a11y",
+    "test:a11y": "npx playwright test --config=playwright.a11y.config.js",
+    "test:a11y:ui": "npx playwright test --config=playwright.a11y.config.js --ui",
+    "test:a11y:report": "npx playwright show-report",
+    "audit": "node scripts/axe-audit.js",
+    "audit:all": "node scripts/axe-audit.js --all",
+    "lint:a11y": "npx axe-linter docs/*.html",
+    "lighthouse": "npx lighthouse http://localhost:3000/home.html --only-categories=accessibility --output=html --output-path=./reports/lighthouse.html"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/accesswatch/azaccess.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "accessibility",
+    "wcag",
+    "a11y",
+    "university-of-arizona"
+  ],
+  "author": "University of Arizona",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/accesswatch/azaccess/issues"
@@ -27,6 +40,8 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",
     "axe-playwright": "^2.2.2",
-    "playwright": "^1.57.0"
+    "playwright": "^1.57.0",
+    "serve": "^14.2.0",
+    "wait-on": "^7.2.0"
   }
 }

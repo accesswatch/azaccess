@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>I Am A... | Accessibility at Arizona</title>
+<title>Guides by Role | Accessibility at Arizona</title>
 <link rel="stylesheet" href="styles.css" />
 <script src="../../scripts/header.js" defer></script>
 </head>
@@ -12,10 +12,10 @@
 <header>
 <div class="site-header">
 <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-<nav class="site-header-nav" aria-label="Primary">
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">Menu</button>
+<nav class="site-header-nav" id="primary-nav" aria-label="Primary navigation">
 <a href="home.html">Home</a>
-<a href="roles.html" aria-current="page">I Am A...</a>
+<a href="roles.html" aria-current="page">Guides by Role</a>
 <a href="documents-media.html">Documents &amp; Media</a>
 <a href="web-app.html">Web &amp; Apps</a>
 <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -30,26 +30,26 @@
 <a href="support.html">Get help</a>
 </nav>
 <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
-<label for="role-select">I am a...</label>
+<label for="role-select">Find resources for...</label>
 <select id="role-select" name="role">
-<option value="">Choose your role</option>
-<option value="persona-students.html">Student or Family Member</option>
-<option value="persona-faculty.html">Faculty or Instructor</option>
-<option value="persona-staff.html">Staff Member</option>
-<option value="persona-developers.html">Developer</option>
-<option value="persona-mobile.html">Mobile App Team</option>
-<option value="persona-content.html">Content Creator</option>
-<option value="persona-comms.html">Communications / Marketing</option>
-<option value="persona-leadership.html">Leadership / Executive</option>
-<option value="persona-public.html">Visitor / Community</option>
+<option value="">Select an audience...</option>
+<option value="students.html">For Students &amp; Families</option>
+<option value="faculty.html">For Faculty &amp; Instructors</option>
+<option value="staff.html">For Staff Members</option>
+<option value="developers.html">For Developers &amp; Technical Teams</option>
+<option value="mobile.html">For Mobile Developers</option>
+<option value="content-creators.html">For Content &amp; Communications</option>
+<option value="communications.html">For Communications Teams</option>
+<option value="leadership.html">For Leaders &amp; Executives</option>
+<option value="visitors.html">For Visitors &amp; Community</option>
 </select>
 <button type="submit" class="go-btn">Go</button>
 </form>
 </div>
 <nav aria-label="Breadcrumb">
-<p><a href="home.html">Accessibility Home</a>/ I Am A...</p>
+<p><a href="home.html">Accessibility Home</a>/ Guides by Role</p>
 </nav>
-<h1>I Am A...</h1>
+<h1>Guides by Role</h1>
 <p>Pick your role. We'll show you exactly what you need.</p>
 <p class="metric-chip">Updated: 2026-01-05</p>
 </header>
@@ -62,70 +62,70 @@
 <p>Not sure where to start? Try the<a href="wizard.html">quick quiz</a>or<a href="support.html">ask us</a>—we're happy to help.</p>
 </div>
 <div>
-<h2 id="role-grid">I am a...</h2>
+<h2 id="role-grid">Find resources for...</h2>
 <div class="grid grid-3">
 <article class="card">
 <span class="role-icon"></span>
 <h3>Student</h3>
 <p>Get accommodations, captioned videos, and accessible course materials. Report barriers when something isn't working.</p>
 <span class="time-estimate">5 min to get started</span>
-<a class="cta" href="persona-students.html">That's me</a>
+<a class="cta" href="students.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon">‍</span>
 <h3>Faculty Member or Instructor</h3>
 <p>Create inclusive courses, implement accommodations, and make your Brightspace content accessible.</p>
 <span class="time-estimate">10 min overview</span>
-<a class="cta" href="persona-faculty.html">That's me</a>
+<a class="cta" href="faculty.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon"></span>
-<h3>Staff Member</h3>
+<h3>For Staff Members</h3>
 <p>Run accessible events, buy accessible tech, and keep your department's digital presence inclusive.</p>
 <span class="time-estimate">10 min overview</span>
-<a class="cta" href="persona-staff.html">That's me</a>
+<a class="cta" href="staff.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon"></span>
 <h3>Web Developer</h3>
 <p>Build WCAG 2.2 AA compliant sites, test with assistive tech, and ship accessible code.</p>
 <span class="time-estimate">15 min deep dive</span>
-<a class="cta" href="persona-developers.html">That's me</a>
+<a class="cta" href="developers.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon"></span>
 <h3>Mobile App Developer</h3>
 <p>Make apps work with VoiceOver and TalkBack. Meet Title II mobile deadlines.</p>
 <span class="time-estimate">15 min deep dive</span>
-<a class="cta" href="persona-mobile.html">That's me</a>
+<a class="cta" href="mobile.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon"></span>
-<h3>Content Creator</h3>
+<h3>For Content &amp; Communications</h3>
 <p>Make documents, slides, PDFs, and newsletters that everyone can read and use.</p>
 <span class="time-estimate">10 min overview</span>
-<a class="cta" href="persona-content.html">That's me</a>
+<a class="cta" href="content-creators.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon"></span>
 <h3>Communications Professional</h3>
 <p>Publish inclusive campaigns, social media, and stories that reach everyone.</p>
 <span class="time-estimate">10 min overview</span>
-<a class="cta" href="persona-comms.html">That's me</a>
+<a class="cta" href="communications.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon"></span>
 <h3>Leader or Executive</h3>
 <p>Ensure Title II compliance, fund accessibility work, and set policy for your unit.</p>
 <span class="time-estimate">8 min executive summary</span>
-<a class="cta" href="persona-leadership.html">That's me</a>
+<a class="cta" href="leadership.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon"></span>
 <h3>Visitor or Community Member</h3>
 <p>Plan an accessible campus visit, find services, or report a barrier you've encountered.</p>
 <span class="time-estimate">3 min to plan</span>
-<a class="cta" href="persona-public.html">That's me</a>
+<a class="cta" href="visitors.html">That's me</a>
 </article>
 </div>
 </div>

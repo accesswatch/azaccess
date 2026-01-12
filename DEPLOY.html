@@ -1,0 +1,703 @@
+<h1 id="complete-deployment-cicd-guide">Complete Deployment &amp; CI/CD
+Guide</h1>
+<p>This guide provides step-by-step instructions for deploying the UA
+Digital Accessibility site to GitHub Pages and configuring automated
+accessibility testing via GitHub Actions.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol type="1">
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#local-development-setup">Local Development Setup</a></li>
+<li><a href="#initial-github-repository-setup">Initial GitHub Repository
+Setup</a></li>
+<li><a href="#enable-github-pages">Enable GitHub Pages</a></li>
+<li><a href="#github-actions-setup">GitHub Actions Setup</a></li>
+<li><a href="#configure-branch-protection-rules">Configure Branch
+Protection Rules</a></li>
+<li><a href="#running-tests-locally">Running Tests Locally</a></li>
+<li><a href="#making-updates">Making Updates</a></li>
+<li><a href="#understanding-the-ci-pipeline">Understanding the CI
+Pipeline</a></li>
+<li><a href="#custom-domain-setup-optional">Custom Domain Setup</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#resources">Resources</a></li>
+</ol>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="required-software-local-development">Required Software (Local
+Development)</h3>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 32%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr>
+<th>Software</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://nodejs.org/">Node.js</a></td>
+<td>20.x LTS</td>
+<td>JavaScript runtime</td>
+</tr>
+<tr>
+<td><a href="https://git-scm.com/">Git</a></td>
+<td>2.40+</td>
+<td>Version control</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/powershell/">PowerShell</a></td>
+<td>7.x</td>
+<td>Scripting (Windows)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="required-accounts">Required Accounts</h3>
+<ul>
+<li><strong>GitHub Account</strong> with repository creation
+permissions</li>
+<li><strong>GitHub Personal Access Token</strong> (for pushing
+code)</li>
+</ul>
+<h3 id="verify-installation">Verify Installation</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check Node.js</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>node <span class="op">--</span>version    <span class="co"># Should show v20.x.x</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check npm</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>npm <span class="op">--</span>version     <span class="co"># Should show 10.x.x</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check Git</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>git <span class="op">--</span>version     <span class="co"># Should show git version 2.x.x</span></span></code></pre></div>
+<hr />
+<h2 id="local-development-setup">Local Development Setup</h2>
+<h3 id="step-1-clone-or-initialize-repository">Step 1: Clone or
+Initialize Repository</h3>
+<p><strong>If starting fresh:</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> s<span class="op">:</span>\code\azaccess</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>git init</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">&quot;Initial commit: UA Digital Accessibility prototype&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>git branch <span class="op">-</span>M main</span></code></pre></div>
+<p><strong>If cloning existing:</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git clone https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>accesswatch<span class="op">/</span>azaccess<span class="op">.</span><span class="fu">git</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> azaccess</span></code></pre></div>
+<h3 id="step-2-install-node.js-dependencies">Step 2: Install Node.js
+Dependencies</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>npm install</span></code></pre></div>
+<p>This installs: - <code>axe-core</code> - WCAG accessibility testing
+engine - <code>@axe-core/playwright</code> - Playwright integration for
+axe - <code>playwright</code> - Browser automation for testing -
+<code>serve</code> - Local development server - <code>wait-on</code> -
+Utility for waiting on server startup</p>
+<h3 id="step-3-install-playwright-browsers">Step 3: Install Playwright
+Browsers</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>npx playwright install chromium</span></code></pre></div>
+<h3 id="step-4-start-local-development-server">Step 4: Start Local
+Development Server</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>npm <span class="fu">start</span></span></code></pre></div>
+<p>Visit: http://localhost:3000/home.html</p>
+<hr />
+<h2 id="initial-github-repository-setup">Initial GitHub Repository
+Setup</h2>
+<h3 id="step-1-create-github-repository">Step 1: Create GitHub
+Repository</h3>
+<ol type="1">
+<li>Go to https://github.com/new</li>
+<li>Fill in the details:
+<ul>
+<li><strong>Repository name:</strong> <code>azaccess</code></li>
+<li><strong>Description:</strong>
+<code>University of Arizona Digital Accessibility Resources</code></li>
+<li><strong>Visibility:</strong> <code>Public</code> (required for free
+GitHub Pages)</li>
+<li><strong>DO NOT</strong> check “Add a README file”</li>
+<li><strong>DO NOT</strong> add .gitignore or license</li>
+</ul></li>
+<li>Click <strong>Create repository</strong></li>
+</ol>
+<h3 id="step-2-create-personal-access-token">Step 2: Create Personal
+Access Token</h3>
+<p>GitHub no longer accepts passwords for Git operations. Create a
+token:</p>
+<ol type="1">
+<li>Go to <strong>GitHub.com</strong> → Click your profile picture →
+<strong>Settings</strong></li>
+<li>Scroll down to <strong>Developer settings</strong> (left sidebar,
+bottom)</li>
+<li>Click <strong>Personal access tokens</strong> → <strong>Tokens
+(classic)</strong></li>
+<li>Click <strong>Generate new token</strong> → <strong>Generate new
+token (classic)</strong></li>
+<li>Configure the token:
+<ul>
+<li><strong>Note:</strong> <code>azaccess deployment</code></li>
+<li><strong>Expiration:</strong> 90 days (or custom)</li>
+<li><strong>Scopes:</strong> Check these boxes:
+<ul>
+<li>✅ <code>repo</code> (Full control of private repositories)</li>
+<li>✅ <code>workflow</code> (Update GitHub Action workflows)</li>
+</ul></li>
+</ul></li>
+<li>Click <strong>Generate token</strong></li>
+<li><strong>COPY THE TOKEN NOW</strong> - You won’t see it again!</li>
+</ol>
+<h3 id="step-3-connect-local-repository-to-github">Step 3: Connect Local
+Repository to GitHub</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the remote origin (replace YOUR-USERNAME)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>git remote add origin https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>YOUR-USERNAME<span class="op">/</span>azaccess<span class="op">.</span><span class="fu">git</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Push to GitHub</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>git push <span class="op">-</span>u origin main</span></code></pre></div>
+<p>When prompted for credentials: - <strong>Username:</strong> Your
+GitHub username - <strong>Password:</strong> Paste your Personal Access
+Token (NOT your GitHub password)</p>
+<h3 id="step-4-store-credentials-optional">Step 4: Store Credentials
+(Optional)</h3>
+<p>To avoid entering credentials every time:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store credentials in Windows Credential Manager</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>git config <span class="op">--</span>global credential<span class="op">.</span><span class="fu">helper</span> wincred</span></code></pre></div>
+<hr />
+<h2 id="enable-github-pages">Enable GitHub Pages</h2>
+<h3 id="step-1-configure-pages-settings">Step 1: Configure Pages
+Settings</h3>
+<ol type="1">
+<li>Go to your repository on GitHub</li>
+<li>Click <strong>Settings</strong> tab (gear icon)</li>
+<li>Click <strong>Pages</strong> in the left sidebar</li>
+<li>Under <strong>Build and deployment</strong>:
+<ul>
+<li><strong>Source:</strong> Deploy from a branch</li>
+<li><strong>Branch:</strong> <code>main</code></li>
+<li><strong>Folder:</strong> <code>/ (root)</code></li>
+</ul></li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<h3 id="step-2-wait-for-initial-deployment">Step 2: Wait for Initial
+Deployment</h3>
+<ul>
+<li>GitHub will automatically build and deploy your site</li>
+<li>This takes 1-3 minutes</li>
+<li>A green checkmark appears when complete</li>
+</ul>
+<h3 id="step-3-access-your-site">Step 3: Access Your Site</h3>
+<p>Your site is now live at:</p>
+<pre><code>https://YOUR-USERNAME.github.io/azaccess/</code></pre>
+<p>The <code>index.html</code> redirects visitors to:</p>
+<pre><code>https://YOUR-USERNAME.github.io/azaccess/docs/home.html</code></pre>
+<hr />
+<h2 id="github-actions-setup">GitHub Actions Setup</h2>
+<p>The repository includes pre-configured GitHub Actions workflows for
+automated accessibility testing. Here’s how to ensure they work
+correctly.</p>
+<h3 id="step-1-enable-github-actions">Step 1: Enable GitHub Actions</h3>
+<ol type="1">
+<li>Go to your repository on GitHub</li>
+<li>Click the <strong>Actions</strong> tab</li>
+<li>If prompted, click <strong>I understand my workflows, go ahead and
+enable them</strong></li>
+</ol>
+<h3 id="step-2-verify-workflow-file-exists">Step 2: Verify Workflow File
+Exists</h3>
+<p>The workflow file should already exist at:</p>
+<pre><code>.github/workflows/accessibility.yml</code></pre>
+<p>This workflow: - Runs on every push to <code>main</code> - Runs on
+every pull request to <code>main</code> - Runs weekly on Monday at 6 AM
+UTC - Can be triggered manually</p>
+<h3 id="step-3-configure-workflow-permissions">Step 3: Configure
+Workflow Permissions</h3>
+<ol type="1">
+<li>Go to <strong>Settings</strong> → <strong>Actions</strong> →
+<strong>General</strong></li>
+<li>Scroll to <strong>Workflow permissions</strong></li>
+<li>Select <strong>Read and write permissions</strong></li>
+<li>Check <strong>Allow GitHub Actions to create and approve pull
+requests</strong></li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<h3 id="step-4-verify-required-files">Step 4: Verify Required Files</h3>
+<p>Ensure these files exist in your repository:</p>
+<pre><code>.github/
+├── workflows/
+│   └── accessibility.yml    # Main CI workflow
+├── lighthouse-config.json   # Lighthouse settings
+├── PULL_REQUEST_TEMPLATE.md # PR template
+└── ISSUE_TEMPLATE/          # Issue templates
+    └── accessibility-issue.yml
+
+playwright.a11y.config.js    # Playwright config
+package.json                 # Dependencies
+tests/
+└── accessibility/
+    └── wcag.spec.js         # Accessibility tests</code></pre>
+<h3 id="step-5-test-the-workflow">Step 5: Test the Workflow</h3>
+<p><strong>Option A: Manual Trigger</strong></p>
+<ol type="1">
+<li>Go to <strong>Actions</strong> tab</li>
+<li>Click <strong>Accessibility Testing</strong> workflow</li>
+<li>Click <strong>Run workflow</strong> dropdown</li>
+<li>Select <code>main</code> branch</li>
+<li>Click <strong>Run workflow</strong></li>
+</ol>
+<p><strong>Option B: Push a Commit</strong></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a small change</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">&quot;Test: Trigger accessibility workflow&quot;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>git push</span></code></pre></div>
+<h3 id="step-6-view-workflow-results">Step 6: View Workflow Results</h3>
+<ol type="1">
+<li>Go to <strong>Actions</strong> tab</li>
+<li>Click on the running/completed workflow</li>
+<li>View:
+<ul>
+<li><strong>Job Summary</strong> - Pass/fail status</li>
+<li><strong>Artifacts</strong> - Downloadable HTML reports</li>
+<li><strong>Logs</strong> - Detailed test output</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="configure-branch-protection-rules">Configure Branch Protection
+Rules</h2>
+<p>Protect the <code>main</code> branch to require passing accessibility
+tests before merging.</p>
+<h3 id="step-1-access-branch-protection-settings">Step 1: Access Branch
+Protection Settings</h3>
+<ol type="1">
+<li>Go to <strong>Settings</strong> → <strong>Branches</strong></li>
+<li>Under “Branch protection rules”, click <strong>Add branch protection
+rule</strong></li>
+</ol>
+<h3 id="step-2-configure-protection-rules">Step 2: Configure Protection
+Rules</h3>
+<ol type="1">
+<li><p><strong>Branch name pattern:</strong> <code>main</code></p></li>
+<li><p>Check these options:</p>
+<ul>
+<li>✅ <strong>Require a pull request before merging</strong>
+<ul>
+<li>✅ Require approvals: <code>1</code></li>
+</ul></li>
+<li>✅ <strong>Require status checks to pass before merging</strong>
+<ul>
+<li>✅ Require branches to be up to date before merging</li>
+<li>Search and add: <code>Accessibility Audit</code></li>
+</ul></li>
+<li>✅ <strong>Require conversation resolution before
+merging</strong></li>
+<li>✅ <strong>Do not allow bypassing the above settings</strong></li>
+</ul></li>
+<li><p>Click <strong>Create</strong> or <strong>Save
+changes</strong></p></li>
+</ol>
+<h3 id="step-3-verify-protection">Step 3: Verify Protection</h3>
+<p>Now when creating a pull request: - The accessibility workflow will
+run automatically - Merging is blocked until tests pass - PR comments
+show detailed accessibility results</p>
+<hr />
+<h2 id="running-tests-locally">Running Tests Locally</h2>
+<h3 id="quick-accessibility-audit">Quick Accessibility Audit</h3>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run all accessibility tests</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>npm test</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run with Playwright UI (visual debugging)</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>npm run test<span class="op">:</span>a11y<span class="op">:</span>ui</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View HTML report after tests complete</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>npm run test<span class="op">:</span>a11y<span class="op">:</span>report</span></code></pre></div>
+<h3 id="audit-specific-pages">Audit Specific Pages</h3>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit key pages only</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>npm run audit</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit ALL HTML files (takes longer)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>npm run audit<span class="op">:</span>all</span></code></pre></div>
+<h3 id="lighthouse-accessibility-audit">Lighthouse Accessibility
+Audit</h3>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start server first</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>npm <span class="fu">start</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In another terminal, run Lighthouse</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>npm run lighthouse</span></code></pre></div>
+<h3 id="available-npm-scripts">Available npm Scripts</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm start</code></td>
+<td>Start local dev server on port 3000</td>
+</tr>
+<tr>
+<td><code>npm test</code></td>
+<td>Run all Playwright accessibility tests</td>
+</tr>
+<tr>
+<td><code>npm run test:a11y</code></td>
+<td>Run accessibility tests</td>
+</tr>
+<tr>
+<td><code>npm run test:a11y:ui</code></td>
+<td>Run tests with visual UI</td>
+</tr>
+<tr>
+<td><code>npm run test:a11y:report</code></td>
+<td>View HTML test report</td>
+</tr>
+<tr>
+<td><code>npm run audit</code></td>
+<td>Run axe-core audit on key pages</td>
+</tr>
+<tr>
+<td><code>npm run audit:all</code></td>
+<td>Run axe-core audit on ALL pages</td>
+</tr>
+<tr>
+<td><code>npm run lighthouse</code></td>
+<td>Run Lighthouse accessibility audit</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="making-updates">Making Updates</h2>
+<h3 id="standard-workflow">Standard Workflow</h3>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create a feature branch</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>git checkout <span class="op">-</span>b feature<span class="op">/</span>update-home-page</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Make your changes...</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Run local tests</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>npm test</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Commit changes</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">&quot;Update home page accessibility improvements&quot;</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Push feature branch</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>git push <span class="op">-</span>u origin feature<span class="op">/</span>update-home-page</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Create Pull Request on GitHub</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co"># → GitHub Actions will run automatically</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="co"># → Review accessibility report in PR comments</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co"># → Merge when all checks pass</span></span></code></pre></div>
+<h3 id="quick-updates-direct-to-main">Quick Updates (Direct to
+Main)</h3>
+<p>For minor changes when branch protection allows:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick update script</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\update-site<span class="op">.</span><span class="fu">ps1</span> <span class="st">&quot;Description of changes&quot;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or manually:</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">&quot;Fix: Improve color contrast on buttons&quot;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>git push</span></code></pre></div>
+<h3 id="update-deployment-script">Update Deployment Script</h3>
+<p>The <code>update-site.ps1</code> script automates common tasks:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\update-site<span class="op">.</span><span class="fu">ps1</span> <span class="st">&quot;Your commit message&quot;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># What it does:</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Stages all changes</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Commits with your message</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Pushes to GitHub</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Triggers GitHub Actions</span></span></code></pre></div>
+<hr />
+<h2 id="understanding-the-ci-pipeline">Understanding the CI
+Pipeline</h2>
+<h3 id="workflow-triggers">Workflow Triggers</h3>
+<p>The <code>.github/workflows/accessibility.yml</code> runs when:</p>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>push</code> to <code>main</code></td>
+<td>Any commit to main branch</td>
+</tr>
+<tr>
+<td><code>pull_request</code> to <code>main</code></td>
+<td>Any PR targeting main</td>
+</tr>
+<tr>
+<td><code>schedule</code> (cron)</td>
+<td>Weekly on Monday 6 AM UTC</td>
+</tr>
+<tr>
+<td><code>workflow_dispatch</code></td>
+<td>Manual trigger from Actions tab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-gets-tested">What Gets Tested</h3>
+<ol type="1">
+<li><strong>Playwright + axe-core Tests</strong>
+<ul>
+<li>Automated WCAG 2.2 AA compliance</li>
+<li>Tests all pages in <code>docs/</code> directory</li>
+<li>Zero false-positive design</li>
+</ul></li>
+<li><strong>Lighthouse Accessibility Audit</strong>
+<ul>
+<li>Google’s accessibility scoring</li>
+<li>Tests key pages for 90%+ score</li>
+<li>Includes best practices</li>
+</ul></li>
+</ol>
+<h3 id="test-results">Test Results</h3>
+<p>After each run:</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>playwright-report-{run}</code></td>
+<td>Detailed HTML report with violations</td>
+</tr>
+<tr>
+<td><code>lighthouse-report-{run}</code></td>
+<td>Lighthouse HTML reports per page</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pr-comments">PR Comments</h3>
+<p>When testing a pull request, the workflow automatically posts: -
+✅/❌ Pass/fail status for each test suite - 📊 Links to full reports -
+✋ Manual testing checklist</p>
+<hr />
+<h2 id="custom-domain-setup-optional">Custom Domain Setup
+(Optional)</h2>
+<h3 id="step-1-add-cname-file">Step 1: Add CNAME File</h3>
+<p>Create a file named <code>CNAME</code> (no extension) in the
+repository root:</p>
+<pre><code>accessibility.arizona.edu</code></pre>
+<h3 id="step-2-configure-dns">Step 2: Configure DNS</h3>
+<p>Contact your domain administrator to add:</p>
+<table>
+<thead>
+<tr>
+<th>Record Type</th>
+<th>Host</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNAME</td>
+<td><code>accessibility</code></td>
+<td><code>YOUR-USERNAME.github.io</code></td>
+</tr>
+</tbody>
+</table>
+<p>Or for apex domain:</p>
+<table>
+<thead>
+<tr>
+<th>Record Type</th>
+<th>Host</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><code>@</code></td>
+<td><code>185.199.108.153</code></td>
+</tr>
+<tr>
+<td>A</td>
+<td><code>@</code></td>
+<td><code>185.199.109.153</code></td>
+</tr>
+<tr>
+<td>A</td>
+<td><code>@</code></td>
+<td><code>185.199.110.153</code></td>
+</tr>
+<tr>
+<td>A</td>
+<td><code>@</code></td>
+<td><code>185.199.111.153</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-3-enable-in-github">Step 3: Enable in GitHub</h3>
+<ol type="1">
+<li>Go to <strong>Settings</strong> → <strong>Pages</strong></li>
+<li>Under <strong>Custom domain</strong>, enter your domain</li>
+<li>Click <strong>Save</strong></li>
+<li>Check <strong>Enforce HTTPS</strong> (after DNS propagates)</li>
+</ol>
+<h3 id="step-4-wait-for-dns-propagation">Step 4: Wait for DNS
+Propagation</h3>
+<p>DNS changes can take 24-48 hours to propagate globally.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="github-actions-issues">GitHub Actions Issues</h3>
+<h4 id="workflow-not-running">Workflow Not Running</h4>
+<ol type="1">
+<li>Check <strong>Actions</strong> tab is enabled</li>
+<li>Verify workflow file is in <code>.github/workflows/</code></li>
+<li>Check file triggers match your branch name</li>
+<li>Ensure <code>workflow</code> scope in your PAT</li>
+</ol>
+<h4 id="tests-failing-in-ci-but-pass-locally">Tests Failing in CI but
+Pass Locally</h4>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure dependencies match</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="op">-</span>r node_modules</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>npm ci  <span class="co"># Uses package-lock.json exactly</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run in CI mode locally</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="va">$env</span><span class="op">:</span><span class="va">CI</span> <span class="op">=</span> <span class="st">&quot;true&quot;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>npm test</span></code></pre></div>
+<h4 id="permission-denied-on-pr-comments">Permission Denied on PR
+Comments</h4>
+<ol type="1">
+<li>Go to <strong>Settings</strong> → <strong>Actions</strong> →
+<strong>General</strong></li>
+<li>Enable <strong>Read and write permissions</strong></li>
+<li>Re-run the failed workflow</li>
+</ol>
+<h3 id="gitgithub-issues">Git/GitHub Issues</h3>
+<h4 id="permission-denied-when-pushing">“Permission denied” When
+Pushing</h4>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check remote URL</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>git remote <span class="op">-</span>v</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to HTTPS if using SSH</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>git remote set-url origin https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>YOUR-USERNAME<span class="op">/</span>azaccess<span class="op">.</span><span class="fu">git</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Use Personal Access Token as password</span></span></code></pre></div>
+<h4 id="repository-not-found">“Repository not found”</h4>
+<ul>
+<li>Verify repository exists on GitHub</li>
+<li>Check spelling of username/repo name</li>
+<li>Ensure PAT has <code>repo</code> scope</li>
+</ul>
+<h3 id="site-issues">Site Issues</h3>
+<h4 id="site-not-updating">Site Not Updating</h4>
+<ol type="1">
+<li>Check <strong>Actions</strong> tab for failed builds</li>
+<li>Clear browser cache (Ctrl+Shift+R)</li>
+<li>Wait 5-10 minutes for propagation</li>
+<li>Verify GitHub Pages is enabled</li>
+</ol>
+<h4 id="errors">404 Errors</h4>
+<ul>
+<li>Ensure file paths are correct</li>
+<li>Check case sensitivity (GitHub Pages is case-sensitive)</li>
+<li>Verify all files were committed and pushed</li>
+</ul>
+<h3 id="local-testing-issues">Local Testing Issues</h3>
+<h4 id="port-3000-already-in-use">Port 3000 Already in Use</h4>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find process using port 3000</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>netstat <span class="op">-</span>ano <span class="op">|</span> findstr <span class="op">:</span><span class="dv">3000</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Kill the process (replace PID)</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>taskkill <span class="op">/</span>PID <span class="op">&lt;</span>PID<span class="op">&gt;</span> <span class="op">/</span>F</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Or use a different port</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>npx serve docs <span class="op">-</span>p <span class="dv">3001</span></span></code></pre></div>
+<h4 id="playwright-browser-not-found">Playwright Browser Not Found</h4>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reinstall browsers</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>npx playwright install chromium</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># With system dependencies</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>npx playwright install <span class="op">--</span>with-deps chromium</span></code></pre></div>
+<hr />
+<h2 id="site-structure">Site Structure</h2>
+<pre><code>azaccess/
+├── .github/
+│   ├── workflows/
+│   │   └── accessibility.yml  # CI/CD workflow
+│   ├── lighthouse-config.json # Lighthouse settings
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── ISSUE_TEMPLATE/
+├── docs/                      # Main site content
+│   ├── home.html              # Homepage
+│   ├── styles.css             # Shared styles
+│   ├── roles.html             # Role selection hub
+│   ├── accessibility-101.html # Introduction guide
+│   └── [50+ content pages]
+├── scripts/
+│   └── axe-audit.js           # Local audit script
+├── tests/
+│   └── accessibility/
+│       └── wcag.spec.js       # Playwright tests
+├── index.html                 # Root redirect
+├── package.json               # Dependencies &amp; scripts
+├── playwright.a11y.config.js  # Playwright config
+├── publish-to-github.ps1      # Initial setup script
+├── update-site.ps1            # Quick update script
+└── DEPLOY.md                  # This file</code></pre>
+<hr />
+<h2 id="resources">Resources</h2>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li><a href="https://docs.github.com/en/pages">GitHub Pages
+Documentation</a></li>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions
+Documentation</a></li>
+<li><a href="https://playwright.dev/">Playwright Documentation</a></li>
+<li><a href="https://dequeuniversity.com/rules/axe/">axe-core
+Rules</a></li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li><a href="https://www.deque.com/axe/devtools/">axe DevTools Browser
+Extension</a></li>
+<li><a
+href="https://chrome.google.com/webstore/detail/lighthouse">Lighthouse
+Chrome Extension</a></li>
+<li><a href="https://wave.webaim.org/">WAVE Web Accessibility
+Evaluator</a></li>
+</ul>
+<h3 id="standards">Standards</h3>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 Guidelines</a></li>
+<li><a href="https://www.w3.org/WAI/ARIA/apg/">WAI-ARIA Authoring
+Practices</a></li>
+</ul>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<ul>
+<li><strong>GitHub Issues:</strong>
+https://github.com/accesswatch/azaccess/issues</li>
+<li><strong>GitHub Pages Help:</strong>
+https://github.com/orgs/community/discussions/categories/pages</li>
+<li><strong>UA Accessibility Team:</strong>
+accessibility@arizona.edu</li>
+</ul>
+<hr />
+<p><em>Last updated: January 2026</em></p>

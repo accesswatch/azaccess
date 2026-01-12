@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Communications &amp; Marketing | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="../../scripts/header.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+<div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<nav class="site-header-nav" aria-label="Primary">
+<a href="home.html">Home</a>
+<a href="documents-media.html">Documents &amp; Media</a>
+<a href="web-app.html">Web &amp; Apps</a>
+<a href="teaching-learning.html">Teaching &amp; Learning</a>
+<a href="procurement.html">Procurement</a>
+<a href="tools-checklists.html">Tools &amp; Checklists</a>
+<a href="policies-governance.html">Policies &amp; Governance</a>
+<a href="support.html">Support</a>
+</nav>
+<nav class="site-header-utilities" aria-label="Quick links">
+<a href="roles.html">Guides by Role</a>
+<a href="accessibility-101.html">Accessibility 101</a>
+<a href="blog.html">Blog</a>
+<a href="support.html">Get help</a>
+</nav>
+<form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+<label for="role-select">Find resources for...</label>
+<select id="role-select" name="role">
+<option value="">Select an audience...</option>
+<option value="students.html">For Students &amp; Families</option>
+<option value="faculty.html">For Faculty &amp; Instructors</option>
+<option value="staff.html">For Staff Members</option>
+<option value="developers.html">For Developers &amp; Technical Teams</option>
+<option value="content-creators.html">For Content &amp; Communications</option>
+<option value="leadership.html">For Leaders &amp; Executives</option>
+<option value="visitors.html">For Visitors &amp; Community</option>
+</select>
+<button type="submit" class="go-btn">Go</button>
+</form>
+</div>
+<nav aria-label="Breadcrumb">
+<p><a href="home.html">Accessibility Home</a>/<a href="roles.html">Guides by Role</a>/ Communications</p>
+</nav>
+<h1>I work in Communications or Marketing</h1>
+<p>Publish campaigns, stories, and social posts that reach everyone.</p>
+<p class="metric-chip">Goal: 100% captioned/alt-text media in campaigns</p>
+<p class="page-meta">Good accessibility is good communication. We'll help you reach more people.</p>
+</header>
+<main id="maincontent">
+<div>
+<h2 id="comms-help">What this page helps you do</h2>
+<ul>
+<li>Produce campaigns, newsletters, and social media that are perceivable and usable by all audiences.</li>
+<li>Apply UA brand tokens and accessible formats to creative assets.</li>
+<li>Know where to get quick captioning, alt-text, and editorial reviews before launch.</li>
+</ul>
+</div>
+<div>
+<h2 id="comms-tasks">Top tasks</h2>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th scope="col">Task</th>
+<th scope="col">Steps</th>
+<th scope="col">Primary Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Produce accessible campaigns</td>
+<td>Plan concept select accessible palettes script inclusive language test layouts.</td>
+<td>Adobe Creative Cloud, brand templates</td>
+</tr>
+<tr>
+<td>Publish accessible newsletters</td>
+<td>Use bulletproof buttons alt text descriptive links test in Outlook/Gmail + screen readers.</td>
+<td>Marketing automation platforms</td>
+</tr>
+<tr>
+<td>Create inclusive social content</td>
+<td>Add alt text caption video include text-based CTAs test for color contrast.</td>
+<td>Instagram, X, LinkedIn, YouTube</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<h2 id="comms-principles">Impactful principles &amp; tools</h2>
+<p>Accessibility shouldn’t slow down creativity. Anchor every campaign to<a href="wcag22-highlights.html">WCAG 2.2 AA highlights</a>and automate checks with the tools below.</p>
+<details class="accordion" open>
+<summary>Color, typography, and motion</summary>
+<div>
+<ul>
+<li>Use UA palette tokens that meet 4.5:1 contrast for text and 3:1 for UI (SC 1.4.3/1.4.11).</li>
+<li>Limit motion and provide pauses for animated stories (SC 2.2.2); include transcripts or stills.</li>
+</ul>
+<p>Validate via Accessibility Insights’ color contrast analyzer or WebAIM’s contrast checker.</p>
+</div>
+</details>
+<details class="accordion">
+<summary>Copy, alt text, and captions</summary>
+<div>
+<ul>
+<li>Follow<a href="https://webaim.org/techniques/alttext/">WebAIM alt text principles</a>for photos, graphics, and stories.</li>
+<li>Caption all audio/video; describe visual-only calls to action in accompanying text.</li>
+<li>Run Microsoft Accessibility Checker (Word, PowerPoint) before exporting press kits or talking points.</li>
+<li>Keep CTAs descriptive by using the<a href="meaningful-links.html">Meaningful Links guide</a>; avoid repeated “learn more”.</li>
+</ul>
+</div>
+</details>
+<details class="accordion">
+<summary>Testing &amp; monitoring</summary>
+<div>
+<ul>
+<li>Use Accessibility Insights FastPass or<strong>WAVE</strong>for HTML newsletters and landing pages.</li>
+<li>Schedule<strong>DubBot</strong>scans for ongoing microsites; share dashboards with leadership.</li>
+<li>For PDF lookbooks, follow the<a href="pdf-remediation.html">Adobe remediation checklist</a>(reading order, tags, labels).</li>
+</ul>
+</div>
+</details>
+</div>
+<div>
+<h2 id="comms-guidance">Guidance</h2>
+<details class="accordion" open>
+<summary>Visual &amp; brand assets</summary>
+<div>
+<p>Use UA-approved palettes that pass<a href="color-contrast.html">contrast requirements</a>. Pro

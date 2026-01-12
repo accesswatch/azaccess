@@ -12,10 +12,10 @@
 <header>
 <div class="site-header">
 <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-<nav class="site-header-nav" aria-label="Primary">
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">Menu</button>
+<nav class="site-header-nav" id="primary-nav" aria-label="Primary navigation">
 <a href="home.html">Home</a>
-<a href="roles.html">I Am A...</a>
+<a href="roles.html">Guides by Role</a>
 <a href="documents-media.html">Documents &amp; Media</a>
 <a href="web-app.html">Web &amp; Apps</a>
 <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -30,24 +30,24 @@
 <a href="support.html">Get help</a>
 </nav>
 <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
-<label for="role-select">I am a...</label>
+<label for="role-select">Find resources for...</label>
 <select id="role-select" name="role">
-<option value="">Choose your role</option>
-<option value="persona-students.html">Student or Family Member</option>
-<option value="persona-faculty.html">Faculty or Instructor</option>
-<option value="persona-staff.html">Staff Member</option>
-<option value="persona-developers.html">Developer</option>
-<option value="persona-mobile.html">Mobile App Team</option>
-<option value="persona-content.html">Content Creator</option>
-<option value="persona-comms.html">Communications / Marketing</option>
-<option value="persona-leadership.html">Leadership / Executive</option>
-<option value="persona-public.html">Visitor / Community</option>
+<option value="">Select an audience...</option>
+<option value="students.html">For Students &amp; Families</option>
+<option value="faculty.html">For Faculty &amp; Instructors</option>
+<option value="staff.html">For Staff Members</option>
+<option value="developers.html">For Developers &amp; Technical Teams</option>
+<option value="mobile.html">For Mobile Developers</option>
+<option value="content-creators.html">For Content &amp; Communications</option>
+<option value="communications.html">For Communications Teams</option>
+<option value="leadership.html">For Leaders &amp; Executives</option>
+<option value="visitors.html">For Visitors &amp; Community</option>
 </select>
 <button type="submit" class="go-btn">Go</button>
 </form>
 </div>
 <nav aria-label="Breadcrumb">
-<p><a href="home.html">Accessibility Home</a>/<a href="roles.html">I Am A...</a>/ Developer</p>
+<p><a href="home.html">Accessibility Home</a>/<a href="roles.html">Guides by Role</a>/ Developer</p>
 </nav>
 <h1>I am a Web Developer</h1>
 <p>Build accessible Arizona sites, apps, and integrations that meet WCAG 2.2 AA standards.</p>
@@ -418,17 +418,17 @@
 <article class="card">
 <h3>Building Mobile?</h3>
 <p>VoiceOver/TalkBack testing and Title II mobile deadlines.</p>
-<a class="cta" href="persona-mobile.html">Mobile guide</a>
+<a class="cta" href="mobile.html">Mobile guide</a>
 </article>
 <article class="card">
 <h3>Content Authors</h3>
 <p>When content issues land in your code.</p>
-<a class="cta" href="persona-content.html">Content creators</a>
+<a class="cta" href="content-creators.html">Content creators</a>
 </article>
 <article class="card">
 <h3>All Roles</h3>
 <p>Browse all role-based guides.</p>
-<a class="cta" href="roles.html">Back to I Am A...</a>
+<a class="cta" href="roles.html">Back to Guides by Role</a>
 </article>
 </div>
 </div>

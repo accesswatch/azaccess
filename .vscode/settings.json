@@ -1,0 +1,110 @@
+{
+  // Accessibility-focused settings for this project
+
+  // Editor settings for accessibility
+  "editor.accessibilitySupport": "on",
+  "editor.linkedEditing": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+
+  // HTML settings
+  "html.autoClosingTags": true,
+  "html.format.wrapLineLength": 120,
+  "html.validate.scripts": true,
+  "html.validate.styles": true,
+
+  // Emmet for accessibility
+  "emmet.preferences": {
+    "filter.commentAfter": "<!-- /[#ID][.CLASS] -->"
+  },
+  "emmet.variables": {
+    "lang": "en"
+  },
+
+  // CSS settings
+  "css.validate": true,
+  "css.lint.unknownAtRules": "warning",
+
+  // Files
+  "files.associations": {
+    "*.html": "html"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // Search exclusions
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/dist": true
+  },
+
+  // GitHub Copilot settings
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "html": true,
+    "css": true,
+    "javascript": true
+  },
+
+  // Copilot Chat settings
+  "chat.agent.enabled": true,
+  "chat.agent.maxRequests": 10,
+
+  // Accessibility linting
+  "axe-linter.rules": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+
+  // Spell checker for content
+  "cSpell.words": [
+    "WCAG",
+    "ARIA",
+    "axe",
+    "a11y",
+    "screenreader",
+    "voiceover",
+    "NVDA",
+    "JAWS",
+    "tabindex",
+    "focusable",
+    "Brightspace",
+    "Panopto",
+    "UCATT",
+    "azurite",
+    "maroon"
+  ],
+
+  // Format on save
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Terminal - Accessibility-friendly settings to minimize disruption
+  // These prevent focus from jumping to terminal when Copilot runs commands
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.focusAfterRun": "none",
+  "terminal.integrated.defaultLocation": "editor",
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.showExitAlert": false,
+  "terminal.integrated.hideOnStartup": "always",
+
+  // Problems panel
+  "problems.decorations.enabled": true,
+  "problems.showCurrentInStatus": true
+}

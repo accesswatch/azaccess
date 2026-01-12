@@ -12,10 +12,9 @@
 <header>
 <div class="site-header">
 <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-<nav class="site-header-nav" aria-label="Primary">
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">Menu</button>
+<nav class="site-header-nav" id="primary-nav" aria-label="Primary navigation">
 <a href="home.html">Home</a>
-<a href="roles.html">I Am A...</a>
 <a href="documents-media.html">Documents &amp; Media</a>
 <a href="web-app.html">Web &amp; Apps</a>
 <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -25,31 +24,30 @@
 <a href="support.html">Support</a>
 </nav>
 <nav class="site-header-utilities" aria-label="Quick links">
+<a href="roles.html">Guides by Role</a>
 <a href="accessibility-101.html">Accessibility 101</a>
 <a href="blog.html">Blog</a>
 <a href="support.html">Get help</a>
 </nav>
 <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
-<label for="role-select">I am a...</label>
+<label for="role-select">Find resources for...</label>
 <select id="role-select" name="role">
-<option value="">Choose your role</option>
-<option value="persona-students.html">Student or Family Member</option>
-<option value="persona-faculty.html">Faculty or Instructor</option>
-<option value="persona-staff.html">Staff Member</option>
-<option value="persona-developers.html">Developer</option>
-<option value="persona-mobile.html">Mobile App Team</option>
-<option value="persona-content.html">Content Creator</option>
-<option value="persona-comms.html">Communications / Marketing</option>
-<option value="persona-leadership.html">Leadership / Executive</option>
-<option value="persona-public.html">Visitor / Community</option>
+<option value="">Select an audience...</option>
+<option value="students.html">For Students &amp; Families</option>
+<option value="faculty.html">For Faculty &amp; Instructors</option>
+<option value="staff.html">For Staff Members</option>
+<option value="developers.html">For Developers &amp; Technical Teams</option>
+<option value="content-creators.html">For Content &amp; Communications</option>
+<option value="leadership.html">For Leaders &amp; Executives</option>
+<option value="visitors.html">For Visitors &amp; Community</option>
 </select>
 <button type="submit" class="go-btn">Go</button>
 </form>
 </div>
 <nav aria-label="Breadcrumb">
-<p><a href="home.html">Accessibility Home</a>/<a href="roles.html">I Am A...</a>/ Content Creator</p>
+<p><a href="home.html">Accessibility Home</a>/<a href="roles.html">Guides by Role</a>/ For Content &amp; Communications</p>
 </nav>
-<h1>I create Content<span class="badge badge-popular">Popular</span></h1>
+<h1>For Content &amp; Communications Teams<span class="badge badge-popular">Popular</span></h1>
 <p>Make documents, slides, PDFs, and shared files that everyone can read and use.</p>
 <p class="metric-chip">Document SLA: Accessibility Checker cleared before release</p>
 <p class="page-meta">Most fixes take just a few clicks. We'll show you exactly what to do.</p>
@@ -198,8 +196,37 @@
 <li>Use the<a href="https://webaim.org/resources/evalquickref/">WebAIM evaluation quick reference</a>during peer review.</li>
 </ul>
 </div>
-</details>
+</details><details class="accordion">
+<summary>Articulate Rise &amp; Storyline (E-Learning)</summary>
+<div>
+<p>Articulate's Rise 360 and Storyline 360 broadly support <strong>WCAG 2.1 Level AA</strong>. Follow these best practices when creating accessible e-learning:</p>
+<ul>
+<li><strong>Captions &amp; transcripts:</strong> Provide accurate captions and downloadable transcripts for all audio/video. Use the <a href="https://accessibility.arizona.edu/content/create-captions">UA captioning workflow</a> and audit auto-generated captions.</li>
+<li><strong>Keyboard navigation:</strong> Ensure all interactive elements (buttons, slides, quizzes) are reachable via Tab/Enter/Space with visible focus indicators.</li>
+<li><strong>Semantic structure:</strong> Use headings, lists, and native text blocks—avoid images of text.</li>
+<li><strong>Alt text:</strong> Add meaningful descriptions for informative images; mark decorative images appropriately. Include long descriptions for complex visuals.</li>
+<li><strong>Color &amp; contrast:</strong> Verify text meets WCAG AA contrast ratios (≥4.5:1 for normal text).</li>
+<li><strong>Accessible alternatives:</strong> For drag-and-drop or complex interactions, provide a text-based or keyboard-accessible alternative.</li>
+<li><strong>Testing:</strong> Test published output with NVDA/VoiceOver and keyboard-only navigation across browsers.</li>
+</ul>
+<p><strong>Key Articulate resources:</strong></p>
+<ul>
+<li><a href="https://www.articulate.com/about/accessibility/">Articulate Accessibility Overview</a></li>
+<li>Conformance reports (VPATs): <a href="https://access.articulate.com/support/article/Rise-360-Accessibility-Conformance-Report-VPAT">Rise 360</a> | <a href="https://access.articulate.com/support/article/Storyline-360-Accessibility-Conformance-Report-VPAT">Storyline 360</a> | <a href="https://www.articulate.com/about/accessibility/reach-360-accessibility-conformance-report-vpat/">Reach 360</a></li>
+<li><a href="https://community.articulate.com/e-learning-examples/rise-360-implementing-wcag-guidelines-for-instructional-designers">Implementing WCAG for Instructional Designers (Rise 360)</a></li>
+<li><a href="https://community.articulate.com/e-learning-examples/rise-360-intro-to-digital-accessibility-for-instructional-designers">Free course: Intro to Digital Accessibility</a></li>
+<li><a href="https://community.articulate.com/series/all-about-accessibility">E-Learning Heroes: All About Accessibility series</a></li>
+<li><a href="https://training.articulate.com/webinars?category%3Dmore%26search%3Daccessibility">Accessibility training webinars</a></li>
+</ul>
+<p><strong>UA-specific resources:</strong></p>
+<ul>
+<li><a href="https://accessibility.arizona.edu/captioning/popular-apps">Captioning in Articulate Storyline (UA)</a></li>
+<li><a href="https://edgelearning.arizona.edu/articulate-360">EDGE Learning: Articulate 360 guidance</a></li>
+<li><a href="https://access.articulate.com/support/article/Articulate-360-FAQs-Accessibility">Articulate Accessibility FAQs</a></li>
+</ul>
+<p>Questions? Contact <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> or Articulate directly at <a href="mailto:a11y@articulate.com">a11y@articulate.com</a>.</p>
 </div>
+</details></div>
 <div>
 <h2 id="content-tools">Tools &amp; contacts</h2>
 <div class="grid grid-3">
@@ -310,7 +337,7 @@
 <article class="card">
 <h3>All Roles</h3>
 <p>Browse all role-based guides.</p>
-<a class="cta" href="roles.html">Back to I Am A...</a>
+<a class="cta" href="roles.html">Back to Guides by Role</a>
 </article>
 </div>
 </div>

@@ -3,106 +3,106 @@
  * Press ? to show shortcuts help
  */
 (function () {
-    'use strict';
+  'use strict';
 
-    // Don't activate shortcuts when typing in inputs
-    function isTyping() {
-        const active = document.activeElement;
-        const tag = active.tagName.toLowerCase();
-        return tag === 'input' || tag === 'textarea' || tag === 'select' || active.isContentEditable;
+  // Don't activate shortcuts when typing in inputs
+  function isTyping() {
+    const active = document.activeElement;
+    const tag = active.tagName.toLowerCase();
+    return tag === 'input' || tag === 'textarea' || tag === 'select' || active.isContentEditable;
+  }
+
+  // Keyboard shortcuts map
+  const shortcuts = {
+    '?': { action: showHelp, description: 'Show keyboard shortcuts' },
+    '/': { action: focusSearch, description: 'Focus search' },
+    'h': { action: () => goTo('home.html'), description: 'Go to Home' },
+    'g': { action: () => goTo('glossary.html'), description: 'Go to Glossary' },
+    'f': { action: () => goTo('faq.html'), description: 'Go to FAQ' },
+    's': { action: () => goTo('support.html'), description: 'Go to Support' },
+    'q': { action: () => goTo('quick-start.html'), description: 'Go to Quick Start' },
+    't': { action: scrollToTop, description: 'Scroll to top' },
+    'n': { action: nextSection, description: 'Next section (h2)' },
+    'p': { action: prevSection, description: 'Previous section (h2)' },
+  };
+
+  // Navigate to page
+  function goTo(page) {
+    // Handle relative paths
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('/docs/')) {
+      window.location.href = page;
+    } else {
+      window.location.href = 'docs/' + page;
+    }
+  }
+
+  // Focus search input if it exists
+  function focusSearch() {
+    const searchInput = document.querySelector('input[type="search"], #site-search, #glossary-filter, #faq-filter');
+    if (searchInput) {
+      searchInput.focus();
+      return true;
+    }
+    // If no search on page, go to search page
+    goTo('search.html');
+    return true;
+  }
+
+  // Scroll to top
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const main = document.getElementById('maincontent');
+    if (main) main.focus();
+  }
+
+  // Navigate between h2 sections
+  function nextSection() {
+    navigateSection(1);
+  }
+
+  function prevSection() {
+    navigateSection(-1);
+  }
+
+  function navigateSection(direction) {
+    const headings = Array.from(document.querySelectorAll('h2'));
+    if (headings.length === 0) return;
+
+    const scrollY = window.scrollY;
+    let current = -1;
+
+    // Find current section
+    for (let i = 0; i < headings.length; i++) {
+      if (headings[i].offsetTop <= scrollY + 100) {
+        current = i;
+      }
     }
 
-    // Keyboard shortcuts map
-    const shortcuts = {
-        '?': { action: showHelp, description: 'Show keyboard shortcuts' },
-        '/': { action: focusSearch, description: 'Focus search' },
-        'h': { action: () => goTo('home.html'), description: 'Go to Home' },
-        'g': { action: () => goTo('glossary.html'), description: 'Go to Glossary' },
-        'f': { action: () => goTo('faq.html'), description: 'Go to FAQ' },
-        's': { action: () => goTo('support.html'), description: 'Go to Support' },
-        'q': { action: () => goTo('quick-start.html'), description: 'Go to Quick Start' },
-        't': { action: scrollToTop, description: 'Scroll to top' },
-        'n': { action: nextSection, description: 'Next section (h2)' },
-        'p': { action: prevSection, description: 'Previous section (h2)' },
-    };
+    // Calculate target
+    let target = current + direction;
+    if (target < 0) target = headings.length - 1;
+    if (target >= headings.length) target = 0;
 
-    // Navigate to page
-    function goTo(page) {
-        // Handle relative paths
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('/docs/')) {
-            window.location.href = page;
-        } else {
-            window.location.href = 'docs/' + page;
-        }
+    // Scroll to target
+    headings[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    headings[target].focus();
+  }
+
+  // Show help modal
+  function showHelp() {
+    // Remove existing modal
+    const existing = document.getElementById('keyboard-help-modal');
+    if (existing) {
+      existing.remove();
+      return;
     }
 
-    // Focus search input if it exists
-    function focusSearch() {
-        const searchInput = document.querySelector('input[type="search"], #site-search, #glossary-filter, #faq-filter');
-        if (searchInput) {
-            searchInput.focus();
-            return true;
-        }
-        // If no search on page, go to search page
-        goTo('search.html');
-        return true;
-    }
-
-    // Scroll to top
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        const main = document.getElementById('maincontent');
-        if (main) main.focus();
-    }
-
-    // Navigate between h2 sections
-    function nextSection() {
-        navigateSection(1);
-    }
-
-    function prevSection() {
-        navigateSection(-1);
-    }
-
-    function navigateSection(direction) {
-        const headings = Array.from(document.querySelectorAll('h2'));
-        if (headings.length === 0) return;
-
-        const scrollY = window.scrollY;
-        let current = -1;
-
-        // Find current section
-        for (let i = 0; i < headings.length; i++) {
-            if (headings[i].offsetTop <= scrollY + 100) {
-                current = i;
-            }
-        }
-
-        // Calculate target
-        let target = current + direction;
-        if (target < 0) target = headings.length - 1;
-        if (target >= headings.length) target = 0;
-
-        // Scroll to target
-        headings[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
-        headings[target].focus();
-    }
-
-    // Show help modal
-    function showHelp() {
-        // Remove existing modal
-        const existing = document.getElementById('keyboard-help-modal');
-        if (existing) {
-            existing.remove();
-            return;
-        }
-
-        const modal = document.createElement('div');
-        modal.id = 'keyboard-help-modal';
-        modal.setAttribute('role', 'dialog');
-        modal.setAttribute('aria-labelledby', 'keyboard-help-title');
-        modal.innerHTML = `
+    const modal = document.createElement('div');
+    modal.id = 'keyboard-help-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-labelledby', 'keyboard-help-title');
+    modal.innerHTML = `
       <div class="keyboard-help-backdrop"></div>
       <div class="keyboard-help-content">
         <h2 id="keyboard-help-title">⌨️ Keyboard Shortcuts</h2>
@@ -141,9 +141,9 @@
       </div>
     `;
 
-        // Add styles
-        const style = document.createElement('style');
-        style.textContent = `
+    // Add styles
+    const style = document.createElement('style');
+    style.textContent = `
       #keyboard-help-modal {
         position: fixed;
         top: 0;
@@ -199,7 +199,7 @@
       .shortcut-group h3 {
         margin: 0 0 0.5rem 0;
         font-size: 0.9rem;
-        color: #666;
+        color: #595959;
         text-transform: uppercase;
       }
       .shortcut-group dl {
@@ -218,7 +218,7 @@
         display: inline-block;
         padding: 0.125rem 0.5rem;
         background: #f4f4f4;
-        border: 1px solid #ccc;
+        border: 1px solid #999;
         border-radius: 4px;
         font-family: monospace;
         font-size: 0.85rem;
@@ -227,9 +227,9 @@
       .keyboard-help-note {
         margin: 1.5rem 0 0 0;
         padding-top: 1rem;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #d5d5d5;
         font-size: 0.9rem;
-        color: #666;
+        color: #595959;
         text-align: center;
       }
       @media (prefers-color-scheme: dark) {
@@ -243,50 +243,50 @@
         }
       }
     `;
-        document.head.appendChild(style);
-        document.body.appendChild(modal);
+    document.head.appendChild(style);
+    document.body.appendChild(modal);
 
-        // Focus close button
-        modal.querySelector('.keyboard-help-close').focus();
+    // Focus close button
+    modal.querySelector('.keyboard-help-close').focus();
 
-        // Close handlers
-        modal.querySelector('.keyboard-help-close').addEventListener('click', () => modal.remove());
-        modal.querySelector('.keyboard-help-backdrop').addEventListener('click', () => modal.remove());
+    // Close handlers
+    modal.querySelector('.keyboard-help-close').addEventListener('click', () => modal.remove());
+    modal.querySelector('.keyboard-help-backdrop').addEventListener('click', () => modal.remove());
+  }
+
+  // Main keyboard handler
+  document.addEventListener('keydown', function (e) {
+    // Don't capture when typing
+    if (isTyping()) return;
+
+    // Don't capture when modifier keys are pressed (except ?)
+    if ((e.ctrlKey || e.metaKey || e.altKey) && e.key !== '?') return;
+
+    const key = e.key.toLowerCase();
+
+    // Handle Escape for modal
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('keyboard-help-modal');
+      if (modal) {
+        modal.remove();
+        return;
+      }
     }
 
-    // Main keyboard handler
-    document.addEventListener('keydown', function (e) {
-        // Don't capture when typing
-        if (isTyping()) return;
+    // Handle ? (shift+/)
+    if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+      e.preventDefault();
+      showHelp();
+      return;
+    }
 
-        // Don't capture when modifier keys are pressed (except ?)
-        if ((e.ctrlKey || e.metaKey || e.altKey) && e.key !== '?') return;
+    // Check shortcuts
+    if (shortcuts[key]) {
+      e.preventDefault();
+      shortcuts[key].action();
+    }
+  });
 
-        const key = e.key.toLowerCase();
-
-        // Handle Escape for modal
-        if (e.key === 'Escape') {
-            const modal = document.getElementById('keyboard-help-modal');
-            if (modal) {
-                modal.remove();
-                return;
-            }
-        }
-
-        // Handle ? (shift+/)
-        if (e.key === '?' || (e.shiftKey && e.key === '/')) {
-            e.preventDefault();
-            showHelp();
-            return;
-        }
-
-        // Check shortcuts
-        if (shortcuts[key]) {
-            e.preventDefault();
-            shortcuts[key].action();
-        }
-    });
-
-    // Log that shortcuts are available
-    console.log('⌨️ Keyboard shortcuts enabled. Press ? for help.');
+  // Log that shortcuts are available
+  console.log('⌨️ Keyboard shortcuts enabled. Press ? for help.');
 })();

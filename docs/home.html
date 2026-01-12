@@ -13,12 +13,11 @@
 <header>
 <div class="site-header">
 <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-<nav class="site-header-nav" aria-label="Primary">
+<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">Menu</button>
+<nav class="site-header-nav" id="primary-nav" aria-label="Primary navigation">
 <!-- primary-nav id used by responsive toggle -->
 <!-- id added to allow toggle via JS -->
 <a href="home.html" aria-current="page">Home</a>
-<a href="roles.html">I Am A...</a>
 <a href="documents-media.html">Documents &amp; Media</a>
 <a href="web-app.html">Web &amp; Apps</a>
 <a href="teaching-learning.html">Teaching &amp; Learning</a>
@@ -29,24 +28,23 @@
 <a href="learning.html">Learning</a>
 </nav>
 <nav class="site-header-utilities" aria-label="Quick links">
+<a href="roles.html">Guides by Role</a>
 <a href="accessibility-101.html">Accessibility 101</a>
 <a href="glossary.html">Glossary</a>
 <a href="faq.html">FAQ</a>
 <a href="support.html">Get help</a>
 </nav>
 <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
-<label for="role-select">I am a...</label>
+<label for="role-select">Find resources for...</label>
 <select id="role-select" name="role">
-<option value="">Choose your role</option>
-<option value="persona-students.html">Student or Family Member</option>
-<option value="persona-faculty.html">Faculty or Instructor</option>
-<option value="persona-staff.html">Staff Member</option>
-<option value="persona-developers.html">Developer</option>
-<option value="persona-mobile.html">Mobile App Team</option>
-<option value="persona-content.html">Content Creator</option>
-<option value="persona-comms.html">Communications / Marketing</option>
-<option value="persona-leadership.html">Leadership / Executive</option>
-<option value="persona-public.html">Visitor / Community</option>
+<option value="">Select an audience...</option>
+<option value="students.html">For Students &amp; Families</option>
+<option value="faculty.html">For Faculty &amp; Instructors</option>
+<option value="staff.html">For Staff Members</option>
+<option value="developers.html">For Developers &amp; Technical Teams</option>
+<option value="content-creators.html">For Content &amp; Communications</option>
+<option value="leadership.html">For Leaders &amp; Executives</option>
+<option value="visitors.html">For Visitors &amp; Community</option>
 </select>
 <button type="submit" class="go-btn">Go</button>
 </form>
@@ -54,8 +52,8 @@
 <nav aria-label="On this page">
 <ul class="tag-list">
 <li><a href="#hero">Start</a></li>
-<li><a href="#roles">I Am A...</a></li>
 <li><a href="#foundations">By Topic</a></li>
+<li><a href="#roles">By Role</a></li>
 <li><a href="#quick-wins">Quick Wins</a></li>
 <li><a href="#testimonials">Community</a></li>
 <li><a href="#support">Support</a></li>
@@ -67,7 +65,7 @@
 <div class="start-here-banner">
 <p><strong>First time here?</strong>Answer a few questions to get personalized recommendations.</p>
 <a class="cta" href="quick-start.html">Quick Start Guide</a>
-<span style="margin: 0 0.5rem; opacity: 0.7;">or</span>
+<span style="margin: 0 0.5rem; opacity: 0.9;">or</span>
 <a href="wizard.html" style="color: white;">Take the 30-second quiz</a>
 </div>
 <section id="hero">
@@ -82,7 +80,7 @@
 <article class="card">
 <h2>Find your guide</h2>
 <p>Tell us your role and get tailored tasks, tools, and support.</p>
-<a class="cta" href="roles.html">I am a...</a>
+<a class="cta" href="roles.html">Guides by Role</a>
 </article>
 <article class="card">
 <h2>Request support</h2>
@@ -103,26 +101,26 @@
 <p class="hero-note">Not sure where to start? Email<a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>or call<a href="tel:+15206213268">520-621-3268</a>. You don&apos;t need the right jargon—just tell us what you&apos;re working on.</p>
 </section>
 <div id="roles">
-<h2>I am a...</h2>
+<h2>Guides by Role</h2>
 <p>Pick your role. We'll show you the accessibility resources, tools, and next steps that matter most for your work.</p>
 <div class="grid grid-3">
 <article class="card">
 <span class="role-icon"></span>
-<h3>Student or Family Member</h3>
+<h3>For Students &amp; Families</h3>
 <p>Accommodations, captioned media, barrier reporting.</p>
 <span class="time-estimate">5 min to get started</span>
 <a class="cta" href="students.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon">‍</span>
-<h3>Faculty or Instructor</h3>
+<h3>For Faculty &amp; Instructors</h3>
 <p>Brightspace templates, Panopto captions, inclusive pedagogy.</p>
 <span class="time-estimate">10 min overview</span>
 <a class="cta" href="faculty.html">That's me</a>
 </article>
 <article class="card">
 <span class="role-icon"></span>
-<h3>Staff Member</h3>
+<h3>For Staff Members</h3>
 <p>Accessible purchasing, event planning, department sites.</p>
 <span class="time-estimate">10 min overview</span>
 <a class="cta" href="staff.html">That's me</a>
