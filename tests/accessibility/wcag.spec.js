@@ -128,7 +128,7 @@ test.describe('Color Contrast', () => {
 
     const contrastResults = await new AxeBuilder({ page })
       .withTags(['wcag2aa'])
-      .options({ rules: ['color-contrast'] })
+      .options({ rules: { 'color-contrast': { enabled: true } } })
       .analyze();
 
     expect(contrastResults.violations).toEqual([]);
@@ -185,7 +185,7 @@ test.describe('Forms', () => {
     await page.goto('/support.html');
 
     const results = await new AxeBuilder({ page })
-      .options({ rules: ['label'] })
+      .options({ rules: { label: { enabled: true } } })
       .analyze();
 
     expect(results.violations).toEqual([]);
