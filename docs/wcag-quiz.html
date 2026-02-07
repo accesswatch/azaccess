@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WCAG Quick Quiz | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ── Quiz layout ─────────────────────────────── */
+.quiz-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.quiz-progress-bar {
+  flex: 1;
+  min-width: 120px;
+  height: 0.5rem;
+  background: var(--border-color, #d0d5dd);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--ua-maroon, #ab0520);
+  border-radius: 0.25rem;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+.quiz-progress-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted, #595959);
+  white-space: nowrap;
+}
+
+/* ── Question card ───────────────────────────── */
+.quiz-card {
+  border: 1px solid var(--border-color, #d0d5dd);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  background: #fff;
+}
+.quiz-card h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+}
+.quiz-scenario {
+  font-size: 0.95rem;
+  color: var(--text-muted, #595959);
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+}
+
+/* ── Answer options ──────────────────────────── */
+.quiz-options {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.quiz-option {
+  margin-bottom: 0.5rem;
+}
+.quiz-option label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color, #d0d5dd);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  line-height: 1.4;
+}
+.quiz-option label:hover {
+  border-color: var(--ua-maroon, #ab0520);
+  background: #fdf6f7;
+}
+.quiz-option input[type="radio"] {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--ua-maroon, #ab0520);
+}
+.quiz-option input[type="radio"]:focus-visible + span,
+.quiz-option input[type="radio"]:focus + span {
+  outline: 3px solid var(--ua-maroon, #ab0520);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.quiz-option.correct label {
+  border-color: #2e7d32;
+  background: #e8f5e9;
+}
+.quiz-option.incorrect label {
+  border-color: #c62828;
+  background: #ffebee;
+}
+.quiz-option.reveal-correct label {
+  border-color: #2e7d32;
+  background: #e8f5e9;
+}
+
+/* ── Feedback ────────────────────────────────── */
+.quiz-feedback {
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+.quiz-feedback.correct {
+  background: #e8f5e9;
+  border-left: 4px solid #2e7d32;
+}
+.quiz-feedback.incorrect {
+  background: #ffebee;
+  border-left: 4px solid #c62828;
+}
+.quiz-feedback strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ── Buttons ─────────────────────────────────── */
+.quiz-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 1.5rem;
+  border: 2px solid var(--ua-maroon, #ab0520);
+  border-radius: 0.375rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.quiz-btn:focus-visible {
+  outline: 3px solid var(--ua-maroon, #ab0520);
+  outline-offset: 2px;
+}
+.quiz-btn-primary {
+  background: var(--ua-maroon, #ab0520);
+  color: #fff;
+}
+.quiz-btn-primary:hover:not(:disabled) {
+  background: #8b0418;
+}
+.quiz-btn-secondary {
+  background: #fff;
+  color: var(--ua-maroon, #ab0520);
+}
+.quiz-btn-secondary:hover:not(:disabled) {
+  background: #fdf1f3;
+}
+.quiz-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* ── Results summary ─────────────────────────── */
+.quiz-results {
+  border: 2px solid var(--border-color, #d0d5dd);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  background: #fff;
+}
+.quiz-score {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--ua-maroon, #ab0520);
+}
+.quiz-score-label {
+  font-size: 1.1rem;
+  color: var(--text-muted, #595959);
+  margin-bottom: 1rem;
+}
+.quiz-results-detail {
+  text-align: left;
+  margin-top: 1.5rem;
+}
+.quiz-results-detail li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* ── Helpers ─────────────────────────────────── */
+.muted { color: var(--text-muted, #595959); font-size: 0.95rem; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .quiz-progress-fill { transition: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+  <div class="site-header-brand">University of Arizona &middot; Digital Accessibility</div>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">Menu</button>
+  <nav class="site-header-nav" id="primary-nav" aria-label="Primary navigation">
+    <a href="home.html">Home</a>
+    <a href="documents-media.html">Documents &amp; Media</a>
+    <a href="web-app.html">Web &amp; Apps</a>
+    <a href="teaching-learning.html">Teaching &amp; Learning</a>
+    <a href="procurement.html">Procurement</a>
+    <a href="tools-checklists.html">Tools &amp; Checklists</a>
+    <a href="policies-governance.html">Policies &amp; Governance</a>
+    <a href="support.html">Support</a>
+  </nav>
+</div>
+<nav aria-label="Breadcrumb">
+  <p><a href="home.html">Home</a> / <a href="tools-checklists.html">Tools</a> / WCAG Quick Quiz</p>
+</nav>
+<h1>WCAG Quick Quiz</h1>
+<p class="muted">Test your accessibility knowledge with 10 scenario-based questions. Instant feedback after each answer.</p>
+</header>
+
+<main id="maincontent">
+  <div id="quiz-announce" class="sr-only" aria-live="assertive" role="status"></div>
+
+  <!-- Progress bar -->
+  <div class="quiz-progress">
+    <div class="quiz-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10" aria-label="Quiz progress">
+      <div class="quiz-progress-fill" id="progress-fill"></div>
+    </div>
+    <span class="quiz-progress-label" id="progress-label">0 / 10</span>
+  </div>
+
+  <!-- Question area (JS-driven) -->
+  <div id="quiz-area"></div>
+
+  <!-- Results area (shown at end) -->
+  <div id="quiz-results" class="quiz-results" hidden aria-live="polite"></div>
+</main>
+
+<footer>
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a> | <a href="ai-assistant.html">AI Assistant</a></p>
+<p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="glossary.html">Glossary</a> | <a href="faq.html">FAQ</a></p>
+</footer>
+
+<noscript>
+<div style="border:1px solid #d0d5dd;padding:1.5rem;margin:2rem 1rem;border-radius:0.5rem;">
+  <h2>JavaScript is required</h2>
+  <p>This quiz needs JavaScript. Browse <a href="accessibility-101.html">Accessibility 101</a> or <a href="tools-checklists.html">Tools &amp; Checklists</a> instead.</p>
+</div>
+</noscript>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ═══════════════════════════════════════════════
+     QUESTION DATA — 10 scenario-based questions
+     ═══════════════════════════════════════════════ */
+  var questions = [
+    {
+      scenario: 'A university website has body text set at 14px in dark gray (#595959) on a white background (#ffffff). A staff member asks whether this meets WCAG requirements.',
+      question: 'What is the minimum contrast ratio required for normal-sized body text under WCAG 2.2 Level AA?',
+      options: ['3:1', '4.5:1', '7:1', '2:1'],
+      correct: 1,
+      explanation: 'WCAG SC 1.4.3 requires a minimum contrast ratio of 4.5:1 for normal text (under 18pt or 14pt bold). Large text (18pt+ or 14pt+ bold) requires 3:1. The AAA level requires 7:1 for normal text.'
+    },
+    {
+      scenario: 'A developer places a decorative background pattern image behind a hero section. The image conveys no information.',
+      question: 'What is the correct alt text for a purely decorative image?',
+      options: ['alt="decorative image"', 'alt="background"', 'alt="" (empty alt attribute)', 'Remove the alt attribute entirely'],
+      correct: 2,
+      explanation: 'Decorative images should use an empty alt attribute (alt=""). This tells screen readers to skip the image. Removing alt entirely is wrong — screen readers may read the file name instead, which is worse.'
+    },
+    {
+      scenario: 'A content creator builds a course page with these headings: H1 "Course Overview", H3 "Learning Objectives", H2 "Schedule", H4 "Week 1".',
+      question: 'What heading structure issue is present?',
+      options: ['There should be no H1', 'H3 appears before H2 — headings skip levels', 'There are too many headings', 'H4 should be H1'],
+      correct: 1,
+      explanation: 'Heading levels should not skip — going from H1 directly to H3 skips H2, breaking the logical document outline. Screen reader users navigate by headings and rely on a consistent hierarchy. The correct structure would be H1 → H2 → H3.'
+    },
+    {
+      scenario: 'A form asks users to select their preferred contact method. The options are presented as styled <div> elements with click handlers.',
+      question: 'What is the most accessible approach for selectable options?',
+      options: ['Use <div> with tabindex="0" and role="option"', 'Use native <input type="radio"> elements with <label>', 'Use <span> elements with JavaScript click handlers', 'Use <a> tags styled as buttons'],
+      correct: 1,
+      explanation: 'Native HTML form elements like <input type="radio"> with associated <label> elements provide built-in keyboard support, focus management, and screen reader semantics. ARIA roles on divs require significant additional JavaScript to replicate these features.'
+    },
+    {
+      scenario: 'A modal dialog opens when a user clicks "Edit Profile." After editing, the user closes the modal.',
+      question: 'Where should keyboard focus go when the modal closes?',
+      options: ['To the top of the page', 'To the next focusable element after the trigger', 'Back to the "Edit Profile" button that opened it', 'Focus should not be managed — let the browser decide'],
+      correct: 2,
+      explanation: 'When a modal closes, focus should return to the element that triggered it (the "Edit Profile" button). This preserves the user\'s place in the page and meets WCAG SC 2.4.3 Focus Order requirements. Losing focus can disorient keyboard and screen reader users.'
+    },
+    {
+      scenario: 'A news page has 12 "Read more" links, each leading to a different article.',
+      question: 'Why is "Read more" problematic for accessibility?',
+      options: ['It is too short', 'Screen readers listing links will show 12 identical "Read more" entries — no context', 'It does not use ARIA', 'It should be a button instead'],
+      correct: 1,
+      explanation: 'Screen reader users often navigate via a list of links. If every link says "Read more," they cannot distinguish between them. Better alternatives include "Read more about [article title]" or making the article title itself the link. This addresses WCAG SC 2.4.4 Link Purpose (In Context).'
+    },
+    {
+      scenario: 'A developer adds aria-label="Navigation" to a <nav> element that already has a visible heading "Main Menu" inside it.',
+      question: 'What is the best practice here?',
+      options: ['Use aria-label — it overrides the heading', 'Use aria-labelledby pointing to the heading\'s id', 'Use both aria-label and aria-labelledby', 'Remove the <nav> element and use a <div> instead'],
+      correct: 1,
+      explanation: 'When a visible heading already labels a landmark, use aria-labelledby to point to that heading\'s id. This avoids duplication and ensures the visible text and accessible name stay in sync. aria-label is better when no visible label exists.'
+    },
+    {
+      scenario: 'A chart shows quarterly revenue growth. It is displayed as a <canvas> element.',
+      question: 'What is required to make this chart accessible?',
+      options: ['Add role="img" — that is sufficient', 'Provide a text alternative that conveys the same data (e.g., a summary or data table)', 'Set the canvas background to high contrast', 'Add a tooltip on hover'],
+      correct: 1,
+      explanation: 'Canvas content is invisible to screen readers. WCAG SC 1.1.1 requires a text alternative that conveys the same information — typically a summary of the data trend and/or an accessible data table nearby. role="img" helps, but only when combined with a text alternative (via aria-label or aria-labelledby).'
+    },
+    {
+      scenario: 'An auto-playing carousel rotates banners every 4 seconds on the homepage. There are no controls to pause it.',
+      question: 'Which WCAG success criterion does this violate?',
+      options: ['SC 1.3.1 Info and Relationships', 'SC 2.2.2 Pause, Stop, Hide', 'SC 3.1.1 Language of Page', 'SC 4.1.1 Parsing'],
+      correct: 1,
+      explanation: 'WCAG SC 2.2.2 requires that any auto-updating content that starts automatically and lasts more than 5 seconds must have a mechanism to pause, stop, or hide it. Auto-playing carousels without pause controls fail this criterion and can be disorienting for users with cognitive or attention-related disabilities.'
+    },
+    {
+      scenario: 'A designer uses red text to indicate required form fields and green text to show valid entries. No other indicators are used.',
+      question: 'What accessibility principle does this violate?',
+      options: ['Don\'t use color at all', 'Color must not be the sole means of conveying information', 'Text should always be black', 'Only ARIA labels should indicate required fields'],
+      correct: 1,
+      explanation: 'WCAG SC 1.4.1 Use of Color states that color must not be the only visual means of conveying information. Users who are color-blind may not distinguish red from green. Add text labels ("Required"), icons, or patterns alongside color to ensure everyone understands the meaning.'
+    }
+  ];
+
+  /* ═══════════════════════════════════════════════
+     STATE
+     ═══════════════════════════════════════════════ */
+  var current = 0;
+  var answers = [];        // user's selected index per question
+  var answered = [];       // boolean — has user answered this question?
+  for (var i = 0; i < questions.length; i++) { answers.push(-1); answered.push(false); }
+
+  /* ═══════════════════════════════════════════════
+     DOM
+     ═══════════════════════════════════════════════ */
+  var area     = document.getElementById('quiz-area');
+  var results  = document.getElementById('quiz-results');
+  var fill     = document.getElementById('progress-fill');
+  var pLabel   = document.getElementById('progress-label');
+  var announce = document.getElementById('quiz-announce');
+
+  /* ═══════════════════════════════════════════════
+     RENDER QUESTION
+     ═══════════════════════════════════════════════ */
+  function render() {
+    var q = questions[current];
+    var qNum = current + 1;
+    var html = '<div class="quiz-card">';
+    html += '<h2 id="q-title" tabindex="-1">Question ' + qNum + ' of ' + questions.length + '</h2>';
+    html += '<p class="quiz-scenario">' + q.scenario + '</p>';
+    html += '<fieldset><legend>' + q.question + '</legend>';
+    html += '<ul class="quiz-options" id="quiz-options">';
+
+    for (var i = 0; i < q.options.length; i++) {
+      var cls = '';
+      if (answered[current]) {
+        if (i === q.correct) cls = ' reveal-correct';
+        if (answers[current] === i && i !== q.correct) cls = ' incorrect';
+        if (answers[current] === i && i === q.correct) cls = ' correct';
+      }
+      var checked = (answers[current] === i) ? ' checked' : '';
+      var disabled = answered[current] ? ' disabled' : '';
+      html += '<li class="quiz-option' + cls + '">';
+      html += '<label>';
+      html += '<input type="radio" name="q' + current + '" value="' + i + '"' + checked + disabled + ' />';
+      html += '<span>' + q.options[i] + '</span>';
+      html += '</label></li>';
+    }
+    html += '</ul></fieldset>';
+
+    // Feedback
+    if (answered[current]) {
+      var isCorrect = answers[current] === q.correct;
+      html += '<div class="quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect') + '" role="alert">';
+      html += '<strong>' + (isCorrect ? 'Correct!' : 'Not quite.') + '</strong>';
+      html += q.explanation;
+      html += '</div>';
+    }
+
+    // Navigation
+    html += '<div class="quiz-nav">';
+    if (current > 0) {
+      html += '<button type="button" class="quiz-btn quiz-btn-secondary" id="btn-prev">&larr; Previous</button>';
+    } else {
+      html += '<span></span>';
+    }
+    if (!answered[current]) {
+      html += '<button type="button" class="quiz-btn quiz-btn-primary" id="btn-submit" disabled>Submit Answer</button>';
+    } else if (current < questions.length - 1) {
+      html += '<button type="button" class="quiz-btn quiz-btn-primary" id="btn-next">Next &rarr;</button>';
+    } else {
+      html += '<button type="button" class="quiz-btn quiz-btn-primary" id="btn-finish">See Results</button>';
+    }
+    html += '</div></div>';
+
+    area.innerHTML = html;
+
+    // Focus heading
+    var heading = document.getElementById('q-title');
+    if (heading) heading.focus();
+
+    // Announce
+    announce.textContent = 'Question ' + qNum + ' of ' + questions.length;
+
+    // Update progress
+    var done = 0;
+    for (var j = 0; j < answered.length; j++) { if (answered[j]) done++; }
+    var pct = Math.round((done / questions.length) * 100);
+    fill.style.width = pct + '%';
+    var bar = fill.parentElement;
+    bar.setAttribute('aria-valuenow', done);
+    pLabel.textContent = done + ' / ' + questions.length;
+
+    // Bind events
+    bindEvents();
+  }
+
+  function bindEvents() {
+    // Radio selection
+    var radios = area.querySelectorAll('input[type="radio"]');
+    for (var r = 0; r < radios.length; r++) {
+      radios[r].addEventListener('change', function () {
+        answers[current] = parseInt(this.value);
+        var submitBtn = document.getElementById('btn-submit');
+        if (submitBtn) submitBtn.disabled = false;
+      });
+    }
+
+    // Submit
+    var submitBtn = document.getElementById('btn-submit');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', function () {
+        answered[current] = true;
+        render();
+      });
+    }
+
+    // Previous
+    var prevBtn = document.getElementById('btn-prev');
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        current--;
+        render();
+      });
+    }
+
+    // Next
+    var nextBtn = document.getElementById('btn-next');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        current++;
+        render();
+      });
+    }
+
+    // Finish
+    var finishBtn = document.getElementById('btn-finish');
+    if (finishBtn) {
+      finishBtn.addEventListener('click', showResults);
+    }
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESULTS
+     ═══════════════════════════════════════════════ */
+  function showResults() {
+    area.hidden = true;
+    var score = 0;
+    for (var i = 0; i < questions.length; i++) {
+      if (answers[i] === questions[i].correct) score++;
+    }
+    var pct = Math.round((score / questions.length) * 100);
+
+    var html = '<h2 tabindex="-1" id="results-title">Your Results</h2>';
+    html += '<div class="quiz-score">' + pct + '%</div>';
+    html += '<p class="quiz-score-label">' + score + ' out of ' + questions.length + ' correct</p>';
+
+    if (pct >= 80) {
+      html += '<p><strong>Excellent!</strong> You have a solid understanding of WCAG fundamentals.</p>';
+    } else if (pct >= 50) {
+      html += '<p><strong>Good start!</strong> Review the explanations below to strengthen your knowledge.</p>';
+    } else {
+      html += '<p><strong>Keep learning!</strong> Check out <a href="accessibility-101.html">Accessibility 101</a> for a refresher on the basics.</p>';
+    }
+
+    html += '<div class="quiz-results-detail"><h3>Question Review</h3><ol>';
+    for (var j = 0; j < questions.length; j++) {
+      var q = questions[j];
+      var isCorrect = answers[j] === q.correct;
+      var icon = isCorrect ? '&#10003;' : '&#10007;';
+      var color = isCorrect ? '#2e7d32' : '#c62828';
+      html += '<li><span style="color:' + color + ';font-weight:700;" aria-hidden="true">' + icon + '</span> ';
+      html += '<strong>' + q.question + '</strong><br>';
+      if (!isCorrect) {
+        html += 'Your answer: <em>' + q.options[answers[j]] + '</em><br>';
+        html += 'Correct answer: <em>' + q.options[q.correct] + '</em><br>';
+      }
+      html += '<span class="muted">' + q.explanation + '</span></li>';
+    }
+    html += '</ol></div>';
+
+    html += '<div class="quiz-nav" style="justify-content:center;margin-top:1.5rem;">';
+    html += '<button type="button" class="quiz-btn quiz-btn-primary" id="btn-retake">Retake Quiz</button>';
+    html += ' <a href="interactive-tools.html" class="quiz-btn quiz-btn-secondary" style="text-decoration:none;">Back to Tools</a>';
+    html += '</div>';
+
+    results.innerHTML = html;
+    results.hidden = false;
+
+    // Update progress to 100%
+    fill.style.width = '100%';
+    fill.parentElement.setAttribute('aria-valuenow', questions.length);
+    pLabel.textContent = questions.length + ' / ' + questions.length;
+
+    // Focus results
+    var rt = document.getElementById('results-title');
+    if (rt) rt.focus();
+    announce.textContent = 'Quiz complete. You scored ' + score + ' out of ' + questions.length + '.';
+
+    // Retake
+    document.getElementById('btn-retake').addEventListener('click', function () {
+      current = 0;
+      for (var k = 0; k < questions.length; k++) { answers[k] = -1; answered[k] = false; }
+      results.hidden = true;
+      area.hidden = false;
+      render();
+    });
+  }
+
+  /* ═══════════════════════════════════════════════
+     INIT
+     ═══════════════════════════════════════════════ */
+  render();
+})();
+</script>
+</body>
+</html>

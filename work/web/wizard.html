@@ -1,385 +1,1162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accessibility Guide Wizard | Accessibility at Arizona</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="../../scripts/header.js" defer></script>
-  <style>
-    .wizard-steps {
-      counter-reset: step;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .wizard-steps li {
-      counter-increment: step;
-      margin-bottom: 0.5rem;
-    }
-    .wizard-steps li::before {
-      content: counter(step) ".";
-      font-weight: bold;
-      margin-right: 0.5rem;
-    }
-    .result-card {
-      border: 1px solid var(--border-color, #d0d5dd);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background: #fff;
-    }
-    .muted {
-      color: var(--text-muted, #555);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-  </style>
-</head>
-<body>
-  <a class="skip-link" href="#maincontent">Skip to main content</a>
-  <header>
-    <div class="site-header">
-      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
-      <nav class="site-header-nav" aria-label="Primary" role="navigation">
-        <a href="home.html">Home</a>
-        <a href="roles.html">I Am A...</a>
-        <a href="documents-media.html">Documents &amp; Media</a>
-        <a href="web-app.html">Web &amp; Apps</a>
-        <a href="teaching-learning.html">Teaching &amp; Learning</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="tools-checklists.html">Tools &amp; Checklists</a>
-        <a href="policies-governance.html">Policies &amp; Governance</a>
-        <a href="support.html">Support</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accessibility Quick-Start Wizard | Accessibility at Arizona</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../../scripts/header.js" defer></script>
+    <style>
+      /* ── Wizard progress bar ─────────────────────── */
+      .wizard-progress {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0;
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+      }
+      .wizard-progress-step {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.85rem;
+        color: var(--text-muted, #595959);
+        white-space: nowrap;
+      }
+      .wizard-progress-step.active {
+        color: var(--ua-maroon, #ab0520);
+        font-weight: 700;
+      }
+      .wizard-progress-step.completed {
+        color: var(--ua-blue, #0c234b);
+      }
+      .wizard-progress-dot {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        border: 2px solid currentColor;
+        font-size: 0.8rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .wizard-progress-step.active .wizard-progress-dot {
+        background: var(--ua-maroon, #ab0520);
+        color: #fff;
+        border-color: var(--ua-maroon, #ab0520);
+      }
+      .wizard-progress-step.completed .wizard-progress-dot {
+        background: var(--ua-blue, #0c234b);
+        color: #fff;
+        border-color: var(--ua-blue, #0c234b);
+      }
+      .wizard-progress-connector {
+        width: 2.5rem;
+        height: 2px;
+        background: var(--border-color, #d0d5dd);
+        margin: 0 0.25rem;
+        flex-shrink: 0;
+      }
+      .completed + .wizard-progress-connector,
+      .wizard-progress-connector.done {
+        background: var(--ua-blue, #0c234b);
+      }
+
+      /* ── Wizard steps ────────────────────────────── */
+      .wizard-step {
+        display: none;
+        animation: wizFadeIn 0.25s ease-in;
+      }
+      .wizard-step.active {
+        display: block;
+      }
+      @keyframes wizFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .wizard-step {
+          animation: none;
+        }
+      }
+
+      /* ── Selection cards ─────────────────────────── */
+      .wizard-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 0.75rem;
+        margin: 1.25rem 0;
+      }
+      .wizard-card {
+        display: block;
+        width: 100%;
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem;
+        background: #fff;
+        cursor: pointer;
+        text-align: left;
+        font: inherit;
+        line-height: 1.4;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s,
+          background 0.15s;
+      }
+      .wizard-card:hover {
+        border-color: var(--ua-maroon, #ab0520);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .wizard-card:focus-visible {
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
+      }
+      .wizard-card[aria-pressed="true"],
+      .wizard-card[aria-checked="true"] {
+        border-color: var(--ua-maroon, #ab0520);
+        background: #fdf1f3;
+        box-shadow: inset 0 0 0 1px var(--ua-maroon, #ab0520);
+      }
+      .wizard-card-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+      .wizard-card-title {
+        font-weight: 600;
+        font-size: 1rem;
+        margin: 0 0 0.15rem;
+        display: block;
+      }
+      .wizard-card-desc {
+        font-size: 0.88rem;
+        color: var(--text-muted, #595959);
+        margin: 0;
+      }
+
+      /* ── Navigation bar ──────────────────────────── */
+      .wizard-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border-color, #d0d5dd);
+      }
+      .wizard-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.65rem 1.5rem;
+        border: 2px solid var(--ua-maroon, #ab0520);
+        border-radius: 0.375rem;
+        font: inherit;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .wizard-btn:focus-visible {
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
+      }
+      .wizard-btn-prev {
+        background: #fff;
+        color: var(--ua-maroon, #ab0520);
+      }
+      .wizard-btn-prev:hover:not(:disabled) {
+        background: #fdf1f3;
+      }
+      .wizard-btn-next {
+        background: var(--ua-maroon, #ab0520);
+        color: #fff;
+      }
+      .wizard-btn-next:hover:not(:disabled) {
+        background: #8b0418;
+      }
+      .wizard-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+      .wizard-btn-start-over {
+        background: #fff;
+        color: var(--ua-maroon, #ab0520);
+        border: 2px solid var(--ua-maroon, #ab0520);
+      }
+      .wizard-btn-start-over:hover {
+        background: #fdf1f3;
+      }
+
+      /* ── Step indicator label ────────────────────── */
+      .step-indicator {
+        font-size: 0.85rem;
+        color: var(--text-muted, #595959);
+        margin: 0 0 0.25rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      /* ── Result cards ────────────────────────────── */
+      .result-card {
+        border: 1px solid var(--border-color, #d0d5dd);
+        border-radius: 0.5rem;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+        background: #fff;
+      }
+      .result-card h3 {
+        margin: 0 0 0.35rem;
+      }
+      .result-card p {
+        margin: 0 0 0.5rem;
+      }
+      .result-card ul {
+        margin: 0.5rem 0 0;
+        padding-left: 1.25rem;
+      }
+      .result-card li {
+        margin-bottom: 0.3rem;
+      }
+      .result-card a {
+        text-decoration: underline;
+      }
+
+      /* ── Helpers ─────────────────────────────────── */
+      .muted {
+        color: var(--text-muted, #595959);
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#maincontent">Skip to main content</a>
+    <header>
+      <div class="site-header">
+        <div class="site-header-brand">
+          University of Arizona &middot; Digital Accessibility
+        </div>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation menu"
+        >
+          Menu
+        </button>
+        <nav
+          class="site-header-nav"
+          id="primary-nav"
+          aria-label="Primary navigation"
+        >
+          <a href="home.html">Home</a>
+          <a href="documents-media.html">Documents &amp; Media</a>
+          <a href="web-app.html">Web &amp; Apps</a>
+          <a href="teaching-learning.html">Teaching &amp; Learning</a>
+          <a href="procurement.html">Procurement</a>
+          <a href="tools-checklists.html">Tools &amp; Checklists</a>
+          <a href="policies-governance.html">Policies &amp; Governance</a>
+          <a href="support.html">Support</a>
+        </nav>
+        <nav class="site-header-utilities" aria-label="Quick links">
+          <a href="accessibility-101.html">Accessibility 101</a>
+          <a href="blog.html">Blog</a>
+          <a href="support.html">Get help</a>
+        </nav>
+        <form
+          class="role-selector"
+          action="roles.html"
+          method="get"
+          onsubmit="return goToRole(this);"
+        >
+          <label for="role-select">I am a...</label>
+          <select id="role-select" name="role">
+            <option value="">Choose your role</option>
+            <option value="students.html">Student or Family Member</option>
+            <option value="faculty.html">Faculty or Instructor</option>
+            <option value="staff.html">Staff Member</option>
+            <option value="developers.html">Developer</option>
+            <option value="content-creators.html">Content Creator</option>
+            <option value="leadership.html">Leadership / Executive</option>
+            <option value="visitors.html">Visitor / Community</option>
+          </select>
+          <button type="submit" class="go-btn">Go</button>
+        </form>
+      </div>
+      <nav aria-label="Breadcrumb">
+        <p><a href="home.html">Accessibility Home</a> / Quick-Start Wizard</p>
       </nav>
-      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
-        <a href="accessibility-101.html">Accessibility 101</a>
-        <a href="blog.html">Blog</a>
-        <a href="support.html">Get help</a>
+      <h1>Accessibility Quick-Start Wizard</h1>
+      <p class="muted">
+        Answer three quick questions and we'll build a personalized resource
+        list. Takes about 30 seconds.
+      </p>
+    </header>
+
+    <main id="maincontent">
+      <!-- Screen-reader live region for step announcements -->
+      <div
+        id="wizard-announce"
+        class="sr-only"
+        aria-live="assertive"
+        role="status"
+      ></div>
+
+      <!-- ── Progress indicator ──────────────────────── -->
+      <nav class="wizard-progress" aria-label="Wizard progress">
+        <span class="wizard-progress-step active" aria-current="step">
+          <span class="wizard-progress-dot" aria-hidden="true">1</span> Role
+        </span>
+        <span class="wizard-progress-connector" aria-hidden="true"></span>
+        <span class="wizard-progress-step">
+          <span class="wizard-progress-dot" aria-hidden="true">2</span> Need
+        </span>
+        <span class="wizard-progress-connector" aria-hidden="true"></span>
+        <span class="wizard-progress-step">
+          <span class="wizard-progress-dot" aria-hidden="true">3</span> Support
+        </span>
+        <span class="wizard-progress-connector" aria-hidden="true"></span>
+        <span class="wizard-progress-step">
+          <span class="wizard-progress-dot" aria-hidden="true">4</span> Results
+        </span>
       </nav>
-      <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
-        <label for="role-select">I am a...</label>
-        <select id="role-select" name="role">
-          <option value="">Choose your role</option>
-          <option value="students.html">Student or Family Member</option>
-          <option value="faculty.html">Faculty or Instructor</option>
-          <option value="staff.html">Staff Member</option>
-          <option value="developers.html">Developer</option>
-          <option value="mobile.html">Mobile App Team</option>
-          <option value="content-creators.html">Content Creator</option>
-          <option value="communications.html">Communications / Marketing</option>
-          <option value="leadership.html">Leadership / Executive</option>
-          <option value="visitors.html">Visitor / Community</option>
-        </select>
-        <button type="submit" class="go-btn">Go</button>
-      </form>
-    </div>
-    <nav aria-label="Breadcrumb">
-      <p><a href="home.html">Accessibility Home</a> / Guided Wizard</p>
-    </nav>
-    <h1>Find the right accessibility resources</h1>
-    <p class="muted">Answer a few quick questions and we'll point you to the pages, forms, and contacts that best fit your situation.</p>
-  </header>
-  <main id="maincontent" role="main">
-    <section aria-labelledby="wizard-form-title">
-      <h2 id="wizard-form-title">Accessibility wizard</h2>
-      <p>All questions are optional. Use the <strong>Show recommendations</strong> button any time.</p>
-      <form id="wizard-form">
-        <fieldset>
-          <legend>1. What best describes your current situation?</legend>
-          <p class="muted">Choose as many as you need—we'll guide you to the right resources automatically.</p>
-          <div class="grid grid-2">
-            <label><input type="checkbox" name="scenario" value="teaching" /> I'm teaching or supporting a course.</label>
-            <label><input type="checkbox" name="scenario" value="content" /> I create documents, newsletters, or presentations.</label>
-            <label><input type="checkbox" name="scenario" value="web" /> I build or maintain websites, apps, or code.</label>
-            <label><input type="checkbox" name="scenario" value="events" /> I'm planning events, visits, or outreach.</label>
-            <label><input type="checkbox" name="scenario" value="procurement" /> I buy technology or review vendor products.</label>
-            <label><input type="checkbox" name="scenario" value="student" /> I need student accommodations or support.</label>
-            <label><input type="checkbox" name="scenario" value="visitor" /> I'm visiting campus or bringing guests.</label>
-            <label><input type="checkbox" name="scenario" value="leadership" /> I guide policy, budgeting, or executive updates.</label>
-          </div>
-        </fieldset>
 
-        <fieldset>
-          <legend>2. What are you working on today?</legend>
-          <div class="grid grid-2">
-            <label><input type="checkbox" name="need" value="documents" /> Documents, slides, PDFs, or media</label>
-            <label><input type="checkbox" name="need" value="web" /> Websites, apps, or code</label>
-            <label><input type="checkbox" name="need" value="events" /> Events, visits, or accommodations</label>
-            <label><input type="checkbox" name="need" value="procurement" /> Buying technology or working with vendors</label>
-            <label><input type="checkbox" name="need" value="training" /> Training, office hours, or community</label>
-          </div>
-        </fieldset>
+      <!-- ── STEP 1: Role (single-select) ────────────── -->
+      <section
+        class="wizard-step active"
+        id="step-1"
+        aria-labelledby="step1-title"
+      >
+        <p class="step-indicator">Step 1 of 4</p>
+        <h2 id="step1-title" tabindex="-1">Who are you?</h2>
+        <p>
+          Select the role that best describes you. This shapes the rest of the
+          wizard.
+        </p>
+        <div
+          class="wizard-cards"
+          id="role-cards"
+          role="radiogroup"
+          aria-label="Choose your role"
+        >
+          <button
+            type="button"
+            class="wizard-card"
+            role="radio"
+            aria-checked="false"
+            data-value="faculty"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#127891;</span>
+            <span class="wizard-card-title">Faculty &amp; Teaching</span>
+            <p class="wizard-card-desc">
+              Courses, syllabi, LMS, classroom materials
+            </p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            role="radio"
+            aria-checked="false"
+            data-value="students"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#128218;</span>
+            <span class="wizard-card-title">Students &amp; Families</span>
+            <p class="wizard-card-desc">
+              Accommodations, captions, assistive technology
+            </p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            role="radio"
+            aria-checked="false"
+            data-value="staff"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#127970;</span>
+            <span class="wizard-card-title">Staff &amp; Admin Units</span>
+            <p class="wizard-card-desc">
+              Events, department sites, vendor coordination
+            </p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            role="radio"
+            aria-checked="false"
+            data-value="developer"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#128187;</span>
+            <span class="wizard-card-title">Developers &amp; Builders</span>
+            <p class="wizard-card-desc">Code, apps, testing, CI pipelines</p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            role="radio"
+            aria-checked="false"
+            data-value="content"
+          >
+            <span class="wizard-card-icon" aria-hidden="true"
+              >&#9999;&#65039;</span
+            >
+            <span class="wizard-card-title">Content Creators</span>
+            <p class="wizard-card-desc">
+              Docs, newsletters, marketing, social media
+            </p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            role="radio"
+            aria-checked="false"
+            data-value="visitor"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#127797;</span>
+            <span class="wizard-card-title">Visitors &amp; Community</span>
+            <p class="wizard-card-desc">
+              Campus tours, public events, guest access
+            </p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            role="radio"
+            aria-checked="false"
+            data-value="leadership"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#128202;</span>
+            <span class="wizard-card-title">Leadership &amp; Executives</span>
+            <p class="wizard-card-desc">
+              Policy, budgets, compliance, strategy
+            </p>
+          </button>
+        </div>
+      </section>
 
-        <fieldset>
-          <legend>3. How can we support you right now?</legend>
-          <div class="grid grid-2">
-            <label><input type="checkbox" name="support" value="consult" /> I'd like a consultation or review</label>
-            <label><input type="checkbox" name="support" value="forms" /> I need a specific form or template</label>
-            <label><input type="checkbox" name="support" value="policy" /> I'm looking for policy or requirements</label>
-            <label><input type="checkbox" name="support" value="contact" /> I need someone to talk to</label>
-          </div>
-        </fieldset>
+      <!-- ── STEP 2: Need (multi-select, dynamic) ────── -->
+      <section class="wizard-step" id="step-2" aria-labelledby="step2-title">
+        <p class="step-indicator">Step 2 of 4</p>
+        <h2 id="step2-title" tabindex="-1">What are you working on?</h2>
+        <p>Pick one or more areas. Options shown are tailored to your role.</p>
+        <div
+          class="wizard-cards"
+          id="need-cards"
+          aria-label="Select what you need help with"
+        >
+          <!-- Populated by JavaScript based on role selection -->
+        </div>
+      </section>
 
-        <button type="submit" class="cta">Show recommendations</button>
-      </form>
-      <p class="muted">Prefer to browse manually? Visit the <a href="roles.html">role guide</a>, <a href="decision-guide.html">decision guide</a>, or <a href="search.html">search the site</a>.</p>
-    </section>
+      <!-- ── STEP 3: Support (multi-select, optional) ── -->
+      <section class="wizard-step" id="step-3" aria-labelledby="step3-title">
+        <p class="step-indicator">Step 3 of 4</p>
+        <h2 id="step3-title" tabindex="-1">How can we help?</h2>
+        <p>
+          Optional &mdash; select any support actions, or skip ahead to your
+          results.
+        </p>
+        <div
+          class="wizard-cards"
+          id="support-cards"
+          aria-label="Select support options"
+        >
+          <button
+            type="button"
+            class="wizard-card"
+            aria-pressed="false"
+            data-value="consult"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#128197;</span>
+            <span class="wizard-card-title">Schedule a Consultation</span>
+            <p class="wizard-card-desc">One-on-one review or advice session</p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            aria-pressed="false"
+            data-value="templates"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#128203;</span>
+            <span class="wizard-card-title">Templates &amp; Forms</span>
+            <p class="wizard-card-desc">
+              Checklists, templates, quick-reference cards
+            </p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            aria-pressed="false"
+            data-value="policy"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#128220;</span>
+            <span class="wizard-card-title">Policy Information</span>
+            <p class="wizard-card-desc">
+              Standards, requirements, governance docs
+            </p>
+          </button>
+          <button
+            type="button"
+            class="wizard-card"
+            aria-pressed="false"
+            data-value="contact"
+          >
+            <span class="wizard-card-icon" aria-hidden="true">&#128172;</span>
+            <span class="wizard-card-title">Talk to Someone</span>
+            <p class="wizard-card-desc">
+              Email, phone, or drop-in office hours
+            </p>
+          </button>
+        </div>
+      </section>
 
-    <section aria-labelledby="results-title" id="wizard-results" aria-live="polite">
-      <h2 id="results-title">Recommended next steps</h2>
-      <p>Choose options above and click <strong>Show recommendations</strong> to see tailored links.</p>
-    </section>
-  </main>
-  <footer role="contentinfo">
-    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
-  </footer>
+      <!-- ── STEP 4: Results ─────────────────────────── -->
+      <section class="wizard-step" id="step-4" aria-labelledby="step4-title">
+        <p class="step-indicator">Step 4 of 4</p>
+        <h2 id="step4-title" tabindex="-1">Your personalized results</h2>
+        <p>Based on your selections, here are the resources we recommend.</p>
+        <div id="wizard-results" aria-live="polite">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
 
-  <noscript>
-    <div class="result-card">
-      <p>This wizard works best with JavaScript enabled. For now, explore the <a href="roles.html">role guide</a> or <a href="support.html">contact us</a>.</p>
-    </div>
-  </noscript>
+      <!-- ── Wizard navigation bar ───────────────────── -->
+      <div class="wizard-nav" role="navigation" aria-label="Wizard navigation">
+        <button
+          type="button"
+          class="wizard-btn wizard-btn-prev"
+          id="wizard-prev"
+          disabled
+          style="visibility: hidden"
+        >
+          &larr; Previous
+        </button>
+        <button
+          type="button"
+          class="wizard-btn wizard-btn-start-over"
+          id="wizard-start-over"
+          style="display: none"
+        >
+          &circlearrowleft; Start over
+        </button>
+        <button
+          type="button"
+          class="wizard-btn wizard-btn-next"
+          id="wizard-next"
+          disabled
+        >
+          Next &rarr;
+        </button>
+      </div>
+    </main>
 
-  <script>
-    const personaResources = {
-      students: {
-        title: "Students & Families",
-        summary: "Request accommodations, track captions, and report barriers.",
-        links: [
-          { label: "Student persona guide", url: "persona-students.html" },
-          { label: "Student rights & advocacy", url: "student-rights.html" },
-          { label: "Access Report", url: "https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx" },
-          { label: "DRC ASL/CART request", url: "https://drc.arizona.edu/asl-cart" }
-        ]
-      },
-      faculty: {
-        title: "Faculty & Teaching",
-        summary: "Create inclusive courses, documents, media, and Brightspace content.",
-        links: [
-          { label: "Faculty persona guide", url: "persona-faculty.html" },
-          { label: "Quick reference cards", url: "quick-reference-cards.html" },
-          { label: "Document & media hub", url: "documents-media.html" },
-          { label: "Training calendar", url: "training-calendar.html" }
-        ]
-      },
-      staff: {
-        title: "Staff & Administrative Units",
-        summary: "Plan events, maintain department sites, and coordinate vendors.",
-        links: [
-          { label: "Staff persona guide", url: "persona-staff.html" },
-          { label: "Quick reference cards", url: "quick-reference-cards.html" },
-          { label: "Procurement hub", url: "procurement.html" },
-          { label: "Accessibility consultation form", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" }
-        ]
-      },
-      developer: {
-        title: "Builders (Developers, Mobile, Content, Marketing)",
-        summary: "Ship inclusive code, tests, documents, and campaigns.",
-        links: [
-          { label: "Developer persona guide", url: "persona-developers.html" },
-          { label: "Interactive testing tools", url: "interactive-tools.html" },
-          { label: "Testing toolkit", url: "testing-tools.html" },
-          { label: "Glossary of terms", url: "glossary.html" }
-        ]
-      },
-      content: {
-        title: "Content Creators",
-        summary: "Produce accessible Word/Google docs, slides, PDFs, newsletters, and marketing content.",
-        links: [
-          { label: "Content persona guide", url: "persona-content.html" },
-          { label: "Quick reference cards", url: "quick-reference-cards.html" },
-          { label: "Meaningful links guidance", url: "meaningful-links.html" },
-          { label: "Document & media hub", url: "documents-media.html" }
-        ]
-      },
-      visitor: {
-        title: "Visitors & Community",
-        summary: "Plan accessible events, tours, and campus interactions.",
-        links: [
-          { label: "Public persona guide", url: "persona-public.html" },
-          { label: "Inclusive events guide", url: "events-inclusive.html" },
-          { label: "Campus accessibility map", url: "https://accessibility.arizona.edu/content/maps" },
-          { label: "Contact accessibility@arizona.edu", url: "mailto:accessibility@arizona.edu" }
-        ]
-      },
-      leadership: {
-        title: "Leadership & Executives",
-        summary: "Oversee Title II readiness, fund remediation, and track progress.",
-        links: [
-          { label: "Leadership guide", url: "persona-leadership.html" },
-          { label: "Success stories", url: "success-stories.html" },
-          { label: "Policies & governance hub", url: "policies-governance.html" },
-          { label: "Accessibility 101 overview", url: "accessibility-101.html" }
-        ]
-      }
-    };
+    <footer>
+      <p>
+        &copy; 2026 The Arizona Board of Regents on behalf of The University of
+        Arizona.
+      </p>
+      <p>
+        Questions?
+        <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>
+        | <a href="tel:+15206213268">520-621-3268</a>
+      </p>
+    </footer>
 
-    const scenarioPersonaMap = {
-      teaching: {
-        label: "Teaching or supporting a course",
-        personas: ["faculty"],
-        tip: "Your course work aligns with the Faculty & Teaching guide."
-      },
-      content: {
-        label: "Creating documents, newsletters, or presentations",
-        personas: ["content"],
-        tip: "Content creators rely on document & media guidance."
-      },
-      web: {
-        label: "Building or maintaining a site/app",
-        personas: ["developer"],
-        tip: "Developers and builders can follow the Web & App hub."
-      },
-      events: {
-        label: "Planning events, visits, or outreach",
-        personas: ["staff", "visitor"],
-        tip: "Event planners often need Staff guidance plus public visitor info."
-      },
-      procurement: {
-        label: "Buying technology or reviewing vendors",
-        personas: ["staff", "leadership"],
-        tip: "Procurement touches staff workflows and leadership approvals."
-      },
-      student: {
-        label: "Requesting accommodations or student support",
-        personas: ["students"],
-        tip: "The Students & Families guide covers accommodations, captions, and barrier reporting."
-      },
-      visitor: {
-        label: "Visiting campus or bringing guests",
-        personas: ["visitor"],
-        tip: "Use the Visitors & Community guide for maps, services, and contacts."
-      },
-      leadership: {
-        label: "Guiding policy, budgeting, or executive updates",
-        personas: ["leadership"],
-        tip: "The Leadership & Executives guide highlights governance and readiness briefs."
-      }
-    };
+    <!-- Fallback for visitors with JS disabled -->
+    <noscript>
+      <div class="result-card" style="margin: 2rem 1rem">
+        <h2>JavaScript is required</h2>
+        <p>
+          This wizard needs JavaScript for the step-by-step experience. You can
+          still browse manually:
+        </p>
+        <ul>
+          <li><a href="roles.html">Guides by Role</a></li>
+          <li><a href="documents-media.html">Documents &amp; Media</a></li>
+          <li><a href="web-app.html">Web &amp; Apps</a></li>
+          <li><a href="support.html">Get help</a></li>
+        </ul>
+      </div>
+    </noscript>
 
-    const needResources = {
-      documents: {
-        title: "Documents & Media",
-        summary: "Use the document & media hub plus Microsoft/Adobe checkers.",
-        links: [
-          { label: "Document & media hub", url: "documents-media.html" },
-          { label: "Quick reference cards", url: "quick-reference-cards.html" },
-          { label: "Interactive tools", url: "interactive-tools.html" },
-          { label: "Adobe PDF remediation", url: "pdf-remediation.html" }
-        ]
-      },
-      web: {
-        title: "Websites & Apps",
-        summary: "Focus on Quickstart components, testing toolkit, and WCAG highlights.",
-        links: [
-          { label: "Web & App hub", url: "web-app.html" },
-          { label: "Interactive testing tools", url: "interactive-tools.html" },
-          { label: "WCAG 2.2 highlights", url: "wcag22-highlights.html" },
-          { label: "Glossary of terms", url: "glossary.html" }
-        ]
-      },
-      events: {
-        title: "Events & Accommodations",
-        summary: "Request services early and share routes with attendees.",
-        links: [
-          { label: "Inclusive events guide", url: "events-inclusive.html" },
-          { label: "DRC ASL/CART request", url: "https://drc.arizona.edu/asl-cart" },
-          { label: "Campus accessibility map", url: "https://accessibility.arizona.edu/content/maps" }
-        ]
-      },
-      procurement: {
-        title: "Procurement & Vendors",
-        summary: "Use the procurement hub, VPAT review, and consultation form.",
-        links: [
-          { label: "Procurement hub", url: "procurement.html" },
-          { label: "Success stories", url: "success-stories.html" },
-          { label: "VPAT review checklist", url: "vpat-review.html" },
-          { label: "Accessibility consultation form", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" }
-        ]
-      },
-      training: {
-        title: "Training & Community",
-        summary: "Stay connected through calendar events, office hours, and guilds.",
-        links: [
-          { label: "Training calendar", url: "training-calendar.html" },
-          { label: "Accessibility 101", url: "accessibility-101.html" },
-          { label: "Success stories", url: "success-stories.html" },
-          { label: "Accessibility blog", url: "blog.html" }
-        ]
-      }
-    };
+    <script>
+      (function () {
+        "use strict";
 
-    const supportResources = {
-      consult: { label: "Request a consultation", url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu" },
-      forms: { label: "Download shared templates", url: "../shared/manifest.json" },
-      policy: { label: "Review governance & Title II plan", url: "policies-governance.html" },
-      contact: { label: "Email accessibility@arizona.edu", url: "mailto:accessibility@arizona.edu" }
-    };
+        /* ═══════════════════════════════════════════════
+       STATE
+       ═══════════════════════════════════════════════ */
+        var TOTAL = 4;
+        var state = { step: 1, role: null, needs: {}, support: {} };
 
-    const form = document.getElementById("wizard-form");
-    const resultsSection = document.getElementById("wizard-results");
+        /* ═══════════════════════════════════════════════
+       DATA
+       ═══════════════════════════════════════════════ */
+        var roles = [
+          { id: "faculty", title: "Faculty & Teaching" },
+          { id: "students", title: "Students & Families" },
+          { id: "staff", title: "Staff & Admin Units" },
+          { id: "developer", title: "Developers & Builders" },
+          { id: "content", title: "Content Creators" },
+          { id: "visitor", title: "Visitors & Community" },
+          { id: "leadership", title: "Leadership & Executives" },
+        ];
 
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      const data = new FormData(form);
-      const scenarios = data.getAll("scenario");
-      const needs = [...new Set(data.getAll("need"))];
-      const supports = data.getAll("support");
-      const fragments = [];
+        var needsByRole = {
+          faculty: ["documents", "lms", "web", "training"],
+          students: ["accommodations", "documents", "assistive-tech"],
+          staff: ["documents", "events", "procurement", "web", "training"],
+          developer: ["web", "testing", "documents", "training"],
+          content: ["documents", "email", "web", "training"],
+          visitor: ["events", "accommodations"],
+          leadership: ["policy", "procurement", "metrics", "training"],
+        };
 
-      const personaReasons = {};
-      scenarios.forEach(scenario => {
-        const map = scenarioPersonaMap[scenario];
-        if (!map) return;
-        map.personas.forEach(personaId => {
-          if (!personaReasons[personaId]) {
-            personaReasons[personaId] = new Set();
+        var needMeta = {
+          documents: {
+            icon: "\uD83D\uDCC4",
+            title: "Documents & Media",
+            desc: "Word, PowerPoint, PDF, Google Docs, images, video",
+          },
+          lms: {
+            icon: "\uD83D\uDDA5",
+            title: "LMS & Courses",
+            desc: "Brightspace, Panopto, course content",
+          },
+          web: {
+            icon: "\uD83C\uDF10",
+            title: "Websites & Apps",
+            desc: "HTML, CSS, JavaScript, mobile apps",
+          },
+          training: {
+            icon: "\uD83D\uDCC5",
+            title: "Training & Learning",
+            desc: "Workshops, office hours, self-paced learning",
+          },
+          accommodations: {
+            icon: "\u267F",
+            title: "Accommodations & Support",
+            desc: "Captioning, ASL, alternative formats, DRC",
+          },
+          "assistive-tech": {
+            icon: "\uD83D\uDD27",
+            title: "Assistive Technology",
+            desc: "Screen readers, magnifiers, switches",
+          },
+          events: {
+            icon: "\uD83C\uDFAA",
+            title: "Events & Outreach",
+            desc: "Meetings, public events, campus visits",
+          },
+          procurement: {
+            icon: "\uD83D\uDED2",
+            title: "Procurement & Vendors",
+            desc: "Buying software, VPAT reviews",
+          },
+          email: {
+            icon: "\uD83D\uDCE7",
+            title: "Email & Newsletters",
+            desc: "Outlook, Gmail, marketing campaigns",
+          },
+          testing: {
+            icon: "\uD83E\uDDEA",
+            title: "Testing & Tools",
+            desc: "Automated testing, manual audits",
+          },
+          policy: {
+            icon: "\uD83D\uDCDC",
+            title: "Policy & Governance",
+            desc: "ADA, Title II, WCAG standards, compliance",
+          },
+          metrics: {
+            icon: "\uD83D\uDCC8",
+            title: "Metrics & Reporting",
+            desc: "Dashboards, KPIs, progress tracking",
+          },
+        };
+
+        /* Persona-specific URLs for this version */
+        var roleLinks = {
+          faculty: [
+            { label: "Faculty persona guide", url: "persona-faculty.html" },
+            {
+              label: "Quick reference cards",
+              url: "quick-reference-cards.html",
+            },
+            { label: "Document & media hub", url: "documents-media.html" },
+            { label: "Training calendar", url: "training-calendar.html" },
+          ],
+          students: [
+            { label: "Student persona guide", url: "persona-students.html" },
+            { label: "Student rights & advocacy", url: "student-rights.html" },
+            {
+              label: "UA Access Report",
+              url: "https://hood.accessiblelearning.com/s-Arizona/AccessReport.aspx",
+            },
+            {
+              label: "DRC ASL / CART request",
+              url: "https://drc.arizona.edu/asl-cart",
+            },
+          ],
+          staff: [
+            { label: "Staff persona guide", url: "persona-staff.html" },
+            {
+              label: "Quick reference cards",
+              url: "quick-reference-cards.html",
+            },
+            { label: "Procurement hub", url: "procurement.html" },
+            {
+              label: "Consultation form",
+              url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu",
+            },
+          ],
+          developer: [
+            {
+              label: "Developer persona guide",
+              url: "persona-developers.html",
+            },
+            {
+              label: "Interactive testing tools",
+              url: "interactive-tools.html",
+            },
+            { label: "Testing toolkit", url: "testing-tools.html" },
+            { label: "Glossary of terms", url: "glossary.html" },
+          ],
+          content: [
+            { label: "Content persona guide", url: "persona-content.html" },
+            {
+              label: "Quick reference cards",
+              url: "quick-reference-cards.html",
+            },
+            { label: "Meaningful links", url: "meaningful-links.html" },
+            { label: "Document & media hub", url: "documents-media.html" },
+          ],
+          visitor: [
+            { label: "Public persona guide", url: "persona-public.html" },
+            { label: "Inclusive events guide", url: "events-inclusive.html" },
+            {
+              label: "Campus accessibility map",
+              url: "https://accessibility.arizona.edu/content/maps",
+            },
+          ],
+          leadership: [
+            { label: "Leadership guide", url: "persona-leadership.html" },
+            { label: "Success stories", url: "success-stories.html" },
+            { label: "Policies & governance", url: "policies-governance.html" },
+            { label: "Accessibility 101", url: "accessibility-101.html" },
+          ],
+        };
+
+        var needLinks = {
+          documents: [
+            { label: "Document & media hub", url: "documents-media.html" },
+            {
+              label: "Quick reference cards",
+              url: "quick-reference-cards.html",
+            },
+            { label: "Interactive tools", url: "interactive-tools.html" },
+            { label: "PDF remediation", url: "pdf-remediation.html" },
+          ],
+          lms: [
+            { label: "Teaching & learning hub", url: "teaching-learning.html" },
+            { label: "Brightspace guide", url: "lms-brightspace.html" },
+            { label: "Panopto guide", url: "lms-panopto.html" },
+          ],
+          web: [
+            { label: "Web & app hub", url: "web-app.html" },
+            {
+              label: "Interactive testing tools",
+              url: "interactive-tools.html",
+            },
+            { label: "WCAG 2.2 highlights", url: "wcag22-highlights.html" },
+            { label: "Glossary of terms", url: "glossary.html" },
+          ],
+          training: [
+            { label: "Training calendar", url: "training-calendar.html" },
+            { label: "Accessibility 101", url: "accessibility-101.html" },
+            { label: "Success stories", url: "success-stories.html" },
+            { label: "Blog & updates", url: "blog.html" },
+          ],
+          accommodations: [
+            { label: "DRC services", url: "https://drc.arizona.edu" },
+            {
+              label: "ASL / CART request",
+              url: "https://drc.arizona.edu/asl-cart",
+            },
+            { label: "Inclusive events", url: "events-inclusive.html" },
+          ],
+          "assistive-tech": [
+            {
+              label: "Assistive technology overview",
+              url: "assistive-tech.html",
+            },
+            { label: "Glossary of terms", url: "glossary.html" },
+          ],
+          events: [
+            { label: "Inclusive events guide", url: "events-inclusive.html" },
+            {
+              label: "Campus accessibility map",
+              url: "https://accessibility.arizona.edu/content/maps",
+            },
+          ],
+          procurement: [
+            { label: "Procurement hub", url: "procurement.html" },
+            { label: "Success stories", url: "success-stories.html" },
+            { label: "VPAT review checklist", url: "vpat-review.html" },
+          ],
+          email: [
+            { label: "Outlook guide", url: "email-outlook.html" },
+            { label: "Gmail guide", url: "email-gmail.html" },
+            { label: "Newsletter guide", url: "email-newsletters.html" },
+          ],
+          testing: [
+            { label: "Testing toolkit", url: "testing-tools.html" },
+            {
+              label: "Developer persona guide",
+              url: "persona-developers.html",
+            },
+          ],
+          policy: [
+            { label: "Policies & governance", url: "policies-governance.html" },
+            { label: "Compliance timeline", url: "compliance-timeline.html" },
+          ],
+          metrics: [
+            { label: "Metrics & KPIs", url: "metrics-kpis.html" },
+            { label: "Governance charter", url: "governance-charter.html" },
+          ],
+        };
+
+        var supportLinkMap = {
+          consult: {
+            label: "Request a consultation",
+            url: "https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu",
+          },
+          templates: {
+            label: "Download templates",
+            url: "../shared/manifest.json",
+          },
+          policy: {
+            label: "Review governance & Title II",
+            url: "policies-governance.html",
+          },
+          contact: {
+            label: "Email accessibility@arizona.edu",
+            url: "mailto:accessibility@arizona.edu",
+          },
+        };
+
+        /* ═══════════════════════════════════════════════
+       DOM REFERENCES
+       ═══════════════════════════════════════════════ */
+        var steps = document.querySelectorAll(".wizard-step");
+        var dots = document.querySelectorAll(".wizard-progress-step");
+        var connectors = document.querySelectorAll(
+          ".wizard-progress-connector",
+        );
+        var prevBtn = document.getElementById("wizard-prev");
+        var nextBtn = document.getElementById("wizard-next");
+        var startOver = document.getElementById("wizard-start-over");
+        var announce = document.getElementById("wizard-announce");
+
+        /* ═══════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════ */
+        function goTo(n) {
+          if (n < 1 || n > TOTAL) return;
+          state.step = n;
+
+          if (n === 2) buildNeedCards();
+
+          for (var i = 0; i < steps.length; i++) {
+            steps[i].classList.toggle("active", i === n - 1);
           }
-          personaReasons[personaId].add(map.label);
+          for (var j = 0; j < dots.length; j++) {
+            dots[j].classList.toggle("active", j === n - 1);
+            dots[j].classList.toggle("completed", j < n - 1);
+            if (j === n - 1) dots[j].setAttribute("aria-current", "step");
+            else dots[j].removeAttribute("aria-current");
+          }
+          for (var k = 0; k < connectors.length; k++) {
+            connectors[k].classList.toggle("done", k < n - 1);
+          }
+
+          prevBtn.disabled = n === 1;
+          prevBtn.style.visibility = n === 1 ? "hidden" : "visible";
+
+          if (n === TOTAL) {
+            nextBtn.style.display = "none";
+            buildResults();
+          } else {
+            nextBtn.style.display = "";
+            nextBtn.innerHTML =
+              n === TOTAL - 1 ? "Show my results &rarr;" : "Next &rarr;";
+            updateNext();
+          }
+
+          startOver.style.display = n === TOTAL ? "" : "none";
+
+          var heading = steps[n - 1].querySelector("h2");
+          if (heading) heading.focus();
+
+          var labels = [
+            "your role",
+            "what you need",
+            "how we can help",
+            "your results",
+          ];
+          announce.textContent =
+            "Step " + n + " of " + TOTAL + ": " + labels[n - 1];
+        }
+
+        function updateNext() {
+          if (state.step === 1) {
+            nextBtn.disabled = !state.role;
+          } else if (state.step === 2) {
+            var hasNeed = false;
+            for (var k in state.needs) {
+              if (state.needs[k]) {
+                hasNeed = true;
+                break;
+              }
+            }
+            nextBtn.disabled = !hasNeed;
+          } else if (state.step === 3) {
+            nextBtn.disabled = false;
+          }
+        }
+
+        prevBtn.addEventListener("click", function () {
+          goTo(state.step - 1);
         });
-      });
+        nextBtn.addEventListener("click", function () {
+          goTo(state.step + 1);
+        });
+        startOver.addEventListener("click", function () {
+          state.role = null;
+          state.needs = {};
+          state.support = {};
+          var allCards = document.querySelectorAll(".wizard-card");
+          for (var i = 0; i < allCards.length; i++) {
+            allCards[i].setAttribute("aria-pressed", "false");
+            allCards[i].setAttribute("aria-checked", "false");
+          }
+          goTo(1);
+        });
 
-      const buildCard = (resource, reasonSet) => {
-        const links = resource.links
-          .map(link => `<li><a href="${link.url}">${link.label}</a></li>`)
-          .join("");
-        const reasonText = reasonSet && reasonSet.size
-          ? `<p class="muted">Because you selected: ${Array.from(reasonSet).join(", ")}</p>`
-          : "";
-        return `<article class="result-card"><h3>${resource.title}</h3><p>${resource.summary}</p>${reasonText}<ul>${links}</ul></article>`;
-      };
+        /* ═══════════════════════════════════════════════
+       STEP 1 — Role (single-select radiogroup)
+       ═══════════════════════════════════════════════ */
+        var roleContainer = document.getElementById("role-cards");
 
-      Object.entries(personaReasons).forEach(([personaId, reasonSet]) => {
-        const resource = personaResources[personaId];
-        if (resource) {
-          fragments.push(buildCard(resource, reasonSet));
+        roleContainer.addEventListener("click", function (e) {
+          var card = e.target.closest(".wizard-card");
+          if (!card) return;
+          var siblings = roleContainer.querySelectorAll(".wizard-card");
+          for (var i = 0; i < siblings.length; i++) {
+            siblings[i].setAttribute("aria-checked", "false");
+          }
+          card.setAttribute("aria-checked", "true");
+          state.role = card.getAttribute("data-value");
+          state.needs = {};
+          state.support = {};
+          updateNext();
+        });
+
+        roleContainer.addEventListener("keydown", function (e) {
+          if (
+            ["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft"].indexOf(
+              e.key,
+            ) === -1
+          )
+            return;
+          e.preventDefault();
+          var cards = roleContainer.querySelectorAll(".wizard-card");
+          var arr = [];
+          for (var i = 0; i < cards.length; i++) arr.push(cards[i]);
+          var idx = arr.indexOf(document.activeElement);
+          var next;
+          if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+            next = (idx + 1) % arr.length;
+          } else {
+            next = (idx - 1 + arr.length) % arr.length;
+          }
+          arr[next].focus();
+          arr[next].click();
+        });
+
+        /* ═══════════════════════════════════════════════
+       STEP 2 — Need (multi-select, dynamic)
+       ═══════════════════════════════════════════════ */
+        function buildNeedCards() {
+          var container = document.getElementById("need-cards");
+          var available = needsByRole[state.role] || [];
+          container.innerHTML = "";
+          for (var i = 0; i < available.length; i++) {
+            var id = available[i];
+            var m = needMeta[id];
+            if (!m) continue;
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "wizard-card";
+            btn.setAttribute(
+              "aria-pressed",
+              state.needs[id] ? "true" : "false",
+            );
+            btn.setAttribute("data-value", id);
+            btn.innerHTML =
+              '<span class="wizard-card-icon" aria-hidden="true">' +
+              m.icon +
+              "</span>" +
+              '<span class="wizard-card-title">' +
+              m.title +
+              "</span>" +
+              '<p class="wizard-card-desc">' +
+              m.desc +
+              "</p>";
+            btn.addEventListener(
+              "click",
+              (function (nid) {
+                return function () {
+                  var pressed = this.getAttribute("aria-pressed") === "true";
+                  this.setAttribute("aria-pressed", String(!pressed));
+                  state.needs[nid] = !pressed;
+                  updateNext();
+                };
+              })(id),
+            );
+            container.appendChild(btn);
+          }
         }
-      });
 
-      needs.forEach(need => {
-        const resource = needResources[need];
-        if (resource) {
-          fragments.push(buildCard(resource));
+        /* ═══════════════════════════════════════════════
+       STEP 3 — Support (multi-select toggle buttons)
+       ═══════════════════════════════════════════════ */
+        document
+          .getElementById("support-cards")
+          .addEventListener("click", function (e) {
+            var card = e.target.closest(".wizard-card");
+            if (!card) return;
+            var pressed = card.getAttribute("aria-pressed") === "true";
+            card.setAttribute("aria-pressed", String(!pressed));
+            var id = card.getAttribute("data-value");
+            state.support[id] = !pressed;
+          });
+
+        /* ═══════════════════════════════════════════════
+       STEP 4 — Build personalized results
+       ═══════════════════════════════════════════════ */
+        function buildResults() {
+          var container = document.getElementById("wizard-results");
+          var html = [];
+
+          var rl = roleLinks[state.role];
+          var roleName = state.role;
+          for (var r = 0; r < roles.length; r++) {
+            if (roles[r].id === state.role) {
+              roleName = roles[r].title;
+              break;
+            }
+          }
+          if (rl) {
+            html.push(
+              resultCard(
+                "Your role: " + roleName,
+                "Key resources for " + roleName.toLowerCase() + ".",
+                rl,
+              ),
+            );
+          }
+
+          for (var nid in state.needs) {
+            if (!state.needs[nid]) continue;
+            var nl = needLinks[nid];
+            var nm = needMeta[nid];
+            if (nl && nm) {
+              html.push(
+                resultCard(
+                  nm.title,
+                  "Resources for " + nm.title.toLowerCase() + ".",
+                  nl,
+                ),
+              );
+            }
+          }
+
+          var supportItems = [];
+          for (var sid in state.support) {
+            if (!state.support[sid]) continue;
+            var s = supportLinkMap[sid];
+            if (s) supportItems.push(s);
+          }
+          if (supportItems.length) {
+            html.push(
+              resultCard(
+                "Support actions",
+                "Quick links based on how we can help.",
+                supportItems,
+              ),
+            );
+          }
+
+          if (!html.length) {
+            html.push(
+              '<div class="result-card"><p>No selections were made. Use <strong>Previous</strong> to go back and choose options, or <a href="roles.html">browse by role</a>.</p></div>',
+            );
+          }
+
+          container.innerHTML = html.join("");
         }
-      });
 
-      if (supports.length) {
-        const supportLinks = supports
-          .map(id => supportResources[id])
-          .filter(Boolean)
-          .map(link => `<li><a href="${link.url}">${link.label}</a></li>`)
-          .join("");
-        if (supportLinks) {
-          fragments.push(`<article class="result-card"><h3>Support actions</h3><p>Based on what you selected, these links can help right away:</p><ul>${supportLinks}</ul></article>`);
+        function resultCard(title, summary, links) {
+          var lis = "";
+          for (var i = 0; i < links.length; i++) {
+            lis +=
+              '<li><a href="' +
+              links[i].url +
+              '">' +
+              links[i].label +
+              "</a></li>";
+          }
+          return (
+            '<article class="result-card"><h3>' +
+            title +
+            "</h3><p>" +
+            summary +
+            "</p><ul>" +
+            lis +
+            "</ul></article>"
+          );
         }
-      }
 
-      resultsSection.innerHTML = '<h2 id="results-title">Recommended next steps</h2>' +
-        (fragments.length ? fragments.join("") : '<p>No selections yet. Choose one or more situations above, then press "Show recommendations".</p>');
-    });
-  </script>
-</body>
+        /* ═══════════════════════════════════════════════
+       INIT
+       ═══════════════════════════════════════════════ */
+        goTo(1);
+      })();
+    </script>
+  </body>
 </html>

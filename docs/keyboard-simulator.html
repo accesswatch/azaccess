@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Keyboard Navigation Simulator | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ── Layout ──────────────────────────────────── */
+.sim-intro { max-width: 720px; margin-bottom: 2rem; line-height: 1.6; }
+.muted { color: var(--text-muted, #595959); font-size: 0.95rem; }
+.sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+/* ── Key display ─────────────────────────────── */
+.key-display {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.75rem 1rem; margin-bottom: 1.5rem;
+  background: #f8f8f8; border: 1px solid var(--border-color, #d0d5dd);
+  border-radius: 0.5rem; font-size: 0.95rem; min-height: 2.5rem;
+}
+.key-display kbd {
+  display: inline-block; padding: 0.25rem 0.6rem;
+  background: #fff; border: 1px solid #bbb; border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1); font-family: inherit;
+  font-size: 0.9rem; font-weight: 600; min-width: 1.5rem; text-align: center;
+}
+.key-display-label { color: var(--text-muted, #595959); }
+
+/* ── Scenario selector ───────────────────────── */
+.scenario-tabs {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color, #d0d5dd);
+  padding-bottom: 0.75rem;
+}
+.scenario-tab {
+  padding: 0.5rem 1rem; border: 2px solid transparent;
+  border-radius: 0.375rem 0.375rem 0 0; background: none;
+  font: inherit; font-size: 0.9rem; font-weight: 600;
+  cursor: pointer; color: var(--text-muted, #595959);
+  transition: color 0.15s, border-color 0.15s;
+}
+.scenario-tab:hover { color: var(--ua-maroon, #ab0520); }
+.scenario-tab:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+.scenario-tab[aria-selected="true"] {
+  color: var(--ua-maroon, #ab0520); border-color: var(--ua-maroon, #ab0520);
+  border-bottom-color: #fff; background: #fff;
+}
+
+/* ── Scenario panels ─────────────────────────── */
+.scenario-panel { display: none; }
+.scenario-panel.active { display: block; }
+
+/* ── Practice area ───────────────────────────── */
+.practice-area {
+  border: 2px solid var(--border-color, #d0d5dd); border-radius: 0.75rem;
+  padding: 1.5rem; background: #fff; margin-bottom: 1.5rem;
+}
+.practice-area h3 { margin-top: 0; }
+
+/* ── Demo components ─────────────────────────── */
+/* Fake nav bar */
+.demo-nav {
+  display: flex; gap: 0; background: var(--ua-blue, #0c234b);
+  border-radius: 0.5rem; overflow: hidden; margin-bottom: 1rem;
+}
+.demo-nav-item {
+  padding: 0.6rem 1rem; color: #fff; background: none; border: none;
+  font: inherit; font-size: 0.9rem; cursor: pointer;
+  transition: background 0.15s;
+}
+.demo-nav-item:hover { background: rgba(255,255,255,0.15); }
+.demo-nav-item:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+.demo-nav-item[aria-current="page"] { background: var(--ua-maroon, #ab0520); font-weight: 600; }
+
+/* Fake form */
+.demo-form { max-width: 400px; }
+.demo-form label { display: block; font-weight: 600; margin: 0.75rem 0 0.25rem; }
+.demo-form input, .demo-form select {
+  width: 100%; padding: 0.5rem; font: inherit; font-size: 0.95rem;
+  border: 1px solid #bbb; border-radius: 4px;
+}
+.demo-form input:focus, .demo-form select:focus {
+  outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px;
+  border-color: var(--ua-maroon, #ab0520);
+}
+.demo-form button {
+  margin-top: 1rem; padding: 0.6rem 1.5rem;
+  background: var(--ua-maroon, #ab0520); color: #fff;
+  border: none; border-radius: 0.375rem; font: inherit;
+  font-weight: 600; cursor: pointer;
+}
+.demo-form button:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+
+/* Fake modal */
+.demo-modal-trigger {
+  padding: 0.6rem 1.5rem; background: var(--ua-maroon, #ab0520);
+  color: #fff; border: none; border-radius: 0.375rem;
+  font: inherit; font-weight: 600; cursor: pointer;
+}
+.demo-modal-trigger:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+.demo-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5); z-index: 1000;
+  align-items: center; justify-content: center;
+}
+.demo-modal-overlay.open { display: flex; }
+.demo-modal {
+  background: #fff; border-radius: 0.75rem; padding: 1.5rem 2rem;
+  max-width: 420px; width: 90%; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.demo-modal h3 { margin-top: 0; }
+.demo-modal-close {
+  float: right; background: none; border: 1px solid #bbb;
+  border-radius: 4px; padding: 0.25rem 0.6rem; font: inherit;
+  cursor: pointer; font-size: 1.1rem;
+}
+.demo-modal-close:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+.demo-modal input {
+  width: 100%; padding: 0.5rem; margin: 0.5rem 0; font: inherit;
+  border: 1px solid #bbb; border-radius: 4px;
+}
+.demo-modal input:focus { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+.demo-modal-actions { display: flex; gap: 0.75rem; margin-top: 1rem; }
+.demo-modal-actions button {
+  padding: 0.5rem 1.25rem; border-radius: 0.375rem;
+  font: inherit; font-weight: 600; cursor: pointer;
+}
+.demo-modal-actions .btn-save { background: var(--ua-maroon, #ab0520); color: #fff; border: none; }
+.demo-modal-actions .btn-cancel { background: #fff; color: #333; border: 1px solid #bbb; }
+.demo-modal-actions button:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+
+/* Tab panel demo */
+.demo-tablist { display: flex; gap: 0; border-bottom: 2px solid var(--border-color, #d0d5dd); margin-bottom: 1rem; }
+.demo-tab {
+  padding: 0.6rem 1.25rem; background: none; border: none;
+  border-bottom: 3px solid transparent; font: inherit; font-weight: 600;
+  cursor: pointer; color: var(--text-muted, #595959);
+}
+.demo-tab:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: -2px; }
+.demo-tab[aria-selected="true"] { color: var(--ua-maroon, #ab0520); border-bottom-color: var(--ua-maroon, #ab0520); }
+.demo-tabpanel { padding: 1rem; border: 1px solid var(--border-color, #d0d5dd); border-top: none; border-radius: 0 0 0.5rem 0.5rem; min-height: 80px; }
+.demo-tabpanel[hidden] { display: none; }
+
+/* ── Task checklist ──────────────────────────── */
+.task-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+.task-list li {
+  padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.95rem;
+}
+.task-check { font-size: 1.1rem; }
+.task-check.done { color: #2e7d32; }
+.task-check.pending { color: #999; }
+.task-count { margin-top: 0.75rem; font-weight: 600; font-size: 0.9rem; color: var(--text-muted, #595959); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+  <div class="site-header-brand">University of Arizona &middot; Digital Accessibility</div>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">Menu</button>
+  <nav class="site-header-nav" id="primary-nav" aria-label="Primary navigation">
+    <a href="home.html">Home</a>
+    <a href="documents-media.html">Documents &amp; Media</a>
+    <a href="web-app.html">Web &amp; Apps</a>
+    <a href="teaching-learning.html">Teaching &amp; Learning</a>
+    <a href="procurement.html">Procurement</a>
+    <a href="tools-checklists.html">Tools &amp; Checklists</a>
+    <a href="policies-governance.html">Policies &amp; Governance</a>
+    <a href="support.html">Support</a>
+  </nav>
+</div>
+<nav aria-label="Breadcrumb">
+  <p><a href="home.html">Home</a> / <a href="tools-checklists.html">Tools</a> / Keyboard Simulator</p>
+</nav>
+<h1>Keyboard Navigation Simulator</h1>
+<p class="muted">Practice navigating common UI patterns using only your keyboard. Your keystrokes are shown in real time.</p>
+</header>
+
+<main id="maincontent">
+  <div id="sim-announce" class="sr-only" aria-live="assertive" role="status"></div>
+
+  <div class="sim-intro">
+    <p>Many people navigate the web without a mouse. Try completing each scenario below using <strong>only your keyboard</strong>. The key display updates as you press keys.</p>
+    <details>
+      <summary><strong>Keyboard shortcuts reference</strong></summary>
+      <ul>
+        <li><kbd>Tab</kbd> &mdash; Move focus to the next interactive element</li>
+        <li><kbd>Shift + Tab</kbd> &mdash; Move focus to the previous interactive element</li>
+        <li><kbd>Enter</kbd> / <kbd>Space</kbd> &mdash; Activate buttons and links</li>
+        <li><kbd>Escape</kbd> &mdash; Close modals, menus, popups</li>
+        <li><kbd>&larr;</kbd> <kbd>&rarr;</kbd> &mdash; Navigate within tab lists, radio groups, menus</li>
+        <li><kbd>&darr;</kbd> <kbd>&uarr;</kbd> &mdash; Navigate within select dropdowns and menus</li>
+      </ul>
+    </details>
+  </div>
+
+  <!-- Key display -->
+  <div class="key-display" aria-live="polite">
+    <span class="key-display-label">Last key pressed:</span>
+    <kbd id="key-name">—</kbd>
+  </div>
+
+  <!-- Scenario tabs -->
+  <div class="scenario-tabs" role="tablist" aria-label="Choose a practice scenario">
+    <button role="tab" class="scenario-tab" aria-selected="true" aria-controls="panel-nav" id="tab-nav" type="button">Navigation Bar</button>
+    <button role="tab" class="scenario-tab" aria-selected="false" aria-controls="panel-form" id="tab-form" type="button" tabindex="-1">Form</button>
+    <button role="tab" class="scenario-tab" aria-selected="false" aria-controls="panel-modal" id="tab-modal" type="button" tabindex="-1">Modal Dialog</button>
+    <button role="tab" class="scenario-tab" aria-selected="false" aria-controls="panel-tabs" id="tab-tabs" type="button" tabindex="-1">Tab Panel</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SCENARIO 1: Navigation Bar
+       ═══════════════════════════════════════════ -->
+  <div role="tabpanel" class="scenario-panel active" id="panel-nav" aria-labelledby="tab-nav">
+    <div class="practice-area">
+      <h2>Scenario: Navigate a menu bar</h2>
+      <p>Use <kbd>Tab</kbd> to move through the navigation items below. Try pressing <kbd>Enter</kbd> on different items. Use <kbd>Shift+Tab</kbd> to go backward.</p>
+
+      <nav class="demo-nav" aria-label="Demo navigation">
+        <button type="button" class="demo-nav-item" aria-current="page" data-task="nav-home">Home</button>
+        <button type="button" class="demo-nav-item" data-task="nav-about">About</button>
+        <button type="button" class="demo-nav-item" data-task="nav-services">Services</button>
+        <button type="button" class="demo-nav-item" data-task="nav-contact">Contact</button>
+      </nav>
+
+      <h3>Tasks</h3>
+      <ul class="task-list" id="tasks-nav">
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Tab to the &ldquo;About&rdquo; button</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Press Enter on &ldquo;Services&rdquo;</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Shift+Tab back to &ldquo;Home&rdquo;</li>
+      </ul>
+      <p class="task-count" id="count-nav">0 / 3 tasks completed</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SCENARIO 2: Form
+       ═══════════════════════════════════════════ -->
+  <div role="tabpanel" class="scenario-panel" id="panel-form" aria-labelledby="tab-form" hidden>
+    <div class="practice-area">
+      <h2>Scenario: Complete a form</h2>
+      <p>Tab through the form fields, type values, use <kbd>&darr;</kbd> to open and navigate the select dropdown, then submit.</p>
+
+      <form class="demo-form" id="demo-form" onsubmit="return false;">
+        <label for="demo-name">Full name</label>
+        <input type="text" id="demo-name" placeholder="Jane Doe" data-task="form-name" autocomplete="off" />
+
+        <label for="demo-email">Email address</label>
+        <input type="email" id="demo-email" placeholder="jane@arizona.edu" data-task="form-email" autocomplete="off" />
+
+        <label for="demo-dept">Department</label>
+        <select id="demo-dept" data-task="form-dept">
+          <option value="">Select&hellip;</option>
+          <option value="it">Information Technology</option>
+          <option value="lib">Library</option>
+          <option value="eng">Engineering</option>
+        </select>
+
+        <button type="submit" data-task="form-submit">Submit</button>
+      </form>
+
+      <h3>Tasks</h3>
+      <ul class="task-list" id="tasks-form">
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Tab to the Name field and type a name</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Tab to Email and type an address</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Choose a department from the select</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Tab to Submit and press Enter</li>
+      </ul>
+      <p class="task-count" id="count-form">0 / 4 tasks completed</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SCENARIO 3: Modal Dialog
+       ═══════════════════════════════════════════ -->
+  <div role="tabpanel" class="scenario-panel" id="panel-modal" aria-labelledby="tab-modal" hidden>
+    <div class="practice-area">
+      <h2>Scenario: Open, use, and close a modal</h2>
+      <p>Press <kbd>Enter</kbd> on the button to open the modal. Tab through the fields inside. Press <kbd>Escape</kbd> to close it. Focus should return to the trigger button.</p>
+
+      <button type="button" class="demo-modal-trigger" id="modal-trigger" data-task="modal-open">Edit Profile</button>
+
+      <!-- Modal overlay -->
+      <div class="demo-modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="demo-modal">
+          <button type="button" class="demo-modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+          <h3 id="modal-title">Edit Profile</h3>
+          <label for="modal-display-name">Display name</label>
+          <input type="text" id="modal-display-name" placeholder="Your name" autocomplete="off" />
+          <label for="modal-bio">Bio</label>
+          <input type="text" id="modal-bio" placeholder="Short bio" autocomplete="off" />
+          <div class="demo-modal-actions">
+            <button type="button" class="btn-save" id="modal-save" data-task="modal-save">Save</button>
+            <button type="button" class="btn-cancel" id="modal-cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>Tasks</h3>
+      <ul class="task-list" id="tasks-modal">
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Press Enter on &ldquo;Edit Profile&rdquo; to open the modal</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Tab through the fields inside the modal</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Press Escape (or click Cancel) to close the modal</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Verify focus returned to the trigger button</li>
+      </ul>
+      <p class="task-count" id="count-modal">0 / 4 tasks completed</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SCENARIO 4: Tab Panel
+       ═══════════════════════════════════════════ -->
+  <div role="tabpanel" class="scenario-panel" id="panel-tabs" aria-labelledby="tab-tabs" hidden>
+    <div class="practice-area">
+      <h2>Scenario: Navigate a tab panel</h2>
+      <p>Tab to the tab list, then use <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> arrow keys to switch between tabs. The panel content changes as you navigate.</p>
+
+      <div class="demo-tablist" role="tablist" aria-label="Demo tab panel">
+        <button role="tab" class="demo-tab" aria-selected="true" aria-controls="dtab-1" id="dtab-btn-1" type="button">Overview</button>
+        <button role="tab" class="demo-tab" aria-selected="false" aria-controls="dtab-2" id="dtab-btn-2" type="button" tabindex="-1">Details</button>
+        <button role="tab" class="demo-tab" aria-selected="false" aria-controls="dtab-3" id="dtab-btn-3" type="button" tabindex="-1">Contact</button>
+      </div>
+      <div role="tabpanel" class="demo-tabpanel" id="dtab-1" aria-labelledby="dtab-btn-1">
+        <p><strong>Overview:</strong> This panel contains a high-level summary. You navigated here using Tab, then arrow keys.</p>
+      </div>
+      <div role="tabpanel" class="demo-tabpanel" id="dtab-2" aria-labelledby="dtab-btn-2" hidden>
+        <p><strong>Details:</strong> More detailed information lives here. Press <kbd>&larr;</kbd> to go back to Overview.</p>
+      </div>
+      <div role="tabpanel" class="demo-tabpanel" id="dtab-3" aria-labelledby="dtab-btn-3" hidden>
+        <p><strong>Contact:</strong> Reach out to <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> for help.</p>
+      </div>
+
+      <h3>Tasks</h3>
+      <ul class="task-list" id="tasks-tabs">
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Tab to the tab list</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Use <kbd>&rarr;</kbd> to move to &ldquo;Details&rdquo;</li>
+        <li><span class="task-check pending" aria-hidden="true">&#9675;</span> Use <kbd>&rarr;</kbd> to move to &ldquo;Contact&rdquo;</li>
+      </ul>
+      <p class="task-count" id="count-tabs">0 / 3 tasks completed</p>
+    </div>
+  </div>
+
+  <p style="margin-top:2rem;"><a href="interactive-tools.html">&larr; Back to Interactive Tools</a></p>
+</main>
+
+<footer>
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a> | <a href="ai-assistant.html">AI Assistant</a></p>
+<p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="glossary.html">Glossary</a> | <a href="faq.html">FAQ</a></p>
+</footer>
+
+<noscript>
+<div style="border:1px solid #d0d5dd;padding:1.5rem;margin:2rem 1rem;border-radius:0.5rem;">
+  <h2>JavaScript is required</h2>
+  <p>This simulator needs JavaScript. Try the <a href="accessibility-101.html">Accessibility 101</a> guide or <a href="tools-checklists.html">Tools &amp; Checklists</a>.</p>
+</div>
+</noscript>
+
+<script>
+(function () {
+  'use strict';
+
+  var announce = document.getElementById('sim-announce');
+  var keyName  = document.getElementById('key-name');
+
+  /* ═══════════════════════════════════════════════
+     KEY DISPLAY — show last key pressed
+     ═══════════════════════════════════════════════ */
+  document.addEventListener('keydown', function (e) {
+    var parts = [];
+    if (e.ctrlKey)  parts.push('Ctrl');
+    if (e.altKey)   parts.push('Alt');
+    if (e.shiftKey) parts.push('Shift');
+    var name = e.key;
+    if (name === ' ') name = 'Space';
+    if (name === 'ArrowLeft')  name = '\u2190';
+    if (name === 'ArrowRight') name = '\u2192';
+    if (name === 'ArrowUp')    name = '\u2191';
+    if (name === 'ArrowDown')  name = '\u2193';
+    if (name === 'Escape')     name = 'Esc';
+    if (['Shift','Control','Alt','Meta'].indexOf(name) === -1) parts.push(name);
+    keyName.textContent = parts.join(' + ') || name;
+  });
+
+  /* ═══════════════════════════════════════════════
+     SCENARIO TAB SWITCHING
+     ═══════════════════════════════════════════════ */
+  var scenarioTabs   = document.querySelectorAll('.scenario-tab');
+  var scenarioPanels = document.querySelectorAll('.scenario-panel');
+
+  function switchScenario(tab) {
+    for (var i = 0; i < scenarioTabs.length; i++) {
+      var sel = (scenarioTabs[i] === tab);
+      scenarioTabs[i].setAttribute('aria-selected', String(sel));
+      scenarioTabs[i].tabIndex = sel ? 0 : -1;
+    }
+    for (var j = 0; j < scenarioPanels.length; j++) {
+      var id = scenarioTabs[j].getAttribute('aria-controls');
+      var panel = document.getElementById(id);
+      if (scenarioTabs[j] === tab) {
+        panel.classList.add('active');
+        panel.removeAttribute('hidden');
+      } else {
+        panel.classList.remove('active');
+        panel.setAttribute('hidden', '');
+      }
+    }
+  }
+
+  for (var t = 0; t < scenarioTabs.length; t++) {
+    scenarioTabs[t].addEventListener('click', function () { switchScenario(this); });
+  }
+
+  // Arrow key navigation for scenario tabs
+  document.querySelector('.scenario-tabs').addEventListener('keydown', function (e) {
+    var tabs = Array.prototype.slice.call(scenarioTabs);
+    var idx = tabs.indexOf(document.activeElement);
+    if (idx === -1) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      var next = (idx + 1) % tabs.length;
+      tabs[next].focus();
+      switchScenario(tabs[next]);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      var prev = (idx - 1 + tabs.length) % tabs.length;
+      tabs[prev].focus();
+      switchScenario(tabs[prev]);
+    }
+  });
+
+  /* ═══════════════════════════════════════════════
+     TASK TRACKING
+     ═══════════════════════════════════════════════ */
+  var tasks = {
+    nav:   [false, false, false],
+    form:  [false, false, false, false],
+    modal: [false, false, false, false],
+    tabs:  [false, false, false]
+  };
+
+  function completeTask(group, index) {
+    if (tasks[group][index]) return;
+    tasks[group][index] = true;
+    updateTaskUI(group);
+    var done = 0;
+    for (var i = 0; i < tasks[group].length; i++) { if (tasks[group][i]) done++; }
+    announce.textContent = 'Task ' + (index + 1) + ' completed. ' + done + ' of ' + tasks[group].length + ' done.';
+  }
+
+  function updateTaskUI(group) {
+    var list = document.getElementById('tasks-' + group);
+    var items = list.querySelectorAll('li');
+    var done = 0;
+    for (var i = 0; i < items.length; i++) {
+      var check = items[i].querySelector('.task-check');
+      if (tasks[group][i]) {
+        check.textContent = '\u25CF';
+        check.classList.remove('pending');
+        check.classList.add('done');
+        done++;
+      }
+    }
+    document.getElementById('count-' + group).textContent = done + ' / ' + tasks[group].length + ' tasks completed';
+  }
+
+  /* ═══════════════════════════════════════════════
+     SCENARIO 1: Navigation bar tasks
+     ═══════════════════════════════════════════════ */
+  var navItems = document.querySelectorAll('.demo-nav-item');
+  for (var n = 0; n < navItems.length; n++) {
+    (function (item) {
+      item.addEventListener('focus', function () {
+        if (item.getAttribute('data-task') === 'nav-about') completeTask('nav', 0);
+        if (item.getAttribute('data-task') === 'nav-home') {
+          // Check if user shifted back
+          completeTask('nav', 2);
+        }
+      });
+      item.addEventListener('click', function () {
+        if (item.getAttribute('data-task') === 'nav-services') completeTask('nav', 1);
+      });
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && item.getAttribute('data-task') === 'nav-services') {
+          completeTask('nav', 1);
+        }
+      });
+    })(navItems[n]);
+  }
+
+  /* ═══════════════════════════════════════════════
+     SCENARIO 2: Form tasks
+     ═══════════════════════════════════════════════ */
+  document.getElementById('demo-name').addEventListener('input', function () {
+    if (this.value.trim().length > 0) completeTask('form', 0);
+  });
+  document.getElementById('demo-email').addEventListener('input', function () {
+    if (this.value.trim().length > 0) completeTask('form', 1);
+  });
+  document.getElementById('demo-dept').addEventListener('change', function () {
+    if (this.value) completeTask('form', 2);
+  });
+  document.getElementById('demo-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    completeTask('form', 3);
+    announce.textContent = 'Form submitted successfully!';
+  });
+
+  /* ═══════════════════════════════════════════════
+     SCENARIO 3: Modal dialog tasks
+     ═══════════════════════════════════════════════ */
+  var overlay = document.getElementById('modal-overlay');
+  var trigger = document.getElementById('modal-trigger');
+  var modalFocusables = [];
+
+  function openModal() {
+    overlay.classList.add('open');
+    completeTask('modal', 0);
+    // Gather focusable elements inside modal
+    modalFocusables = Array.prototype.slice.call(
+      overlay.querySelectorAll('button, input, [tabindex]:not([tabindex="-1"])')
+    );
+    if (modalFocusables.length) modalFocusables[0].focus();
+    // Track tabbing inside modal
+    var tabCount = 0;
+    overlay._tabHandler = function (e) {
+      if (e.key === 'Tab') {
+        tabCount++;
+        if (tabCount >= 2) completeTask('modal', 1);
+        // Trap focus
+        var first = modalFocusables[0];
+        var last = modalFocusables[modalFocusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    overlay.addEventListener('keydown', overlay._tabHandler);
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    if (overlay._tabHandler) {
+      overlay.removeEventListener('keydown', overlay._tabHandler);
+    }
+    trigger.focus();
+    completeTask('modal', 2);
+    // Check focus return
+    setTimeout(function () {
+      if (document.activeElement === trigger) completeTask('modal', 3);
+    }, 100);
+  }
+
+  trigger.addEventListener('click', openModal);
+  trigger.addEventListener('keydown', function (e) { if (e.key === 'Enter') openModal(); });
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-cancel').addEventListener('click', closeModal);
+  document.getElementById('modal-save').addEventListener('click', function () {
+    closeModal();
+    announce.textContent = 'Profile saved.';
+  });
+  overlay.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ═══════════════════════════════════════════════
+     SCENARIO 4: Tab panel tasks
+     ═══════════════════════════════════════════════ */
+  var demoTabs   = document.querySelectorAll('.demo-tab');
+  var demoPanels = document.querySelectorAll('.demo-tabpanel');
+
+  function switchDemoTab(tab) {
+    var tabs = Array.prototype.slice.call(demoTabs);
+    for (var i = 0; i < tabs.length; i++) {
+      var sel = (tabs[i] === tab);
+      tabs[i].setAttribute('aria-selected', String(sel));
+      tabs[i].tabIndex = sel ? 0 : -1;
+      var panel = document.getElementById(tabs[i].getAttribute('aria-controls'));
+      if (sel) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', '');
+    }
+  }
+
+  // Track tab panel tasks
+  for (var d = 0; d < demoTabs.length; d++) {
+    demoTabs[d].addEventListener('focus', function () {
+      completeTask('tabs', 0);
+    });
+  }
+
+  document.querySelector('.demo-tablist').addEventListener('keydown', function (e) {
+    var tabs = Array.prototype.slice.call(demoTabs);
+    var idx = tabs.indexOf(document.activeElement);
+    if (idx === -1) return;
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      var next = (idx + 1) % tabs.length;
+      tabs[next].focus();
+      switchDemoTab(tabs[next]);
+      if (tabs[next].id === 'dtab-btn-2') completeTask('tabs', 1);
+      if (tabs[next].id === 'dtab-btn-3') completeTask('tabs', 2);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      var prev = (idx - 1 + tabs.length) % tabs.length;
+      tabs[prev].focus();
+      switchDemoTab(tabs[prev]);
+      if (tabs[prev].id === 'dtab-btn-2') completeTask('tabs', 1);
+      if (tabs[prev].id === 'dtab-btn-3') completeTask('tabs', 2);
+    }
+  });
+
+  for (var dt = 0; dt < demoTabs.length; dt++) {
+    demoTabs[dt].addEventListener('click', function () { switchDemoTab(this); });
+  }
+
+})();
+</script>
+</body>
+</html>

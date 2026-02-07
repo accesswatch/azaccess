@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img">
+  <title>Quarterly Revenue Bar Chart</title>
+  <!-- Background -->
+  <rect width="640" height="400" fill="#f8f9fa" rx="8"/>
+
+  <!-- Title -->
+  <text x="320" y="35" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#1a1a2e">Quarterly Revenue — FY 2025</text>
+
+  <!-- Y-axis labels -->
+  <text x="65" y="88" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#666">$4.0 M</text>
+  <text x="65" y="148" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#666">$3.0 M</text>
+  <text x="65" y="208" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#666">$2.0 M</text>
+  <text x="65" y="268" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#666">$1.0 M</text>
+  <text x="65" y="328" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#666">$0</text>
+
+  <!-- Grid lines -->
+  <line x1="75" y1="85" x2="600" y2="85" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="75" y1="145" x2="600" y2="145" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="75" y1="205" x2="600" y2="205" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="75" y1="265" x2="600" y2="265" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="75" y1="325" x2="600" y2="325" stroke="#333" stroke-width="2"/>
+
+  <!-- Bars: max height = 240px (from y=325 baseline to y=85 top)
+       $2.1M → 126px, $2.4M → 144px, $3.0M → 180px, $3.8M → 228px -->
+  <!-- Q1: $2.1M -->
+  <rect x="115" y="199" width="80" height="126" fill="#1565c0" rx="4"/>
+  <text x="155" y="190" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#1565c0">$2.1 M</text>
+
+  <!-- Q2: $2.4M -->
+  <rect x="235" y="181" width="80" height="144" fill="#1e88e5" rx="4"/>
+  <text x="275" y="172" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#1e88e5">$2.4 M</text>
+
+  <!-- Q3: $3.0M -->
+  <rect x="355" y="145" width="80" height="180" fill="#42a5f5" rx="4"/>
+  <text x="395" y="136" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#42a5f5">$3.0 M</text>
+
+  <!-- Q4: $3.8M -->
+  <rect x="475" y="97" width="80" height="228" fill="#0d47a1" rx="4"/>
+  <text x="515" y="88" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#0d47a1">$3.8 M</text>
+
+  <!-- X-axis labels -->
+  <text x="155" y="350" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#333">Q1</text>
+  <text x="275" y="350" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#333">Q2</text>
+  <text x="395" y="350" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#333">Q3</text>
+  <text x="515" y="350" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#333">Q4</text>
+
+  <!-- Trend line -->
+  <polyline points="155,199 275,181 395,145 515,97" fill="none" stroke="#ff6f00" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+  <!-- Caption -->
+  <text x="320" y="385" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#888">Source: Finance Office — Annual Report 2025</text>
+</svg>

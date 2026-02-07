@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Readability Scorer | Accessibility at Arizona</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+.muted { color: var(--text-muted, #595959); font-size: 0.95rem; }
+.sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+/* ── Input area ──────────────────────────────── */
+.read-input {
+  width: 100%; min-height: 180px; padding: 1rem;
+  font: inherit; font-size: 1rem; line-height: 1.6;
+  border: 2px solid var(--border-color, #d0d5dd); border-radius: 0.5rem;
+  margin: 0.5rem 0 1rem; resize: vertical;
+}
+.read-input:focus {
+  outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px;
+  border-color: var(--ua-maroon, #ab0520);
+}
+.read-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.65rem 1.5rem; background: var(--ua-maroon, #ab0520); color: #fff;
+  border: 2px solid var(--ua-maroon, #ab0520); border-radius: 0.375rem;
+  font: inherit; font-size: 0.95rem; font-weight: 600; cursor: pointer;
+}
+.read-btn:hover { background: #8b0418; }
+.read-btn:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+.read-btn-secondary {
+  background: #fff; color: var(--ua-maroon, #ab0520);
+}
+.read-btn-secondary:hover { background: #fdf1f3; }
+
+/* ── Results dashboard ───────────────────────── */
+.read-results {
+  border: 1px solid var(--border-color, #d0d5dd); border-radius: 0.75rem;
+  padding: 1.5rem; background: #fff; margin-top: 1.5rem;
+}
+.read-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem; margin-bottom: 1.5rem;
+}
+.read-stat {
+  text-align: center; padding: 1rem; background: #f8f8f8;
+  border-radius: 0.5rem; border: 1px solid var(--border-color, #d0d5dd);
+}
+.read-stat-value {
+  font-size: 1.75rem; font-weight: 800; display: block; margin-bottom: 0.15rem;
+}
+.read-stat-label {
+  font-size: 0.8rem; color: var(--text-muted, #595959); text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ── Grade badge ─────────────────────────────── */
+.read-badge {
+  display: inline-block; padding: 0.3rem 0.85rem; border-radius: 2rem;
+  font-weight: 700; font-size: 0.85rem; text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.read-badge.easy    { background: #e8f5e9; color: #2e7d32; border: 1px solid #2e7d32; }
+.read-badge.moderate{ background: #fff8e1; color: #f57f17; border: 1px solid #f57f17; }
+.read-badge.hard    { background: #ffebee; color: #c62828; border: 1px solid #c62828; }
+
+/* ── Tips section ────────────────────────────── */
+.read-tips {
+  margin-top: 1.25rem; padding: 1rem 1.25rem;
+  background: #e3f2fd; border-left: 4px solid #1565c0; border-radius: 0 0.5rem 0.5rem 0;
+}
+.read-tips h3 { margin-top: 0; }
+.read-tips ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+.read-tips li { margin-bottom: 0.4rem; line-height: 1.5; }
+
+/* ── Highlight problematic sentences ─────────── */
+.read-highlight {
+  margin-top: 1.25rem; padding: 1rem; background: #fafafa;
+  border: 1px solid var(--border-color, #d0d5dd); border-radius: 0.5rem;
+  line-height: 1.7;
+}
+.long-sentence {
+  background: #fff3e0; border-bottom: 2px solid #ff9800;
+  padding: 0 2px;
+}
+.very-long-sentence {
+  background: #ffebee; border-bottom: 2px solid #c62828;
+  padding: 0 2px;
+}
+
+/* ── Sample texts ────────────────────────────── */
+.sample-btns {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 0;
+}
+.sample-btn {
+  padding: 0.35rem 0.85rem; border: 1px solid var(--border-color, #d0d5dd);
+  border-radius: 2rem; background: #fff; font: inherit; font-size: 0.85rem;
+  cursor: pointer; color: var(--ua-blue, #0c234b);
+}
+.sample-btn:hover { background: #f0f4ff; border-color: var(--ua-blue, #0c234b); }
+.sample-btn:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+<header>
+<div class="site-header">
+  <div class="site-header-brand">University of Arizona &middot; Digital Accessibility</div>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">Menu</button>
+  <nav class="site-header-nav" id="primary-nav" aria-label="Primary navigation">
+    <a href="home.html">Home</a>
+    <a href="documents-media.html">Documents &amp; Media</a>
+    <a href="web-app.html">Web &amp; Apps</a>
+    <a href="teaching-learning.html">Teaching &amp; Learning</a>
+    <a href="procurement.html">Procurement</a>
+    <a href="tools-checklists.html">Tools &amp; Checklists</a>
+    <a href="policies-governance.html">Policies &amp; Governance</a>
+    <a href="support.html">Support</a>
+  </nav>
+</div>
+<nav aria-label="Breadcrumb">
+  <p><a href="home.html">Home</a> / <a href="tools-checklists.html">Tools</a> / Readability Scorer</p>
+</nav>
+<h1>Readability Scorer</h1>
+<p class="muted">Paste any text to see its reading level, word count, and plain-language tips. Aim for grade 8 or below to reach the widest audience.</p>
+</header>
+
+<main id="maincontent">
+  <div id="read-announce" class="sr-only" aria-live="assertive" role="status"></div>
+
+  <label for="read-text"><strong>Enter or paste your text below:</strong></label>
+  <textarea id="read-text" class="read-input" placeholder="Paste your content here — a paragraph, email draft, or page copy…"></textarea>
+
+  <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
+    <button type="button" class="read-btn" id="btn-score">Score Readability</button>
+    <button type="button" class="read-btn read-btn-secondary" id="btn-clear">Clear</button>
+  </div>
+
+  <details style="margin-top:0.75rem;">
+    <summary><strong>Try a sample text</strong></summary>
+    <div class="sample-btns" id="sample-btns">
+      <button type="button" class="sample-btn" data-sample="plain">Plain language (good)</button>
+      <button type="button" class="sample-btn" data-sample="academic">Academic prose</button>
+      <button type="button" class="sample-btn" data-sample="legal">Legal / policy text</button>
+    </div>
+  </details>
+
+  <!-- Results (hidden until scored) -->
+  <div id="read-results" class="read-results" hidden aria-live="polite">
+    <h2 id="results-title" tabindex="-1">Results</h2>
+    <div class="read-grid" id="stats-grid"></div>
+    <div id="grade-section"></div>
+    <div id="highlight-section"></div>
+    <div id="tips-section"></div>
+  </div>
+
+  <p style="margin-top:2rem;"><a href="interactive-tools.html">&larr; Back to Interactive Tools</a></p>
+</main>
+
+<footer>
+<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+<p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a> | <a href="ai-assistant.html">AI Assistant</a></p>
+<p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="glossary.html">Glossary</a> | <a href="faq.html">FAQ</a></p>
+</footer>
+
+<noscript>
+<div style="border:1px solid #d0d5dd;padding:1.5rem;margin:2rem 1rem;border-radius:0.5rem;">
+  <h2>JavaScript is required</h2>
+  <p>This tool needs JavaScript. Browse <a href="accessibility-101.html">Accessibility 101</a> or <a href="tools-checklists.html">Tools</a> instead.</p>
+</div>
+</noscript>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ═══════════════════════════════════════════════
+     SAMPLE TEXTS
+     ═══════════════════════════════════════════════ */
+  var samples = {
+    plain: 'We want everyone to use our website easily. If you have trouble reading content or using a feature, please let us know. You can email us or call our office. We will fix the problem as quickly as we can. Our goal is to make sure all students, staff, and visitors can access the information they need.',
+    academic: 'The epistemological implications of digital accessibility frameworks necessitate a comprehensive reevaluation of pedagogical methodologies employed across institutions of higher education. Multifaceted technological interventions, when systematically implemented in accordance with established normative guidelines, demonstrate statistically significant improvements in equitable educational outcomes for populations historically marginalized by conventional instructional paradigms.',
+    legal: 'Pursuant to Title II of the Americans with Disabilities Act, as amended, and Section 504 of the Rehabilitation Act of 1973, the University shall ensure that no qualified individual with a disability shall, by reason of such disability, be excluded from participation in or be denied the benefits of services, programs, or activities of the University, or be subjected to discrimination by the University, including but not limited to admissions, academic programs, research, employment, housing, financial aid, counseling, physical education, athletics, recreation, transportation, and other extracurricular activities.'
+  };
+
+  /* ═══════════════════════════════════════════════
+     DOM
+     ═══════════════════════════════════════════════ */
+  var textArea    = document.getElementById('read-text');
+  var btnScore    = document.getElementById('btn-score');
+  var btnClear    = document.getElementById('btn-clear');
+  var resultsDiv  = document.getElementById('read-results');
+  var statsGrid   = document.getElementById('stats-grid');
+  var gradeDiv    = document.getElementById('grade-section');
+  var highlightDiv= document.getElementById('highlight-section');
+  var tipsDiv     = document.getElementById('tips-section');
+  var announcer   = document.getElementById('read-announce');
+
+  /* ═══════════════════════════════════════════════
+     SYLLABLE COUNTER
+     ═══════════════════════════════════════════════ */
+  function countSyllables(word) {
+    word = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (word.length <= 2) return word.length ? 1 : 0;
+    // Remove trailing silent e
+    word = word.replace(/e$/, '');
+    // Count vowel groups
+    var matches = word.match(/[aeiouy]+/g);
+    var count = matches ? matches.length : 1;
+    return Math.max(1, count);
+  }
+
+  /* ═══════════════════════════════════════════════
+     SPLIT INTO SENTENCES
+     ═══════════════════════════════════════════════ */
+  function splitSentences(text) {
+    // Simple sentence boundary detection
+    var raw = text.split(/(?<=[.!?])\s+/);
+    var sentences = [];
+    for (var i = 0; i < raw.length; i++) {
+      var s = raw[i].trim();
+      if (s.length > 0) sentences.push(s);
+    }
+    return sentences;
+  }
+
+  /* ═══════════════════════════════════════════════
+     ANALYZE TEXT
+     ═══════════════════════════════════════════════ */
+  function analyze(text) {
+    var sentences = splitSentences(text);
+    var words = text.split(/\s+/).filter(function (w) { return w.replace(/[^a-zA-Z0-9]/g, '').length > 0; });
+    var wordCount = words.length;
+    var sentenceCount = Math.max(sentences.length, 1);
+    var totalSyllables = 0;
+    var complexWords = 0; // 3+ syllables
+
+    for (var i = 0; i < words.length; i++) {
+      var s = countSyllables(words[i]);
+      totalSyllables += s;
+      if (s >= 3) complexWords++;
+    }
+
+    var avgWordsPerSentence = wordCount / sentenceCount;
+    var avgSyllablesPerWord = wordCount > 0 ? totalSyllables / wordCount : 0;
+
+    // Flesch Reading Ease (0-100, higher = easier)
+    var readingEase = 206.835 - (1.015 * avgWordsPerSentence) - (84.6 * avgSyllablesPerWord);
+    readingEase = Math.max(0, Math.min(100, Math.round(readingEase * 10) / 10));
+
+    // Flesch-Kincaid Grade Level
+    var gradeLevel = (0.39 * avgWordsPerSentence) + (11.8 * avgSyllablesPerWord) - 15.59;
+    gradeLevel = Math.max(0, Math.round(gradeLevel * 10) / 10);
+
+    return {
+      wordCount: wordCount,
+      sentenceCount: sentenceCount,
+      totalSyllables: totalSyllables,
+      avgWordsPerSentence: Math.round(avgWordsPerSentence * 10) / 10,
+      avgSyllablesPerWord: Math.round(avgSyllablesPerWord * 100) / 100,
+      complexWords: complexWords,
+      complexPct: wordCount > 0 ? Math.round((complexWords / wordCount) * 100) : 0,
+      readingEase: readingEase,
+      gradeLevel: gradeLevel,
+      sentences: sentences
+    };
+  }
+
+  /* ═══════════════════════════════════════════════
+     RENDER RESULTS
+     ═══════════════════════════════════════════════ */
+  function renderResults(r) {
+    // Stats grid
+    statsGrid.innerHTML =
+      stat(r.wordCount, 'Words') +
+      stat(r.sentenceCount, 'Sentences') +
+      stat(r.avgWordsPerSentence, 'Avg Words / Sentence') +
+      stat(r.totalSyllables, 'Syllables') +
+      stat(r.complexWords + ' (' + r.complexPct + '%)', 'Complex Words (3+ syl)') +
+      stat(r.avgSyllablesPerWord, 'Avg Syl / Word');
+
+    // Grade badges
+    var easeClass = r.readingEase >= 60 ? 'easy' : (r.readingEase >= 30 ? 'moderate' : 'hard');
+    var easeLabel = r.readingEase >= 60 ? 'Easy to read' : (r.readingEase >= 30 ? 'Moderately difficult' : 'Difficult to read');
+    var gradeClass = r.gradeLevel <= 8 ? 'easy' : (r.gradeLevel <= 12 ? 'moderate' : 'hard');
+    var gradeLabel = r.gradeLevel <= 8 ? 'Accessible' : (r.gradeLevel <= 12 ? 'Moderate' : 'Advanced');
+
+    gradeDiv.innerHTML =
+      '<div style="display:flex;flex-wrap:wrap;gap:1.5rem;margin:1rem 0;">' +
+        '<div>' +
+          '<strong>Flesch Reading Ease:</strong> ' + r.readingEase + ' / 100 ' +
+          '<span class="read-badge ' + easeClass + '">' + easeLabel + '</span>' +
+        '</div>' +
+        '<div>' +
+          '<strong>Grade Level:</strong> ' + r.gradeLevel + ' ' +
+          '<span class="read-badge ' + gradeClass + '">' + gradeLabel + '</span>' +
+        '</div>' +
+      '</div>';
+
+    // Sentence highlighting
+    var sentHtml = '<div class="read-highlight"><h3>Sentence Analysis</h3>';
+    for (var i = 0; i < r.sentences.length; i++) {
+      var words = r.sentences[i].split(/\s+/).length;
+      var cls = '';
+      if (words > 30) cls = 'very-long-sentence';
+      else if (words > 20) cls = 'long-sentence';
+      if (cls) {
+        sentHtml += '<span class="' + cls + '" title="' + words + ' words">' + escHtml(r.sentences[i]) + '</span> ';
+      } else {
+        sentHtml += escHtml(r.sentences[i]) + ' ';
+      }
+    }
+    sentHtml += '<p class="muted" style="margin-top:0.75rem;font-size:0.85rem;">' +
+      '<span style="display:inline-block;width:14px;height:14px;background:#fff3e0;border-bottom:2px solid #ff9800;vertical-align:middle;margin-right:4px;"></span> 20-30 words &nbsp; ' +
+      '<span style="display:inline-block;width:14px;height:14px;background:#ffebee;border-bottom:2px solid #c62828;vertical-align:middle;margin-right:4px;"></span> 30+ words</p>';
+    sentHtml += '</div>';
+    highlightDiv.innerHTML = sentHtml;
+
+    // Tips
+    var tips = [];
+    if (r.gradeLevel > 8) tips.push('Aim for grade level 8 or below. Break long sentences into shorter ones.');
+    if (r.avgWordsPerSentence > 20) tips.push('Your average sentence is ' + r.avgWordsPerSentence + ' words. Try keeping sentences under 20 words.');
+    if (r.complexPct > 15) tips.push(r.complexPct + '% of your words have 3+ syllables. Replace complex words with simpler alternatives when possible.');
+    if (r.readingEase < 30) tips.push('Your text scores below 30 on the Reading Ease scale — this is very difficult even for college graduates.');
+    if (r.readingEase >= 60 && r.gradeLevel <= 8) tips.push('Great job! Your text is already at an accessible reading level.');
+
+    tips.push('Use active voice instead of passive ("We will review" not "The review will be conducted").');
+    tips.push('Define acronyms and jargon on first use.');
+    tips.push('Use bullet lists for steps or multiple items.');
+
+    tipsDiv.innerHTML = '<div class="read-tips"><h3>Plain Language Tips</h3><ul>' +
+      tips.map(function (t) { return '<li>' + t + '</li>'; }).join('') +
+      '</ul></div>';
+
+    resultsDiv.hidden = false;
+    var title = document.getElementById('results-title');
+    if (title) title.focus();
+    announcer.textContent = 'Readability score: grade level ' + r.gradeLevel + ', reading ease ' + r.readingEase + ' out of 100.';
+  }
+
+  function stat(value, label) {
+    return '<div class="read-stat"><span class="read-stat-value">' + value + '</span><span class="read-stat-label">' + label + '</span></div>';
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  /* ═══════════════════════════════════════════════
+     EVENTS
+     ═══════════════════════════════════════════════ */
+  btnScore.addEventListener('click', function () {
+    var text = textArea.value.trim();
+    if (!text) {
+      announcer.textContent = 'Please enter some text to score.';
+      textArea.focus();
+      return;
+    }
+    var r = analyze(text);
+    renderResults(r);
+  });
+
+  btnClear.addEventListener('click', function () {
+    textArea.value = '';
+    resultsDiv.hidden = true;
+    textArea.focus();
+    announcer.textContent = 'Text cleared.';
+  });
+
+  // Sample text buttons
+  document.getElementById('sample-btns').addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-sample]');
+    if (!btn) return;
+    var key = btn.getAttribute('data-sample');
+    if (samples[key]) {
+      textArea.value = samples[key];
+      textArea.focus();
+      announcer.textContent = 'Sample text loaded. Press Score Readability to analyze.';
+    }
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 380" width="420" height="380" role="img">
+  <title>Login form with error message</title>
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="420" height="380" fill="#f0f2f5" rx="8"/>
+
+  <!-- Card -->
+  <rect x="40" y="25" width="340" height="330" fill="#fff" rx="12" filter="url(#shadow)"/>
+
+  <!-- Logo / Title -->
+  <text x="210" y="68" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0C234B">Sign In</text>
+  <line x1="160" y1="80" x2="260" y2="80" stroke="#AB0520" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Username label & field -->
+  <text x="70" y="115" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#333">Email or Username</text>
+  <rect x="70" y="122" width="280" height="38" fill="#fff" stroke="#ccc" stroke-width="1.5" rx="6"/>
+  <text x="82" y="146" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#333">jsmith@arizona.edu</text>
+
+  <!-- Password label & field (error state) -->
+  <text x="70" y="185" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#333">Password</text>
+  <rect x="70" y="192" width="280" height="38" fill="#fff" stroke="#d32f2f" stroke-width="2" rx="6"/>
+  <text x="82" y="216" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#333">••••••••</text>
+
+  <!-- Error icon & message -->
+  <circle cx="82" cy="248" r="8" fill="#d32f2f"/>
+  <text x="82" y="253" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff">!</text>
+  <text x="96" y="253" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#d32f2f">Incorrect password. Please try again.</text>
+
+  <!-- Forgot password link -->
+  <text x="350" y="278" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1565c0" text-decoration="underline">Forgot password?</text>
+
+  <!-- Sign-in button -->
+  <rect x="70" y="295" width="280" height="42" fill="#0C234B" rx="8"/>
+  <text x="210" y="322" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#fff">Sign In</text>
+</svg>

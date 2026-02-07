@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accessibility Guide Wizard | Accessibility at Arizona</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../../scripts/header.js" defer></script>
+  <style>
+    .wizard-steps {
+      counter-reset: step;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .wizard-steps li {
+      counter-increment: step;
+      margin-bottom: 0.5rem;
+    }
+    .wizard-steps li::before {
+      content: counter(step) ".";
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .result-card {
+      border: 1px solid var(--border-color, #d0d5dd);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: #fff;
+    }
+    .muted {
+      color: var(--text-muted, #555);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+  <header>
+    <div class="site-header">
+      <div class="site-header-brand">University of Arizona · Digital Accessibility</div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+      <nav class="site-header-nav" aria-label="Primary" role="navigation">
+        <a href="home.html">Home</a>
+        <a href="roles.html">I Am A...</a>
+        <a href="documents-media.html">Documents &amp; Media</a>
+        <a href="web-app.html">Web &amp; Apps</a>
+        <a href="teaching-learning.html">Teaching &amp; Learning</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="tools-checklists.html">Tools &amp; Checklists</a>
+        <a href="policies-governance.html">Policies &amp; Governance</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <nav class="site-header-utilities" aria-label="Quick links" role="navigation">
+        <a href="accessibility-101.html">Accessibility 101</a>
+        <a href="blog.html">Blog</a>
+        <a href="support.html">Get help</a>
+      </nav>
+      <form class="role-selector" action="roles.html" method="get" onsubmit="return goToRole(this);">
+        <label for="role-select">I am a...</label>
+        <select id="role-select" name="role">
+          <option value="">Choose your role</option>
+          <option value="students.html">Student or Family Member</option>
+          <option value="faculty.html">Faculty or Instructor</option>
+          <option value="staff.html">Staff Member</option>
+          <option value="developers.html">Developer</option>
+          <option value="mobile.html">Mobile App Team</option>
+          <option value="content-creators.html">Content Creator</option>
+          <option value="communications.html">Communications / Marketing</option>
+          <option value="leadership.html">Leadership / Executive</option>
+          <option value="visitors.html">Visitor / Community</option>
+        </select>
+        <button type="submit" class="go-btn">Go</button>
+      </form>
+    </div>
+    <nav aria-label="Breadcrumb">
+      <p><a href="home.html">Accessibility Home</a> / Guided Wizard</p>
+    </nav>
+    <h1>Find the right accessibility resources</h1>
+    <p class="muted">Answer a few quick questions and we'll point you to the pages, forms, and contacts that best fit your situation.</p>
+  </header>
+  <main id="maincontent" role="main">
+    <section aria-labelledby="wizard-form-title">
+      <h2 id="wizard-form-title">Accessibility wizard</h2>
+      <p>All questions are optional. Use the <strong>Show recommendations</strong> button any time.</p>
+      <section aria-labelledby="wizard-links-title">
+        <h2 id="wizard-links-title">Quick access — no form required</h2>
+        <p class="muted">Click a role, need, or support link below to open the most relevant resources directly.</p>
+
+        <div class="grid grid-2">
+          <div>
+            <h3>By role</h3>
+            <ul class="wizard-steps">
+              <li><a href="persona-faculty.html">Faculty &amp; Teaching</a></li>
+              <li><a href="persona-students.html">Students &amp; Families</a></li>
+              <li><a href="persona-staff.html">Staff &amp; Administrative Units</a></li>
+              <li><a href="persona-developers.html">Developers &amp; Builders</a></li>
+              <li><a href="persona-content.html">Content Creators</a></li>
+              <li><a href="persona-public.html">Visitors &amp; Community</a></li>
+              <li><a href="persona-leadership.html">Leadership &amp; Executives</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>By need</h3>
+            <ul class="wizard-steps">
+              <li><a href="documents-media.html">Documents &amp; Media</a></li>
+              <li><a href="web-app.html">Websites &amp; Apps</a></li>
+              <li><a href="events-inclusive.html">Events &amp; Accommodations</a></li>
+              <li><a href="procurement.html">Procurement &amp; Vendors</a></li>
+              <li><a href="training-calendar.html">Training &amp; Community</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Support actions</h3>
+        <ul class="wizard-steps">
+          <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=BVXjXo7rKUmTfWRd9QEyiLCO6hETU85MhSR1uWmtS-FUQTRKWjE5SzVPVDNaVUwyRTdCRUg4Q1lVUSQlQCN0PWcu">Request a consultation</a></li>
+          <li><a href="../shared/manifest.json">Download shared templates</a></li>
+          <li><a href="policies-governance.html">Review governance &amp; Title II plan</a></li>
+          <li><a href="mailto:accessibility@arizona.edu">Email accessibility@arizona.edu</a></li>
+        </ul>
+
+        <p class="muted">Prefer to browse manually? Visit the <a href="roles.html">role guide</a>, <a href="decision-guide.html">decision guide</a>, or <a href="search.html">search the site</a>.</p>
+      </section>
+    </section>
+
+    <section aria-labelledby="results-title" id="wizard-results" aria-live="polite">
+      <h2 id="results-title">Recommended next steps</h2>
+      <p>Choose options above and click <strong>Show recommendations</strong> to see tailored links.</p>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
+    <p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a></p>
+  </footer>
+
+  <noscript>
+    <div class="result-card">
+      <p>This wizard works best with JavaScript enabled. For now, explore the <a href="roles.html">role guide</a> or <a href="support.html">contact us</a>.</p>
+    </div>
+  </noscript>
+
+  <script>
+    // Link-based wizard: no form logic required—links navigate directly to resources.
+  </script>
+</body>
+</html>
