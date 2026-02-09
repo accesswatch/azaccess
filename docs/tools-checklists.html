@@ -85,8 +85,20 @@
 </div>
 <div>
 <h2 id="checklist-table">Checklist catalog</h2>
+<div class="filter-controls" style="margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+  <div style="flex-grow: 1; min-width: 250px;">
+    <label for="checklist-search" class="sr-only">Search checklists</label>
+    <input type="text" id="checklist-search" placeholder="Search by name, role, or format..." style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: 4px;">
+  </div>
+  <div class="filter-btns" style="display: flex; gap: 0.5rem;">
+    <button type="button" class="filter-btn active" data-filter="all" style="padding: 0.5rem 1rem; border: 1px solid #001C48; background: #001C48; color: white; border-radius: 4px; cursor: pointer;">All</button>
+    <button type="button" class="filter-btn" data-filter="content" style="padding: 0.5rem 1rem; border: 1px solid #ccc; background: white; border-radius: 4px; cursor: pointer;">Content</button>
+    <button type="button" class="filter-btn" data-filter="dev" style="padding: 0.5rem 1rem; border: 1px solid #ccc; background: white; border-radius: 4px; cursor: pointer;">Developer</button>
+    <button type="button" class="filter-btn" data-filter="staff" style="padding: 0.5rem 1rem; border: 1px solid #ccc; background: white; border-radius: 4px; cursor: pointer;">Staff</button>
+  </div>
+</div>
 <div class="table-scroll">
-<table>
+<table id="checklist-data-table">
 <thead>
 <tr>
 <th scope="col">Name</th>
@@ -96,45 +108,103 @@
 <th scope="col">Last reviewed</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>Document &amp; Media quick checks</td>
+<tbody id="checklist-tbody">
+<!-- JS will populate or we keep these as fallback -->
+<tr data-category="content">
+<td>Word & PowerPoint Accessibility</td>
 <td>Content creators, Comms</td>
-<td>Word, Google Docs, PDF</td>
-<td><a href="documents-media.html">Open</a></td>
+<td>M365, PPT</td>
+<td><a href="doc-word.html">Open guide</a></td>
 <td>2026-01-05</td>
 </tr>
-<tr>
+<tr data-category="dev">
 <td>Web/App WCAG checklist</td>
 <td>Developers, QA, Mobile</td>
 <td>WCAG 2.2 AA</td>
-<td><a href="web-app.html#wcag">Open</a></td>
+<td><a href="web-app.html#wcag">Open guide</a></td>
 <td>2026-01-05</td>
 </tr>
-<tr>
+<tr data-category="staff">
 <td>Procurement intake kit</td>
 <td>Staff, Procurement</td>
-<td>VPAT, contract clauses</td>
-<td><a href="procurement.html#workflow">Open</a></td>
+<td>VPAT, Contract</td>
+<td><a href="procurement-steps.html">Open guide</a></td>
 <td>2026-01-05</td>
 </tr>
-<tr>
-<td>Teaching &amp; Learning planner</td>
-<td>Faculty, Teaching assistants</td>
-<td>Brightspace, Panopto</td>
-<td><a href="teaching-learning.html">Open</a></td>
+<tr data-category="content">
+<td>Google Workspace Guide</td>
+<td>Faculty, Staff</td>
+<td>Docs, Sheets</td>
+<td><a href="doc-google.html">Open guide</a></td>
 <td>2026-01-05</td>
 </tr>
-<tr>
-<td>Support &amp; consultations map</td>
-<td>All roles</td>
-<td>Services/SLA</td>
-<td><a href="support.html">Open</a></td>
+<tr data-category="staff">
+<td>PDF Remediation Workflow</td>
+<td>Staff, Comms</td>
+<td>Adobe Acrobat</td>
+<td><a href="pdf-remediation.html">Open guide</a></td>
+<td>2026-01-05</td>
+</tr>
+<tr data-category="dev">
+<td>Keyboard & Focus Essentials</td>
+<td>Developers, Designers</td>
+<td>Web, ARIA</td>
+<td><a href="web-keyboard.html">Open guide</a></td>
+<td>2026-01-05</td>
+</tr>
+<tr data-category="content">
+<td>Social Media Accessibility</td>
+<td>Comms, Social Leads</td>
+<td>Instagram, X, FB</td>
+<td><a href="social-media-guide.html">Open guide</a></td>
 <td>2026-01-05</td>
 </tr>
 </tbody>
 </table>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('checklist-search');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const rows = document.querySelectorAll('#checklist-tbody tr');
+
+    function filterTable() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            const category = row.dataset.category;
+            const matchesSearch = text.includes(searchTerm);
+            const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+            if (matchesSearch && matchesFilter) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    searchInput.addEventListener('input', filterTable);
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => {
+                b.classList.remove('active');
+                b.style.background = 'white';
+                b.style.color = 'black';
+                b.style.borderColor = '#ccc';
+            });
+            btn.classList.add('active');
+            btn.style.background = '#001C48';
+            btn.style.color = 'white';
+            btn.style.borderColor = '#001C48';
+            filterTable();
+        });
+    });
+});
+</script>
 </div>
 <div>
 <h2 id="automation">Automation hooks</h2>

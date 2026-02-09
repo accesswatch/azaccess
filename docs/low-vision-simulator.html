@@ -1,555 +1,1007 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Low Vision Simulator | Accessibility at Arizona</title>
-<link rel="stylesheet" href="styles.css" />
-<style>
-.muted { color: var(--text-muted, #595959); font-size: 0.95rem; }
-.sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Low Vision Simulator | Accessibility at Arizona</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .muted {
+        color: var(--text-muted, #595959);
+        font-size: 0.95rem;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
 
-/* ── Controls panel ──────────────────────────── */
-.sim-controls {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0.75rem; margin-bottom: 1.5rem;
-}
-.sim-toggle {
-  display: flex; align-items: center; gap: 0.75rem;
-  padding: 0.75rem 1rem; border: 2px solid var(--border-color, #d0d5dd);
-  border-radius: 0.5rem; background: #fff; cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
-}
-.sim-toggle:hover { border-color: var(--ua-maroon, #ab0520); }
-.sim-toggle:focus-within { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
-.sim-toggle input[type="checkbox"] {
-  width: 1.2rem; height: 1.2rem; accent-color: var(--ua-maroon, #ab0520);
-  flex-shrink: 0; cursor: pointer;
-}
-.sim-toggle-text { flex: 1; }
-.sim-toggle-title { font-weight: 600; display: block; font-size: 0.95rem; }
-.sim-toggle-desc { font-size: 0.8rem; color: var(--text-muted, #595959); display: block; margin-top: 0.1rem; }
-.sim-toggle[data-active="true"] {
-  border-color: var(--ua-maroon, #ab0520); background: #fdf1f3;
-}
-.sim-slider-row {
-  padding: 0.75rem 1rem; border: 2px solid var(--border-color, #d0d5dd);
-  border-radius: 0.5rem; background: #fff;
-}
-.sim-slider-row label { font-weight: 600; display: block; margin-bottom: 0.35rem; font-size: 0.95rem; }
-.sim-slider-row input[type="range"] { width: 100%; accent-color: var(--ua-maroon, #ab0520); }
-.sim-slider-row input[type="range"]:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+      /* ── Controls panel ──────────────────────────── */
+      .sim-controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .sim-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.5rem;
+        background: #fff;
+        cursor: pointer;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+      .sim-toggle:hover {
+        border-color: var(--ua-maroon, #ab0520);
+      }
+      .sim-toggle:focus-within {
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
+      }
+      .sim-toggle input[type="checkbox"] {
+        width: 1.2rem;
+        height: 1.2rem;
+        accent-color: var(--ua-maroon, #ab0520);
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .sim-toggle-text {
+        flex: 1;
+      }
+      .sim-toggle-title {
+        font-weight: 600;
+        display: block;
+        font-size: 0.95rem;
+      }
+      .sim-toggle-desc {
+        font-size: 0.8rem;
+        color: var(--text-muted, #595959);
+        display: block;
+        margin-top: 0.1rem;
+      }
+      .sim-toggle[data-active="true"] {
+        border-color: var(--ua-maroon, #ab0520);
+        background: #fdf1f3;
+      }
+      .sim-slider-row {
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.5rem;
+        background: #fff;
+      }
+      .sim-slider-row label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.35rem;
+        font-size: 0.95rem;
+      }
+      .sim-slider-row input[type="range"] {
+        width: 100%;
+        accent-color: var(--ua-maroon, #ab0520);
+      }
+      .sim-slider-row input[type="range"]:focus-visible {
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
+      }
 
-/* Reset button */
-.sim-reset {
-  padding: 0.5rem 1.25rem; background: #fff; color: var(--ua-maroon, #ab0520);
-  border: 2px solid var(--ua-maroon, #ab0520); border-radius: 0.375rem;
-  font: inherit; font-weight: 600; cursor: pointer; margin-bottom: 1.5rem;
-}
-.sim-reset:hover { background: #fdf1f3; }
-.sim-reset:focus-visible { outline: 3px solid var(--ua-maroon, #ab0520); outline-offset: 2px; }
+      /* Reset button */
+      .sim-reset {
+        padding: 0.5rem 1.25rem;
+        background: #fff;
+        color: var(--ua-maroon, #ab0520);
+        border: 2px solid var(--ua-maroon, #ab0520);
+        border-radius: 0.375rem;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        margin-bottom: 1.5rem;
+      }
+      .sim-reset:hover {
+        background: #fdf1f3;
+      }
+      .sim-reset:focus-visible {
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
+      }
 
-/* ── Sample content area ─────────────────────── */
-.sim-viewport {
-  position: relative; overflow: hidden; border: 2px solid var(--border-color, #d0d5dd);
-  border-radius: 0.75rem; background: #fff; transition: filter 0.3s ease;
-}
-.sim-content {
-  padding: 2rem; max-width: 640px; margin: 0 auto;
-}
-.sim-content h2 { margin-top: 0; color: var(--ua-blue, #0c234b); }
-.sim-content p { line-height: 1.6; margin: 0.75rem 0; }
-.sim-content a { color: #1565c0; text-decoration: underline; }
-.sim-content .sim-btn-demo {
-  display: inline-block; padding: 0.6rem 1.25rem; margin: 0.5rem 0.5rem 0 0;
-  background: var(--ua-maroon, #ab0520); color: #fff; border: none;
-  border-radius: 0.375rem; font: inherit; font-weight: 600;
-  cursor: default; /* non-functional demo */
-}
-.sim-content .sim-btn-outline {
-  display: inline-block; padding: 0.6rem 1.25rem; margin: 0.5rem 0.5rem 0 0;
-  background: #fff; color: var(--ua-maroon, #ab0520);
-  border: 2px solid var(--ua-maroon, #ab0520); border-radius: 0.375rem;
-  font: inherit; font-weight: 600; cursor: default;
-}
-.sim-image-placeholder {
-  width: 100%; height: 160px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
-  border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;
-  color: #0d47a1; font-weight: 600; margin: 1rem 0;
-}
-.sim-form-demo { margin: 1rem 0; padding: 1rem; background: #f8f8f8; border-radius: 0.5rem; }
-.sim-form-demo label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
-.sim-form-demo input {
-  width: 100%; max-width: 300px; padding: 0.4rem; font: inherit; border: 1px solid #bbb;
-  border-radius: 4px; margin-bottom: 0.75rem;
-}
-.sim-color-blocks {
-  display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0;
-}
-.sim-color-block {
-  width: 50px; height: 50px; border-radius: 0.375rem; border: 1px solid #ccc;
-}
+      /* ── Sample content area ─────────────────────── */
+      .sim-viewport {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.75rem;
+        background: #fff;
+        transition: filter 0.3s ease;
+      }
+      .sim-content {
+        padding: 2rem;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .sim-content h2 {
+        margin-top: 0;
+        color: var(--ua-blue, #0c234b);
+      }
+      .sim-content p {
+        line-height: 1.6;
+        margin: 0.75rem 0;
+      }
+      .sim-content a {
+        color: #1565c0;
+        text-decoration: underline;
+      }
+      .sim-content .sim-btn-demo {
+        display: inline-block;
+        padding: 0.6rem 1.25rem;
+        margin: 0.5rem 0.5rem 0 0;
+        background: var(--ua-maroon, #ab0520);
+        color: #fff;
+        border: none;
+        border-radius: 0.375rem;
+        font: inherit;
+        font-weight: 600;
+        cursor: default; /* non-functional demo */
+      }
+      .sim-content .sim-btn-outline {
+        display: inline-block;
+        padding: 0.6rem 1.25rem;
+        margin: 0.5rem 0.5rem 0 0;
+        background: #fff;
+        color: var(--ua-maroon, #ab0520);
+        border: 2px solid var(--ua-maroon, #ab0520);
+        border-radius: 0.375rem;
+        font: inherit;
+        font-weight: 600;
+        cursor: default;
+      }
+      .sim-image-placeholder {
+        width: 100%;
+        height: 160px;
+        background: linear-gradient(
+          135deg,
+          #e3f2fd 0%,
+          #bbdefb 50%,
+          #90caf9 100%
+        );
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0d47a1;
+        font-weight: 600;
+        margin: 1rem 0;
+      }
+      .sim-form-demo {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: #f8f8f8;
+        border-radius: 0.5rem;
+      }
+      .sim-form-demo label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      .sim-form-demo input {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.4rem;
+        font: inherit;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+        margin-bottom: 0.75rem;
+      }
+      .sim-color-blocks {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 0.75rem 0;
+      }
+      .sim-color-block {
+        width: 50px;
+        height: 50px;
+        border-radius: 0.375rem;
+        border: 1px solid #ccc;
+      }
 
-/* ── Tunnel vision overlay ───────────────────── */
-.tunnel-overlay {
-  display: none; position: absolute; inset: 0; pointer-events: none; z-index: 10;
-  background: radial-gradient(circle 120px at center, transparent 0%, transparent 60%, rgba(0,0,0,0.95) 100%);
-}
-.tunnel-overlay.active { display: block; }
+      /* ── Tunnel vision overlay ───────────────────── */
+      .tunnel-overlay {
+        display: none;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 10;
+        background: radial-gradient(
+          circle 120px at center,
+          transparent 0%,
+          transparent 60%,
+          rgba(0, 0, 0, 0.95) 100%
+        );
+      }
+      .tunnel-overlay.active {
+        display: block;
+      }
 
-/* ── Macular degeneration overlay ────────────── */
-.macula-overlay {
-  display: none; position: absolute; inset: 0; pointer-events: none; z-index: 10;
-  background: radial-gradient(circle 80px at center, rgba(80,80,80,0.85) 0%, transparent 70%);
-}
-.macula-overlay.active { display: block; }
+      /* ── Macular degeneration overlay ────────────── */
+      .macula-overlay {
+        display: none;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 10;
+        background: radial-gradient(
+          circle 80px at center,
+          rgba(80, 80, 80, 0.85) 0%,
+          transparent 70%
+        );
+      }
+      .macula-overlay.active {
+        display: block;
+      }
 
-/* ── Info cards ──────────────────────────────── */
-.sim-info {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem; margin-top: 2rem;
-}
-.sim-info-card {
-  border: 1px solid var(--border-color, #d0d5dd); border-radius: 0.5rem;
-  padding: 1.25rem; background: #fff;
-}
-.sim-info-card h3 { margin-top: 0; font-size: 1rem; }
-.sim-info-card p { font-size: 0.9rem; color: var(--text-muted, #595959); line-height: 1.5; margin: 0.35rem 0 0; }
+      /* ── Info cards ──────────────────────────────── */
+      .sim-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .sim-info-card {
+        border: 1px solid var(--border-color, #d0d5dd);
+        border-radius: 0.5rem;
+        padding: 1.25rem;
+        background: #fff;
+      }
+      .sim-info-card h3 {
+        margin-top: 0;
+        font-size: 1rem;
+      }
+      .sim-info-card p {
+        font-size: 0.9rem;
+        color: var(--text-muted, #595959);
+        line-height: 1.5;
+        margin: 0.35rem 0 0;
+      }
 
-/* ── Active count ────────────────────────────── */
-.sim-active-count {
-  font-size: 0.9rem; color: var(--text-muted, #595959);
-  margin-bottom: 0.75rem; font-weight: 600;
-}
+      /* ── Active count ────────────────────────────── */
+      .sim-active-count {
+        font-size: 0.9rem;
+        color: var(--text-muted, #595959);
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
 
-@media (prefers-reduced-motion: reduce) {
-  .sim-viewport { transition: none; }
-}
-
-/* ── SVG filters (hidden) ────────────────────── */
-.svg-filters { position: absolute; width: 0; height: 0; overflow: hidden; }
-</style>
-</head>
-<body>
-<a class="skip-link" href="#maincontent">Skip to main content</a>
-<header>
-<div class="site-header">
-  <div class="site-header-brand">University of Arizona &middot; Digital Accessibility</div>
-  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">Menu</button>
-  <nav class="site-header-nav" id="primary-nav" aria-label="Primary navigation">
-    <a href="home.html">Home</a>
-    <a href="documents-media.html">Documents &amp; Media</a>
-    <a href="web-app.html">Web &amp; Apps</a>
-    <a href="teaching-learning.html">Teaching &amp; Learning</a>
-    <a href="procurement.html">Procurement</a>
-    <a href="tools-checklists.html">Tools &amp; Checklists</a>
-    <a href="policies-governance.html">Policies &amp; Governance</a>
-    <a href="support.html">Support</a>
-  </nav>
-</div>
-<nav aria-label="Breadcrumb">
-  <p><a href="home.html">Home</a> / <a href="tools-checklists.html">Tools</a> / Low Vision Simulator</p>
-</nav>
-<h1>Low Vision Simulator</h1>
-<p class="muted">See how different vision conditions affect everyday web content. Toggle conditions on and off to understand the barriers millions of people face.</p>
-</header>
-
-<main id="maincontent">
-  <div id="sim-announce" class="sr-only" aria-live="assertive" role="status"></div>
-
-  <!-- Hidden SVG filters for color blindness simulation -->
-  <svg class="svg-filters" aria-hidden="true">
-    <defs>
-      <!-- Protanopia (no red cones) -->
-      <filter id="protanopia">
-        <feColorMatrix type="matrix" values="
-          0.567, 0.433, 0,     0, 0
-          0.558, 0.442, 0,     0, 0
-          0,     0.242, 0.758, 0, 0
-          0,     0,     0,     1, 0" />
-      </filter>
-      <!-- Deuteranopia (no green cones) -->
-      <filter id="deuteranopia">
-        <feColorMatrix type="matrix" values="
-          0.625, 0.375, 0,   0, 0
-          0.7,   0.3,   0,   0, 0
-          0,     0.3,   0.7, 0, 0
-          0,     0,     0,   1, 0" />
-      </filter>
-      <!-- Tritanopia (no blue cones) -->
-      <filter id="tritanopia">
-        <feColorMatrix type="matrix" values="
-          0.95, 0.05,  0,     0, 0
-          0,    0.433, 0.567, 0, 0
-          0,    0.475, 0.525, 0, 0
-          0,    0,     0,     1, 0" />
-      </filter>
-      <!-- Achromatopsia (total color blindness) -->
-      <filter id="achromatopsia">
-        <feColorMatrix type="matrix" values="
-          0.299, 0.587, 0.114, 0, 0
-          0.299, 0.587, 0.114, 0, 0
-          0.299, 0.587, 0.114, 0, 0
-          0,     0,     0,     1, 0" />
-      </filter>
-    </defs>
-  </svg>
-
-  <p>Toggle one or more conditions below, then scroll through the sample content to see the effect. This is an approximation &mdash; real experiences vary by individual.</p>
-
-  <!-- Controls -->
-  <fieldset style="border:none;padding:0;margin:0;">
-    <legend><strong>Vision conditions</strong></legend>
-    <div class="sim-controls" id="sim-controls">
-
-      <label class="sim-toggle" data-active="false">
-        <input type="checkbox" id="chk-blur" value="blur" />
-        <span class="sim-toggle-text">
-          <span class="sim-toggle-title">Cataracts / Blur</span>
-          <span class="sim-toggle-desc">Blurred vision, like looking through frosted glass</span>
-        </span>
-      </label>
-
-      <label class="sim-toggle" data-active="false">
-        <input type="checkbox" id="chk-contrast" value="contrast" />
-        <span class="sim-toggle-text">
-          <span class="sim-toggle-title">Low Contrast</span>
-          <span class="sim-toggle-desc">Reduced ability to distinguish light from dark</span>
-        </span>
-      </label>
-
-      <label class="sim-toggle" data-active="false">
-        <input type="checkbox" id="chk-protanopia" value="protanopia" />
-        <span class="sim-toggle-text">
-          <span class="sim-toggle-title">Protanopia</span>
-          <span class="sim-toggle-desc">Red-blind &mdash; reds appear dark, mix with greens</span>
-        </span>
-      </label>
-
-      <label class="sim-toggle" data-active="false">
-        <input type="checkbox" id="chk-deuteranopia" value="deuteranopia" />
-        <span class="sim-toggle-text">
-          <span class="sim-toggle-title">Deuteranopia</span>
-          <span class="sim-toggle-desc">Green-blind &mdash; greens and reds look similar</span>
-        </span>
-      </label>
-
-      <label class="sim-toggle" data-active="false">
-        <input type="checkbox" id="chk-tritanopia" value="tritanopia" />
-        <span class="sim-toggle-text">
-          <span class="sim-toggle-title">Tritanopia</span>
-          <span class="sim-toggle-desc">Blue-blind &mdash; blues and yellows are confused</span>
-        </span>
-      </label>
-
-      <label class="sim-toggle" data-active="false">
-        <input type="checkbox" id="chk-achromatopsia" value="achromatopsia" />
-        <span class="sim-toggle-text">
-          <span class="sim-toggle-title">Achromatopsia</span>
-          <span class="sim-toggle-desc">Total color blindness &mdash; grayscale only</span>
-        </span>
-      </label>
-
-      <label class="sim-toggle" data-active="false">
-        <input type="checkbox" id="chk-tunnel" value="tunnel" />
-        <span class="sim-toggle-text">
-          <span class="sim-toggle-title">Tunnel Vision</span>
-          <span class="sim-toggle-desc">Only a small central area is visible (glaucoma, RP)</span>
-        </span>
-      </label>
-
-      <label class="sim-toggle" data-active="false">
-        <input type="checkbox" id="chk-macula" value="macula" />
-        <span class="sim-toggle-text">
-          <span class="sim-toggle-title">Macular Degeneration</span>
-          <span class="sim-toggle-desc">Central vision is lost; peripheral remains</span>
-        </span>
-      </label>
-
-    </div>
-  </fieldset>
-
-  <!-- Blur intensity slider (shown when blur is active) -->
-  <div class="sim-slider-row" id="blur-slider-row" hidden>
-    <label for="blur-amount">Blur intensity: <span id="blur-value">3</span>px</label>
-    <input type="range" id="blur-amount" min="1" max="8" value="3" step="0.5" />
-  </div>
-
-  <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;margin-bottom:1rem;">
-    <button type="button" class="sim-reset" id="btn-reset">Reset All</button>
-    <span class="sim-active-count" id="active-count" aria-live="polite">No conditions active</span>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       SAMPLE CONTENT VIEWPORT
-       ═══════════════════════════════════════════ -->
-  <div class="sim-viewport" id="sim-viewport">
-    <!-- Overlays (tunnel, macula) -->
-    <div class="tunnel-overlay" id="tunnel-overlay" aria-hidden="true"></div>
-    <div class="macula-overlay" id="macula-overlay" aria-hidden="true"></div>
-
-    <div class="sim-content">
-      <h2>Welcome to the University of Arizona</h2>
-      <p>The University of Arizona is committed to making all digital content accessible to every student, faculty member, staff member, and visitor. Accessibility is not an afterthought &mdash; it is a core principle of inclusive design.</p>
-
-      <div class="sim-image-placeholder" role="img" aria-label="Decorative placeholder showing a gradient from light blue to medium blue">
-        Sample Hero Image
-      </div>
-
-      <p>Learn about our <a href="#">accessibility services</a>, review <a href="#">WCAG 2.2 guidelines</a>, or <a href="#">schedule a consultation</a> with our team.</p>
-
-      <!-- Color-dependent content — the key demo -->
-      <h3>Status Indicators</h3>
-      <p>These status labels rely on color alone (an accessibility problem):</p>
-      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin:0.5rem 0 1rem;">
-        <span style="background:#4caf50;color:#fff;padding:0.3rem 0.75rem;border-radius:4px;font-weight:600;">Approved</span>
-        <span style="background:#f44336;color:#fff;padding:0.3rem 0.75rem;border-radius:4px;font-weight:600;">Rejected</span>
-        <span style="background:#ff9800;color:#fff;padding:0.3rem 0.75rem;border-radius:4px;font-weight:600;">Pending</span>
-        <span style="background:#2196f3;color:#fff;padding:0.3rem 0.75rem;border-radius:4px;font-weight:600;">In Review</span>
-      </div>
-
-      <h3>Color Palette</h3>
-      <div class="sim-color-blocks">
-        <div class="sim-color-block" style="background:#ab0520;" title="UA Maroon #ab0520" role="img" aria-label="UA Maroon"></div>
-        <div class="sim-color-block" style="background:#0c234b;" title="UA Blue #0c234b" role="img" aria-label="UA Blue"></div>
-        <div class="sim-color-block" style="background:#4caf50;" title="Green #4caf50" role="img" aria-label="Green"></div>
-        <div class="sim-color-block" style="background:#f44336;" title="Red #f44336" role="img" aria-label="Red"></div>
-        <div class="sim-color-block" style="background:#ff9800;" title="Orange #ff9800" role="img" aria-label="Orange"></div>
-        <div class="sim-color-block" style="background:#2196f3;" title="Blue #2196f3" role="img" aria-label="Blue"></div>
-        <div class="sim-color-block" style="background:#9c27b0;" title="Purple #9c27b0" role="img" aria-label="Purple"></div>
-        <div class="sim-color-block" style="background:#ffeb3b;" title="Yellow #ffeb3b" role="img" aria-label="Yellow"></div>
-      </div>
-
-      <h3>Sample Form</h3>
-      <div class="sim-form-demo">
-        <label for="sim-fname">First name</label>
-        <input type="text" id="sim-fname" value="Jane" tabindex="-1" aria-hidden="true" />
-        <label for="sim-lname">Last name</label>
-        <input type="text" id="sim-lname" value="Doe" tabindex="-1" aria-hidden="true" />
-      </div>
-
-      <h3>Buttons</h3>
-      <span class="sim-btn-demo">Primary Action</span>
-      <span class="sim-btn-outline">Secondary Action</span>
-
-      <h3>Small Print</h3>
-      <p style="font-size:0.75rem;color:#888;">By using this service you agree to the Terms of Service and Privacy Policy. Contact accessibility@arizona.edu with questions. &copy; 2026 The Arizona Board of Regents.</p>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       INFO CARDS
-       ═══════════════════════════════════════════ -->
-  <div class="sim-info">
-    <div class="sim-info-card">
-      <h3>Cataracts</h3>
-      <p>Affects 24 million Americans over 40. The eye&rsquo;s lens becomes cloudy, creating a blurred, hazy view. Good contrast and large text help.</p>
-    </div>
-    <div class="sim-info-card">
-      <h3>Color Blindness</h3>
-      <p>About 8% of men and 0.5% of women have some form. Red-green (protanopia, deuteranopia) is most common. Never use color as the sole indicator of meaning.</p>
-    </div>
-    <div class="sim-info-card">
-      <h3>Low Contrast Sensitivity</h3>
-      <p>Common with aging, glaucoma, and diabetic retinopathy. Text below 4.5:1 contrast becomes illegible. WCAG AA requires 4.5:1 for normal text.</p>
-    </div>
-    <div class="sim-info-card">
-      <h3>Tunnel Vision</h3>
-      <p>Caused by glaucoma or retinitis pigmentosa. Only a narrow central field remains. Users need content that doesn&rsquo;t require wide-field scanning.</p>
-    </div>
-    <div class="sim-info-card">
-      <h3>Macular Degeneration</h3>
-      <p>Leading cause of vision loss for people over 50. Central vision is lost first, making reading difficult. Peripheral vision remains.</p>
-    </div>
-    <div class="sim-info-card">
-      <h3>Design Takeaways</h3>
-      <p>Use sufficient contrast, don&rsquo;t rely on color alone, provide text alternatives, support zoom to 200%, and test with real users.</p>
-    </div>
-  </div>
-
-  <p style="margin-top:2rem;"><a href="interactive-tools.html">&larr; Back to Interactive Tools</a></p>
-</main>
-
-<footer>
-<p>&copy; 2026 The Arizona Board of Regents on behalf of The University of Arizona.</p>
-<p>Questions? <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a> | <a href="tel:+15206213268">520-621-3268</a> | <a href="ai-assistant.html">AI Assistant</a></p>
-<p><a href="accessibility-statement.html">Accessibility Statement</a> | <a href="glossary.html">Glossary</a> | <a href="faq.html">FAQ</a></p>
-</footer>
-
-<noscript>
-<div style="border:1px solid #d0d5dd;padding:1.5rem;margin:2rem 1rem;border-radius:0.5rem;">
-  <h2>JavaScript is required</h2>
-  <p>This simulator needs JavaScript. Read about <a href="accessibility-101.html">accessibility basics</a> or browse <a href="tools-checklists.html">Tools &amp; Checklists</a> instead.</p>
-</div>
-</noscript>
-
-<script>
-(function () {
-  'use strict';
-
-  var viewport  = document.getElementById('sim-viewport');
-  var tunnelOv  = document.getElementById('tunnel-overlay');
-  var maculaOv  = document.getElementById('macula-overlay');
-  var blurRow   = document.getElementById('blur-slider-row');
-  var blurSlider= document.getElementById('blur-amount');
-  var blurValue = document.getElementById('blur-value');
-  var countEl   = document.getElementById('active-count');
-  var announce  = document.getElementById('sim-announce');
-  var checkboxes= document.querySelectorAll('#sim-controls input[type="checkbox"]');
-
-  var state = {
-    blur: false,
-    contrast: false,
-    protanopia: false,
-    deuteranopia: false,
-    tritanopia: false,
-    achromatopsia: false,
-    tunnel: false,
-    macula: false,
-    blurAmount: 3
-  };
-
-  /* ═══════════════════════════════════════════════
-     APPLY FILTERS
-     ═══════════════════════════════════════════════ */
-  function applyFilters() {
-    var filters = [];
-
-    if (state.blur) filters.push('blur(' + state.blurAmount + 'px)');
-    if (state.contrast) filters.push('contrast(0.35) brightness(1.3)');
-    if (state.protanopia) filters.push('url(#protanopia)');
-    if (state.deuteranopia) filters.push('url(#deuteranopia)');
-    if (state.tritanopia) filters.push('url(#tritanopia)');
-    if (state.achromatopsia) filters.push('url(#achromatopsia)');
-
-    viewport.style.filter = filters.length ? filters.join(' ') : 'none';
-
-    // Overlays
-    if (state.tunnel) tunnelOv.classList.add('active');
-    else tunnelOv.classList.remove('active');
-
-    if (state.macula) maculaOv.classList.add('active');
-    else maculaOv.classList.remove('active');
-
-    // Blur slider visibility
-    blurRow.hidden = !state.blur;
-
-    // Update count
-    var active = 0;
-    for (var k in state) {
-      if (k !== 'blurAmount' && state[k]) active++;
-    }
-    if (active === 0) countEl.textContent = 'No conditions active';
-    else if (active === 1) countEl.textContent = '1 condition active';
-    else countEl.textContent = active + ' conditions active';
-
-    // Update toggle styling
-    for (var i = 0; i < checkboxes.length; i++) {
-      var toggle = checkboxes[i].closest('.sim-toggle');
-      toggle.setAttribute('data-active', String(checkboxes[i].checked));
-    }
-  }
-
-  /* ═══════════════════════════════════════════════
-     CHECKBOX EVENTS
-     ═══════════════════════════════════════════════ */
-  for (var i = 0; i < checkboxes.length; i++) {
-    checkboxes[i].addEventListener('change', function () {
-      var val = this.value;
-
-      // Color blindness modes are mutually exclusive
-      var cbModes = ['protanopia', 'deuteranopia', 'tritanopia', 'achromatopsia'];
-      if (cbModes.indexOf(val) !== -1 && this.checked) {
-        for (var j = 0; j < cbModes.length; j++) {
-          if (cbModes[j] !== val) {
-            state[cbModes[j]] = false;
-            document.getElementById('chk-' + cbModes[j]).checked = false;
-          }
+      @media (prefers-reduced-motion: reduce) {
+        .sim-viewport {
+          transition: none;
         }
       }
 
-      state[val] = this.checked;
-      applyFilters();
+      /* ── SVG filters (hidden) ────────────────────── */
+      .svg-filters {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#maincontent">Skip to main content</a>
+    <header>
+      <div class="site-header">
+        <div class="site-header-brand">
+          University of Arizona &middot; Digital Accessibility
+        </div>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation menu"
+        >
+          Menu
+        </button>
+        <nav
+          class="site-header-nav"
+          id="primary-nav"
+          aria-label="Primary navigation"
+        >
+          <a href="home.html">Home</a>
+          <a href="documents-media.html">Documents &amp; Media</a>
+          <a href="web-app.html">Web &amp; Apps</a>
+          <a href="teaching-learning.html">Teaching &amp; Learning</a>
+          <a href="procurement.html">Procurement</a>
+          <a href="tools-checklists.html">Tools &amp; Checklists</a>
+          <a href="policies-governance.html">Policies &amp; Governance</a>
+          <a href="support.html">Support</a>
+        </nav>
+      </div>
+      <nav aria-label="Breadcrumb">
+        <p>
+          <a href="home.html">Home</a> /
+          <a href="tools-checklists.html">Tools</a> / Low Vision Simulator
+        </p>
+      </nav>
+      <h1>Low Vision Simulator</h1>
+      <p class="muted">
+        See how different vision conditions affect everyday web content. Toggle
+        conditions on and off to understand the barriers millions of people
+        face.
+      </p>
+    </header>
 
-      var label = this.closest('.sim-toggle').querySelector('.sim-toggle-title').textContent;
-      announce.textContent = label + (this.checked ? ' enabled' : ' disabled');
-    });
-  }
+    <main id="maincontent">
+      <div
+        id="sim-announce"
+        class="sr-only"
+        aria-live="assertive"
+        role="status"
+      ></div>
 
-  /* ═══════════════════════════════════════════════
+      <!-- Hidden SVG filters for color blindness simulation -->
+      <svg class="svg-filters" aria-hidden="true">
+        <defs>
+          <!-- Protanopia (no red cones) -->
+          <filter id="protanopia">
+            <feColorMatrix
+              type="matrix"
+              values="
+          0.567, 0.433, 0,     0, 0
+          0.558, 0.442, 0,     0, 0
+          0,     0.242, 0.758, 0, 0
+          0,     0,     0,     1, 0"
+            />
+          </filter>
+          <!-- Deuteranopia (no green cones) -->
+          <filter id="deuteranopia">
+            <feColorMatrix
+              type="matrix"
+              values="
+          0.625, 0.375, 0,   0, 0
+          0.7,   0.3,   0,   0, 0
+          0,     0.3,   0.7, 0, 0
+          0,     0,     0,   1, 0"
+            />
+          </filter>
+          <!-- Tritanopia (no blue cones) -->
+          <filter id="tritanopia">
+            <feColorMatrix
+              type="matrix"
+              values="
+          0.95, 0.05,  0,     0, 0
+          0,    0.433, 0.567, 0, 0
+          0,    0.475, 0.525, 0, 0
+          0,    0,     0,     1, 0"
+            />
+          </filter>
+          <!-- Achromatopsia (total color blindness) -->
+          <filter id="achromatopsia">
+            <feColorMatrix
+              type="matrix"
+              values="
+          0.299, 0.587, 0.114, 0, 0
+          0.299, 0.587, 0.114, 0, 0
+          0.299, 0.587, 0.114, 0, 0
+          0,     0,     0,     1, 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      <p>
+        Toggle one or more conditions below, then scroll through the sample
+        content to see the effect. This is an approximation &mdash; real
+        experiences vary by individual.
+      </p>
+
+      <!-- Controls -->
+      <fieldset style="border: none; padding: 0; margin: 0">
+        <legend><strong>Vision conditions</strong></legend>
+        <div class="sim-controls" id="sim-controls">
+          <label class="sim-toggle" data-active="false">
+            <input type="checkbox" id="chk-blur" value="blur" />
+            <span class="sim-toggle-text">
+              <span class="sim-toggle-title">Cataracts / Blur</span>
+              <span class="sim-toggle-desc"
+                >Blurred vision, like looking through frosted glass</span
+              >
+            </span>
+          </label>
+
+          <label class="sim-toggle" data-active="false">
+            <input type="checkbox" id="chk-contrast" value="contrast" />
+            <span class="sim-toggle-text">
+              <span class="sim-toggle-title">Low Contrast</span>
+              <span class="sim-toggle-desc"
+                >Reduced ability to distinguish light from dark</span
+              >
+            </span>
+          </label>
+
+          <label class="sim-toggle" data-active="false">
+            <input type="checkbox" id="chk-protanopia" value="protanopia" />
+            <span class="sim-toggle-text">
+              <span class="sim-toggle-title">Protanopia</span>
+              <span class="sim-toggle-desc"
+                >Red-blind &mdash; reds appear dark, mix with greens</span
+              >
+            </span>
+          </label>
+
+          <label class="sim-toggle" data-active="false">
+            <input type="checkbox" id="chk-deuteranopia" value="deuteranopia" />
+            <span class="sim-toggle-text">
+              <span class="sim-toggle-title">Deuteranopia</span>
+              <span class="sim-toggle-desc"
+                >Green-blind &mdash; greens and reds look similar</span
+              >
+            </span>
+          </label>
+
+          <label class="sim-toggle" data-active="false">
+            <input type="checkbox" id="chk-tritanopia" value="tritanopia" />
+            <span class="sim-toggle-text">
+              <span class="sim-toggle-title">Tritanopia</span>
+              <span class="sim-toggle-desc"
+                >Blue-blind &mdash; blues and yellows are confused</span
+              >
+            </span>
+          </label>
+
+          <label class="sim-toggle" data-active="false">
+            <input
+              type="checkbox"
+              id="chk-achromatopsia"
+              value="achromatopsia"
+            />
+            <span class="sim-toggle-text">
+              <span class="sim-toggle-title">Achromatopsia</span>
+              <span class="sim-toggle-desc"
+                >Total color blindness &mdash; grayscale only</span
+              >
+            </span>
+          </label>
+
+          <label class="sim-toggle" data-active="false">
+            <input type="checkbox" id="chk-tunnel" value="tunnel" />
+            <span class="sim-toggle-text">
+              <span class="sim-toggle-title">Tunnel Vision</span>
+              <span class="sim-toggle-desc"
+                >Only a small central area is visible (glaucoma, RP)</span
+              >
+            </span>
+          </label>
+
+          <label class="sim-toggle" data-active="false">
+            <input type="checkbox" id="chk-macula" value="macula" />
+            <span class="sim-toggle-text">
+              <span class="sim-toggle-title">Macular Degeneration</span>
+              <span class="sim-toggle-desc"
+                >Central vision is lost; peripheral remains</span
+              >
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Blur intensity slider (shown when blur is active) -->
+      <div class="sim-slider-row" id="blur-slider-row" hidden>
+        <label for="blur-amount"
+          >Blur intensity: <span id="blur-value">3</span>px</label
+        >
+        <input
+          type="range"
+          id="blur-amount"
+          min="1"
+          max="8"
+          value="3"
+          step="0.5"
+        />
+      </div>
+
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          align-items: center;
+          margin-bottom: 1rem;
+        "
+      >
+        <button type="button" class="sim-reset" id="btn-reset">
+          Reset All
+        </button>
+        <span class="sim-active-count" id="active-count" aria-live="polite"
+          >No conditions active</span
+        >
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+       SAMPLE CONTENT VIEWPORT
+       ═══════════════════════════════════════════ -->
+      <div class="sim-viewport" id="sim-viewport">
+        <!-- Overlays (tunnel, macula) -->
+        <div
+          class="tunnel-overlay"
+          id="tunnel-overlay"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="macula-overlay"
+          id="macula-overlay"
+          aria-hidden="true"
+        ></div>
+
+        <div class="sim-content">
+          <h2>Welcome to the University of Arizona</h2>
+          <p>
+            The University of Arizona is committed to making all digital content
+            accessible to every student, faculty member, staff member, and
+            visitor. Accessibility is not an afterthought &mdash; it is a core
+            principle of inclusive design.
+          </p>
+
+          <div
+            class="sim-image-placeholder"
+            role="img"
+            aria-label="Decorative placeholder showing a gradient from light blue to medium blue"
+          >
+            Sample Hero Image
+          </div>
+
+          <p>
+            Learn about our <a href="#">accessibility services</a>, review
+            <a href="#">WCAG 2.2 guidelines</a>, or
+            <a href="#">schedule a consultation</a> with our team.
+          </p>
+
+          <!-- Color-dependent content — the key demo -->
+          <h3>Status Indicators</h3>
+          <p>
+            These status labels rely on color alone (an accessibility problem):
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 0.75rem;
+              flex-wrap: wrap;
+              margin: 0.5rem 0 1rem;
+            "
+          >
+            <span
+              style="
+                background: #4caf50;
+                color: #fff;
+                padding: 0.3rem 0.75rem;
+                border-radius: 4px;
+                font-weight: 600;
+              "
+              >Approved</span
+            >
+            <span
+              style="
+                background: #f44336;
+                color: #fff;
+                padding: 0.3rem 0.75rem;
+                border-radius: 4px;
+                font-weight: 600;
+              "
+              >Rejected</span
+            >
+            <span
+              style="
+                background: #ff9800;
+                color: #fff;
+                padding: 0.3rem 0.75rem;
+                border-radius: 4px;
+                font-weight: 600;
+              "
+              >Pending</span
+            >
+            <span
+              style="
+                background: #2196f3;
+                color: #fff;
+                padding: 0.3rem 0.75rem;
+                border-radius: 4px;
+                font-weight: 600;
+              "
+              >In Review</span
+            >
+          </div>
+
+          <h3>Color Palette</h3>
+          <div class="sim-color-blocks">
+            <div
+              class="sim-color-block"
+              style="background: #ab0520"
+              title="UA Maroon #ab0520"
+              role="img"
+              aria-label="UA Maroon"
+            ></div>
+            <div
+              class="sim-color-block"
+              style="background: #0c234b"
+              title="UA Blue #0c234b"
+              role="img"
+              aria-label="UA Blue"
+            ></div>
+            <div
+              class="sim-color-block"
+              style="background: #4caf50"
+              title="Green #4caf50"
+              role="img"
+              aria-label="Green"
+            ></div>
+            <div
+              class="sim-color-block"
+              style="background: #f44336"
+              title="Red #f44336"
+              role="img"
+              aria-label="Red"
+            ></div>
+            <div
+              class="sim-color-block"
+              style="background: #ff9800"
+              title="Orange #ff9800"
+              role="img"
+              aria-label="Orange"
+            ></div>
+            <div
+              class="sim-color-block"
+              style="background: #2196f3"
+              title="Blue #2196f3"
+              role="img"
+              aria-label="Blue"
+            ></div>
+            <div
+              class="sim-color-block"
+              style="background: #9c27b0"
+              title="Purple #9c27b0"
+              role="img"
+              aria-label="Purple"
+            ></div>
+            <div
+              class="sim-color-block"
+              style="background: #ffeb3b"
+              title="Yellow #ffeb3b"
+              role="img"
+              aria-label="Yellow"
+            ></div>
+          </div>
+
+          <h3>Sample Form</h3>
+          <div class="sim-form-demo">
+            <label for="sim-fname">First name</label>
+            <input
+              type="text"
+              id="sim-fname"
+              value="Jane"
+              tabindex="-1"
+              aria-hidden="true"
+            />
+            <label for="sim-lname">Last name</label>
+            <input
+              type="text"
+              id="sim-lname"
+              value="Doe"
+              tabindex="-1"
+              aria-hidden="true"
+            />
+          </div>
+
+          <h3>Buttons</h3>
+          <span class="sim-btn-demo">Primary Action</span>
+          <span class="sim-btn-outline">Secondary Action</span>
+
+          <h3>Small Print</h3>
+          <p style="font-size: 0.75rem; color: #888">
+            By using this service you agree to the Terms of Service and Privacy
+            Policy. Contact accessibility@arizona.edu with questions. &copy;
+            2026 The Arizona Board of Regents.
+          </p>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+       INFO CARDS
+       ═══════════════════════════════════════════ -->
+      <div class="sim-info">
+        <div class="sim-info-card">
+          <h3>Cataracts</h3>
+          <p>
+            Affects 24 million Americans over 40. The eye&rsquo;s lens becomes
+            cloudy, creating a blurred, hazy view. Good contrast and large text
+            help.
+          </p>
+        </div>
+        <div class="sim-info-card">
+          <h3>Color Blindness</h3>
+          <p>
+            About 8% of men and 0.5% of women have some form. Red-green
+            (protanopia, deuteranopia) is most common. Never use color as the
+            sole indicator of meaning.
+          </p>
+        </div>
+        <div class="sim-info-card">
+          <h3>Low Contrast Sensitivity</h3>
+          <p>
+            Common with aging, glaucoma, and diabetic retinopathy. Text below
+            4.5:1 contrast becomes illegible. WCAG AA requires 4.5:1 for normal
+            text.
+          </p>
+        </div>
+        <div class="sim-info-card">
+          <h3>Tunnel Vision</h3>
+          <p>
+            Caused by glaucoma or retinitis pigmentosa. Only a narrow central
+            field remains. Users need content that doesn&rsquo;t require
+            wide-field scanning.
+          </p>
+        </div>
+        <div class="sim-info-card">
+          <h3>Macular Degeneration</h3>
+          <p>
+            Leading cause of vision loss for people over 50. Central vision is
+            lost first, making reading difficult. Peripheral vision remains.
+          </p>
+        </div>
+        <div class="sim-info-card">
+          <h3>Design Takeaways</h3>
+          <p>
+            Use sufficient contrast, don&rsquo;t rely on color alone, provide
+            text alternatives, support zoom to 200%, and test with real users.
+          </p>
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem">
+        <a href="interactive-tools.html">&larr; Back to Interactive Tools</a>
+      </p>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2026 The Arizona Board of Regents on behalf of The University of
+        Arizona.
+      </p>
+      <p>
+        Questions?
+        <a href="mailto:accessibility@arizona.edu">accessibility@arizona.edu</a>
+        | <a href="tel:+15206213268">520-621-3268</a> |
+        <a href="ai-assistant.html">AI Assistant</a>
+      </p>
+      <p>
+        <a href="accessibility-statement.html">Accessibility Statement</a> |
+        <a href="glossary.html">Glossary</a> | <a href="faq.html">FAQ</a>
+      </p>
+    </footer>
+
+    <noscript>
+      <div
+        style="
+          border: 1px solid #d0d5dd;
+          padding: 1.5rem;
+          margin: 2rem 1rem;
+          border-radius: 0.5rem;
+        "
+      >
+        <h2>JavaScript is required</h2>
+        <p>
+          This simulator needs JavaScript. Read about
+          <a href="accessibility-101.html">accessibility basics</a> or browse
+          <a href="tools-checklists.html">Tools &amp; Checklists</a> instead.
+        </p>
+      </div>
+    </noscript>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var viewport = document.getElementById("sim-viewport");
+        var tunnelOv = document.getElementById("tunnel-overlay");
+        var maculaOv = document.getElementById("macula-overlay");
+        var blurRow = document.getElementById("blur-slider-row");
+        var blurSlider = document.getElementById("blur-amount");
+        var blurValue = document.getElementById("blur-value");
+        var countEl = document.getElementById("active-count");
+        var announce = document.getElementById("sim-announce");
+        var checkboxes = document.querySelectorAll(
+          '#sim-controls input[type="checkbox"]',
+        );
+
+        var state = {
+          blur: false,
+          contrast: false,
+          protanopia: false,
+          deuteranopia: false,
+          tritanopia: false,
+          achromatopsia: false,
+          tunnel: false,
+          macula: false,
+          blurAmount: 3,
+        };
+
+        /* ═══════════════════════════════════════════════
+     APPLY FILTERS
+     ═══════════════════════════════════════════════ */
+        function applyFilters() {
+          var filters = [];
+
+          if (state.blur) filters.push("blur(" + state.blurAmount + "px)");
+          if (state.contrast) filters.push("contrast(0.35) brightness(1.3)");
+          if (state.protanopia) filters.push("url(#protanopia)");
+          if (state.deuteranopia) filters.push("url(#deuteranopia)");
+          if (state.tritanopia) filters.push("url(#tritanopia)");
+          if (state.achromatopsia) filters.push("url(#achromatopsia)");
+
+          viewport.style.filter = filters.length ? filters.join(" ") : "none";
+
+          // Overlays
+          if (state.tunnel) tunnelOv.classList.add("active");
+          else tunnelOv.classList.remove("active");
+
+          if (state.macula) maculaOv.classList.add("active");
+          else maculaOv.classList.remove("active");
+
+          // Blur slider visibility
+          blurRow.hidden = !state.blur;
+
+          // Update count
+          var active = 0;
+          for (var k in state) {
+            if (k !== "blurAmount" && state[k]) active++;
+          }
+          if (active === 0) countEl.textContent = "No conditions active";
+          else if (active === 1) countEl.textContent = "1 condition active";
+          else countEl.textContent = active + " conditions active";
+
+          // Update toggle styling
+          for (var i = 0; i < checkboxes.length; i++) {
+            var toggle = checkboxes[i].closest(".sim-toggle");
+            toggle.setAttribute("data-active", String(checkboxes[i].checked));
+          }
+        }
+
+        /* ═══════════════════════════════════════════════
+     CHECKBOX EVENTS
+     ═══════════════════════════════════════════════ */
+        for (var i = 0; i < checkboxes.length; i++) {
+          checkboxes[i].addEventListener("change", function () {
+            var val = this.value;
+
+            // Color blindness modes are mutually exclusive
+            var cbModes = [
+              "protanopia",
+              "deuteranopia",
+              "tritanopia",
+              "achromatopsia",
+            ];
+            if (cbModes.indexOf(val) !== -1 && this.checked) {
+              for (var j = 0; j < cbModes.length; j++) {
+                if (cbModes[j] !== val) {
+                  state[cbModes[j]] = false;
+                  document.getElementById("chk-" + cbModes[j]).checked = false;
+                }
+              }
+            }
+
+            state[val] = this.checked;
+            applyFilters();
+
+            var label =
+              this.closest(".sim-toggle").querySelector(
+                ".sim-toggle-title",
+              ).textContent;
+            announce.textContent =
+              label + (this.checked ? " enabled" : " disabled");
+          });
+        }
+
+        /* ═══════════════════════════════════════════════
      BLUR SLIDER
      ═══════════════════════════════════════════════ */
-  blurSlider.addEventListener('input', function () {
-    state.blurAmount = parseFloat(this.value);
-    blurValue.textContent = this.value;
-    applyFilters();
-  });
+        blurSlider.addEventListener("input", function () {
+          state.blurAmount = parseFloat(this.value);
+          blurValue.textContent = this.value;
+          applyFilters();
+        });
 
-  /* ═══════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════
      TUNNEL VISION — follow mouse/touch
      ═══════════════════════════════════════════════ */
-  viewport.addEventListener('mousemove', function (e) {
-    if (!state.tunnel) return;
-    var rect = viewport.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    tunnelOv.style.background =
-      'radial-gradient(circle 120px at ' + x + 'px ' + y + 'px, transparent 0%, transparent 60%, rgba(0,0,0,0.95) 100%)';
-  });
+        viewport.addEventListener("mousemove", function (e) {
+          if (!state.tunnel) return;
+          var rect = viewport.getBoundingClientRect();
+          var x = e.clientX - rect.left;
+          var y = e.clientY - rect.top;
+          tunnelOv.style.background =
+            "radial-gradient(circle 120px at " +
+            x +
+            "px " +
+            y +
+            "px, transparent 0%, transparent 60%, rgba(0,0,0,0.95) 100%)";
+        });
 
-  viewport.addEventListener('touchmove', function (e) {
-    if (!state.tunnel) return;
-    var touch = e.touches[0];
-    var rect = viewport.getBoundingClientRect();
-    var x = touch.clientX - rect.left;
-    var y = touch.clientY - rect.top;
-    tunnelOv.style.background =
-      'radial-gradient(circle 120px at ' + x + 'px ' + y + 'px, transparent 0%, transparent 60%, rgba(0,0,0,0.95) 100%)';
-  });
+        viewport.addEventListener("touchmove", function (e) {
+          if (!state.tunnel) return;
+          var touch = e.touches[0];
+          var rect = viewport.getBoundingClientRect();
+          var x = touch.clientX - rect.left;
+          var y = touch.clientY - rect.top;
+          tunnelOv.style.background =
+            "radial-gradient(circle 120px at " +
+            x +
+            "px " +
+            y +
+            "px, transparent 0%, transparent 60%, rgba(0,0,0,0.95) 100%)";
+        });
 
-  /* ═══════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════
      MACULAR DEGENERATION — follow mouse/touch
      ═══════════════════════════════════════════════ */
-  viewport.addEventListener('mousemove', function (e) {
-    if (!state.macula) return;
-    var rect = viewport.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    maculaOv.style.background =
-      'radial-gradient(circle 80px at ' + x + 'px ' + y + 'px, rgba(80,80,80,0.85) 0%, transparent 70%)';
-  });
+        viewport.addEventListener("mousemove", function (e) {
+          if (!state.macula) return;
+          var rect = viewport.getBoundingClientRect();
+          var x = e.clientX - rect.left;
+          var y = e.clientY - rect.top;
+          maculaOv.style.background =
+            "radial-gradient(circle 80px at " +
+            x +
+            "px " +
+            y +
+            "px, rgba(80,80,80,0.85) 0%, transparent 70%)";
+        });
 
-  viewport.addEventListener('touchmove', function (e) {
-    if (!state.macula) return;
-    var touch = e.touches[0];
-    var rect = viewport.getBoundingClientRect();
-    var x = touch.clientX - rect.left;
-    var y = touch.clientY - rect.top;
-    maculaOv.style.background =
-      'radial-gradient(circle 80px at ' + x + 'px ' + y + 'px, rgba(80,80,80,0.85) 0%, transparent 70%)';
-  });
+        viewport.addEventListener("touchmove", function (e) {
+          if (!state.macula) return;
+          var touch = e.touches[0];
+          var rect = viewport.getBoundingClientRect();
+          var x = touch.clientX - rect.left;
+          var y = touch.clientY - rect.top;
+          maculaOv.style.background =
+            "radial-gradient(circle 80px at " +
+            x +
+            "px " +
+            y +
+            "px, rgba(80,80,80,0.85) 0%, transparent 70%)";
+        });
 
-  /* ═══════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════
      RESET
      ═══════════════════════════════════════════════ */
-  document.getElementById('btn-reset').addEventListener('click', function () {
-    for (var k in state) {
-      if (k === 'blurAmount') state[k] = 3;
-      else state[k] = false;
-    }
-    for (var c = 0; c < checkboxes.length; c++) {
-      checkboxes[c].checked = false;
-    }
-    blurSlider.value = 3;
-    blurValue.textContent = '3';
-    applyFilters();
-    announce.textContent = 'All conditions reset.';
-  });
+        document
+          .getElementById("btn-reset")
+          .addEventListener("click", function () {
+            for (var k in state) {
+              if (k === "blurAmount") state[k] = 3;
+              else state[k] = false;
+            }
+            for (var c = 0; c < checkboxes.length; c++) {
+              checkboxes[c].checked = false;
+            }
+            blurSlider.value = 3;
+            blurValue.textContent = "3";
+            applyFilters();
+            announce.textContent = "All conditions reset.";
+          });
 
-  // Initialize
-  applyFilters();
-
-})();
-</script>
-</body>
+        // Initialize
+        applyFilters();
+      })();
+    </script>
+  </body>
 </html>

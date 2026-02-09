@@ -445,6 +445,235 @@
         background: #ffebee;
         color: #c62828;
       }
+
+      /* ── Wizard Layout ───────────────────────────── */
+      .wizard-card {
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        background: #fff;
+        margin-bottom: 2rem;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+      }
+      .wizard-step {
+        display: none;
+      }
+      .wizard-step.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .wizard-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin: 1.5rem 0;
+      }
+      .wizard-option-btn {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        background: #fff;
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.75rem;
+        cursor: pointer;
+        text-align: left;
+        transition: border-color 0.15s, background 0.15s;
+        height: 100%;
+      }
+      .wizard-option-btn:hover {
+        border-color: var(--ua-maroon, #ab0520);
+        background: #fdf6f7;
+      }
+      .wizard-option-btn:focus-visible {
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
+      }
+      .wizard-option-btn.selected {
+        border-color: var(--ua-maroon, #ab0520);
+        background: #fdf1f3;
+        box-shadow: 0 0 0 1px var(--ua-maroon, #ab0520);
+      }
+      .wizard-option-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--ua-blue, #0c234b);
+      }
+      .wizard-option-desc {
+        font-size: 0.95rem;
+        color: var(--text-muted, #595959);
+        line-height: 1.4;
+      }
+      .wizard-summary {
+        background: #f8f8f8;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ── Quiz Layout ─────────────────────────────── */
+      .quiz-progress {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .quiz-progress-bar {
+        flex: 1;
+        min-width: 120px;
+        height: 0.5rem;
+        background: var(--border-color, #d0d5dd);
+        border-radius: 0.25rem;
+        overflow: hidden;
+      }
+      .quiz-progress-fill {
+        height: 100%;
+        background: var(--ua-maroon, #ab0520);
+        border-radius: 0.25rem;
+        transition: width 0.3s ease;
+        width: 0%;
+      }
+      .quiz-progress-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-muted, #595959);
+        white-space: nowrap;
+      }
+      .quiz-card {
+        border: 1px solid var(--border-color, #d0d5dd);
+        border-radius: 0.75rem;
+        padding: 1.75rem;
+        margin-bottom: 1.5rem;
+        background: #fff;
+      }
+      .quiz-scenario {
+        font-size: 0.95rem;
+        color: var(--text-muted, #595959);
+        margin: 0 0 1.25rem;
+        line-height: 1.5;
+      }
+      .quiz-options {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem;
+      }
+      .quiz-option {
+        margin-bottom: 0.5rem;
+      }
+      .quiz-option label {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s;
+        line-height: 1.4;
+      }
+      .quiz-option label:hover {
+        border-color: var(--ua-maroon, #ab0520);
+        background: #fdf6f7;
+      }
+      .quiz-option input[type="radio"] {
+        margin-top: 0.2rem;
+        flex-shrink: 0;
+        width: 1.1rem;
+        height: 1.1rem;
+        accent-color: var(--ua-maroon, #ab0520);
+      }
+      .quiz-option.correct label { border-color: #2e7d32; background: #e8f5e9; }
+      .quiz-option.incorrect label { border-color: #c62828; background: #ffebee; }
+      .quiz-option.reveal-correct label { border-color: #2e7d32; background: #e8f5e9; }
+      .quiz-feedback {
+        padding: 1rem 1.25rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        line-height: 1.5;
+      }
+      .quiz-feedback.correct { background: #e8f5e9; border-left: 4px solid #2e7d32; }
+      .quiz-feedback.incorrect { background: #ffebee; border-left: 4px solid #c62828; }
+      .quiz-results {
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        text-align: center;
+        background: #fff;
+      }
+      .quiz-score { font-size: 3rem; font-weight: 800; color: var(--ua-maroon, #ab0520); }
+
+      /* ── Keyboard Sim Layout ─────────────────────── */
+      .key-display {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1.5rem;
+        background: #f8f8f8;
+        border: 1px solid var(--border-color, #d0d5dd);
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        min-height: 2.5rem;
+      }
+      .key-display kbd {
+        display: inline-block;
+        padding: 0.25rem 0.6rem;
+        background: #fff;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        font-family: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        min-width: 1.5rem;
+        text-align: center;
+      }
+      .practice-area {
+        border: 2px solid var(--border-color, #d0d5dd);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        background: #fff;
+        margin-bottom: 1.5rem;
+      }
+      .demo-nav { display: flex; gap: 0; background: var(--ua-blue, #0c234b); border-radius: 0.5rem; overflow: hidden; margin-bottom: 1rem; }
+      .demo-nav-item { padding: 0.6rem 1rem; color: #fff; background: none; border: none; font: inherit; font-size: 0.9rem; cursor: pointer; transition: background 0.15s; }
+      .demo-nav-item:hover { background: rgba(255, 255, 255, 0.15); }
+      .demo-nav-item:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+      .demo-nav-item[aria-current="page"] { background: var(--ua-maroon, #ab0520); font-weight: 600; }
+      .task-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+      .task-list li { padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
+      .task-check.done { color: #2e7d32; }
+      .task-check.pending { color: #999; }
+
+      /* ── Readability Layout ──────────────────────── */
+      .read-input { width: 100%; min-height: 180px; padding: 1rem; font: inherit; font-size: 1rem; line-height: 1.6; border: 2px solid var(--border-color, #d0d5dd); border-radius: 0.5rem; margin: 0.5rem 0 1rem; resize: vertical; }
+      .read-results { border: 1px solid var(--border-color, #d0d5dd); border-radius: 0.75rem; padding: 1.5rem; background: #fff; margin-top: 1.5rem; }
+      .read-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+      .read-stat { text-align: center; padding: 1rem; background: #f8f8f8; border-radius: 0.5rem; border: 1px solid var(--border-color, #d0d5dd); }
+      .read-stat-value { font-size: 1.75rem; font-weight: 800; display: block; margin-bottom: 0.15rem; }
+      .read-badge { display: inline-block; padding: 0.3rem 0.85rem; border-radius: 2rem; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; }
+      .read-badge.easy { background: #e8f5e9; color: #2e7d32; border: 1px solid #2e7d32; }
+      .read-badge.moderate { background: #fff8e1; color: #f57f17; border: 1px solid #f57f17; }
+      .read-badge.hard { background: #ffebee; color: #c62828; border: 1px solid #c62828; }
+      .read-tips { margin-top: 1.25rem; padding: 1rem 1.25rem; background: #e3f2fd; border-left: 4px solid #1565c0; border-radius: 0 0.5rem 0.5rem 0; }
+
+      /* ── Low Vision Sim Layout ───────────────────── */
+      .sim-controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }
+      .sim-toggle { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 2px solid var(--border-color, #d0d5dd); border-radius: 0.5rem; background: #fff; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+      .sim-toggle:hover { border-color: var(--ua-maroon, #ab0520); }
+      .sim-toggle[data-active="true"] { border-color: var(--ua-maroon, #ab0520); background: #fdf1f3; }
+      .sim-viewport { position: relative; overflow: hidden; border: 2px solid var(--border-color, #d0d5dd); border-radius: 0.75rem; background: #fff; transition: filter 0.3s ease; }
+      .sim-content { padding: 2rem; max-width: 640px; margin: 0 auto; }
+      .tunnel-overlay, .macula-overlay { display: none; position: absolute; inset: 0; pointer-events: none; z-index: 10; }
+      .tunnel-overlay.active, .macula-overlay.active { display: block; }
+      .svg-filters { position: absolute; width: 0; height: 0; overflow: hidden; }
     </style>
   </head>
   <body>
@@ -961,8 +1190,74 @@ H3 Subsection"
         <h2 id="wizard-title">
           <span aria-hidden="true">🧭</span> Accessibility Quick-Start Wizard
         </h2>
-        <p>Answer three quick questions about your role and needs, and get a personalized list of accessibility resources, guides, and support actions. Takes about 30 seconds.</p>
-        <p><a href="wizard.html" class="analyze-btn" style="display:inline-block;text-decoration:none;text-align:center;">Launch the Wizard &rarr;</a></p>
+        <p>Answer three quick questions about your role and needs, and get a personalized list of accessibility resources, guides, and support actions.</p>
+        
+        <div id="wizard-container" class="wizard-card">
+          <div id="wizard-announce" class="sr-only" aria-live="polite"></div>
+          
+          <!-- Step 1: Role -->
+          <div class="wizard-step active" id="wizard-step-1">
+            <h3>Step 1: What is your primary role?</h3>
+            <p>We'll tailor the tools and resources based on your day-to-day work.</p>
+            <div class="wizard-options">
+              <button type="button" class="wizard-option-btn" data-role="staff">
+                <span class="wizard-option-title">Staff / Admin</span>
+                <span class="wizard-option-desc">Emails, documents, events, and general communications.</span>
+              </button>
+              <button type="button" class="wizard-option-btn" data-role="faculty">
+                <span class="wizard-option-title">Faculty / Instructor</span>
+                <span class="wizard-option-desc">Course content, D2L Brightspace, syllabus design, and teaching.</span>
+              </button>
+              <button type="button" class="wizard-option-btn" data-role="developer">
+                <span class="wizard-option-title">Developer / IT</span>
+                <span class="wizard-option-desc">Coding, web applications, widget development, and technical audits.</span>
+              </button>
+              <button type="button" class="wizard-option-btn" data-role="student">
+                <span class="wizard-option-title">Student</span>
+                <span class="wizard-option-desc">Assistive technology, accessible learning, and student support.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Need -->
+          <div class="wizard-step" id="wizard-step-2">
+            <button type="button" class="alt-btn-hint" onclick="wizardGoTo(1)" style="margin-bottom:1.5rem;">&larr; Back</button>
+            <h3>Step 2: What are you working on right now?</h3>
+            <p>Select the option that best matches your current task.</p>
+            <div id="wizard-needs-container" class="wizard-options">
+              <!-- JS populates based on role -->
+            </div>
+          </div>
+
+          <!-- Step 3: Support -->
+          <div class="wizard-step" id="wizard-step-3">
+            <button type="button" class="alt-btn-hint" onclick="wizardGoTo(2)" style="margin-bottom:1.5rem;">&larr; Back</button>
+            <h3>Step 3: What kind of support do you need?</h3>
+            <div class="wizard-options">
+              <button type="button" class="wizard-option-btn" data-support="checklist">
+                <span class="wizard-option-title">A Step-by-Step Checklist</span>
+                <span class="wizard-option-desc">I want a list of items to verify before I finish.</span>
+              </button>
+              <button type="button" class="wizard-option-btn" data-support="basics">
+                <span class="wizard-option-title">Basics & Concepts</span>
+                <span class="wizard-option-desc">Explain the "why" and "how" behind this topic.</span>
+              </button>
+              <button type="button" class="wizard-option-btn" data-support="tool">
+                <span class="wizard-option-title">A Tool or Simulator</span>
+                <span class="wizard-option-desc">I need a tool to test or simulate the experience.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 4: Results -->
+          <div class="wizard-step" id="wizard-step-4">
+            <h3 id="wizard-results-title">Your Quick-Start Guide</h3>
+            <div id="wizard-results-content" class="wizard-summary" aria-live="polite">
+              <!-- JS populates -->
+            </div>
+            <button type="button" class="analyze-btn" onclick="resetWizard()">Start Over</button>
+          </div>
+        </div>
       </section>
 
       <!-- Tool 6: WCAG Quick Quiz -->
@@ -970,8 +1265,17 @@ H3 Subsection"
         <h2 id="quiz-title">
           <span aria-hidden="true">🎯</span> WCAG Quick Quiz
         </h2>
-        <p>Test your accessibility knowledge with 10 scenario-based questions covering WCAG 2.2, ARIA, keyboard access, and more. Instant feedback and explanations help you learn as you go.</p>
-        <p><a href="wcag-quiz.html" class="analyze-btn" style="display:inline-block;text-decoration:none;text-align:center;">Take the Quiz &rarr;</a></p>
+        <p>Test your accessibility knowledge with scenario-based questions. Instant feedback after each answer.</p>
+        
+        <div id="quiz-announce" class="sr-only" aria-live="assertive" role="status"></div>
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10" aria-label="Quiz progress">
+            <div class="quiz-progress-fill" id="progress-fill"></div>
+          </div>
+          <span class="quiz-progress-label" id="progress-label">0 / 10</span>
+        </div>
+        <div id="quiz-area"></div>
+        <div id="quiz-results" class="quiz-results" hidden aria-live="polite"></div>
       </section>
 
       <!-- Tool 7: Keyboard Navigation Simulator -->
@@ -979,8 +1283,27 @@ H3 Subsection"
         <h2 id="keyboard-title">
           <span aria-hidden="true">⌨️</span> Keyboard Navigation Simulator
         </h2>
-        <p>Practice using Tab, Shift+Tab, Enter, Escape, and Arrow keys to navigate common UI patterns like menus, modals, tabs, and forms. See your keystrokes visualized in real time.</p>
-        <p><a href="keyboard-simulator.html" class="analyze-btn" style="display:inline-block;text-decoration:none;text-align:center;">Try the Simulator &rarr;</a></p>
+        <p>Practice navigating common UI patterns using only your keyboard. Your keystrokes are shown in real time.</p>
+
+        <div class="key-display" aria-live="polite">
+          <span class="key-display-label">Last key pressed:</span>
+          <kbd id="key-name">—</kbd>
+        </div>
+
+        <div class="practice-area">
+          <h3>Scenario: Navigation Bar</h3>
+          <p>Use <kbd>Tab</kbd> to move through the items. Press <kbd>Enter</kbd> on any item. Use <kbd>Shift+Tab</kbd> to go backward.</p>
+          <nav class="demo-nav" aria-label="Demo navigation">
+            <button type="button" class="demo-nav-item" aria-current="page" data-task="nav-home">Home</button>
+            <button type="button" class="demo-nav-item" data-task="nav-about">About</button>
+            <button type="button" class="demo-nav-item" data-task="nav-services">Services</button>
+            <button type="button" class="demo-nav-item" data-task="nav-contact">Contact</button>
+          </nav>
+          <ul class="task-list" id="tasks-nav">
+            <li><span class="task-check pending" aria-hidden="true">○</span> Tab to "About"</li>
+            <li><span class="task-check pending" aria-hidden="true">○</span> Press Enter on "Services"</li>
+          </ul>
+        </div>
       </section>
 
       <!-- Tool 8: Readability Scorer -->
@@ -988,8 +1311,19 @@ H3 Subsection"
         <h2 id="readability-title">
           <span aria-hidden="true">📖</span> Readability Scorer
         </h2>
-        <p>Paste any text to get its Flesch-Kincaid reading level, word and sentence counts, and plain-language suggestions. Aim for grade 8 or below to reach the widest audience.</p>
-        <p><a href="readability-scorer.html" class="analyze-btn" style="display:inline-block;text-decoration:none;text-align:center;">Score Your Text &rarr;</a></p>
+        <p>Paste text to see its reading level and plain-language tips. Aim for grade 8 or below.</p>
+        
+        <textarea id="read-text" class="read-input" placeholder="Paste your content here..."></textarea>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+          <button type="button" class="analyze-btn" id="btn-score-readability">Score Readability</button>
+          <button type="button" class="alt-btn-hint" id="btn-clear-readability">Clear</button>
+        </div>
+
+        <div id="read-results" class="read-results" hidden aria-live="polite">
+          <div class="read-grid" id="read-stats-grid"></div>
+          <div id="read-grade-section"></div>
+          <div id="read-tips-section"></div>
+        </div>
       </section>
 
       <!-- Tool 9: Low Vision Simulator -->
@@ -997,8 +1331,38 @@ H3 Subsection"
         <h2 id="lowvision-title">
           <span aria-hidden="true">👁️</span> Low Vision Simulator
         </h2>
-        <p>Experience how cataracts, color blindness, tunnel vision, and low contrast affect web content. Apply real-time CSS filters to sample content to understand the barriers people face.</p>
-        <p><a href="low-vision-simulator.html" class="analyze-btn" style="display:inline-block;text-decoration:none;text-align:center;">Try the Simulator &rarr;</a></p>
+        <p>Apply real-time filters to sample content to understand vision barriers.</p>
+
+        <svg class="svg-filters" aria-hidden="true">
+          <defs>
+            <filter id="sim-protanopia"><feColorMatrix values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"/></filter>
+            <filter id="sim-deuteranopia"><feColorMatrix values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0"/></filter>
+            <filter id="sim-tritanopia"><feColorMatrix values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"/></filter>
+            <filter id="sim-achromatopsia"><feColorMatrix values="0.299, 0.587, 0.114, 0, 0 0.299, 0.587, 0.114, 0, 0 0.299, 0.587, 0.114, 0, 0 0, 0, 0, 1, 0"/></filter>
+          </defs>
+        </svg>
+
+        <div class="sim-controls" id="sim-controls">
+          <label class="sim-toggle"><input type="checkbox" value="blur"> <span>Blur</span></label>
+          <label class="sim-toggle"><input type="checkbox" value="contrast"> <span>Low Contrast</span></label>
+          <label class="sim-toggle"><input type="checkbox" value="protanopia"> <span>Protanopia</span></label>
+          <label class="sim-toggle"><input type="checkbox" value="deuteranopia"> <span>Deuteranopia</span></label>
+          <label class="sim-toggle"><input type="checkbox" value="tunnel"> <span>Tunnel Vision</span></label>
+        </div>
+
+        <div class="sim-viewport" id="sim-viewport">
+          <div class="tunnel-overlay" id="sim-tunnel" aria-hidden="true"></div>
+          <div class="sim-content">
+            <h3 style="margin:0;">Sample Content</h3>
+            <p>Accessibility ensures that every student can succeed. <a>Learn about our mission.</a></p>
+            <div style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+              <div style="width:40px;height:40px;background:#ab0520;border-radius:4px;"></div>
+              <div style="width:40px;height:40px;background:#0c234b;border-radius:4px;"></div>
+              <div style="width:40px;height:40px;background:#4caf50;border-radius:4px;"></div>
+            </div>
+            <button type="button" class="analyze-btn" style="pointer-events:none;">Demo Button</button>
+          </div>
+        </div>
       </section>
 
       <section aria-labelledby="more-tools">
@@ -1514,7 +1878,226 @@ H3 Subsection"
       }
 
       // Bind heading validator button (replaces inline onclick)
-      document.getElementById('btn-validate-headings').addEventListener('click', validateHeadings);
+      const btnValidateHeadings = document.getElementById('btn-validate-headings');
+      if (btnValidateHeadings) {
+        btnValidateHeadings.addEventListener('click', validateHeadings);
+      }
+
+      // ========== Tool 5: Quick-Start Wizard Logic ==========
+      const wizardSteps = document.querySelectorAll('.wizard-step');
+      const wizardAnnounce = document.getElementById('wizard-announce');
+      const wizardNeedsContainer = document.getElementById('wizard-needs-container');
+      const wizardResultContent = document.getElementById('wizard-results-content');
+      let wizardState = { role: null, need: null, support: null };
+
+      const wizardNeeds = {
+        staff: [
+          { id: 'docs', title: 'Microsoft Word/PDF', desc: 'Creating accessible documents and exports.' },
+          { id: 'email', title: 'Emails & Newsletters', desc: 'Outlook, Gmail, and marketing platforms.' },
+          { id: 'events', title: 'Inclusive Events', desc: 'Planning meetings and public events.' }
+        ],
+        faculty: [
+          { id: 'd2l', title: 'D2L Brightspace', desc: 'Course pages, quizzes, and file uploads.' },
+          { id: 'syllabus', title: 'Accessible Syllabus', desc: 'Templates and structure for course docs.' },
+          { id: 'media', title: 'Video & Audio', desc: 'Captions, transcripts, and Panopto.' }
+        ],
+        developer: [
+          { id: 'web', title: 'Web Development', desc: 'HTML, ARIA, and custom components.' },
+          { id: 'audit', title: 'Testing & Audits', desc: 'Using automated and manual testing tools.' },
+          { id: 'mobile', title: 'Mobile Apps', desc: 'Native app accessibility (iOS/Android).' }
+        ],
+        student: [
+          { id: 'at', title: 'Assistive Tech', desc: 'Screen readers, magnification, and dictation.' },
+          { id: 'request', title: 'Getting Support', desc: 'DRC resources and accommodation info.' }
+        ]
+      };
+
+      function wizardGoTo(n) {
+        wizardSteps.forEach((s, i) => s.classList.toggle('active', i === n - 1));
+        const titles = ["Role Selection", "Current Needs", "Support Type", "Results"];
+        wizardAnnounce.textContent = "Wizard: " + titles[n-1];
+      }
+
+      function resetWizard() {
+        wizardState = { role: null, need: null, support: null };
+        document.querySelectorAll('.wizard-option-btn').forEach(b => b.classList.remove('selected'));
+        wizardGoTo(1);
+      }
+
+      // Role Selection
+      document.querySelectorAll('#wizard-step-1 .wizard-option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          wizardState.role = btn.getAttribute('data-role');
+          populateNeeds();
+          wizardGoTo(2);
+        });
+      });
+
+      function populateNeeds() {
+        const needs = wizardNeeds[wizardState.role] || [];
+        wizardNeedsContainer.innerHTML = needs.map(n => `
+          <button type="button" class="wizard-option-btn" data-need="${n.id}">
+            <span class="wizard-option-title">${n.title}</span>
+            <span class="wizard-option-desc">${n.desc}</span>
+          </button>
+        `).join('');
+        
+        wizardNeedsContainer.querySelectorAll('.wizard-option-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            wizardState.need = btn.getAttribute('data-need');
+            wizardGoTo(3);
+          });
+        });
+      }
+
+      // Support Selection
+      document.querySelectorAll('#wizard-step-3 .wizard-option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          wizardState.support = btn.getAttribute('data-support');
+          showWizardResults();
+          wizardGoTo(4);
+        });
+      });
+
+      function showWizardResults() {
+        let html = `<p>Based on your selections (<strong>${wizardState.role}</strong> working on <strong>${wizardState.need}</strong>), here is your suggested path:</p>`;
+        html += '<ul style="margin-top:1rem;">';
+        
+        if (wizardState.support === 'checklist') {
+          html += `<li>Download the <strong>${wizardState.need} checklist</strong> from our Checklist Catalog.</li>`;
+          html += '<li>Perform a 10-minute self-audit using the manual checklist.</li>';
+        } else if (wizardState.support === 'basics') {
+          html += `<li>Read our <strong>${wizardState.need} Fundamentals</strong> guide.</li>`;
+          html += '<li>Review the "Top 5 Quick Wins" for this topic.</li>';
+        } else {
+          html += '<li>Try the interactive tools above (Color Contrast or Alt Text) to test your content.</li>';
+        }
+        
+        html += `<li>Schedule a 15-minute consultation with our accessibility experts for specific help.</li>`;
+        html += '</ul>';
+        wizardResultContent.innerHTML = html;
+      }
+
+      // ========== Tool 6: WCAG Quiz Logic ==========
+      const quizData = [
+        { scenario: "A university website has body text set at 14px in dark gray (#595959) on white.", question: "What is the minimum contrast ratio required for normal body text under Level AA?", options: ["3:1", "4.5:1", "7:1", "2:1"], correct: 1, explanation: "WCAG SC 1.4.3 requires 4.5:1 for normal text (under 18pt or 14pt bold)." },
+        { scenario: "A developer places a decorative background pattern image behind a hero section.", question: "What is the correct alt text for a purely decorative image?", options: ['alt="decorative"', 'alt="" (empty)', 'alt="background"', "Remove alt attribute"], correct: 1, explanation: 'Decorative images should use an empty alt attribute (alt="") so screen readers skip them.' }
+      ];
+      let quizCurrent = 0;
+      let quizAnswers = [];
+      let quizAnswered = [];
+      const quizArea = document.getElementById('quiz-area');
+      const quizResPanel = document.getElementById('quiz-results');
+      const quizFill = document.getElementById('progress-fill');
+      const quizLabel = document.getElementById('progress-label');
+
+      function renderQuiz() {
+        const q = quizData[quizCurrent];
+        let html = `<div class="quiz-card"><h3>Question ${quizCurrent + 1} of ${quizData.length}</h3><p class="quiz-scenario">${q.scenario}</p><fieldset><legend>${q.question}</legend><ul class="quiz-options">`;
+        q.options.forEach((opt, i) => {
+          let cls = "";
+          if (quizAnswered[quizCurrent]) {
+            if (i === q.correct) cls = " reveal-correct";
+            if (quizAnswers[quizCurrent] === i) cls += (i === q.correct ? " correct" : " incorrect");
+          }
+          html += `<li class="quiz-option${cls}"><label><input type="radio" name="quiz" value="${i}" ${quizAnswers[quizCurrent] === i ? 'checked' : ''} ${quizAnswered[quizCurrent] ? 'disabled' : ''}> <span>${opt}</span></label></li>`;
+        });
+        html += `</ul></fieldset>`;
+        if (quizAnswered[quizCurrent]) {
+          html += `<div class="quiz-feedback ${quizAnswers[quizCurrent] === q.correct ? 'correct' : 'incorrect'}"><strong>${quizAnswers[quizCurrent] === q.correct ? 'Correct!' : 'Incorrect'}</strong><br>${q.explanation}</div>`;
+        }
+        html += `<div style="margin-top:1.5rem; display:flex; gap:1rem;">`;
+        if (quizCurrent > 0) html += `<button type="button" class="alt-btn-hint" onclick="quizPrev()">Previous</button>`;
+        if (!quizAnswered[quizCurrent]) html += `<button type="button" class="analyze-btn" id="quiz-submit" disabled onclick="quizSubmit()">Submit</button>`;
+        else if (quizCurrent < quizData.length - 1) html += `<button type="button" class="analyze-btn" onclick="quizNext()">Next</button>`;
+        else html += `<button type="button" class="analyze-btn" onclick="quizFinish()">Finish</button>`;
+        html += `</div></div>`;
+        quizArea.innerHTML = html;
+        
+        const radios = quizArea.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => r.addEventListener('change', () => document.getElementById('quiz-submit').disabled = false));
+        
+        const pct = (quizAnswered.filter(a => a).length / quizData.length) * 100;
+        quizFill.style.width = pct + "%";
+        quizLabel.textContent = quizAnswered.filter(a => a).length + " / " + quizData.length;
+      }
+
+      function quizSubmit() {
+        const sel = quizArea.querySelector('input[name="quiz"]:checked');
+        quizAnswers[quizCurrent] = parseInt(sel.value);
+        quizAnswered[quizCurrent] = true;
+        renderQuiz();
+      }
+      function quizNext() { quizCurrent++; renderQuiz(); }
+      function quizPrev() { quizCurrent--; renderQuiz(); }
+      function quizFinish() {
+        quizArea.hidden = true;
+        const score = quizAnswers.filter((a, i) => a === quizData[i].correct).length;
+        quizResPanel.innerHTML = `<h3>Results</h3><div class="quiz-score">${score} / ${quizData.length}</div><button type="button" class="analyze-btn" onclick="location.reload()">Reset Quiz</button>`;
+        quizResPanel.hidden = false;
+      }
+      quizData.forEach(() => { quizAnswers.push(-1); quizAnswered.push(false); });
+      renderQuiz();
+
+      // ========== Tool 7: Keyboard Sim Logic ==========
+      document.addEventListener('keydown', (e) => {
+        const keyDisplay = document.getElementById('key-name');
+        if (!keyDisplay) return;
+        let name = e.key;
+        if (name === " ") name = "Space";
+        keyDisplay.textContent = name;
+        
+        const tasks = document.getElementById('tasks-nav');
+        if (document.activeElement.getAttribute('data-task') === 'nav-about') {
+          tasks.querySelectorAll('.task-check')[0].textContent = "●";
+          tasks.querySelectorAll('.task-check')[0].classList.add('done');
+        }
+        if (e.key === "Enter" && document.activeElement.getAttribute('data-task') === 'nav-services') {
+          tasks.querySelectorAll('.task-check')[1].textContent = "●";
+          tasks.querySelectorAll('.task-check')[1].classList.add('done');
+        }
+      });
+
+      // ========== Tool 8: Readability Logic ==========
+      document.getElementById('btn-score-readability').addEventListener('click', () => {
+        const text = document.getElementById('read-text').value;
+        if (!text) return;
+        const words = text.split(/\s+/).length;
+        const sentences = text.split(/[.!?]+/).length;
+        const grade = Math.round((words / sentences) * 0.4 + 10); // Simplified calculation for demo
+        
+        document.getElementById('read-stats-grid').innerHTML = `<div class="read-stat"><span class="read-stat-value">${words}</span>Words</div><div class="read-stat"><span class="read-stat-value">${sentences}</span>Sentences</div>`;
+        document.getElementById('read-grade-section').innerHTML = `<p>Grade Level: <span class="read-badge hard">${grade}</span></p>`;
+        document.getElementById('read-results').hidden = false;
+      });
+      document.getElementById('btn-clear-readability').addEventListener('click', () => {
+        document.getElementById('read-text').value = "";
+        document.getElementById('read-results').hidden = true;
+      });
+
+      // ========== Tool 9: Low Vision Sim Logic ==========
+      const simControls = document.getElementById('sim-controls');
+      const simViewport = document.getElementById('sim-viewport');
+      const simTunnel = document.getElementById('sim-tunnel');
+      
+      simControls.querySelectorAll('input').forEach(input => {
+        input.addEventListener('change', () => {
+          let filters = [];
+          const checkboxes = simControls.querySelectorAll('input:checked');
+          checkboxes.forEach(c => {
+            if (c.value === 'blur') filters.push('blur(4px)');
+            if (c.value === 'contrast') filters.push('contrast(0.4)');
+            if (['protanopia', 'deuteranopia'].includes(c.value)) filters.push(`url(#sim-${c.value})`);
+          });
+          simViewport.style.filter = filters.join(' ');
+          simTunnel.classList.toggle('active', simControls.querySelector('input[value="tunnel"]').checked);
+        });
+      });
+      simViewport.addEventListener('mousemove', (e) => {
+        if (!simTunnel.classList.contains('active')) return;
+        const rect = simViewport.getBoundingClientRect();
+        simTunnel.style.background = `radial-gradient(circle 80px at ${e.clientX - rect.left}px ${e.clientY - rect.top}px, transparent 60%, rgba(0,0,0,0.8) 100%)`;
+      });
     </script>
     <script src="scripts/feedback-widget.js" defer></script>
   </body>
