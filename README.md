@@ -151,3 +151,12 @@ For questions about accessibility at the University of Arizona:
 ## 📄 License
 
 © 2025 The Arizona Board of Regents on behalf of The University of Arizona
+
+## Accessibility Scanner & Dashboard
+
+- **GitHub Action:** A workflow runs the GitHub Accessibility Scanner on `push`, `pull_request`, and nightly (03:00 UTC). It writes a JSON report to `reports/accessibility.json` and commits it into `docs/reports/` so the data is published to GitHub Pages.
+- **WCAG scope:** The scanner is configured to report WCAG AA-level findings only (WCAG 2.2 AA focus), excluding AAA-level checks. See `.accessibility-scanner.yml`.
+- **Dashboard:** A static dashboard page is available at [docs/accessibility-dashboard.html](docs/accessibility-dashboard.html) that renders actionable lessons learned and remediation suggestions based on scan results.
+
+- **Historical trends:** The workflow also preserves timestamped JSON reports in `docs/reports/history/` and maintains `docs/reports/history/index.json`. The dashboard renders a recent trend sparkline and latest history entry. The history retention is capped (365 entries) and can be adjusted in `scripts/record-accessibility-history.js`.
+

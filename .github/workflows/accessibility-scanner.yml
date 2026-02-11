@@ -1,0 +1,60 @@
+name: Accessibility Scanner
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  schedule:
+    - cron: '0 3 * * *' # nightly at 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  accessibility-scan:
+    name: Run GitHub Accessibility Scanner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Run GitHub Accessibility Scanner
+        uses: github/accessibility-scanner@v1
+        with:
+          # Target the generated site content directory; adjust if needed
+          target: 'docs'
+          # Output file inside the workspace; the action typically writes results to disk
+          output: 'reports/accessibility.json'
+
+      - name: Upload accessibility report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report
+          path: reports/accessibility.json
+
+      - name: Ensure docs reports directory
+        run: mkdir -p docs/reports
+
+      - name: Copy report into docs for GitHub Pages
+        run: |
+          if [ -f reports/accessibility.json ]; then
+            cp reports/accessibility.json docs/reports/accessibility.json
+          else
+            echo '{}'> docs/reports/accessibility.json
+          fi
+
+      - name: Setup Node.js (for history recorder)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Record accessibility history
+        run: node scripts/record-accessibility-history.js
+
+      - name: Commit accessibility report and history to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/reports -A
+          git commit -m "chore: update accessibility report and history" || echo "no changes to commit"
+          git push

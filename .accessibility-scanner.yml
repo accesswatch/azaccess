@@ -1,0 +1,13 @@
+# Optional configuration for the GitHub Accessibility Scanner
+# Adjust `target` and `baseUrl` to match your site build output or local server
+target: "docs"
+baseUrl: "http://localhost:3000"
+output: "reports/accessibility.json"
+
+# Enforce WCAG 2.2 AA-level checks only. This config restricts results
+# to the AA-level ruleset; AAA checks will be excluded.
+# Note: the scanner uses the `wcag2aa` ruleset which covers AA-level checks
+# (this includes checks applicable across WCAG 2.0/2.1/2.2 at the AA level).
+rules:
+  - id: wcag2aa
+
