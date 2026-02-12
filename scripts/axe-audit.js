@@ -46,8 +46,31 @@ const SEVERITY_COLORS = {
 const RESET = '\x1b[0m';
 
 async function getAllHtmlFiles() {
-  const files = fs.readdirSync(DOCS_DIR);
-  return files.filter(f => f.endsWith('.html'));
+  const results = [];
+  function walk(dir){
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for(const e of entries){
+      const full = path.join(dir, e.name);
+      if(e.isDirectory()) walk(full);
+      else if(e.isFile() && full.endsWith('.html')) results.push(path.relative(DOCS_DIR, full));
+    }
+  }
+  try{ walk(DOCS_DIR); } catch (e) { /* ignore */ }
+  // Also include work/web if present
+  const WORK_WEB = path.join(__dirname, '..', 'work', 'web');
+  if (fs.existsSync(WORK_WEB)){
+    function walkWork(dir){
+      const entries = fs.readdirSync(dir, { withFileTypes: true });
+      for(const e of entries){
+        const full = path.join(dir, e.name);
+        if(e.isDirectory()) walkWork(full);
+        else if(e.isFile() && full.endsWith('.html')) results.push(path.relative(WORK_WEB, full).replace(/\\/g, '/'));
+      }
+    }
+    try{ walkWork(WORK_WEB); } catch (e) { /* ignore */ }
+  }
+  // Deduplicate
+  return Array.from(new Set(results));
 }
 
 async function auditPage(browser, pagePath) {
