@@ -1,0 +1,642 @@
+[
+  {
+    "pagePath": "Digital_Accessibility_Framework_Course_Mapping.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "accessibility-101.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "accessibility-dashboard.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "accessibility-statement.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "adobe-media.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "ai-assistant.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "assistive-tech.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "before-after-examples.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "blog-cta.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "blog-template.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "blog.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "brand-identity.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "champions-directory.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "changelog.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "color-contrast.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "communication-etiquette.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "communications.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "compliance-timeline.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "consultation-map.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "content-creators.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "course_integration_plan.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "developers.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "do-dont.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "doc-excel.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "doc-google.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "doc-powerpoint.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "doc-word.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "documents-media.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "documents-overview.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "email-gmail.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "email-newsletters.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "email-outlook.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "events-inclusive.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "example-newsletter.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "example-slides.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "example-syllabus.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "faculty.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "faq.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "focus-management.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "glossary.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "governance-charter.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "heading-basics.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "home.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "index.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "interactive-tools.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "keyboard-simulator.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "leadership.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "learning.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "legacy-redirects.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "lms-brightspace.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "lms-panopto.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "low-vision-simulator.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "meaningful-links.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "media-captioning.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "metrics-kpis.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "mobile-roadmap.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "mobile.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "not-found.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "panorama-students.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "panorama.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "pdf-remediation.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "pedagogy-checklist.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-comms.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-content.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-developers.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-faculty.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-leadership.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-mobile.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-public.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-staff.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-students.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "personas.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "policies-governance.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "procurement-steps.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "procurement.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "quick-start.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "readability-scorer.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "references.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "resource-registry.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "role-template.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "roles.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "search.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "service-levels.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "shared-md-template.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "site-alerts.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "skip-link-snippet.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "social-media-guide.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "staff.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "students.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "support.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "teaching-learning.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "templates-downloads.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "testing-tools.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "title-ii-brief.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "tools-checklists.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "tools-comparison.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "training-calendar.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "ua-accessibility-articulate-resources.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "ua-accessibility-framework-accordion-full.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "ua-accessibility-framework-full.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "vendor-faq.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "visitors.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "vpat-library.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "vpat-review.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "wcag-quiz.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "wcag22-highlights.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "web-app.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "web-keyboard.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "wizard.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "wizard.old.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "add/ua-accessibility-framework-accordion-full.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "add/ua-accessibility-framework-full.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "aria-patterns.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "assistive-tech-guide.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "business-case.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "decision-guide.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "dev-cicd-testing.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "dev-react.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "disability-statistics.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "experience-simulations.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "myths-vs-facts.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "persona-template.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "quick-reference-cards.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "quick-wins.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "student-rights.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "success-stories.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "udl-framework.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "why-accessibility-matters.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  }
+]
