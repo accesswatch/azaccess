@@ -19,6 +19,7 @@ let data;
 try { data = JSON.parse(raw); } catch (e) { console.error('Invalid JSON in report:', e); process.exit(1); }
 
 function occurrencesCount(d) {
+  if (!d || (typeof d === 'object' && Object.keys(d).length === 0)) return { total: 0, issues: [] };
   let issues = [];
   if (Array.isArray(d)) issues = d;
   else if (d.violations) issues = d.violations;
@@ -28,6 +29,7 @@ function occurrencesCount(d) {
 
   let count = 0;
   issues.forEach(issue => {
+    if (!issue || Object.keys(issue).length === 0) return;
     if (issue.nodes && Array.isArray(issue.nodes)) count += issue.nodes.length;
     else if (issue.targets && Array.isArray(issue.targets)) count += issue.targets.length;
     else count += 1;
