@@ -257,7 +257,19 @@ async function main() {
   console.log(`\n⚠️  Make sure the server is running: npm start\n`);
 
   // Launch browser
-  const browser = await chromium.launch();
+  let browser;
+  try {
+    browser = await chromium.launch();
+  } catch (launchErr) {
+    console.error('❌ Failed to launch Chromium:', launchErr.message);
+    console.error('   Run: npx playwright install chromium --with-deps');
+    // Write empty-but-valid report so downstream steps have a file
+    if (!fs.existsSync(REPORTS_DIR)) fs.mkdirSync(REPORTS_DIR, { recursive: true });
+    const errorReport = { generatedAt: new Date().toISOString(), error: launchErr.message, pagesTested: [], totalViolations: 0, violations: [] };
+    fs.writeFileSync(path.join(REPORTS_DIR, 'accessibility.json'), JSON.stringify(errorReport, null, 2));
+    fs.writeFileSync(path.join(REPORTS_DIR, 'accessibility-raw.json'), JSON.stringify([], null, 2));
+    process.exit(1);
+  }
 
   // Audit all pages
   const results = [];
@@ -322,8 +334,10 @@ async function main() {
       }
     });
     if (!fs.existsSync(REPORTS_DIR)) fs.mkdirSync(REPORTS_DIR, { recursive: true });
+    // Always write a minimal accessibility.json and also keep a raw dump for debugging
     fs.writeFileSync(path.join(REPORTS_DIR, 'accessibility.json'), JSON.stringify(combined, null, 2));
-    console.log('✅ Wrote JSON report to', path.join(REPORTS_DIR, 'accessibility.json'));
+    fs.writeFileSync(path.join(REPORTS_DIR, 'accessibility-raw.json'), JSON.stringify(results, null, 2));
+    console.log('✅ Wrote JSON reports to', path.join(REPORTS_DIR, 'accessibility.json'), 'and accessibility-raw.json');
   }catch(e){
     console.error('Failed to write JSON report:', e.message || e);
   }
