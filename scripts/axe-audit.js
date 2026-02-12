@@ -282,6 +282,29 @@ async function main() {
   console.log(`   Open in browser: file://${reportPath.replace(/\\/g, '/')}`);
 
   // Exit with error code if violations found
+  // Also write a machine-readable JSON report for dashboards and CI
+  try{
+    const combined = {
+      generatedAt: new Date().toISOString(),
+      pagesTested: results.map(r => r.pagePath),
+      totalViolations,
+      violations: []
+    };
+    results.forEach(({ pagePath, results: r }) => {
+      if (r && Array.isArray(r.violations)){
+        r.violations.forEach(v => {
+          const copy = Object.assign({}, v, { page: pagePath });
+          combined.violations.push(copy);
+        });
+      }
+    });
+    if (!fs.existsSync(REPORTS_DIR)) fs.mkdirSync(REPORTS_DIR, { recursive: true });
+    fs.writeFileSync(path.join(REPORTS_DIR, 'accessibility.json'), JSON.stringify(combined, null, 2));
+    console.log('✅ Wrote JSON report to', path.join(REPORTS_DIR, 'accessibility.json'));
+  }catch(e){
+    console.error('Failed to write JSON report:', e.message || e);
+  }
+
   process.exit(totalViolations > 0 ? 1 : 0);
 }
 
