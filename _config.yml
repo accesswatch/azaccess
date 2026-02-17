@@ -1,0 +1,41 @@
+title: Accessibility at Arizona
+description: Digital accessibility guidance for the University of Arizona
+url: https://accesswatch.github.io
+baseurl: /azaccess
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+exclude:
+  - node_modules/
+  - work/web/shared/
+  - tests/
+  - test-results/
+  - playwright-report/
+  - add/
+  - ai-assistant/
+  - .github/
+  - .vscode/
+  - "*.ps1"
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - CHANGELOG.md
+  - MANUAL-A11Y-REVIEW-CHECKLIST.md
+  - PROJECT-FILES.md
+  - REPO-STRUCTURE.md
+  - ACCESSIBILITY-CI-PROPOSAL.md
+  - ACCESSIBILITY-CI-PROPOSAL.html
+  - ACCESSIBILITY-DEVELOPMENT-GUIDE.md
+  - ACCESSIBILITY-DEVELOPMENT-GUIDE.html
+  - DEPLOY.md
+  - DEPLOY.html
+  - run-jobs.json
+  - runs.json
+  - runs-latest.json
+  - accessibility.json
+  - accessibility-raw.json
+  - playwright.a11y.config.js
+  - "*.config.js"
