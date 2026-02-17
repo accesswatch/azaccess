@@ -1,0 +1,2 @@
+vendor,product,procurement_ref,vpat_date,scope,risk_rating,remediation_commitments,acceptance_status,exception_justification,owner,last_reviewed
+Example Vendor,Example Product,PO-12345,2025-10-01,User UI; Admin UI,Medium,"Fix keyboard focus order (Q2 2026); deliver updated VPAT (Q3 2026)",Conditional,"No accessible alternative available; interim accommodation: email support",Procurement Lead,2026-02-13

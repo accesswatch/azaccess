@@ -1,0 +1,7 @@
+criterion,description,weight,pass,notes
+Keyboard navigation,Can complete core tasks using keyboard,30,,
+Screen reader compatibility,Forms and pages announced correctly,30,,
+Color contrast,Primary UI meets 4.5:1 (or 3:1 large text),10,,
+Form labels & errors,Labels present; errors programmatically associated,10,,
+VPAT currency & scope,VPAT <18 months; covers features in scope,10,,
+Exported documents,Sample exported files accessible (PDF/DOCX),10,,

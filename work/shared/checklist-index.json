@@ -1,63 +1,90 @@
 [
-    {
-        "id": "chk-word",
-        "title": "Word & PowerPoint Accessibility Checklist",
-        "path": "shared/doc-word.md",
-        "personas": [
-            "content-creators"
-        ],
-        "formats": [
-            "microsoft365"
-        ],
-        "lastReviewed": "2025-11-20"
-    },
-    {
-        "id": "chk-google",
-        "title": "Google Workspace Accessibility Checklist",
-        "path": "shared/doc-google.md",
-        "personas": [
-            "content-creators"
-        ],
-        "formats": [
-            "google-workspace"
-        ],
-        "lastReviewed": "2025-11-20"
-    },
-    {
-        "id": "chk-pdf",
-        "title": "PDF Remediation Workflow",
-        "path": "shared/pdf-remediation.md",
-        "personas": [
-            "content-creators",
-            "staff"
-        ],
-        "formats": [
-            "pdf"
-        ],
-        "lastReviewed": "2025-11-20"
-    },
-    {
-        "id": "chk-web",
-        "title": "Keyboard & Focus Essentials",
-        "path": "shared/web-keyboard.md",
-        "personas": [
-            "developers"
-        ],
-        "formats": [
-            "web"
-        ],
-        "lastReviewed": "2025-11-20"
-    },
-    {
-        "id": "chk-procurement",
-        "title": "Accessible Procurement Steps",
-        "path": "shared/procurement-steps.md",
-        "personas": [
-            "staff"
-        ],
-        "formats": [
-            "procurement"
-        ],
-        "lastReviewed": "2025-11-20"
-    }
+  {
+    "id": "chk-word",
+    "title": "Word & PowerPoint Accessibility Checklist",
+    "path": "shared/doc-word.md",
+    "personas": ["content-creators"],
+    "formats": ["microsoft365"],
+    "lastReviewed": "2025-11-20"
+  },
+  {
+    "id": "chk-google",
+    "title": "Google Workspace Accessibility Checklist",
+    "path": "shared/doc-google.md",
+    "personas": ["content-creators"],
+    "formats": ["google-workspace"],
+    "lastReviewed": "2025-11-20"
+  },
+  {
+    "id": "chk-pdf",
+    "title": "PDF Remediation Workflow",
+    "path": "shared/pdf-remediation.md",
+    "personas": ["content-creators", "staff"],
+    "formats": ["pdf"],
+    "lastReviewed": "2025-11-20"
+  },
+  {
+    "id": "chk-web",
+    "title": "Keyboard & Focus Essentials",
+    "path": "shared/web-keyboard.md",
+    "personas": ["developers"],
+    "formats": ["web"],
+    "lastReviewed": "2025-11-20"
+  },
+  {
+    "id": "chk-procurement",
+    "title": "Accessible Procurement Steps",
+    "path": "shared/procurement-steps.md",
+    "personas": ["staff"],
+    "formats": ["procurement"],
+    "lastReviewed": "2025-11-20"
+  },
+  {
+    "id": "chk-procurement-toolkit",
+    "title": "Procurement Toolkit (RFP, demo script, reviewer worksheet)",
+    "path": "shared/procurement-toolkit.md",
+    "personas": ["staff", "procurement"],
+    "formats": ["procurement", "templates"],
+    "lastReviewed": "2026-02-13"
+  },
+  {
+    "id": "chk-procurement-tracker",
+    "title": "Procurement Tracker Template",
+    "path": "shared/procurement-tracker.md",
+    "personas": ["staff", "procurement"],
+    "formats": ["procurement", "templates"],
+    "lastReviewed": "2026-02-13"
+  },
+  {
+    "id": "chk-adobe-media",
+    "title": "Adobe Media Accessibility Checklist",
+    "path": "shared/adobe-media-checklist.md",
+    "personas": ["content-creators", "designers"],
+    "formats": ["pdf", "video", "images"],
+    "lastReviewed": "2026-02-13"
+  },
+  {
+    "id": "chk-do-dont",
+    "title": "Do / Don't Quick Reference",
+    "path": "shared/do-dont.md",
+    "personas": ["content-creators", "designers", "developers"],
+    "formats": ["quick-reference"],
+    "lastReviewed": "2026-02-13"
+  },
+  {
+    "id": "chk-mobile",
+    "title": "Mobile App Accessibility Roadmap",
+    "path": "shared/mobile-roadmap.md",
+    "personas": ["mobile-dev", "developers"],
+    "formats": ["mobile", "roadmap"],
+    "lastReviewed": "2025-11-20"
+  },
+  {
+    "id": "chk-brand",
+    "title": "Brand & Accessibility Checklist",
+    "path": "shared/brand-identity.md",
+    "personas": ["designers", "content-creators"],
+    "formats": ["branding"],
+    "lastReviewed": "2026-02-13"
+  }
 ]

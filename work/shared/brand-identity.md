@@ -1,44 +1,144 @@
 ---
 title: UA Brand & Accessibility Guidance
-summary: Using University of Arizona branding, color schemes, and templates accessibly across documents, media, and web content.
+summary: Using University of Arizona branding, color schemes, and templates accessibly across documents, media, and web content — with procurement guidance for vendor-provided UI.
 owner: Arizona Digital Brand + Accessibility
-last_reviewed: 2025-11-20
-next_review: 2026-02-20
+last_reviewed: 2026-02-13
+next_review: 2026-08-13
 tags:
   - topic:branding
   - persona:content-creators
 sources:
   - University of Arizona Brand — https://brand.arizona.edu/identity/color
   - Arizona Digital Quickstart — https://quickstart.arizona.edu
+  - Quickstart accessibility — https://quickstart.arizona.edu/best-practices/accessibility-guidelines
   - Accessibility | Home — https://accessibility.arizona.edu
+  - Bootstrap accessibility — https://getbootstrap.com/docs/5.3/getting-started/accessibility/
 ---
 
-## Brand palette
-| Color token  | Hex       | Usage                           | Contrast guidance                                                                |
-| ------------ | --------- | ------------------------------- | -------------------------------------------------------------------------------- |
-| Arizona Blue | `#0C234B` | Primary headings, large accents | Meets 7.9:1 against white; pair with light text only if ≥ 24 px bold.            |
-| Arizona Red  | `#AB0520` | Buttons, links, callouts        | Use white text ≥ 18.5 pt bold (ratio 4.6:1) or navy text for smaller fonts.      |
-| Desert Sky   | `#81D3EB` | Background accents              | Do not place regular text directly on this color; overlay white cards for 4.5:1. |
-| Cool Gray    | `#5E6A71` | Secondary text                  | Requires white text ≥ 3:1; prefer navy background for small text.                |
-| Copper       | `#C87900` | Highlights                      | Pair with Arizona Blue or white; test contrast before use.                       |
+<!--
+  Accessibility / branding notes:
+  - Prefer Quickstart tokens & UA brand assets (keeps color/contrast consistent across campus sites).
+  - Require vendors to deliver token mappings (CSS variables) for theme verification.
+  - Always verify color contrast and focus indicators as part of procurement acceptance tests.
+-->
 
-Always pull colors from Quickstart design tokens (`var(--color-arizona-blue)` etc.) or official Word/PowerPoint templates to ensure consistent values.
+## Brand palette & tokens (recommended)
 
-## Quickstart guidance for content creators
-1. **Use official templates:** Download Word, PowerPoint, Google Slides, and Adobe templates from the brand site or Quickstart share to maintain typography, logos, and color tokens.
-2. **Lock logo usage:** Keep the block A logo in provided placements; maintain required clear space and provide alt text (e.g., “University of Arizona block A logo”).
-3. **Text styles:** Stick to the built-in heading styles in the templates so screen readers announce levels correctly.
-4. **Accessible color pairing:** When in doubt, use navy text on white backgrounds or white text on navy buttons; test other combinations with the Colour Contrast Analyser.
-5. **Dark mode variants:** Provide enough contrast for inverted themes by avoiding low-contrast gradients or translucency without solid backing.
+Use Quickstart or UA brand tokens rather than hard-coded HEX values when building or accepting vendor UI. Below are canonical tokens used across UA sites and examples from this repository's CSS.
 
-## Checklist for branded materials
-- [ ] Start from UA-branded template (Word, PowerPoint, Google Slides, social graphics).
-- [ ] Verify color choices meet the ratios above.
-- [ ] Ensure text remains legible after printing in grayscale or when high-contrast mode is enabled.
-- [ ] Provide alternative text for logos and marks unless purely decorative.
-- [ ] Keep Quickstart navigation order and button styles unchanged to maintain consistency for assistive technologies.
+| Token / name     | Example CSS var                        | Typical use                  | WCAG guidance                                                       |
+| ---------------- | -------------------------------------- | ---------------------------- | ------------------------------------------------------------------- |
+| `Arizona Blue`   | `--ua-text` or `--color-arizona-blue`  | Primary headings, navigation | High contrast vs white (≥ 4.5:1 for body text)                      |
+| `Arizona Red`    | `--ua-maroon` or `--color-arizona-red` | Buttons, CTAs, links         | Use white text on maroon for small buttons only if contrast ≥ 4.5:1 |
+| `Oasis / Accent` | `--ua-oasis`                           | Highlight / success accents  | Test with foreground text; avoid small text on low-contrast accents |
 
-## Resources
-- Templates & brand assets: https://brand.arizona.edu/resources/downloads
-- Quickstart accessibility: https://quickstart.arizona.edu/best-practices/accessibility-guidelines
-- Questions: accessibility@arizona.edu or brand@arizona.edu
+Practical rule: prefer navy-on-white or white-on-navy for primary content. Use token names in procurement artifacts so vendors provide the same mappings.
+
+---
+
+## How procurement should evaluate vendor theming
+
+- Ask vendors for a **theme token map** (CSS variables or design tokens) used by their product UI.
+- Require a screenshot set showing core flows at typical and 200% zoom and a color token legend.
+- Verify contrast ratios for interactive elements (buttons, links, form labels) using tokens.
+- Ask vendors to provide a “high‑contrast / dark mode” demonstration if the product supports themes.
+
+Sample RFP requirement (brand + accessibility):
+
+> Vendor must provide color/design tokens (CSS variables or JSON tokens) and demonstrate that primary and secondary text colors meet WCAG 2.2 AA contrast ratios when used with vendor-supplied themes.
+
+---
+
+## Bootstrap, components & accessible patterns
+
+- Many vendor UIs use Bootstrap or component libraries — verify component accessibility in context, not just upstream docs.
+- Reference Bootstrap accessibility guidance for baseline behavior: [Bootstrap accessibility docs](https://getbootstrap.com/docs/5.3/getting-started/accessibility/)
+- For custom components, confirm they follow WAI ARIA Authoring Practices (e.g., modal dialogs trap focus, accordions use `aria-expanded`).
+
+Checklist for component acceptance:
+
+- Semantic HTML (no ARIA to override native elements).
+- Keyboard operability for all interactive widgets.
+- Visible focus indicators (do not remove outlines without accessible replacement).
+- Clear `aria-label` or visible label associations for complex controls.
+
+---
+
+## Color tools and testing
+
+Use these during procurement reviews and vendor acceptance tests:
+
+- Colour Contrast Analyser (Paciello Group) — desktop contrast checks
+- axe DevTools / Accessibility Insights — automated checks + color contrast rules
+- contrast-ratio.com or Tanaguru Contrast Finder — quick token checks
+- Manual review at 200% zoom and in high‑contrast mode
+
+Include screenshots and tool output in the procurement record.
+
+---
+
+## Examples & recommended pairings (use tokens)
+
+- Body text: `#0C234B` on `#FFFFFF` (good)
+- CTA button: white text on `--ua-maroon` (verify small text contrast)
+- Accent backgrounds: place text on a white/solid card to preserve contrast
+
+Avoid: low-contrast text over decorative gradients, small light text on pastel backgrounds, or relying on color alone to convey meaning.
+
+---
+
+## Focus, motion & accessible branding
+
+- Never remove focus outlines — replace only with an accessible indicator (≥ 3px outline with adequate contrast).
+- Respect `prefers-reduced-motion`: branded animations should be non-essential and disableable.
+- Provide visible states for hover, focus, active, and disabled using tokens.
+
+---
+
+## Procurement-specific branding checklist (short)
+
+- [ ] Vendor supplied token map (CSS vars / JSON)
+- [ ] Screenshots & token legend for core flows (100% + 200% zoom)
+- [ ] Contrast report for tokens (automated + manual checks)
+- [ ] Focus indicator screenshots and keyboard walkthrough evidence
+- [ ] Accessibility documentation (VPAT, remediation SLA, roadmap)
+- [ ] Deliverable theme preview with token names/hex values and accessible states (hover/focus/disabled)
+
+### Sample procurement token request (copy into RFP/RFI)
+
+> Vendor must provide a theme token map (JSON or CSS variables) listing color tokens used for text, accents, backgrounds, and components. Include screenshots for each token used at normal size and at 200% zoom, plus a short contrast report showing ratios for each token pairing.
+
+### Example focus CSS (recommended)
+
+```css
+:focus {
+  outline: 3px solid var(--ua-maroon);
+  outline-offset: 2px;
+}
+```
+
+(replace `--ua-maroon` with the vendor token name in the submitted theme map)
+
+---
+
+## Resources (expanded)
+
+- UA Brand & downloads — [https://brand.arizona.edu/resources/downloads](https://brand.arizona.edu/resources/downloads)
+- Arizona Quickstart (tokens + component guidance) — [https://quickstart.arizona.edu](https://quickstart.arizona.edu)
+- Quickstart accessibility best practices — [https://quickstart.arizona.edu/best-practices/accessibility-guidelines](https://quickstart.arizona.edu/best-practices/accessibility-guidelines)
+- Bootstrap accessibility docs — [https://getbootstrap.com/docs/5.3/getting-started/accessibility/](https://getbootstrap.com/docs/5.3/getting-started/accessibility/)
+- WAI ARIA Authoring Practices — [https://www.w3.org/WAI/ARIA/apg/](https://www.w3.org/WAI/ARIA/apg/)
+- Colour Contrast Analyser — [https://developer.paciellogroup.com/resources/contrast-analyser/](https://developer.paciellogroup.com/resources/contrast-analyser/)
+- axe / Accessibility Insights / Lighthouse — links for automated checks
+
+---
+
+## Notes for maintainers
+
+<!--
+  - Keep token examples synced with Quickstart tokens and the `styles.css` variables in this repo.
+  - When vendors provide token maps, add vendor tokens to procurement attachments so acceptance is repeatable.
+  - Recommend sampling real CMS pages and running axe + manual screen reader checks as part of acceptance.
+-->
+
+**Manual testing required:** color contrast verification, keyboard focus review, and at least one screen reader pass for branded interactive components.
