@@ -60,6 +60,11 @@
     "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
   },
   {
+    "pagePath": "canva-flyers.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
     "pagePath": "champions-directory.html",
     "results": null,
     "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
@@ -606,6 +611,16 @@
   },
   {
     "pagePath": "persona-template.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "procurement-toolkit.html",
+    "results": null,
+    "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
+  },
+  {
+    "pagePath": "procurement-tracker.html",
     "results": null,
     "error": "Please use browser.newContext()\n Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md"
   },
