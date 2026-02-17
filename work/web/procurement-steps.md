@@ -97,6 +97,139 @@ For approved purchases, contracts should include:
 7. High risk → **Seek alternatives** or document exception
 8. **Contract executed** with accessibility terms
 
+## Vendor Accessibility Evaluation Questions
+
+Use these questions during the RFP/RFQ process to evaluate a vendor's commitment to accessibility. They align with [DOJ Title II web accessibility requirements](https://www.ada.gov/resources/2024-03-08-web-rule/) and the April 2026 compliance deadline.
+
+> **How to use:** Include relevant questions in your RFP/RFQ. Use the "What to look for" guidance to score vendor responses.
+
+### 1. Accessibility in the Development Lifecycle
+
+**Ask the vendor:**
+- How do you embed accessibility throughout your development lifecycle — from requirements and design through development, testing, and release?
+- What methodologies and tools do you use to ensure accessibility compliance (e.g., automated testing, manual audits, usability testing with people who use assistive technology)?
+
+**What to look for:**
+- A named technical standard (WCAG 2.1 or 2.2 Level AA)
+- Specific testing tools and methods — not just "we test for accessibility"
+- Evidence of both automated and manual testing
+- Use of recognized methodologies (e.g., Trusted Tester)
+- Dedicated accessibility staff or roles
+- Designer, developer, and QA training programs
+
+### 2. Alignment with DOJ Guidelines
+
+**Ask the vendor:**
+- How will you ensure your product meets the DOJ web accessibility requirements for state and educational institutions by the April 2026 deadline?
+- Can you share a roadmap or timeline for achieving compliance, including milestones, checkpoints, or external audits?
+
+**What to look for:**
+- Explicit awareness of the DOJ rule and the April 2026 deadline
+- A concrete plan — not just "we're working on it"
+- Willingness to share VPAT reports and progress updates
+- If no dedicated accessibility roadmap exists, ask how accessibility is prioritized within the overall product roadmap
+
+### 3. Ongoing Accessibility Maintenance
+
+**Ask the vendor:**
+- What measures are in place to maintain compliance as standards and guidelines evolve?
+- How do you prioritize accessibility when planning product updates, patches, or new feature releases?
+
+**What to look for:**
+- Ongoing training programs (not one-time)
+- Accessibility as a requirement in acceptance criteria for new features
+- Process for monitoring standards updates (WCAG, DOJ guidelines)
+- Dedicated accessibility personnel or team
+
+### 4. Response to Accessibility Issues
+
+**Ask the vendor:**
+- What Service Level Agreements (SLAs) do you have for addressing accessibility bugs?
+- How do you ensure critical accessibility issues are resolved in a timely and transparent manner?
+- What escalation paths exist for unresolved or high-impact accessibility issues?
+
+**What to look for:**
+- A defined severity classification for accessibility issues (e.g., Critical, High, Medium, Low)
+- Documented response timelines for each severity level
+- Clear escalation procedures
+- Willingness to share the SLA in writing
+
+### 5. Partnership and Collaboration
+
+**Ask the vendor:**
+- Are you open to a collaborative partnership with our accessibility and technical teams to address ongoing compliance challenges?
+- What communication channels will you establish (e.g., regular check-ins, joint working groups, shared issue trackers)?
+
+**What to look for:**
+- Willingness to receive and act on accessibility feedback
+- A defined process for reporting and tracking accessibility issues
+- Openness to regular accessibility-focused meetings
+- Commitment to preventing issues, not just fixing reported ones
+
+### 6. Transparency and Reporting
+
+**Ask the vendor:**
+- How will you provide transparency into your accessibility processes, progress, and status?
+- Are you willing to share regular reports on accessibility compliance, including open issues and resolutions?
+- Do you support external or third-party accessibility audits?
+
+**What to look for:**
+- Willingness to share VPAT reports on a regular cadence
+- Openness to scheduled progress calls
+- Third-party testing (not solely self-reported)
+- A "no" to any of these is a significant concern
+
+### 7. Training and Certifications
+
+**Ask the vendor:**
+- What accessibility training or certifications do your development and QA teams hold (e.g., IAAP CPACC, WAS)?
+- How do you ensure all relevant team members are continuously educated about accessibility?
+- Would you co-host accessibility workshops or training sessions with our institution?
+
+**What to look for:**
+- Named certifications (CPACC, WAS, or equivalent)
+- Ongoing training — not just onboarding
+- Willingness to collaborate on knowledge sharing
+- A dedicated accessibility specialist or team
+
+### 8. User-Centric Testing
+
+**Ask the vendor:**
+- Do you test your product with users of assistive technologies (e.g., screen readers, voice recognition, switch access)?
+- Can you share examples of how user feedback has influenced accessibility improvements?
+- Are you open to partnering with us to conduct user testing with people with disabilities?
+
+**What to look for:**
+- Direct testing with assistive technology users (strongest signal)
+- If no direct user testing, a process for accepting and acting on user-reported issues
+- Specific examples of feedback-driven improvements
+- Openness to institution-led testing
+
+### 9. Accountability and Continuous Improvement
+
+**Ask the vendor:**
+- How do you measure the success of your accessibility initiatives?
+- Can you describe a recent accessibility issue that was identified and resolved? What lessons were learned?
+- What mechanisms ensure continuous improvement after initial compliance?
+
+**What to look for:**
+- Measurable goals tied to WCAG conformance
+- Willingness to share real examples (not just promises)
+- Evidence that lessons learned feed back into process improvements
+- Accessibility integrated into product acceptance criteria
+
+### 10. Contingency Plans and Risk Management
+
+**Ask the vendor:**
+- If unforeseen challenges arise in meeting accessibility compliance by April 2026, what contingency plans do you have?
+- How will you address critical gaps identified late in the compliance process?
+
+**What to look for:**
+- Leadership commitment to prioritizing accessibility
+- Ability to reprioritize product roadmap for accessibility issues
+- Cross-functional support (not just engineering)
+- A realistic assessment of risks — not blanket assurances
+
 ## Understanding VPATs
 
 The Voluntary Product Accessibility Template (VPAT) is the standard format for vendors to report product accessibility.
