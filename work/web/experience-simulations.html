@@ -181,7 +181,7 @@
     </nav>
     <h1>Experience Accessibility Simulations</h1>
     <p>Walk in someone else's shoes to understand why accessibility matters.</p>
-    <p class="metric-chip">🎮 Interactive learning</p>
+    <p class="metric-chip"><span aria-hidden="true">🎮 </span>Interactive learning</p>
   </header>
   <main id="maincontent" role="main">
     <section aria-labelledby="intro">
@@ -189,13 +189,13 @@
       <p>The best way to understand accessibility is to experience barriers firsthand. These simulations approximate—but can never fully replicate—what people with different disabilities experience daily.</p>
       
       <div class="warning-box">
-        <h3>⚠️ Important note</h3>
+        <h3><span aria-hidden="true">⚠️ </span>Important note</h3>
         <p>These simulations are educational tools, not perfect representations. Real experiences vary widely. Use these to build empathy and understanding, but always center the voices of people with disabilities themselves.</p>
       </div>
     </section>
 
     <section class="sim-section" aria-labelledby="color-vision">
-      <h2 id="color-vision">🎨 Color vision simulation</h2>
+      <h2 id="color-vision"><span aria-hidden="true">🎨 </span>Color vision simulation</h2>
       <p>About <strong>8% of men</strong> and <strong>0.5% of women</strong> have some form of color vision deficiency. See how your content appears to them.</p>
       
       <div class="sim-controls" role="group" aria-label="Color blindness filters">
@@ -242,7 +242,7 @@
     </section>
 
     <section class="sim-section" aria-labelledby="low-vision">
-      <h2 id="low-vision">👁️ Low vision simulation</h2>
+      <h2 id="low-vision"><span aria-hidden="true">👁️ </span>Low vision simulation</h2>
       <p>About <strong>12 million</strong> Americans over 40 have vision impairment beyond what glasses can correct. See how blur affects content perception.</p>
       
       <div class="sim-controls" role="group" aria-label="Vision blur controls">
@@ -282,11 +282,11 @@
     </section>
 
     <section class="sim-section" aria-labelledby="keyboard">
-      <h2 id="keyboard">⌨️ Keyboard-only navigation challenge</h2>
+      <h2 id="keyboard"><span aria-hidden="true">⌨️ </span>Keyboard-only navigation challenge</h2>
       <p>Many users can't use a mouse due to motor impairments, tremors, or situational factors. Try navigating with keyboard only!</p>
       
       <div class="challenge-box">
-        <h3>🎯 The Challenge</h3>
+        <h3><span aria-hidden="true">🎯 </span>The Challenge</h3>
         <ol>
           <li><strong>Put your mouse aside</strong> (seriously, don't touch it!)</li>
           <li>Navigate to each button below using only <kbd>Tab</kbd></li>
@@ -305,24 +305,26 @@
         
         <h4>Now try these problematic elements:</h4>
         <p>
-          <!-- Inaccessible div button -->
+          <!-- Intentional inaccessible example for educational demonstration -->
           <span onclick="this.textContent = 'Clicked (but keyboard users cannot reach me!)'" 
-                style="padding: 10px 20px; background: #e0e0e0; cursor: pointer; display: inline-block;">
-            ❌ Click me (div, not button)
+                style="padding: 10px 20px; background: #e0e0e0; cursor: pointer; display: inline-block;"
+                data-a11y-demo="intentional-bad-example">
+            <span aria-hidden="true">❌ </span>Click me (div, not button)
           </span>
         </p>
         <p>
-          <!-- Button with no focus style -->
+          <!-- Intentional missing focus style for educational demonstration -->
           <button onclick="this.textContent = 'Clicked!'" 
-                  style="padding: 10px 20px; outline: none;">
-            ⚠️ No focus indicator
+                  style="padding: 10px 20px; outline: none;"
+                  data-a11y-demo="intentional-bad-example">
+            <span aria-hidden="true">⚠️ </span>No focus indicator
           </button>
         </p>
         <p>
           <!-- Proper accessible button -->
           <button onclick="this.textContent = 'Clicked!'" 
                   style="padding: 10px 20px;">
-            ✅ Proper button
+            <span aria-hidden="true">✅ </span>Proper button
           </button>
         </p>
       </div>
@@ -344,11 +346,11 @@
     </section>
 
     <section class="sim-section" aria-labelledby="screen-reader">
-      <h2 id="screen-reader">🔊 Screen reader simulation</h2>
+      <h2 id="screen-reader"><span aria-hidden="true">🔊 </span>Screen reader simulation</h2>
       <p>Screen readers convert visual content to audio. Experience how your content sounds.</p>
       
       <div class="challenge-box">
-        <h3>🎯 The Challenge</h3>
+        <h3><span aria-hidden="true">🎯 </span>The Challenge</h3>
         <ol>
           <li><strong>Close your eyes</strong> (or look away from screen)</li>
           <li>Have someone read ONLY the text below—no descriptions of layout</li>
@@ -395,7 +397,7 @@
     </section>
 
     <section class="sim-section" aria-labelledby="cognitive">
-      <h2 id="cognitive">🧠 Cognitive load simulation</h2>
+      <h2 id="cognitive"><span aria-hidden="true">🧠 </span>Cognitive load simulation</h2>
       <p>Cognitive disabilities affect attention, memory, and processing. Experience content overload.</p>
       
       <div class="sim-demo">
@@ -461,7 +463,7 @@
       </ul>
 
       <div class="card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left: 4px solid #4caf50;">
-        <h3>🎯 Your next step</h3>
+        <h3><span aria-hidden="true">🎯 </span>Your next step</h3>
         <p>Try navigating your own website or application using only a keyboard. Spend just 5 minutes. You'll be amazed at what you discover.</p>
       </div>
     </section>
