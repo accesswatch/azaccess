@@ -11,6 +11,10 @@ on:
     - cron: '0 3 * * *' # nightly at 03:00 UTC
   workflow_dispatch:
 
+concurrency:
+  group: accessibility-scan-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   accessibility-scan:
     name: Run GitHub Accessibility Scanner
@@ -72,4 +76,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/reports -A
           git commit -m "chore: update accessibility report and history" || echo "no changes to commit"
-          git push
+          git pull --rebase origin main || true
+          git push || echo "push failed (likely a concurrent update); report artifact was already uploaded"
