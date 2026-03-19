@@ -341,6 +341,21 @@
       }
 
       /* Heading Validator */
+      .format-help {
+        font-size: 0.9rem;
+        color: #555;
+        background: #f5f5f5;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        border-left: 3px solid #1565c0;
+        margin: 0.5rem 0;
+      }
+      .format-help code {
+        background: #e3f2fd;
+        padding: 0.1rem 0.35rem;
+        border-radius: 3px;
+        font-size: 0.9em;
+      }
       .heading-input {
         width: 100%;
         min-height: 200px;
@@ -352,8 +367,9 @@
         margin: 1rem 0;
       }
       .heading-input:focus {
-        border-color: #1565c0;
-        outline: none;
+        border-color: var(--ua-maroon, #ab0520);
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
       }
       .heading-output {
         margin: 1.5rem 0;
@@ -601,7 +617,12 @@
               indicators
             </li>
           </ul>
-          <p>For a full-featured external tool, try the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>.</p>
+          <p>
+            For a full-featured external tool, try the
+            <a href="https://webaim.org/resources/contrastchecker/"
+              >WebAIM Contrast Checker</a
+            >.
+          </p>
         </details>
       </section>
 
@@ -817,17 +838,18 @@
         </p>
 
         <label for="heading-input"
-          ><strong>Enter headings (one per line, include level):</strong></label
+          ><strong>Paste or type your page&rsquo;s headings below:</strong></label
         >
+        <p id="heading-format-help" class="format-help">
+          Enter one heading per line, starting each line with the level
+          (<code>H1</code>, <code>H2</code>, <code>H3</code>, etc.) followed
+          by the heading text. For example: <code>H1 Welcome Page</code>.
+        </p>
         <textarea
           id="heading-input"
           class="heading-input"
-          placeholder="H1 Page Title
-H2 First Section
-H3 Subsection
-H3 Another Subsection
-H2 Second Section
-H3 Subsection"
+          aria-describedby="heading-format-help"
+          rows="8"
         ></textarea>
 
         <button class="analyze-btn" id="btn-validate-headings" type="button">
@@ -1117,6 +1139,7 @@ H3 Subsection"
     </footer>
 
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
       // ========== Color Contrast Checker ==========
       const fgPicker = document.getElementById("fg-color-picker");
       const fgInput = document.getElementById("fg-color");
@@ -1601,6 +1624,7 @@ H3 Subsection"
       document
         .getElementById("btn-validate-headings")
         .addEventListener("click", validateHeadings);
+      }); // end DOMContentLoaded
     </script>
     <script src="scripts/feedback-widget.js" defer></script>
   </body>
