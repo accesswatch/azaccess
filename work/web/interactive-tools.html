@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Interactive Tools | Accessibility at Arizona</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="scripts/alt-text-data.js" defer></script>
-    <script src="scripts/alt-text-engine.js" defer></script>
     <script src="../../scripts/header.js" defer></script>
     <style>
       .tool-section {
@@ -1138,8 +1136,9 @@
       </p>
     </footer>
 
+    <script src="scripts/alt-text-data.js"></script>
+    <script src="scripts/alt-text-engine.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
       // ========== Color Contrast Checker ==========
       const fgPicker = document.getElementById("fg-color-picker");
       const fgInput = document.getElementById("fg-color");
@@ -1624,7 +1623,6 @@
       document
         .getElementById("btn-validate-headings")
         .addEventListener("click", validateHeadings);
-      }); // end DOMContentLoaded
     </script>
     <script src="scripts/feedback-widget.js" defer></script>
   </body>
