@@ -399,6 +399,10 @@
       .analyze-btn:hover {
         background: #0d47a1;
       }
+      .analyze-btn:focus {
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
+      }
 
       /* Link Text Checker */
       .link-examples {
@@ -1539,7 +1543,7 @@ H3 Subsection"
       }
 
       // ── Load image by index ───────────────────────────────────────
-      function loadImage(index) {
+      function loadImage(index, shouldFocus) {
         const data = ALT_TEXT_IMAGES[index];
 
         // Type badge
@@ -1609,8 +1613,8 @@ H3 Subsection"
 
         renderProgress();
 
-        // Focus the textarea for keyboard users
-        $input.focus();
+        // Focus the textarea for keyboard users (skip on initial page load)
+        if (shouldFocus !== false) $input.focus();
       }
 
       /** Re-display a stored result without re-evaluating */
@@ -1795,7 +1799,7 @@ H3 Subsection"
       }
 
       // ── Initialise ────────────────────────────────────────────────
-      loadImage(0);
+      loadImage(0, false);
 
       // ========== Heading Validator ==========
       function validateHeadings() {

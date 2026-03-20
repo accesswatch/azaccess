@@ -413,6 +413,10 @@
       .analyze-btn:hover {
         background: #0d47a1;
       }
+      .analyze-btn:focus {
+        outline: 3px solid var(--ua-maroon, #ab0520);
+        outline-offset: 2px;
+      }
 
       /* Link Text Checker */
       .link-examples {
@@ -836,12 +840,14 @@
         </p>
 
         <label for="heading-input"
-          ><strong>Paste or type your page&rsquo;s headings below:</strong></label
+          ><strong
+            >Paste or type your page&rsquo;s headings below:</strong
+          ></label
         >
         <p id="heading-format-help" class="format-help">
           Enter one heading per line, starting each line with the level
-          (<code>H1</code>, <code>H2</code>, <code>H3</code>, etc.) followed
-          by the heading text. For example: <code>H1 Welcome Page</code>.
+          (<code>H1</code>, <code>H2</code>, <code>H3</code>, etc.) followed by
+          the heading text. For example: <code>H1 Welcome Page</code>.
         </p>
         <textarea
           id="heading-input"
@@ -1281,7 +1287,7 @@
       }
 
       // ── Load image by index ───────────────────────────────────────
-      function loadImage(index) {
+      function loadImage(index, shouldFocus) {
         const data = ALT_TEXT_IMAGES[index];
 
         // Type badge
@@ -1351,8 +1357,8 @@
 
         renderProgress();
 
-        // Focus the textarea for keyboard users
-        $input.focus();
+        // Focus the textarea for keyboard users (skip on initial page load)
+        if (shouldFocus !== false) $input.focus();
       }
 
       /** Re-display a stored result without re-evaluating */
@@ -1537,7 +1543,7 @@
       }
 
       // ── Initialise ────────────────────────────────────────────────
-      loadImage(0);
+      loadImage(0, false);
 
       // ========== Heading Validator ==========
       function validateHeadings() {
