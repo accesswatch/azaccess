@@ -485,6 +485,18 @@
         ];
 
         /* ═══════════════════════════════════════════════
+     HELPERS
+     ═══════════════════════════════════════════════ */
+        function escapeHtml(str) {
+          return String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+        }
+
+        /* ═══════════════════════════════════════════════
      STATE
      ═══════════════════════════════════════════════ */
         var current = 0;
@@ -517,7 +529,7 @@
             " of " +
             questions.length +
             "</h2>";
-          html += '<p class="quiz-scenario">' + q.scenario + "</p>";
+          html += '<p class="quiz-scenario">' + escapeHtml(q.scenario) + "</p>";
           html += "<fieldset><legend>" + q.question + "</legend>";
           html += '<ul class="quiz-options" id="quiz-options">';
 
@@ -541,7 +553,7 @@
               checked +
               disabled +
               " />";
-            html += "<span>" + q.options[i] + "</span>";
+            html += "<span>" + escapeHtml(q.options[i]) + "</span>";
             html += "</label></li>";
           }
           html += "</ul></fieldset>";
@@ -557,7 +569,7 @@
               "<strong>" +
               (isCorrect ? "Correct!" : "Not quite.") +
               "</strong>";
-            html += q.explanation;
+            html += escapeHtml(q.explanation);
             html += "</div>";
           }
 
@@ -696,11 +708,11 @@
               "</span> ";
             html += "<strong>" + q.question + "</strong><br>";
             if (!isCorrect) {
-              html += "Your answer: <em>" + q.options[answers[j]] + "</em><br>";
+              html += "Your answer: <em>" + escapeHtml(q.options[answers[j]]) + "</em><br>";
               html +=
-                "Correct answer: <em>" + q.options[q.correct] + "</em><br>";
+                "Correct answer: <em>" + escapeHtml(q.options[q.correct]) + "</em><br>";
             }
-            html += '<span class="muted">' + q.explanation + "</span></li>";
+            html += '<span class="muted">' + escapeHtml(q.explanation) + "</span></li>";
           }
           html += "</ol></div>";
 
