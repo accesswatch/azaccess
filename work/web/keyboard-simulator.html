@@ -1101,9 +1101,6 @@
         }
 
         trigger.addEventListener("click", openModal);
-        trigger.addEventListener("keydown", function (e) {
-          if (e.key === "Enter") openModal();
-        });
         document
           .getElementById("modal-close")
           .addEventListener("click", closeModal);
